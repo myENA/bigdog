@@ -5,7 +5,6 @@ package bigdog
 import (
 	"bytes"
 	"context"
-	"encoding/json"
 	"net/http"
 	"net/url"
 )
@@ -33,34 +32,6 @@ type SCIPCIProfileBatchDelete200ResponseType struct {
 
 func NewSCIPCIProfileBatchDelete200ResponseType() *SCIPCIProfileBatchDelete200ResponseType {
 	m := new(SCIPCIProfileBatchDelete200ResponseType)
-	return m
-}
-
-// SCIPCIProfileCreateWithRelations200ResponseType
-//
-// Definition: pciProfile.createWithRelations200ResponseType
-type SCIPCIProfileCreateWithRelations200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIPCIProfileCreateWithRelations200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIPCIProfileCreateWithRelations200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIPCIProfileCreateWithRelations200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIPCIProfileCreateWithRelations200ResponseType() *SCIPCIProfileCreateWithRelations200ResponseType {
-	m := new(SCIPCIProfileCreateWithRelations200ResponseType)
 	return m
 }
 
@@ -93,34 +64,6 @@ type SCIPCIProfilegetreports200ResponseType []*SCIModelsPciReport
 
 func MakeSCIPCIProfilegetreports200ResponseType() SCIPCIProfilegetreports200ResponseType {
 	m := make(SCIPCIProfilegetreports200ResponseType, 0)
-	return m
-}
-
-// SCIPCIProfileUpdateWithRelations200ResponseType
-//
-// Definition: pciProfile.updateWithRelations200ResponseType
-type SCIPCIProfileUpdateWithRelations200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIPCIProfileUpdateWithRelations200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIPCIProfileUpdateWithRelations200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIPCIProfileUpdateWithRelations200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIPCIProfileUpdateWithRelations200ResponseType() *SCIPCIProfileUpdateWithRelations200ResponseType {
-	m := new(SCIPCIProfileUpdateWithRelations200ResponseType)
 	return m
 }
 
@@ -169,11 +112,11 @@ func (s *SCIPCIProfileService) PciProfileBatchDelete(ctx context.Context, formVa
 //		- required
 // - ssids string
 //		- required
-func (s *SCIPCIProfileService) PciProfileCreateWithRelations(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIPCIProfileCreateWithRelations200ResponseType, *APIResponseMeta, error) {
+func (s *SCIPCIProfileService) PciProfileCreateWithRelations(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIPCIProfileCreateWithRelations200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -187,7 +130,7 @@ func (s *SCIPCIProfileService) PciProfileCreateWithRelations(ctx context.Context
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIPCIProfileCreateWithRelations200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -478,11 +421,11 @@ func (s *SCIPCIProfileService) PciProfilePrototypeUpdateByIdReports(ctx context.
 // Required Parameters:
 // - id float64
 //		- required
-func (s *SCIPCIProfileService) PciProfileUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (*SCIPCIProfileUpdateWithRelations200ResponseType, *APIResponseMeta, error) {
+func (s *SCIPCIProfileService) PciProfileUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIPCIProfileUpdateWithRelations200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -497,7 +440,7 @@ func (s *SCIPCIProfileService) PciProfileUpdateWithRelations(ctx context.Context
 	}
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIPCIProfileUpdateWithRelations200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

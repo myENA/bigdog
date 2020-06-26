@@ -5,7 +5,6 @@ package bigdog
 import (
 	"bytes"
 	"context"
-	"encoding/json"
 	"net/http"
 	"net/url"
 )
@@ -33,34 +32,6 @@ type SCIMigrationMapCount200ResponseType struct {
 
 func NewSCIMigrationMapCount200ResponseType() *SCIMigrationMapCount200ResponseType {
 	m := new(SCIMigrationMapCount200ResponseType)
-	return m
-}
-
-// SCIMigrationMapDeleteById200ResponseType
-//
-// Definition: MigrationMap.deleteById200ResponseType
-type SCIMigrationMapDeleteById200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIMigrationMapDeleteById200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIMigrationMapDeleteById200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIMigrationMapDeleteById200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIMigrationMapDeleteById200ResponseType() *SCIMigrationMapDeleteById200ResponseType {
-	m := new(SCIMigrationMapDeleteById200ResponseType)
 	return m
 }
 
@@ -95,36 +66,6 @@ type SCIMigrationMapFind200ResponseType []*SCIModelsMigrationMap
 
 func MakeSCIMigrationMapFind200ResponseType() SCIMigrationMapFind200ResponseType {
 	m := make(SCIMigrationMapFind200ResponseType, 0)
-	return m
-}
-
-// SCIMigrationMapUpdateAll200ResponseType
-//
-// Definition: MigrationMap.updateAll200ResponseType
-//
-// The number of instances updated
-type SCIMigrationMapUpdateAll200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIMigrationMapUpdateAll200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIMigrationMapUpdateAll200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIMigrationMapUpdateAll200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIMigrationMapUpdateAll200ResponseType() *SCIMigrationMapUpdateAll200ResponseType {
-	m := new(SCIMigrationMapUpdateAll200ResponseType)
 	return m
 }
 
@@ -262,11 +203,11 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMaps
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIMigrationMapService) MigrationMapDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*SCIMigrationMapDeleteById200ResponseType, *APIResponseMeta, error) {
+func (s *SCIMigrationMapService) MigrationMapDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIMigrationMapDeleteById200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -278,7 +219,7 @@ func (s *SCIMigrationMapService) MigrationMapDeleteById(ctx context.Context, id 
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIMigrationMapDeleteById200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -458,11 +399,11 @@ func (s *SCIMigrationMapService) MigrationMapPrototypeUpdateAttributes(ctx conte
 // Optional Parameters:
 // - where string
 //		- nullable
-func (s *SCIMigrationMapService) MigrationMapUpdateAll(ctx context.Context, data *SCIModelsMigrationMap, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIMigrationMapUpdateAll200ResponseType, *APIResponseMeta, error) {
+func (s *SCIMigrationMapService) MigrationMapUpdateAll(ctx context.Context, data *SCIModelsMigrationMap, optionalParams map[string][]string, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIMigrationMapUpdateAll200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -479,7 +420,7 @@ func (s *SCIMigrationMapService) MigrationMapUpdateAll(ctx context.Context, data
 		req.SetQueryParameter("where", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIMigrationMapUpdateAll200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -2,10 +2,6 @@ package bigdog
 
 // API Version: 1.0.0
 
-import (
-	"encoding/json"
-)
-
 // SCIModelsFilter
 //
 // Definition: filter
@@ -63,7 +59,7 @@ func NewSCIModelsMigration() *SCIModelsMigration {
 //
 // Migration Mappings.
 type SCIModelsMigrationMap struct {
-	Data *SCIModelsMigrationMapDataType `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
 	// From
 	// Constraints:
@@ -88,34 +84,6 @@ func NewSCIModelsMigrationMap() *SCIModelsMigrationMap {
 	return m
 }
 
-// SCIModelsMigrationMapDataType
-//
-// Definition: MigrationMapDataType
-type SCIModelsMigrationMapDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIModelsMigrationMapDataType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIModelsMigrationMapDataType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIModelsMigrationMapDataType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIModelsMigrationMapDataType() *SCIModelsMigrationMapDataType {
-	m := new(SCIModelsMigrationMapDataType)
-	return m
-}
-
 // SCIModelsPciProfile
 //
 // Definition: pciProfile
@@ -124,7 +92,7 @@ type SCIModelsPciProfile struct {
 	// list of selected ssids
 	// Constraints:
 	//    - required
-	Answers *SCIModelsPciProfileAnswersType `json:"answers"`
+	Answers interface{} `json:"answers"`
 
 	Id *float64 `json:"id,omitempty"`
 
@@ -141,36 +109,6 @@ type SCIModelsPciProfile struct {
 
 func NewSCIModelsPciProfile() *SCIModelsPciProfile {
 	m := new(SCIModelsPciProfile)
-	return m
-}
-
-// SCIModelsPciProfileAnswersType
-//
-// Definition: pciProfileAnswersType
-//
-// list of selected ssids
-type SCIModelsPciProfileAnswersType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIModelsPciProfileAnswersType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIModelsPciProfileAnswersType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIModelsPciProfileAnswersType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIModelsPciProfileAnswersType() *SCIModelsPciProfileAnswersType {
-	m := new(SCIModelsPciProfileAnswersType)
 	return m
 }
 
@@ -193,39 +131,11 @@ type SCIModelsPciReport struct {
 	// Status of the controllers in this report
 	// Constraints:
 	//    - required
-	Statuses []*SCIModelsPciReportStatusesType `json:"statuses"`
+	Statuses []interface{} `json:"statuses"`
 }
 
 func NewSCIModelsPciReport() *SCIModelsPciReport {
 	m := new(SCIModelsPciReport)
-	return m
-}
-
-// SCIModelsPciReportStatusesType
-//
-// Definition: pciReportStatusesType
-type SCIModelsPciReportStatusesType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIModelsPciReportStatusesType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIModelsPciReportStatusesType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIModelsPciReportStatusesType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIModelsPciReportStatusesType() *SCIModelsPciReportStatusesType {
-	m := new(SCIModelsPciReportStatusesType)
 	return m
 }
 
@@ -245,9 +155,9 @@ type SCIModelsReport struct {
 
 	Id *float64 `json:"id,omitempty"`
 
-	Layout []*SCIModelsReportLayout `json:"layout,omitempty"`
+	Layout []interface{} `json:"layout,omitempty"`
 
-	RouteParameters *SCIModelsReportRouteParametersType `json:"routeParameters,omitempty"`
+	RouteParameters interface{} `json:"routeParameters,omitempty"`
 
 	// Title
 	// Constraints:
@@ -262,93 +172,6 @@ type SCIModelsReport struct {
 
 func NewSCIModelsReport() *SCIModelsReport {
 	m := new(SCIModelsReport)
-	return m
-}
-
-// SCIModelsReportLayout
-//
-// Definition: reportLayout
-//
-// Layout descriptor of a report
-type SCIModelsReportLayout struct {
-	DesiredWidth *string `json:"desiredWidth,omitempty"`
-
-	Layout []*SCIModelsReportLayout `json:"layout,omitempty"`
-
-	Section *int `json:"section,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIModelsReportLayout) UnmarshalJSON(b []byte) error {
-	tmpt := new(SCIModelsReportLayout)
-	if err := json.Unmarshal(b, tmpt); err != nil {
-		return err
-	}
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	delete(tmp, "desiredWidth")
-	delete(tmp, "layout")
-	delete(tmp, "section")
-	tmpt.XAdditionalProperties = tmp
-	*t = *tmpt
-	return nil
-}
-
-func (t *SCIModelsReportLayout) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.DesiredWidth != nil {
-		tmp["desiredWidth"] = t.DesiredWidth
-	}
-	if t.Layout != nil {
-		tmp["layout"] = t.Layout
-	}
-	if t.Section != nil {
-		tmp["section"] = t.Section
-	}
-	return json.Marshal(tmp)
-}
-
-func NewSCIModelsReportLayout() *SCIModelsReportLayout {
-	m := new(SCIModelsReportLayout)
-	return m
-}
-
-// SCIModelsReportRouteParametersType
-//
-// Definition: reportRouteParametersType
-type SCIModelsReportRouteParametersType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIModelsReportRouteParametersType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIModelsReportRouteParametersType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIModelsReportRouteParametersType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIModelsReportRouteParametersType() *SCIModelsReportRouteParametersType {
-	m := new(SCIModelsReportRouteParametersType)
 	return m
 }
 
@@ -454,11 +277,11 @@ func NewSCIModelsSchedule() *SCIModelsSchedule {
 type SCIModelsSection struct {
 	Component *string `json:"component,omitempty"`
 
-	DefaultParameters *SCIModelsSectionDefaultParametersType `json:"defaultParameters,omitempty"`
+	DefaultParameters interface{} `json:"defaultParameters,omitempty"`
 
 	Id *float64 `json:"id,omitempty"`
 
-	Layout *SCIModelsSectionLayoutType `json:"layout,omitempty"`
+	Layout interface{} `json:"layout,omitempty"`
 
 	// QueryName
 	// Constraints:
@@ -480,62 +303,6 @@ func NewSCIModelsSection() *SCIModelsSection {
 	return m
 }
 
-// SCIModelsSectionDefaultParametersType
-//
-// Definition: sectionDefaultParametersType
-type SCIModelsSectionDefaultParametersType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIModelsSectionDefaultParametersType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIModelsSectionDefaultParametersType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIModelsSectionDefaultParametersType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIModelsSectionDefaultParametersType() *SCIModelsSectionDefaultParametersType {
-	m := new(SCIModelsSectionDefaultParametersType)
-	return m
-}
-
-// SCIModelsSectionLayoutType
-//
-// Definition: sectionLayoutType
-type SCIModelsSectionLayoutType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIModelsSectionLayoutType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIModelsSectionLayoutType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIModelsSectionLayoutType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIModelsSectionLayoutType() *SCIModelsSectionLayoutType {
-	m := new(SCIModelsSectionLayoutType)
-	return m
-}
-
 // SCIModelsSetting
 //
 // Definition: setting
@@ -548,39 +315,11 @@ type SCIModelsSetting struct {
 	// Values
 	// Constraints:
 	//    - required
-	Values *SCIModelsSettingValuesType `json:"values"`
+	Values interface{} `json:"values"`
 }
 
 func NewSCIModelsSetting() *SCIModelsSetting {
 	m := new(SCIModelsSetting)
-	return m
-}
-
-// SCIModelsSettingValuesType
-//
-// Definition: settingValuesType
-type SCIModelsSettingValuesType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIModelsSettingValuesType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIModelsSettingValuesType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIModelsSettingValuesType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIModelsSettingValuesType() *SCIModelsSettingValuesType {
-	m := new(SCIModelsSettingValuesType)
 	return m
 }
 
@@ -609,7 +348,7 @@ type SCIModelsSystem struct {
 	//    - required
 	Location *string `json:"location"`
 
-	PciData *SCIModelsSystemPciDataType `json:"pciData,omitempty"`
+	PciData interface{} `json:"pciData,omitempty"`
 
 	// Type
 	// Constraints:
@@ -626,34 +365,6 @@ type SCIModelsSystem struct {
 
 func NewSCIModelsSystem() *SCIModelsSystem {
 	m := new(SCIModelsSystem)
-	return m
-}
-
-// SCIModelsSystemPciDataType
-//
-// Definition: systemPciDataType
-type SCIModelsSystemPciDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIModelsSystemPciDataType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIModelsSystemPciDataType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIModelsSystemPciDataType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIModelsSystemPciDataType() *SCIModelsSystemPciDataType {
-	m := new(SCIModelsSystemPciDataType)
 	return m
 }
 

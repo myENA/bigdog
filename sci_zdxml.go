@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -22,62 +21,6 @@ func (ss *SCIService) SCIZoneDirectorXMLService() *SCIZoneDirectorXMLService {
 	return NewSCIZoneDirectorXMLService(ss.apiClient)
 }
 
-// SCIZoneDirectorXMLGetAjaxRequest200ResponseType
-//
-// Definition: zdXml.getAjaxRequest200ResponseType
-type SCIZoneDirectorXMLGetAjaxRequest200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIZoneDirectorXMLGetAjaxRequest200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIZoneDirectorXMLGetAjaxRequest200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIZoneDirectorXMLGetAjaxRequest200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIZoneDirectorXMLGetAjaxRequest200ResponseType() *SCIZoneDirectorXMLGetAjaxRequest200ResponseType {
-	m := new(SCIZoneDirectorXMLGetAjaxRequest200ResponseType)
-	return m
-}
-
-// SCIZoneDirectorXMLUpload200ResponseType
-//
-// Definition: zdXml.upload200ResponseType
-type SCIZoneDirectorXMLUpload200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIZoneDirectorXMLUpload200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIZoneDirectorXMLUpload200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIZoneDirectorXMLUpload200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIZoneDirectorXMLUpload200ResponseType() *SCIZoneDirectorXMLUpload200ResponseType {
-	m := new(SCIZoneDirectorXMLUpload200ResponseType)
-	return m
-}
-
 // ZdXmlGetAjaxRequest
 //
 // Operation ID: zdXml.getAjaxRequest
@@ -85,11 +28,11 @@ func NewSCIZoneDirectorXMLUpload200ResponseType() *SCIZoneDirectorXMLUpload200Re
 // Required Parameters:
 // - systemid string
 //		- required
-func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, systemid string, mutators ...RequestMutator) (*SCIZoneDirectorXMLGetAjaxRequest200ResponseType, *APIResponseMeta, error) {
+func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, systemid string, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIZoneDirectorXMLGetAjaxRequest200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -100,7 +43,7 @@ func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, sys
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("systemid", []string{systemid})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIZoneDirectorXMLGetAjaxRequest200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -112,11 +55,11 @@ func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, sys
 // Required Parameters:
 // - container string
 //		- required
-func (s *SCIZoneDirectorXMLService) ZdXmlUpload(ctx context.Context, container string, mutators ...RequestMutator) (*SCIZoneDirectorXMLUpload200ResponseType, *APIResponseMeta, error) {
+func (s *SCIZoneDirectorXMLService) ZdXmlUpload(ctx context.Context, container string, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIZoneDirectorXMLUpload200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -128,7 +71,7 @@ func (s *SCIZoneDirectorXMLService) ZdXmlUpload(ctx context.Context, container s
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("container", container)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIZoneDirectorXMLUpload200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

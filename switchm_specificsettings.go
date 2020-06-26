@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -152,7 +151,7 @@ func NewSwitchMSpecificSettings() *SwitchMSpecificSettings {
 type SwitchMSpecificSettingsAllResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSpecificSettingsAllResultExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Specific Settings returned out of the complete Specific Settings list
@@ -175,36 +174,6 @@ type SwitchMSpecificSettingsAllResult struct {
 
 func NewSwitchMSpecificSettingsAllResult() *SwitchMSpecificSettingsAllResult {
 	m := new(SwitchMSpecificSettingsAllResult)
-	return m
-}
-
-// SwitchMSpecificSettingsAllResultExtraType
-//
-// Definition: specificSettings_specificSettingsAllResultExtraType
-//
-// Any additional response data
-type SwitchMSpecificSettingsAllResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMSpecificSettingsAllResultExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMSpecificSettingsAllResultExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMSpecificSettingsAllResultExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMSpecificSettingsAllResultExtraType() *SwitchMSpecificSettingsAllResultExtraType {
-	m := new(SwitchMSpecificSettingsAllResultExtraType)
 	return m
 }
 

@@ -5,7 +5,6 @@ package bigdog
 import (
 	"bytes"
 	"context"
-	"encoding/json"
 	"net/http"
 	"net/url"
 )
@@ -33,34 +32,6 @@ type SCIScheduleBatchDelete200ResponseType struct {
 
 func NewSCIScheduleBatchDelete200ResponseType() *SCIScheduleBatchDelete200ResponseType {
 	m := new(SCIScheduleBatchDelete200ResponseType)
-	return m
-}
-
-// SCIScheduleExecuteJob200ResponseType
-//
-// Definition: schedule.executeJob200ResponseType
-type SCIScheduleExecuteJob200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIScheduleExecuteJob200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIScheduleExecuteJob200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIScheduleExecuteJob200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIScheduleExecuteJob200ResponseType() *SCIScheduleExecuteJob200ResponseType {
-	m := new(SCIScheduleExecuteJob200ResponseType)
 	return m
 }
 
@@ -137,11 +108,11 @@ func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, fo
 // Operation ID: schedule.executeJob
 //
 // Run schedule job
-func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ...RequestMutator) (*SCIScheduleExecuteJob200ResponseType, *APIResponseMeta, error) {
+func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIScheduleExecuteJob200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -152,7 +123,7 @@ func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ..
 	req.SetHeader(headerKeyContentType, "*/*")
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIScheduleExecuteJob200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

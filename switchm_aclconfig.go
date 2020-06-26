@@ -2,10 +2,6 @@ package bigdog
 
 // API Version: v9_0
 
-import (
-	"encoding/json"
-)
-
 // SwitchMACLConfig
 //
 // Definition: aclConfig_ACLConfig
@@ -68,7 +64,7 @@ func NewSwitchMACLConfig() *SwitchMACLConfig {
 type SwitchMACLConfigsQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMACLConfigsQueryResultExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first AccessControl returned out of the complete AccessControl list
@@ -91,36 +87,6 @@ type SwitchMACLConfigsQueryResult struct {
 
 func NewSwitchMACLConfigsQueryResult() *SwitchMACLConfigsQueryResult {
 	m := new(SwitchMACLConfigsQueryResult)
-	return m
-}
-
-// SwitchMACLConfigsQueryResultExtraType
-//
-// Definition: aclConfig_ACLConfigsQueryResultExtraType
-//
-// Any additional response data
-type SwitchMACLConfigsQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMACLConfigsQueryResultExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMACLConfigsQueryResultExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMACLConfigsQueryResultExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMACLConfigsQueryResultExtraType() *SwitchMACLConfigsQueryResultExtraType {
-	m := new(SwitchMACLConfigsQueryResultExtraType)
 	return m
 }
 

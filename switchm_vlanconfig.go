@@ -2,10 +2,6 @@ package bigdog
 
 // API Version: v9_0
 
-import (
-	"encoding/json"
-)
-
 // SwitchMVLANConfigCreateVlanConfig
 //
 // Definition: vlanConfig_createVlanConfig
@@ -270,7 +266,7 @@ func NewSwitchMVLANConfig() *SwitchMVLANConfig {
 type SwitchMVLANConfigQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMVLANConfigQueryResultExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Vlan Configs returned out of the complete Vlan Configs list
@@ -293,36 +289,6 @@ type SwitchMVLANConfigQueryResult struct {
 
 func NewSwitchMVLANConfigQueryResult() *SwitchMVLANConfigQueryResult {
 	m := new(SwitchMVLANConfigQueryResult)
-	return m
-}
-
-// SwitchMVLANConfigQueryResultExtraType
-//
-// Definition: vlanConfig_vlanConfigQueryResultExtraType
-//
-// Any additional response data
-type SwitchMVLANConfigQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMVLANConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMVLANConfigQueryResultExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMVLANConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMVLANConfigQueryResultExtraType() *SwitchMVLANConfigQueryResultExtraType {
-	m := new(SwitchMVLANConfigQueryResultExtraType)
 	return m
 }
 

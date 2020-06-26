@@ -5,7 +5,6 @@ package bigdog
 import (
 	"bytes"
 	"context"
-	"encoding/json"
 	"net/http"
 	"net/url"
 )
@@ -22,34 +21,6 @@ func NewSCISettingService(c *SCIClient) *SCISettingService {
 
 func (ss *SCIService) SCISettingService() *SCISettingService {
 	return NewSCISettingService(ss.apiClient)
-}
-
-// SCISettingSendTestEmail200ResponseType
-//
-// Definition: setting.sendTestEmail200ResponseType
-type SCISettingSendTestEmail200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCISettingSendTestEmail200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCISettingSendTestEmail200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCISettingSendTestEmail200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCISettingSendTestEmail200ResponseType() *SCISettingSendTestEmail200ResponseType {
-	m := new(SCISettingSendTestEmail200ResponseType)
-	return m
 }
 
 // SettingFindById
@@ -95,11 +66,11 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 // Form Data Parameters:
 // - recipients string
 //		- required
-func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCISettingSendTestEmail200ResponseType, *APIResponseMeta, error) {
+func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCISettingSendTestEmail200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -113,7 +84,7 @@ func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCISettingSendTestEmail200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

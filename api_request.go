@@ -320,6 +320,7 @@ func (r *APIRequest) CompiledURI() string {
 // ToHTTP will attempt to construct an executable http.request
 func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName, authParamValue string) (*http.Request, error) {
 	var (
+		compiledURL string
 		httpRequest *http.Request
 		err         error
 	)
@@ -331,7 +332,7 @@ func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName
 		r.SetQueryParameter(authParamName, []string{authParamValue})
 	}
 
-	compiledURL := fmt.Sprintf(apiRequestURLFormat, addr, pathPrefix, r.CompiledURI())
+	compiledURL = fmt.Sprintf(apiRequestURLFormat, addr, pathPrefix, r.CompiledURI())
 
 	if r.mpw != nil {
 		r.SetHeader(headerKeyContentType, r.mpw.FormDataContentType())
@@ -340,13 +341,7 @@ func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName
 		}
 	}
 
-	if body := r.Body(); body == nil {
-		httpRequest, err = http.NewRequest(r.method, compiledURL, nil)
-	} else {
-		httpRequest, err = http.NewRequest(r.method, compiledURL, body)
-	}
-
-	if err != nil {
+	if httpRequest, err = http.NewRequest(r.method, compiledURL, r.Body()); err != nil {
 		return nil, err
 	}
 

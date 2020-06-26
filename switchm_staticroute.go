@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -128,7 +127,7 @@ func NewSwitchMStaticRouteSettingStaticRoute() *SwitchMStaticRouteSettingStaticR
 type SwitchMStaticRouteSettingStaticRoutesQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMStaticRouteSettingStaticRoutesQueryResultExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Static Route returned out of the complete Static Route list
@@ -151,36 +150,6 @@ type SwitchMStaticRouteSettingStaticRoutesQueryResult struct {
 
 func NewSwitchMStaticRouteSettingStaticRoutesQueryResult() *SwitchMStaticRouteSettingStaticRoutesQueryResult {
 	m := new(SwitchMStaticRouteSettingStaticRoutesQueryResult)
-	return m
-}
-
-// SwitchMStaticRouteSettingStaticRoutesQueryResultExtraType
-//
-// Definition: staticRoute_staticRoutesQueryResultExtraType
-//
-// Any additional response data
-type SwitchMStaticRouteSettingStaticRoutesQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMStaticRouteSettingStaticRoutesQueryResultExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMStaticRouteSettingStaticRoutesQueryResultExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMStaticRouteSettingStaticRoutesQueryResultExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMStaticRouteSettingStaticRoutesQueryResultExtraType() *SwitchMStaticRouteSettingStaticRoutesQueryResultExtraType {
-	m := new(SwitchMStaticRouteSettingStaticRoutesQueryResultExtraType)
 	return m
 }
 

@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -28,7 +27,7 @@ func (ss *SwitchMService) SwitchMHealthService() *SwitchMHealthService {
 type SwitchMHealthAggMetrics struct {
 	// Extra
 	// Extra information for Aggregation Metrics
-	Extra *SwitchMHealthAggMetricsExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Aggregation Metrics returned out of the complete ICX Metrics list
@@ -51,36 +50,6 @@ type SwitchMHealthAggMetrics struct {
 
 func NewSwitchMHealthAggMetrics() *SwitchMHealthAggMetrics {
 	m := new(SwitchMHealthAggMetrics)
-	return m
-}
-
-// SwitchMHealthAggMetricsExtraType
-//
-// Definition: health_aggMetricsExtraType
-//
-// Extra information for Aggregation Metrics
-type SwitchMHealthAggMetricsExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMHealthAggMetricsExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMHealthAggMetricsExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMHealthAggMetricsExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMHealthAggMetricsExtraType() *SwitchMHealthAggMetricsExtraType {
-	m := new(SwitchMHealthAggMetricsExtraType)
 	return m
 }
 
@@ -112,7 +81,7 @@ func NewSwitchMHealthAggs() *SwitchMHealthAggs {
 type SwitchMHealthIcxMetrics struct {
 	// Extra
 	// Extra information for ICX Metrics
-	Extra *SwitchMHealthIcxMetricsExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first ICX Metrics returned out of the complete ICX Metrics list
@@ -135,36 +104,6 @@ type SwitchMHealthIcxMetrics struct {
 
 func NewSwitchMHealthIcxMetrics() *SwitchMHealthIcxMetrics {
 	m := new(SwitchMHealthIcxMetrics)
-	return m
-}
-
-// SwitchMHealthIcxMetricsExtraType
-//
-// Definition: health_icxMetricsExtraType
-//
-// Extra information for ICX Metrics
-type SwitchMHealthIcxMetricsExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMHealthIcxMetricsExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMHealthIcxMetricsExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMHealthIcxMetricsExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMHealthIcxMetricsExtraType() *SwitchMHealthIcxMetricsExtraType {
-	m := new(SwitchMHealthIcxMetricsExtraType)
 	return m
 }
 

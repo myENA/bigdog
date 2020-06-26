@@ -2,10 +2,6 @@ package bigdog
 
 // API Version: v9_0
 
-import (
-	"encoding/json"
-)
-
 // SwitchMJobErrorObject
 //
 // Definition: job_errorObject
@@ -34,7 +30,7 @@ type SwitchMJob struct {
 	// Created timestamp of the job
 	CreatedTimestamp *int `json:"createdTimestamp,omitempty"`
 
-	CsvDataMap *SwitchMJobCsvDataMapType `json:"csvDataMap,omitempty"`
+	CsvDataMap interface{} `json:"csvDataMap,omitempty"`
 
 	// DomainId
 	// Identifier of the management domain to which the job belong
@@ -90,34 +86,6 @@ func NewSwitchMJob() *SwitchMJob {
 	return m
 }
 
-// SwitchMJobCsvDataMapType
-//
-// Definition: job_jobCsvDataMapType
-type SwitchMJobCsvDataMapType struct {
-	XAdditionalProperties map[string]string `json:"-"`
-}
-
-func (t *SwitchMJobCsvDataMapType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]string)
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMJobCsvDataMapType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMJobCsvDataMapType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMJobCsvDataMapType() *SwitchMJobCsvDataMapType {
-	m := new(SwitchMJobCsvDataMapType)
-	return m
-}
-
 // SwitchMJobSchedule
 //
 // Definition: job_jobSchedule
@@ -150,11 +118,11 @@ type SwitchMJobScheduleResponse struct {
 
 	// Extra
 	// Extra response of job schedule
-	Extra *SwitchMJobScheduleResponseExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// MetaData
 	// metaData of job schedule
-	MetaData *SwitchMJobScheduleResponseMetaDataType `json:"metaData,omitempty"`
+	MetaData interface{} `json:"metaData,omitempty"`
 
 	// Success
 	// Success response of job schedule
@@ -166,73 +134,13 @@ func NewSwitchMJobScheduleResponse() *SwitchMJobScheduleResponse {
 	return m
 }
 
-// SwitchMJobScheduleResponseExtraType
-//
-// Definition: job_jobScheduleResponseExtraType
-//
-// Extra response of job schedule
-type SwitchMJobScheduleResponseExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMJobScheduleResponseExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMJobScheduleResponseExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMJobScheduleResponseExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMJobScheduleResponseExtraType() *SwitchMJobScheduleResponseExtraType {
-	m := new(SwitchMJobScheduleResponseExtraType)
-	return m
-}
-
-// SwitchMJobScheduleResponseMetaDataType
-//
-// Definition: job_jobScheduleResponseMetaDataType
-//
-// metaData of job schedule
-type SwitchMJobScheduleResponseMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMJobScheduleResponseMetaDataType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMJobScheduleResponseMetaDataType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMJobScheduleResponseMetaDataType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMJobScheduleResponseMetaDataType() *SwitchMJobScheduleResponseMetaDataType {
-	m := new(SwitchMJobScheduleResponseMetaDataType)
-	return m
-}
-
 // SwitchMJobList
 //
 // Definition: job_list
 type SwitchMJobList struct {
 	// Extra
 	// Extra information for job list
-	Extra *SwitchMJobListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first job returned out of the complete job list
@@ -255,35 +163,5 @@ type SwitchMJobList struct {
 
 func NewSwitchMJobList() *SwitchMJobList {
 	m := new(SwitchMJobList)
-	return m
-}
-
-// SwitchMJobListExtraType
-//
-// Definition: job_listExtraType
-//
-// Extra information for job list
-type SwitchMJobListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMJobListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMJobListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMJobListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMJobListExtraType() *SwitchMJobListExtraType {
-	m := new(SwitchMJobListExtraType)
 	return m
 }

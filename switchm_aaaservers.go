@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -114,7 +113,7 @@ func NewSwitchMAAAServersAAAServer() *SwitchMAAAServersAAAServer {
 type SwitchMAAAServersQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMAAAServersQueryResultExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first AAA Server returned out of the complete AAA Server list
@@ -137,36 +136,6 @@ type SwitchMAAAServersQueryResult struct {
 
 func NewSwitchMAAAServersQueryResult() *SwitchMAAAServersQueryResult {
 	m := new(SwitchMAAAServersQueryResult)
-	return m
-}
-
-// SwitchMAAAServersQueryResultExtraType
-//
-// Definition: aaaServers_aaaServersQueryResultExtraType
-//
-// Any additional response data
-type SwitchMAAAServersQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMAAAServersQueryResultExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMAAAServersQueryResultExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMAAAServersQueryResultExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMAAAServersQueryResultExtraType() *SwitchMAAAServersQueryResultExtraType {
-	m := new(SwitchMAAAServersQueryResultExtraType)
 	return m
 }
 

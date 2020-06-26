@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"io"
 	"net/http"
 )
@@ -29,7 +28,7 @@ func (ss *SwitchMService) SwitchMFirmwareConfigService() *SwitchMFirmwareConfigS
 type SwitchMFirmwareConfigFirmwaresQueryResultList struct {
 	// Extra
 	// Extra information for Firmware list
-	Extra *SwitchMFirmwareConfigFirmwaresQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first firmware list returned out of the complete Firmware list
@@ -55,43 +54,13 @@ func NewSwitchMFirmwareConfigFirmwaresQueryResultList() *SwitchMFirmwareConfigFi
 	return m
 }
 
-// SwitchMFirmwareConfigFirmwaresQueryResultListExtraType
-//
-// Definition: firmware_firmwaresQueryResultListExtraType
-//
-// Extra information for Firmware list
-type SwitchMFirmwareConfigFirmwaresQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMFirmwareConfigFirmwaresQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMFirmwareConfigFirmwaresQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMFirmwareConfigFirmwaresQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMFirmwareConfigFirmwaresQueryResultListExtraType() *SwitchMFirmwareConfigFirmwaresQueryResultListExtraType {
-	m := new(SwitchMFirmwareConfigFirmwaresQueryResultListExtraType)
-	return m
-}
-
 // SwitchMFirmwareConfigScheduleIds
 //
 // Definition: firmware_scheduleIds
 type SwitchMFirmwareConfigScheduleIds struct {
 	// Extra
 	// Extra information for Schedule Ids list
-	Extra *SwitchMFirmwareConfigScheduleIdsExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Schedule Ids returned out of the complete ConfigBackup list
@@ -114,36 +83,6 @@ type SwitchMFirmwareConfigScheduleIds struct {
 
 func NewSwitchMFirmwareConfigScheduleIds() *SwitchMFirmwareConfigScheduleIds {
 	m := new(SwitchMFirmwareConfigScheduleIds)
-	return m
-}
-
-// SwitchMFirmwareConfigScheduleIdsExtraType
-//
-// Definition: firmware_scheduleIdsExtraType
-//
-// Extra information for Schedule Ids list
-type SwitchMFirmwareConfigScheduleIdsExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMFirmwareConfigScheduleIdsExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMFirmwareConfigScheduleIdsExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMFirmwareConfigScheduleIdsExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMFirmwareConfigScheduleIdsExtraType() *SwitchMFirmwareConfigScheduleIdsExtraType {
-	m := new(SwitchMFirmwareConfigScheduleIdsExtraType)
 	return m
 }
 

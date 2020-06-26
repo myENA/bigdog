@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -96,7 +95,7 @@ func NewSwitchMGroupModelConfig() *SwitchMGroupModelConfig {
 type SwitchMGroupModelConfigQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMGroupModelConfigQueryResultExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Group Model Config returned out of the complete Group Model Configs list
@@ -122,36 +121,6 @@ func NewSwitchMGroupModelConfigQueryResult() *SwitchMGroupModelConfigQueryResult
 	return m
 }
 
-// SwitchMGroupModelConfigQueryResultExtraType
-//
-// Definition: groupModelConfig_groupModelConfigQueryResultExtraType
-//
-// Any additional response data
-type SwitchMGroupModelConfigQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMGroupModelConfigQueryResultExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMGroupModelConfigQueryResultExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMGroupModelConfigQueryResultExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMGroupModelConfigQueryResultExtraType() *SwitchMGroupModelConfigQueryResultExtraType {
-	m := new(SwitchMGroupModelConfigQueryResultExtraType)
-	return m
-}
-
 // SwitchMGroupModelConfigSelectedIds
 //
 // Definition: groupModelConfig_selectedIds
@@ -170,7 +139,7 @@ func NewSwitchMGroupModelConfigSelectedIds() *SwitchMGroupModelConfigSelectedIds
 type SwitchMGroupModelConfigUpdateGroupConfigResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first updated Group Model Config returned out of the complete Group Model Configs list
@@ -193,36 +162,6 @@ type SwitchMGroupModelConfigUpdateGroupConfigResultList struct {
 
 func NewSwitchMGroupModelConfigUpdateGroupConfigResultList() *SwitchMGroupModelConfigUpdateGroupConfigResultList {
 	m := new(SwitchMGroupModelConfigUpdateGroupConfigResultList)
-	return m
-}
-
-// SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType
-//
-// Definition: groupModelConfig_updateGroupConfigResultListExtraType
-//
-// Any additional response data
-type SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMGroupModelConfigUpdateGroupConfigResultListExtraType() *SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType {
-	m := new(SwitchMGroupModelConfigUpdateGroupConfigResultListExtraType)
 	return m
 }
 

@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -226,7 +225,7 @@ func NewSwitchMPortSettings() *SwitchMPortSettings {
 type SwitchMPortSettingsQueryResult struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMPortSettingsQueryResultExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Port Settings returned out of the complete Port Settings list
@@ -249,36 +248,6 @@ type SwitchMPortSettingsQueryResult struct {
 
 func NewSwitchMPortSettingsQueryResult() *SwitchMPortSettingsQueryResult {
 	m := new(SwitchMPortSettingsQueryResult)
-	return m
-}
-
-// SwitchMPortSettingsQueryResultExtraType
-//
-// Definition: portSettings_PortSettingsQueryResultExtraType
-//
-// Any additional response data
-type SwitchMPortSettingsQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMPortSettingsQueryResultExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMPortSettingsQueryResultExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMPortSettingsQueryResultExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMPortSettingsQueryResultExtraType() *SwitchMPortSettingsQueryResultExtraType {
-	m := new(SwitchMPortSettingsQueryResultExtraType)
 	return m
 }
 

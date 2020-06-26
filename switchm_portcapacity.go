@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -42,7 +41,7 @@ func NewSwitchMPortCapacityCapacities() *SwitchMPortCapacityCapacities {
 type SwitchMPortCapacityResult struct {
 	// Extra
 	// Extra field
-	Extra *SwitchMPortCapacityResultExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// The first data index for current reulst
@@ -65,36 +64,6 @@ type SwitchMPortCapacityResult struct {
 
 func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
 	m := new(SwitchMPortCapacityResult)
-	return m
-}
-
-// SwitchMPortCapacityResultExtraType
-//
-// Definition: portCapacity_resultExtraType
-//
-// Extra field
-type SwitchMPortCapacityResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMPortCapacityResultExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMPortCapacityResultExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMPortCapacityResultExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMPortCapacityResultExtraType() *SwitchMPortCapacityResultExtraType {
-	m := new(SwitchMPortCapacityResultExtraType)
 	return m
 }
 

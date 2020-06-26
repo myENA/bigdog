@@ -5,7 +5,6 @@ package bigdog
 import (
 	"bytes"
 	"context"
-	"encoding/json"
 	"net/http"
 	"net/url"
 )
@@ -38,69 +37,13 @@ func MakeSCIReportFind200ResponseType() SCIReportFind200ResponseType {
 //
 // Definition: report.getData200ResponseType
 type SCIReportGetData200ResponseType struct {
-	Data []*SCIReportGetData200ResponseTypeDataType `json:"data,omitempty"`
+	Data []interface{} `json:"data,omitempty"`
 
-	Metadata *SCIReportGetData200ResponseTypeMetadataType `json:"metadata,omitempty"`
+	Metadata interface{} `json:"metadata,omitempty"`
 }
 
 func NewSCIReportGetData200ResponseType() *SCIReportGetData200ResponseType {
 	m := new(SCIReportGetData200ResponseType)
-	return m
-}
-
-// SCIReportGetData200ResponseTypeDataType
-//
-// Definition: report.getData200ResponseTypeDataType
-type SCIReportGetData200ResponseTypeDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIReportGetData200ResponseTypeDataType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIReportGetData200ResponseTypeDataType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIReportGetData200ResponseTypeDataType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIReportGetData200ResponseTypeDataType() *SCIReportGetData200ResponseTypeDataType {
-	m := new(SCIReportGetData200ResponseTypeDataType)
-	return m
-}
-
-// SCIReportGetData200ResponseTypeMetadataType
-//
-// Definition: report.getData200ResponseTypeMetadataType
-type SCIReportGetData200ResponseTypeMetadataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIReportGetData200ResponseTypeMetadataType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIReportGetData200ResponseTypeMetadataType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIReportGetData200ResponseTypeMetadataType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIReportGetData200ResponseTypeMetadataType() *SCIReportGetData200ResponseTypeMetadataType {
-	m := new(SCIReportGetData200ResponseTypeMetadataType)
 	return m
 }
 
@@ -123,8 +66,6 @@ type SCIReportQueryFilter struct {
 	LowerStrict *bool `json:"lowerStrict,omitempty"`
 
 	Pattern *string `json:"pattern,omitempty"`
-
-	Query *SCIReportSearchQuery `json:"query,omitempty"`
 
 	// Type
 	// Type of filter
@@ -166,34 +107,6 @@ type SCIReportSearchQuery struct {
 
 func NewSCIReportSearchQuery() *SCIReportSearchQuery {
 	m := new(SCIReportSearchQuery)
-	return m
-}
-
-// SCIReportWithRelations200ResponseType
-//
-// Definition: report.withRelations200ResponseType
-type SCIReportWithRelations200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIReportWithRelations200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIReportWithRelations200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIReportWithRelations200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIReportWithRelations200ResponseType() *SCIReportWithRelations200ResponseType {
-	m := new(SCIReportWithRelations200ResponseType)
 	return m
 }
 
@@ -401,11 +314,11 @@ func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id st
 // Required Parameters:
 // - urlSegmentName string
 //		- required
-func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentName string, mutators ...RequestMutator) (*SCIReportWithRelations200ResponseType, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentName string, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIReportWithRelations200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -417,7 +330,7 @@ func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentNa
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetQueryParameter("urlSegmentName", []string{urlSegmentName})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportWithRelations200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

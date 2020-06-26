@@ -2,10 +2,6 @@ package bigdog
 
 // API Version: v9_0
 
-import (
-	"encoding/json"
-)
-
 // WSGMeshNodeInfoHelperZoneInfo
 //
 // Definition: meshNodeInfo_helperZoneInfo
@@ -96,7 +92,7 @@ func MakeWSGMeshNodeInfoArray() WSGMeshNodeInfoArray {
 type WSGMeshNodeInfoList struct {
 	// Extra
 	// Any additional response data.
-	Extra *WSGMeshNodeInfoListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first MeshNodeInfo returned out of the complete Rogue AP list
@@ -119,36 +115,6 @@ type WSGMeshNodeInfoList struct {
 
 func NewWSGMeshNodeInfoList() *WSGMeshNodeInfoList {
 	m := new(WSGMeshNodeInfoList)
-	return m
-}
-
-// WSGMeshNodeInfoListExtraType
-//
-// Definition: meshNodeInfo_meshNodeInfoListExtraType
-//
-// Any additional response data.
-type WSGMeshNodeInfoListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGMeshNodeInfoListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGMeshNodeInfoListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGMeshNodeInfoListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGMeshNodeInfoListExtraType() *WSGMeshNodeInfoListExtraType {
-	m := new(WSGMeshNodeInfoListExtraType)
 	return m
 }
 

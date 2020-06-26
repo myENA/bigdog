@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -261,57 +260,6 @@ func NewWSGSCIProfile() *WSGSCIProfile {
 	return m
 }
 
-// WSGSCIProfileList
-//
-// Definition: sci_sciProfileList
-type WSGSCIProfileList struct {
-	Extra *WSGSCIProfileListExtraType `json:"extra,omitempty"`
-
-	List []*WSGSCIProfile `json:"list,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGSCIProfileList) UnmarshalJSON(b []byte) error {
-	tmpt := new(WSGSCIProfileList)
-	if err := json.Unmarshal(b, tmpt); err != nil {
-		return err
-	}
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	delete(tmp, "extra")
-	delete(tmp, "list")
-	tmpt.XAdditionalProperties = tmp
-	*t = *tmpt
-	return nil
-}
-
-func (t *WSGSCIProfileList) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.Extra != nil {
-		tmp["extra"] = t.Extra
-	}
-	if t.List != nil {
-		tmp["list"] = t.List
-	}
-	return json.Marshal(tmp)
-}
-
-func NewWSGSCIProfileList() *WSGSCIProfileList {
-	m := new(WSGSCIProfileList)
-	return m
-}
-
 // WSGSCIProfileListExtraType
 //
 // Definition: sci_sciProfileListExtraType
@@ -476,11 +424,11 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context, mutators ...Req
 // Operation ID: findSciSciProfile
 //
 // Use this API command to retrieve sciProfile list.
-func (s *WSGSCIService) FindSciSciProfile(ctx context.Context, mutators ...RequestMutator) (*WSGSCIProfileList, *APIResponseMeta, error) {
+func (s *WSGSCIService) FindSciSciProfile(ctx context.Context, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGSCIProfileList
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -490,7 +438,7 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context, mutators ...Reque
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSciSciProfile, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGSCIProfileList()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -2,10 +2,6 @@ package bigdog
 
 // API Version: v9_0
 
-import (
-	"encoding/json"
-)
-
 // WSGAPAlarmSummary
 //
 // Definition: ap_alarmSummary
@@ -453,9 +449,9 @@ func NewWSGAPOperationalSummary() *WSGAPOperationalSummary {
 type WSGAPRadioConfiguration struct {
 	Data *WSGAPRadioConfigurationDataType `json:"data,omitempty"`
 
-	Error *WSGAPRadioConfigurationErrorType `json:"error,omitempty"`
+	Error interface{} `json:"error,omitempty"`
 
-	Extra *WSGAPRadioConfigurationExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	MetaData *WSGAPRadioConfigurationMetaDataType `json:"metaData,omitempty"`
 
@@ -521,7 +517,7 @@ type WSGAPRadioConfigurationDataTypeListType struct {
 
 	NoiseFloor *int `json:"noiseFloor,omitempty"`
 
-	NullValueColumnNames []*WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType `json:"nullValueColumnNames,omitempty"`
+	NullValueColumnNames []interface{} `json:"nullValueColumnNames,omitempty"`
 
 	NumOfAuthorizedClients *int `json:"numOfAuthorizedClients,omitempty"`
 
@@ -634,90 +630,6 @@ type WSGAPRadioConfigurationDataTypeListTypeColumnsType struct {
 
 func NewWSGAPRadioConfigurationDataTypeListTypeColumnsType() *WSGAPRadioConfigurationDataTypeListTypeColumnsType {
 	m := new(WSGAPRadioConfigurationDataTypeListTypeColumnsType)
-	return m
-}
-
-// WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType
-//
-// Definition: ap_apRadioConfigurationDataTypeListTypeNullValueColumnNamesType
-type WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType() *WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType {
-	m := new(WSGAPRadioConfigurationDataTypeListTypeNullValueColumnNamesType)
-	return m
-}
-
-// WSGAPRadioConfigurationErrorType
-//
-// Definition: ap_apRadioConfigurationErrorType
-type WSGAPRadioConfigurationErrorType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAPRadioConfigurationErrorType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAPRadioConfigurationErrorType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAPRadioConfigurationErrorType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAPRadioConfigurationErrorType() *WSGAPRadioConfigurationErrorType {
-	m := new(WSGAPRadioConfigurationErrorType)
-	return m
-}
-
-// WSGAPRadioConfigurationExtraType
-//
-// Definition: ap_apRadioConfigurationExtraType
-type WSGAPRadioConfigurationExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAPRadioConfigurationExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAPRadioConfigurationExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAPRadioConfigurationExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAPRadioConfigurationExtraType() *WSGAPRadioConfigurationExtraType {
-	m := new(WSGAPRadioConfigurationExtraType)
 	return m
 }
 

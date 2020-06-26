@@ -5,7 +5,6 @@ package bigdog
 import (
 	"bytes"
 	"context"
-	"encoding/json"
 	"net/http"
 	"net/url"
 )
@@ -33,34 +32,6 @@ type SCIMigrationCount200ResponseType struct {
 
 func NewSCIMigrationCount200ResponseType() *SCIMigrationCount200ResponseType {
 	m := new(SCIMigrationCount200ResponseType)
-	return m
-}
-
-// SCIMigrationDeleteById200ResponseType
-//
-// Definition: Migration.deleteById200ResponseType
-type SCIMigrationDeleteById200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIMigrationDeleteById200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIMigrationDeleteById200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIMigrationDeleteById200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIMigrationDeleteById200ResponseType() *SCIMigrationDeleteById200ResponseType {
-	m := new(SCIMigrationDeleteById200ResponseType)
 	return m
 }
 
@@ -95,36 +66,6 @@ type SCIMigrationFind200ResponseType []*SCIModelsMigration
 
 func MakeSCIMigrationFind200ResponseType() SCIMigrationFind200ResponseType {
 	m := make(SCIMigrationFind200ResponseType, 0)
-	return m
-}
-
-// SCIMigrationUpdateAll200ResponseType
-//
-// Definition: Migration.updateAll200ResponseType
-//
-// The number of instances updated
-type SCIMigrationUpdateAll200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIMigrationUpdateAll200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIMigrationUpdateAll200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIMigrationUpdateAll200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIMigrationUpdateAll200ResponseType() *SCIMigrationUpdateAll200ResponseType {
-	m := new(SCIMigrationUpdateAll200ResponseType)
 	return m
 }
 
@@ -262,11 +203,11 @@ func (s *SCIMigrationService) MigrationCreateChangeStreamPostMigrationsChangeStr
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIMigrationService) MigrationDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*SCIMigrationDeleteById200ResponseType, *APIResponseMeta, error) {
+func (s *SCIMigrationService) MigrationDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIMigrationDeleteById200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -278,7 +219,7 @@ func (s *SCIMigrationService) MigrationDeleteById(ctx context.Context, id string
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIMigrationDeleteById200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -548,11 +489,11 @@ func (s *SCIMigrationService) MigrationRollbackTo(ctx context.Context, to string
 // Optional Parameters:
 // - where string
 //		- nullable
-func (s *SCIMigrationService) MigrationUpdateAll(ctx context.Context, data *SCIModelsMigration, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIMigrationUpdateAll200ResponseType, *APIResponseMeta, error) {
+func (s *SCIMigrationService) MigrationUpdateAll(ctx context.Context, data *SCIModelsMigration, optionalParams map[string][]string, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIMigrationUpdateAll200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -569,7 +510,7 @@ func (s *SCIMigrationService) MigrationUpdateAll(ctx context.Context, data *SCIM
 		req.SetQueryParameter("where", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIMigrationUpdateAll200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

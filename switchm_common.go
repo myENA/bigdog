@@ -2,10 +2,6 @@ package bigdog
 
 // API Version: v9_0
 
-import (
-	"encoding/json"
-)
-
 // SwitchMCommonBulkDeleteRequest
 //
 // Definition: common_bulkDeleteRequest
@@ -117,7 +113,7 @@ type SwitchMCommonQueryCriteria struct {
 
 	// Options
 	// Specified feature required information
-	Options *SwitchMCommonQueryCriteriaOptionsType `json:"options,omitempty"`
+	Options interface{} `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -194,36 +190,6 @@ type SwitchMCommonQueryCriteriaFiltersType struct {
 
 func NewSwitchMCommonQueryCriteriaFiltersType() *SwitchMCommonQueryCriteriaFiltersType {
 	m := new(SwitchMCommonQueryCriteriaFiltersType)
-	return m
-}
-
-// SwitchMCommonQueryCriteriaOptionsType
-//
-// Definition: common_queryCriteriaOptionsType
-//
-// Specified feature required information
-type SwitchMCommonQueryCriteriaOptionsType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMCommonQueryCriteriaOptionsType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMCommonQueryCriteriaOptionsType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMCommonQueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMCommonQueryCriteriaOptionsType() *SwitchMCommonQueryCriteriaOptionsType {
-	m := new(SwitchMCommonQueryCriteriaOptionsType)
 	return m
 }
 

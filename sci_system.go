@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -20,34 +19,6 @@ func NewSCISystemService(c *SCIClient) *SCISystemService {
 
 func (ss *SCIService) SCISystemService() *SCISystemService {
 	return NewSCISystemService(ss.apiClient)
-}
-
-// SCISystemDeleteById200ResponseType
-//
-// Definition: system.deleteById200ResponseType
-type SCISystemDeleteById200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCISystemDeleteById200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCISystemDeleteById200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCISystemDeleteById200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCISystemDeleteById200ResponseType() *SCISystemDeleteById200ResponseType {
-	m := new(SCISystemDeleteById200ResponseType)
-	return m
 }
 
 // SCISystemFind200ResponseType
@@ -110,11 +81,11 @@ func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSyst
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*SCISystemDeleteById200ResponseType, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCISystemDeleteById200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -126,7 +97,7 @@ func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, muta
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCISystemDeleteById200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

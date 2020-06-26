@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -26,7 +25,7 @@ func (ss *SwitchMService) SwitchMSwitchStackConfigService() *SwitchMSwitchStackC
 //
 // Definition: stack_auditIdList
 type SwitchMSwitchStackConfigAuditIdList struct {
-	Extra *SwitchMSwitchStackConfigAuditIdListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
@@ -41,34 +40,6 @@ type SwitchMSwitchStackConfigAuditIdList struct {
 
 func NewSwitchMSwitchStackConfigAuditIdList() *SwitchMSwitchStackConfigAuditIdList {
 	m := new(SwitchMSwitchStackConfigAuditIdList)
-	return m
-}
-
-// SwitchMSwitchStackConfigAuditIdListExtraType
-//
-// Definition: stack_auditIdListExtraType
-type SwitchMSwitchStackConfigAuditIdListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMSwitchStackConfigAuditIdListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMSwitchStackConfigAuditIdListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMSwitchStackConfigAuditIdListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMSwitchStackConfigAuditIdListExtraType() *SwitchMSwitchStackConfigAuditIdListExtraType {
-	m := new(SwitchMSwitchStackConfigAuditIdListExtraType)
 	return m
 }
 

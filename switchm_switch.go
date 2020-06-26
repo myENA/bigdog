@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -68,7 +67,7 @@ func NewSwitchMSwitchBarChart() *SwitchMSwitchBarChart {
 type SwitchMSwitchConnectedAPsQueryList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchConnectedAPsQueryListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first switch connected AP returned out of the complete list
@@ -91,36 +90,6 @@ type SwitchMSwitchConnectedAPsQueryList struct {
 
 func NewSwitchMSwitchConnectedAPsQueryList() *SwitchMSwitchConnectedAPsQueryList {
 	m := new(SwitchMSwitchConnectedAPsQueryList)
-	return m
-}
-
-// SwitchMSwitchConnectedAPsQueryListExtraType
-//
-// Definition: switch_connectedAPsQueryListExtraType
-//
-// Any additional response data
-type SwitchMSwitchConnectedAPsQueryListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMSwitchConnectedAPsQueryListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMSwitchConnectedAPsQueryListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMSwitchConnectedAPsQueryListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMSwitchConnectedAPsQueryListExtraType() *SwitchMSwitchConnectedAPsQueryListExtraType {
-	m := new(SwitchMSwitchConnectedAPsQueryListExtraType)
 	return m
 }
 
@@ -176,7 +145,7 @@ type SwitchMSwitchConnectedDevice struct {
 
 	// SampledInstant
 	// Sampled instant
-	SampledInstant *SwitchMSwitchConnectedDeviceSampledInstantType `json:"sampledInstant,omitempty"`
+	SampledInstant interface{} `json:"sampledInstant,omitempty"`
 
 	// SwitchGroup
 	// Switch group
@@ -212,43 +181,13 @@ func NewSwitchMSwitchConnectedDevice() *SwitchMSwitchConnectedDevice {
 	return m
 }
 
-// SwitchMSwitchConnectedDeviceSampledInstantType
-//
-// Definition: switch_connectedDeviceSampledInstantType
-//
-// Sampled instant
-type SwitchMSwitchConnectedDeviceSampledInstantType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMSwitchConnectedDeviceSampledInstantType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMSwitchConnectedDeviceSampledInstantType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMSwitchConnectedDeviceSampledInstantType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMSwitchConnectedDeviceSampledInstantType() *SwitchMSwitchConnectedDeviceSampledInstantType {
-	m := new(SwitchMSwitchConnectedDeviceSampledInstantType)
-	return m
-}
-
 // SwitchMSwitchConnectedDevicesQueryList
 //
 // Definition: switch_connectedDevicesQueryList
 type SwitchMSwitchConnectedDevicesQueryList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchConnectedDevicesQueryListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first switch connected devices returned out of the complete list
@@ -274,43 +213,13 @@ func NewSwitchMSwitchConnectedDevicesQueryList() *SwitchMSwitchConnectedDevicesQ
 	return m
 }
 
-// SwitchMSwitchConnectedDevicesQueryListExtraType
-//
-// Definition: switch_connectedDevicesQueryListExtraType
-//
-// Any additional response data
-type SwitchMSwitchConnectedDevicesQueryListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMSwitchConnectedDevicesQueryListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMSwitchConnectedDevicesQueryListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMSwitchConnectedDevicesQueryListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMSwitchConnectedDevicesQueryListExtraType() *SwitchMSwitchConnectedDevicesQueryListExtraType {
-	m := new(SwitchMSwitchConnectedDevicesQueryListExtraType)
-	return m
-}
-
 // SwitchMSwitchDeleteSwitchesResultList
 //
 // Definition: switch_deleteSwitchesResultList
 type SwitchMSwitchDeleteSwitchesResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchDeleteSwitchesResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first delete switches returned out of the complete list
@@ -333,36 +242,6 @@ type SwitchMSwitchDeleteSwitchesResultList struct {
 
 func NewSwitchMSwitchDeleteSwitchesResultList() *SwitchMSwitchDeleteSwitchesResultList {
 	m := new(SwitchMSwitchDeleteSwitchesResultList)
-	return m
-}
-
-// SwitchMSwitchDeleteSwitchesResultListExtraType
-//
-// Definition: switch_deleteSwitchesResultListExtraType
-//
-// Any additional response data
-type SwitchMSwitchDeleteSwitchesResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMSwitchDeleteSwitchesResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMSwitchDeleteSwitchesResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMSwitchDeleteSwitchesResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMSwitchDeleteSwitchesResultListExtraType() *SwitchMSwitchDeleteSwitchesResultListExtraType {
-	m := new(SwitchMSwitchDeleteSwitchesResultListExtraType)
 	return m
 }
 
@@ -394,7 +273,7 @@ func NewSwitchMSwitchFirmware() *SwitchMSwitchFirmware {
 type SwitchMSwitchFirmwareHistoryQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchFirmwareHistoryQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first firmware history returned out of the complete query list
@@ -417,36 +296,6 @@ type SwitchMSwitchFirmwareHistoryQueryResultList struct {
 
 func NewSwitchMSwitchFirmwareHistoryQueryResultList() *SwitchMSwitchFirmwareHistoryQueryResultList {
 	m := new(SwitchMSwitchFirmwareHistoryQueryResultList)
-	return m
-}
-
-// SwitchMSwitchFirmwareHistoryQueryResultListExtraType
-//
-// Definition: switch_firmwareHistoryQueryResultListExtraType
-//
-// Any additional response data
-type SwitchMSwitchFirmwareHistoryQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMSwitchFirmwareHistoryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMSwitchFirmwareHistoryQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMSwitchFirmwareHistoryQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMSwitchFirmwareHistoryQueryResultListExtraType() *SwitchMSwitchFirmwareHistoryQueryResultListExtraType {
-	m := new(SwitchMSwitchFirmwareHistoryQueryResultListExtraType)
 	return m
 }
 
@@ -884,7 +733,7 @@ func NewSwitchMSwitchPortDetailsPortErrorType() *SwitchMSwitchPortDetailsPortErr
 type SwitchMSwitchPortDetailsQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchPortDetailsQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first switch port detail returned out of the complete list
@@ -907,36 +756,6 @@ type SwitchMSwitchPortDetailsQueryResultList struct {
 
 func NewSwitchMSwitchPortDetailsQueryResultList() *SwitchMSwitchPortDetailsQueryResultList {
 	m := new(SwitchMSwitchPortDetailsQueryResultList)
-	return m
-}
-
-// SwitchMSwitchPortDetailsQueryResultListExtraType
-//
-// Definition: switch_portDetailsQueryResultListExtraType
-//
-// Any additional response data
-type SwitchMSwitchPortDetailsQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMSwitchPortDetailsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMSwitchPortDetailsQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMSwitchPortDetailsQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMSwitchPortDetailsQueryResultListExtraType() *SwitchMSwitchPortDetailsQueryResultListExtraType {
-	m := new(SwitchMSwitchPortDetailsQueryResultListExtraType)
 	return m
 }
 
@@ -1048,7 +867,7 @@ func NewSwitchMSwitchStackMember() *SwitchMSwitchStackMember {
 type SwitchMSwitchStackMemberQueryResult struct {
 	// Extra
 	// Extra information for stack member list
-	Extra *SwitchMSwitchStackMemberQueryResultExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first stack member returned out of the complete stack member list
@@ -1074,36 +893,6 @@ func NewSwitchMSwitchStackMemberQueryResult() *SwitchMSwitchStackMemberQueryResu
 	return m
 }
 
-// SwitchMSwitchStackMemberQueryResultExtraType
-//
-// Definition: switch_stackMemberQueryResultExtraType
-//
-// Extra information for stack member list
-type SwitchMSwitchStackMemberQueryResultExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMSwitchStackMemberQueryResultExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMSwitchStackMemberQueryResultExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMSwitchStackMemberQueryResultExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMSwitchStackMemberQueryResultExtraType() *SwitchMSwitchStackMemberQueryResultExtraType {
-	m := new(SwitchMSwitchStackMemberQueryResultExtraType)
-	return m
-}
-
 // SwitchMSwitchIdList
 //
 // Definition: switch_switchIdList
@@ -1122,7 +911,7 @@ func MakeSwitchMSwitchIdList() SwitchMSwitchIdList {
 type SwitchMSwitchPortsSummaryQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchPortsSummaryQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first switch ports summary returned out of the complete list
@@ -1145,36 +934,6 @@ type SwitchMSwitchPortsSummaryQueryResultList struct {
 
 func NewSwitchMSwitchPortsSummaryQueryResultList() *SwitchMSwitchPortsSummaryQueryResultList {
 	m := new(SwitchMSwitchPortsSummaryQueryResultList)
-	return m
-}
-
-// SwitchMSwitchPortsSummaryQueryResultListExtraType
-//
-// Definition: switch_switchPortsSummaryQueryResultListExtraType
-//
-// Any additional response data
-type SwitchMSwitchPortsSummaryQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMSwitchPortsSummaryQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMSwitchPortsSummaryQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMSwitchPortsSummaryQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMSwitchPortsSummaryQueryResultListExtraType() *SwitchMSwitchPortsSummaryQueryResultListExtraType {
-	m := new(SwitchMSwitchPortsSummaryQueryResultListExtraType)
 	return m
 }
 
@@ -1226,7 +985,7 @@ func NewSwitchMSwitchRebootResponse() *SwitchMSwitchRebootResponse {
 type SwitchMSwitchTopSwitchesByFirmwareQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top switches by firmware returned out of the complete list
@@ -1252,43 +1011,13 @@ func NewSwitchMSwitchTopSwitchesByFirmwareQueryResultList() *SwitchMSwitchTopSwi
 	return m
 }
 
-// SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType
-//
-// Definition: switch_topSwitchesByFirmwareQueryResultListExtraType
-//
-// Any additional response data
-type SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType() *SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType {
-	m := new(SwitchMSwitchTopSwitchesByFirmwareQueryResultListExtraType)
-	return m
-}
-
 // SwitchMSwitchTopSwitchesByModelQueryResultList
 //
 // Definition: switch_topSwitchesByModelQueryResultList
 type SwitchMSwitchTopSwitchesByModelQueryResultList struct {
 	// Extra
 	// Any additional response data
-	Extra *SwitchMSwitchTopSwitchesByModelQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top switches by model returned out of the complete list
@@ -1311,36 +1040,6 @@ type SwitchMSwitchTopSwitchesByModelQueryResultList struct {
 
 func NewSwitchMSwitchTopSwitchesByModelQueryResultList() *SwitchMSwitchTopSwitchesByModelQueryResultList {
 	m := new(SwitchMSwitchTopSwitchesByModelQueryResultList)
-	return m
-}
-
-// SwitchMSwitchTopSwitchesByModelQueryResultListExtraType
-//
-// Definition: switch_topSwitchesByModelQueryResultListExtraType
-//
-// Any additional response data
-type SwitchMSwitchTopSwitchesByModelQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMSwitchTopSwitchesByModelQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMSwitchTopSwitchesByModelQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMSwitchTopSwitchesByModelQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMSwitchTopSwitchesByModelQueryResultListExtraType() *SwitchMSwitchTopSwitchesByModelQueryResultListExtraType {
-	m := new(SwitchMSwitchTopSwitchesByModelQueryResultListExtraType)
 	return m
 }
 

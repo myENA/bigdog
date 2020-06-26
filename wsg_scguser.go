@@ -492,7 +492,7 @@ type WSGSCGUserQueryCriteria struct {
 
 	// Options
 	// Specified feature required information
-	Options *WSGCommonQueryCriteriaOptionsType `json:"options,omitempty"`
+	Options interface{} `json:"options,omitempty"`
 
 	// Page
 	// Page number to get

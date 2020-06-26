@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -46,7 +45,7 @@ func NewSwitchMGroupAuditId() *SwitchMGroupAuditId {
 type SwitchMGroupClientObjectID struct {
 	// ExtraValues
 	// Extra values of the client
-	ExtraValues *SwitchMGroupClientObjectIDExtraValuesType `json:"extraValues,omitempty"`
+	ExtraValues interface{} `json:"extraValues,omitempty"`
 
 	// Id
 	// Identifier of the client
@@ -63,36 +62,6 @@ type SwitchMGroupClientObjectID struct {
 
 func NewSwitchMGroupClientObjectID() *SwitchMGroupClientObjectID {
 	m := new(SwitchMGroupClientObjectID)
-	return m
-}
-
-// SwitchMGroupClientObjectIDExtraValuesType
-//
-// Definition: group_clientObjectIDExtraValuesType
-//
-// Extra values of the client
-type SwitchMGroupClientObjectIDExtraValuesType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMGroupClientObjectIDExtraValuesType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMGroupClientObjectIDExtraValuesType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMGroupClientObjectIDExtraValuesType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMGroupClientObjectIDExtraValuesType() *SwitchMGroupClientObjectIDExtraValuesType {
-	m := new(SwitchMGroupClientObjectIDExtraValuesType)
 	return m
 }
 
@@ -176,11 +145,11 @@ type SwitchMGroupsByIdsQueryResultList struct {
 
 	// Extra
 	// Any additional response
-	Extra *SwitchMGroupsByIdsQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// MetaData
 	// Metadata of query result list
-	MetaData *SwitchMGroupsByIdsQueryResultListMetaDataType `json:"metaData,omitempty"`
+	MetaData interface{} `json:"metaData,omitempty"`
 
 	// Success
 	// Query result success or not
@@ -192,73 +161,13 @@ func NewSwitchMGroupsByIdsQueryResultList() *SwitchMGroupsByIdsQueryResultList {
 	return m
 }
 
-// SwitchMGroupsByIdsQueryResultListExtraType
-//
-// Definition: group_groupsByIdsQueryResultListExtraType
-//
-// Any additional response
-type SwitchMGroupsByIdsQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMGroupsByIdsQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMGroupsByIdsQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMGroupsByIdsQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMGroupsByIdsQueryResultListExtraType() *SwitchMGroupsByIdsQueryResultListExtraType {
-	m := new(SwitchMGroupsByIdsQueryResultListExtraType)
-	return m
-}
-
-// SwitchMGroupsByIdsQueryResultListMetaDataType
-//
-// Definition: group_groupsByIdsQueryResultListMetaDataType
-//
-// Metadata of query result list
-type SwitchMGroupsByIdsQueryResultListMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMGroupsByIdsQueryResultListMetaDataType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMGroupsByIdsQueryResultListMetaDataType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMGroupsByIdsQueryResultListMetaDataType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMGroupsByIdsQueryResultListMetaDataType() *SwitchMGroupsByIdsQueryResultListMetaDataType {
-	m := new(SwitchMGroupsByIdsQueryResultListMetaDataType)
-	return m
-}
-
 // SwitchMGroupQueryResultList
 //
 // Definition: group_queryResultList
 type SwitchMGroupQueryResultList struct {
 	// Extra
 	// Extra information for query result list
-	Extra *SwitchMGroupQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first query result returned out of the complete query result list
@@ -281,36 +190,6 @@ type SwitchMGroupQueryResultList struct {
 
 func NewSwitchMGroupQueryResultList() *SwitchMGroupQueryResultList {
 	m := new(SwitchMGroupQueryResultList)
-	return m
-}
-
-// SwitchMGroupQueryResultListExtraType
-//
-// Definition: group_queryResultListExtraType
-//
-// Extra information for query result list
-type SwitchMGroupQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMGroupQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMGroupQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMGroupQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMGroupQueryResultListExtraType() *SwitchMGroupQueryResultListExtraType {
-	m := new(SwitchMGroupQueryResultListExtraType)
 	return m
 }
 
@@ -356,7 +235,7 @@ type SwitchMGroupSwitchGroup struct {
 
 	// SampledInstant
 	// Sampled instant of the switch group
-	SampledInstant *SwitchMGroupSwitchGroupSampledInstantType `json:"sampledInstant,omitempty"`
+	SampledInstant interface{} `json:"sampledInstant,omitempty"`
 
 	// SwitchGroupLevelOneId
 	// Level one Id of the switch group
@@ -373,36 +252,6 @@ type SwitchMGroupSwitchGroup struct {
 
 func NewSwitchMGroupSwitchGroup() *SwitchMGroupSwitchGroup {
 	m := new(SwitchMGroupSwitchGroup)
-	return m
-}
-
-// SwitchMGroupSwitchGroupSampledInstantType
-//
-// Definition: group_switchGroupSampledInstantType
-//
-// Sampled instant of the switch group
-type SwitchMGroupSwitchGroupSampledInstantType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMGroupSwitchGroupSampledInstantType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMGroupSwitchGroupSampledInstantType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMGroupSwitchGroupSampledInstantType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMGroupSwitchGroupSampledInstantType() *SwitchMGroupSwitchGroupSampledInstantType {
-	m := new(SwitchMGroupSwitchGroupSampledInstantType)
 	return m
 }
 

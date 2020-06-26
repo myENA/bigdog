@@ -2,10 +2,6 @@ package bigdog
 
 // API Version: v9_0
 
-import (
-	"encoding/json"
-)
-
 // WSGRogueInfo
 //
 // Definition: rogueInfo_rogueInfo
@@ -62,7 +58,7 @@ func NewWSGRogueInfo() *WSGRogueInfo {
 type WSGRogueInfoList struct {
 	// Extra
 	// Any additional response data.
-	Extra *WSGRogueInfoListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first Rogue AP returned out of the complete Rogue AP list
@@ -85,35 +81,5 @@ type WSGRogueInfoList struct {
 
 func NewWSGRogueInfoList() *WSGRogueInfoList {
 	m := new(WSGRogueInfoList)
-	return m
-}
-
-// WSGRogueInfoListExtraType
-//
-// Definition: rogueInfo_rogueInfoListExtraType
-//
-// Any additional response data.
-type WSGRogueInfoListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGRogueInfoListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGRogueInfoListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGRogueInfoListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGRogueInfoListExtraType() *WSGRogueInfoListExtraType {
-	m := new(WSGRogueInfoListExtraType)
 	return m
 }

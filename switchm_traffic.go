@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -28,7 +27,7 @@ func (ss *SwitchMService) SwitchMTrafficService() *SwitchMTrafficService {
 type SwitchMTrafficTopPortErrorQueryResultList struct {
 	// Extra
 	// Extra information for top port error
-	Extra *SwitchMTrafficTopPortErrorQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top port error returned out of the complete list
@@ -54,43 +53,13 @@ func NewSwitchMTrafficTopPortErrorQueryResultList() *SwitchMTrafficTopPortErrorQ
 	return m
 }
 
-// SwitchMTrafficTopPortErrorQueryResultListExtraType
-//
-// Definition: traffic_topPortErrorQueryResultListExtraType
-//
-// Extra information for top port error
-type SwitchMTrafficTopPortErrorQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMTrafficTopPortErrorQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMTrafficTopPortErrorQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMTrafficTopPortErrorQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMTrafficTopPortErrorQueryResultListExtraType() *SwitchMTrafficTopPortErrorQueryResultListExtraType {
-	m := new(SwitchMTrafficTopPortErrorQueryResultListExtraType)
-	return m
-}
-
 // SwitchMTrafficTopPortTrafficUsageQueryResultList
 //
 // Definition: traffic_topPortTrafficUsageQueryResultList
 type SwitchMTrafficTopPortTrafficUsageQueryResultList struct {
 	// Extra
 	// Extra information for top port traffic usage
-	Extra *SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top port traffic usage returned out of the complete list
@@ -116,43 +85,13 @@ func NewSwitchMTrafficTopPortTrafficUsageQueryResultList() *SwitchMTrafficTopPor
 	return m
 }
 
-// SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType
-//
-// Definition: traffic_topPortTrafficUsageQueryResultListExtraType
-//
-// Extra information for top port traffic usage
-type SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMTrafficTopPortTrafficUsageQueryResultListExtraType() *SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType {
-	m := new(SwitchMTrafficTopPortTrafficUsageQueryResultListExtraType)
-	return m
-}
-
 // SwitchMTrafficTopSwitchPoEUtilizationQueryResultList
 //
 // Definition: traffic_topSwitchPoEUtilizationQueryResultList
 type SwitchMTrafficTopSwitchPoEUtilizationQueryResultList struct {
 	// Extra
 	// Extra information for top PoE utilization
-	Extra *SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top PoE usage returned out of the complete list
@@ -178,43 +117,13 @@ func NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultList() *SwitchMTrafficTo
 	return m
 }
 
-// SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType
-//
-// Definition: traffic_topSwitchPoEUtilizationQueryResultListExtraType
-//
-// Extra information for top PoE utilization
-type SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType() *SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType {
-	m := new(SwitchMTrafficTopSwitchPoEUtilizationQueryResultListExtraType)
-	return m
-}
-
 // SwitchMTrafficTopTrafficUsageQueryResultList
 //
 // Definition: traffic_topTrafficUsageQueryResultList
 type SwitchMTrafficTopTrafficUsageQueryResultList struct {
 	// Extra
 	// Extra information for top traffic usage
-	Extra *SwitchMTrafficTopTrafficUsageQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first top traffic usage returned out of the complete list
@@ -237,36 +146,6 @@ type SwitchMTrafficTopTrafficUsageQueryResultList struct {
 
 func NewSwitchMTrafficTopTrafficUsageQueryResultList() *SwitchMTrafficTopTrafficUsageQueryResultList {
 	m := new(SwitchMTrafficTopTrafficUsageQueryResultList)
-	return m
-}
-
-// SwitchMTrafficTopTrafficUsageQueryResultListExtraType
-//
-// Definition: traffic_topTrafficUsageQueryResultListExtraType
-//
-// Extra information for top traffic usage
-type SwitchMTrafficTopTrafficUsageQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMTrafficTopTrafficUsageQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMTrafficTopTrafficUsageQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMTrafficTopTrafficUsageQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMTrafficTopTrafficUsageQueryResultListExtraType() *SwitchMTrafficTopTrafficUsageQueryResultListExtraType {
-	m := new(SwitchMTrafficTopTrafficUsageQueryResultListExtraType)
 	return m
 }
 
@@ -302,7 +181,7 @@ func NewSwitchMTraffic() *SwitchMTraffic {
 type SwitchMTrafficQueryResultList struct {
 	// Extra
 	// Extra information for traffic list
-	Extra *SwitchMTrafficQueryResultListExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	// FirstIndex
 	// Index of the first traffic list returned out of the complete traffic list
@@ -325,36 +204,6 @@ type SwitchMTrafficQueryResultList struct {
 
 func NewSwitchMTrafficQueryResultList() *SwitchMTrafficQueryResultList {
 	m := new(SwitchMTrafficQueryResultList)
-	return m
-}
-
-// SwitchMTrafficQueryResultListExtraType
-//
-// Definition: traffic_trafficQueryResultListExtraType
-//
-// Extra information for traffic list
-type SwitchMTrafficQueryResultListExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMTrafficQueryResultListExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMTrafficQueryResultListExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMTrafficQueryResultListExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMTrafficQueryResultListExtraType() *SwitchMTrafficQueryResultListExtraType {
-	m := new(SwitchMTrafficQueryResultListExtraType)
 	return m
 }
 

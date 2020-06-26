@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -46,9 +45,9 @@ type SwitchMTroubleshootingRemoteClientConnectivityResponse struct {
 
 	Error *SwitchMTroubleshootingRemoteClientConnectivityResponseErrorType `json:"error,omitempty"`
 
-	Extra *SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
-	MetaData *SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType `json:"metaData,omitempty"`
+	MetaData interface{} `json:"metaData,omitempty"`
 
 	Success *bool `json:"success,omitempty"`
 }
@@ -138,163 +137,23 @@ func NewSwitchMTroubleshootingRemoteClientConnectivityResponseErrorType() *Switc
 	return m
 }
 
-// SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType
-//
-// Definition: troubleShooting_remoteClientConnectivityResponseExtraType
-type SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMTroubleshootingRemoteClientConnectivityResponseExtraType() *SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType {
-	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponseExtraType)
-	return m
-}
-
-// SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType
-//
-// Definition: troubleShooting_remoteClientConnectivityResponseMetaDataType
-type SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType() *SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType {
-	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponseMetaDataType)
-	return m
-}
-
 // SwitchMTroubleshootingRemoteCommandResponse
 //
 // Definition: troubleShooting_remoteCommandResponse
 type SwitchMTroubleshootingRemoteCommandResponse struct {
 	Data *string `json:"data,omitempty"`
 
-	Error *SwitchMTroubleshootingRemoteCommandResponseErrorType `json:"error,omitempty"`
+	Error interface{} `json:"error,omitempty"`
 
-	Extra *SwitchMTroubleshootingRemoteCommandResponseExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
-	MetaData *SwitchMTroubleshootingRemoteCommandResponseMetaDataType `json:"metaData,omitempty"`
+	MetaData interface{} `json:"metaData,omitempty"`
 
 	Success *bool `json:"success,omitempty"`
 }
 
 func NewSwitchMTroubleshootingRemoteCommandResponse() *SwitchMTroubleshootingRemoteCommandResponse {
 	m := new(SwitchMTroubleshootingRemoteCommandResponse)
-	return m
-}
-
-// SwitchMTroubleshootingRemoteCommandResponseErrorType
-//
-// Definition: troubleShooting_remoteCommandResponseErrorType
-type SwitchMTroubleshootingRemoteCommandResponseErrorType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMTroubleshootingRemoteCommandResponseErrorType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMTroubleshootingRemoteCommandResponseErrorType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMTroubleshootingRemoteCommandResponseErrorType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMTroubleshootingRemoteCommandResponseErrorType() *SwitchMTroubleshootingRemoteCommandResponseErrorType {
-	m := new(SwitchMTroubleshootingRemoteCommandResponseErrorType)
-	return m
-}
-
-// SwitchMTroubleshootingRemoteCommandResponseExtraType
-//
-// Definition: troubleShooting_remoteCommandResponseExtraType
-type SwitchMTroubleshootingRemoteCommandResponseExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMTroubleshootingRemoteCommandResponseExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMTroubleshootingRemoteCommandResponseExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMTroubleshootingRemoteCommandResponseExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMTroubleshootingRemoteCommandResponseExtraType() *SwitchMTroubleshootingRemoteCommandResponseExtraType {
-	m := new(SwitchMTroubleshootingRemoteCommandResponseExtraType)
-	return m
-}
-
-// SwitchMTroubleshootingRemoteCommandResponseMetaDataType
-//
-// Definition: troubleShooting_remoteCommandResponseMetaDataType
-type SwitchMTroubleshootingRemoteCommandResponseMetaDataType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SwitchMTroubleshootingRemoteCommandResponseMetaDataType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SwitchMTroubleshootingRemoteCommandResponseMetaDataType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SwitchMTroubleshootingRemoteCommandResponseMetaDataType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSwitchMTroubleshootingRemoteCommandResponseMetaDataType() *SwitchMTroubleshootingRemoteCommandResponseMetaDataType {
-	m := new(SwitchMTroubleshootingRemoteCommandResponseMetaDataType)
 	return m
 }
 

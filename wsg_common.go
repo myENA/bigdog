@@ -2,10 +2,6 @@ package bigdog
 
 // API Version: v9_0
 
-import (
-	"encoding/json"
-)
-
 // WSGCommonAltitude
 //
 // Definition: common_altitude
@@ -1164,7 +1160,7 @@ type WSGCommonQueryCriteria struct {
 
 	// Options
 	// Specified feature required information
-	Options *WSGCommonQueryCriteriaOptionsType `json:"options,omitempty"`
+	Options interface{} `json:"options,omitempty"`
 
 	// Page
 	// Page number to get
@@ -1241,36 +1237,6 @@ type WSGCommonQueryCriteriaFiltersType struct {
 
 func NewWSGCommonQueryCriteriaFiltersType() *WSGCommonQueryCriteriaFiltersType {
 	m := new(WSGCommonQueryCriteriaFiltersType)
-	return m
-}
-
-// WSGCommonQueryCriteriaOptionsType
-//
-// Definition: common_queryCriteriaOptionsType
-//
-// Specified feature required information
-type WSGCommonQueryCriteriaOptionsType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGCommonQueryCriteriaOptionsType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGCommonQueryCriteriaOptionsType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGCommonQueryCriteriaOptionsType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGCommonQueryCriteriaOptionsType() *WSGCommonQueryCriteriaOptionsType {
-	m := new(WSGCommonQueryCriteriaOptionsType)
 	return m
 }
 

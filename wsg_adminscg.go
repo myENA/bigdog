@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -28,9 +27,9 @@ func (ss *WSGService) WSGAdminSCGService() *WSGAdminSCGService {
 type WSGAdminSCGScgAaaServer struct {
 	Data *WSGAdminSCGScgAaaServerDataType `json:"data,omitempty"`
 
-	Error *WSGAdminSCGScgAaaServerErrorType `json:"error,omitempty"`
+	Error interface{} `json:"error,omitempty"`
 
-	Extra *WSGAdminSCGScgAaaServerExtraType `json:"extra,omitempty"`
+	Extra interface{} `json:"extra,omitempty"`
 
 	MetaData *WSGAdminSCGScgAaaServerMetaDataType `json:"metaData,omitempty"`
 
@@ -114,7 +113,7 @@ type WSGAdminSCGScgAaaServerDataTypeListType struct {
 
 	Name *string `json:"name,omitempty"`
 
-	NullValueColumnNames []*WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType `json:"nullValueColumnNames,omitempty"`
+	NullValueColumnNames []interface{} `json:"nullValueColumnNames,omitempty"`
 
 	OcspUrl *string `json:"ocspUrl,omitempty"`
 
@@ -235,90 +234,6 @@ type WSGAdminSCGScgAaaServerDataTypeListType struct {
 
 func NewWSGAdminSCGScgAaaServerDataTypeListType() *WSGAdminSCGScgAaaServerDataTypeListType {
 	m := new(WSGAdminSCGScgAaaServerDataTypeListType)
-	return m
-}
-
-// WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType
-//
-// Definition: adminscg_scgAaaServerDataTypeListTypeNullValueColumnNamesType
-type WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType() *WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListTypeNullValueColumnNamesType)
-	return m
-}
-
-// WSGAdminSCGScgAaaServerErrorType
-//
-// Definition: adminscg_scgAaaServerErrorType
-type WSGAdminSCGScgAaaServerErrorType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerErrorType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerErrorType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerErrorType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerErrorType() *WSGAdminSCGScgAaaServerErrorType {
-	m := new(WSGAdminSCGScgAaaServerErrorType)
-	return m
-}
-
-// WSGAdminSCGScgAaaServerExtraType
-//
-// Definition: adminscg_scgAaaServerExtraType
-type WSGAdminSCGScgAaaServerExtraType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *WSGAdminSCGScgAaaServerExtraType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = WSGAdminSCGScgAaaServerExtraType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *WSGAdminSCGScgAaaServerExtraType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewWSGAdminSCGScgAaaServerExtraType() *WSGAdminSCGScgAaaServerExtraType {
-	m := new(WSGAdminSCGScgAaaServerExtraType)
 	return m
 }
 

@@ -4,7 +4,6 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 )
 
@@ -22,42 +21,14 @@ func (ss *SCIService) SCIAlertService() *SCIAlertService {
 	return NewSCIAlertService(ss.apiClient)
 }
 
-// SCIAlertSendNotification200ResponseType
-//
-// Definition: alert.sendNotification200ResponseType
-type SCIAlertSendNotification200ResponseType struct {
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIAlertSendNotification200ResponseType) UnmarshalJSON(b []byte) error {
-	tmp := make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmp); err != nil {
-		return err
-	}
-	*t = SCIAlertSendNotification200ResponseType{XAdditionalProperties: tmp}
-	return nil
-}
-
-func (t *SCIAlertSendNotification200ResponseType) MarshalJSON() ([]byte, error) {
-	if t == nil || t.XAdditionalProperties == nil {
-		return nil, nil
-	}
-	return json.Marshal(t.XAdditionalProperties)
-}
-
-func NewSCIAlertSendNotification200ResponseType() *SCIAlertSendNotification200ResponseType {
-	m := new(SCIAlertSendNotification200ResponseType)
-	return m
-}
-
 // AlertSendNotification
 //
 // Operation ID: alert.sendNotification
-func (s *SCIAlertService) AlertSendNotification(ctx context.Context, mutators ...RequestMutator) (*SCIAlertSendNotification200ResponseType, *APIResponseMeta, error) {
+func (s *SCIAlertService) AlertSendNotification(ctx context.Context, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIAlertSendNotification200ResponseType
+		resp     interface{}
 		httpResp *http.Response
 		err      error
 	)
@@ -68,7 +39,7 @@ func (s *SCIAlertService) AlertSendNotification(ctx context.Context, mutators ..
 	req.SetHeader(headerKeyContentType, "*/*")
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIAlertSendNotification200ResponseType()
+	resp = new(interface{})
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

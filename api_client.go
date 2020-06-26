@@ -172,6 +172,8 @@ func (c *baseClient) do(ctx context.Context, request *APIRequest, authParamName,
 
 		if body != nil {
 			logMsg = fmt.Sprintf(logDebugAPIRequestWithBodyFormat, logMsg)
+		} else {
+			logMsg = fmt.Sprintf(logDebugAPIRequestNoBodyFormat, logMsg)
 		}
 
 		c.log.Print(logMsg)

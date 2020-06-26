@@ -465,6 +465,7 @@ const (
 	RouteWSGDeleteVlanpoolingsById                                               = "/wsg/api/public/v9_0/vlanpoolings/{id}"
 	RouteWSGDeleteWifiCallingWifiCallingPolicy                                   = "/wsg/api/public/v9_0/wifiCalling/wifiCallingPolicy"
 	RouteWSGDeleteWifiCallingWifiCallingPolicyById                               = "/wsg/api/public/v9_0/wifiCalling/wifiCallingPolicy/{id}"
+	RouteWSGExportCSVByQuery                                                     = "/wsg/api/public/v9_0/exportcsv/{resource}"
 	RouteWSGFindAccountSecurity                                                  = "/wsg/api/public/v9_0/accountSecurity"
 	RouteWSGFindAccountSecurityById                                              = "/wsg/api/public/v9_0/accountSecurity/{id}"
 	RouteWSGFindAdminaaa                                                         = "/wsg/api/public/v9_0/adminaaa"

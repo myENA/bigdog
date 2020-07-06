@@ -21,6 +21,78 @@ func (ss *WSGService) WSGAccessPointOperationalService() *WSGAccessPointOperatio
 	return NewWSGAccessPointOperationalService(ss.apiClient)
 }
 
+// WSGAccessPointOperationalAccessPointWlanEntry
+//
+// Definition: accesspointoperational_accessPointWlanEntry
+type WSGAccessPointOperationalAccessPointWlanEntry struct {
+	ApMac *string `json:"apMac,omitempty"`
+
+	ApMacAddress *string `json:"apMacAddress,omitempty"`
+
+	Authmethod *string `json:"authmethod,omitempty"`
+
+	Bssid *string `json:"bssid,omitempty"`
+
+	Key *string `json:"key,omitempty"`
+
+	RadioId *string `json:"radioId,omitempty"`
+
+	RadioType *string `json:"radioType,omitempty"`
+
+	RxBytes *string `json:"rxBytes,omitempty"`
+
+	Ssid *string `json:"ssid,omitempty"`
+
+	TotalNumClients *string `json:"totalNumClients,omitempty"`
+
+	TxBytes *string `json:"txBytes,omitempty"`
+
+	WlanId *string `json:"wlanId,omitempty"`
+
+	WlanType *int `json:"wlanType,omitempty"`
+
+	WsgWlanId *string `json:"wsgWlanId,omitempty"`
+}
+
+func NewWSGAccessPointOperationalAccessPointWlanEntry() *WSGAccessPointOperationalAccessPointWlanEntry {
+	m := new(WSGAccessPointOperationalAccessPointWlanEntry)
+	return m
+}
+
+// WSGAccessPointOperationalAccessPointWlansList
+//
+// Definition: accesspointoperational_accessPointWlansList
+type WSGAccessPointOperationalAccessPointWlansList struct {
+	Data []*WSGAccessPointOperationalAccessPointWlansListData `json:"data,omitempty"`
+
+	Error interface{} `json:"error,omitempty"`
+
+	Success *bool `json:"success,omitempty"`
+}
+
+func NewWSGAccessPointOperationalAccessPointWlansList() *WSGAccessPointOperationalAccessPointWlansList {
+	m := new(WSGAccessPointOperationalAccessPointWlansList)
+	return m
+}
+
+// WSGAccessPointOperationalAccessPointWlansListData
+//
+// Definition: accesspointoperational_accessPointWlansListData
+type WSGAccessPointOperationalAccessPointWlansListData struct {
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*WSGAccessPointOperationalAccessPointWlanEntry `json:"list,omitempty"`
+
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGAccessPointOperationalAccessPointWlansListData() *WSGAccessPointOperationalAccessPointWlansListData {
+	m := new(WSGAccessPointOperationalAccessPointWlansListData)
+	return m
+}
+
 // AddApsApPacketCaptureDownloadByApMac
 //
 // Operation ID: addApsApPacketCaptureDownloadByApMac
@@ -534,6 +606,35 @@ func (s *WSGAccessPointOperationalService) FindRoguesInfoListByQueryCriteria(ctx
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGRogueInfoList()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// FindSpecificApWlanDetailsByQueryCriteria
+//
+// Operation ID: findSpecificApWlanDetailsByQueryCriteria
+//
+// Fetch detailed information on WLANs associated with a specific AP
+//
+// Required Parameters:
+// - apMac string
+//		- required
+func (s *WSGAccessPointOperationalService) FindSpecificApWlanDetailsByQueryCriteria(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGAccessPointOperationalAccessPointWlansList, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *WSGAccessPointOperationalAccessPointWlansList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSpecificApWlanDetailsByQueryCriteria, true)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req.SetPathParameter("apMac", apMac)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = NewWSGAccessPointOperationalAccessPointWlansList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

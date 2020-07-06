@@ -795,7 +795,7 @@ const (
 	RouteWSGFindSessionManagement                                                = "/wsg/api/public/v9_0/sessionManagement"
 	RouteWSGFindSmsGateway                                                       = "/wsg/api/public/v9_0/smsGateway"
 	RouteWSGFindSmsGatewayByQueryCriteria                                        = "/wsg/api/public/v9_0/smsGateway/query"
-	RouteWSGFindSpecificApWlanDetailsByQueryCriteria                             = "/wsg/api/public/v9_0/aps/{apMac}/wlan"
+	RouteWSGFindSpecificApWlanDetails                                            = "/wsg/api/public/v9_0/aps/{apMac}/wlan"
 	RouteWSGFindSystem                                                           = "/wsg/api/public/v9_0/system"
 	RouteWSGFindSystemApMacOUIs                                                  = "/wsg/api/public/v9_0/system/apMacOUIs"
 	RouteWSGFindSystemApmodels                                                   = "/wsg/api/public/v9_0/system/apmodels"

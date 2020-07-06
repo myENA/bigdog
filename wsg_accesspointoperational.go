@@ -610,16 +610,16 @@ func (s *WSGAccessPointOperationalService) FindRoguesInfoListByQueryCriteria(ctx
 	return resp, rm, err
 }
 
-// FindSpecificApWlanDetailsByQueryCriteria
+// FindSpecificApWlanDetails
 //
-// Operation ID: findSpecificApWlanDetailsByQueryCriteria
+// Operation ID: findSpecificApWlanDetails
 //
 // Fetch detailed information on WLANs associated with a specific AP
 //
 // Required Parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointOperationalService) FindSpecificApWlanDetailsByQueryCriteria(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGAccessPointOperationalAccessPointWlansList, *APIResponseMeta, error) {
+func (s *WSGAccessPointOperationalService) FindSpecificApWlanDetails(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGAccessPointOperationalAccessPointWlansList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -630,7 +630,7 @@ func (s *WSGAccessPointOperationalService) FindSpecificApWlanDetailsByQueryCrite
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindSpecificApWlanDetailsByQueryCriteria, true)
+	req = NewAPIRequest(http.MethodGet, RouteWSGFindSpecificApWlanDetails, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

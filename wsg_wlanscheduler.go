@@ -176,6 +176,88 @@ func NewWSGWLANSchedulerWlanScheduleList() *WSGWLANSchedulerWlanScheduleList {
 	return m
 }
 
+// WSGWLANSchedulerWlanScheduleQueryResultEntry
+//
+// Definition: wlanscheduler_wlanScheduleQueryResultEntry
+type WSGWLANSchedulerWlanScheduleQueryResultEntry struct {
+	CreateDateTime *int `json:"createDateTime,omitempty"`
+
+	CreatorId *string `json:"creatorId,omitempty"`
+
+	CreatorUsername *string `json:"creatorUsername,omitempty"`
+
+	Description *string `json:"description,omitempty"`
+
+	DomainId *string `json:"domainId,omitempty"`
+
+	// Id
+	// This is seemingly always empty.  Leaving it here in case it suddenly becomes used...
+	Id interface{} `json:"id,omitempty"`
+
+	// Key
+	// This is the actual ID of the WLAN Scheduler.  I don't know why.
+	Key *string `json:"key,omitempty"`
+
+	ModifiedDateTime *int `json:"modifiedDateTime,omitempty"`
+
+	ModifierId *string `json:"modifierId,omitempty"`
+
+	ModifierUsername *string `json:"modifierUsername,omitempty"`
+
+	Name *string `json:"name,omitempty"`
+
+	OptimisticLockVersion *int `json:"optimisticLockVersion,omitempty"`
+
+	// ScheduleList
+	// Comma-delimited scheduler time list
+	ScheduleList *string `json:"scheduleList,omitempty"`
+
+	// TenantId
+	// This seems to always be the same value as tenantUUID.  I don't know why.
+	TenantId *string `json:"tenantId,omitempty"`
+
+	// TenantUUID
+	// This seems to always be the same value as tenantId.  I don't know why.
+	TenantUUID *string `json:"tenantUUID,omitempty"`
+
+	// WlanIds
+	// This seems to always be empty
+	WlanIds []interface{} `json:"wlanIds,omitempty"`
+
+	ZoneName *string `json:"zoneName,omitempty"`
+
+	ZoneUUID *string `json:"zoneUUID,omitempty"`
+}
+
+func NewWSGWLANSchedulerWlanScheduleQueryResultEntry() *WSGWLANSchedulerWlanScheduleQueryResultEntry {
+	m := new(WSGWLANSchedulerWlanScheduleQueryResultEntry)
+	return m
+}
+
+// WSGWLANSchedulerWlanScheduleQueryResultList
+//
+// Definition: wlanscheduler_wlanScheduleQueryResultList
+type WSGWLANSchedulerWlanScheduleQueryResultList struct {
+	Extra interface{} `json:"extra,omitempty"`
+
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*WSGWLANSchedulerWlanScheduleQueryResultEntry `json:"list,omitempty"`
+
+	// RawDataTotalCount
+	// Seemingly always empty
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewWSGWLANSchedulerWlanScheduleQueryResultList() *WSGWLANSchedulerWlanScheduleQueryResultList {
+	m := new(WSGWLANSchedulerWlanScheduleQueryResultList)
+	return m
+}
+
 // AddRkszonesWlanSchedulersByZoneId
 //
 // Operation ID: addRkszonesWlanSchedulersByZoneId

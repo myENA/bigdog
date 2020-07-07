@@ -191,7 +191,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx 
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesAuthAuthorizationList, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetQueryParameter("type_", []string{type_})
+	req.SetQueryParameter("type", []string{type_})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileBaseServiceInfoList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

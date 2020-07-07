@@ -443,8 +443,8 @@ type WSGSCGUserPatchScgUserGroup struct {
 
 	// Users
 	// Constraints:
-	//    - required
-	Users []*WSGSCGUserGetScgUser `json:"users"`
+	//    - nullable
+	Users []*WSGSCGUserGetScgUser `json:"users,omitempty"`
 }
 
 func NewWSGSCGUserPatchScgUserGroup() *WSGSCGUserPatchScgUserGroup {
@@ -643,8 +643,8 @@ type WSGSCGUserGroup struct {
 	// Users
 	// Users in this user group
 	// Constraints:
-	//    - required
-	Users []*WSGSCGUserGetScgUser `json:"users"`
+	//    - nullable
+	Users []*WSGSCGUserGetScgUser `json:"users,omitempty"`
 }
 
 func NewWSGSCGUserGroup() *WSGSCGUserGroup {

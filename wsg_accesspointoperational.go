@@ -63,7 +63,7 @@ func NewWSGAccessPointOperationalAccessPointWlanEntry() *WSGAccessPointOperation
 //
 // Definition: accesspointoperational_accessPointWlansList
 type WSGAccessPointOperationalAccessPointWlansList struct {
-	Data []*WSGAccessPointOperationalAccessPointWlansListData `json:"data,omitempty"`
+	Data *WSGAccessPointOperationalAccessPointWlansListData `json:"data,omitempty"`
 
 	Error interface{} `json:"error,omitempty"`
 

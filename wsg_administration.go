@@ -1281,7 +1281,7 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindAdminaaa, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetQueryParameter("type_", []string{type_})
+	req.SetQueryParameter("type", []string{type_})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationRetrieveAdminAAAServerList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

@@ -86,7 +86,7 @@ const (
 	SCIReportIDComparison           = 19
 	SCIReportIDClientHealth         = 20
 
-	SCIAccessTokenQueryParameter = "accessToken"
+	SCIAccessTokenQueryParameter = "access_token"
 )
 
 const (

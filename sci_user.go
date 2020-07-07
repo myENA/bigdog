@@ -338,9 +338,9 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLogi
 // Logout a user with access token.
 //
 // Required Parameters:
-// - accessToken string
+// - accesstoken string
 //		- required
-func (s *SCIUserService) UserLogout(ctx context.Context, accessToken string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -353,7 +353,7 @@ func (s *SCIUserService) UserLogout(ctx context.Context, accessToken string, mut
 	req = NewAPIRequest(http.MethodPost, RouteSCIUserLogout, false)
 	req.SetHeader(headerKeyContentType, "*/*")
 	req.SetHeader(headerKeyAccept, "*/*")
-	req.SetQueryParameter("accessToken", []string{accessToken})
+	req.SetQueryParameter("access_token", []string{accesstoken})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

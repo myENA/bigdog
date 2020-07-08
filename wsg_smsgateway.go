@@ -91,11 +91,11 @@ func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context
 //
 // Request Body:
 //	 - body *WSGSystemSms
-func (s *WSGSMSGatewayService) PartialUpdateSmsGateway(ctx context.Context, body *WSGSystemSms, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
+func (s *WSGSMSGatewayService) PartialUpdateSmsGateway(ctx context.Context, body *WSGSystemSms, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     interface{}
+		resp     *RawResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -109,7 +109,7 @@ func (s *WSGSMSGatewayService) PartialUpdateSmsGateway(ctx context.Context, body
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(interface{})
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawResponse)
+	rm, err = handleRawResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

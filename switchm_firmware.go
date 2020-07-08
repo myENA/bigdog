@@ -160,11 +160,11 @@ func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *Sw
 // Form Data Parameters:
 // - uploadFile io.Reader
 //		- required
-func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
+func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     interface{}
+		resp     *RawResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -179,8 +179,8 @@ func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, fi
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(interface{})
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawResponse)
+	rm, err = handleRawResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -193,11 +193,11 @@ func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, fi
 // Required Parameters:
 // - version string
 //		- required
-func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Context, version string, mutators ...RequestMutator) (interface{}, *APIResponseMeta, error) {
+func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Context, version string, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     interface{}
+		resp     *RawResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -209,8 +209,8 @@ func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Conte
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("version", version)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(interface{})
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawResponse)
+	rm, err = handleRawResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 

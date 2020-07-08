@@ -458,7 +458,7 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 	return newAPIResponseMeta(req, successCode, httpResp), finalErr
 }
 
-func handleFileResponse(req *APIRequest, successCode int, httpResp *http.Response, fileResp *FileResponse, sourceErr error) (*APIResponseMeta, error) {
+func handleRawResponse(req *APIRequest, successCode int, httpResp *http.Response, rawResp *RawResponse, sourceErr error) (*APIResponseMeta, error) {
 	var (
 		rm  *APIResponseMeta
 		err error
@@ -470,13 +470,8 @@ func handleFileResponse(req *APIRequest, successCode int, httpResp *http.Respons
 		return rm, err
 	}
 
-	if v := httpResp.Header.Get("Content-Length"); v != "" {
-		fileResp.ContentLength, _ = strconv.Atoi(v)
-	}
-
-	fileResp.ContentType = httpResp.Header.Get("Content-Type")
-	fileResp.ContentDisposition = httpResp.Header.Get("Content-Disposition")
-	fileResp.Body = buff
+	rawResp.Header = httpResp.Header
+	rawResp.Body = buff
 
 	return rm, nil
 }
@@ -522,9 +517,23 @@ func NewSCIService(c *SCIClient) *SCIService {
 	return s
 }
 
-type FileResponse struct {
-	ContentDisposition string
-	ContentType        string
-	ContentLength      int
-	Body               io.Reader
+type RawResponse struct {
+	Header http.Header
+	Body   io.Reader
+}
+
+func (r *RawResponse) ContentType() string {
+	return r.Header.Get("Content-Type")
+}
+
+func (r *RawResponse) ContentLength() int {
+	if v := r.Header.Get("Content-Length"); v != "" {
+		l, _ := strconv.Atoi(v)
+		return l
+	}
+	return 0
+}
+
+func (r *RawResponse) ContentDisposition() string {
+	return r.Header.Get("Content-Disposition")
 }

@@ -21,36 +21,6 @@ func (ss *SCIService) SCIComparisonReportService() *SCIComparisonReportService {
 	return NewSCIComparisonReportService(ss.apiClient)
 }
 
-// SCIComparisonReport145comparisionMetric1Data
-//
-// Definition: ComparisonReport.ComparisonReport.145.comparisionMetric1.Data
-type SCIComparisonReport145comparisionMetric1Data []interface{}
-
-func MakeSCIComparisonReport145comparisionMetric1Data() SCIComparisonReport145comparisionMetric1Data {
-	m := make(SCIComparisonReport145comparisionMetric1Data, 0)
-	return m
-}
-
-// SCIComparisonReport146comparisionMetric2Data
-//
-// Definition: ComparisonReport.ComparisonReport.146.comparisionMetric2.Data
-type SCIComparisonReport146comparisionMetric2Data []interface{}
-
-func MakeSCIComparisonReport146comparisionMetric2Data() SCIComparisonReport146comparisionMetric2Data {
-	m := make(SCIComparisonReport146comparisionMetric2Data, 0)
-	return m
-}
-
-// SCIComparisonReport147comparisionTableData
-//
-// Definition: ComparisonReport.ComparisonReport.147.comparisionTable.Data
-type SCIComparisonReport147comparisionTableData []interface{}
-
-func MakeSCIComparisonReport147comparisionTableData() SCIComparisonReport147comparisionTableData {
-	m := make(SCIComparisonReport147comparisionTableData, 0)
-	return m
-}
-
 // ReportComparisonReport140ComparisionOverview
 //
 // Operation ID: report.ComparisonReport.140.comparisionOverview

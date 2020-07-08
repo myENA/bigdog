@@ -495,16 +495,6 @@ func NewSCIInventoryAPsReport58topAPsByRebootsDataType() *SCIInventoryAPsReport5
 	return m
 }
 
-// SCIInventoryAPsReport59apsConfiguredInMultiCtrlData
-//
-// Definition: InventoryAPsReport.InventoryAPsReport.59.apsConfiguredInMultiCtrl.Data
-type SCIInventoryAPsReport59apsConfiguredInMultiCtrlData []interface{}
-
-func MakeSCIInventoryAPsReport59apsConfiguredInMultiCtrlData() SCIInventoryAPsReport59apsConfiguredInMultiCtrlData {
-	m := make(SCIInventoryAPsReport59apsConfiguredInMultiCtrlData, 0)
-	return m
-}
-
 // SCIInventoryAPsReport60apDetailsOnOfflineStatusData
 //
 // Definition: InventoryAPsReport.InventoryAPsReport.60.apDetailsOnOfflineStatus.Data
@@ -540,16 +530,6 @@ type SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType struct {
 
 func NewSCIInventoryAPsReport60apDetailsOnOfflineStatusDataType() *SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType {
 	m := new(SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType)
-	return m
-}
-
-// SCIInventoryAPsReport61apDetailsOtherStatusData
-//
-// Definition: InventoryAPsReport.InventoryAPsReport.61.apDetailsOtherStatus.Data
-type SCIInventoryAPsReport61apDetailsOtherStatusData []interface{}
-
-func MakeSCIInventoryAPsReport61apDetailsOtherStatusData() SCIInventoryAPsReport61apDetailsOtherStatusData {
-	m := make(SCIInventoryAPsReport61apDetailsOtherStatusData, 0)
 	return m
 }
 

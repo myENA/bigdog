@@ -192,7 +192,7 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchconfigByConfigId, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, "plain/text")
 	req.SetPathParameter("configId", configId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(interface{})

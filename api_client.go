@@ -1,7 +1,6 @@
 package bigdog
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -405,9 +404,17 @@ func cleanupHTTPResponseBody(hp *http.Response) {
 }
 
 func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, error) {
-	var finalErr error
+	var (
+		finalErr error
 
-	defer cleanupHTTPResponseBody(httpResp)
+		requiresCleanup = true
+	)
+
+	defer func() {
+		if requiresCleanup {
+			cleanupHTTPResponseBody(httpResp)
+		}
+	}()
 
 	if sourceErr != nil {
 		// if the incoming error is from a service ticket provider, return as-is
@@ -419,7 +426,6 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 			// otherwise, build response meta and return source error
 			return newAPIResponseMeta(req, successCode, httpResp), sourceErr
 		}
-
 		return newErrAPIResponseMeta(), sourceErr
 	}
 
@@ -427,8 +433,8 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 		panic(fmt.Sprintf("severe problem: nil *http.Response seen with nil error. meta: %v", newAPIResponseMeta(req, successCode, httpResp)))
 	}
 
+	// if the response code matches the expected "success" code...
 	if httpResp.StatusCode == successCode {
-		// if the response code matches the expected "success" code...
 		if modelPtr != nil {
 			if w, ok := modelPtr.(io.Writer); ok {
 				if _, err := io.Copy(w, httpResp.Body); err != nil {
@@ -440,6 +446,10 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 				} else {
 					*b = tmp
 				}
+			} else if rr, ok := modelPtr.(*RawResponse); ok {
+				requiresCleanup = false
+				rr.Body = httpResp.Body
+				rr.Header = httpResp.Header
 			} else if err := json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil && err != io.EOF {
 				// ... and this query has a modeled response, attempt to unmarshal into that type
 				finalErr = fmt.Errorf("error unmarshalling response body into %T: %w", modelPtr, err)
@@ -456,24 +466,6 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 
 	// build response.
 	return newAPIResponseMeta(req, successCode, httpResp), finalErr
-}
-
-func handleRawResponse(req *APIRequest, successCode int, httpResp *http.Response, rawResp *RawResponse, sourceErr error) (*APIResponseMeta, error) {
-	var (
-		rm  *APIResponseMeta
-		err error
-
-		buff = new(bytes.Buffer)
-	)
-
-	if rm, err = handleResponse(req, successCode, httpResp, buff, sourceErr); err != nil {
-		return rm, err
-	}
-
-	rawResp.Header = httpResp.Header
-	rawResp.Body = buff
-
-	return rm, nil
 }
 
 func addContentDispositionHeader(req *APIRequest, key, filename string) {
@@ -519,7 +511,7 @@ func NewSCIService(c *SCIClient) *SCIService {
 
 type RawResponse struct {
 	Header http.Header
-	Body   io.Reader
+	Body   io.ReadCloser
 }
 
 func (r *RawResponse) ContentType() string {

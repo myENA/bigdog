@@ -842,8 +842,6 @@ func NewWSGCommonMac() *WSGCommonMac {
 //
 // Definition: common_monitoringSummary
 type WSGCommonMonitoringSummary struct {
-	FlaggedCount *int `json:"flaggedCount,omitempty"`
-
 	OfflineCount *int `json:"offlineCount,omitempty"`
 
 	OnlineCount *int `json:"onlineCount,omitempty"`

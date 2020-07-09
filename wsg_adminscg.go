@@ -29,10 +29,6 @@ type WSGAdminSCGScgAaaServer struct {
 
 	Error interface{} `json:"error,omitempty"`
 
-	Extra interface{} `json:"extra,omitempty"`
-
-	MetaData *WSGAdminSCGScgAaaServerMetaDataType `json:"metaData,omitempty"`
-
 	Success *bool `json:"success,omitempty"`
 }
 
@@ -47,7 +43,7 @@ func NewWSGAdminSCGScgAaaServer() *WSGAdminSCGScgAaaServer {
 type WSGAdminSCGScgAaaServerDataType struct {
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []*WSGAdminSCGScgAaaServerDataTypeListType `json:"list,omitempty"`
+	List []*WSGAdminSCGScgAaaServerEntry `json:"list,omitempty"`
 
 	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
 
@@ -59,10 +55,10 @@ func NewWSGAdminSCGScgAaaServerDataType() *WSGAdminSCGScgAaaServerDataType {
 	return m
 }
 
-// WSGAdminSCGScgAaaServerDataTypeListType
+// WSGAdminSCGScgAaaServerEntry
 //
-// Definition: adminscg_scgAaaServerDataTypeListType
-type WSGAdminSCGScgAaaServerDataTypeListType struct {
+// Definition: adminscg_scgAaaServerEntry
+type WSGAdminSCGScgAaaServerEntry struct {
 	AdminDomainName *string `json:"adminDomainName,omitempty"`
 
 	AuditLabel *string `json:"auditLabel,omitempty"`
@@ -232,42 +228,8 @@ type WSGAdminSCGScgAaaServerDataTypeListType struct {
 	ZombiePeriod *int `json:"zombiePeriod,omitempty"`
 }
 
-func NewWSGAdminSCGScgAaaServerDataTypeListType() *WSGAdminSCGScgAaaServerDataTypeListType {
-	m := new(WSGAdminSCGScgAaaServerDataTypeListType)
-	return m
-}
-
-// WSGAdminSCGScgAaaServerMetaDataType
-//
-// Definition: adminscg_scgAaaServerMetaDataType
-type WSGAdminSCGScgAaaServerMetaDataType struct {
-	Fields []*WSGAdminSCGScgAaaServerMetaDataTypeFieldsType `json:"fields,omitempty"`
-
-	IdProperty *string `json:"idProperty,omitempty"`
-
-	MessageProperty *string `json:"messageProperty,omitempty"`
-
-	Root *string `json:"root,omitempty"`
-
-	SuccessProperty *string `json:"successProperty,omitempty"`
-
-	TotalProperty *string `json:"totalProperty,omitempty"`
-}
-
-func NewWSGAdminSCGScgAaaServerMetaDataType() *WSGAdminSCGScgAaaServerMetaDataType {
-	m := new(WSGAdminSCGScgAaaServerMetaDataType)
-	return m
-}
-
-// WSGAdminSCGScgAaaServerMetaDataTypeFieldsType
-//
-// Definition: adminscg_scgAaaServerMetaDataTypeFieldsType
-type WSGAdminSCGScgAaaServerMetaDataTypeFieldsType struct {
-	Name *string `json:"name,omitempty"`
-}
-
-func NewWSGAdminSCGScgAaaServerMetaDataTypeFieldsType() *WSGAdminSCGScgAaaServerMetaDataTypeFieldsType {
-	m := new(WSGAdminSCGScgAaaServerMetaDataTypeFieldsType)
+func NewWSGAdminSCGScgAaaServerEntry() *WSGAdminSCGScgAaaServerEntry {
+	m := new(WSGAdminSCGScgAaaServerEntry)
 	return m
 }
 

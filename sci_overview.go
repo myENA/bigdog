@@ -469,7 +469,7 @@ func MakeSCIOverview97factOverviewData() SCIOverview97factOverviewData {
 type SCIOverview97factOverviewDataType struct {
 	Key *string `json:"key,omitempty"`
 
-	Label interface{} `json:"label,omitempty"`
+	Label *string `json:"label,omitempty"`
 
 	Value *float64 `json:"value,omitempty"`
 }

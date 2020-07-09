@@ -863,7 +863,7 @@ func NewSCIReportInventoryAPsReport58topAPsByReboots200ResponseType() *SCIReport
 //
 // Definition: report.InventoryAPsReport.59.apsConfiguredInMultiCtrl200ResponseType
 type SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType struct {
-	Data interface{} `json:"data,omitempty"`
+	Data SCIInventoryAPsReport59apsConfiguredInMultiCtrlData `json:"data,omitempty"`
 
 	Metadata interface{} `json:"metadata,omitempty"`
 }

@@ -237,7 +237,7 @@ func NewSCINetworkWiredReport135wiredTrafficDistributionDataType() *SCINetworkWi
 //
 // Definition: NetworkWiredReport.NetworkWiredReport.135.wiredTrafficDistribution.DataTypeSeriesType
 type SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType struct {
-	Data []int `json:"data,omitempty"`
+	Data []float64 `json:"data,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 }

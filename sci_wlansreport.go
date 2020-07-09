@@ -43,7 +43,7 @@ type SCIWLANsReport35overviewDataType struct {
 
 	TotalDeletedClientCount *float64 `json:"totalDeletedClientCount,omitempty"`
 
-	TotalDeletedSsids *int `json:"totalDeletedSsids,omitempty"`
+	TotalDeletedSsids *float64 `json:"totalDeletedSsids,omitempty"`
 
 	TotalSsids *int `json:"totalSsids,omitempty"`
 }

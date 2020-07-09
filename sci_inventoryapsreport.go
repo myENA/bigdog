@@ -495,6 +495,44 @@ func NewSCIInventoryAPsReport58topAPsByRebootsDataType() *SCIInventoryAPsReport5
 	return m
 }
 
+// SCIInventoryAPsReport59apsConfiguredInMultiCtrlData
+//
+// Definition: InventoryAPsReport.InventoryAPsReport.59.apsConfiguredInMultiCtrl.Data
+type SCIInventoryAPsReport59apsConfiguredInMultiCtrlData []*SCIInventoryAPsReport59apsConfiguredInMultiCtrlDataType
+
+func MakeSCIInventoryAPsReport59apsConfiguredInMultiCtrlData() SCIInventoryAPsReport59apsConfiguredInMultiCtrlData {
+	m := make(SCIInventoryAPsReport59apsConfiguredInMultiCtrlData, 0)
+	return m
+}
+
+// SCIInventoryAPsReport59apsConfiguredInMultiCtrlDataType
+//
+// Definition: InventoryAPsReport.InventoryAPsReport.59.apsConfiguredInMultiCtrl.DataType
+type SCIInventoryAPsReport59apsConfiguredInMultiCtrlDataType struct {
+	ApMac *string `json:"apMac,omitempty"`
+
+	ApModel *string `json:"apModel,omitempty"`
+
+	ApName *string `json:"apName,omitempty"`
+
+	ConnectionStatus *string `json:"connectionStatus,omitempty"`
+
+	CtrlModel *string `json:"ctrlModel,omitempty"`
+
+	Index *int `json:"index,omitempty"`
+
+	LastSystem *string `json:"lastSystem,omitempty"`
+
+	System *string `json:"system,omitempty"`
+
+	SystemCount *int `json:"systemCount,omitempty"`
+}
+
+func NewSCIInventoryAPsReport59apsConfiguredInMultiCtrlDataType() *SCIInventoryAPsReport59apsConfiguredInMultiCtrlDataType {
+	m := new(SCIInventoryAPsReport59apsConfiguredInMultiCtrlDataType)
+	return m
+}
+
 // SCIInventoryAPsReport60apDetailsOnOfflineStatusData
 //
 // Definition: InventoryAPsReport.InventoryAPsReport.60.apDetailsOnOfflineStatus.Data

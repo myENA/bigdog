@@ -32,8 +32,6 @@ type SCICommonQueryBody struct {
 	// Constraints:
 	//    - required
 	Start *string `json:"start"`
-
-	SwitchFilter *SCICommonQueryFilter `json:"switchFilter,omitempty"`
 }
 
 func NewSCICommonQueryBody() *SCICommonQueryBody {

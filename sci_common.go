@@ -49,9 +49,7 @@ type SCICommonQueryFilter struct {
 
 	Dimension *string `json:"dimension,omitempty"`
 
-	Filter []*SCICommonQueryFilter `json:"filter,omitempty"`
-
-	Function *string `json:"function,omitempty"`
+	Fields []*SCICommonQueryFilter `json:"fields,omitempty"`
 
 	Lower *string `json:"lower,omitempty"`
 

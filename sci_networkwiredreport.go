@@ -398,8 +398,8 @@ func NewSCINetworkWiredReport143topSwitchesByErrorsTableDataType() *SCINetworkWi
 // Network - Wired Report - Top Switches by PoE Usage
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCINetworkWiredReportService) ReportNetworkWiredReport123TopSwitchPOEUtilChart(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCINetworkWiredReportService) ReportNetworkWiredReport123TopSwitchPOEUtilChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -429,8 +429,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport123TopSwitchPOEUt
 // Network - Wired Report - Top Switches by PoE Usage
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCINetworkWiredReportService) ReportNetworkWiredReport124TopSwitchPOEUtils(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCINetworkWiredReportService) ReportNetworkWiredReport124TopSwitchPOEUtils(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -460,8 +460,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport124TopSwitchPOEUt
 // Network - Wired Report - Top Switches by Traffic
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCINetworkWiredReportService) ReportNetworkWiredReport127Top10SwitchesByTrafficVolume(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCINetworkWiredReportService) ReportNetworkWiredReport127Top10SwitchesByTrafficVolume(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -491,8 +491,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport127Top10SwitchesB
 // Network - Wired Report - Top Switches by Traffic
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCINetworkWiredReportService) ReportNetworkWiredReport128TopSwitchesByTrafficTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCINetworkWiredReportService) ReportNetworkWiredReport128TopSwitchesByTrafficTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -522,8 +522,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport128TopSwitchesByT
 // Network - Wired Report - Overview
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCINetworkWiredReportService) ReportNetworkWiredReport134WiredOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport134wiredOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCINetworkWiredReportService) ReportNetworkWiredReport134WiredOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport134wiredOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -553,8 +553,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport134WiredOverview(
 // Network - Wired Report - Traffic Distribution by Switch Model and Port Speed
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCINetworkWiredReportService) ReportNetworkWiredReport135WiredTrafficDistribution(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCINetworkWiredReportService) ReportNetworkWiredReport135WiredTrafficDistribution(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -584,8 +584,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport135WiredTrafficDi
 // Network - Wired Report - Traffic Trend
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCINetworkWiredReportService) ReportNetworkWiredReport136SwitchTrafficTrend(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCINetworkWiredReportService) ReportNetworkWiredReport136SwitchTrafficTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -615,8 +615,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport136SwitchTrafficT
 // Network - Wired Report - Error Trend
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCINetworkWiredReportService) ReportNetworkWiredReport141SwitchErrorTrend(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport141switchErrorTrend200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCINetworkWiredReportService) ReportNetworkWiredReport141SwitchErrorTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport141switchErrorTrend200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -646,8 +646,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport141SwitchErrorTre
 // Network - Wired Report - Top Switches by Errors
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCINetworkWiredReportService) ReportNetworkWiredReport142TopSwitchesByErrorsChart(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCINetworkWiredReportService) ReportNetworkWiredReport142TopSwitchesByErrorsChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -677,8 +677,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport142TopSwitchesByE
 // Network - Wired Report - Top Switches by Errors
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCINetworkWiredReportService) ReportNetworkWiredReport143TopSwitchesByErrorsTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCINetworkWiredReportService) ReportNetworkWiredReport143TopSwitchesByErrorsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

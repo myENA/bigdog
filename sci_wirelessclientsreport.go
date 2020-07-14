@@ -386,8 +386,8 @@ func NewSCIWirelessClientsReport112top10AuthenticationMechanismByClientCountMeta
 // Wireless - Clients Report - Overview
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport12Overview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport12overview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport12Overview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport12overview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -417,8 +417,8 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport12Overview(
 // Wireless - Clients Report - Top 10 Unique Clients by Traffic
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport13TopChart(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport13topChart200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport13TopChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport13topChart200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -448,8 +448,8 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport13TopChart(
 // Wireless - Clients Report - Clients Details
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport14TopTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport14topTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport14TopTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport14topTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -479,8 +479,8 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport14TopTable(
 // Wireless - Clients Report - Unique Clients Trend Over Time
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport15TrendChart(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport15trendChart200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport15TrendChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport15trendChart200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -510,8 +510,8 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport15TrendChar
 // Wireless - Clients Report - Unique Clients Trend Over Time
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport16TrendTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport16trendTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport16TrendTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport16trendTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -541,8 +541,8 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport16TrendTabl
 // Wireless - Clients Report - Top Clients by Traffic Percentile
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport17TopPercentile(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport17topPercentile200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport17TopPercentile(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport17topPercentile200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -572,8 +572,8 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport17TopPercen
 // Wireless - Clients Report - Top 10 OS by Client Count
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport18TopNOSByClientCount(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport18TopNOSByClientCount(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -603,8 +603,8 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport18TopNOSByC
 // Wireless - Clients Report - Top 10 Manufacturers by Client Count
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport19Top10ManufacturersByClientCount(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport19Top10ManufacturersByClientCount(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -634,8 +634,8 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport19Top10Manu
 // Wireless - Clients Report - Top 10 Authentication Methods by Client Count
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport112Top10AuthenticationMechanismByClientCount(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport112Top10AuthenticationMechanismByClientCount(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -863,7 +863,7 @@ func NewSCIReportInventoryAPsReport58topAPsByReboots200ResponseType() *SCIReport
 //
 // Definition: report.InventoryAPsReport.59.apsConfiguredInMultiCtrl200ResponseType
 type SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType struct {
-	Data SCIInventoryAPsReport59apsConfiguredInMultiCtrlData `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
 	Metadata interface{} `json:"metadata,omitempty"`
 }
@@ -1500,85 +1500,6 @@ type SCIReportOverview115networkUsageOverview200ResponseType struct {
 
 func NewSCIReportOverview115networkUsageOverview200ResponseType() *SCIReportOverview115networkUsageOverview200ResponseType {
 	m := new(SCIReportOverview115networkUsageOverview200ResponseType)
-	return m
-}
-
-// SCIReportQueryBody
-//
-// Definition: report.queryBody
-type SCIReportQueryBody struct {
-	// End
-	// Format: 2016-04-06T16:04:46+00:00
-	// Constraints:
-	//    - required
-	End *string `json:"end"`
-
-	Filter *SCIReportQueryFilter `json:"filter,omitempty"`
-
-	// Granularity
-	// Constraints:
-	//    - oneof:[all,fifteen_minute,thirty_minute,hour,day]
-	Granularity *string `json:"granularity,omitempty"`
-
-	Limit *float64 `json:"limit,omitempty"`
-
-	Metric *string `json:"metric,omitempty"`
-
-	// PagingIdentifiers
-	// Query results will return a pagingIdentifiers JSON object that can be reused in the next query for pagination.
-	PagingIdentifiers interface{} `json:"pagingIdentifiers,omitempty"`
-
-	// Start
-	// Format: 2016-04-06T16:04:46+00:00
-	// Constraints:
-	//    - required
-	Start *string `json:"start"`
-
-	SwitchFilter *SCIReportQueryFilter `json:"switchFilter,omitempty"`
-}
-
-func NewSCIReportQueryBody() *SCIReportQueryBody {
-	m := new(SCIReportQueryBody)
-	return m
-}
-
-// SCIReportQueryFilter
-//
-// Definition: report.queryFilter
-//
-// Data query filter body
-type SCIReportQueryFilter struct {
-	AlphaNumeric *bool `json:"alphaNumeric,omitempty"`
-
-	Dimension *string `json:"dimension,omitempty"`
-
-	Filter []*SCIReportQueryFilter `json:"filter,omitempty"`
-
-	Function *string `json:"function,omitempty"`
-
-	Lower *string `json:"lower,omitempty"`
-
-	LowerStrict *bool `json:"lowerStrict,omitempty"`
-
-	Pattern *string `json:"pattern,omitempty"`
-
-	// Type
-	// Type of filter
-	// Constraints:
-	//    - required
-	Type *string `json:"type"`
-
-	Upper *string `json:"upper,omitempty"`
-
-	UpperStrict *bool `json:"upperStrict,omitempty"`
-
-	Value *string `json:"value,omitempty"`
-
-	Values []string `json:"values,omitempty"`
-}
-
-func NewSCIReportQueryFilter() *SCIReportQueryFilter {
-	m := new(SCIReportQueryFilter)
 	return m
 }
 

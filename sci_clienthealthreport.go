@@ -134,8 +134,8 @@ func NewSCIClientHealthReport149clientHealthMetricTrendsDataType() *SCIClientHea
 // Client Health Report - Summary
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIClientHealthReportService) ReportClientHealthReport144ClientHealthSummary(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport144clientHealthSummary200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIClientHealthReportService) ReportClientHealthReport144ClientHealthSummary(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport144clientHealthSummary200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -165,8 +165,8 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport144ClientHealthSu
 // Client Health Report - Client Connection Health
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIClientHealthReportService) ReportClientHealthReport148ClientConnectionHealth(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport148clientConnectionHealth200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIClientHealthReportService) ReportClientHealthReport148ClientConnectionHealth(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport148clientConnectionHealth200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -196,8 +196,8 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport148ClientConnecti
 // Client Health Report - Health Metric Trends
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIClientHealthReportService) ReportClientHealthReport149ClientHealthMetricTrends(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIClientHealthReportService) ReportClientHealthReport149ClientHealthMetricTrends(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -227,8 +227,8 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport149ClientHealthMe
 // Client Health Report - Health By Group
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIClientHealthReportService) ReportClientHealthReport150TopClientHealthScoreByGroup(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIClientHealthReportService) ReportClientHealthReport150TopClientHealthScoreByGroup(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

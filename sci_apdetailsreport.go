@@ -666,8 +666,8 @@ func NewSCIAPDetailsReport85eventsTableDataType() *SCIAPDetailsReport85eventsTab
 // AP Details Report - Airtime Utilization Trend
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport5TrendChart(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport5trendChart200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport5TrendChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport5trendChart200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -697,8 +697,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport5TrendChart(ctx context
 // AP Details Report - Top Applications by Traffic
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport7Top10ApplicationsByTrafficVolume(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport7Top10ApplicationsByTrafficVolume(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -728,8 +728,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport7Top10ApplicationsByTra
 // AP Details Report - Top Applications by Traffic
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport8TopAppsByTrafficTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport8TopAppsByTrafficTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -759,8 +759,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport8TopAppsByTrafficTable(
 // AP Details Report - Clients Details
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport14TopTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport14topTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport14TopTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport14topTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -790,8 +790,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport14TopTable(ctx context.
 // AP Details Report - Unique Clients Trend Over Time
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport15TrendChart(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport15trendChart200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport15TrendChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport15trendChart200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -821,8 +821,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport15TrendChart(ctx contex
 // AP Details Report - Traffic Trend
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport22TrafficTrend(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport22trafficTrend200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport22TrafficTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport22trafficTrend200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -852,8 +852,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport22TrafficTrend(ctx cont
 // AP Details Report - Top SSIDs by Traffic
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport40TopSsidsByTrafficTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport40TopSsidsByTrafficTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -883,8 +883,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport40TopSsidsByTrafficTabl
 // AP Details Report - Summary
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport75ApSummary(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport75apSummary200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport75ApSummary(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport75apSummary200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -914,8 +914,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport75ApSummary(ctx context
 // AP Details Report - Performance
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport76ApPerformance(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport76apPerformance200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport76ApPerformance(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport76apPerformance200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -945,8 +945,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport76ApPerformance(ctx con
 // AP Details Report - Details
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport77ApDetails(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport77apDetails200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport77ApDetails(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport77apDetails200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -976,8 +976,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport77ApDetails(ctx context
 // AP Details Report - Stats
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport78ApStatsOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport78apStatsOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport78ApStatsOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport78apStatsOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1007,8 +1007,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport78ApStatsOverview(ctx c
 // AP Details Report - Uptime History
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport79ApUptimeHistory(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport79apUptimeHistory200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport79ApUptimeHistory(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport79apUptimeHistory200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1038,8 +1038,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport79ApUptimeHistory(ctx c
 // AP Details Report - Top 10 Clients by Traffic Volume
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport80Top10ClientsByTrafficVolume(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport80Top10ClientsByTrafficVolume(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1069,8 +1069,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport80Top10ClientsByTraffic
 // AP Details Report - Sessions
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport81SessionsTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport81sessionsTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport81SessionsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport81sessionsTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1100,8 +1100,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport81SessionsTable(ctx con
 // AP Details Report - RSS Trend
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport82RssTrend(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport82rssTrend200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport82RssTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport82rssTrend200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1131,8 +1131,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport82RssTrend(ctx context.
 // AP Details Report - SNR Trend
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport83SnrTrend(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport83snrTrend200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport83SnrTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport83snrTrend200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1162,8 +1162,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport83SnrTrend(ctx context.
 // AP Details Report - Alarms
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport84AlarmsTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport84alarmsTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport84AlarmsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport84alarmsTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1193,8 +1193,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport84AlarmsTable(ctx conte
 // AP Details Report - Events
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport85EventsTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport85eventsTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport85EventsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport85eventsTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1224,8 +1224,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport85EventsTable(ctx conte
 // AP Details Report - Anomalies
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport95Anomalies(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport95anomalies200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport95Anomalies(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport95anomalies200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1255,8 +1255,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport95Anomalies(ctx context
 // AP Details Report - Anomalies for the Past 30 Days
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPDetailsReportService) ReportAPDetailsReport110ApAnomaly(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport110apAnomaly200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPDetailsReportService) ReportAPDetailsReport110ApAnomaly(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport110apAnomaly200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

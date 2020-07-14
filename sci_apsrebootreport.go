@@ -117,7 +117,7 @@ type SCIAPsRebootReport45topApRebootsOverTimeDataType struct {
 
 	RuckusAP34FA9F1B81C0 *int `json:"RuckusAP (34:FA:9F:1B:81:C0),omitempty"`
 
-	RuckusAP34FA9F1B8230 *int `json:"RuckusAP (34:FA:9F:1B:82:30),omitempty"`
+	RuckusAPC803F50468F0 *int `json:"RuckusAP (C8:03:F5:04:68:F0),omitempty"`
 
 	RuckusAPE0107F288420 *int `json:"RuckusAP (E0:10:7F:28:84:20),omitempty"`
 
@@ -138,8 +138,8 @@ func NewSCIAPsRebootReport45topApRebootsOverTimeDataType() *SCIAPsRebootReport45
 // APs Reboot Report - Total Reboots
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPsRebootReportService) ReportAPsRebootReport43TotalReboots(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPsRebootReport43totalReboots200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPsRebootReportService) ReportAPsRebootReport43TotalReboots(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPsRebootReport43totalReboots200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -169,8 +169,8 @@ func (s *SCIAPsRebootReportService) ReportAPsRebootReport43TotalReboots(ctx cont
 // APs Reboot Report - Top AP Reboots
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPsRebootReportService) ReportAPsRebootReport44TopApRebootsTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPsRebootReport44topApRebootsTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPsRebootReportService) ReportAPsRebootReport44TopApRebootsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPsRebootReport44topApRebootsTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -200,8 +200,8 @@ func (s *SCIAPsRebootReportService) ReportAPsRebootReport44TopApRebootsTable(ctx
 // APs Reboot Report - AP Reboots
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAPsRebootReportService) ReportAPsRebootReport45TopApRebootsOverTime(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAPsRebootReportService) ReportAPsRebootReport45TopApRebootsOverTime(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -495,44 +495,6 @@ func NewSCIInventoryAPsReport58topAPsByRebootsDataType() *SCIInventoryAPsReport5
 	return m
 }
 
-// SCIInventoryAPsReport59apsConfiguredInMultiCtrlData
-//
-// Definition: InventoryAPsReport.InventoryAPsReport.59.apsConfiguredInMultiCtrl.Data
-type SCIInventoryAPsReport59apsConfiguredInMultiCtrlData []*SCIInventoryAPsReport59apsConfiguredInMultiCtrlDataType
-
-func MakeSCIInventoryAPsReport59apsConfiguredInMultiCtrlData() SCIInventoryAPsReport59apsConfiguredInMultiCtrlData {
-	m := make(SCIInventoryAPsReport59apsConfiguredInMultiCtrlData, 0)
-	return m
-}
-
-// SCIInventoryAPsReport59apsConfiguredInMultiCtrlDataType
-//
-// Definition: InventoryAPsReport.InventoryAPsReport.59.apsConfiguredInMultiCtrl.DataType
-type SCIInventoryAPsReport59apsConfiguredInMultiCtrlDataType struct {
-	ApMac *string `json:"apMac,omitempty"`
-
-	ApModel *string `json:"apModel,omitempty"`
-
-	ApName *string `json:"apName,omitempty"`
-
-	ConnectionStatus *string `json:"connectionStatus,omitempty"`
-
-	CtrlModel *string `json:"ctrlModel,omitempty"`
-
-	Index *int `json:"index,omitempty"`
-
-	LastSystem *string `json:"lastSystem,omitempty"`
-
-	System *string `json:"system,omitempty"`
-
-	SystemCount *int `json:"systemCount,omitempty"`
-}
-
-func NewSCIInventoryAPsReport59apsConfiguredInMultiCtrlDataType() *SCIInventoryAPsReport59apsConfiguredInMultiCtrlDataType {
-	m := new(SCIInventoryAPsReport59apsConfiguredInMultiCtrlDataType)
-	return m
-}
-
 // SCIInventoryAPsReport60apDetailsOnOfflineStatusData
 //
 // Definition: InventoryAPsReport.InventoryAPsReport.60.apDetailsOnOfflineStatus.Data
@@ -578,8 +540,8 @@ func NewSCIInventoryAPsReport60apDetailsOnOfflineStatusDataType() *SCIInventoryA
 // Inventory - APs Report - Overview
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport46ApInventoryOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport46apInventoryOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport46ApInventoryOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport46apInventoryOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -609,8 +571,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport46ApInventoryOver
 // Inventory - APs Report - Top APs by Offline Duration
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport47TopApsDisconnection(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport47topApsDisconnection200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport47TopApsDisconnection(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport47topApsDisconnection200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -640,8 +602,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport47TopApsDisconnec
 // Inventory - APs Report - AP Count Trend
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport48ApCountTrend(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport48apCountTrend200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport48ApCountTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport48apCountTrend200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -671,8 +633,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport48ApCountTrend(ct
 // Inventory - APs Report - AP Status Trends
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport49ApStatusTrend(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport49apStatusTrend200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport49ApStatusTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport49apStatusTrend200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -702,8 +664,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport49ApStatusTrend(c
 // Inventory - APs Report - Top AP Models
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport50TopApsModelsChart(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport50topApsModelsChart200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport50TopApsModelsChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport50topApsModelsChart200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -733,8 +695,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport50TopApsModelsCha
 // Inventory - APs Report - Top AP Software Versions
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport51Top10ApVersionsChart(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport51Top10ApVersionsChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -764,8 +726,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport51Top10ApVersions
 // Inventory - APs Report - Top 10 AP Reboot Reasons
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport52TopApsRebootReasons(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport52TopApsRebootReasons(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -795,8 +757,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport52TopApsRebootRea
 // Inventory - APs Report - Top APs by Reboot Count
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport53Top10ApsRebootCounts(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport53Top10ApsRebootCounts(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -826,8 +788,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport53Top10ApsRebootC
 // Inventory - APs Report - Top 10 AP Alarm Types
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport54TopApAlarmTypes(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport54TopApAlarmTypes(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -857,8 +819,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport54TopApAlarmTypes
 // Inventory - APs Report - Top AP Models
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport55TopAPModels(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport55topAPModels200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport55TopAPModels(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport55topAPModels200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -888,8 +850,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport55TopAPModels(ctx
 // Inventory - APs Report - Top AP Software Versions
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport56TopAPVersions(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport56topAPVersions200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport56TopAPVersions(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport56topAPVersions200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -919,8 +881,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport56TopAPVersions(c
 // Inventory - APs Report - Top APs by Offline Duration
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport57TopAPsOffline(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport57topAPsOffline200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport57TopAPsOffline(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport57topAPsOffline200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -950,8 +912,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport57TopAPsOffline(c
 // Inventory - APs Report - Top APs by Reboot Count
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport58TopAPsByReboots(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport58topAPsByReboots200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport58TopAPsByReboots(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport58topAPsByReboots200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -981,8 +943,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport58TopAPsByReboots
 // Inventory - APs Report - APs Configured in Multiple Systems
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport59ApsConfiguredInMultiCtrl(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport59ApsConfiguredInMultiCtrl(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1012,8 +974,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport59ApsConfiguredIn
 // Inventory - APs Report - AP Details for Online/Offline Status
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport60ApDetailsOnOfflineStatus(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport60ApDetailsOnOfflineStatus(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1043,8 +1005,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport60ApDetailsOnOffl
 // Inventory - APs Report - AP Details for Other Statuses
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport61ApDetailsOtherStatus(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport61ApDetailsOtherStatus(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

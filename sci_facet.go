@@ -44,10 +44,11 @@ func MakeSCIFacetGetFacet200ResponseType() SCIFacetGetFacet200ResponseType {
 //   </code>
 // </pre>
 //
+// Request Body:
+//	 - body *SCICommonQueryBody
+//
 // Form Data Parameters:
 // - end string
-//		- nullable
-// - filter string
 //		- nullable
 // - start string
 //		- nullable
@@ -55,8 +56,8 @@ func MakeSCIFacetGetFacet200ResponseType() SCIFacetGetFacet200ResponseType {
 // Required Parameters:
 // - name string
 //		- required
-//		- oneof:[system,switchHierarchy,apmac,ssid]
-func (s *SCIFacetService) FacetGetFacet(ctx context.Context, formValues url.Values, name string, mutators ...RequestMutator) (SCIFacetGetFacet200ResponseType, *APIResponseMeta, error) {
+//		- oneof:[system,switchHierarchy,apmac,ssid,switches]
+func (s *SCIFacetService) FacetGetFacet(ctx context.Context, body *SCICommonQueryBody, formValues url.Values, name string, mutators ...RequestMutator) (SCIFacetGetFacet200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -70,6 +71,9 @@ func (s *SCIFacetService) FacetGetFacet(ctx context.Context, formValues url.Valu
 	req = NewAPIRequest(http.MethodPost, RouteSCIFacetGetFacet, true)
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
 	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
 		return resp, rm, err
 	}

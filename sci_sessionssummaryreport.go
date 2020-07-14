@@ -150,8 +150,8 @@ func NewSCISessionsSummaryReport42durationPercentileDataType() *SCISessionsSumma
 // Sessions Summary Report - Top Sessions Summary
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport33TopTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportSessionsSummaryReport33topTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport33TopTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSessionsSummaryReport33topTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -181,8 +181,8 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport33TopTable(
 // Sessions Summary Report - Average Durations
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport34Overview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportSessionsSummaryReport34overview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport34Overview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSessionsSummaryReport34overview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -212,8 +212,8 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport34Overview(
 // Sessions Summary Report - Session Duration Percentiles
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport42DurationPercentile(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportSessionsSummaryReport42durationPercentile200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport42DurationPercentile(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSessionsSummaryReport42durationPercentile200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

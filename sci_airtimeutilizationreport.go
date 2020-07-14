@@ -207,7 +207,7 @@ type SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType struct {
 
 	ApName *string `json:"apName,omitempty"`
 
-	ClientCount *int `json:"clientCount,omitempty"`
+	ClientCount *float64 `json:"clientCount,omitempty"`
 
 	CtrlMac *string `json:"ctrlMac,omitempty"`
 
@@ -223,7 +223,7 @@ type SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType struct {
 
 	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
 
-	SessionCount *int `json:"sessionCount,omitempty"`
+	SessionCount *float64 `json:"sessionCount,omitempty"`
 
 	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
 
@@ -430,8 +430,8 @@ func NewSCIAirtimeUtilizationReport6trendTableMetaDataMaxValuesType() *SCIAirtim
 // Airtime Utilization Report - Overview
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport1Overview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport1overview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport1Overview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport1overview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -461,8 +461,8 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport1Over
 // Airtime Utilization Report - Top 10 APs by Airtime Utilization
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport2TopChart(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport2topChart200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport2TopChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport2topChart200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -492,8 +492,8 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport2TopC
 // Airtime Utilization Report - Top APs by Airtime Utilization for 2.4 GHz
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport3TopAPsByAirtime24Table(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport3TopAPsByAirtime24Table(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -523,8 +523,8 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport3TopA
 // Airtime Utilization Report - Top APs by Airtime Utilization for 5 GHz
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport4TopAPsByAirtime5Table(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport4TopAPsByAirtime5Table(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -554,8 +554,8 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport4TopA
 // Airtime Utilization Report - Airtime Utilization Trend
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport5TrendChart(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport5trendChart200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport5TrendChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport5trendChart200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -585,8 +585,8 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport5Tren
 // Airtime Utilization Report - Airtime Utilization Over Time
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport6TrendTable(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport6trendTable200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport6TrendTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport6trendTable200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

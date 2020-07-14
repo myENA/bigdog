@@ -694,8 +694,8 @@ func NewSCIOverview115networkUsageOverviewDataZoneType() *SCIOverview115networkU
 // Overview - Ruckus SmartAnalytics
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview62Overview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview62overview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview62Overview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview62overview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -725,8 +725,8 @@ func (s *SCIOverviewService) ReportOverview62Overview(ctx context.Context, body 
 // Overview - Controllers
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview63Controller(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview63controller200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview63Controller(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview63controller200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -756,8 +756,8 @@ func (s *SCIOverviewService) ReportOverview63Controller(ctx context.Context, bod
 // Overview - Access Points
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview64ApOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview64apOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview64ApOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview64apOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -787,8 +787,8 @@ func (s *SCIOverviewService) ReportOverview64ApOverview(ctx context.Context, bod
 // Overview - Alarms
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview66ApAlarmOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview66apAlarmOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview66ApAlarmOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview66apAlarmOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -818,8 +818,8 @@ func (s *SCIOverviewService) ReportOverview66ApAlarmOverview(ctx context.Context
 // Overview - Switches
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview67SwitchOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview67switchOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview67SwitchOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview67switchOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -849,8 +849,8 @@ func (s *SCIOverviewService) ReportOverview67SwitchOverview(ctx context.Context,
 // Overview - Top APs by Client Count
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview68ApClientCountOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview68apClientCountOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview68ApClientCountOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview68apClientCountOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -880,8 +880,8 @@ func (s *SCIOverviewService) ReportOverview68ApClientCountOverview(ctx context.C
 // Overview - Total Wireless Traffic
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview69TotalTrafficMinMaxRate(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview69totalTrafficMinMaxRate200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview69TotalTrafficMinMaxRate(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview69totalTrafficMinMaxRate200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -911,8 +911,8 @@ func (s *SCIOverviewService) ReportOverview69TotalTrafficMinMaxRate(ctx context.
 // Overview - Unique Wireless Sessions
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview70SessionsOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview70sessionsOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview70SessionsOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview70sessionsOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -942,8 +942,8 @@ func (s *SCIOverviewService) ReportOverview70SessionsOverview(ctx context.Contex
 // Overview - WLANs
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview71SsidOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview71ssidOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview71SsidOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview71ssidOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -973,8 +973,8 @@ func (s *SCIOverviewService) ReportOverview71SsidOverview(ctx context.Context, b
 // Overview - Radios
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview72RadioOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview72radioOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview72RadioOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview72radioOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1004,8 +1004,8 @@ func (s *SCIOverviewService) ReportOverview72RadioOverview(ctx context.Context, 
 // Overview - Applications (Wireless)
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview73ApplicationsOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview73applicationsOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview73ApplicationsOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview73applicationsOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1035,8 +1035,8 @@ func (s *SCIOverviewService) ReportOverview73ApplicationsOverview(ctx context.Co
 // Overview - Events
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview74ApEventOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview74apEventOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview74ApEventOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview74apEventOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1066,8 +1066,8 @@ func (s *SCIOverviewService) ReportOverview74ApEventOverview(ctx context.Context
 // Overview - Did you know?
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview97FactOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview97factOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview97FactOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview97factOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1097,8 +1097,8 @@ func (s *SCIOverviewService) ReportOverview97FactOverview(ctx context.Context, b
 // Overview - Network Usage Overview
 //
 // Request Body:
-//	 - body *SCIReportQueryBody
-func (s *SCIOverviewService) ReportOverview115NetworkUsageOverview(ctx context.Context, body *SCIReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview115networkUsageOverview200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonReportQueryBody
+func (s *SCIOverviewService) ReportOverview115NetworkUsageOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview115networkUsageOverview200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

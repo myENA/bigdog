@@ -49,7 +49,7 @@ type SCICommonQueryFilter struct {
 
 	Dimension *string `json:"dimension,omitempty"`
 
-	Fields []*SCICommonQueryFilter `json:"fields,omitempty"`
+	Fields SCICommonQueryFilterFields `json:"fields,omitempty"`
 
 	Lower *string `json:"lower,omitempty"`
 
@@ -74,6 +74,16 @@ type SCICommonQueryFilter struct {
 
 func NewSCICommonQueryFilter() *SCICommonQueryFilter {
 	m := new(SCICommonQueryFilter)
+	return m
+}
+
+// SCICommonQueryFilterFields
+//
+// Definition: common.queryFilterFields
+type SCICommonQueryFilterFields []*SCICommonQueryFilter
+
+func MakeSCICommonQueryFilterFields() SCICommonQueryFilterFields {
+	m := make(SCICommonQueryFilterFields, 0)
 	return m
 }
 

@@ -23,7 +23,7 @@ func (ss *SCIService) SCIZoneDirectorXMLService() *SCIZoneDirectorXMLService {
 
 // ZdXmlGetAjaxRequest
 //
-// Operation ID: zdXml.getAjaxRequest
+// Operation ID: zdXml_getAjaxRequest
 //
 // Required Parameters:
 // - systemid string
@@ -50,7 +50,7 @@ func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, sys
 
 // ZdXmlUpload
 //
-// Operation ID: zdXml.upload
+// Operation ID: zdXml_upload
 //
 // Required Parameters:
 // - container string

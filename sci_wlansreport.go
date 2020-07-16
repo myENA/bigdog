@@ -23,7 +23,7 @@ func (ss *SCIService) SCIWLANsReportService() *SCIWLANsReportService {
 
 // SCIWLANsReport35overviewData
 //
-// Definition: WLANsReport.WLANsReport.35.overview.Data
+// Definition: WLANsReport_WLANsReport_35_overview_Data
 type SCIWLANsReport35overviewData []*SCIWLANsReport35overviewDataType
 
 func MakeSCIWLANsReport35overviewData() SCIWLANsReport35overviewData {
@@ -33,7 +33,7 @@ func MakeSCIWLANsReport35overviewData() SCIWLANsReport35overviewData {
 
 // SCIWLANsReport35overviewDataType
 //
-// Definition: WLANsReport.WLANsReport.35.overview.DataType
+// Definition: WLANsReport_WLANsReport_35_overview_DataType
 type SCIWLANsReport35overviewDataType struct {
 	TotalAddedClientCount *float64 `json:"totalAddedClientCount,omitempty"`
 
@@ -55,7 +55,7 @@ func NewSCIWLANsReport35overviewDataType() *SCIWLANsReport35overviewDataType {
 
 // SCIWLANsReport37activeSsidsTrendData
 //
-// Definition: WLANsReport.WLANsReport.37.activeSsidsTrend.Data
+// Definition: WLANsReport_WLANsReport_37_activeSsidsTrend_Data
 type SCIWLANsReport37activeSsidsTrendData []*SCIWLANsReport37activeSsidsTrendDataType
 
 func MakeSCIWLANsReport37activeSsidsTrendData() SCIWLANsReport37activeSsidsTrendData {
@@ -65,7 +65,7 @@ func MakeSCIWLANsReport37activeSsidsTrendData() SCIWLANsReport37activeSsidsTrend
 
 // SCIWLANsReport37activeSsidsTrendDataType
 //
-// Definition: WLANsReport.WLANsReport.37.activeSsidsTrend.DataType
+// Definition: WLANsReport_WLANsReport_37_activeSsidsTrend_DataType
 type SCIWLANsReport37activeSsidsTrendDataType struct {
 	End *string `json:"end,omitempty"`
 
@@ -81,7 +81,7 @@ func NewSCIWLANsReport37activeSsidsTrendDataType() *SCIWLANsReport37activeSsidsT
 
 // SCIWLANsReport38top10SsidsByClientCountData
 //
-// Definition: WLANsReport.WLANsReport.38.top10SsidsByClientCount.Data
+// Definition: WLANsReport_WLANsReport_38_top10SsidsByClientCount_Data
 type SCIWLANsReport38top10SsidsByClientCountData []*SCIWLANsReport38top10SsidsByClientCountDataType
 
 func MakeSCIWLANsReport38top10SsidsByClientCountData() SCIWLANsReport38top10SsidsByClientCountData {
@@ -91,7 +91,7 @@ func MakeSCIWLANsReport38top10SsidsByClientCountData() SCIWLANsReport38top10Ssid
 
 // SCIWLANsReport38top10SsidsByClientCountDataType
 //
-// Definition: WLANsReport.WLANsReport.38.top10SsidsByClientCount.DataType
+// Definition: WLANsReport_WLANsReport_38_top10SsidsByClientCount_DataType
 type SCIWLANsReport38top10SsidsByClientCountDataType struct {
 	End *string `json:"end,omitempty"`
 
@@ -109,7 +109,7 @@ func NewSCIWLANsReport38top10SsidsByClientCountDataType() *SCIWLANsReport38top10
 
 // SCIWLANsReport38top10SsidsByClientCountMetaData
 //
-// Definition: WLANsReport.WLANsReport.38.top10SsidsByClientCount.MetaData
+// Definition: WLANsReport_WLANsReport_38_top10SsidsByClientCount_MetaData
 type SCIWLANsReport38top10SsidsByClientCountMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 
@@ -123,7 +123,7 @@ func NewSCIWLANsReport38top10SsidsByClientCountMetaData() *SCIWLANsReport38top10
 
 // SCIWLANsReport39ssidChangesOverTimeData
 //
-// Definition: WLANsReport.WLANsReport.39.ssidChangesOverTime.Data
+// Definition: WLANsReport_WLANsReport_39_ssidChangesOverTime_Data
 type SCIWLANsReport39ssidChangesOverTimeData []*SCIWLANsReport39ssidChangesOverTimeDataType
 
 func MakeSCIWLANsReport39ssidChangesOverTimeData() SCIWLANsReport39ssidChangesOverTimeData {
@@ -133,7 +133,7 @@ func MakeSCIWLANsReport39ssidChangesOverTimeData() SCIWLANsReport39ssidChangesOv
 
 // SCIWLANsReport39ssidChangesOverTimeDataType
 //
-// Definition: WLANsReport.WLANsReport.39.ssidChangesOverTime.DataType
+// Definition: WLANsReport_WLANsReport_39_ssidChangesOverTime_DataType
 type SCIWLANsReport39ssidChangesOverTimeDataType struct {
 	ClientCount *float64 `json:"clientCount,omitempty"`
 
@@ -151,7 +151,7 @@ func NewSCIWLANsReport39ssidChangesOverTimeDataType() *SCIWLANsReport39ssidChang
 
 // SCIWLANsReport40topSsidsByTrafficTableData
 //
-// Definition: WLANsReport.WLANsReport.40.topSsidsByTrafficTable.Data
+// Definition: WLANsReport_WLANsReport_40_topSsidsByTrafficTable_Data
 type SCIWLANsReport40topSsidsByTrafficTableData []*SCIWLANsReport40topSsidsByTrafficTableDataType
 
 func MakeSCIWLANsReport40topSsidsByTrafficTableData() SCIWLANsReport40topSsidsByTrafficTableData {
@@ -161,7 +161,7 @@ func MakeSCIWLANsReport40topSsidsByTrafficTableData() SCIWLANsReport40topSsidsBy
 
 // SCIWLANsReport40topSsidsByTrafficTableDataType
 //
-// Definition: WLANsReport.WLANsReport.40.topSsidsByTrafficTable.DataType
+// Definition: WLANsReport_WLANsReport_40_topSsidsByTrafficTable_DataType
 type SCIWLANsReport40topSsidsByTrafficTableDataType struct {
 	ApCount *float64 `json:"apCount,omitempty"`
 
@@ -199,7 +199,7 @@ func NewSCIWLANsReport40topSsidsByTrafficTableDataType() *SCIWLANsReport40topSsi
 
 // SCIWLANsReport40topSsidsByTrafficTableMetaData
 //
-// Definition: WLANsReport.WLANsReport.40.topSsidsByTrafficTable.MetaData
+// Definition: WLANsReport_WLANsReport_40_topSsidsByTrafficTable_MetaData
 type SCIWLANsReport40topSsidsByTrafficTableMetaData struct {
 	MaxValues *SCIWLANsReport40topSsidsByTrafficTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -219,7 +219,7 @@ func NewSCIWLANsReport40topSsidsByTrafficTableMetaData() *SCIWLANsReport40topSsi
 
 // SCIWLANsReport40topSsidsByTrafficTableMetaDataMaxValuesType
 //
-// Definition: WLANsReport.WLANsReport.40.topSsidsByTrafficTable.MetaDataMaxValuesType
+// Definition: WLANsReport_WLANsReport_40_topSsidsByTrafficTable_MetaDataMaxValuesType
 type SCIWLANsReport40topSsidsByTrafficTableMetaDataMaxValuesType struct {
 	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
 
@@ -247,7 +247,7 @@ func NewSCIWLANsReport40topSsidsByTrafficTableMetaDataMaxValuesType() *SCIWLANsR
 
 // SCIWLANsReport41topSsidsByClientsTableData
 //
-// Definition: WLANsReport.WLANsReport.41.topSsidsByClientsTable.Data
+// Definition: WLANsReport_WLANsReport_41_topSsidsByClientsTable_Data
 type SCIWLANsReport41topSsidsByClientsTableData []*SCIWLANsReport41topSsidsByClientsTableDataType
 
 func MakeSCIWLANsReport41topSsidsByClientsTableData() SCIWLANsReport41topSsidsByClientsTableData {
@@ -257,7 +257,7 @@ func MakeSCIWLANsReport41topSsidsByClientsTableData() SCIWLANsReport41topSsidsBy
 
 // SCIWLANsReport41topSsidsByClientsTableDataType
 //
-// Definition: WLANsReport.WLANsReport.41.topSsidsByClientsTable.DataType
+// Definition: WLANsReport_WLANsReport_41_topSsidsByClientsTable_DataType
 type SCIWLANsReport41topSsidsByClientsTableDataType struct {
 	ApCount *float64 `json:"apCount,omitempty"`
 
@@ -295,7 +295,7 @@ func NewSCIWLANsReport41topSsidsByClientsTableDataType() *SCIWLANsReport41topSsi
 
 // SCIWLANsReport41topSsidsByClientsTableMetaData
 //
-// Definition: WLANsReport.WLANsReport.41.topSsidsByClientsTable.MetaData
+// Definition: WLANsReport_WLANsReport_41_topSsidsByClientsTable_MetaData
 type SCIWLANsReport41topSsidsByClientsTableMetaData struct {
 	MaxValues *SCIWLANsReport41topSsidsByClientsTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -315,7 +315,7 @@ func NewSCIWLANsReport41topSsidsByClientsTableMetaData() *SCIWLANsReport41topSsi
 
 // SCIWLANsReport41topSsidsByClientsTableMetaDataMaxValuesType
 //
-// Definition: WLANsReport.WLANsReport.41.topSsidsByClientsTable.MetaDataMaxValuesType
+// Definition: WLANsReport_WLANsReport_41_topSsidsByClientsTable_MetaDataMaxValuesType
 type SCIWLANsReport41topSsidsByClientsTableMetaDataMaxValuesType struct {
 	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
 
@@ -343,7 +343,7 @@ func NewSCIWLANsReport41topSsidsByClientsTableMetaDataMaxValuesType() *SCIWLANsR
 
 // ReportWLANsReport35Overview
 //
-// Operation ID: report.WLANsReport.35.overview
+// Operation ID: report_WLANsReport_35_overview
 //
 // WLANs Report - Overview
 //
@@ -374,7 +374,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport35Overview(ctx context.Context,
 
 // ReportWLANsReport36Top10SsidsByTraffic
 //
-// Operation ID: report.WLANsReport.36.top10SsidsByTraffic
+// Operation ID: report_WLANsReport_36_top10SsidsByTraffic
 //
 // WLANs Report - Top SSIDs by Traffic
 //
@@ -405,7 +405,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport36Top10SsidsByTraffic(ctx conte
 
 // ReportWLANsReport37ActiveSsidsTrend
 //
-// Operation ID: report.WLANsReport.37.activeSsidsTrend
+// Operation ID: report_WLANsReport_37_activeSsidsTrend
 //
 // WLANs Report - Active SSIDs Trend
 //
@@ -436,7 +436,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport37ActiveSsidsTrend(ctx context.
 
 // ReportWLANsReport38Top10SsidsByClientCount
 //
-// Operation ID: report.WLANsReport.38.top10SsidsByClientCount
+// Operation ID: report_WLANsReport_38_top10SsidsByClientCount
 //
 // WLANs Report - Top SSIDs by Client Count
 //
@@ -467,7 +467,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport38Top10SsidsByClientCount(ctx c
 
 // ReportWLANsReport39SsidChangesOverTime
 //
-// Operation ID: report.WLANsReport.39.ssidChangesOverTime
+// Operation ID: report_WLANsReport_39_ssidChangesOverTime
 //
 // WLANs Report - SSID Changes Over Time
 //
@@ -498,7 +498,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport39SsidChangesOverTime(ctx conte
 
 // ReportWLANsReport40TopSsidsByTrafficTable
 //
-// Operation ID: report.WLANsReport.40.topSsidsByTrafficTable
+// Operation ID: report_WLANsReport_40_topSsidsByTrafficTable
 //
 // WLANs Report - Top SSIDs by Traffic
 //
@@ -529,7 +529,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport40TopSsidsByTrafficTable(ctx co
 
 // ReportWLANsReport41TopSsidsByClientsTable
 //
-// Operation ID: report.WLANsReport.41.topSsidsByClientsTable
+// Operation ID: report_WLANsReport_41_topSsidsByClientsTable
 //
 // WLANs Report - Top SSIDs by Client Count
 //

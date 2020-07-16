@@ -23,7 +23,7 @@ func (ss *SCIService) SCIComparisonReportService() *SCIComparisonReportService {
 
 // ReportComparisonReport140ComparisionOverview
 //
-// Operation ID: report.ComparisonReport.140.comparisionOverview
+// Operation ID: report_ComparisonReport_140_comparisionOverview
 //
 // Comparison Report - Overview
 //
@@ -54,7 +54,7 @@ func (s *SCIComparisonReportService) ReportComparisonReport140ComparisionOvervie
 
 // ReportComparisonReport145ComparisionMetric1
 //
-// Operation ID: report.ComparisonReport.145.comparisionMetric1
+// Operation ID: report_ComparisonReport_145_comparisionMetric1
 //
 // Comparison Report - Metric 1 Over Time
 //
@@ -85,7 +85,7 @@ func (s *SCIComparisonReportService) ReportComparisonReport145ComparisionMetric1
 
 // ReportComparisonReport146ComparisionMetric2
 //
-// Operation ID: report.ComparisonReport.146.comparisionMetric2
+// Operation ID: report_ComparisonReport_146_comparisionMetric2
 //
 // Comparison Report - Metric 2 Over Time
 //
@@ -116,7 +116,7 @@ func (s *SCIComparisonReportService) ReportComparisonReport146ComparisionMetric2
 
 // ReportComparisonReport147ComparisionTable
 //
-// Operation ID: report.ComparisonReport.147.comparisionTable
+// Operation ID: report_ComparisonReport_147_comparisionTable
 //
 // Comparison Report - Table
 //

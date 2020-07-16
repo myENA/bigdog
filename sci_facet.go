@@ -3,8 +3,10 @@ package bigdog
 // API Version: 1.0.0
 
 import (
+	"bytes"
 	"context"
 	"net/http"
+	"net/url"
 )
 
 type SCIFacetService struct {
@@ -23,7 +25,7 @@ func (ss *SCIService) SCIFacetService() *SCIFacetService {
 
 // SCIFacetGetFacet200ResponseType
 //
-// Definition: facet.getFacet200ResponseType
+// Definition: facet_getFacet200ResponseType
 type SCIFacetGetFacet200ResponseType []interface{}
 
 func MakeSCIFacetGetFacet200ResponseType() SCIFacetGetFacet200ResponseType {
@@ -33,7 +35,7 @@ func MakeSCIFacetGetFacet200ResponseType() SCIFacetGetFacet200ResponseType {
 
 // FacetGetFacet
 //
-// Operation ID: facet.getFacet
+// Operation ID: facet_getFacet
 //
 // For the <b><code>filter</code></b> field below, an example would be
 // <pre>
@@ -45,11 +47,17 @@ func MakeSCIFacetGetFacet200ResponseType() SCIFacetGetFacet200ResponseType {
 // Request Body:
 //	 - body *SCICommonQueryBody
 //
+// Form Data Parameters:
+// - end string
+//		- nullable
+// - filter string
+//		- nullable
+//
 // Required Parameters:
 // - name string
 //		- required
 //		- oneof:[system,switchHierarchy,apmac,ssid,switches]
-func (s *SCIFacetService) FacetGetFacet(ctx context.Context, body *SCICommonQueryBody, name string, mutators ...RequestMutator) (SCIFacetGetFacet200ResponseType, *APIResponseMeta, error) {
+func (s *SCIFacetService) FacetGetFacet(ctx context.Context, body *SCICommonQueryBody, formValues url.Values, name string, mutators ...RequestMutator) (SCIFacetGetFacet200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -64,6 +72,9 @@ func (s *SCIFacetService) FacetGetFacet(ctx context.Context, body *SCICommonQuer
 	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
 		return resp, rm, err
 	}
 	req.SetPathParameter("name", name)

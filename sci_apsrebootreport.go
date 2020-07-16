@@ -23,7 +23,7 @@ func (ss *SCIService) SCIAPsRebootReportService() *SCIAPsRebootReportService {
 
 // SCIAPsRebootReport43totalRebootsData
 //
-// Definition: APsRebootReport.APsRebootReport.43.totalReboots.Data
+// Definition: APsRebootReport_APsRebootReport_43_totalReboots_Data
 type SCIAPsRebootReport43totalRebootsData []*SCIAPsRebootReport43totalRebootsDataType
 
 func MakeSCIAPsRebootReport43totalRebootsData() SCIAPsRebootReport43totalRebootsData {
@@ -33,7 +33,7 @@ func MakeSCIAPsRebootReport43totalRebootsData() SCIAPsRebootReport43totalReboots
 
 // SCIAPsRebootReport43totalRebootsDataType
 //
-// Definition: APsRebootReport.APsRebootReport.43.totalReboots.DataType
+// Definition: APsRebootReport_APsRebootReport_43_totalReboots_DataType
 type SCIAPsRebootReport43totalRebootsDataType struct {
 	TotalRebootedAps *float64 `json:"totalRebootedAps,omitempty"`
 
@@ -47,7 +47,7 @@ func NewSCIAPsRebootReport43totalRebootsDataType() *SCIAPsRebootReport43totalReb
 
 // SCIAPsRebootReport44topApRebootsTableData
 //
-// Definition: APsRebootReport.APsRebootReport.44.topApRebootsTable.Data
+// Definition: APsRebootReport_APsRebootReport_44_topApRebootsTable_Data
 type SCIAPsRebootReport44topApRebootsTableData []*SCIAPsRebootReport44topApRebootsTableDataType
 
 func MakeSCIAPsRebootReport44topApRebootsTableData() SCIAPsRebootReport44topApRebootsTableData {
@@ -57,7 +57,7 @@ func MakeSCIAPsRebootReport44topApRebootsTableData() SCIAPsRebootReport44topApRe
 
 // SCIAPsRebootReport44topApRebootsTableDataType
 //
-// Definition: APsRebootReport.APsRebootReport.44.topApRebootsTable.DataType
+// Definition: APsRebootReport_APsRebootReport_44_topApRebootsTable_DataType
 type SCIAPsRebootReport44topApRebootsTableDataType struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -77,7 +77,7 @@ func NewSCIAPsRebootReport44topApRebootsTableDataType() *SCIAPsRebootReport44top
 
 // SCIAPsRebootReport44topApRebootsTableMetaData
 //
-// Definition: APsRebootReport.APsRebootReport.44.topApRebootsTable.MetaData
+// Definition: APsRebootReport_APsRebootReport_44_topApRebootsTable_MetaData
 type SCIAPsRebootReport44topApRebootsTableMetaData struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
@@ -89,7 +89,7 @@ func NewSCIAPsRebootReport44topApRebootsTableMetaData() *SCIAPsRebootReport44top
 
 // SCIAPsRebootReport45topApRebootsOverTimeData
 //
-// Definition: APsRebootReport.APsRebootReport.45.topApRebootsOverTime.Data
+// Definition: APsRebootReport_APsRebootReport_45_topApRebootsOverTime_Data
 type SCIAPsRebootReport45topApRebootsOverTimeData []*SCIAPsRebootReport45topApRebootsOverTimeDataType
 
 func MakeSCIAPsRebootReport45topApRebootsOverTimeData() SCIAPsRebootReport45topApRebootsOverTimeData {
@@ -99,7 +99,7 @@ func MakeSCIAPsRebootReport45topApRebootsOverTimeData() SCIAPsRebootReport45topA
 
 // SCIAPsRebootReport45topApRebootsOverTimeDataType
 //
-// Definition: APsRebootReport.APsRebootReport.45.topApRebootsOverTime.DataType
+// Definition: APsRebootReport_APsRebootReport_45_topApRebootsOverTime_DataType
 type SCIAPsRebootReport45topApRebootsOverTimeDataType struct {
 	End *string `json:"end,omitempty"`
 
@@ -133,7 +133,7 @@ func NewSCIAPsRebootReport45topApRebootsOverTimeDataType() *SCIAPsRebootReport45
 
 // ReportAPsRebootReport43TotalReboots
 //
-// Operation ID: report.APsRebootReport.43.totalReboots
+// Operation ID: report_APsRebootReport_43_totalReboots
 //
 // APs Reboot Report - Total Reboots
 //
@@ -164,7 +164,7 @@ func (s *SCIAPsRebootReportService) ReportAPsRebootReport43TotalReboots(ctx cont
 
 // ReportAPsRebootReport44TopApRebootsTable
 //
-// Operation ID: report.APsRebootReport.44.topApRebootsTable
+// Operation ID: report_APsRebootReport_44_topApRebootsTable
 //
 // APs Reboot Report - Top AP Reboots
 //
@@ -195,7 +195,7 @@ func (s *SCIAPsRebootReportService) ReportAPsRebootReport44TopApRebootsTable(ctx
 
 // ReportAPsRebootReport45TopApRebootsOverTime
 //
-// Operation ID: report.APsRebootReport.45.topApRebootsOverTime
+// Operation ID: report_APsRebootReport_45_topApRebootsOverTime
 //
 // APs Reboot Report - AP Reboots
 //

@@ -23,7 +23,7 @@ func (ss *SCIService) SCISessionsSummaryReportService() *SCISessionsSummaryRepor
 
 // SCISessionsSummaryReport33topTableData
 //
-// Definition: SessionsSummaryReport.SessionsSummaryReport.33.topTable.Data
+// Definition: SessionsSummaryReport_SessionsSummaryReport_33_topTable_Data
 type SCISessionsSummaryReport33topTableData []*SCISessionsSummaryReport33topTableDataType
 
 func MakeSCISessionsSummaryReport33topTableData() SCISessionsSummaryReport33topTableData {
@@ -33,7 +33,7 @@ func MakeSCISessionsSummaryReport33topTableData() SCISessionsSummaryReport33topT
 
 // SCISessionsSummaryReport33topTableDataType
 //
-// Definition: SessionsSummaryReport.SessionsSummaryReport.33.topTable.DataType
+// Definition: SessionsSummaryReport_SessionsSummaryReport_33_topTable_DataType
 type SCISessionsSummaryReport33topTableDataType struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -73,7 +73,7 @@ func NewSCISessionsSummaryReport33topTableDataType() *SCISessionsSummaryReport33
 
 // SCISessionsSummaryReport33topTableMetaData
 //
-// Definition: SessionsSummaryReport.SessionsSummaryReport.33.topTable.MetaData
+// Definition: SessionsSummaryReport_SessionsSummaryReport_33_topTable_MetaData
 type SCISessionsSummaryReport33topTableMetaData struct {
 	PagingIdentifiers *SCISessionsSummaryReport33topTableMetaDataPagingIdentifiersType `json:"pagingIdentifiers,omitempty"`
 
@@ -87,7 +87,7 @@ func NewSCISessionsSummaryReport33topTableMetaData() *SCISessionsSummaryReport33
 
 // SCISessionsSummaryReport33topTableMetaDataPagingIdentifiersType
 //
-// Definition: SessionsSummaryReport.SessionsSummaryReport.33.topTable.MetaDataPagingIdentifiersType
+// Definition: SessionsSummaryReport_SessionsSummaryReport_33_topTable_MetaDataPagingIdentifiersType
 type SCISessionsSummaryReport33topTableMetaDataPagingIdentifiersType struct {
 	Type *string `json:"type,omitempty"`
 }
@@ -99,7 +99,7 @@ func NewSCISessionsSummaryReport33topTableMetaDataPagingIdentifiersType() *SCISe
 
 // SCISessionsSummaryReport34overviewData
 //
-// Definition: SessionsSummaryReport.SessionsSummaryReport.34.overview.Data
+// Definition: SessionsSummaryReport_SessionsSummaryReport_34_overview_Data
 type SCISessionsSummaryReport34overviewData []*SCISessionsSummaryReport34overviewDataType
 
 func MakeSCISessionsSummaryReport34overviewData() SCISessionsSummaryReport34overviewData {
@@ -109,7 +109,7 @@ func MakeSCISessionsSummaryReport34overviewData() SCISessionsSummaryReport34over
 
 // SCISessionsSummaryReport34overviewDataType
 //
-// Definition: SessionsSummaryReport.SessionsSummaryReport.34.overview.DataType
+// Definition: SessionsSummaryReport_SessionsSummaryReport_34_overview_DataType
 type SCISessionsSummaryReport34overviewDataType struct {
 	SessionDurationAvg *float64 `json:"sessionDurationAvg,omitempty"`
 }
@@ -121,7 +121,7 @@ func NewSCISessionsSummaryReport34overviewDataType() *SCISessionsSummaryReport34
 
 // SCISessionsSummaryReport42durationPercentileData
 //
-// Definition: SessionsSummaryReport.SessionsSummaryReport.42.durationPercentile.Data
+// Definition: SessionsSummaryReport_SessionsSummaryReport_42_durationPercentile_Data
 type SCISessionsSummaryReport42durationPercentileData []*SCISessionsSummaryReport42durationPercentileDataType
 
 func MakeSCISessionsSummaryReport42durationPercentileData() SCISessionsSummaryReport42durationPercentileData {
@@ -131,7 +131,7 @@ func MakeSCISessionsSummaryReport42durationPercentileData() SCISessionsSummaryRe
 
 // SCISessionsSummaryReport42durationPercentileDataType
 //
-// Definition: SessionsSummaryReport.SessionsSummaryReport.42.durationPercentile.DataType
+// Definition: SessionsSummaryReport_SessionsSummaryReport_42_durationPercentile_DataType
 type SCISessionsSummaryReport42durationPercentileDataType struct {
 	Duration *int `json:"duration,omitempty"`
 
@@ -145,7 +145,7 @@ func NewSCISessionsSummaryReport42durationPercentileDataType() *SCISessionsSumma
 
 // ReportSessionsSummaryReport33TopTable
 //
-// Operation ID: report.SessionsSummaryReport.33.topTable
+// Operation ID: report_SessionsSummaryReport_33_topTable
 //
 // Sessions Summary Report - Top Sessions Summary
 //
@@ -176,7 +176,7 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport33TopTable(
 
 // ReportSessionsSummaryReport34Overview
 //
-// Operation ID: report.SessionsSummaryReport.34.overview
+// Operation ID: report_SessionsSummaryReport_34_overview
 //
 // Sessions Summary Report - Average Durations
 //
@@ -207,7 +207,7 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport34Overview(
 
 // ReportSessionsSummaryReport42DurationPercentile
 //
-// Operation ID: report.SessionsSummaryReport.42.durationPercentile
+// Operation ID: report_SessionsSummaryReport_42_durationPercentile
 //
 // Sessions Summary Report - Session Duration Percentiles
 //

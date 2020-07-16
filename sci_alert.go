@@ -23,7 +23,7 @@ func (ss *SCIService) SCIAlertService() *SCIAlertService {
 
 // AlertSendNotification
 //
-// Operation ID: alert.sendNotification
+// Operation ID: alert_sendNotification
 func (s *SCIAlertService) AlertSendNotification(ctx context.Context, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest

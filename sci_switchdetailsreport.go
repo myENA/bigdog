@@ -4,7 +4,7 @@ package bigdog
 
 // SCISwitchDetailsReport126switchResourceUtilizationData
 //
-// Definition: SwitchDetailsReport.SwitchDetailsReport.126.switchResourceUtilization.Data
+// Definition: SwitchDetailsReport_SwitchDetailsReport_126_switchResourceUtilization_Data
 type SCISwitchDetailsReport126switchResourceUtilizationData []*SCISwitchDetailsReport126switchResourceUtilizationDataType
 
 func MakeSCISwitchDetailsReport126switchResourceUtilizationData() SCISwitchDetailsReport126switchResourceUtilizationData {
@@ -14,7 +14,7 @@ func MakeSCISwitchDetailsReport126switchResourceUtilizationData() SCISwitchDetai
 
 // SCISwitchDetailsReport126switchResourceUtilizationDataType
 //
-// Definition: SwitchDetailsReport.SwitchDetailsReport.126.switchResourceUtilization.DataType
+// Definition: SwitchDetailsReport_SwitchDetailsReport_126_switchResourceUtilization_DataType
 type SCISwitchDetailsReport126switchResourceUtilizationDataType struct {
 	CpuPer *float64 `json:"cpuPer,omitempty"`
 
@@ -34,7 +34,7 @@ func NewSCISwitchDetailsReport126switchResourceUtilizationDataType() *SCISwitchD
 
 // SCISwitchDetailsReport129topSwitchPortsByTrafficChartData
 //
-// Definition: SwitchDetailsReport.SwitchDetailsReport.129.topSwitchPortsByTrafficChart.Data
+// Definition: SwitchDetailsReport_SwitchDetailsReport_129_topSwitchPortsByTrafficChart_Data
 type SCISwitchDetailsReport129topSwitchPortsByTrafficChartData []*SCISwitchDetailsReport129topSwitchPortsByTrafficChartDataType
 
 func MakeSCISwitchDetailsReport129topSwitchPortsByTrafficChartData() SCISwitchDetailsReport129topSwitchPortsByTrafficChartData {
@@ -44,7 +44,7 @@ func MakeSCISwitchDetailsReport129topSwitchPortsByTrafficChartData() SCISwitchDe
 
 // SCISwitchDetailsReport129topSwitchPortsByTrafficChartDataType
 //
-// Definition: SwitchDetailsReport.SwitchDetailsReport.129.topSwitchPortsByTrafficChart.DataType
+// Definition: SwitchDetailsReport_SwitchDetailsReport_129_topSwitchPortsByTrafficChart_DataType
 type SCISwitchDetailsReport129topSwitchPortsByTrafficChartDataType struct {
 	PortName *string `json:"portName,omitempty"`
 
@@ -60,7 +60,7 @@ func NewSCISwitchDetailsReport129topSwitchPortsByTrafficChartDataType() *SCISwit
 
 // SCISwitchDetailsReport129topSwitchPortsByTrafficChartMetaData
 //
-// Definition: SwitchDetailsReport.SwitchDetailsReport.129.topSwitchPortsByTrafficChart.MetaData
+// Definition: SwitchDetailsReport_SwitchDetailsReport_129_topSwitchPortsByTrafficChart_MetaData
 type SCISwitchDetailsReport129topSwitchPortsByTrafficChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -72,7 +72,7 @@ func NewSCISwitchDetailsReport129topSwitchPortsByTrafficChartMetaData() *SCISwit
 
 // SCISwitchDetailsReport130topSwitchPortsByTrafficTableData
 //
-// Definition: SwitchDetailsReport.SwitchDetailsReport.130.topSwitchPortsByTrafficTable.Data
+// Definition: SwitchDetailsReport_SwitchDetailsReport_130_topSwitchPortsByTrafficTable_Data
 type SCISwitchDetailsReport130topSwitchPortsByTrafficTableData []*SCISwitchDetailsReport130topSwitchPortsByTrafficTableDataType
 
 func MakeSCISwitchDetailsReport130topSwitchPortsByTrafficTableData() SCISwitchDetailsReport130topSwitchPortsByTrafficTableData {
@@ -82,7 +82,7 @@ func MakeSCISwitchDetailsReport130topSwitchPortsByTrafficTableData() SCISwitchDe
 
 // SCISwitchDetailsReport130topSwitchPortsByTrafficTableDataType
 //
-// Definition: SwitchDetailsReport.SwitchDetailsReport.130.topSwitchPortsByTrafficTable.DataType
+// Definition: SwitchDetailsReport_SwitchDetailsReport_130_topSwitchPortsByTrafficTable_DataType
 type SCISwitchDetailsReport130topSwitchPortsByTrafficTableDataType struct {
 	Index *int `json:"index,omitempty"`
 
@@ -104,7 +104,7 @@ func NewSCISwitchDetailsReport130topSwitchPortsByTrafficTableDataType() *SCISwit
 
 // SCISwitchDetailsReport130topSwitchPortsByTrafficTableMetaData
 //
-// Definition: SwitchDetailsReport.SwitchDetailsReport.130.topSwitchPortsByTrafficTable.MetaData
+// Definition: SwitchDetailsReport_SwitchDetailsReport_130_topSwitchPortsByTrafficTable_MetaData
 type SCISwitchDetailsReport130topSwitchPortsByTrafficTableMetaData struct {
 	MaxValues *SCISwitchDetailsReport130topSwitchPortsByTrafficTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -118,7 +118,7 @@ func NewSCISwitchDetailsReport130topSwitchPortsByTrafficTableMetaData() *SCISwit
 
 // SCISwitchDetailsReport130topSwitchPortsByTrafficTableMetaDataMaxValuesType
 //
-// Definition: SwitchDetailsReport.SwitchDetailsReport.130.topSwitchPortsByTrafficTable.MetaDataMaxValuesType
+// Definition: SwitchDetailsReport_SwitchDetailsReport_130_topSwitchPortsByTrafficTable_MetaDataMaxValuesType
 type SCISwitchDetailsReport130topSwitchPortsByTrafficTableMetaDataMaxValuesType struct {
 	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
 
@@ -134,7 +134,7 @@ func NewSCISwitchDetailsReport130topSwitchPortsByTrafficTableMetaDataMaxValuesTy
 
 // SCISwitchDetailsReport138switchUptimeHistoryData
 //
-// Definition: SwitchDetailsReport.SwitchDetailsReport.138.switchUptimeHistory.Data
+// Definition: SwitchDetailsReport_SwitchDetailsReport_138_switchUptimeHistory_Data
 type SCISwitchDetailsReport138switchUptimeHistoryData []*SCISwitchDetailsReport138switchUptimeHistoryDataType
 
 func MakeSCISwitchDetailsReport138switchUptimeHistoryData() SCISwitchDetailsReport138switchUptimeHistoryData {
@@ -144,7 +144,7 @@ func MakeSCISwitchDetailsReport138switchUptimeHistoryData() SCISwitchDetailsRepo
 
 // SCISwitchDetailsReport138switchUptimeHistoryDataType
 //
-// Definition: SwitchDetailsReport.SwitchDetailsReport.138.switchUptimeHistory.DataType
+// Definition: SwitchDetailsReport_SwitchDetailsReport_138_switchUptimeHistory_DataType
 type SCISwitchDetailsReport138switchUptimeHistoryDataType struct {
 	End *string `json:"end,omitempty"`
 
@@ -160,7 +160,7 @@ func NewSCISwitchDetailsReport138switchUptimeHistoryDataType() *SCISwitchDetails
 
 // SCISwitchDetailsReport138switchUptimeHistoryMetaData
 //
-// Definition: SwitchDetailsReport.SwitchDetailsReport.138.switchUptimeHistory.MetaData
+// Definition: SwitchDetailsReport_SwitchDetailsReport_138_switchUptimeHistory_MetaData
 type SCISwitchDetailsReport138switchUptimeHistoryMetaData struct {
 	TotalDowntime *int `json:"totalDowntime,omitempty"`
 

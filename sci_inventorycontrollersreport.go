@@ -23,7 +23,7 @@ func (ss *SCIService) SCIInventoryControllersReportService() *SCIInventoryContro
 
 // SCIInventoryControllersReport96krackData
 //
-// Definition: InventoryControllersReport.InventoryControllersReport.96.krack.Data
+// Definition: InventoryControllersReport_InventoryControllersReport_96_krack_Data
 type SCIInventoryControllersReport96krackData []*SCIInventoryControllersReport96krackDataType
 
 func MakeSCIInventoryControllersReport96krackData() SCIInventoryControllersReport96krackData {
@@ -33,7 +33,7 @@ func MakeSCIInventoryControllersReport96krackData() SCIInventoryControllersRepor
 
 // SCIInventoryControllersReport96krackDataType
 //
-// Definition: InventoryControllersReport.InventoryControllersReport.96.krack.DataType
+// Definition: InventoryControllersReport_InventoryControllersReport_96_krack_DataType
 type SCIInventoryControllersReport96krackDataType struct {
 	Number *string `json:"number,omitempty"`
 
@@ -55,7 +55,7 @@ func NewSCIInventoryControllersReport96krackDataType() *SCIInventoryControllersR
 
 // SCIInventoryControllersReport96krackMetaData
 //
-// Definition: InventoryControllersReport.InventoryControllersReport.96.krack.MetaData
+// Definition: InventoryControllersReport_InventoryControllersReport_96_krack_MetaData
 type SCIInventoryControllersReport96krackMetaData struct {
 	Number *string `json:"number,omitempty"`
 
@@ -69,7 +69,7 @@ func NewSCIInventoryControllersReport96krackMetaData() *SCIInventoryControllersR
 
 // SCIInventoryControllersReport98resourceUtilizationData
 //
-// Definition: InventoryControllersReport.InventoryControllersReport.98.resourceUtilization.Data
+// Definition: InventoryControllersReport_InventoryControllersReport_98_resourceUtilization_Data
 type SCIInventoryControllersReport98resourceUtilizationData []*SCIInventoryControllersReport98resourceUtilizationDataType
 
 func MakeSCIInventoryControllersReport98resourceUtilizationData() SCIInventoryControllersReport98resourceUtilizationData {
@@ -79,7 +79,7 @@ func MakeSCIInventoryControllersReport98resourceUtilizationData() SCIInventoryCo
 
 // SCIInventoryControllersReport98resourceUtilizationDataType
 //
-// Definition: InventoryControllersReport.InventoryControllersReport.98.resourceUtilization.DataType
+// Definition: InventoryControllersReport_InventoryControllersReport_98_resourceUtilization_DataType
 type SCIInventoryControllersReport98resourceUtilizationDataType struct {
 	CpuUtilization *float64 `json:"cpuUtilization,omitempty"`
 
@@ -101,7 +101,7 @@ func NewSCIInventoryControllersReport98resourceUtilizationDataType() *SCIInvento
 
 // SCIInventoryControllersReport99licenseUtilizationData
 //
-// Definition: InventoryControllersReport.InventoryControllersReport.99.licenseUtilization.Data
+// Definition: InventoryControllersReport_InventoryControllersReport_99_licenseUtilization_Data
 type SCIInventoryControllersReport99licenseUtilizationData []*SCIInventoryControllersReport99licenseUtilizationDataType
 
 func MakeSCIInventoryControllersReport99licenseUtilizationData() SCIInventoryControllersReport99licenseUtilizationData {
@@ -111,7 +111,7 @@ func MakeSCIInventoryControllersReport99licenseUtilizationData() SCIInventoryCon
 
 // SCIInventoryControllersReport99licenseUtilizationDataType
 //
-// Definition: InventoryControllersReport.InventoryControllersReport.99.licenseUtilization.DataType
+// Definition: InventoryControllersReport_InventoryControllersReport_99_licenseUtilization_DataType
 type SCIInventoryControllersReport99licenseUtilizationDataType struct {
 	ApsDown *int `json:"apsDown,omitempty"`
 
@@ -139,7 +139,7 @@ func NewSCIInventoryControllersReport99licenseUtilizationDataType() *SCIInventor
 
 // SCIInventoryControllersReport114controllerInventoryOverviewData
 //
-// Definition: InventoryControllersReport.InventoryControllersReport.114.controllerInventoryOverview.Data
+// Definition: InventoryControllersReport_InventoryControllersReport_114_controllerInventoryOverview_Data
 type SCIInventoryControllersReport114controllerInventoryOverviewData []*SCIInventoryControllersReport114controllerInventoryOverviewDataType
 
 func MakeSCIInventoryControllersReport114controllerInventoryOverviewData() SCIInventoryControllersReport114controllerInventoryOverviewData {
@@ -149,7 +149,7 @@ func MakeSCIInventoryControllersReport114controllerInventoryOverviewData() SCIIn
 
 // SCIInventoryControllersReport114controllerInventoryOverviewDataType
 //
-// Definition: InventoryControllersReport.InventoryControllersReport.114.controllerInventoryOverview.DataType
+// Definition: InventoryControllersReport_InventoryControllersReport_114_controllerInventoryOverview_DataType
 type SCIInventoryControllersReport114controllerInventoryOverviewDataType struct {
 	Offline *int `json:"offline,omitempty"`
 
@@ -169,7 +169,7 @@ func NewSCIInventoryControllersReport114controllerInventoryOverviewDataType() *S
 
 // ReportInventoryControllersReport96Krack
 //
-// Operation ID: report.InventoryControllersReport.96.krack
+// Operation ID: report_InventoryControllersReport_96_krack
 //
 // Inventory - Controllers Report - KRACK Assessment
 //
@@ -200,7 +200,7 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 
 // ReportInventoryControllersReport98ResourceUtilization
 //
-// Operation ID: report.InventoryControllersReport.98.resourceUtilization
+// Operation ID: report_InventoryControllersReport_98_resourceUtilization
 //
 // Inventory - Controllers Report - Resource Utilization
 //
@@ -231,7 +231,7 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 
 // ReportInventoryControllersReport99LicenseUtilization
 //
-// Operation ID: report.InventoryControllersReport.99.licenseUtilization
+// Operation ID: report_InventoryControllersReport_99_licenseUtilization
 //
 // Inventory - Controllers Report - License Utilization
 //
@@ -262,7 +262,7 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 
 // ReportInventoryControllersReport114ControllerInventoryOverview
 //
-// Operation ID: report.InventoryControllersReport.114.controllerInventoryOverview
+// Operation ID: report_InventoryControllersReport_114_controllerInventoryOverview
 //
 // Inventory - Controllers Report - Overview
 //

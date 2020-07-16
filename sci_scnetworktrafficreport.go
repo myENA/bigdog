@@ -23,7 +23,7 @@ func (ss *SCIService) SCISCNetworkTrafficReportService() *SCISCNetworkTrafficRep
 
 // ReportSCNetworkTrafficReport93ScNetworkTraffic
 //
-// Operation ID: report.SCNetworkTrafficReport.93.scNetworkTraffic
+// Operation ID: report_SCNetworkTrafficReport_93_scNetworkTraffic
 //
 // SC Network Traffic Report - Summary
 //
@@ -54,7 +54,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport93ScNetwo
 
 // ReportSCNetworkTrafficReport94ScNetworkTrend
 //
-// Operation ID: report.SCNetworkTrafficReport.94.scNetworkTrend
+// Operation ID: report_SCNetworkTrafficReport_94_scNetworkTrend
 //
 // SC Network Traffic Report - SmartCell Trend Over Time
 //
@@ -85,7 +85,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport94ScNetwo
 
 // ReportSCNetworkTrafficReport100DroppedCallRate
 //
-// Operation ID: report.SCNetworkTrafficReport.100.droppedCallRate
+// Operation ID: report_SCNetworkTrafficReport_100_droppedCallRate
 //
 // SC Network Traffic Report - SmartCell Dropped Call Rate
 //
@@ -116,7 +116,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport100Droppe
 
 // ReportSCNetworkTrafficReport101ConnectionSetupSuccessRate
 //
-// Operation ID: report.SCNetworkTrafficReport.101.connectionSetupSuccessRate
+// Operation ID: report_SCNetworkTrafficReport_101_connectionSetupSuccessRate
 //
 // SC Network Traffic Report - SmartCell Connection Setup Success Rate
 //
@@ -147,7 +147,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport101Connec
 
 // ReportSCNetworkTrafficReport102HandoverSuccessRate
 //
-// Operation ID: report.SCNetworkTrafficReport.102.handoverSuccessRate
+// Operation ID: report_SCNetworkTrafficReport_102_handoverSuccessRate
 //
 // SC Network Traffic Report - SmartCell Handover Success Rate
 //
@@ -178,7 +178,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport102Handov
 
 // ReportSCNetworkTrafficReport103AvgThroughput
 //
-// Operation ID: report.SCNetworkTrafficReport.103.avgThroughput
+// Operation ID: report_SCNetworkTrafficReport_103_avgThroughput
 //
 // SC Network Traffic Report - SmartCell Average Throughput
 //
@@ -209,7 +209,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport103AvgThr
 
 // ReportSCNetworkTrafficReport104ScAvailability
 //
-// Operation ID: report.SCNetworkTrafficReport.104.scAvailability
+// Operation ID: report_SCNetworkTrafficReport_104_scAvailability
 //
 // SC Network Traffic Report - SmartCell Availability
 //
@@ -240,7 +240,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport104ScAvai
 
 // ReportSCNetworkTrafficReport105RscConnectionStats
 //
-// Operation ID: report.SCNetworkTrafficReport.105.rscConnectionStats
+// Operation ID: report_SCNetworkTrafficReport_105_rscConnectionStats
 //
 // SC Network Traffic Report - SmartCell Connection Statistics
 //
@@ -271,7 +271,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport105RscCon
 
 // ReportSCNetworkTrafficReport106RscGpsStats
 //
-// Operation ID: report.SCNetworkTrafficReport.106.rscGpsStats
+// Operation ID: report_SCNetworkTrafficReport_106_rscGpsStats
 //
 // SC Network Traffic Report - RSC GPS Statistics
 //
@@ -302,7 +302,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport106RscGps
 
 // ReportSCNetworkTrafficReport107TrafficVolume
 //
-// Operation ID: report.SCNetworkTrafficReport.107.trafficVolume
+// Operation ID: report_SCNetworkTrafficReport_107_trafficVolume
 //
 // SC Network Traffic Report - SmartCell Traffic Volume
 //
@@ -333,7 +333,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport107Traffi
 
 // ReportSCNetworkTrafficReport108PhaseSyncLoss
 //
-// Operation ID: report.SCNetworkTrafficReport.108.phaseSyncLoss
+// Operation ID: report_SCNetworkTrafficReport_108_phaseSyncLoss
 //
 // SC Network Traffic Report - SmartCell Phase Sync Loss
 //
@@ -364,7 +364,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport108PhaseS
 
 // ReportSCNetworkTrafficReport109FrequencySyncLoss
 //
-// Operation ID: report.SCNetworkTrafficReport.109.frequencySyncLoss
+// Operation ID: report_SCNetworkTrafficReport_109_frequencySyncLoss
 //
 // SC Network Traffic Report - SmartCell Frequency Sync Loss
 //
@@ -395,7 +395,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport109Freque
 
 // ReportSCNetworkTrafficReport111RscTrafficStats
 //
-// Operation ID: report.SCNetworkTrafficReport.111.rscTrafficStats
+// Operation ID: report_SCNetworkTrafficReport_111_rscTrafficStats
 //
 // SC Network Traffic Report - RSC Traffic Statistics
 //

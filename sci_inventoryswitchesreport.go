@@ -23,7 +23,7 @@ func (ss *SCIService) SCIInventorySwitchesReportService() *SCIInventorySwitchesR
 
 // SCIInventorySwitchesReport113overviewData
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.113.overview.Data
+// Definition: InventorySwitchesReport_InventorySwitchesReport_113_overview_Data
 type SCIInventorySwitchesReport113overviewData []*SCIInventorySwitchesReport113overviewDataType
 
 func MakeSCIInventorySwitchesReport113overviewData() SCIInventorySwitchesReport113overviewData {
@@ -33,7 +33,7 @@ func MakeSCIInventorySwitchesReport113overviewData() SCIInventorySwitchesReport1
 
 // SCIInventorySwitchesReport113overviewDataType
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.113.overview.DataType
+// Definition: InventorySwitchesReport_InventorySwitchesReport_113_overview_DataType
 type SCIInventorySwitchesReport113overviewDataType struct {
 	DownPortCount *int `json:"downPortCount,omitempty"`
 
@@ -59,7 +59,7 @@ func NewSCIInventorySwitchesReport113overviewDataType() *SCIInventorySwitchesRep
 
 // SCIInventorySwitchesReport116switchCountTrendData
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.116.switchCountTrend.Data
+// Definition: InventorySwitchesReport_InventorySwitchesReport_116_switchCountTrend_Data
 type SCIInventorySwitchesReport116switchCountTrendData []*SCIInventorySwitchesReport116switchCountTrendDataType
 
 func MakeSCIInventorySwitchesReport116switchCountTrendData() SCIInventorySwitchesReport116switchCountTrendData {
@@ -69,7 +69,7 @@ func MakeSCIInventorySwitchesReport116switchCountTrendData() SCIInventorySwitche
 
 // SCIInventorySwitchesReport116switchCountTrendDataType
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.116.switchCountTrend.DataType
+// Definition: InventorySwitchesReport_InventorySwitchesReport_116_switchCountTrend_DataType
 type SCIInventorySwitchesReport116switchCountTrendDataType struct {
 	Count *int `json:"count,omitempty"`
 
@@ -91,7 +91,7 @@ func NewSCIInventorySwitchesReport116switchCountTrendDataType() *SCIInventorySwi
 
 // SCIInventorySwitchesReport117top10SwitchVersionChartData
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.117.top10SwitchVersionChart.Data
+// Definition: InventorySwitchesReport_InventorySwitchesReport_117_top10SwitchVersionChart_Data
 type SCIInventorySwitchesReport117top10SwitchVersionChartData []*SCIInventorySwitchesReport117top10SwitchVersionChartDataType
 
 func MakeSCIInventorySwitchesReport117top10SwitchVersionChartData() SCIInventorySwitchesReport117top10SwitchVersionChartData {
@@ -101,7 +101,7 @@ func MakeSCIInventorySwitchesReport117top10SwitchVersionChartData() SCIInventory
 
 // SCIInventorySwitchesReport117top10SwitchVersionChartDataType
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.117.top10SwitchVersionChart.DataType
+// Definition: InventorySwitchesReport_InventorySwitchesReport_117_top10SwitchVersionChart_DataType
 type SCIInventorySwitchesReport117top10SwitchVersionChartDataType struct {
 	SwitchCount *int `json:"switchCount,omitempty"`
 
@@ -115,7 +115,7 @@ func NewSCIInventorySwitchesReport117top10SwitchVersionChartDataType() *SCIInven
 
 // SCIInventorySwitchesReport117top10SwitchVersionChartMetaData
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.117.top10SwitchVersionChart.MetaData
+// Definition: InventorySwitchesReport_InventorySwitchesReport_117_top10SwitchVersionChart_MetaData
 type SCIInventorySwitchesReport117top10SwitchVersionChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -127,7 +127,7 @@ func NewSCIInventorySwitchesReport117top10SwitchVersionChartMetaData() *SCIInven
 
 // SCIInventorySwitchesReport118topSwitchVersionsData
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.118.topSwitchVersions.Data
+// Definition: InventorySwitchesReport_InventorySwitchesReport_118_topSwitchVersions_Data
 type SCIInventorySwitchesReport118topSwitchVersionsData []*SCIInventorySwitchesReport118topSwitchVersionsDataType
 
 func MakeSCIInventorySwitchesReport118topSwitchVersionsData() SCIInventorySwitchesReport118topSwitchVersionsData {
@@ -137,7 +137,7 @@ func MakeSCIInventorySwitchesReport118topSwitchVersionsData() SCIInventorySwitch
 
 // SCIInventorySwitchesReport118topSwitchVersionsDataType
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.118.topSwitchVersions.DataType
+// Definition: InventorySwitchesReport_InventorySwitchesReport_118_topSwitchVersions_DataType
 type SCIInventorySwitchesReport118topSwitchVersionsDataType struct {
 	Index *int `json:"index,omitempty"`
 
@@ -155,7 +155,7 @@ func NewSCIInventorySwitchesReport118topSwitchVersionsDataType() *SCIInventorySw
 
 // SCIInventorySwitchesReport121topSwitchModelsChartData
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.121.topSwitchModelsChart.Data
+// Definition: InventorySwitchesReport_InventorySwitchesReport_121_topSwitchModelsChart_Data
 type SCIInventorySwitchesReport121topSwitchModelsChartData []*SCIInventorySwitchesReport121topSwitchModelsChartDataType
 
 func MakeSCIInventorySwitchesReport121topSwitchModelsChartData() SCIInventorySwitchesReport121topSwitchModelsChartData {
@@ -165,7 +165,7 @@ func MakeSCIInventorySwitchesReport121topSwitchModelsChartData() SCIInventorySwi
 
 // SCIInventorySwitchesReport121topSwitchModelsChartDataType
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.121.topSwitchModelsChart.DataType
+// Definition: InventorySwitchesReport_InventorySwitchesReport_121_topSwitchModelsChart_DataType
 type SCIInventorySwitchesReport121topSwitchModelsChartDataType struct {
 	SwitchCount *int `json:"switchCount,omitempty"`
 
@@ -179,7 +179,7 @@ func NewSCIInventorySwitchesReport121topSwitchModelsChartDataType() *SCIInventor
 
 // SCIInventorySwitchesReport121topSwitchModelsChartMetaData
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.121.topSwitchModelsChart.MetaData
+// Definition: InventorySwitchesReport_InventorySwitchesReport_121_topSwitchModelsChart_MetaData
 type SCIInventorySwitchesReport121topSwitchModelsChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -191,7 +191,7 @@ func NewSCIInventorySwitchesReport121topSwitchModelsChartMetaData() *SCIInventor
 
 // SCIInventorySwitchesReport122topSwitchModelsData
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.122.topSwitchModels.Data
+// Definition: InventorySwitchesReport_InventorySwitchesReport_122_topSwitchModels_Data
 type SCIInventorySwitchesReport122topSwitchModelsData []*SCIInventorySwitchesReport122topSwitchModelsDataType
 
 func MakeSCIInventorySwitchesReport122topSwitchModelsData() SCIInventorySwitchesReport122topSwitchModelsData {
@@ -201,7 +201,7 @@ func MakeSCIInventorySwitchesReport122topSwitchModelsData() SCIInventorySwitches
 
 // SCIInventorySwitchesReport122topSwitchModelsDataType
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.122.topSwitchModels.DataType
+// Definition: InventorySwitchesReport_InventorySwitchesReport_122_topSwitchModels_DataType
 type SCIInventorySwitchesReport122topSwitchModelsDataType struct {
 	Index *int `json:"index,omitempty"`
 
@@ -219,7 +219,7 @@ func NewSCIInventorySwitchesReport122topSwitchModelsDataType() *SCIInventorySwit
 
 // SCIInventorySwitchesReport132portStatusTrendData
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.132.portStatusTrend.Data
+// Definition: InventorySwitchesReport_InventorySwitchesReport_132_portStatusTrend_Data
 type SCIInventorySwitchesReport132portStatusTrendData []*SCIInventorySwitchesReport132portStatusTrendDataType
 
 func MakeSCIInventorySwitchesReport132portStatusTrendData() SCIInventorySwitchesReport132portStatusTrendData {
@@ -229,7 +229,7 @@ func MakeSCIInventorySwitchesReport132portStatusTrendData() SCIInventorySwitches
 
 // SCIInventorySwitchesReport132portStatusTrendDataType
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.132.portStatusTrend.DataType
+// Definition: InventorySwitchesReport_InventorySwitchesReport_132_portStatusTrend_DataType
 type SCIInventorySwitchesReport132portStatusTrendDataType struct {
 	PortCount *int `json:"portCount,omitempty"`
 
@@ -243,7 +243,7 @@ func NewSCIInventorySwitchesReport132portStatusTrendDataType() *SCIInventorySwit
 
 // SCIInventorySwitchesReport132portStatusTrendMetaData
 //
-// Definition: InventorySwitchesReport.InventorySwitchesReport.132.portStatusTrend.MetaData
+// Definition: InventorySwitchesReport_InventorySwitchesReport_132_portStatusTrend_MetaData
 type SCIInventorySwitchesReport132portStatusTrendMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -255,7 +255,7 @@ func NewSCIInventorySwitchesReport132portStatusTrendMetaData() *SCIInventorySwit
 
 // ReportInventorySwitchesReport113Overview
 //
-// Operation ID: report.InventorySwitchesReport.113.overview
+// Operation ID: report_InventorySwitchesReport_113_overview
 //
 // Inventory - Switches Report - Overview
 //
@@ -286,7 +286,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport113Over
 
 // ReportInventorySwitchesReport116SwitchCountTrend
 //
-// Operation ID: report.InventorySwitchesReport.116.switchCountTrend
+// Operation ID: report_InventorySwitchesReport_116_switchCountTrend
 //
 // Inventory - Switches Report - Switch Count Trend
 //
@@ -317,7 +317,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport116Swit
 
 // ReportInventorySwitchesReport117Top10SwitchVersionChart
 //
-// Operation ID: report.InventorySwitchesReport.117.top10SwitchVersionChart
+// Operation ID: report_InventorySwitchesReport_117_top10SwitchVersionChart
 //
 // Inventory - Switches Report - Top Switch Software Versions
 //
@@ -348,7 +348,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport117Top1
 
 // ReportInventorySwitchesReport118TopSwitchVersions
 //
-// Operation ID: report.InventorySwitchesReport.118.topSwitchVersions
+// Operation ID: report_InventorySwitchesReport_118_topSwitchVersions
 //
 // Inventory - Switches Report - Top Switch Software Versions
 //
@@ -379,7 +379,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport118TopS
 
 // ReportInventorySwitchesReport121TopSwitchModelsChart
 //
-// Operation ID: report.InventorySwitchesReport.121.topSwitchModelsChart
+// Operation ID: report_InventorySwitchesReport_121_topSwitchModelsChart
 //
 // Inventory - Switches Report - Top Switch Models
 //
@@ -410,7 +410,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport121TopS
 
 // ReportInventorySwitchesReport122TopSwitchModels
 //
-// Operation ID: report.InventorySwitchesReport.122.topSwitchModels
+// Operation ID: report_InventorySwitchesReport_122_topSwitchModels
 //
 // Inventory - Switches Report - Top Switch Models
 //
@@ -441,7 +441,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport122TopS
 
 // ReportInventorySwitchesReport132PortStatusTrend
 //
-// Operation ID: report.InventorySwitchesReport.132.portStatusTrend
+// Operation ID: report_InventorySwitchesReport_132_portStatusTrend
 //
 // Inventory - Switches Report - Port Status Trends
 //

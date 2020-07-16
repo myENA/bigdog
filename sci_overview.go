@@ -23,7 +23,7 @@ func (ss *SCIService) SCIOverviewService() *SCIOverviewService {
 
 // SCIOverview62overviewData
 //
-// Definition: Overview.Overview.62.overview.Data
+// Definition: Overview_Overview_62_overview_Data
 type SCIOverview62overviewData []*SCIOverview62overviewDataType
 
 func MakeSCIOverview62overviewData() SCIOverview62overviewData {
@@ -33,7 +33,7 @@ func MakeSCIOverview62overviewData() SCIOverview62overviewData {
 
 // SCIOverview62overviewDataType
 //
-// Definition: Overview.Overview.62.overview.DataType
+// Definition: Overview_Overview_62_overview_DataType
 type SCIOverview62overviewDataType struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -61,7 +61,7 @@ func NewSCIOverview62overviewDataType() *SCIOverview62overviewDataType {
 
 // SCIOverview62overviewMetaData
 //
-// Definition: Overview.Overview.62.overview.MetaData
+// Definition: Overview_Overview_62_overview_MetaData
 type SCIOverview62overviewMetaData struct {
 	LastAnomalyUpdatedTime *string `json:"lastAnomalyUpdatedTime,omitempty"`
 }
@@ -73,7 +73,7 @@ func NewSCIOverview62overviewMetaData() *SCIOverview62overviewMetaData {
 
 // SCIOverview63controllerData
 //
-// Definition: Overview.Overview.63.controller.Data
+// Definition: Overview_Overview_63_controller_Data
 type SCIOverview63controllerData []*SCIOverview63controllerDataType
 
 func MakeSCIOverview63controllerData() SCIOverview63controllerData {
@@ -83,7 +83,7 @@ func MakeSCIOverview63controllerData() SCIOverview63controllerData {
 
 // SCIOverview63controllerDataType
 //
-// Definition: Overview.Overview.63.controller.DataType
+// Definition: Overview_Overview_63_controller_DataType
 type SCIOverview63controllerDataType struct {
 	Offline *int `json:"offline,omitempty"`
 
@@ -103,7 +103,7 @@ func NewSCIOverview63controllerDataType() *SCIOverview63controllerDataType {
 
 // SCIOverview64apOverviewData
 //
-// Definition: Overview.Overview.64.apOverview.Data
+// Definition: Overview_Overview_64_apOverview_Data
 type SCIOverview64apOverviewData []*SCIOverview64apOverviewDataType
 
 func MakeSCIOverview64apOverviewData() SCIOverview64apOverviewData {
@@ -113,7 +113,7 @@ func MakeSCIOverview64apOverviewData() SCIOverview64apOverviewData {
 
 // SCIOverview64apOverviewDataType
 //
-// Definition: Overview.Overview.64.apOverview.DataType
+// Definition: Overview_Overview_64_apOverview_DataType
 type SCIOverview64apOverviewDataType struct {
 	Offline *int `json:"offline,omitempty"`
 
@@ -137,7 +137,7 @@ func NewSCIOverview64apOverviewDataType() *SCIOverview64apOverviewDataType {
 
 // SCIOverview66apAlarmOverviewData
 //
-// Definition: Overview.Overview.66.apAlarmOverview.Data
+// Definition: Overview_Overview_66_apAlarmOverview_Data
 type SCIOverview66apAlarmOverviewData []*SCIOverview66apAlarmOverviewDataType
 
 func MakeSCIOverview66apAlarmOverviewData() SCIOverview66apAlarmOverviewData {
@@ -147,7 +147,7 @@ func MakeSCIOverview66apAlarmOverviewData() SCIOverview66apAlarmOverviewData {
 
 // SCIOverview66apAlarmOverviewDataType
 //
-// Definition: Overview.Overview.66.apAlarmOverview.DataType
+// Definition: Overview_Overview_66_apAlarmOverview_DataType
 type SCIOverview66apAlarmOverviewDataType struct {
 	AlarmType *string `json:"alarmType,omitempty"`
 
@@ -161,7 +161,7 @@ func NewSCIOverview66apAlarmOverviewDataType() *SCIOverview66apAlarmOverviewData
 
 // SCIOverview66apAlarmOverviewMetaData
 //
-// Definition: Overview.Overview.66.apAlarmOverview.MetaData
+// Definition: Overview_Overview_66_apAlarmOverview_MetaData
 type SCIOverview66apAlarmOverviewMetaData struct {
 	AlarmStat *SCIOverview66apAlarmOverviewMetaDataAlarmStatType `json:"alarmStat,omitempty"`
 
@@ -175,7 +175,7 @@ func NewSCIOverview66apAlarmOverviewMetaData() *SCIOverview66apAlarmOverviewMeta
 
 // SCIOverview66apAlarmOverviewMetaDataAlarmStatType
 //
-// Definition: Overview.Overview.66.apAlarmOverview.MetaDataAlarmStatType
+// Definition: Overview_Overview_66_apAlarmOverview_MetaDataAlarmStatType
 type SCIOverview66apAlarmOverviewMetaDataAlarmStatType struct {
 	ByApGroup *SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType `json:"byApGroup,omitempty"`
 
@@ -189,7 +189,7 @@ func NewSCIOverview66apAlarmOverviewMetaDataAlarmStatType() *SCIOverview66apAlar
 
 // SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType
 //
-// Definition: Overview.Overview.66.apAlarmOverview.MetaDataAlarmStatTypeByApGroupType
+// Definition: Overview_Overview_66_apAlarmOverview_MetaDataAlarmStatTypeByApGroupType
 type SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType struct {
 	Alarm *int `json:"alarm,omitempty"`
 
@@ -203,7 +203,7 @@ func NewSCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType() *SCIOve
 
 // SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByZoneType
 //
-// Definition: Overview.Overview.66.apAlarmOverview.MetaDataAlarmStatTypeByZoneType
+// Definition: Overview_Overview_66_apAlarmOverview_MetaDataAlarmStatTypeByZoneType
 type SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByZoneType struct {
 	Alarm *int `json:"alarm,omitempty"`
 
@@ -217,7 +217,7 @@ func NewSCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByZoneType() *SCIOvervi
 
 // SCIOverview67switchOverviewData
 //
-// Definition: Overview.Overview.67.switchOverview.Data
+// Definition: Overview_Overview_67_switchOverview_Data
 type SCIOverview67switchOverviewData []*SCIOverview67switchOverviewDataType
 
 func MakeSCIOverview67switchOverviewData() SCIOverview67switchOverviewData {
@@ -227,7 +227,7 @@ func MakeSCIOverview67switchOverviewData() SCIOverview67switchOverviewData {
 
 // SCIOverview67switchOverviewDataType
 //
-// Definition: Overview.Overview.67.switchOverview.DataType
+// Definition: Overview_Overview_67_switchOverview_DataType
 type SCIOverview67switchOverviewDataType struct {
 	Offline *int `json:"offline,omitempty"`
 
@@ -245,7 +245,7 @@ func NewSCIOverview67switchOverviewDataType() *SCIOverview67switchOverviewDataTy
 
 // SCIOverview68apClientCountOverviewData
 //
-// Definition: Overview.Overview.68.apClientCountOverview.Data
+// Definition: Overview_Overview_68_apClientCountOverview_Data
 type SCIOverview68apClientCountOverviewData []*SCIOverview68apClientCountOverviewDataType
 
 func MakeSCIOverview68apClientCountOverviewData() SCIOverview68apClientCountOverviewData {
@@ -255,7 +255,7 @@ func MakeSCIOverview68apClientCountOverviewData() SCIOverview68apClientCountOver
 
 // SCIOverview68apClientCountOverviewDataType
 //
-// Definition: Overview.Overview.68.apClientCountOverview.DataType
+// Definition: Overview_Overview_68_apClientCountOverview_DataType
 type SCIOverview68apClientCountOverviewDataType struct {
 	Key *string `json:"key,omitempty"`
 
@@ -271,7 +271,7 @@ func NewSCIOverview68apClientCountOverviewDataType() *SCIOverview68apClientCount
 
 // SCIOverview68apClientCountOverviewMetaData
 //
-// Definition: Overview.Overview.68.apClientCountOverview.MetaData
+// Definition: Overview_Overview_68_apClientCountOverview_MetaData
 type SCIOverview68apClientCountOverviewMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -283,7 +283,7 @@ func NewSCIOverview68apClientCountOverviewMetaData() *SCIOverview68apClientCount
 
 // SCIOverview69totalTrafficMinMaxRateData
 //
-// Definition: Overview.Overview.69.totalTrafficMinMaxRate.Data
+// Definition: Overview_Overview_69_totalTrafficMinMaxRate_Data
 type SCIOverview69totalTrafficMinMaxRateData []*SCIOverview69totalTrafficMinMaxRateDataType
 
 func MakeSCIOverview69totalTrafficMinMaxRateData() SCIOverview69totalTrafficMinMaxRateData {
@@ -293,7 +293,7 @@ func MakeSCIOverview69totalTrafficMinMaxRateData() SCIOverview69totalTrafficMinM
 
 // SCIOverview69totalTrafficMinMaxRateDataType
 //
-// Definition: Overview.Overview.69.totalTrafficMinMaxRate.DataType
+// Definition: Overview_Overview_69_totalTrafficMinMaxRate_DataType
 type SCIOverview69totalTrafficMinMaxRateDataType struct {
 	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
 
@@ -307,7 +307,7 @@ func NewSCIOverview69totalTrafficMinMaxRateDataType() *SCIOverview69totalTraffic
 
 // SCIOverview70sessionsOverviewData
 //
-// Definition: Overview.Overview.70.sessionsOverview.Data
+// Definition: Overview_Overview_70_sessionsOverview_Data
 type SCIOverview70sessionsOverviewData []*SCIOverview70sessionsOverviewDataType
 
 func MakeSCIOverview70sessionsOverviewData() SCIOverview70sessionsOverviewData {
@@ -317,7 +317,7 @@ func MakeSCIOverview70sessionsOverviewData() SCIOverview70sessionsOverviewData {
 
 // SCIOverview70sessionsOverviewDataType
 //
-// Definition: Overview.Overview.70.sessionsOverview.DataType
+// Definition: Overview_Overview_70_sessionsOverview_DataType
 type SCIOverview70sessionsOverviewDataType struct {
 	Current *float64 `json:"current,omitempty"`
 }
@@ -329,7 +329,7 @@ func NewSCIOverview70sessionsOverviewDataType() *SCIOverview70sessionsOverviewDa
 
 // SCIOverview71ssidOverviewData
 //
-// Definition: Overview.Overview.71.ssidOverview.Data
+// Definition: Overview_Overview_71_ssidOverview_Data
 type SCIOverview71ssidOverviewData []*SCIOverview71ssidOverviewDataType
 
 func MakeSCIOverview71ssidOverviewData() SCIOverview71ssidOverviewData {
@@ -339,7 +339,7 @@ func MakeSCIOverview71ssidOverviewData() SCIOverview71ssidOverviewData {
 
 // SCIOverview71ssidOverviewDataType
 //
-// Definition: Overview.Overview.71.ssidOverview.DataType
+// Definition: Overview_Overview_71_ssidOverview_DataType
 type SCIOverview71ssidOverviewDataType struct {
 	Current *int `json:"current,omitempty"`
 
@@ -353,7 +353,7 @@ func NewSCIOverview71ssidOverviewDataType() *SCIOverview71ssidOverviewDataType {
 
 // SCIOverview71ssidOverviewMetaData
 //
-// Definition: Overview.Overview.71.ssidOverview.MetaData
+// Definition: Overview_Overview_71_ssidOverview_MetaData
 type SCIOverview71ssidOverviewMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 
@@ -367,7 +367,7 @@ func NewSCIOverview71ssidOverviewMetaData() *SCIOverview71ssidOverviewMetaData {
 
 // SCIOverview72radioOverviewData
 //
-// Definition: Overview.Overview.72.radioOverview.Data
+// Definition: Overview_Overview_72_radioOverview_Data
 type SCIOverview72radioOverviewData []*SCIOverview72radioOverviewDataType
 
 func MakeSCIOverview72radioOverviewData() SCIOverview72radioOverviewData {
@@ -377,7 +377,7 @@ func MakeSCIOverview72radioOverviewData() SCIOverview72radioOverviewData {
 
 // SCIOverview72radioOverviewDataType
 //
-// Definition: Overview.Overview.72.radioOverview.DataType
+// Definition: Overview_Overview_72_radioOverview_DataType
 type SCIOverview72radioOverviewDataType struct {
 	AirtimeUtilizationAvg *float64 `json:"airtimeUtilizationAvg,omitempty"`
 
@@ -393,7 +393,7 @@ func NewSCIOverview72radioOverviewDataType() *SCIOverview72radioOverviewDataType
 
 // SCIOverview73applicationsOverviewData
 //
-// Definition: Overview.Overview.73.applicationsOverview.Data
+// Definition: Overview_Overview_73_applicationsOverview_Data
 type SCIOverview73applicationsOverviewData []*SCIOverview73applicationsOverviewDataType
 
 func MakeSCIOverview73applicationsOverviewData() SCIOverview73applicationsOverviewData {
@@ -403,7 +403,7 @@ func MakeSCIOverview73applicationsOverviewData() SCIOverview73applicationsOvervi
 
 // SCIOverview73applicationsOverviewDataType
 //
-// Definition: Overview.Overview.73.applicationsOverview.DataType
+// Definition: Overview_Overview_73_applicationsOverview_DataType
 type SCIOverview73applicationsOverviewDataType struct {
 	Key *string `json:"key,omitempty"`
 
@@ -419,7 +419,7 @@ func NewSCIOverview73applicationsOverviewDataType() *SCIOverview73applicationsOv
 
 // SCIOverview74apEventOverviewData
 //
-// Definition: Overview.Overview.74.apEventOverview.Data
+// Definition: Overview_Overview_74_apEventOverview_Data
 type SCIOverview74apEventOverviewData []*SCIOverview74apEventOverviewDataType
 
 func MakeSCIOverview74apEventOverviewData() SCIOverview74apEventOverviewData {
@@ -429,7 +429,7 @@ func MakeSCIOverview74apEventOverviewData() SCIOverview74apEventOverviewData {
 
 // SCIOverview74apEventOverviewDataType
 //
-// Definition: Overview.Overview.74.apEventOverview.DataType
+// Definition: Overview_Overview_74_apEventOverview_DataType
 type SCIOverview74apEventOverviewDataType struct {
 	Count *int `json:"count,omitempty"`
 
@@ -443,7 +443,7 @@ func NewSCIOverview74apEventOverviewDataType() *SCIOverview74apEventOverviewData
 
 // SCIOverview74apEventOverviewMetaData
 //
-// Definition: Overview.Overview.74.apEventOverview.MetaData
+// Definition: Overview_Overview_74_apEventOverview_MetaData
 type SCIOverview74apEventOverviewMetaData struct {
 	EventTotalCount *int `json:"eventTotalCount,omitempty"`
 }
@@ -455,7 +455,7 @@ func NewSCIOverview74apEventOverviewMetaData() *SCIOverview74apEventOverviewMeta
 
 // SCIOverview97factOverviewData
 //
-// Definition: Overview.Overview.97.factOverview.Data
+// Definition: Overview_Overview_97_factOverview_Data
 type SCIOverview97factOverviewData []*SCIOverview97factOverviewDataType
 
 func MakeSCIOverview97factOverviewData() SCIOverview97factOverviewData {
@@ -465,11 +465,11 @@ func MakeSCIOverview97factOverviewData() SCIOverview97factOverviewData {
 
 // SCIOverview97factOverviewDataType
 //
-// Definition: Overview.Overview.97.factOverview.DataType
+// Definition: Overview_Overview_97_factOverview_DataType
 type SCIOverview97factOverviewDataType struct {
 	Key *string `json:"key,omitempty"`
 
-	Label interface{} `json:"label,omitempty"`
+	Label *string `json:"label,omitempty"`
 
 	Value *float64 `json:"value,omitempty"`
 }
@@ -481,7 +481,7 @@ func NewSCIOverview97factOverviewDataType() *SCIOverview97factOverviewDataType {
 
 // SCIOverview115networkUsageOverviewData
 //
-// Definition: Overview.Overview.115.networkUsageOverview.Data
+// Definition: Overview_Overview_115_networkUsageOverview_Data
 type SCIOverview115networkUsageOverviewData struct {
 	Ap []*SCIOverview115networkUsageOverviewDataApType `json:"Ap,omitempty"`
 
@@ -509,7 +509,7 @@ func NewSCIOverview115networkUsageOverviewData() *SCIOverview115networkUsageOver
 
 // SCIOverview115networkUsageOverviewDataApGroupType
 //
-// Definition: Overview.Overview.115.networkUsageOverview.DataApGroupType
+// Definition: Overview_Overview_115_networkUsageOverview_DataApGroupType
 type SCIOverview115networkUsageOverviewDataApGroupType struct {
 	MacId *string `json:"macId,omitempty"`
 
@@ -529,7 +529,7 @@ func NewSCIOverview115networkUsageOverviewDataApGroupType() *SCIOverview115netwo
 
 // SCIOverview115networkUsageOverviewDataAppType
 //
-// Definition: Overview.Overview.115.networkUsageOverview.DataAppType
+// Definition: Overview_Overview_115_networkUsageOverview_DataAppType
 type SCIOverview115networkUsageOverviewDataAppType struct {
 	MacId *string `json:"macId,omitempty"`
 
@@ -549,7 +549,7 @@ func NewSCIOverview115networkUsageOverviewDataAppType() *SCIOverview115networkUs
 
 // SCIOverview115networkUsageOverviewDataApType
 //
-// Definition: Overview.Overview.115.networkUsageOverview.DataApType
+// Definition: Overview_Overview_115_networkUsageOverview_DataApType
 type SCIOverview115networkUsageOverviewDataApType struct {
 	MacId *string `json:"macId,omitempty"`
 
@@ -569,7 +569,7 @@ func NewSCIOverview115networkUsageOverviewDataApType() *SCIOverview115networkUsa
 
 // SCIOverview115networkUsageOverviewDataDomainType
 //
-// Definition: Overview.Overview.115.networkUsageOverview.DataDomainType
+// Definition: Overview_Overview_115_networkUsageOverview_DataDomainType
 type SCIOverview115networkUsageOverviewDataDomainType struct {
 	MacId *string `json:"macId,omitempty"`
 
@@ -589,7 +589,7 @@ func NewSCIOverview115networkUsageOverviewDataDomainType() *SCIOverview115networ
 
 // SCIOverview115networkUsageOverviewDataOSType
 //
-// Definition: Overview.Overview.115.networkUsageOverview.DataOSType
+// Definition: Overview_Overview_115_networkUsageOverview_DataOSType
 type SCIOverview115networkUsageOverviewDataOSType struct {
 	MacId *string `json:"macId,omitempty"`
 
@@ -609,7 +609,7 @@ func NewSCIOverview115networkUsageOverviewDataOSType() *SCIOverview115networkUsa
 
 // SCIOverview115networkUsageOverviewDataSSIDType
 //
-// Definition: Overview.Overview.115.networkUsageOverview.DataSSIDType
+// Definition: Overview_Overview_115_networkUsageOverview_DataSSIDType
 type SCIOverview115networkUsageOverviewDataSSIDType struct {
 	MacId *string `json:"macId,omitempty"`
 
@@ -629,7 +629,7 @@ func NewSCIOverview115networkUsageOverviewDataSSIDType() *SCIOverview115networkU
 
 // SCIOverview115networkUsageOverviewDataSwitchType
 //
-// Definition: Overview.Overview.115.networkUsageOverview.DataSwitchType
+// Definition: Overview_Overview_115_networkUsageOverview_DataSwitchType
 type SCIOverview115networkUsageOverviewDataSwitchType struct {
 	MacId *string `json:"macId,omitempty"`
 
@@ -649,7 +649,7 @@ func NewSCIOverview115networkUsageOverviewDataSwitchType() *SCIOverview115networ
 
 // SCIOverview115networkUsageOverviewDataSystemType
 //
-// Definition: Overview.Overview.115.networkUsageOverview.DataSystemType
+// Definition: Overview_Overview_115_networkUsageOverview_DataSystemType
 type SCIOverview115networkUsageOverviewDataSystemType struct {
 	MacId *string `json:"macId,omitempty"`
 
@@ -669,7 +669,7 @@ func NewSCIOverview115networkUsageOverviewDataSystemType() *SCIOverview115networ
 
 // SCIOverview115networkUsageOverviewDataZoneType
 //
-// Definition: Overview.Overview.115.networkUsageOverview.DataZoneType
+// Definition: Overview_Overview_115_networkUsageOverview_DataZoneType
 type SCIOverview115networkUsageOverviewDataZoneType struct {
 	MacId *string `json:"macId,omitempty"`
 
@@ -689,7 +689,7 @@ func NewSCIOverview115networkUsageOverviewDataZoneType() *SCIOverview115networkU
 
 // ReportOverview62Overview
 //
-// Operation ID: report.Overview.62.overview
+// Operation ID: report_Overview_62_overview
 //
 // Overview - Ruckus SmartAnalytics
 //
@@ -720,7 +720,7 @@ func (s *SCIOverviewService) ReportOverview62Overview(ctx context.Context, body 
 
 // ReportOverview63Controller
 //
-// Operation ID: report.Overview.63.controller
+// Operation ID: report_Overview_63_controller
 //
 // Overview - Controllers
 //
@@ -751,7 +751,7 @@ func (s *SCIOverviewService) ReportOverview63Controller(ctx context.Context, bod
 
 // ReportOverview64ApOverview
 //
-// Operation ID: report.Overview.64.apOverview
+// Operation ID: report_Overview_64_apOverview
 //
 // Overview - Access Points
 //
@@ -782,7 +782,7 @@ func (s *SCIOverviewService) ReportOverview64ApOverview(ctx context.Context, bod
 
 // ReportOverview66ApAlarmOverview
 //
-// Operation ID: report.Overview.66.apAlarmOverview
+// Operation ID: report_Overview_66_apAlarmOverview
 //
 // Overview - Alarms
 //
@@ -813,7 +813,7 @@ func (s *SCIOverviewService) ReportOverview66ApAlarmOverview(ctx context.Context
 
 // ReportOverview67SwitchOverview
 //
-// Operation ID: report.Overview.67.switchOverview
+// Operation ID: report_Overview_67_switchOverview
 //
 // Overview - Switches
 //
@@ -844,7 +844,7 @@ func (s *SCIOverviewService) ReportOverview67SwitchOverview(ctx context.Context,
 
 // ReportOverview68ApClientCountOverview
 //
-// Operation ID: report.Overview.68.apClientCountOverview
+// Operation ID: report_Overview_68_apClientCountOverview
 //
 // Overview - Top APs by Client Count
 //
@@ -875,7 +875,7 @@ func (s *SCIOverviewService) ReportOverview68ApClientCountOverview(ctx context.C
 
 // ReportOverview69TotalTrafficMinMaxRate
 //
-// Operation ID: report.Overview.69.totalTrafficMinMaxRate
+// Operation ID: report_Overview_69_totalTrafficMinMaxRate
 //
 // Overview - Total Wireless Traffic
 //
@@ -906,7 +906,7 @@ func (s *SCIOverviewService) ReportOverview69TotalTrafficMinMaxRate(ctx context.
 
 // ReportOverview70SessionsOverview
 //
-// Operation ID: report.Overview.70.sessionsOverview
+// Operation ID: report_Overview_70_sessionsOverview
 //
 // Overview - Unique Wireless Sessions
 //
@@ -937,7 +937,7 @@ func (s *SCIOverviewService) ReportOverview70SessionsOverview(ctx context.Contex
 
 // ReportOverview71SsidOverview
 //
-// Operation ID: report.Overview.71.ssidOverview
+// Operation ID: report_Overview_71_ssidOverview
 //
 // Overview - WLANs
 //
@@ -968,7 +968,7 @@ func (s *SCIOverviewService) ReportOverview71SsidOverview(ctx context.Context, b
 
 // ReportOverview72RadioOverview
 //
-// Operation ID: report.Overview.72.radioOverview
+// Operation ID: report_Overview_72_radioOverview
 //
 // Overview - Radios
 //
@@ -999,7 +999,7 @@ func (s *SCIOverviewService) ReportOverview72RadioOverview(ctx context.Context, 
 
 // ReportOverview73ApplicationsOverview
 //
-// Operation ID: report.Overview.73.applicationsOverview
+// Operation ID: report_Overview_73_applicationsOverview
 //
 // Overview - Applications (Wireless)
 //
@@ -1030,7 +1030,7 @@ func (s *SCIOverviewService) ReportOverview73ApplicationsOverview(ctx context.Co
 
 // ReportOverview74ApEventOverview
 //
-// Operation ID: report.Overview.74.apEventOverview
+// Operation ID: report_Overview_74_apEventOverview
 //
 // Overview - Events
 //
@@ -1061,7 +1061,7 @@ func (s *SCIOverviewService) ReportOverview74ApEventOverview(ctx context.Context
 
 // ReportOverview97FactOverview
 //
-// Operation ID: report.Overview.97.factOverview
+// Operation ID: report_Overview_97_factOverview
 //
 // Overview - Did you know?
 //
@@ -1092,7 +1092,7 @@ func (s *SCIOverviewService) ReportOverview97FactOverview(ctx context.Context, b
 
 // ReportOverview115NetworkUsageOverview
 //
-// Operation ID: report.Overview.115.networkUsageOverview
+// Operation ID: report_Overview_115_networkUsageOverview
 //
 // Overview - Network Usage Overview
 //

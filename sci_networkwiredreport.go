@@ -23,7 +23,7 @@ func (ss *SCIService) SCINetworkWiredReportService() *SCINetworkWiredReportServi
 
 // SCINetworkWiredReport123topSwitchPOEUtilChartData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.123.topSwitchPOEUtilChart.Data
+// Definition: NetworkWiredReport_NetworkWiredReport_123_topSwitchPOEUtilChart_Data
 type SCINetworkWiredReport123topSwitchPOEUtilChartData []*SCINetworkWiredReport123topSwitchPOEUtilChartDataType
 
 func MakeSCINetworkWiredReport123topSwitchPOEUtilChartData() SCINetworkWiredReport123topSwitchPOEUtilChartData {
@@ -33,7 +33,7 @@ func MakeSCINetworkWiredReport123topSwitchPOEUtilChartData() SCINetworkWiredRepo
 
 // SCINetworkWiredReport123topSwitchPOEUtilChartDataType
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.123.topSwitchPOEUtilChart.DataType
+// Definition: NetworkWiredReport_NetworkWiredReport_123_topSwitchPOEUtilChart_DataType
 type SCINetworkWiredReport123topSwitchPOEUtilChartDataType struct {
 	PoeUtilization *int `json:"poeUtilization,omitempty"`
 
@@ -49,7 +49,7 @@ func NewSCINetworkWiredReport123topSwitchPOEUtilChartDataType() *SCINetworkWired
 
 // SCINetworkWiredReport123topSwitchPOEUtilChartMetaData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.123.topSwitchPOEUtilChart.MetaData
+// Definition: NetworkWiredReport_NetworkWiredReport_123_topSwitchPOEUtilChart_MetaData
 type SCINetworkWiredReport123topSwitchPOEUtilChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -61,7 +61,7 @@ func NewSCINetworkWiredReport123topSwitchPOEUtilChartMetaData() *SCINetworkWired
 
 // SCINetworkWiredReport124topSwitchPOEUtilsData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.124.topSwitchPOEUtils.Data
+// Definition: NetworkWiredReport_NetworkWiredReport_124_topSwitchPOEUtils_Data
 type SCINetworkWiredReport124topSwitchPOEUtilsData []*SCINetworkWiredReport124topSwitchPOEUtilsDataType
 
 func MakeSCINetworkWiredReport124topSwitchPOEUtilsData() SCINetworkWiredReport124topSwitchPOEUtilsData {
@@ -71,7 +71,7 @@ func MakeSCINetworkWiredReport124topSwitchPOEUtilsData() SCINetworkWiredReport12
 
 // SCINetworkWiredReport124topSwitchPOEUtilsDataType
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.124.topSwitchPOEUtils.DataType
+// Definition: NetworkWiredReport_NetworkWiredReport_124_topSwitchPOEUtils_DataType
 type SCINetworkWiredReport124topSwitchPOEUtilsDataType struct {
 	Index *int `json:"index,omitempty"`
 
@@ -93,7 +93,7 @@ func NewSCINetworkWiredReport124topSwitchPOEUtilsDataType() *SCINetworkWiredRepo
 
 // SCINetworkWiredReport128topSwitchesByTrafficTableData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.128.topSwitchesByTrafficTable.Data
+// Definition: NetworkWiredReport_NetworkWiredReport_128_topSwitchesByTrafficTable_Data
 type SCINetworkWiredReport128topSwitchesByTrafficTableData []*SCINetworkWiredReport128topSwitchesByTrafficTableDataType
 
 func MakeSCINetworkWiredReport128topSwitchesByTrafficTableData() SCINetworkWiredReport128topSwitchesByTrafficTableData {
@@ -103,7 +103,7 @@ func MakeSCINetworkWiredReport128topSwitchesByTrafficTableData() SCINetworkWired
 
 // SCINetworkWiredReport128topSwitchesByTrafficTableDataType
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.128.topSwitchesByTrafficTable.DataType
+// Definition: NetworkWiredReport_NetworkWiredReport_128_topSwitchesByTrafficTable_DataType
 type SCINetworkWiredReport128topSwitchesByTrafficTableDataType struct {
 	AvgRateTotalRxTraffic *float64 `json:"avgRateTotalRxTraffic,omitempty"`
 
@@ -135,7 +135,7 @@ func NewSCINetworkWiredReport128topSwitchesByTrafficTableDataType() *SCINetworkW
 
 // SCINetworkWiredReport128topSwitchesByTrafficTableMetaData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.128.topSwitchesByTrafficTable.MetaData
+// Definition: NetworkWiredReport_NetworkWiredReport_128_topSwitchesByTrafficTable_MetaData
 type SCINetworkWiredReport128topSwitchesByTrafficTableMetaData struct {
 	MaxValues *SCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -155,7 +155,7 @@ func NewSCINetworkWiredReport128topSwitchesByTrafficTableMetaData() *SCINetworkW
 
 // SCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.128.topSwitchesByTrafficTable.MetaDataMaxValuesType
+// Definition: NetworkWiredReport_NetworkWiredReport_128_topSwitchesByTrafficTable_MetaDataMaxValuesType
 type SCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType struct {
 	AvgRateTotalRxTraffic *float64 `json:"avgRateTotalRxTraffic,omitempty"`
 
@@ -177,7 +177,7 @@ func NewSCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType()
 
 // SCINetworkWiredReport134wiredOverviewData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.134.wiredOverview.Data
+// Definition: NetworkWiredReport_NetworkWiredReport_134_wiredOverview_Data
 type SCINetworkWiredReport134wiredOverviewData []*SCINetworkWiredReport134wiredOverviewDataType
 
 func MakeSCINetworkWiredReport134wiredOverviewData() SCINetworkWiredReport134wiredOverviewData {
@@ -187,7 +187,7 @@ func MakeSCINetworkWiredReport134wiredOverviewData() SCINetworkWiredReport134wir
 
 // SCINetworkWiredReport134wiredOverviewDataType
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.134.wiredOverview.DataType
+// Definition: NetworkWiredReport_NetworkWiredReport_134_wiredOverview_DataType
 type SCINetworkWiredReport134wiredOverviewDataType struct {
 	AvgRateTotalRxTraffic *float64 `json:"avgRateTotalRxTraffic,omitempty"`
 
@@ -211,7 +211,7 @@ func NewSCINetworkWiredReport134wiredOverviewDataType() *SCINetworkWiredReport13
 
 // SCINetworkWiredReport135wiredTrafficDistributionData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.135.wiredTrafficDistribution.Data
+// Definition: NetworkWiredReport_NetworkWiredReport_135_wiredTrafficDistribution_Data
 type SCINetworkWiredReport135wiredTrafficDistributionData []*SCINetworkWiredReport135wiredTrafficDistributionDataType
 
 func MakeSCINetworkWiredReport135wiredTrafficDistributionData() SCINetworkWiredReport135wiredTrafficDistributionData {
@@ -221,7 +221,7 @@ func MakeSCINetworkWiredReport135wiredTrafficDistributionData() SCINetworkWiredR
 
 // SCINetworkWiredReport135wiredTrafficDistributionDataType
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.135.wiredTrafficDistribution.DataType
+// Definition: NetworkWiredReport_NetworkWiredReport_135_wiredTrafficDistribution_DataType
 type SCINetworkWiredReport135wiredTrafficDistributionDataType struct {
 	Categories []string `json:"categories,omitempty"`
 
@@ -235,7 +235,7 @@ func NewSCINetworkWiredReport135wiredTrafficDistributionDataType() *SCINetworkWi
 
 // SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.135.wiredTrafficDistribution.DataTypeSeriesType
+// Definition: NetworkWiredReport_NetworkWiredReport_135_wiredTrafficDistribution_DataTypeSeriesType
 type SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType struct {
 	Data []float64 `json:"data,omitempty"`
 
@@ -249,7 +249,7 @@ func NewSCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType() *SC
 
 // SCINetworkWiredReport135wiredTrafficDistributionMetaData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.135.wiredTrafficDistribution.MetaData
+// Definition: NetworkWiredReport_NetworkWiredReport_135_wiredTrafficDistribution_MetaData
 type SCINetworkWiredReport135wiredTrafficDistributionMetaData struct {
 	ChartType *string `json:"chartType,omitempty"`
 }
@@ -261,7 +261,7 @@ func NewSCINetworkWiredReport135wiredTrafficDistributionMetaData() *SCINetworkWi
 
 // SCINetworkWiredReport136switchTrafficTrendData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.136.switchTrafficTrend.Data
+// Definition: NetworkWiredReport_NetworkWiredReport_136_switchTrafficTrend_Data
 type SCINetworkWiredReport136switchTrafficTrendData []*SCINetworkWiredReport136switchTrafficTrendDataType
 
 func MakeSCINetworkWiredReport136switchTrafficTrendData() SCINetworkWiredReport136switchTrafficTrendData {
@@ -271,7 +271,7 @@ func MakeSCINetworkWiredReport136switchTrafficTrendData() SCINetworkWiredReport1
 
 // SCINetworkWiredReport136switchTrafficTrendDataType
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.136.switchTrafficTrend.DataType
+// Definition: NetworkWiredReport_NetworkWiredReport_136_switchTrafficTrend_DataType
 type SCINetworkWiredReport136switchTrafficTrendDataType struct {
 	End *string `json:"end,omitempty"`
 
@@ -291,7 +291,7 @@ func NewSCINetworkWiredReport136switchTrafficTrendDataType() *SCINetworkWiredRep
 
 // SCINetworkWiredReport141switchErrorTrendData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.141.switchErrorTrend.Data
+// Definition: NetworkWiredReport_NetworkWiredReport_141_switchErrorTrend_Data
 type SCINetworkWiredReport141switchErrorTrendData []*SCINetworkWiredReport141switchErrorTrendDataType
 
 func MakeSCINetworkWiredReport141switchErrorTrendData() SCINetworkWiredReport141switchErrorTrendData {
@@ -301,7 +301,7 @@ func MakeSCINetworkWiredReport141switchErrorTrendData() SCINetworkWiredReport141
 
 // SCINetworkWiredReport141switchErrorTrendDataType
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.141.switchErrorTrend.DataType
+// Definition: NetworkWiredReport_NetworkWiredReport_141_switchErrorTrend_DataType
 type SCINetworkWiredReport141switchErrorTrendDataType struct {
 	CrcErrors *int `json:"crcErrors,omitempty"`
 
@@ -323,7 +323,7 @@ func NewSCINetworkWiredReport141switchErrorTrendDataType() *SCINetworkWiredRepor
 
 // SCINetworkWiredReport142topSwitchesByErrorsChartData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.142.topSwitchesByErrorsChart.Data
+// Definition: NetworkWiredReport_NetworkWiredReport_142_topSwitchesByErrorsChart_Data
 type SCINetworkWiredReport142topSwitchesByErrorsChartData []*SCINetworkWiredReport142topSwitchesByErrorsChartDataType
 
 func MakeSCINetworkWiredReport142topSwitchesByErrorsChartData() SCINetworkWiredReport142topSwitchesByErrorsChartData {
@@ -333,7 +333,7 @@ func MakeSCINetworkWiredReport142topSwitchesByErrorsChartData() SCINetworkWiredR
 
 // SCINetworkWiredReport142topSwitchesByErrorsChartDataType
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.142.topSwitchesByErrorsChart.DataType
+// Definition: NetworkWiredReport_NetworkWiredReport_142_topSwitchesByErrorsChart_DataType
 type SCINetworkWiredReport142topSwitchesByErrorsChartDataType struct {
 	Error *int `json:"error,omitempty"`
 
@@ -349,7 +349,7 @@ func NewSCINetworkWiredReport142topSwitchesByErrorsChartDataType() *SCINetworkWi
 
 // SCINetworkWiredReport142topSwitchesByErrorsChartMetaData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.142.topSwitchesByErrorsChart.MetaData
+// Definition: NetworkWiredReport_NetworkWiredReport_142_topSwitchesByErrorsChart_MetaData
 type SCINetworkWiredReport142topSwitchesByErrorsChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -361,7 +361,7 @@ func NewSCINetworkWiredReport142topSwitchesByErrorsChartMetaData() *SCINetworkWi
 
 // SCINetworkWiredReport143topSwitchesByErrorsTableData
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.143.topSwitchesByErrorsTable.Data
+// Definition: NetworkWiredReport_NetworkWiredReport_143_topSwitchesByErrorsTable_Data
 type SCINetworkWiredReport143topSwitchesByErrorsTableData []*SCINetworkWiredReport143topSwitchesByErrorsTableDataType
 
 func MakeSCINetworkWiredReport143topSwitchesByErrorsTableData() SCINetworkWiredReport143topSwitchesByErrorsTableData {
@@ -371,7 +371,7 @@ func MakeSCINetworkWiredReport143topSwitchesByErrorsTableData() SCINetworkWiredR
 
 // SCINetworkWiredReport143topSwitchesByErrorsTableDataType
 //
-// Definition: NetworkWiredReport.NetworkWiredReport.143.topSwitchesByErrorsTable.DataType
+// Definition: NetworkWiredReport_NetworkWiredReport_143_topSwitchesByErrorsTable_DataType
 type SCINetworkWiredReport143topSwitchesByErrorsTableDataType struct {
 	Error *int `json:"error,omitempty"`
 
@@ -393,7 +393,7 @@ func NewSCINetworkWiredReport143topSwitchesByErrorsTableDataType() *SCINetworkWi
 
 // ReportNetworkWiredReport123TopSwitchPOEUtilChart
 //
-// Operation ID: report.NetworkWiredReport.123.topSwitchPOEUtilChart
+// Operation ID: report_NetworkWiredReport_123_topSwitchPOEUtilChart
 //
 // Network - Wired Report - Top Switches by PoE Usage
 //
@@ -424,7 +424,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport123TopSwitchPOEUt
 
 // ReportNetworkWiredReport124TopSwitchPOEUtils
 //
-// Operation ID: report.NetworkWiredReport.124.topSwitchPOEUtils
+// Operation ID: report_NetworkWiredReport_124_topSwitchPOEUtils
 //
 // Network - Wired Report - Top Switches by PoE Usage
 //
@@ -455,7 +455,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport124TopSwitchPOEUt
 
 // ReportNetworkWiredReport127Top10SwitchesByTrafficVolume
 //
-// Operation ID: report.NetworkWiredReport.127.top10SwitchesByTrafficVolume
+// Operation ID: report_NetworkWiredReport_127_top10SwitchesByTrafficVolume
 //
 // Network - Wired Report - Top Switches by Traffic
 //
@@ -486,7 +486,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport127Top10SwitchesB
 
 // ReportNetworkWiredReport128TopSwitchesByTrafficTable
 //
-// Operation ID: report.NetworkWiredReport.128.topSwitchesByTrafficTable
+// Operation ID: report_NetworkWiredReport_128_topSwitchesByTrafficTable
 //
 // Network - Wired Report - Top Switches by Traffic
 //
@@ -517,7 +517,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport128TopSwitchesByT
 
 // ReportNetworkWiredReport134WiredOverview
 //
-// Operation ID: report.NetworkWiredReport.134.wiredOverview
+// Operation ID: report_NetworkWiredReport_134_wiredOverview
 //
 // Network - Wired Report - Overview
 //
@@ -548,7 +548,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport134WiredOverview(
 
 // ReportNetworkWiredReport135WiredTrafficDistribution
 //
-// Operation ID: report.NetworkWiredReport.135.wiredTrafficDistribution
+// Operation ID: report_NetworkWiredReport_135_wiredTrafficDistribution
 //
 // Network - Wired Report - Traffic Distribution by Switch Model and Port Speed
 //
@@ -579,7 +579,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport135WiredTrafficDi
 
 // ReportNetworkWiredReport136SwitchTrafficTrend
 //
-// Operation ID: report.NetworkWiredReport.136.switchTrafficTrend
+// Operation ID: report_NetworkWiredReport_136_switchTrafficTrend
 //
 // Network - Wired Report - Traffic Trend
 //
@@ -610,7 +610,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport136SwitchTrafficT
 
 // ReportNetworkWiredReport141SwitchErrorTrend
 //
-// Operation ID: report.NetworkWiredReport.141.switchErrorTrend
+// Operation ID: report_NetworkWiredReport_141_switchErrorTrend
 //
 // Network - Wired Report - Error Trend
 //
@@ -641,7 +641,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport141SwitchErrorTre
 
 // ReportNetworkWiredReport142TopSwitchesByErrorsChart
 //
-// Operation ID: report.NetworkWiredReport.142.topSwitchesByErrorsChart
+// Operation ID: report_NetworkWiredReport_142_topSwitchesByErrorsChart
 //
 // Network - Wired Report - Top Switches by Errors
 //
@@ -672,7 +672,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport142TopSwitchesByE
 
 // ReportNetworkWiredReport143TopSwitchesByErrorsTable
 //
-// Operation ID: report.NetworkWiredReport.143.topSwitchesByErrorsTable
+// Operation ID: report_NetworkWiredReport_143_topSwitchesByErrorsTable
 //
 // Network - Wired Report - Top Switches by Errors
 //

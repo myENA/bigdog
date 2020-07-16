@@ -25,7 +25,7 @@ func (ss *SCIService) SCIUserService() *SCIUserService {
 
 // SCIUserBatchDelete200ResponseType
 //
-// Definition: user.batchDelete200ResponseType
+// Definition: user_batchDelete200ResponseType
 type SCIUserBatchDelete200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
@@ -37,7 +37,7 @@ func NewSCIUserBatchDelete200ResponseType() *SCIUserBatchDelete200ResponseType {
 
 // SCIUserGetResourceGroupsForUpsert200ResponseType
 //
-// Definition: user.getResourceGroupsForUpsert200ResponseType
+// Definition: user_getResourceGroupsForUpsert200ResponseType
 type SCIUserGetResourceGroupsForUpsert200ResponseType []interface{}
 
 func MakeSCIUserGetResourceGroupsForUpsert200ResponseType() SCIUserGetResourceGroupsForUpsert200ResponseType {
@@ -47,7 +47,7 @@ func MakeSCIUserGetResourceGroupsForUpsert200ResponseType() SCIUserGetResourceGr
 
 // SCIUserGetUsers200ResponseType
 //
-// Definition: user.getUsers200ResponseType
+// Definition: user_getUsers200ResponseType
 type SCIUserGetUsers200ResponseType []*SCIModelsUser
 
 func MakeSCIUserGetUsers200ResponseType() SCIUserGetUsers200ResponseType {
@@ -55,29 +55,29 @@ func MakeSCIUserGetUsers200ResponseType() SCIUserGetUsers200ResponseType {
 	return m
 }
 
-// SCIUsergetfilters200ResponseType
+// SCIUserPrototypegetfilters200ResponseType
 //
-// Definition: user.prototype.__get__filters200ResponseType
-type SCIUsergetfilters200ResponseType []*SCIModelsFilter
+// Definition: user_prototype___get__filters200ResponseType
+type SCIUserPrototypegetfilters200ResponseType []*SCIModelsFilter
 
-func MakeSCIUsergetfilters200ResponseType() SCIUsergetfilters200ResponseType {
-	m := make(SCIUsergetfilters200ResponseType, 0)
+func MakeSCIUserPrototypegetfilters200ResponseType() SCIUserPrototypegetfilters200ResponseType {
+	m := make(SCIUserPrototypegetfilters200ResponseType, 0)
 	return m
 }
 
-// SCIUsergetschedules200ResponseType
+// SCIUserPrototypegetschedules200ResponseType
 //
-// Definition: user.prototype.__get__schedules200ResponseType
-type SCIUsergetschedules200ResponseType []*SCIModelsSchedule
+// Definition: user_prototype___get__schedules200ResponseType
+type SCIUserPrototypegetschedules200ResponseType []*SCIModelsSchedule
 
-func MakeSCIUsergetschedules200ResponseType() SCIUsergetschedules200ResponseType {
-	m := make(SCIUsergetschedules200ResponseType, 0)
+func MakeSCIUserPrototypegetschedules200ResponseType() SCIUserPrototypegetschedules200ResponseType {
+	m := make(SCIUserPrototypegetschedules200ResponseType, 0)
 	return m
 }
 
 // SCIUserLoginRequest
 //
-// Definition: user.userLoginRequest
+// Definition: user_userLoginRequest
 //
 // Credentials used to log a user in
 type SCIUserLoginRequest struct {
@@ -99,7 +99,7 @@ func NewSCIUserLoginRequest() *SCIUserLoginRequest {
 
 // SCIUserLoginResponse
 //
-// Definition: user.userLoginResponse
+// Definition: user_userLoginResponse
 //
 // User Login details
 type SCIUserLoginResponse struct {
@@ -125,7 +125,7 @@ func NewSCIUserLoginResponse() *SCIUserLoginResponse {
 
 // UserBatchDelete
 //
-// Operation ID: user.batchDelete
+// Operation ID: user_batchDelete
 //
 // Delete users and remove them from their related models.
 //
@@ -157,7 +157,7 @@ func (s *SCIUserService) UserBatchDelete(ctx context.Context, formValues url.Val
 
 // UserCreateWithRelations
 //
-// Operation ID: user.createWithRelations
+// Operation ID: user_createWithRelations
 //
 // Create user and its related models.
 //
@@ -204,7 +204,7 @@ func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, formValues
 
 // UserFindById
 //
-// Operation ID: user.findById
+// Operation ID: user_findById
 //
 // Find a model instance by id from the data source.
 //
@@ -240,7 +240,7 @@ func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalPa
 
 // UserGetResourceGroupsForUpsert
 //
-// Operation ID: user.getResourceGroupsForUpsert
+// Operation ID: user_getResourceGroupsForUpsert
 //
 // Get resource groups that current user can manage.
 func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mutators ...RequestMutator) (SCIUserGetResourceGroupsForUpsert200ResponseType, *APIResponseMeta, error) {
@@ -264,7 +264,7 @@ func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mut
 
 // UserGetUsers
 //
-// Operation ID: user.getUsers
+// Operation ID: user_getUsers
 //
 // Get users that current user can manage.
 //
@@ -295,7 +295,7 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 
 // UserLogin
 //
-// Operation ID: user.login
+// Operation ID: user_login
 //
 // Login a user with username/email and password.
 //
@@ -333,14 +333,10 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLogi
 
 // UserLogout
 //
-// Operation ID: user.logout
+// Operation ID: user_logout
 //
 // Logout a user with access token.
-//
-// Required Parameters:
-// - accesstoken string
-//		- required
-func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *SCIUserService) UserLogout(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -350,10 +346,9 @@ func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mut
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIUserLogout, false)
+	req = NewAPIRequest(http.MethodPost, RouteSCIUserLogout, true)
 	req.SetHeader(headerKeyContentType, "*/*")
 	req.SetHeader(headerKeyAccept, "*/*")
-	req.SetQueryParameter("access_token", []string{accesstoken})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -361,7 +356,7 @@ func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mut
 
 // UserPrototypeCreateFilters
 //
-// Operation ID: user.prototype.__create__filters
+// Operation ID: user_prototype___create__filters
 //
 // Creates a new instance in filters of this model.
 //
@@ -397,7 +392,7 @@ func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *S
 
 // UserPrototypeDestroyByIdFilters
 //
-// Operation ID: user.prototype.__destroyById__filters
+// Operation ID: user_prototype___destroyById__filters
 //
 // Delete a related item by id for filters.
 //
@@ -428,7 +423,7 @@ func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk
 
 // UserPrototypeFindByIdFilters
 //
-// Operation ID: user.prototype.__findById__filters
+// Operation ID: user_prototype___findById__filters
 //
 // Find a related item by id for filters.
 //
@@ -460,7 +455,7 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 
 // UserPrototypeGetFilters
 //
-// Operation ID: user.prototype.__get__filters
+// Operation ID: user_prototype___get__filters
 //
 // Queries filters of user.
 //
@@ -471,11 +466,11 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIUsergetfilters200ResponseType, *APIResponseMeta, error) {
+func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIUserPrototypegetfilters200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     SCIUsergetfilters200ResponseType
+		resp     SCIUserPrototypegetfilters200ResponseType
 		httpResp *http.Response
 		err      error
 	)
@@ -489,14 +484,14 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 		req.SetQueryParameter("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = MakeSCIUsergetfilters200ResponseType()
+	resp = MakeSCIUserPrototypegetfilters200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
 
 // UserPrototypeGetSchedules
 //
-// Operation ID: user.prototype.__get__schedules
+// Operation ID: user_prototype___get__schedules
 //
 // Queries schedules of user.
 //
@@ -507,11 +502,11 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIUsergetschedules200ResponseType, *APIResponseMeta, error) {
+func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIUserPrototypegetschedules200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     SCIUsergetschedules200ResponseType
+		resp     SCIUserPrototypegetschedules200ResponseType
 		httpResp *http.Response
 		err      error
 	)
@@ -525,14 +520,14 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 		req.SetQueryParameter("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = MakeSCIUsergetschedules200ResponseType()
+	resp = MakeSCIUserPrototypegetschedules200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
 
 // UserPrototypeUpdateByIdFilters
 //
-// Operation ID: user.prototype.__updateById__filters
+// Operation ID: user_prototype___updateById__filters
 //
 // Update a related item by id for filters.
 //
@@ -571,7 +566,7 @@ func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, dat
 
 // UserPrototypeUpdateAttributes
 //
-// Operation ID: user.prototype.updateAttributes
+// Operation ID: user_prototype_updateAttributes
 //
 // Update attributes for a model instance and persist it into the data source.
 //
@@ -607,7 +602,7 @@ func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data
 
 // UserUpdateWithRelations
 //
-// Operation ID: user.updateWithRelations
+// Operation ID: user_updateWithRelations
 //
 // Update a user and its related models.
 //
@@ -656,7 +651,7 @@ func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, formValues
 
 // UserValidateCurrentPassword
 //
-// Operation ID: user.validateCurrentPassword
+// Operation ID: user_validateCurrentPassword
 //
 // check if current password entered is valid
 //

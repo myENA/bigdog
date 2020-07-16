@@ -25,7 +25,7 @@ func (ss *SCIService) SCIMigrationMapService() *SCIMigrationMapService {
 
 // SCIMigrationMapCount200ResponseType
 //
-// Definition: MigrationMap.count200ResponseType
+// Definition: MigrationMap_count200ResponseType
 type SCIMigrationMapCount200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
@@ -35,33 +35,33 @@ func NewSCIMigrationMapCount200ResponseType() *SCIMigrationMapCount200ResponseTy
 	return m
 }
 
-// SCIMigrationMapgetMigrationMapsidexists200ResponseType
+// SCIMigrationMapExistsgetMigrationMapsidexists200ResponseType
 //
-// Definition: MigrationMap.exists__get_MigrationMaps_{id}_exists200ResponseType
-type SCIMigrationMapgetMigrationMapsidexists200ResponseType struct {
+// Definition: MigrationMap_exists__get_MigrationMaps_{id}_exists200ResponseType
+type SCIMigrationMapExistsgetMigrationMapsidexists200ResponseType struct {
 	Exists *bool `json:"exists,omitempty"`
 }
 
-func NewSCIMigrationMapgetMigrationMapsidexists200ResponseType() *SCIMigrationMapgetMigrationMapsidexists200ResponseType {
-	m := new(SCIMigrationMapgetMigrationMapsidexists200ResponseType)
+func NewSCIMigrationMapExistsgetMigrationMapsidexists200ResponseType() *SCIMigrationMapExistsgetMigrationMapsidexists200ResponseType {
+	m := new(SCIMigrationMapExistsgetMigrationMapsidexists200ResponseType)
 	return m
 }
 
-// SCIMigrationMapheadMigrationMapsid200ResponseType
+// SCIMigrationMapExistsheadMigrationMapsid200ResponseType
 //
-// Definition: MigrationMap.exists__head_MigrationMaps_{id}200ResponseType
-type SCIMigrationMapheadMigrationMapsid200ResponseType struct {
+// Definition: MigrationMap_exists__head_MigrationMaps_{id}200ResponseType
+type SCIMigrationMapExistsheadMigrationMapsid200ResponseType struct {
 	Exists *bool `json:"exists,omitempty"`
 }
 
-func NewSCIMigrationMapheadMigrationMapsid200ResponseType() *SCIMigrationMapheadMigrationMapsid200ResponseType {
-	m := new(SCIMigrationMapheadMigrationMapsid200ResponseType)
+func NewSCIMigrationMapExistsheadMigrationMapsid200ResponseType() *SCIMigrationMapExistsheadMigrationMapsid200ResponseType {
+	m := new(SCIMigrationMapExistsheadMigrationMapsid200ResponseType)
 	return m
 }
 
 // SCIMigrationMapFind200ResponseType
 //
-// Definition: MigrationMap.find200ResponseType
+// Definition: MigrationMap_find200ResponseType
 type SCIMigrationMapFind200ResponseType []*SCIModelsMigrationMap
 
 func MakeSCIMigrationMapFind200ResponseType() SCIMigrationMapFind200ResponseType {
@@ -71,7 +71,7 @@ func MakeSCIMigrationMapFind200ResponseType() SCIMigrationMapFind200ResponseType
 
 // MigrationMapCount
 //
-// Operation ID: MigrationMap.count
+// Operation ID: MigrationMap_count
 //
 // Count instances of the model matched by where from the data source.
 //
@@ -102,7 +102,7 @@ func (s *SCIMigrationMapService) MigrationMapCount(ctx context.Context, optional
 
 // MigrationMapCreate
 //
-// Operation ID: MigrationMap.create
+// Operation ID: MigrationMap_create
 //
 // Create a new instance of the model and persist it into the data source.
 //
@@ -133,7 +133,7 @@ func (s *SCIMigrationMapService) MigrationMapCreate(ctx context.Context, data *S
 
 // MigrationMapCreateChangeStreamGetMigrationMapsChangeStream
 //
-// Operation ID: MigrationMap.createChangeStream__get_MigrationMaps_change-stream
+// Operation ID: MigrationMap_createChangeStream__get_MigrationMaps_change-stream
 //
 // Create a change stream.
 //
@@ -164,7 +164,7 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 
 // MigrationMapCreateChangeStreamPostMigrationMapsChangeStream
 //
-// Operation ID: MigrationMap.createChangeStream__post_MigrationMaps_change-stream
+// Operation ID: MigrationMap_createChangeStream__post_MigrationMaps_change-stream
 //
 // Create a change stream.
 //
@@ -196,7 +196,7 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMaps
 
 // MigrationMapDeleteById
 //
-// Operation ID: MigrationMap.deleteById
+// Operation ID: MigrationMap_deleteById
 //
 // Delete a model instance by id from the data source.
 //
@@ -226,18 +226,18 @@ func (s *SCIMigrationMapService) MigrationMapDeleteById(ctx context.Context, id 
 
 // MigrationMapExistsGetMigrationMapsIdExists
 //
-// Operation ID: MigrationMap.exists__get_MigrationMaps_{id}_exists
+// Operation ID: MigrationMap_exists__get_MigrationMaps_{id}_exists
 //
 // Check whether a model instance exists in the data source.
 //
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIMigrationMapService) MigrationMapExistsGetMigrationMapsIdExists(ctx context.Context, id string, mutators ...RequestMutator) (*SCIMigrationMapgetMigrationMapsidexists200ResponseType, *APIResponseMeta, error) {
+func (s *SCIMigrationMapService) MigrationMapExistsGetMigrationMapsIdExists(ctx context.Context, id string, mutators ...RequestMutator) (*SCIMigrationMapExistsgetMigrationMapsidexists200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *SCIMigrationMapgetMigrationMapsidexists200ResponseType
+		resp     *SCIMigrationMapExistsgetMigrationMapsidexists200ResponseType
 		httpResp *http.Response
 		err      error
 	)
@@ -248,14 +248,14 @@ func (s *SCIMigrationMapService) MigrationMapExistsGetMigrationMapsIdExists(ctx 
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIMigrationMapgetMigrationMapsidexists200ResponseType()
+	resp = NewSCIMigrationMapExistsgetMigrationMapsidexists200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
 // MigrationMapFind
 //
-// Operation ID: MigrationMap.find
+// Operation ID: MigrationMap_find
 //
 // Find all instances of the model matched by filter from the data source.
 //
@@ -286,7 +286,7 @@ func (s *SCIMigrationMapService) MigrationMapFind(ctx context.Context, optionalP
 
 // MigrationMapFindById
 //
-// Operation ID: MigrationMap.findById
+// Operation ID: MigrationMap_findById
 //
 // Find a model instance by id from the data source.
 //
@@ -322,7 +322,7 @@ func (s *SCIMigrationMapService) MigrationMapFindById(ctx context.Context, id st
 
 // MigrationMapFindOne
 //
-// Operation ID: MigrationMap.findOne
+// Operation ID: MigrationMap_findOne
 //
 // Find first instance of the model matched by filter from the data source.
 //
@@ -353,7 +353,7 @@ func (s *SCIMigrationMapService) MigrationMapFindOne(ctx context.Context, option
 
 // MigrationMapPrototypeUpdateAttributes
 //
-// Operation ID: MigrationMap.prototype.updateAttributes
+// Operation ID: MigrationMap_prototype_updateAttributes
 //
 // Update attributes for a model instance and persist it into the data source.
 //
@@ -389,7 +389,7 @@ func (s *SCIMigrationMapService) MigrationMapPrototypeUpdateAttributes(ctx conte
 
 // MigrationMapUpdateAll
 //
-// Operation ID: MigrationMap.updateAll
+// Operation ID: MigrationMap_updateAll
 //
 // Update instances of the model matched by where from the data source.
 //
@@ -427,7 +427,7 @@ func (s *SCIMigrationMapService) MigrationMapUpdateAll(ctx context.Context, data
 
 // MigrationMapUpsert
 //
-// Operation ID: MigrationMap.upsert
+// Operation ID: MigrationMap_upsert
 //
 // Update an existing model instance or insert a new one into the data source.
 //

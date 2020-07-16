@@ -25,7 +25,7 @@ func (ss *SCIService) SCIPCIReportService() *SCIPCIReportService {
 
 // PciReportDownloadReport
 //
-// Operation ID: pciReport.downloadReport
+// Operation ID: pciReport_downloadReport
 //
 // Form Data Parameters:
 // - reportId string

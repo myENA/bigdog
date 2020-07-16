@@ -23,7 +23,7 @@ func (ss *SCIService) SCINetworkWirelessReportService() *SCINetworkWirelessRepor
 
 // SCINetworkWirelessReport20overviewData
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.20.overview.Data
+// Definition: NetworkWirelessReport_NetworkWirelessReport_20_overview_Data
 type SCINetworkWirelessReport20overviewData []*SCINetworkWirelessReport20overviewDataType
 
 func MakeSCINetworkWirelessReport20overviewData() SCINetworkWirelessReport20overviewData {
@@ -33,7 +33,7 @@ func MakeSCINetworkWirelessReport20overviewData() SCINetworkWirelessReport20over
 
 // SCINetworkWirelessReport20overviewDataType
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.20.overview.DataType
+// Definition: NetworkWirelessReport_NetworkWirelessReport_20_overview_DataType
 type SCINetworkWirelessReport20overviewDataType struct {
 	AvgRateTotalRxTraffic *float64 `json:"avgRateTotalRxTraffic,omitempty"`
 
@@ -59,7 +59,7 @@ func NewSCINetworkWirelessReport20overviewDataType() *SCINetworkWirelessReport20
 
 // SCINetworkWirelessReport21trafficDistributionData
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.21.trafficDistribution.Data
+// Definition: NetworkWirelessReport_NetworkWirelessReport_21_trafficDistribution_Data
 type SCINetworkWirelessReport21trafficDistributionData []*SCINetworkWirelessReport21trafficDistributionDataType
 
 func MakeSCINetworkWirelessReport21trafficDistributionData() SCINetworkWirelessReport21trafficDistributionData {
@@ -69,7 +69,7 @@ func MakeSCINetworkWirelessReport21trafficDistributionData() SCINetworkWirelessR
 
 // SCINetworkWirelessReport21trafficDistributionDataType
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.21.trafficDistribution.DataType
+// Definition: NetworkWirelessReport_NetworkWirelessReport_21_trafficDistribution_DataType
 type SCINetworkWirelessReport21trafficDistributionDataType struct {
 	Children []*SCINetworkWirelessReport21trafficDistributionDataTypeChildrenType `json:"children,omitempty"`
 
@@ -85,7 +85,7 @@ func NewSCINetworkWirelessReport21trafficDistributionDataType() *SCINetworkWirel
 
 // SCINetworkWirelessReport21trafficDistributionDataTypeChildrenType
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.21.trafficDistribution.DataTypeChildrenType
+// Definition: NetworkWirelessReport_NetworkWirelessReport_21_trafficDistribution_DataTypeChildrenType
 type SCINetworkWirelessReport21trafficDistributionDataTypeChildrenType struct {
 	Children []*SCINetworkWirelessReport21trafficDistributionDataTypeChildrenTypeChildrenType `json:"children,omitempty"`
 
@@ -103,7 +103,7 @@ func NewSCINetworkWirelessReport21trafficDistributionDataTypeChildrenType() *SCI
 
 // SCINetworkWirelessReport21trafficDistributionDataTypeChildrenTypeChildrenType
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.21.trafficDistribution.DataTypeChildrenTypeChildrenType
+// Definition: NetworkWirelessReport_NetworkWirelessReport_21_trafficDistribution_DataTypeChildrenTypeChildrenType
 type SCINetworkWirelessReport21trafficDistributionDataTypeChildrenTypeChildrenType struct {
 	Display *string `json:"display,omitempty"`
 
@@ -121,7 +121,7 @@ func NewSCINetworkWirelessReport21trafficDistributionDataTypeChildrenTypeChildre
 
 // SCINetworkWirelessReport22trafficTrendData
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.22.trafficTrend.Data
+// Definition: NetworkWirelessReport_NetworkWirelessReport_22_trafficTrend_Data
 type SCINetworkWirelessReport22trafficTrendData []*SCINetworkWirelessReport22trafficTrendDataType
 
 func MakeSCINetworkWirelessReport22trafficTrendData() SCINetworkWirelessReport22trafficTrendData {
@@ -131,7 +131,7 @@ func MakeSCINetworkWirelessReport22trafficTrendData() SCINetworkWirelessReport22
 
 // SCINetworkWirelessReport22trafficTrendDataType
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.22.trafficTrend.DataType
+// Definition: NetworkWirelessReport_NetworkWirelessReport_22_trafficTrend_DataType
 type SCINetworkWirelessReport22trafficTrendDataType struct {
 	End *string `json:"end,omitempty"`
 
@@ -155,7 +155,7 @@ func NewSCINetworkWirelessReport22trafficTrendDataType() *SCINetworkWirelessRepo
 
 // SCINetworkWirelessReport23trafficOverTimeTableData
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.23.trafficOverTimeTable.Data
+// Definition: NetworkWirelessReport_NetworkWirelessReport_23_trafficOverTimeTable_Data
 type SCINetworkWirelessReport23trafficOverTimeTableData []*SCINetworkWirelessReport23trafficOverTimeTableDataType
 
 func MakeSCINetworkWirelessReport23trafficOverTimeTableData() SCINetworkWirelessReport23trafficOverTimeTableData {
@@ -165,7 +165,7 @@ func MakeSCINetworkWirelessReport23trafficOverTimeTableData() SCINetworkWireless
 
 // SCINetworkWirelessReport23trafficOverTimeTableDataType
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.23.trafficOverTimeTable.DataType
+// Definition: NetworkWirelessReport_NetworkWirelessReport_23_trafficOverTimeTable_DataType
 type SCINetworkWirelessReport23trafficOverTimeTableDataType struct {
 	AvgRateTotalRxTraffic *float64 `json:"avgRateTotalRxTraffic,omitempty"`
 
@@ -211,7 +211,7 @@ func NewSCINetworkWirelessReport23trafficOverTimeTableDataType() *SCINetworkWire
 
 // SCINetworkWirelessReport23trafficOverTimeTableMetaData
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.23.trafficOverTimeTable.MetaData
+// Definition: NetworkWirelessReport_NetworkWirelessReport_23_trafficOverTimeTable_MetaData
 type SCINetworkWirelessReport23trafficOverTimeTableMetaData struct {
 	MaxValues *SCINetworkWirelessReport23trafficOverTimeTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 }
@@ -223,7 +223,7 @@ func NewSCINetworkWirelessReport23trafficOverTimeTableMetaData() *SCINetworkWire
 
 // SCINetworkWirelessReport23trafficOverTimeTableMetaDataMaxValuesType
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.23.trafficOverTimeTable.MetaDataMaxValuesType
+// Definition: NetworkWirelessReport_NetworkWirelessReport_23_trafficOverTimeTable_MetaDataMaxValuesType
 type SCINetworkWirelessReport23trafficOverTimeTableMetaDataMaxValuesType struct {
 	AvgRateTotalRxTraffic *float64 `json:"avgRateTotalRxTraffic,omitempty"`
 
@@ -263,7 +263,7 @@ func NewSCINetworkWirelessReport23trafficOverTimeTableMetaDataMaxValuesType() *S
 
 // SCINetworkWirelessReport24topAPsByTrafficTableData
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.24.topAPsByTrafficTable.Data
+// Definition: NetworkWirelessReport_NetworkWirelessReport_24_topAPsByTrafficTable_Data
 type SCINetworkWirelessReport24topAPsByTrafficTableData []*SCINetworkWirelessReport24topAPsByTrafficTableDataType
 
 func MakeSCINetworkWirelessReport24topAPsByTrafficTableData() SCINetworkWirelessReport24topAPsByTrafficTableData {
@@ -273,7 +273,7 @@ func MakeSCINetworkWirelessReport24topAPsByTrafficTableData() SCINetworkWireless
 
 // SCINetworkWirelessReport24topAPsByTrafficTableDataType
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.24.topAPsByTrafficTable.DataType
+// Definition: NetworkWirelessReport_NetworkWirelessReport_24_topAPsByTrafficTable_DataType
 type SCINetworkWirelessReport24topAPsByTrafficTableDataType struct {
 	ApIp *string `json:"apIp,omitempty"`
 
@@ -325,7 +325,7 @@ func NewSCINetworkWirelessReport24topAPsByTrafficTableDataType() *SCINetworkWire
 
 // SCINetworkWirelessReport24topAPsByTrafficTableMetaData
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.24.topAPsByTrafficTable.MetaData
+// Definition: NetworkWirelessReport_NetworkWirelessReport_24_topAPsByTrafficTable_MetaData
 type SCINetworkWirelessReport24topAPsByTrafficTableMetaData struct {
 	MaxValues *SCINetworkWirelessReport24topAPsByTrafficTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -345,7 +345,7 @@ func NewSCINetworkWirelessReport24topAPsByTrafficTableMetaData() *SCINetworkWire
 
 // SCINetworkWirelessReport24topAPsByTrafficTableMetaDataMaxValuesType
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.24.topAPsByTrafficTable.MetaDataMaxValuesType
+// Definition: NetworkWirelessReport_NetworkWirelessReport_24_topAPsByTrafficTable_MetaDataMaxValuesType
 type SCINetworkWirelessReport24topAPsByTrafficTableMetaDataMaxValuesType struct {
 	AvgRateTotalRxTraffic *float64 `json:"avgRateTotalRxTraffic,omitempty"`
 
@@ -379,7 +379,7 @@ func NewSCINetworkWirelessReport24topAPsByTrafficTableMetaDataMaxValuesType() *S
 
 // SCINetworkWirelessReport25topAPsByClientsTableData
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.25.topAPsByClientsTable.Data
+// Definition: NetworkWirelessReport_NetworkWirelessReport_25_topAPsByClientsTable_Data
 type SCINetworkWirelessReport25topAPsByClientsTableData []*SCINetworkWirelessReport25topAPsByClientsTableDataType
 
 func MakeSCINetworkWirelessReport25topAPsByClientsTableData() SCINetworkWirelessReport25topAPsByClientsTableData {
@@ -389,7 +389,7 @@ func MakeSCINetworkWirelessReport25topAPsByClientsTableData() SCINetworkWireless
 
 // SCINetworkWirelessReport25topAPsByClientsTableDataType
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.25.topAPsByClientsTable.DataType
+// Definition: NetworkWirelessReport_NetworkWirelessReport_25_topAPsByClientsTable_DataType
 type SCINetworkWirelessReport25topAPsByClientsTableDataType struct {
 	ApIp *string `json:"apIp,omitempty"`
 
@@ -441,7 +441,7 @@ func NewSCINetworkWirelessReport25topAPsByClientsTableDataType() *SCINetworkWire
 
 // SCINetworkWirelessReport25topAPsByClientsTableMetaData
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.25.topAPsByClientsTable.MetaData
+// Definition: NetworkWirelessReport_NetworkWirelessReport_25_topAPsByClientsTable_MetaData
 type SCINetworkWirelessReport25topAPsByClientsTableMetaData struct {
 	MaxValues *SCINetworkWirelessReport25topAPsByClientsTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -461,7 +461,7 @@ func NewSCINetworkWirelessReport25topAPsByClientsTableMetaData() *SCINetworkWire
 
 // SCINetworkWirelessReport25topAPsByClientsTableMetaDataMaxValuesType
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.25.topAPsByClientsTable.MetaDataMaxValuesType
+// Definition: NetworkWirelessReport_NetworkWirelessReport_25_topAPsByClientsTable_MetaDataMaxValuesType
 type SCINetworkWirelessReport25topAPsByClientsTableMetaDataMaxValuesType struct {
 	AvgRateTotalRxTraffic *float64 `json:"avgRateTotalRxTraffic,omitempty"`
 
@@ -495,7 +495,7 @@ func NewSCINetworkWirelessReport25topAPsByClientsTableMetaDataMaxValuesType() *S
 
 // SCINetworkWirelessReport27top10ApByClientCountData
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.27.top10ApByClientCount.Data
+// Definition: NetworkWirelessReport_NetworkWirelessReport_27_top10ApByClientCount_Data
 type SCINetworkWirelessReport27top10ApByClientCountData []*SCINetworkWirelessReport27top10ApByClientCountDataType
 
 func MakeSCINetworkWirelessReport27top10ApByClientCountData() SCINetworkWirelessReport27top10ApByClientCountData {
@@ -505,7 +505,7 @@ func MakeSCINetworkWirelessReport27top10ApByClientCountData() SCINetworkWireless
 
 // SCINetworkWirelessReport27top10ApByClientCountDataType
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.27.top10ApByClientCount.DataType
+// Definition: NetworkWirelessReport_NetworkWirelessReport_27_top10ApByClientCount_DataType
 type SCINetworkWirelessReport27top10ApByClientCountDataType struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -525,7 +525,7 @@ func NewSCINetworkWirelessReport27top10ApByClientCountDataType() *SCINetworkWire
 
 // SCINetworkWirelessReport27top10ApByClientCountMetaData
 //
-// Definition: NetworkWirelessReport.NetworkWirelessReport.27.top10ApByClientCount.MetaData
+// Definition: NetworkWirelessReport_NetworkWirelessReport_27_top10ApByClientCount_MetaData
 type SCINetworkWirelessReport27top10ApByClientCountMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 
@@ -539,7 +539,7 @@ func NewSCINetworkWirelessReport27top10ApByClientCountMetaData() *SCINetworkWire
 
 // ReportNetworkWirelessReport20Overview
 //
-// Operation ID: report.NetworkWirelessReport.20.overview
+// Operation ID: report_NetworkWirelessReport_20_overview
 //
 // Network - Wireless Report - Overview
 //
@@ -570,7 +570,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport20Overview(
 
 // ReportNetworkWirelessReport21TrafficDistribution
 //
-// Operation ID: report.NetworkWirelessReport.21.trafficDistribution
+// Operation ID: report_NetworkWirelessReport_21_trafficDistribution
 //
 // Network - Wireless Report - Traffic Distribution
 //
@@ -601,7 +601,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport21TrafficDi
 
 // ReportNetworkWirelessReport22TrafficTrend
 //
-// Operation ID: report.NetworkWirelessReport.22.trafficTrend
+// Operation ID: report_NetworkWirelessReport_22_trafficTrend
 //
 // Network - Wireless Report - Traffic Trend
 //
@@ -632,7 +632,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport22TrafficTr
 
 // ReportNetworkWirelessReport23TrafficOverTimeTable
 //
-// Operation ID: report.NetworkWirelessReport.23.trafficOverTimeTable
+// Operation ID: report_NetworkWirelessReport_23_trafficOverTimeTable
 //
 // Network - Wireless Report - Traffic Over Time
 //
@@ -663,7 +663,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport23TrafficOv
 
 // ReportNetworkWirelessReport24TopAPsByTrafficTable
 //
-// Operation ID: report.NetworkWirelessReport.24.topAPsByTrafficTable
+// Operation ID: report_NetworkWirelessReport_24_topAPsByTrafficTable
 //
 // Network - Wireless Report - Top APs by Traffic
 //
@@ -694,7 +694,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport24TopAPsByT
 
 // ReportNetworkWirelessReport25TopAPsByClientsTable
 //
-// Operation ID: report.NetworkWirelessReport.25.topAPsByClientsTable
+// Operation ID: report_NetworkWirelessReport_25_topAPsByClientsTable
 //
 // Network - Wireless Report - Top APs by Client Count
 //
@@ -725,7 +725,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport25TopAPsByC
 
 // ReportNetworkWirelessReport26Top10APsByTrafficVolume
 //
-// Operation ID: report.NetworkWirelessReport.26.top10APsByTrafficVolume
+// Operation ID: report_NetworkWirelessReport_26_top10APsByTrafficVolume
 //
 // Network - Wireless Report - Top APs by Traffic
 //
@@ -756,7 +756,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport26Top10APsB
 
 // ReportNetworkWirelessReport27Top10ApByClientCount
 //
-// Operation ID: report.NetworkWirelessReport.27.top10ApByClientCount
+// Operation ID: report_NetworkWirelessReport_27_top10ApByClientCount
 //
 // Network - Wireless Report - Top APs by Client Count
 //

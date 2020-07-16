@@ -23,7 +23,7 @@ func (ss *SCIService) SCIWirelessApplicationsReportService() *SCIWirelessApplica
 
 // SCIWirelessApplicationsReport8topAppsByTrafficTableData
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.8.topAppsByTrafficTable.Data
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_8_topAppsByTrafficTable_Data
 type SCIWirelessApplicationsReport8topAppsByTrafficTableData []*SCIWirelessApplicationsReport8topAppsByTrafficTableDataType
 
 func MakeSCIWirelessApplicationsReport8topAppsByTrafficTableData() SCIWirelessApplicationsReport8topAppsByTrafficTableData {
@@ -33,7 +33,7 @@ func MakeSCIWirelessApplicationsReport8topAppsByTrafficTableData() SCIWirelessAp
 
 // SCIWirelessApplicationsReport8topAppsByTrafficTableDataType
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.8.topAppsByTrafficTable.DataType
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_8_topAppsByTrafficTable_DataType
 type SCIWirelessApplicationsReport8topAppsByTrafficTableDataType struct {
 	App *string `json:"app,omitempty"`
 
@@ -55,7 +55,7 @@ func NewSCIWirelessApplicationsReport8topAppsByTrafficTableDataType() *SCIWirele
 
 // SCIWirelessApplicationsReport8topAppsByTrafficTableMetaData
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.8.topAppsByTrafficTable.MetaData
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_8_topAppsByTrafficTable_MetaData
 type SCIWirelessApplicationsReport8topAppsByTrafficTableMetaData struct {
 	MaxValues *SCIWirelessApplicationsReport8topAppsByTrafficTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -75,7 +75,7 @@ func NewSCIWirelessApplicationsReport8topAppsByTrafficTableMetaData() *SCIWirele
 
 // SCIWirelessApplicationsReport8topAppsByTrafficTableMetaDataMaxValuesType
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.8.topAppsByTrafficTable.MetaDataMaxValuesType
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_8_topAppsByTrafficTable_MetaDataMaxValuesType
 type SCIWirelessApplicationsReport8topAppsByTrafficTableMetaDataMaxValuesType struct {
 	RxBytes *int `json:"rxBytes,omitempty"`
 
@@ -91,7 +91,7 @@ func NewSCIWirelessApplicationsReport8topAppsByTrafficTableMetaDataMaxValuesType
 
 // SCIWirelessApplicationsReport9topAppsByClientsTableData
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.9.topAppsByClientsTable.Data
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_9_topAppsByClientsTable_Data
 type SCIWirelessApplicationsReport9topAppsByClientsTableData []*SCIWirelessApplicationsReport9topAppsByClientsTableDataType
 
 func MakeSCIWirelessApplicationsReport9topAppsByClientsTableData() SCIWirelessApplicationsReport9topAppsByClientsTableData {
@@ -101,7 +101,7 @@ func MakeSCIWirelessApplicationsReport9topAppsByClientsTableData() SCIWirelessAp
 
 // SCIWirelessApplicationsReport9topAppsByClientsTableDataType
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.9.topAppsByClientsTable.DataType
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_9_topAppsByClientsTable_DataType
 type SCIWirelessApplicationsReport9topAppsByClientsTableDataType struct {
 	App *string `json:"app,omitempty"`
 
@@ -125,7 +125,7 @@ func NewSCIWirelessApplicationsReport9topAppsByClientsTableDataType() *SCIWirele
 
 // SCIWirelessApplicationsReport9topAppsByClientsTableMetaData
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.9.topAppsByClientsTable.MetaData
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_9_topAppsByClientsTable_MetaData
 type SCIWirelessApplicationsReport9topAppsByClientsTableMetaData struct {
 	MaxValues *SCIWirelessApplicationsReport9topAppsByClientsTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -145,7 +145,7 @@ func NewSCIWirelessApplicationsReport9topAppsByClientsTableMetaData() *SCIWirele
 
 // SCIWirelessApplicationsReport9topAppsByClientsTableMetaDataMaxValuesType
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.9.topAppsByClientsTable.MetaDataMaxValuesType
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_9_topAppsByClientsTable_MetaDataMaxValuesType
 type SCIWirelessApplicationsReport9topAppsByClientsTableMetaDataMaxValuesType struct {
 	RxBytes *int `json:"rxBytes,omitempty"`
 
@@ -161,7 +161,7 @@ func NewSCIWirelessApplicationsReport9topAppsByClientsTableMetaDataMaxValuesType
 
 // SCIWirelessApplicationsReport10overviewData
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.10.overview.Data
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_10_overview_Data
 type SCIWirelessApplicationsReport10overviewData []*SCIWirelessApplicationsReport10overviewDataType
 
 func MakeSCIWirelessApplicationsReport10overviewData() SCIWirelessApplicationsReport10overviewData {
@@ -171,7 +171,7 @@ func MakeSCIWirelessApplicationsReport10overviewData() SCIWirelessApplicationsRe
 
 // SCIWirelessApplicationsReport10overviewDataType
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.10.overview.DataType
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_10_overview_DataType
 type SCIWirelessApplicationsReport10overviewDataType struct {
 	Applications *float64 `json:"applications,omitempty"`
 }
@@ -183,7 +183,7 @@ func NewSCIWirelessApplicationsReport10overviewDataType() *SCIWirelessApplicatio
 
 // SCIWirelessApplicationsReport10overviewMetaData
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.10.overview.MetaData
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_10_overview_MetaData
 type SCIWirelessApplicationsReport10overviewMetaData struct {
 	Name *string `json:"name,omitempty"`
 
@@ -201,7 +201,7 @@ func NewSCIWirelessApplicationsReport10overviewMetaData() *SCIWirelessApplicatio
 
 // SCIWirelessApplicationsReport11top10ApplicationsByClientCountData
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.11.top10ApplicationsByClientCount.Data
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_11_top10ApplicationsByClientCount_Data
 type SCIWirelessApplicationsReport11top10ApplicationsByClientCountData []*SCIWirelessApplicationsReport11top10ApplicationsByClientCountDataType
 
 func MakeSCIWirelessApplicationsReport11top10ApplicationsByClientCountData() SCIWirelessApplicationsReport11top10ApplicationsByClientCountData {
@@ -211,7 +211,7 @@ func MakeSCIWirelessApplicationsReport11top10ApplicationsByClientCountData() SCI
 
 // SCIWirelessApplicationsReport11top10ApplicationsByClientCountDataType
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.11.top10ApplicationsByClientCount.DataType
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_11_top10ApplicationsByClientCount_DataType
 type SCIWirelessApplicationsReport11top10ApplicationsByClientCountDataType struct {
 	App *string `json:"app,omitempty"`
 
@@ -235,7 +235,7 @@ func NewSCIWirelessApplicationsReport11top10ApplicationsByClientCountDataType() 
 
 // SCIWirelessApplicationsReport11top10ApplicationsByClientCountMetaData
 //
-// Definition: WirelessApplicationsReport.WirelessApplicationsReport.11.top10ApplicationsByClientCount.MetaData
+// Definition: WirelessApplicationsReport_WirelessApplicationsReport_11_top10ApplicationsByClientCount_MetaData
 type SCIWirelessApplicationsReport11top10ApplicationsByClientCountMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 
@@ -249,7 +249,7 @@ func NewSCIWirelessApplicationsReport11top10ApplicationsByClientCountMetaData() 
 
 // ReportWirelessApplicationsReport7Top10ApplicationsByTrafficVolume
 //
-// Operation ID: report.WirelessApplicationsReport.7.top10ApplicationsByTrafficVolume
+// Operation ID: report_WirelessApplicationsReport_7_top10ApplicationsByTrafficVolume
 //
 // Wireless - Applications Report - Top Applications by Traffic
 //
@@ -280,7 +280,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport7
 
 // ReportWirelessApplicationsReport8TopAppsByTrafficTable
 //
-// Operation ID: report.WirelessApplicationsReport.8.topAppsByTrafficTable
+// Operation ID: report_WirelessApplicationsReport_8_topAppsByTrafficTable
 //
 // Wireless - Applications Report - Top Applications by Traffic
 //
@@ -311,7 +311,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport8
 
 // ReportWirelessApplicationsReport9TopAppsByClientsTable
 //
-// Operation ID: report.WirelessApplicationsReport.9.topAppsByClientsTable
+// Operation ID: report_WirelessApplicationsReport_9_topAppsByClientsTable
 //
 // Wireless - Applications Report - Top Applications by Client Count
 //
@@ -342,7 +342,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport9
 
 // ReportWirelessApplicationsReport10Overview
 //
-// Operation ID: report.WirelessApplicationsReport.10.overview
+// Operation ID: report_WirelessApplicationsReport_10_overview
 //
 // Wireless - Applications Report - Overview
 //
@@ -373,7 +373,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport1
 
 // ReportWirelessApplicationsReport11Top10ApplicationsByClientCount
 //
-// Operation ID: report.WirelessApplicationsReport.11.top10ApplicationsByClientCount
+// Operation ID: report_WirelessApplicationsReport_11_top10ApplicationsByClientCount
 //
 // Wireless - Applications Report - Top Applications by Client Count
 //

@@ -23,7 +23,7 @@ func (ss *SCIService) SCIClientHealthReportService() *SCIClientHealthReportServi
 
 // SCIClientHealthReport144clientHealthSummaryData
 //
-// Definition: ClientHealthReport.ClientHealthReport.144.clientHealthSummary.Data
+// Definition: ClientHealthReport_ClientHealthReport_144_clientHealthSummary_Data
 type SCIClientHealthReport144clientHealthSummaryData []*SCIClientHealthReport144clientHealthSummaryDataType
 
 func MakeSCIClientHealthReport144clientHealthSummaryData() SCIClientHealthReport144clientHealthSummaryData {
@@ -33,7 +33,7 @@ func MakeSCIClientHealthReport144clientHealthSummaryData() SCIClientHealthReport
 
 // SCIClientHealthReport144clientHealthSummaryDataType
 //
-// Definition: ClientHealthReport.ClientHealthReport.144.clientHealthSummary.DataType
+// Definition: ClientHealthReport_ClientHealthReport_144_clientHealthSummary_DataType
 type SCIClientHealthReport144clientHealthSummaryDataType struct {
 	AvgRFHealthClientCount *int `json:"avgRFHealthClientCount,omitempty"`
 
@@ -57,7 +57,7 @@ func NewSCIClientHealthReport144clientHealthSummaryDataType() *SCIClientHealthRe
 
 // SCIClientHealthReport148clientConnectionHealthData
 //
-// Definition: ClientHealthReport.ClientHealthReport.148.clientConnectionHealth.Data
+// Definition: ClientHealthReport_ClientHealthReport_148_clientConnectionHealth_Data
 type SCIClientHealthReport148clientConnectionHealthData []*SCIClientHealthReport148clientConnectionHealthDataType
 
 func MakeSCIClientHealthReport148clientConnectionHealthData() SCIClientHealthReport148clientConnectionHealthData {
@@ -67,7 +67,7 @@ func MakeSCIClientHealthReport148clientConnectionHealthData() SCIClientHealthRep
 
 // SCIClientHealthReport148clientConnectionHealthDataType
 //
-// Definition: ClientHealthReport.ClientHealthReport.148.clientConnectionHealth.DataType
+// Definition: ClientHealthReport_ClientHealthReport_148_clientConnectionHealth_DataType
 type SCIClientHealthReport148clientConnectionHealthDataType struct {
 	Avg *int `json:"avg,omitempty"`
 
@@ -85,7 +85,7 @@ func NewSCIClientHealthReport148clientConnectionHealthDataType() *SCIClientHealt
 
 // SCIClientHealthReport148clientConnectionHealthMetaData
 //
-// Definition: ClientHealthReport.ClientHealthReport.148.clientConnectionHealth.MetaData
+// Definition: ClientHealthReport_ClientHealthReport_148_clientConnectionHealth_MetaData
 type SCIClientHealthReport148clientConnectionHealthMetaData struct {
 	CategoryKey *string `json:"categoryKey,omitempty"`
 
@@ -99,7 +99,7 @@ func NewSCIClientHealthReport148clientConnectionHealthMetaData() *SCIClientHealt
 
 // SCIClientHealthReport149clientHealthMetricTrendsData
 //
-// Definition: ClientHealthReport.ClientHealthReport.149.clientHealthMetricTrends.Data
+// Definition: ClientHealthReport_ClientHealthReport_149_clientHealthMetricTrends_Data
 type SCIClientHealthReport149clientHealthMetricTrendsData []*SCIClientHealthReport149clientHealthMetricTrendsDataType
 
 func MakeSCIClientHealthReport149clientHealthMetricTrendsData() SCIClientHealthReport149clientHealthMetricTrendsData {
@@ -109,7 +109,7 @@ func MakeSCIClientHealthReport149clientHealthMetricTrendsData() SCIClientHealthR
 
 // SCIClientHealthReport149clientHealthMetricTrendsDataType
 //
-// Definition: ClientHealthReport.ClientHealthReport.149.clientHealthMetricTrends.DataType
+// Definition: ClientHealthReport_ClientHealthReport_149_clientHealthMetricTrends_DataType
 type SCIClientHealthReport149clientHealthMetricTrendsDataType struct {
 	AvgSnr *float64 `json:"avgSnr,omitempty"`
 
@@ -129,7 +129,7 @@ func NewSCIClientHealthReport149clientHealthMetricTrendsDataType() *SCIClientHea
 
 // ReportClientHealthReport144ClientHealthSummary
 //
-// Operation ID: report.ClientHealthReport.144.clientHealthSummary
+// Operation ID: report_ClientHealthReport_144_clientHealthSummary
 //
 // Client Health Report - Summary
 //
@@ -160,7 +160,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport144ClientHealthSu
 
 // ReportClientHealthReport148ClientConnectionHealth
 //
-// Operation ID: report.ClientHealthReport.148.clientConnectionHealth
+// Operation ID: report_ClientHealthReport_148_clientConnectionHealth
 //
 // Client Health Report - Client Connection Health
 //
@@ -191,7 +191,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport148ClientConnecti
 
 // ReportClientHealthReport149ClientHealthMetricTrends
 //
-// Operation ID: report.ClientHealthReport.149.clientHealthMetricTrends
+// Operation ID: report_ClientHealthReport_149_clientHealthMetricTrends
 //
 // Client Health Report - Health Metric Trends
 //
@@ -222,7 +222,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport149ClientHealthMe
 
 // ReportClientHealthReport150TopClientHealthScoreByGroup
 //
-// Operation ID: report.ClientHealthReport.150.topClientHealthScoreByGroup
+// Operation ID: report_ClientHealthReport_150_topClientHealthScoreByGroup
 //
 // Client Health Report - Health By Group
 //

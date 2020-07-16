@@ -23,7 +23,7 @@ func (ss *SCIService) SCIClientDetailsReportService() *SCIClientDetailsReportSer
 
 // SCIClientDetailsReport8topAppsByTrafficTableData
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.8.topAppsByTrafficTable.Data
+// Definition: ClientDetailsReport_ClientDetailsReport_8_topAppsByTrafficTable_Data
 type SCIClientDetailsReport8topAppsByTrafficTableData []*SCIClientDetailsReport8topAppsByTrafficTableDataType
 
 func MakeSCIClientDetailsReport8topAppsByTrafficTableData() SCIClientDetailsReport8topAppsByTrafficTableData {
@@ -33,7 +33,7 @@ func MakeSCIClientDetailsReport8topAppsByTrafficTableData() SCIClientDetailsRepo
 
 // SCIClientDetailsReport8topAppsByTrafficTableDataType
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.8.topAppsByTrafficTable.DataType
+// Definition: ClientDetailsReport_ClientDetailsReport_8_topAppsByTrafficTable_DataType
 type SCIClientDetailsReport8topAppsByTrafficTableDataType struct {
 	App *string `json:"app,omitempty"`
 
@@ -55,7 +55,7 @@ func NewSCIClientDetailsReport8topAppsByTrafficTableDataType() *SCIClientDetails
 
 // SCIClientDetailsReport8topAppsByTrafficTableMetaData
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.8.topAppsByTrafficTable.MetaData
+// Definition: ClientDetailsReport_ClientDetailsReport_8_topAppsByTrafficTable_MetaData
 type SCIClientDetailsReport8topAppsByTrafficTableMetaData struct {
 	MaxValues *SCIClientDetailsReport8topAppsByTrafficTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -75,7 +75,7 @@ func NewSCIClientDetailsReport8topAppsByTrafficTableMetaData() *SCIClientDetails
 
 // SCIClientDetailsReport8topAppsByTrafficTableMetaDataMaxValuesType
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.8.topAppsByTrafficTable.MetaDataMaxValuesType
+// Definition: ClientDetailsReport_ClientDetailsReport_8_topAppsByTrafficTable_MetaDataMaxValuesType
 type SCIClientDetailsReport8topAppsByTrafficTableMetaDataMaxValuesType struct {
 	RxBytes *int `json:"rxBytes,omitempty"`
 
@@ -91,7 +91,7 @@ func NewSCIClientDetailsReport8topAppsByTrafficTableMetaDataMaxValuesType() *SCI
 
 // SCIClientDetailsReport82rssTrendData
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.82.rssTrend.Data
+// Definition: ClientDetailsReport_ClientDetailsReport_82_rssTrend_Data
 type SCIClientDetailsReport82rssTrendData []*SCIClientDetailsReport82rssTrendDataType
 
 func MakeSCIClientDetailsReport82rssTrendData() SCIClientDetailsReport82rssTrendData {
@@ -101,7 +101,7 @@ func MakeSCIClientDetailsReport82rssTrendData() SCIClientDetailsReport82rssTrend
 
 // SCIClientDetailsReport82rssTrendDataType
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.82.rssTrend.DataType
+// Definition: ClientDetailsReport_ClientDetailsReport_82_rssTrend_DataType
 type SCIClientDetailsReport82rssTrendDataType struct {
 	AvgRss *float64 `json:"avgRss,omitempty"`
 
@@ -121,7 +121,7 @@ func NewSCIClientDetailsReport82rssTrendDataType() *SCIClientDetailsReport82rssT
 
 // SCIClientDetailsReport83snrTrendData
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.83.snrTrend.Data
+// Definition: ClientDetailsReport_ClientDetailsReport_83_snrTrend_Data
 type SCIClientDetailsReport83snrTrendData []*SCIClientDetailsReport83snrTrendDataType
 
 func MakeSCIClientDetailsReport83snrTrendData() SCIClientDetailsReport83snrTrendData {
@@ -131,7 +131,7 @@ func MakeSCIClientDetailsReport83snrTrendData() SCIClientDetailsReport83snrTrend
 
 // SCIClientDetailsReport83snrTrendDataType
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.83.snrTrend.DataType
+// Definition: ClientDetailsReport_ClientDetailsReport_83_snrTrend_DataType
 type SCIClientDetailsReport83snrTrendDataType struct {
 	AvgSnr *float64 `json:"avgSnr,omitempty"`
 
@@ -151,7 +151,7 @@ func NewSCIClientDetailsReport83snrTrendDataType() *SCIClientDetailsReport83snrT
 
 // SCIClientDetailsReport86summaryData
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.86.summary.Data
+// Definition: ClientDetailsReport_ClientDetailsReport_86_summary_Data
 type SCIClientDetailsReport86summaryData []*SCIClientDetailsReport86summaryDataType
 
 func MakeSCIClientDetailsReport86summaryData() SCIClientDetailsReport86summaryData {
@@ -161,7 +161,7 @@ func MakeSCIClientDetailsReport86summaryData() SCIClientDetailsReport86summaryDa
 
 // SCIClientDetailsReport86summaryDataType
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.86.summary.DataType
+// Definition: ClientDetailsReport_ClientDetailsReport_86_summary_DataType
 type SCIClientDetailsReport86summaryDataType struct {
 	ClientIp *string `json:"clientIp,omitempty"`
 
@@ -187,7 +187,7 @@ func NewSCIClientDetailsReport86summaryDataType() *SCIClientDetailsReport86summa
 
 // SCIClientDetailsReport87clientStatsData
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.87.clientStats.Data
+// Definition: ClientDetailsReport_ClientDetailsReport_87_clientStats_Data
 type SCIClientDetailsReport87clientStatsData []*SCIClientDetailsReport87clientStatsDataType
 
 func MakeSCIClientDetailsReport87clientStatsData() SCIClientDetailsReport87clientStatsData {
@@ -197,7 +197,7 @@ func MakeSCIClientDetailsReport87clientStatsData() SCIClientDetailsReport87clien
 
 // SCIClientDetailsReport87clientStatsDataType
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.87.clientStats.DataType
+// Definition: ClientDetailsReport_ClientDetailsReport_87_clientStats_DataType
 type SCIClientDetailsReport87clientStatsDataType struct {
 	AvgRateTotalTraffic *float64 `json:"avgRateTotalTraffic,omitempty"`
 
@@ -223,7 +223,7 @@ func NewSCIClientDetailsReport87clientStatsDataType() *SCIClientDetailsReport87c
 
 // SCIClientDetailsReport89trafficTrendData
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.89.trafficTrend.Data
+// Definition: ClientDetailsReport_ClientDetailsReport_89_trafficTrend_Data
 type SCIClientDetailsReport89trafficTrendData []*SCIClientDetailsReport89trafficTrendDataType
 
 func MakeSCIClientDetailsReport89trafficTrendData() SCIClientDetailsReport89trafficTrendData {
@@ -233,7 +233,7 @@ func MakeSCIClientDetailsReport89trafficTrendData() SCIClientDetailsReport89traf
 
 // SCIClientDetailsReport89trafficTrendDataType
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.89.trafficTrend.DataType
+// Definition: ClientDetailsReport_ClientDetailsReport_89_trafficTrend_DataType
 type SCIClientDetailsReport89trafficTrendDataType struct {
 	End *string `json:"end,omitempty"`
 
@@ -253,7 +253,7 @@ func NewSCIClientDetailsReport89trafficTrendDataType() *SCIClientDetailsReport89
 
 // SCIClientDetailsReport92sessionsTableData
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.92.sessionsTable.Data
+// Definition: ClientDetailsReport_ClientDetailsReport_92_sessionsTable_Data
 type SCIClientDetailsReport92sessionsTableData []*SCIClientDetailsReport92sessionsTableDataType
 
 func MakeSCIClientDetailsReport92sessionsTableData() SCIClientDetailsReport92sessionsTableData {
@@ -263,7 +263,7 @@ func MakeSCIClientDetailsReport92sessionsTableData() SCIClientDetailsReport92ses
 
 // SCIClientDetailsReport92sessionsTableDataType
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.92.sessionsTable.DataType
+// Definition: ClientDetailsReport_ClientDetailsReport_92_sessionsTable_DataType
 type SCIClientDetailsReport92sessionsTableDataType struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -295,7 +295,7 @@ func NewSCIClientDetailsReport92sessionsTableDataType() *SCIClientDetailsReport9
 
 // SCIClientDetailsReport92sessionsTableMetaData
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.92.sessionsTable.MetaData
+// Definition: ClientDetailsReport_ClientDetailsReport_92_sessionsTable_MetaData
 type SCIClientDetailsReport92sessionsTableMetaData struct {
 	MaxValues *SCIClientDetailsReport92sessionsTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 }
@@ -307,7 +307,7 @@ func NewSCIClientDetailsReport92sessionsTableMetaData() *SCIClientDetailsReport9
 
 // SCIClientDetailsReport92sessionsTableMetaDataMaxValuesType
 //
-// Definition: ClientDetailsReport.ClientDetailsReport.92.sessionsTable.MetaDataMaxValuesType
+// Definition: ClientDetailsReport_ClientDetailsReport_92_sessionsTable_MetaDataMaxValuesType
 type SCIClientDetailsReport92sessionsTableMetaDataMaxValuesType struct {
 	RxBytes *int `json:"rxBytes,omitempty"`
 
@@ -323,7 +323,7 @@ func NewSCIClientDetailsReport92sessionsTableMetaDataMaxValuesType() *SCIClientD
 
 // ReportClientDetailsReport7Top10ApplicationsByTrafficVolume
 //
-// Operation ID: report.ClientDetailsReport.7.top10ApplicationsByTrafficVolume
+// Operation ID: report_ClientDetailsReport_7_top10ApplicationsByTrafficVolume
 //
 // Client Details Report - Top Applications by Traffic
 //
@@ -354,7 +354,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport7Top10Applicati
 
 // ReportClientDetailsReport8TopAppsByTrafficTable
 //
-// Operation ID: report.ClientDetailsReport.8.topAppsByTrafficTable
+// Operation ID: report_ClientDetailsReport_8_topAppsByTrafficTable
 //
 // Client Details Report - Top Applications by Traffic
 //
@@ -385,7 +385,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport8TopAppsByTraff
 
 // ReportClientDetailsReport82RssTrend
 //
-// Operation ID: report.ClientDetailsReport.82.rssTrend
+// Operation ID: report_ClientDetailsReport_82_rssTrend
 //
 // Client Details Report - RSS Trend
 //
@@ -416,7 +416,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport82RssTrend(ctx 
 
 // ReportClientDetailsReport83SnrTrend
 //
-// Operation ID: report.ClientDetailsReport.83.snrTrend
+// Operation ID: report_ClientDetailsReport_83_snrTrend
 //
 // Client Details Report - SNR Trend
 //
@@ -447,7 +447,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport83SnrTrend(ctx 
 
 // ReportClientDetailsReport86Summary
 //
-// Operation ID: report.ClientDetailsReport.86.summary
+// Operation ID: report_ClientDetailsReport_86_summary
 //
 // Client Details Report - Summary
 //
@@ -478,7 +478,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport86Summary(ctx c
 
 // ReportClientDetailsReport87ClientStats
 //
-// Operation ID: report.ClientDetailsReport.87.clientStats
+// Operation ID: report_ClientDetailsReport_87_clientStats
 //
 // Client Details Report - Stats
 //
@@ -509,7 +509,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport87ClientStats(c
 
 // ReportClientDetailsReport89TrafficTrend
 //
-// Operation ID: report.ClientDetailsReport.89.trafficTrend
+// Operation ID: report_ClientDetailsReport_89_trafficTrend
 //
 // Client Details Report - Traffic Trend
 //
@@ -540,7 +540,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport89TrafficTrend(
 
 // ReportClientDetailsReport92SessionsTable
 //
-// Operation ID: report.ClientDetailsReport.92.sessionsTable
+// Operation ID: report_ClientDetailsReport_92_sessionsTable
 //
 // Client Details Report - Sessions
 //

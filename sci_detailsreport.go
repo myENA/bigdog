@@ -23,7 +23,7 @@ func (ss *SCIService) SCIDetailsReportsService() *SCIDetailsReportsService {
 
 // ReportSwitchDetailsReport125SwitchSummary
 //
-// Operation ID: report.SwitchDetailsReport.125.switchSummary
+// Operation ID: report_SwitchDetailsReport_125_switchSummary
 //
 // Switch Details Report - Summary
 //
@@ -54,7 +54,7 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport125SwitchSummary(ctx
 
 // ReportSwitchDetailsReport126SwitchResourceUtilization
 //
-// Operation ID: report.SwitchDetailsReport.126.switchResourceUtilization
+// Operation ID: report_SwitchDetailsReport_126_switchResourceUtilization
 //
 // Switch Details Report - Resource Utilization
 //
@@ -85,7 +85,7 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport126SwitchResourceUti
 
 // ReportSwitchDetailsReport129TopSwitchPortsByTrafficChart
 //
-// Operation ID: report.SwitchDetailsReport.129.topSwitchPortsByTrafficChart
+// Operation ID: report_SwitchDetailsReport_129_topSwitchPortsByTrafficChart
 //
 // Switch Details Report - Top Ports by Traffic
 //
@@ -116,7 +116,7 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport129TopSwitchPortsByT
 
 // ReportSwitchDetailsReport130TopSwitchPortsByTrafficTable
 //
-// Operation ID: report.SwitchDetailsReport.130.topSwitchPortsByTrafficTable
+// Operation ID: report_SwitchDetailsReport_130_topSwitchPortsByTrafficTable
 //
 // Switch Details Report - Top Ports by Traffic
 //
@@ -147,7 +147,7 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport130TopSwitchPortsByT
 
 // ReportSwitchDetailsReport131SwitchTrafficTrend
 //
-// Operation ID: report.SwitchDetailsReport.131.switchTrafficTrend
+// Operation ID: report_SwitchDetailsReport_131_switchTrafficTrend
 //
 // Switch Details Report - Traffic Trend
 //
@@ -178,7 +178,7 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport131SwitchTrafficTren
 
 // ReportSwitchDetailsReport137LldpNeighborTable
 //
-// Operation ID: report.SwitchDetailsReport.137.lldpNeighborTable
+// Operation ID: report_SwitchDetailsReport_137_lldpNeighborTable
 //
 // Switch Details Report - LLDP Neighbor List
 //
@@ -209,7 +209,7 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport137LldpNeighborTable
 
 // ReportSwitchDetailsReport138SwitchUptimeHistory
 //
-// Operation ID: report.SwitchDetailsReport.138.switchUptimeHistory
+// Operation ID: report_SwitchDetailsReport_138_switchUptimeHistory
 //
 // Switch Details Report - Uptime History
 //
@@ -240,7 +240,7 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport138SwitchUptimeHisto
 
 // ReportSwitchDetailsReport139SwitchDetails
 //
-// Operation ID: report.SwitchDetailsReport.139.switchDetails
+// Operation ID: report_SwitchDetailsReport_139_switchDetails
 //
 // Switch Details Report - Details
 //

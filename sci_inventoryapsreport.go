@@ -23,7 +23,7 @@ func (ss *SCIService) SCIInventoryAPsReportService() *SCIInventoryAPsReportServi
 
 // SCIInventoryAPsReport46apInventoryOverviewData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.46.apInventoryOverview.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_46_apInventoryOverview_Data
 type SCIInventoryAPsReport46apInventoryOverviewData []*SCIInventoryAPsReport46apInventoryOverviewDataType
 
 func MakeSCIInventoryAPsReport46apInventoryOverviewData() SCIInventoryAPsReport46apInventoryOverviewData {
@@ -33,7 +33,7 @@ func MakeSCIInventoryAPsReport46apInventoryOverviewData() SCIInventoryAPsReport4
 
 // SCIInventoryAPsReport46apInventoryOverviewDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.46.apInventoryOverview.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_46_apInventoryOverview_DataType
 type SCIInventoryAPsReport46apInventoryOverviewDataType struct {
 	Offline *int `json:"offline,omitempty"`
 
@@ -57,7 +57,7 @@ func NewSCIInventoryAPsReport46apInventoryOverviewDataType() *SCIInventoryAPsRep
 
 // SCIInventoryAPsReport47topApsDisconnectionData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.47.topApsDisconnection.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_47_topApsDisconnection_Data
 type SCIInventoryAPsReport47topApsDisconnectionData []*SCIInventoryAPsReport47topApsDisconnectionDataType
 
 func MakeSCIInventoryAPsReport47topApsDisconnectionData() SCIInventoryAPsReport47topApsDisconnectionData {
@@ -67,7 +67,7 @@ func MakeSCIInventoryAPsReport47topApsDisconnectionData() SCIInventoryAPsReport4
 
 // SCIInventoryAPsReport47topApsDisconnectionDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.47.topApsDisconnection.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_47_topApsDisconnection_DataType
 type SCIInventoryAPsReport47topApsDisconnectionDataType struct {
 	Key *string `json:"key,omitempty"`
 
@@ -83,7 +83,7 @@ func NewSCIInventoryAPsReport47topApsDisconnectionDataType() *SCIInventoryAPsRep
 
 // SCIInventoryAPsReport47topApsDisconnectionMetaData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.47.topApsDisconnection.MetaData
+// Definition: InventoryAPsReport_InventoryAPsReport_47_topApsDisconnection_MetaData
 type SCIInventoryAPsReport47topApsDisconnectionMetaData struct {
 	Legend *SCIInventoryAPsReport47topApsDisconnectionMetaDataLegendType `json:"legend,omitempty"`
 }
@@ -95,7 +95,7 @@ func NewSCIInventoryAPsReport47topApsDisconnectionMetaData() *SCIInventoryAPsRep
 
 // SCIInventoryAPsReport47topApsDisconnectionMetaDataLegendType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.47.topApsDisconnection.MetaDataLegendType
+// Definition: InventoryAPsReport_InventoryAPsReport_47_topApsDisconnection_MetaDataLegendType
 type SCIInventoryAPsReport47topApsDisconnectionMetaDataLegendType struct {
 	On *string `json:"on,omitempty"`
 }
@@ -107,7 +107,7 @@ func NewSCIInventoryAPsReport47topApsDisconnectionMetaDataLegendType() *SCIInven
 
 // SCIInventoryAPsReport48apCountTrendData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.48.apCountTrend.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_48_apCountTrend_Data
 type SCIInventoryAPsReport48apCountTrendData []*SCIInventoryAPsReport48apCountTrendDataType
 
 func MakeSCIInventoryAPsReport48apCountTrendData() SCIInventoryAPsReport48apCountTrendData {
@@ -117,7 +117,7 @@ func MakeSCIInventoryAPsReport48apCountTrendData() SCIInventoryAPsReport48apCoun
 
 // SCIInventoryAPsReport48apCountTrendDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.48.apCountTrend.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_48_apCountTrend_DataType
 type SCIInventoryAPsReport48apCountTrendDataType struct {
 	ConnectedAPs *float64 `json:"connectedAPs,omitempty"`
 
@@ -135,7 +135,7 @@ func NewSCIInventoryAPsReport48apCountTrendDataType() *SCIInventoryAPsReport48ap
 
 // SCIInventoryAPsReport49apStatusTrendData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.49.apStatusTrend.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_49_apStatusTrend_Data
 type SCIInventoryAPsReport49apStatusTrendData []*SCIInventoryAPsReport49apStatusTrendDataType
 
 func MakeSCIInventoryAPsReport49apStatusTrendData() SCIInventoryAPsReport49apStatusTrendData {
@@ -145,7 +145,7 @@ func MakeSCIInventoryAPsReport49apStatusTrendData() SCIInventoryAPsReport49apSta
 
 // SCIInventoryAPsReport49apStatusTrendDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.49.apStatusTrend.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_49_apStatusTrend_DataType
 type SCIInventoryAPsReport49apStatusTrendDataType struct {
 	ConnectionStatus *string `json:"connectionStatus,omitempty"`
 
@@ -159,7 +159,7 @@ func NewSCIInventoryAPsReport49apStatusTrendDataType() *SCIInventoryAPsReport49a
 
 // SCIInventoryAPsReport49apStatusTrendMetaData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.49.apStatusTrend.MetaData
+// Definition: InventoryAPsReport_InventoryAPsReport_49_apStatusTrend_MetaData
 type SCIInventoryAPsReport49apStatusTrendMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -171,7 +171,7 @@ func NewSCIInventoryAPsReport49apStatusTrendMetaData() *SCIInventoryAPsReport49a
 
 // SCIInventoryAPsReport50topApsModelsChartData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.50.topApsModelsChart.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_50_topApsModelsChart_Data
 type SCIInventoryAPsReport50topApsModelsChartData []*SCIInventoryAPsReport50topApsModelsChartDataType
 
 func MakeSCIInventoryAPsReport50topApsModelsChartData() SCIInventoryAPsReport50topApsModelsChartData {
@@ -181,7 +181,7 @@ func MakeSCIInventoryAPsReport50topApsModelsChartData() SCIInventoryAPsReport50t
 
 // SCIInventoryAPsReport50topApsModelsChartDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.50.topApsModelsChart.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_50_topApsModelsChart_DataType
 type SCIInventoryAPsReport50topApsModelsChartDataType struct {
 	ApCount *int `json:"apCount,omitempty"`
 
@@ -195,7 +195,7 @@ func NewSCIInventoryAPsReport50topApsModelsChartDataType() *SCIInventoryAPsRepor
 
 // SCIInventoryAPsReport50topApsModelsChartMetaData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.50.topApsModelsChart.MetaData
+// Definition: InventoryAPsReport_InventoryAPsReport_50_topApsModelsChart_MetaData
 type SCIInventoryAPsReport50topApsModelsChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -207,7 +207,7 @@ func NewSCIInventoryAPsReport50topApsModelsChartMetaData() *SCIInventoryAPsRepor
 
 // SCIInventoryAPsReport51top10ApVersionsChartData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.51.top10ApVersionsChart.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_51_top10ApVersionsChart_Data
 type SCIInventoryAPsReport51top10ApVersionsChartData []*SCIInventoryAPsReport51top10ApVersionsChartDataType
 
 func MakeSCIInventoryAPsReport51top10ApVersionsChartData() SCIInventoryAPsReport51top10ApVersionsChartData {
@@ -217,7 +217,7 @@ func MakeSCIInventoryAPsReport51top10ApVersionsChartData() SCIInventoryAPsReport
 
 // SCIInventoryAPsReport51top10ApVersionsChartDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.51.top10ApVersionsChart.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_51_top10ApVersionsChart_DataType
 type SCIInventoryAPsReport51top10ApVersionsChartDataType struct {
 	ApCount *int `json:"apCount,omitempty"`
 
@@ -231,7 +231,7 @@ func NewSCIInventoryAPsReport51top10ApVersionsChartDataType() *SCIInventoryAPsRe
 
 // SCIInventoryAPsReport51top10ApVersionsChartMetaData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.51.top10ApVersionsChart.MetaData
+// Definition: InventoryAPsReport_InventoryAPsReport_51_top10ApVersionsChart_MetaData
 type SCIInventoryAPsReport51top10ApVersionsChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -243,7 +243,7 @@ func NewSCIInventoryAPsReport51top10ApVersionsChartMetaData() *SCIInventoryAPsRe
 
 // SCIInventoryAPsReport52topApsRebootReasonsData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.52.topApsRebootReasons.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_52_topApsRebootReasons_Data
 type SCIInventoryAPsReport52topApsRebootReasonsData []*SCIInventoryAPsReport52topApsRebootReasonsDataType
 
 func MakeSCIInventoryAPsReport52topApsRebootReasonsData() SCIInventoryAPsReport52topApsRebootReasonsData {
@@ -253,7 +253,7 @@ func MakeSCIInventoryAPsReport52topApsRebootReasonsData() SCIInventoryAPsReport5
 
 // SCIInventoryAPsReport52topApsRebootReasonsDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.52.topApsRebootReasons.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_52_topApsRebootReasons_DataType
 type SCIInventoryAPsReport52topApsRebootReasonsDataType struct {
 	Count *int `json:"count,omitempty"`
 
@@ -267,7 +267,7 @@ func NewSCIInventoryAPsReport52topApsRebootReasonsDataType() *SCIInventoryAPsRep
 
 // SCIInventoryAPsReport52topApsRebootReasonsMetaData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.52.topApsRebootReasons.MetaData
+// Definition: InventoryAPsReport_InventoryAPsReport_52_topApsRebootReasons_MetaData
 type SCIInventoryAPsReport52topApsRebootReasonsMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -279,7 +279,7 @@ func NewSCIInventoryAPsReport52topApsRebootReasonsMetaData() *SCIInventoryAPsRep
 
 // SCIInventoryAPsReport53top10ApsRebootCountsData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.53.top10ApsRebootCounts.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_53_top10ApsRebootCounts_Data
 type SCIInventoryAPsReport53top10ApsRebootCountsData []*SCIInventoryAPsReport53top10ApsRebootCountsDataType
 
 func MakeSCIInventoryAPsReport53top10ApsRebootCountsData() SCIInventoryAPsReport53top10ApsRebootCountsData {
@@ -289,7 +289,7 @@ func MakeSCIInventoryAPsReport53top10ApsRebootCountsData() SCIInventoryAPsReport
 
 // SCIInventoryAPsReport53top10ApsRebootCountsDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.53.top10ApsRebootCounts.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_53_top10ApsRebootCounts_DataType
 type SCIInventoryAPsReport53top10ApsRebootCountsDataType struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -305,7 +305,7 @@ func NewSCIInventoryAPsReport53top10ApsRebootCountsDataType() *SCIInventoryAPsRe
 
 // SCIInventoryAPsReport53top10ApsRebootCountsMetaData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.53.top10ApsRebootCounts.MetaData
+// Definition: InventoryAPsReport_InventoryAPsReport_53_top10ApsRebootCounts_MetaData
 type SCIInventoryAPsReport53top10ApsRebootCountsMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -317,7 +317,7 @@ func NewSCIInventoryAPsReport53top10ApsRebootCountsMetaData() *SCIInventoryAPsRe
 
 // SCIInventoryAPsReport54topApAlarmTypesData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.54.topApAlarmTypes.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_54_topApAlarmTypes_Data
 type SCIInventoryAPsReport54topApAlarmTypesData []*SCIInventoryAPsReport54topApAlarmTypesDataType
 
 func MakeSCIInventoryAPsReport54topApAlarmTypesData() SCIInventoryAPsReport54topApAlarmTypesData {
@@ -327,7 +327,7 @@ func MakeSCIInventoryAPsReport54topApAlarmTypesData() SCIInventoryAPsReport54top
 
 // SCIInventoryAPsReport54topApAlarmTypesDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.54.topApAlarmTypes.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_54_topApAlarmTypes_DataType
 type SCIInventoryAPsReport54topApAlarmTypesDataType struct {
 	AlarmType *string `json:"alarmType,omitempty"`
 
@@ -341,7 +341,7 @@ func NewSCIInventoryAPsReport54topApAlarmTypesDataType() *SCIInventoryAPsReport5
 
 // SCIInventoryAPsReport54topApAlarmTypesMetaData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.54.topApAlarmTypes.MetaData
+// Definition: InventoryAPsReport_InventoryAPsReport_54_topApAlarmTypes_MetaData
 type SCIInventoryAPsReport54topApAlarmTypesMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 }
@@ -353,7 +353,7 @@ func NewSCIInventoryAPsReport54topApAlarmTypesMetaData() *SCIInventoryAPsReport5
 
 // SCIInventoryAPsReport55topAPModelsData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.55.topAPModels.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_55_topAPModels_Data
 type SCIInventoryAPsReport55topAPModelsData []*SCIInventoryAPsReport55topAPModelsDataType
 
 func MakeSCIInventoryAPsReport55topAPModelsData() SCIInventoryAPsReport55topAPModelsData {
@@ -363,7 +363,7 @@ func MakeSCIInventoryAPsReport55topAPModelsData() SCIInventoryAPsReport55topAPMo
 
 // SCIInventoryAPsReport55topAPModelsDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.55.topAPModels.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_55_topAPModels_DataType
 type SCIInventoryAPsReport55topAPModelsDataType struct {
 	ApCount *int `json:"apCount,omitempty"`
 
@@ -381,7 +381,7 @@ func NewSCIInventoryAPsReport55topAPModelsDataType() *SCIInventoryAPsReport55top
 
 // SCIInventoryAPsReport56topAPVersionsData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.56.topAPVersions.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_56_topAPVersions_Data
 type SCIInventoryAPsReport56topAPVersionsData []*SCIInventoryAPsReport56topAPVersionsDataType
 
 func MakeSCIInventoryAPsReport56topAPVersionsData() SCIInventoryAPsReport56topAPVersionsData {
@@ -391,7 +391,7 @@ func MakeSCIInventoryAPsReport56topAPVersionsData() SCIInventoryAPsReport56topAP
 
 // SCIInventoryAPsReport56topAPVersionsDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.56.topAPVersions.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_56_topAPVersions_DataType
 type SCIInventoryAPsReport56topAPVersionsDataType struct {
 	ApCount *int `json:"apCount,omitempty"`
 
@@ -409,7 +409,7 @@ func NewSCIInventoryAPsReport56topAPVersionsDataType() *SCIInventoryAPsReport56t
 
 // SCIInventoryAPsReport57topAPsOfflineData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.57.topAPsOffline.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_57_topAPsOffline_Data
 type SCIInventoryAPsReport57topAPsOfflineData []*SCIInventoryAPsReport57topAPsOfflineDataType
 
 func MakeSCIInventoryAPsReport57topAPsOfflineData() SCIInventoryAPsReport57topAPsOfflineData {
@@ -419,7 +419,7 @@ func MakeSCIInventoryAPsReport57topAPsOfflineData() SCIInventoryAPsReport57topAP
 
 // SCIInventoryAPsReport57topAPsOfflineDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.57.topAPsOffline.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_57_topAPsOffline_DataType
 type SCIInventoryAPsReport57topAPsOfflineDataType struct {
 	ApIp *string `json:"apIp,omitempty"`
 
@@ -445,7 +445,7 @@ func NewSCIInventoryAPsReport57topAPsOfflineDataType() *SCIInventoryAPsReport57t
 
 // SCIInventoryAPsReport57topAPsOfflineMetaData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.57.topAPsOffline.MetaData
+// Definition: InventoryAPsReport_InventoryAPsReport_57_topAPsOffline_MetaData
 type SCIInventoryAPsReport57topAPsOfflineMetaData struct {
 	MaxValues *SCIInventoryAPsReport57topAPsOfflineMetaDataMaxValuesType `json:"maxValues,omitempty"`
 }
@@ -457,7 +457,7 @@ func NewSCIInventoryAPsReport57topAPsOfflineMetaData() *SCIInventoryAPsReport57t
 
 // SCIInventoryAPsReport57topAPsOfflineMetaDataMaxValuesType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.57.topAPsOffline.MetaDataMaxValuesType
+// Definition: InventoryAPsReport_InventoryAPsReport_57_topAPsOffline_MetaDataMaxValuesType
 type SCIInventoryAPsReport57topAPsOfflineMetaDataMaxValuesType struct {
 	DisconnectDuration *int `json:"disconnectDuration,omitempty"`
 }
@@ -469,7 +469,7 @@ func NewSCIInventoryAPsReport57topAPsOfflineMetaDataMaxValuesType() *SCIInventor
 
 // SCIInventoryAPsReport58topAPsByRebootsData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.58.topAPsByReboots.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_58_topAPsByReboots_Data
 type SCIInventoryAPsReport58topAPsByRebootsData []*SCIInventoryAPsReport58topAPsByRebootsDataType
 
 func MakeSCIInventoryAPsReport58topAPsByRebootsData() SCIInventoryAPsReport58topAPsByRebootsData {
@@ -479,7 +479,7 @@ func MakeSCIInventoryAPsReport58topAPsByRebootsData() SCIInventoryAPsReport58top
 
 // SCIInventoryAPsReport58topAPsByRebootsDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.58.topAPsByReboots.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_58_topAPsByReboots_DataType
 type SCIInventoryAPsReport58topAPsByRebootsDataType struct {
 	ApMac *string `json:"apMac,omitempty"`
 
@@ -497,7 +497,7 @@ func NewSCIInventoryAPsReport58topAPsByRebootsDataType() *SCIInventoryAPsReport5
 
 // SCIInventoryAPsReport60apDetailsOnOfflineStatusData
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.60.apDetailsOnOfflineStatus.Data
+// Definition: InventoryAPsReport_InventoryAPsReport_60_apDetailsOnOfflineStatus_Data
 type SCIInventoryAPsReport60apDetailsOnOfflineStatusData []*SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType
 
 func MakeSCIInventoryAPsReport60apDetailsOnOfflineStatusData() SCIInventoryAPsReport60apDetailsOnOfflineStatusData {
@@ -507,7 +507,7 @@ func MakeSCIInventoryAPsReport60apDetailsOnOfflineStatusData() SCIInventoryAPsRe
 
 // SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType
 //
-// Definition: InventoryAPsReport.InventoryAPsReport.60.apDetailsOnOfflineStatus.DataType
+// Definition: InventoryAPsReport_InventoryAPsReport_60_apDetailsOnOfflineStatus_DataType
 type SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType struct {
 	ApIp *string `json:"apIp,omitempty"`
 
@@ -535,7 +535,7 @@ func NewSCIInventoryAPsReport60apDetailsOnOfflineStatusDataType() *SCIInventoryA
 
 // ReportInventoryAPsReport46ApInventoryOverview
 //
-// Operation ID: report.InventoryAPsReport.46.apInventoryOverview
+// Operation ID: report_InventoryAPsReport_46_apInventoryOverview
 //
 // Inventory - APs Report - Overview
 //
@@ -566,7 +566,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport46ApInventoryOver
 
 // ReportInventoryAPsReport47TopApsDisconnection
 //
-// Operation ID: report.InventoryAPsReport.47.topApsDisconnection
+// Operation ID: report_InventoryAPsReport_47_topApsDisconnection
 //
 // Inventory - APs Report - Top APs by Offline Duration
 //
@@ -597,7 +597,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport47TopApsDisconnec
 
 // ReportInventoryAPsReport48ApCountTrend
 //
-// Operation ID: report.InventoryAPsReport.48.apCountTrend
+// Operation ID: report_InventoryAPsReport_48_apCountTrend
 //
 // Inventory - APs Report - AP Count Trend
 //
@@ -628,7 +628,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport48ApCountTrend(ct
 
 // ReportInventoryAPsReport49ApStatusTrend
 //
-// Operation ID: report.InventoryAPsReport.49.apStatusTrend
+// Operation ID: report_InventoryAPsReport_49_apStatusTrend
 //
 // Inventory - APs Report - AP Status Trends
 //
@@ -659,7 +659,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport49ApStatusTrend(c
 
 // ReportInventoryAPsReport50TopApsModelsChart
 //
-// Operation ID: report.InventoryAPsReport.50.topApsModelsChart
+// Operation ID: report_InventoryAPsReport_50_topApsModelsChart
 //
 // Inventory - APs Report - Top AP Models
 //
@@ -690,7 +690,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport50TopApsModelsCha
 
 // ReportInventoryAPsReport51Top10ApVersionsChart
 //
-// Operation ID: report.InventoryAPsReport.51.top10ApVersionsChart
+// Operation ID: report_InventoryAPsReport_51_top10ApVersionsChart
 //
 // Inventory - APs Report - Top AP Software Versions
 //
@@ -721,7 +721,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport51Top10ApVersions
 
 // ReportInventoryAPsReport52TopApsRebootReasons
 //
-// Operation ID: report.InventoryAPsReport.52.topApsRebootReasons
+// Operation ID: report_InventoryAPsReport_52_topApsRebootReasons
 //
 // Inventory - APs Report - Top 10 AP Reboot Reasons
 //
@@ -752,7 +752,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport52TopApsRebootRea
 
 // ReportInventoryAPsReport53Top10ApsRebootCounts
 //
-// Operation ID: report.InventoryAPsReport.53.top10ApsRebootCounts
+// Operation ID: report_InventoryAPsReport_53_top10ApsRebootCounts
 //
 // Inventory - APs Report - Top APs by Reboot Count
 //
@@ -783,7 +783,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport53Top10ApsRebootC
 
 // ReportInventoryAPsReport54TopApAlarmTypes
 //
-// Operation ID: report.InventoryAPsReport.54.topApAlarmTypes
+// Operation ID: report_InventoryAPsReport_54_topApAlarmTypes
 //
 // Inventory - APs Report - Top 10 AP Alarm Types
 //
@@ -814,7 +814,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport54TopApAlarmTypes
 
 // ReportInventoryAPsReport55TopAPModels
 //
-// Operation ID: report.InventoryAPsReport.55.topAPModels
+// Operation ID: report_InventoryAPsReport_55_topAPModels
 //
 // Inventory - APs Report - Top AP Models
 //
@@ -845,7 +845,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport55TopAPModels(ctx
 
 // ReportInventoryAPsReport56TopAPVersions
 //
-// Operation ID: report.InventoryAPsReport.56.topAPVersions
+// Operation ID: report_InventoryAPsReport_56_topAPVersions
 //
 // Inventory - APs Report - Top AP Software Versions
 //
@@ -876,7 +876,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport56TopAPVersions(c
 
 // ReportInventoryAPsReport57TopAPsOffline
 //
-// Operation ID: report.InventoryAPsReport.57.topAPsOffline
+// Operation ID: report_InventoryAPsReport_57_topAPsOffline
 //
 // Inventory - APs Report - Top APs by Offline Duration
 //
@@ -907,7 +907,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport57TopAPsOffline(c
 
 // ReportInventoryAPsReport58TopAPsByReboots
 //
-// Operation ID: report.InventoryAPsReport.58.topAPsByReboots
+// Operation ID: report_InventoryAPsReport_58_topAPsByReboots
 //
 // Inventory - APs Report - Top APs by Reboot Count
 //
@@ -938,7 +938,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport58TopAPsByReboots
 
 // ReportInventoryAPsReport59ApsConfiguredInMultiCtrl
 //
-// Operation ID: report.InventoryAPsReport.59.apsConfiguredInMultiCtrl
+// Operation ID: report_InventoryAPsReport_59_apsConfiguredInMultiCtrl
 //
 // Inventory - APs Report - APs Configured in Multiple Systems
 //
@@ -969,7 +969,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport59ApsConfiguredIn
 
 // ReportInventoryAPsReport60ApDetailsOnOfflineStatus
 //
-// Operation ID: report.InventoryAPsReport.60.apDetailsOnOfflineStatus
+// Operation ID: report_InventoryAPsReport_60_apDetailsOnOfflineStatus
 //
 // Inventory - APs Report - AP Details for Online/Offline Status
 //
@@ -1000,7 +1000,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport60ApDetailsOnOffl
 
 // ReportInventoryAPsReport61ApDetailsOtherStatus
 //
-// Operation ID: report.InventoryAPsReport.61.apDetailsOtherStatus
+// Operation ID: report_InventoryAPsReport_61_apDetailsOtherStatus
 //
 // Inventory - APs Report - AP Details for Other Statuses
 //

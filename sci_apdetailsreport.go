@@ -23,7 +23,7 @@ func (ss *SCIService) SCIAPDetailsReportService() *SCIAPDetailsReportService {
 
 // SCIAPDetailsReport5trendChartData
 //
-// Definition: APDetailsReport.APDetailsReport.5.trendChart.Data
+// Definition: APDetailsReport_APDetailsReport_5_trendChart_Data
 type SCIAPDetailsReport5trendChartData []*SCIAPDetailsReport5trendChartDataType
 
 func MakeSCIAPDetailsReport5trendChartData() SCIAPDetailsReport5trendChartData {
@@ -33,7 +33,7 @@ func MakeSCIAPDetailsReport5trendChartData() SCIAPDetailsReport5trendChartData {
 
 // SCIAPDetailsReport5trendChartDataType
 //
-// Definition: APDetailsReport.APDetailsReport.5.trendChart.DataType
+// Definition: APDetailsReport_APDetailsReport_5_trendChart_DataType
 type SCIAPDetailsReport5trendChartDataType struct {
 	AirtimeBusyAvg *float64 `json:"airtimeBusyAvg,omitempty"`
 
@@ -57,7 +57,7 @@ func NewSCIAPDetailsReport5trendChartDataType() *SCIAPDetailsReport5trendChartDa
 
 // SCIAPDetailsReport8topAppsByTrafficTableData
 //
-// Definition: APDetailsReport.APDetailsReport.8.topAppsByTrafficTable.Data
+// Definition: APDetailsReport_APDetailsReport_8_topAppsByTrafficTable_Data
 type SCIAPDetailsReport8topAppsByTrafficTableData []*SCIAPDetailsReport8topAppsByTrafficTableDataType
 
 func MakeSCIAPDetailsReport8topAppsByTrafficTableData() SCIAPDetailsReport8topAppsByTrafficTableData {
@@ -67,7 +67,7 @@ func MakeSCIAPDetailsReport8topAppsByTrafficTableData() SCIAPDetailsReport8topAp
 
 // SCIAPDetailsReport8topAppsByTrafficTableDataType
 //
-// Definition: APDetailsReport.APDetailsReport.8.topAppsByTrafficTable.DataType
+// Definition: APDetailsReport_APDetailsReport_8_topAppsByTrafficTable_DataType
 type SCIAPDetailsReport8topAppsByTrafficTableDataType struct {
 	App *string `json:"app,omitempty"`
 
@@ -89,7 +89,7 @@ func NewSCIAPDetailsReport8topAppsByTrafficTableDataType() *SCIAPDetailsReport8t
 
 // SCIAPDetailsReport8topAppsByTrafficTableMetaData
 //
-// Definition: APDetailsReport.APDetailsReport.8.topAppsByTrafficTable.MetaData
+// Definition: APDetailsReport_APDetailsReport_8_topAppsByTrafficTable_MetaData
 type SCIAPDetailsReport8topAppsByTrafficTableMetaData struct {
 	MaxValues *SCIAPDetailsReport8topAppsByTrafficTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -109,7 +109,7 @@ func NewSCIAPDetailsReport8topAppsByTrafficTableMetaData() *SCIAPDetailsReport8t
 
 // SCIAPDetailsReport8topAppsByTrafficTableMetaDataMaxValuesType
 //
-// Definition: APDetailsReport.APDetailsReport.8.topAppsByTrafficTable.MetaDataMaxValuesType
+// Definition: APDetailsReport_APDetailsReport_8_topAppsByTrafficTable_MetaDataMaxValuesType
 type SCIAPDetailsReport8topAppsByTrafficTableMetaDataMaxValuesType struct {
 	RxBytes *int `json:"rxBytes,omitempty"`
 
@@ -125,7 +125,7 @@ func NewSCIAPDetailsReport8topAppsByTrafficTableMetaDataMaxValuesType() *SCIAPDe
 
 // SCIAPDetailsReport14topTableData
 //
-// Definition: APDetailsReport.APDetailsReport.14.topTable.Data
+// Definition: APDetailsReport_APDetailsReport_14_topTable_Data
 type SCIAPDetailsReport14topTableData []*SCIAPDetailsReport14topTableDataType
 
 func MakeSCIAPDetailsReport14topTableData() SCIAPDetailsReport14topTableData {
@@ -135,7 +135,7 @@ func MakeSCIAPDetailsReport14topTableData() SCIAPDetailsReport14topTableData {
 
 // SCIAPDetailsReport14topTableDataType
 //
-// Definition: APDetailsReport.APDetailsReport.14.topTable.DataType
+// Definition: APDetailsReport_APDetailsReport_14_topTable_DataType
 type SCIAPDetailsReport14topTableDataType struct {
 	ClientIp *string `json:"clientIp,omitempty"`
 
@@ -167,7 +167,7 @@ func NewSCIAPDetailsReport14topTableDataType() *SCIAPDetailsReport14topTableData
 
 // SCIAPDetailsReport14topTableMetaData
 //
-// Definition: APDetailsReport.APDetailsReport.14.topTable.MetaData
+// Definition: APDetailsReport_APDetailsReport_14_topTable_MetaData
 type SCIAPDetailsReport14topTableMetaData struct {
 	MaxValues *SCIAPDetailsReport14topTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -187,7 +187,7 @@ func NewSCIAPDetailsReport14topTableMetaData() *SCIAPDetailsReport14topTableMeta
 
 // SCIAPDetailsReport14topTableMetaDataMaxValuesType
 //
-// Definition: APDetailsReport.APDetailsReport.14.topTable.MetaDataMaxValuesType
+// Definition: APDetailsReport_APDetailsReport_14_topTable_MetaDataMaxValuesType
 type SCIAPDetailsReport14topTableMetaDataMaxValuesType struct {
 	RxBytes *int `json:"rxBytes,omitempty"`
 
@@ -203,7 +203,7 @@ func NewSCIAPDetailsReport14topTableMetaDataMaxValuesType() *SCIAPDetailsReport1
 
 // SCIAPDetailsReport15trendChartData
 //
-// Definition: APDetailsReport.APDetailsReport.15.trendChart.Data
+// Definition: APDetailsReport_APDetailsReport_15_trendChart_Data
 type SCIAPDetailsReport15trendChartData []*SCIAPDetailsReport15trendChartDataType
 
 func MakeSCIAPDetailsReport15trendChartData() SCIAPDetailsReport15trendChartData {
@@ -213,7 +213,7 @@ func MakeSCIAPDetailsReport15trendChartData() SCIAPDetailsReport15trendChartData
 
 // SCIAPDetailsReport15trendChartDataType
 //
-// Definition: APDetailsReport.APDetailsReport.15.trendChart.DataType
+// Definition: APDetailsReport_APDetailsReport_15_trendChart_DataType
 type SCIAPDetailsReport15trendChartDataType struct {
 	End *string `json:"end,omitempty"`
 
@@ -233,7 +233,7 @@ func NewSCIAPDetailsReport15trendChartDataType() *SCIAPDetailsReport15trendChart
 
 // SCIAPDetailsReport22trafficTrendData
 //
-// Definition: APDetailsReport.APDetailsReport.22.trafficTrend.Data
+// Definition: APDetailsReport_APDetailsReport_22_trafficTrend_Data
 type SCIAPDetailsReport22trafficTrendData []*SCIAPDetailsReport22trafficTrendDataType
 
 func MakeSCIAPDetailsReport22trafficTrendData() SCIAPDetailsReport22trafficTrendData {
@@ -243,7 +243,7 @@ func MakeSCIAPDetailsReport22trafficTrendData() SCIAPDetailsReport22trafficTrend
 
 // SCIAPDetailsReport22trafficTrendDataType
 //
-// Definition: APDetailsReport.APDetailsReport.22.trafficTrend.DataType
+// Definition: APDetailsReport_APDetailsReport_22_trafficTrend_DataType
 type SCIAPDetailsReport22trafficTrendDataType struct {
 	End *string `json:"end,omitempty"`
 
@@ -267,7 +267,7 @@ func NewSCIAPDetailsReport22trafficTrendDataType() *SCIAPDetailsReport22trafficT
 
 // SCIAPDetailsReport40topSsidsByTrafficTableData
 //
-// Definition: APDetailsReport.APDetailsReport.40.topSsidsByTrafficTable.Data
+// Definition: APDetailsReport_APDetailsReport_40_topSsidsByTrafficTable_Data
 type SCIAPDetailsReport40topSsidsByTrafficTableData []*SCIAPDetailsReport40topSsidsByTrafficTableDataType
 
 func MakeSCIAPDetailsReport40topSsidsByTrafficTableData() SCIAPDetailsReport40topSsidsByTrafficTableData {
@@ -277,7 +277,7 @@ func MakeSCIAPDetailsReport40topSsidsByTrafficTableData() SCIAPDetailsReport40to
 
 // SCIAPDetailsReport40topSsidsByTrafficTableDataType
 //
-// Definition: APDetailsReport.APDetailsReport.40.topSsidsByTrafficTable.DataType
+// Definition: APDetailsReport_APDetailsReport_40_topSsidsByTrafficTable_DataType
 type SCIAPDetailsReport40topSsidsByTrafficTableDataType struct {
 	ApCount *float64 `json:"apCount,omitempty"`
 
@@ -315,7 +315,7 @@ func NewSCIAPDetailsReport40topSsidsByTrafficTableDataType() *SCIAPDetailsReport
 
 // SCIAPDetailsReport40topSsidsByTrafficTableMetaData
 //
-// Definition: APDetailsReport.APDetailsReport.40.topSsidsByTrafficTable.MetaData
+// Definition: APDetailsReport_APDetailsReport_40_topSsidsByTrafficTable_MetaData
 type SCIAPDetailsReport40topSsidsByTrafficTableMetaData struct {
 	MaxValues *SCIAPDetailsReport40topSsidsByTrafficTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -335,7 +335,7 @@ func NewSCIAPDetailsReport40topSsidsByTrafficTableMetaData() *SCIAPDetailsReport
 
 // SCIAPDetailsReport40topSsidsByTrafficTableMetaDataMaxValuesType
 //
-// Definition: APDetailsReport.APDetailsReport.40.topSsidsByTrafficTable.MetaDataMaxValuesType
+// Definition: APDetailsReport_APDetailsReport_40_topSsidsByTrafficTable_MetaDataMaxValuesType
 type SCIAPDetailsReport40topSsidsByTrafficTableMetaDataMaxValuesType struct {
 	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
 
@@ -363,7 +363,7 @@ func NewSCIAPDetailsReport40topSsidsByTrafficTableMetaDataMaxValuesType() *SCIAP
 
 // SCIAPDetailsReport76apPerformanceData
 //
-// Definition: APDetailsReport.APDetailsReport.76.apPerformance.Data
+// Definition: APDetailsReport_APDetailsReport_76_apPerformance_Data
 type SCIAPDetailsReport76apPerformanceData []*SCIAPDetailsReport76apPerformanceDataType
 
 func MakeSCIAPDetailsReport76apPerformanceData() SCIAPDetailsReport76apPerformanceData {
@@ -373,7 +373,7 @@ func MakeSCIAPDetailsReport76apPerformanceData() SCIAPDetailsReport76apPerforman
 
 // SCIAPDetailsReport76apPerformanceDataType
 //
-// Definition: APDetailsReport.APDetailsReport.76.apPerformance.DataType
+// Definition: APDetailsReport_APDetailsReport_76_apPerformance_DataType
 type SCIAPDetailsReport76apPerformanceDataType struct {
 	Avg *float64 `json:"avg,omitempty"`
 
@@ -393,7 +393,7 @@ func NewSCIAPDetailsReport76apPerformanceDataType() *SCIAPDetailsReport76apPerfo
 
 // SCIAPDetailsReport78apStatsOverviewData
 //
-// Definition: APDetailsReport.APDetailsReport.78.apStatsOverview.Data
+// Definition: APDetailsReport_APDetailsReport_78_apStatsOverview_Data
 type SCIAPDetailsReport78apStatsOverviewData []*SCIAPDetailsReport78apStatsOverviewDataType
 
 func MakeSCIAPDetailsReport78apStatsOverviewData() SCIAPDetailsReport78apStatsOverviewData {
@@ -403,7 +403,7 @@ func MakeSCIAPDetailsReport78apStatsOverviewData() SCIAPDetailsReport78apStatsOv
 
 // SCIAPDetailsReport78apStatsOverviewDataType
 //
-// Definition: APDetailsReport.APDetailsReport.78.apStatsOverview.DataType
+// Definition: APDetailsReport_APDetailsReport_78_apStatsOverview_DataType
 type SCIAPDetailsReport78apStatsOverviewDataType struct {
 	TotalClientCount *float64 `json:"totalClientCount,omitempty"`
 
@@ -423,7 +423,7 @@ func NewSCIAPDetailsReport78apStatsOverviewDataType() *SCIAPDetailsReport78apSta
 
 // SCIAPDetailsReport79apUptimeHistoryData
 //
-// Definition: APDetailsReport.APDetailsReport.79.apUptimeHistory.Data
+// Definition: APDetailsReport_APDetailsReport_79_apUptimeHistory_Data
 type SCIAPDetailsReport79apUptimeHistoryData []*SCIAPDetailsReport79apUptimeHistoryDataType
 
 func MakeSCIAPDetailsReport79apUptimeHistoryData() SCIAPDetailsReport79apUptimeHistoryData {
@@ -433,7 +433,7 @@ func MakeSCIAPDetailsReport79apUptimeHistoryData() SCIAPDetailsReport79apUptimeH
 
 // SCIAPDetailsReport79apUptimeHistoryDataType
 //
-// Definition: APDetailsReport.APDetailsReport.79.apUptimeHistory.DataType
+// Definition: APDetailsReport_APDetailsReport_79_apUptimeHistory_DataType
 type SCIAPDetailsReport79apUptimeHistoryDataType struct {
 	End *string `json:"end,omitempty"`
 
@@ -449,7 +449,7 @@ func NewSCIAPDetailsReport79apUptimeHistoryDataType() *SCIAPDetailsReport79apUpt
 
 // SCIAPDetailsReport79apUptimeHistoryMetaData
 //
-// Definition: APDetailsReport.APDetailsReport.79.apUptimeHistory.MetaData
+// Definition: APDetailsReport_APDetailsReport_79_apUptimeHistory_MetaData
 type SCIAPDetailsReport79apUptimeHistoryMetaData struct {
 	TotalDowntime *int `json:"totalDowntime,omitempty"`
 
@@ -463,7 +463,7 @@ func NewSCIAPDetailsReport79apUptimeHistoryMetaData() *SCIAPDetailsReport79apUpt
 
 // SCIAPDetailsReport81sessionsTableData
 //
-// Definition: APDetailsReport.APDetailsReport.81.sessionsTable.Data
+// Definition: APDetailsReport_APDetailsReport_81_sessionsTable_Data
 type SCIAPDetailsReport81sessionsTableData []*SCIAPDetailsReport81sessionsTableDataType
 
 func MakeSCIAPDetailsReport81sessionsTableData() SCIAPDetailsReport81sessionsTableData {
@@ -473,7 +473,7 @@ func MakeSCIAPDetailsReport81sessionsTableData() SCIAPDetailsReport81sessionsTab
 
 // SCIAPDetailsReport81sessionsTableDataType
 //
-// Definition: APDetailsReport.APDetailsReport.81.sessionsTable.DataType
+// Definition: APDetailsReport_APDetailsReport_81_sessionsTable_DataType
 type SCIAPDetailsReport81sessionsTableDataType struct {
 	AuthMethod *string `json:"authMethod,omitempty"`
 
@@ -505,7 +505,7 @@ func NewSCIAPDetailsReport81sessionsTableDataType() *SCIAPDetailsReport81session
 
 // SCIAPDetailsReport81sessionsTableMetaData
 //
-// Definition: APDetailsReport.APDetailsReport.81.sessionsTable.MetaData
+// Definition: APDetailsReport_APDetailsReport_81_sessionsTable_MetaData
 type SCIAPDetailsReport81sessionsTableMetaData struct {
 	MaxValues *SCIAPDetailsReport81sessionsTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 }
@@ -517,7 +517,7 @@ func NewSCIAPDetailsReport81sessionsTableMetaData() *SCIAPDetailsReport81session
 
 // SCIAPDetailsReport81sessionsTableMetaDataMaxValuesType
 //
-// Definition: APDetailsReport.APDetailsReport.81.sessionsTable.MetaDataMaxValuesType
+// Definition: APDetailsReport_APDetailsReport_81_sessionsTable_MetaDataMaxValuesType
 type SCIAPDetailsReport81sessionsTableMetaDataMaxValuesType struct {
 	RxBytes *int `json:"rxBytes,omitempty"`
 
@@ -533,7 +533,7 @@ func NewSCIAPDetailsReport81sessionsTableMetaDataMaxValuesType() *SCIAPDetailsRe
 
 // SCIAPDetailsReport82rssTrendData
 //
-// Definition: APDetailsReport.APDetailsReport.82.rssTrend.Data
+// Definition: APDetailsReport_APDetailsReport_82_rssTrend_Data
 type SCIAPDetailsReport82rssTrendData []*SCIAPDetailsReport82rssTrendDataType
 
 func MakeSCIAPDetailsReport82rssTrendData() SCIAPDetailsReport82rssTrendData {
@@ -543,7 +543,7 @@ func MakeSCIAPDetailsReport82rssTrendData() SCIAPDetailsReport82rssTrendData {
 
 // SCIAPDetailsReport82rssTrendDataType
 //
-// Definition: APDetailsReport.APDetailsReport.82.rssTrend.DataType
+// Definition: APDetailsReport_APDetailsReport_82_rssTrend_DataType
 type SCIAPDetailsReport82rssTrendDataType struct {
 	AvgRss *float64 `json:"avgRss,omitempty"`
 
@@ -563,7 +563,7 @@ func NewSCIAPDetailsReport82rssTrendDataType() *SCIAPDetailsReport82rssTrendData
 
 // SCIAPDetailsReport83snrTrendData
 //
-// Definition: APDetailsReport.APDetailsReport.83.snrTrend.Data
+// Definition: APDetailsReport_APDetailsReport_83_snrTrend_Data
 type SCIAPDetailsReport83snrTrendData []*SCIAPDetailsReport83snrTrendDataType
 
 func MakeSCIAPDetailsReport83snrTrendData() SCIAPDetailsReport83snrTrendData {
@@ -573,7 +573,7 @@ func MakeSCIAPDetailsReport83snrTrendData() SCIAPDetailsReport83snrTrendData {
 
 // SCIAPDetailsReport83snrTrendDataType
 //
-// Definition: APDetailsReport.APDetailsReport.83.snrTrend.DataType
+// Definition: APDetailsReport_APDetailsReport_83_snrTrend_DataType
 type SCIAPDetailsReport83snrTrendDataType struct {
 	AvgSnr *float64 `json:"avgSnr,omitempty"`
 
@@ -593,7 +593,7 @@ func NewSCIAPDetailsReport83snrTrendDataType() *SCIAPDetailsReport83snrTrendData
 
 // SCIAPDetailsReport84alarmsTableData
 //
-// Definition: APDetailsReport.APDetailsReport.84.alarmsTable.Data
+// Definition: APDetailsReport_APDetailsReport_84_alarmsTable_Data
 type SCIAPDetailsReport84alarmsTableData []*SCIAPDetailsReport84alarmsTableDataType
 
 func MakeSCIAPDetailsReport84alarmsTableData() SCIAPDetailsReport84alarmsTableData {
@@ -603,7 +603,7 @@ func MakeSCIAPDetailsReport84alarmsTableData() SCIAPDetailsReport84alarmsTableDa
 
 // SCIAPDetailsReport84alarmsTableDataType
 //
-// Definition: APDetailsReport.APDetailsReport.84.alarmsTable.DataType
+// Definition: APDetailsReport_APDetailsReport_84_alarmsTable_DataType
 type SCIAPDetailsReport84alarmsTableDataType struct {
 	AlarmCode *string `json:"alarmCode,omitempty"`
 
@@ -629,7 +629,7 @@ func NewSCIAPDetailsReport84alarmsTableDataType() *SCIAPDetailsReport84alarmsTab
 
 // SCIAPDetailsReport85eventsTableData
 //
-// Definition: APDetailsReport.APDetailsReport.85.eventsTable.Data
+// Definition: APDetailsReport_APDetailsReport_85_eventsTable_Data
 type SCIAPDetailsReport85eventsTableData []*SCIAPDetailsReport85eventsTableDataType
 
 func MakeSCIAPDetailsReport85eventsTableData() SCIAPDetailsReport85eventsTableData {
@@ -639,7 +639,7 @@ func MakeSCIAPDetailsReport85eventsTableData() SCIAPDetailsReport85eventsTableDa
 
 // SCIAPDetailsReport85eventsTableDataType
 //
-// Definition: APDetailsReport.APDetailsReport.85.eventsTable.DataType
+// Definition: APDetailsReport_APDetailsReport_85_eventsTable_DataType
 type SCIAPDetailsReport85eventsTableDataType struct {
 	Category *string `json:"category,omitempty"`
 
@@ -661,7 +661,7 @@ func NewSCIAPDetailsReport85eventsTableDataType() *SCIAPDetailsReport85eventsTab
 
 // ReportAPDetailsReport5TrendChart
 //
-// Operation ID: report.APDetailsReport.5.trendChart
+// Operation ID: report_APDetailsReport_5_trendChart
 //
 // AP Details Report - Airtime Utilization Trend
 //
@@ -692,7 +692,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport5TrendChart(ctx context
 
 // ReportAPDetailsReport7Top10ApplicationsByTrafficVolume
 //
-// Operation ID: report.APDetailsReport.7.top10ApplicationsByTrafficVolume
+// Operation ID: report_APDetailsReport_7_top10ApplicationsByTrafficVolume
 //
 // AP Details Report - Top Applications by Traffic
 //
@@ -723,7 +723,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport7Top10ApplicationsByTra
 
 // ReportAPDetailsReport8TopAppsByTrafficTable
 //
-// Operation ID: report.APDetailsReport.8.topAppsByTrafficTable
+// Operation ID: report_APDetailsReport_8_topAppsByTrafficTable
 //
 // AP Details Report - Top Applications by Traffic
 //
@@ -754,7 +754,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport8TopAppsByTrafficTable(
 
 // ReportAPDetailsReport14TopTable
 //
-// Operation ID: report.APDetailsReport.14.topTable
+// Operation ID: report_APDetailsReport_14_topTable
 //
 // AP Details Report - Clients Details
 //
@@ -785,7 +785,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport14TopTable(ctx context.
 
 // ReportAPDetailsReport15TrendChart
 //
-// Operation ID: report.APDetailsReport.15.trendChart
+// Operation ID: report_APDetailsReport_15_trendChart
 //
 // AP Details Report - Unique Clients Trend Over Time
 //
@@ -816,7 +816,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport15TrendChart(ctx contex
 
 // ReportAPDetailsReport22TrafficTrend
 //
-// Operation ID: report.APDetailsReport.22.trafficTrend
+// Operation ID: report_APDetailsReport_22_trafficTrend
 //
 // AP Details Report - Traffic Trend
 //
@@ -847,7 +847,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport22TrafficTrend(ctx cont
 
 // ReportAPDetailsReport40TopSsidsByTrafficTable
 //
-// Operation ID: report.APDetailsReport.40.topSsidsByTrafficTable
+// Operation ID: report_APDetailsReport_40_topSsidsByTrafficTable
 //
 // AP Details Report - Top SSIDs by Traffic
 //
@@ -878,7 +878,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport40TopSsidsByTrafficTabl
 
 // ReportAPDetailsReport75ApSummary
 //
-// Operation ID: report.APDetailsReport.75.apSummary
+// Operation ID: report_APDetailsReport_75_apSummary
 //
 // AP Details Report - Summary
 //
@@ -909,7 +909,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport75ApSummary(ctx context
 
 // ReportAPDetailsReport76ApPerformance
 //
-// Operation ID: report.APDetailsReport.76.apPerformance
+// Operation ID: report_APDetailsReport_76_apPerformance
 //
 // AP Details Report - Performance
 //
@@ -940,7 +940,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport76ApPerformance(ctx con
 
 // ReportAPDetailsReport77ApDetails
 //
-// Operation ID: report.APDetailsReport.77.apDetails
+// Operation ID: report_APDetailsReport_77_apDetails
 //
 // AP Details Report - Details
 //
@@ -971,7 +971,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport77ApDetails(ctx context
 
 // ReportAPDetailsReport78ApStatsOverview
 //
-// Operation ID: report.APDetailsReport.78.apStatsOverview
+// Operation ID: report_APDetailsReport_78_apStatsOverview
 //
 // AP Details Report - Stats
 //
@@ -1002,7 +1002,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport78ApStatsOverview(ctx c
 
 // ReportAPDetailsReport79ApUptimeHistory
 //
-// Operation ID: report.APDetailsReport.79.apUptimeHistory
+// Operation ID: report_APDetailsReport_79_apUptimeHistory
 //
 // AP Details Report - Uptime History
 //
@@ -1033,7 +1033,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport79ApUptimeHistory(ctx c
 
 // ReportAPDetailsReport80Top10ClientsByTrafficVolume
 //
-// Operation ID: report.APDetailsReport.80.top10ClientsByTrafficVolume
+// Operation ID: report_APDetailsReport_80_top10ClientsByTrafficVolume
 //
 // AP Details Report - Top 10 Clients by Traffic Volume
 //
@@ -1064,7 +1064,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport80Top10ClientsByTraffic
 
 // ReportAPDetailsReport81SessionsTable
 //
-// Operation ID: report.APDetailsReport.81.sessionsTable
+// Operation ID: report_APDetailsReport_81_sessionsTable
 //
 // AP Details Report - Sessions
 //
@@ -1095,7 +1095,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport81SessionsTable(ctx con
 
 // ReportAPDetailsReport82RssTrend
 //
-// Operation ID: report.APDetailsReport.82.rssTrend
+// Operation ID: report_APDetailsReport_82_rssTrend
 //
 // AP Details Report - RSS Trend
 //
@@ -1126,7 +1126,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport82RssTrend(ctx context.
 
 // ReportAPDetailsReport83SnrTrend
 //
-// Operation ID: report.APDetailsReport.83.snrTrend
+// Operation ID: report_APDetailsReport_83_snrTrend
 //
 // AP Details Report - SNR Trend
 //
@@ -1157,7 +1157,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport83SnrTrend(ctx context.
 
 // ReportAPDetailsReport84AlarmsTable
 //
-// Operation ID: report.APDetailsReport.84.alarmsTable
+// Operation ID: report_APDetailsReport_84_alarmsTable
 //
 // AP Details Report - Alarms
 //
@@ -1188,7 +1188,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport84AlarmsTable(ctx conte
 
 // ReportAPDetailsReport85EventsTable
 //
-// Operation ID: report.APDetailsReport.85.eventsTable
+// Operation ID: report_APDetailsReport_85_eventsTable
 //
 // AP Details Report - Events
 //
@@ -1219,7 +1219,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport85EventsTable(ctx conte
 
 // ReportAPDetailsReport95Anomalies
 //
-// Operation ID: report.APDetailsReport.95.anomalies
+// Operation ID: report_APDetailsReport_95_anomalies
 //
 // AP Details Report - Anomalies
 //
@@ -1250,7 +1250,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport95Anomalies(ctx context
 
 // ReportAPDetailsReport110ApAnomaly
 //
-// Operation ID: report.APDetailsReport.110.apAnomaly
+// Operation ID: report_APDetailsReport_110_apAnomaly
 //
 // AP Details Report - Anomalies for the Past 30 Days
 //

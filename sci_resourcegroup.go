@@ -25,7 +25,7 @@ func (ss *SCIService) SCIResourceGroupService() *SCIResourceGroupService {
 
 // SCIResourceGroupBatchDelete200ResponseType
 //
-// Definition: resourceGroup.batchDelete200ResponseType
+// Definition: resourceGroup_batchDelete200ResponseType
 type SCIResourceGroupBatchDelete200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
@@ -37,7 +37,7 @@ func NewSCIResourceGroupBatchDelete200ResponseType() *SCIResourceGroupBatchDelet
 
 // SCIResourceGroupFind200ResponseType
 //
-// Definition: resourceGroup.find200ResponseType
+// Definition: resourceGroup_find200ResponseType
 type SCIResourceGroupFind200ResponseType []*SCIModelsResourceGroup
 
 func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseType {
@@ -47,7 +47,7 @@ func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseTy
 
 // ResourceGroupBatchDelete
 //
-// Operation ID: resourceGroup.batchDelete
+// Operation ID: resourceGroup_batchDelete
 //
 // Delete multiple Resource Groups
 //
@@ -79,7 +79,7 @@ func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, 
 
 // ResourceGroupCreate
 //
-// Operation ID: resourceGroup.create
+// Operation ID: resourceGroup_create
 //
 // Create a new instance of the model and persist it into the data source.
 //
@@ -110,7 +110,7 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data 
 
 // ResourceGroupFind
 //
-// Operation ID: resourceGroup.find
+// Operation ID: resourceGroup_find
 //
 // Find all instances of the model matched by filter from the data source.
 //
@@ -141,7 +141,7 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 
 // ResourceGroupFindById
 //
-// Operation ID: resourceGroup.findById
+// Operation ID: resourceGroup_findById
 //
 // Find a model instance by id from the data source.
 //
@@ -177,7 +177,7 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 
 // ResourceGroupPrototypeUpdateAttributes
 //
-// Operation ID: resourceGroup.prototype.updateAttributes
+// Operation ID: resourceGroup_prototype_updateAttributes
 //
 // Update attributes for a model instance and persist it into the data source.
 //

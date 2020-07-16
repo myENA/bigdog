@@ -25,7 +25,7 @@ func (ss *SCIService) SCIReportService() *SCIReportService {
 
 // SCIReportAirtimeUtilizationReport1overview200ResponseType
 //
-// Definition: report.AirtimeUtilizationReport.1.overview200ResponseType
+// Definition: report_AirtimeUtilizationReport_1_overview200ResponseType
 type SCIReportAirtimeUtilizationReport1overview200ResponseType struct {
 	Data SCIAirtimeUtilizationReport1overviewData `json:"data,omitempty"`
 
@@ -39,7 +39,7 @@ func NewSCIReportAirtimeUtilizationReport1overview200ResponseType() *SCIReportAi
 
 // SCIReportAirtimeUtilizationReport2topChart200ResponseType
 //
-// Definition: report.AirtimeUtilizationReport.2.topChart200ResponseType
+// Definition: report_AirtimeUtilizationReport_2_topChart200ResponseType
 type SCIReportAirtimeUtilizationReport2topChart200ResponseType struct {
 	Data SCIAirtimeUtilizationReport2topChartData `json:"data,omitempty"`
 
@@ -53,7 +53,7 @@ func NewSCIReportAirtimeUtilizationReport2topChart200ResponseType() *SCIReportAi
 
 // SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType
 //
-// Definition: report.AirtimeUtilizationReport.3.topAPsByAirtime24Table200ResponseType
+// Definition: report_AirtimeUtilizationReport_3_topAPsByAirtime24Table200ResponseType
 type SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType struct {
 	Data SCIAirtimeUtilizationReport3topAPsByAirtime24TableData `json:"data,omitempty"`
 
@@ -67,7 +67,7 @@ func NewSCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType(
 
 // SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType
 //
-// Definition: report.AirtimeUtilizationReport.4.topAPsByAirtime5Table200ResponseType
+// Definition: report_AirtimeUtilizationReport_4_topAPsByAirtime5Table200ResponseType
 type SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType struct {
 	Data SCIAirtimeUtilizationReport4topAPsByAirtime5TableData `json:"data,omitempty"`
 
@@ -81,7 +81,7 @@ func NewSCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType()
 
 // SCIReportAirtimeUtilizationReport5trendChart200ResponseType
 //
-// Definition: report.AirtimeUtilizationReport.5.trendChart200ResponseType
+// Definition: report_AirtimeUtilizationReport_5_trendChart200ResponseType
 type SCIReportAirtimeUtilizationReport5trendChart200ResponseType struct {
 	Data SCIAirtimeUtilizationReport5trendChartData `json:"data,omitempty"`
 
@@ -95,7 +95,7 @@ func NewSCIReportAirtimeUtilizationReport5trendChart200ResponseType() *SCIReport
 
 // SCIReportAirtimeUtilizationReport6trendTable200ResponseType
 //
-// Definition: report.AirtimeUtilizationReport.6.trendTable200ResponseType
+// Definition: report_AirtimeUtilizationReport_6_trendTable200ResponseType
 type SCIReportAirtimeUtilizationReport6trendTable200ResponseType struct {
 	Data SCIAirtimeUtilizationReport6trendTableData `json:"data,omitempty"`
 
@@ -109,7 +109,7 @@ func NewSCIReportAirtimeUtilizationReport6trendTable200ResponseType() *SCIReport
 
 // SCIReportAPDetailsReport5trendChart200ResponseType
 //
-// Definition: report.APDetailsReport.5.trendChart200ResponseType
+// Definition: report_APDetailsReport_5_trendChart200ResponseType
 type SCIReportAPDetailsReport5trendChart200ResponseType struct {
 	Data SCIAPDetailsReport5trendChartData `json:"data,omitempty"`
 
@@ -123,7 +123,7 @@ func NewSCIReportAPDetailsReport5trendChart200ResponseType() *SCIReportAPDetails
 
 // SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType
 //
-// Definition: report.APDetailsReport.7.top10ApplicationsByTrafficVolume200ResponseType
+// Definition: report_APDetailsReport_7_top10ApplicationsByTrafficVolume200ResponseType
 type SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -137,7 +137,7 @@ func NewSCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType
 
 // SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType
 //
-// Definition: report.APDetailsReport.8.topAppsByTrafficTable200ResponseType
+// Definition: report_APDetailsReport_8_topAppsByTrafficTable200ResponseType
 type SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType struct {
 	Data SCIAPDetailsReport8topAppsByTrafficTableData `json:"data,omitempty"`
 
@@ -151,7 +151,7 @@ func NewSCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType() *SCIRepo
 
 // SCIReportAPDetailsReport14topTable200ResponseType
 //
-// Definition: report.APDetailsReport.14.topTable200ResponseType
+// Definition: report_APDetailsReport_14_topTable200ResponseType
 type SCIReportAPDetailsReport14topTable200ResponseType struct {
 	Data SCIAPDetailsReport14topTableData `json:"data,omitempty"`
 
@@ -165,7 +165,7 @@ func NewSCIReportAPDetailsReport14topTable200ResponseType() *SCIReportAPDetailsR
 
 // SCIReportAPDetailsReport15trendChart200ResponseType
 //
-// Definition: report.APDetailsReport.15.trendChart200ResponseType
+// Definition: report_APDetailsReport_15_trendChart200ResponseType
 type SCIReportAPDetailsReport15trendChart200ResponseType struct {
 	Data SCIAPDetailsReport15trendChartData `json:"data,omitempty"`
 
@@ -179,7 +179,7 @@ func NewSCIReportAPDetailsReport15trendChart200ResponseType() *SCIReportAPDetail
 
 // SCIReportAPDetailsReport22trafficTrend200ResponseType
 //
-// Definition: report.APDetailsReport.22.trafficTrend200ResponseType
+// Definition: report_APDetailsReport_22_trafficTrend200ResponseType
 type SCIReportAPDetailsReport22trafficTrend200ResponseType struct {
 	Data SCIAPDetailsReport22trafficTrendData `json:"data,omitempty"`
 
@@ -193,7 +193,7 @@ func NewSCIReportAPDetailsReport22trafficTrend200ResponseType() *SCIReportAPDeta
 
 // SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType
 //
-// Definition: report.APDetailsReport.40.topSsidsByTrafficTable200ResponseType
+// Definition: report_APDetailsReport_40_topSsidsByTrafficTable200ResponseType
 type SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType struct {
 	Data SCIAPDetailsReport40topSsidsByTrafficTableData `json:"data,omitempty"`
 
@@ -207,7 +207,7 @@ func NewSCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType() *SCIRe
 
 // SCIReportAPDetailsReport75apSummary200ResponseType
 //
-// Definition: report.APDetailsReport.75.apSummary200ResponseType
+// Definition: report_APDetailsReport_75_apSummary200ResponseType
 type SCIReportAPDetailsReport75apSummary200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -221,7 +221,7 @@ func NewSCIReportAPDetailsReport75apSummary200ResponseType() *SCIReportAPDetails
 
 // SCIReportAPDetailsReport76apPerformance200ResponseType
 //
-// Definition: report.APDetailsReport.76.apPerformance200ResponseType
+// Definition: report_APDetailsReport_76_apPerformance200ResponseType
 type SCIReportAPDetailsReport76apPerformance200ResponseType struct {
 	Data SCIAPDetailsReport76apPerformanceData `json:"data,omitempty"`
 
@@ -235,7 +235,7 @@ func NewSCIReportAPDetailsReport76apPerformance200ResponseType() *SCIReportAPDet
 
 // SCIReportAPDetailsReport77apDetails200ResponseType
 //
-// Definition: report.APDetailsReport.77.apDetails200ResponseType
+// Definition: report_APDetailsReport_77_apDetails200ResponseType
 type SCIReportAPDetailsReport77apDetails200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -249,7 +249,7 @@ func NewSCIReportAPDetailsReport77apDetails200ResponseType() *SCIReportAPDetails
 
 // SCIReportAPDetailsReport78apStatsOverview200ResponseType
 //
-// Definition: report.APDetailsReport.78.apStatsOverview200ResponseType
+// Definition: report_APDetailsReport_78_apStatsOverview200ResponseType
 type SCIReportAPDetailsReport78apStatsOverview200ResponseType struct {
 	Data SCIAPDetailsReport78apStatsOverviewData `json:"data,omitempty"`
 
@@ -263,7 +263,7 @@ func NewSCIReportAPDetailsReport78apStatsOverview200ResponseType() *SCIReportAPD
 
 // SCIReportAPDetailsReport79apUptimeHistory200ResponseType
 //
-// Definition: report.APDetailsReport.79.apUptimeHistory200ResponseType
+// Definition: report_APDetailsReport_79_apUptimeHistory200ResponseType
 type SCIReportAPDetailsReport79apUptimeHistory200ResponseType struct {
 	Data SCIAPDetailsReport79apUptimeHistoryData `json:"data,omitempty"`
 
@@ -277,7 +277,7 @@ func NewSCIReportAPDetailsReport79apUptimeHistory200ResponseType() *SCIReportAPD
 
 // SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType
 //
-// Definition: report.APDetailsReport.80.top10ClientsByTrafficVolume200ResponseType
+// Definition: report_APDetailsReport_80_top10ClientsByTrafficVolume200ResponseType
 type SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -291,7 +291,7 @@ func NewSCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType() *
 
 // SCIReportAPDetailsReport81sessionsTable200ResponseType
 //
-// Definition: report.APDetailsReport.81.sessionsTable200ResponseType
+// Definition: report_APDetailsReport_81_sessionsTable200ResponseType
 type SCIReportAPDetailsReport81sessionsTable200ResponseType struct {
 	Data SCIAPDetailsReport81sessionsTableData `json:"data,omitempty"`
 
@@ -305,7 +305,7 @@ func NewSCIReportAPDetailsReport81sessionsTable200ResponseType() *SCIReportAPDet
 
 // SCIReportAPDetailsReport82rssTrend200ResponseType
 //
-// Definition: report.APDetailsReport.82.rssTrend200ResponseType
+// Definition: report_APDetailsReport_82_rssTrend200ResponseType
 type SCIReportAPDetailsReport82rssTrend200ResponseType struct {
 	Data SCIAPDetailsReport82rssTrendData `json:"data,omitempty"`
 
@@ -319,7 +319,7 @@ func NewSCIReportAPDetailsReport82rssTrend200ResponseType() *SCIReportAPDetailsR
 
 // SCIReportAPDetailsReport83snrTrend200ResponseType
 //
-// Definition: report.APDetailsReport.83.snrTrend200ResponseType
+// Definition: report_APDetailsReport_83_snrTrend200ResponseType
 type SCIReportAPDetailsReport83snrTrend200ResponseType struct {
 	Data SCIAPDetailsReport83snrTrendData `json:"data,omitempty"`
 
@@ -333,7 +333,7 @@ func NewSCIReportAPDetailsReport83snrTrend200ResponseType() *SCIReportAPDetailsR
 
 // SCIReportAPDetailsReport84alarmsTable200ResponseType
 //
-// Definition: report.APDetailsReport.84.alarmsTable200ResponseType
+// Definition: report_APDetailsReport_84_alarmsTable200ResponseType
 type SCIReportAPDetailsReport84alarmsTable200ResponseType struct {
 	Data SCIAPDetailsReport84alarmsTableData `json:"data,omitempty"`
 
@@ -347,7 +347,7 @@ func NewSCIReportAPDetailsReport84alarmsTable200ResponseType() *SCIReportAPDetai
 
 // SCIReportAPDetailsReport85eventsTable200ResponseType
 //
-// Definition: report.APDetailsReport.85.eventsTable200ResponseType
+// Definition: report_APDetailsReport_85_eventsTable200ResponseType
 type SCIReportAPDetailsReport85eventsTable200ResponseType struct {
 	Data SCIAPDetailsReport85eventsTableData `json:"data,omitempty"`
 
@@ -361,7 +361,7 @@ func NewSCIReportAPDetailsReport85eventsTable200ResponseType() *SCIReportAPDetai
 
 // SCIReportAPDetailsReport95anomalies200ResponseType
 //
-// Definition: report.APDetailsReport.95.anomalies200ResponseType
+// Definition: report_APDetailsReport_95_anomalies200ResponseType
 type SCIReportAPDetailsReport95anomalies200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -375,7 +375,7 @@ func NewSCIReportAPDetailsReport95anomalies200ResponseType() *SCIReportAPDetails
 
 // SCIReportAPDetailsReport110apAnomaly200ResponseType
 //
-// Definition: report.APDetailsReport.110.apAnomaly200ResponseType
+// Definition: report_APDetailsReport_110_apAnomaly200ResponseType
 type SCIReportAPDetailsReport110apAnomaly200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -389,7 +389,7 @@ func NewSCIReportAPDetailsReport110apAnomaly200ResponseType() *SCIReportAPDetail
 
 // SCIReportAPsRebootReport43totalReboots200ResponseType
 //
-// Definition: report.APsRebootReport.43.totalReboots200ResponseType
+// Definition: report_APsRebootReport_43_totalReboots200ResponseType
 type SCIReportAPsRebootReport43totalReboots200ResponseType struct {
 	Data SCIAPsRebootReport43totalRebootsData `json:"data,omitempty"`
 
@@ -403,7 +403,7 @@ func NewSCIReportAPsRebootReport43totalReboots200ResponseType() *SCIReportAPsReb
 
 // SCIReportAPsRebootReport44topApRebootsTable200ResponseType
 //
-// Definition: report.APsRebootReport.44.topApRebootsTable200ResponseType
+// Definition: report_APsRebootReport_44_topApRebootsTable200ResponseType
 type SCIReportAPsRebootReport44topApRebootsTable200ResponseType struct {
 	Data SCIAPsRebootReport44topApRebootsTableData `json:"data,omitempty"`
 
@@ -417,7 +417,7 @@ func NewSCIReportAPsRebootReport44topApRebootsTable200ResponseType() *SCIReportA
 
 // SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType
 //
-// Definition: report.APsRebootReport.45.topApRebootsOverTime200ResponseType
+// Definition: report_APsRebootReport_45_topApRebootsOverTime200ResponseType
 type SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType struct {
 	Data SCIAPsRebootReport45topApRebootsOverTimeData `json:"data,omitempty"`
 
@@ -431,7 +431,7 @@ func NewSCIReportAPsRebootReport45topApRebootsOverTime200ResponseType() *SCIRepo
 
 // SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType
 //
-// Definition: report.ClientDetailsReport.7.top10ApplicationsByTrafficVolume200ResponseType
+// Definition: report_ClientDetailsReport_7_top10ApplicationsByTrafficVolume200ResponseType
 type SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -445,7 +445,7 @@ func NewSCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200Response
 
 // SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType
 //
-// Definition: report.ClientDetailsReport.8.topAppsByTrafficTable200ResponseType
+// Definition: report_ClientDetailsReport_8_topAppsByTrafficTable200ResponseType
 type SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType struct {
 	Data SCIClientDetailsReport8topAppsByTrafficTableData `json:"data,omitempty"`
 
@@ -459,7 +459,7 @@ func NewSCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType() *SCI
 
 // SCIReportClientDetailsReport82rssTrend200ResponseType
 //
-// Definition: report.ClientDetailsReport.82.rssTrend200ResponseType
+// Definition: report_ClientDetailsReport_82_rssTrend200ResponseType
 type SCIReportClientDetailsReport82rssTrend200ResponseType struct {
 	Data SCIClientDetailsReport82rssTrendData `json:"data,omitempty"`
 
@@ -473,7 +473,7 @@ func NewSCIReportClientDetailsReport82rssTrend200ResponseType() *SCIReportClient
 
 // SCIReportClientDetailsReport83snrTrend200ResponseType
 //
-// Definition: report.ClientDetailsReport.83.snrTrend200ResponseType
+// Definition: report_ClientDetailsReport_83_snrTrend200ResponseType
 type SCIReportClientDetailsReport83snrTrend200ResponseType struct {
 	Data SCIClientDetailsReport83snrTrendData `json:"data,omitempty"`
 
@@ -487,7 +487,7 @@ func NewSCIReportClientDetailsReport83snrTrend200ResponseType() *SCIReportClient
 
 // SCIReportClientDetailsReport86summary200ResponseType
 //
-// Definition: report.ClientDetailsReport.86.summary200ResponseType
+// Definition: report_ClientDetailsReport_86_summary200ResponseType
 type SCIReportClientDetailsReport86summary200ResponseType struct {
 	Data SCIClientDetailsReport86summaryData `json:"data,omitempty"`
 
@@ -501,7 +501,7 @@ func NewSCIReportClientDetailsReport86summary200ResponseType() *SCIReportClientD
 
 // SCIReportClientDetailsReport87clientStats200ResponseType
 //
-// Definition: report.ClientDetailsReport.87.clientStats200ResponseType
+// Definition: report_ClientDetailsReport_87_clientStats200ResponseType
 type SCIReportClientDetailsReport87clientStats200ResponseType struct {
 	Data SCIClientDetailsReport87clientStatsData `json:"data,omitempty"`
 
@@ -515,7 +515,7 @@ func NewSCIReportClientDetailsReport87clientStats200ResponseType() *SCIReportCli
 
 // SCIReportClientDetailsReport89trafficTrend200ResponseType
 //
-// Definition: report.ClientDetailsReport.89.trafficTrend200ResponseType
+// Definition: report_ClientDetailsReport_89_trafficTrend200ResponseType
 type SCIReportClientDetailsReport89trafficTrend200ResponseType struct {
 	Data SCIClientDetailsReport89trafficTrendData `json:"data,omitempty"`
 
@@ -529,7 +529,7 @@ func NewSCIReportClientDetailsReport89trafficTrend200ResponseType() *SCIReportCl
 
 // SCIReportClientDetailsReport92sessionsTable200ResponseType
 //
-// Definition: report.ClientDetailsReport.92.sessionsTable200ResponseType
+// Definition: report_ClientDetailsReport_92_sessionsTable200ResponseType
 type SCIReportClientDetailsReport92sessionsTable200ResponseType struct {
 	Data SCIClientDetailsReport92sessionsTableData `json:"data,omitempty"`
 
@@ -543,7 +543,7 @@ func NewSCIReportClientDetailsReport92sessionsTable200ResponseType() *SCIReportC
 
 // SCIReportClientHealthReport144clientHealthSummary200ResponseType
 //
-// Definition: report.ClientHealthReport.144.clientHealthSummary200ResponseType
+// Definition: report_ClientHealthReport_144_clientHealthSummary200ResponseType
 type SCIReportClientHealthReport144clientHealthSummary200ResponseType struct {
 	Data SCIClientHealthReport144clientHealthSummaryData `json:"data,omitempty"`
 
@@ -557,7 +557,7 @@ func NewSCIReportClientHealthReport144clientHealthSummary200ResponseType() *SCIR
 
 // SCIReportClientHealthReport148clientConnectionHealth200ResponseType
 //
-// Definition: report.ClientHealthReport.148.clientConnectionHealth200ResponseType
+// Definition: report_ClientHealthReport_148_clientConnectionHealth200ResponseType
 type SCIReportClientHealthReport148clientConnectionHealth200ResponseType struct {
 	Data SCIClientHealthReport148clientConnectionHealthData `json:"data,omitempty"`
 
@@ -571,7 +571,7 @@ func NewSCIReportClientHealthReport148clientConnectionHealth200ResponseType() *S
 
 // SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType
 //
-// Definition: report.ClientHealthReport.149.clientHealthMetricTrends200ResponseType
+// Definition: report_ClientHealthReport_149_clientHealthMetricTrends200ResponseType
 type SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType struct {
 	Data SCIClientHealthReport149clientHealthMetricTrendsData `json:"data,omitempty"`
 
@@ -585,7 +585,7 @@ func NewSCIReportClientHealthReport149clientHealthMetricTrends200ResponseType() 
 
 // SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType
 //
-// Definition: report.ClientHealthReport.150.topClientHealthScoreByGroup200ResponseType
+// Definition: report_ClientHealthReport_150_topClientHealthScoreByGroup200ResponseType
 type SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -599,7 +599,7 @@ func NewSCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType
 
 // SCIReportComparisonReport140comparisionOverview200ResponseType
 //
-// Definition: report.ComparisonReport.140.comparisionOverview200ResponseType
+// Definition: report_ComparisonReport_140_comparisionOverview200ResponseType
 type SCIReportComparisonReport140comparisionOverview200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -613,7 +613,7 @@ func NewSCIReportComparisonReport140comparisionOverview200ResponseType() *SCIRep
 
 // SCIReportComparisonReport145comparisionMetric1200ResponseType
 //
-// Definition: report.ComparisonReport.145.comparisionMetric1200ResponseType
+// Definition: report_ComparisonReport_145_comparisionMetric1200ResponseType
 type SCIReportComparisonReport145comparisionMetric1200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -627,7 +627,7 @@ func NewSCIReportComparisonReport145comparisionMetric1200ResponseType() *SCIRepo
 
 // SCIReportComparisonReport146comparisionMetric2200ResponseType
 //
-// Definition: report.ComparisonReport.146.comparisionMetric2200ResponseType
+// Definition: report_ComparisonReport_146_comparisionMetric2200ResponseType
 type SCIReportComparisonReport146comparisionMetric2200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -641,7 +641,7 @@ func NewSCIReportComparisonReport146comparisionMetric2200ResponseType() *SCIRepo
 
 // SCIReportComparisonReport147comparisionTable200ResponseType
 //
-// Definition: report.ComparisonReport.147.comparisionTable200ResponseType
+// Definition: report_ComparisonReport_147_comparisionTable200ResponseType
 type SCIReportComparisonReport147comparisionTable200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -655,7 +655,7 @@ func NewSCIReportComparisonReport147comparisionTable200ResponseType() *SCIReport
 
 // SCIReportFind200ResponseType
 //
-// Definition: report.find200ResponseType
+// Definition: report_find200ResponseType
 type SCIReportFind200ResponseType []*SCIModelsReport
 
 func MakeSCIReportFind200ResponseType() SCIReportFind200ResponseType {
@@ -665,7 +665,7 @@ func MakeSCIReportFind200ResponseType() SCIReportFind200ResponseType {
 
 // SCIReportGetData200ResponseType
 //
-// Definition: report.getData200ResponseType
+// Definition: report_getData200ResponseType
 type SCIReportGetData200ResponseType struct {
 	Data []interface{} `json:"data,omitempty"`
 
@@ -679,7 +679,7 @@ func NewSCIReportGetData200ResponseType() *SCIReportGetData200ResponseType {
 
 // SCIReportInventoryAPsReport46apInventoryOverview200ResponseType
 //
-// Definition: report.InventoryAPsReport.46.apInventoryOverview200ResponseType
+// Definition: report_InventoryAPsReport_46_apInventoryOverview200ResponseType
 type SCIReportInventoryAPsReport46apInventoryOverview200ResponseType struct {
 	Data SCIInventoryAPsReport46apInventoryOverviewData `json:"data,omitempty"`
 
@@ -693,7 +693,7 @@ func NewSCIReportInventoryAPsReport46apInventoryOverview200ResponseType() *SCIRe
 
 // SCIReportInventoryAPsReport47topApsDisconnection200ResponseType
 //
-// Definition: report.InventoryAPsReport.47.topApsDisconnection200ResponseType
+// Definition: report_InventoryAPsReport_47_topApsDisconnection200ResponseType
 type SCIReportInventoryAPsReport47topApsDisconnection200ResponseType struct {
 	Data SCIInventoryAPsReport47topApsDisconnectionData `json:"data,omitempty"`
 
@@ -707,7 +707,7 @@ func NewSCIReportInventoryAPsReport47topApsDisconnection200ResponseType() *SCIRe
 
 // SCIReportInventoryAPsReport48apCountTrend200ResponseType
 //
-// Definition: report.InventoryAPsReport.48.apCountTrend200ResponseType
+// Definition: report_InventoryAPsReport_48_apCountTrend200ResponseType
 type SCIReportInventoryAPsReport48apCountTrend200ResponseType struct {
 	Data SCIInventoryAPsReport48apCountTrendData `json:"data,omitempty"`
 
@@ -721,7 +721,7 @@ func NewSCIReportInventoryAPsReport48apCountTrend200ResponseType() *SCIReportInv
 
 // SCIReportInventoryAPsReport49apStatusTrend200ResponseType
 //
-// Definition: report.InventoryAPsReport.49.apStatusTrend200ResponseType
+// Definition: report_InventoryAPsReport_49_apStatusTrend200ResponseType
 type SCIReportInventoryAPsReport49apStatusTrend200ResponseType struct {
 	Data SCIInventoryAPsReport49apStatusTrendData `json:"data,omitempty"`
 
@@ -735,7 +735,7 @@ func NewSCIReportInventoryAPsReport49apStatusTrend200ResponseType() *SCIReportIn
 
 // SCIReportInventoryAPsReport50topApsModelsChart200ResponseType
 //
-// Definition: report.InventoryAPsReport.50.topApsModelsChart200ResponseType
+// Definition: report_InventoryAPsReport_50_topApsModelsChart200ResponseType
 type SCIReportInventoryAPsReport50topApsModelsChart200ResponseType struct {
 	Data SCIInventoryAPsReport50topApsModelsChartData `json:"data,omitempty"`
 
@@ -749,7 +749,7 @@ func NewSCIReportInventoryAPsReport50topApsModelsChart200ResponseType() *SCIRepo
 
 // SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType
 //
-// Definition: report.InventoryAPsReport.51.top10ApVersionsChart200ResponseType
+// Definition: report_InventoryAPsReport_51_top10ApVersionsChart200ResponseType
 type SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType struct {
 	Data SCIInventoryAPsReport51top10ApVersionsChartData `json:"data,omitempty"`
 
@@ -763,7 +763,7 @@ func NewSCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType() *SCIR
 
 // SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType
 //
-// Definition: report.InventoryAPsReport.52.topApsRebootReasons200ResponseType
+// Definition: report_InventoryAPsReport_52_topApsRebootReasons200ResponseType
 type SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType struct {
 	Data SCIInventoryAPsReport52topApsRebootReasonsData `json:"data,omitempty"`
 
@@ -777,7 +777,7 @@ func NewSCIReportInventoryAPsReport52topApsRebootReasons200ResponseType() *SCIRe
 
 // SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType
 //
-// Definition: report.InventoryAPsReport.53.top10ApsRebootCounts200ResponseType
+// Definition: report_InventoryAPsReport_53_top10ApsRebootCounts200ResponseType
 type SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType struct {
 	Data SCIInventoryAPsReport53top10ApsRebootCountsData `json:"data,omitempty"`
 
@@ -791,7 +791,7 @@ func NewSCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType() *SCIR
 
 // SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType
 //
-// Definition: report.InventoryAPsReport.54.topApAlarmTypes200ResponseType
+// Definition: report_InventoryAPsReport_54_topApAlarmTypes200ResponseType
 type SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType struct {
 	Data SCIInventoryAPsReport54topApAlarmTypesData `json:"data,omitempty"`
 
@@ -805,7 +805,7 @@ func NewSCIReportInventoryAPsReport54topApAlarmTypes200ResponseType() *SCIReport
 
 // SCIReportInventoryAPsReport55topAPModels200ResponseType
 //
-// Definition: report.InventoryAPsReport.55.topAPModels200ResponseType
+// Definition: report_InventoryAPsReport_55_topAPModels200ResponseType
 type SCIReportInventoryAPsReport55topAPModels200ResponseType struct {
 	Data SCIInventoryAPsReport55topAPModelsData `json:"data,omitempty"`
 
@@ -819,7 +819,7 @@ func NewSCIReportInventoryAPsReport55topAPModels200ResponseType() *SCIReportInve
 
 // SCIReportInventoryAPsReport56topAPVersions200ResponseType
 //
-// Definition: report.InventoryAPsReport.56.topAPVersions200ResponseType
+// Definition: report_InventoryAPsReport_56_topAPVersions200ResponseType
 type SCIReportInventoryAPsReport56topAPVersions200ResponseType struct {
 	Data SCIInventoryAPsReport56topAPVersionsData `json:"data,omitempty"`
 
@@ -833,7 +833,7 @@ func NewSCIReportInventoryAPsReport56topAPVersions200ResponseType() *SCIReportIn
 
 // SCIReportInventoryAPsReport57topAPsOffline200ResponseType
 //
-// Definition: report.InventoryAPsReport.57.topAPsOffline200ResponseType
+// Definition: report_InventoryAPsReport_57_topAPsOffline200ResponseType
 type SCIReportInventoryAPsReport57topAPsOffline200ResponseType struct {
 	Data SCIInventoryAPsReport57topAPsOfflineData `json:"data,omitempty"`
 
@@ -847,7 +847,7 @@ func NewSCIReportInventoryAPsReport57topAPsOffline200ResponseType() *SCIReportIn
 
 // SCIReportInventoryAPsReport58topAPsByReboots200ResponseType
 //
-// Definition: report.InventoryAPsReport.58.topAPsByReboots200ResponseType
+// Definition: report_InventoryAPsReport_58_topAPsByReboots200ResponseType
 type SCIReportInventoryAPsReport58topAPsByReboots200ResponseType struct {
 	Data SCIInventoryAPsReport58topAPsByRebootsData `json:"data,omitempty"`
 
@@ -861,7 +861,7 @@ func NewSCIReportInventoryAPsReport58topAPsByReboots200ResponseType() *SCIReport
 
 // SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType
 //
-// Definition: report.InventoryAPsReport.59.apsConfiguredInMultiCtrl200ResponseType
+// Definition: report_InventoryAPsReport_59_apsConfiguredInMultiCtrl200ResponseType
 type SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -875,7 +875,7 @@ func NewSCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType() *
 
 // SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType
 //
-// Definition: report.InventoryAPsReport.60.apDetailsOnOfflineStatus200ResponseType
+// Definition: report_InventoryAPsReport_60_apDetailsOnOfflineStatus200ResponseType
 type SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType struct {
 	Data SCIInventoryAPsReport60apDetailsOnOfflineStatusData `json:"data,omitempty"`
 
@@ -889,7 +889,7 @@ func NewSCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType() *
 
 // SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType
 //
-// Definition: report.InventoryAPsReport.61.apDetailsOtherStatus200ResponseType
+// Definition: report_InventoryAPsReport_61_apDetailsOtherStatus200ResponseType
 type SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -903,7 +903,7 @@ func NewSCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType() *SCIR
 
 // SCIReportInventoryControllersReport96krack200ResponseType
 //
-// Definition: report.InventoryControllersReport.96.krack200ResponseType
+// Definition: report_InventoryControllersReport_96_krack200ResponseType
 type SCIReportInventoryControllersReport96krack200ResponseType struct {
 	Data SCIInventoryControllersReport96krackData `json:"data,omitempty"`
 
@@ -917,7 +917,7 @@ func NewSCIReportInventoryControllersReport96krack200ResponseType() *SCIReportIn
 
 // SCIReportInventoryControllersReport98resourceUtilization200ResponseType
 //
-// Definition: report.InventoryControllersReport.98.resourceUtilization200ResponseType
+// Definition: report_InventoryControllersReport_98_resourceUtilization200ResponseType
 type SCIReportInventoryControllersReport98resourceUtilization200ResponseType struct {
 	Data SCIInventoryControllersReport98resourceUtilizationData `json:"data,omitempty"`
 
@@ -931,7 +931,7 @@ func NewSCIReportInventoryControllersReport98resourceUtilization200ResponseType(
 
 // SCIReportInventoryControllersReport99licenseUtilization200ResponseType
 //
-// Definition: report.InventoryControllersReport.99.licenseUtilization200ResponseType
+// Definition: report_InventoryControllersReport_99_licenseUtilization200ResponseType
 type SCIReportInventoryControllersReport99licenseUtilization200ResponseType struct {
 	Data SCIInventoryControllersReport99licenseUtilizationData `json:"data,omitempty"`
 
@@ -945,7 +945,7 @@ func NewSCIReportInventoryControllersReport99licenseUtilization200ResponseType()
 
 // SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType
 //
-// Definition: report.InventoryControllersReport.114.controllerInventoryOverview200ResponseType
+// Definition: report_InventoryControllersReport_114_controllerInventoryOverview200ResponseType
 type SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType struct {
 	Data SCIInventoryControllersReport114controllerInventoryOverviewData `json:"data,omitempty"`
 
@@ -959,7 +959,7 @@ func NewSCIReportInventoryControllersReport114controllerInventoryOverview200Resp
 
 // SCIReportInventorySwitchesReport113overview200ResponseType
 //
-// Definition: report.InventorySwitchesReport.113.overview200ResponseType
+// Definition: report_InventorySwitchesReport_113_overview200ResponseType
 type SCIReportInventorySwitchesReport113overview200ResponseType struct {
 	Data SCIInventorySwitchesReport113overviewData `json:"data,omitempty"`
 
@@ -973,7 +973,7 @@ func NewSCIReportInventorySwitchesReport113overview200ResponseType() *SCIReportI
 
 // SCIReportInventorySwitchesReport116switchCountTrend200ResponseType
 //
-// Definition: report.InventorySwitchesReport.116.switchCountTrend200ResponseType
+// Definition: report_InventorySwitchesReport_116_switchCountTrend200ResponseType
 type SCIReportInventorySwitchesReport116switchCountTrend200ResponseType struct {
 	Data SCIInventorySwitchesReport116switchCountTrendData `json:"data,omitempty"`
 
@@ -987,7 +987,7 @@ func NewSCIReportInventorySwitchesReport116switchCountTrend200ResponseType() *SC
 
 // SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType
 //
-// Definition: report.InventorySwitchesReport.117.top10SwitchVersionChart200ResponseType
+// Definition: report_InventorySwitchesReport_117_top10SwitchVersionChart200ResponseType
 type SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType struct {
 	Data SCIInventorySwitchesReport117top10SwitchVersionChartData `json:"data,omitempty"`
 
@@ -1001,7 +1001,7 @@ func NewSCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTyp
 
 // SCIReportInventorySwitchesReport118topSwitchVersions200ResponseType
 //
-// Definition: report.InventorySwitchesReport.118.topSwitchVersions200ResponseType
+// Definition: report_InventorySwitchesReport_118_topSwitchVersions200ResponseType
 type SCIReportInventorySwitchesReport118topSwitchVersions200ResponseType struct {
 	Data SCIInventorySwitchesReport118topSwitchVersionsData `json:"data,omitempty"`
 
@@ -1015,7 +1015,7 @@ func NewSCIReportInventorySwitchesReport118topSwitchVersions200ResponseType() *S
 
 // SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType
 //
-// Definition: report.InventorySwitchesReport.121.topSwitchModelsChart200ResponseType
+// Definition: report_InventorySwitchesReport_121_topSwitchModelsChart200ResponseType
 type SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType struct {
 	Data SCIInventorySwitchesReport121topSwitchModelsChartData `json:"data,omitempty"`
 
@@ -1029,7 +1029,7 @@ func NewSCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType()
 
 // SCIReportInventorySwitchesReport122topSwitchModels200ResponseType
 //
-// Definition: report.InventorySwitchesReport.122.topSwitchModels200ResponseType
+// Definition: report_InventorySwitchesReport_122_topSwitchModels200ResponseType
 type SCIReportInventorySwitchesReport122topSwitchModels200ResponseType struct {
 	Data SCIInventorySwitchesReport122topSwitchModelsData `json:"data,omitempty"`
 
@@ -1043,7 +1043,7 @@ func NewSCIReportInventorySwitchesReport122topSwitchModels200ResponseType() *SCI
 
 // SCIReportInventorySwitchesReport132portStatusTrend200ResponseType
 //
-// Definition: report.InventorySwitchesReport.132.portStatusTrend200ResponseType
+// Definition: report_InventorySwitchesReport_132_portStatusTrend200ResponseType
 type SCIReportInventorySwitchesReport132portStatusTrend200ResponseType struct {
 	Data SCIInventorySwitchesReport132portStatusTrendData `json:"data,omitempty"`
 
@@ -1057,7 +1057,7 @@ func NewSCIReportInventorySwitchesReport132portStatusTrend200ResponseType() *SCI
 
 // SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType
 //
-// Definition: report.NetworkWiredReport.123.topSwitchPOEUtilChart200ResponseType
+// Definition: report_NetworkWiredReport_123_topSwitchPOEUtilChart200ResponseType
 type SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType struct {
 	Data SCINetworkWiredReport123topSwitchPOEUtilChartData `json:"data,omitempty"`
 
@@ -1071,7 +1071,7 @@ func NewSCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType() *SC
 
 // SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType
 //
-// Definition: report.NetworkWiredReport.124.topSwitchPOEUtils200ResponseType
+// Definition: report_NetworkWiredReport_124_topSwitchPOEUtils200ResponseType
 type SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType struct {
 	Data SCINetworkWiredReport124topSwitchPOEUtilsData `json:"data,omitempty"`
 
@@ -1085,7 +1085,7 @@ func NewSCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType() *SCIRep
 
 // SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType
 //
-// Definition: report.NetworkWiredReport.127.top10SwitchesByTrafficVolume200ResponseType
+// Definition: report_NetworkWiredReport_127_top10SwitchesByTrafficVolume200ResponseType
 type SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1099,7 +1099,7 @@ func NewSCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTyp
 
 // SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType
 //
-// Definition: report.NetworkWiredReport.128.topSwitchesByTrafficTable200ResponseType
+// Definition: report_NetworkWiredReport_128_topSwitchesByTrafficTable200ResponseType
 type SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType struct {
 	Data SCINetworkWiredReport128topSwitchesByTrafficTableData `json:"data,omitempty"`
 
@@ -1113,7 +1113,7 @@ func NewSCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType()
 
 // SCIReportNetworkWiredReport134wiredOverview200ResponseType
 //
-// Definition: report.NetworkWiredReport.134.wiredOverview200ResponseType
+// Definition: report_NetworkWiredReport_134_wiredOverview200ResponseType
 type SCIReportNetworkWiredReport134wiredOverview200ResponseType struct {
 	Data SCINetworkWiredReport134wiredOverviewData `json:"data,omitempty"`
 
@@ -1127,7 +1127,7 @@ func NewSCIReportNetworkWiredReport134wiredOverview200ResponseType() *SCIReportN
 
 // SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType
 //
-// Definition: report.NetworkWiredReport.135.wiredTrafficDistribution200ResponseType
+// Definition: report_NetworkWiredReport_135_wiredTrafficDistribution200ResponseType
 type SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType struct {
 	Data SCINetworkWiredReport135wiredTrafficDistributionData `json:"data,omitempty"`
 
@@ -1141,7 +1141,7 @@ func NewSCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType() 
 
 // SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType
 //
-// Definition: report.NetworkWiredReport.136.switchTrafficTrend200ResponseType
+// Definition: report_NetworkWiredReport_136_switchTrafficTrend200ResponseType
 type SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType struct {
 	Data SCINetworkWiredReport136switchTrafficTrendData `json:"data,omitempty"`
 
@@ -1155,7 +1155,7 @@ func NewSCIReportNetworkWiredReport136switchTrafficTrend200ResponseType() *SCIRe
 
 // SCIReportNetworkWiredReport141switchErrorTrend200ResponseType
 //
-// Definition: report.NetworkWiredReport.141.switchErrorTrend200ResponseType
+// Definition: report_NetworkWiredReport_141_switchErrorTrend200ResponseType
 type SCIReportNetworkWiredReport141switchErrorTrend200ResponseType struct {
 	Data SCINetworkWiredReport141switchErrorTrendData `json:"data,omitempty"`
 
@@ -1169,7 +1169,7 @@ func NewSCIReportNetworkWiredReport141switchErrorTrend200ResponseType() *SCIRepo
 
 // SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType
 //
-// Definition: report.NetworkWiredReport.142.topSwitchesByErrorsChart200ResponseType
+// Definition: report_NetworkWiredReport_142_topSwitchesByErrorsChart200ResponseType
 type SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType struct {
 	Data SCINetworkWiredReport142topSwitchesByErrorsChartData `json:"data,omitempty"`
 
@@ -1183,7 +1183,7 @@ func NewSCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType() 
 
 // SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType
 //
-// Definition: report.NetworkWiredReport.143.topSwitchesByErrorsTable200ResponseType
+// Definition: report_NetworkWiredReport_143_topSwitchesByErrorsTable200ResponseType
 type SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType struct {
 	Data SCINetworkWiredReport143topSwitchesByErrorsTableData `json:"data,omitempty"`
 
@@ -1197,7 +1197,7 @@ func NewSCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType() 
 
 // SCIReportNetworkWirelessReport20overview200ResponseType
 //
-// Definition: report.NetworkWirelessReport.20.overview200ResponseType
+// Definition: report_NetworkWirelessReport_20_overview200ResponseType
 type SCIReportNetworkWirelessReport20overview200ResponseType struct {
 	Data SCINetworkWirelessReport20overviewData `json:"data,omitempty"`
 
@@ -1211,7 +1211,7 @@ func NewSCIReportNetworkWirelessReport20overview200ResponseType() *SCIReportNetw
 
 // SCIReportNetworkWirelessReport21trafficDistribution200ResponseType
 //
-// Definition: report.NetworkWirelessReport.21.trafficDistribution200ResponseType
+// Definition: report_NetworkWirelessReport_21_trafficDistribution200ResponseType
 type SCIReportNetworkWirelessReport21trafficDistribution200ResponseType struct {
 	Data SCINetworkWirelessReport21trafficDistributionData `json:"data,omitempty"`
 
@@ -1225,7 +1225,7 @@ func NewSCIReportNetworkWirelessReport21trafficDistribution200ResponseType() *SC
 
 // SCIReportNetworkWirelessReport22trafficTrend200ResponseType
 //
-// Definition: report.NetworkWirelessReport.22.trafficTrend200ResponseType
+// Definition: report_NetworkWirelessReport_22_trafficTrend200ResponseType
 type SCIReportNetworkWirelessReport22trafficTrend200ResponseType struct {
 	Data SCINetworkWirelessReport22trafficTrendData `json:"data,omitempty"`
 
@@ -1239,7 +1239,7 @@ func NewSCIReportNetworkWirelessReport22trafficTrend200ResponseType() *SCIReport
 
 // SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType
 //
-// Definition: report.NetworkWirelessReport.23.trafficOverTimeTable200ResponseType
+// Definition: report_NetworkWirelessReport_23_trafficOverTimeTable200ResponseType
 type SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType struct {
 	Data SCINetworkWirelessReport23trafficOverTimeTableData `json:"data,omitempty"`
 
@@ -1253,7 +1253,7 @@ func NewSCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType() *S
 
 // SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType
 //
-// Definition: report.NetworkWirelessReport.24.topAPsByTrafficTable200ResponseType
+// Definition: report_NetworkWirelessReport_24_topAPsByTrafficTable200ResponseType
 type SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType struct {
 	Data SCINetworkWirelessReport24topAPsByTrafficTableData `json:"data,omitempty"`
 
@@ -1267,7 +1267,7 @@ func NewSCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType() *S
 
 // SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType
 //
-// Definition: report.NetworkWirelessReport.25.topAPsByClientsTable200ResponseType
+// Definition: report_NetworkWirelessReport_25_topAPsByClientsTable200ResponseType
 type SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType struct {
 	Data SCINetworkWirelessReport25topAPsByClientsTableData `json:"data,omitempty"`
 
@@ -1281,7 +1281,7 @@ func NewSCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType() *S
 
 // SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType
 //
-// Definition: report.NetworkWirelessReport.26.top10APsByTrafficVolume200ResponseType
+// Definition: report_NetworkWirelessReport_26_top10APsByTrafficVolume200ResponseType
 type SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1295,7 +1295,7 @@ func NewSCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType()
 
 // SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType
 //
-// Definition: report.NetworkWirelessReport.27.top10ApByClientCount200ResponseType
+// Definition: report_NetworkWirelessReport_27_top10ApByClientCount200ResponseType
 type SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType struct {
 	Data SCINetworkWirelessReport27top10ApByClientCountData `json:"data,omitempty"`
 
@@ -1309,7 +1309,7 @@ func NewSCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType() *S
 
 // SCIReportOverview62overview200ResponseType
 //
-// Definition: report.Overview.62.overview200ResponseType
+// Definition: report_Overview_62_overview200ResponseType
 type SCIReportOverview62overview200ResponseType struct {
 	Data SCIOverview62overviewData `json:"data,omitempty"`
 
@@ -1323,7 +1323,7 @@ func NewSCIReportOverview62overview200ResponseType() *SCIReportOverview62overvie
 
 // SCIReportOverview63controller200ResponseType
 //
-// Definition: report.Overview.63.controller200ResponseType
+// Definition: report_Overview_63_controller200ResponseType
 type SCIReportOverview63controller200ResponseType struct {
 	Data SCIOverview63controllerData `json:"data,omitempty"`
 
@@ -1337,7 +1337,7 @@ func NewSCIReportOverview63controller200ResponseType() *SCIReportOverview63contr
 
 // SCIReportOverview64apOverview200ResponseType
 //
-// Definition: report.Overview.64.apOverview200ResponseType
+// Definition: report_Overview_64_apOverview200ResponseType
 type SCIReportOverview64apOverview200ResponseType struct {
 	Data SCIOverview64apOverviewData `json:"data,omitempty"`
 
@@ -1351,7 +1351,7 @@ func NewSCIReportOverview64apOverview200ResponseType() *SCIReportOverview64apOve
 
 // SCIReportOverview66apAlarmOverview200ResponseType
 //
-// Definition: report.Overview.66.apAlarmOverview200ResponseType
+// Definition: report_Overview_66_apAlarmOverview200ResponseType
 type SCIReportOverview66apAlarmOverview200ResponseType struct {
 	Data SCIOverview66apAlarmOverviewData `json:"data,omitempty"`
 
@@ -1365,7 +1365,7 @@ func NewSCIReportOverview66apAlarmOverview200ResponseType() *SCIReportOverview66
 
 // SCIReportOverview67switchOverview200ResponseType
 //
-// Definition: report.Overview.67.switchOverview200ResponseType
+// Definition: report_Overview_67_switchOverview200ResponseType
 type SCIReportOverview67switchOverview200ResponseType struct {
 	Data SCIOverview67switchOverviewData `json:"data,omitempty"`
 
@@ -1379,7 +1379,7 @@ func NewSCIReportOverview67switchOverview200ResponseType() *SCIReportOverview67s
 
 // SCIReportOverview68apClientCountOverview200ResponseType
 //
-// Definition: report.Overview.68.apClientCountOverview200ResponseType
+// Definition: report_Overview_68_apClientCountOverview200ResponseType
 type SCIReportOverview68apClientCountOverview200ResponseType struct {
 	Data SCIOverview68apClientCountOverviewData `json:"data,omitempty"`
 
@@ -1393,7 +1393,7 @@ func NewSCIReportOverview68apClientCountOverview200ResponseType() *SCIReportOver
 
 // SCIReportOverview69totalTrafficMinMaxRate200ResponseType
 //
-// Definition: report.Overview.69.totalTrafficMinMaxRate200ResponseType
+// Definition: report_Overview_69_totalTrafficMinMaxRate200ResponseType
 type SCIReportOverview69totalTrafficMinMaxRate200ResponseType struct {
 	Data SCIOverview69totalTrafficMinMaxRateData `json:"data,omitempty"`
 
@@ -1407,7 +1407,7 @@ func NewSCIReportOverview69totalTrafficMinMaxRate200ResponseType() *SCIReportOve
 
 // SCIReportOverview70sessionsOverview200ResponseType
 //
-// Definition: report.Overview.70.sessionsOverview200ResponseType
+// Definition: report_Overview_70_sessionsOverview200ResponseType
 type SCIReportOverview70sessionsOverview200ResponseType struct {
 	Data SCIOverview70sessionsOverviewData `json:"data,omitempty"`
 
@@ -1421,7 +1421,7 @@ func NewSCIReportOverview70sessionsOverview200ResponseType() *SCIReportOverview7
 
 // SCIReportOverview71ssidOverview200ResponseType
 //
-// Definition: report.Overview.71.ssidOverview200ResponseType
+// Definition: report_Overview_71_ssidOverview200ResponseType
 type SCIReportOverview71ssidOverview200ResponseType struct {
 	Data SCIOverview71ssidOverviewData `json:"data,omitempty"`
 
@@ -1435,7 +1435,7 @@ func NewSCIReportOverview71ssidOverview200ResponseType() *SCIReportOverview71ssi
 
 // SCIReportOverview72radioOverview200ResponseType
 //
-// Definition: report.Overview.72.radioOverview200ResponseType
+// Definition: report_Overview_72_radioOverview200ResponseType
 type SCIReportOverview72radioOverview200ResponseType struct {
 	Data SCIOverview72radioOverviewData `json:"data,omitempty"`
 
@@ -1449,7 +1449,7 @@ func NewSCIReportOverview72radioOverview200ResponseType() *SCIReportOverview72ra
 
 // SCIReportOverview73applicationsOverview200ResponseType
 //
-// Definition: report.Overview.73.applicationsOverview200ResponseType
+// Definition: report_Overview_73_applicationsOverview200ResponseType
 type SCIReportOverview73applicationsOverview200ResponseType struct {
 	Data SCIOverview73applicationsOverviewData `json:"data,omitempty"`
 
@@ -1463,7 +1463,7 @@ func NewSCIReportOverview73applicationsOverview200ResponseType() *SCIReportOverv
 
 // SCIReportOverview74apEventOverview200ResponseType
 //
-// Definition: report.Overview.74.apEventOverview200ResponseType
+// Definition: report_Overview_74_apEventOverview200ResponseType
 type SCIReportOverview74apEventOverview200ResponseType struct {
 	Data SCIOverview74apEventOverviewData `json:"data,omitempty"`
 
@@ -1477,7 +1477,7 @@ func NewSCIReportOverview74apEventOverview200ResponseType() *SCIReportOverview74
 
 // SCIReportOverview97factOverview200ResponseType
 //
-// Definition: report.Overview.97.factOverview200ResponseType
+// Definition: report_Overview_97_factOverview200ResponseType
 type SCIReportOverview97factOverview200ResponseType struct {
 	Data SCIOverview97factOverviewData `json:"data,omitempty"`
 
@@ -1491,7 +1491,7 @@ func NewSCIReportOverview97factOverview200ResponseType() *SCIReportOverview97fac
 
 // SCIReportOverview115networkUsageOverview200ResponseType
 //
-// Definition: report.Overview.115.networkUsageOverview200ResponseType
+// Definition: report_Overview_115_networkUsageOverview200ResponseType
 type SCIReportOverview115networkUsageOverview200ResponseType struct {
 	Data *SCIOverview115networkUsageOverviewData `json:"data,omitempty"`
 
@@ -1503,9 +1503,19 @@ func NewSCIReportOverview115networkUsageOverview200ResponseType() *SCIReportOver
 	return m
 }
 
+// SCIReportPrototypegetsections200ResponseType
+//
+// Definition: report_prototype___get__sections200ResponseType
+type SCIReportPrototypegetsections200ResponseType []*SCIModelsSection
+
+func MakeSCIReportPrototypegetsections200ResponseType() SCIReportPrototypegetsections200ResponseType {
+	m := make(SCIReportPrototypegetsections200ResponseType, 0)
+	return m
+}
+
 // SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.93.scNetworkTraffic200ResponseType
+// Definition: report_SCNetworkTrafficReport_93_scNetworkTraffic200ResponseType
 type SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1519,7 +1529,7 @@ func NewSCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType() *SCIR
 
 // SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.94.scNetworkTrend200ResponseType
+// Definition: report_SCNetworkTrafficReport_94_scNetworkTrend200ResponseType
 type SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1533,7 +1543,7 @@ func NewSCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType() *SCIRep
 
 // SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.100.droppedCallRate200ResponseType
+// Definition: report_SCNetworkTrafficReport_100_droppedCallRate200ResponseType
 type SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1547,7 +1557,7 @@ func NewSCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType() *SCIR
 
 // SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.101.connectionSetupSuccessRate200ResponseType
+// Definition: report_SCNetworkTrafficReport_101_connectionSetupSuccessRate200ResponseType
 type SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1561,7 +1571,7 @@ func NewSCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseT
 
 // SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.102.handoverSuccessRate200ResponseType
+// Definition: report_SCNetworkTrafficReport_102_handoverSuccessRate200ResponseType
 type SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1575,7 +1585,7 @@ func NewSCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType() *
 
 // SCIReportSCNetworkTrafficReport103avgThroughput200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.103.avgThroughput200ResponseType
+// Definition: report_SCNetworkTrafficReport_103_avgThroughput200ResponseType
 type SCIReportSCNetworkTrafficReport103avgThroughput200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1589,7 +1599,7 @@ func NewSCIReportSCNetworkTrafficReport103avgThroughput200ResponseType() *SCIRep
 
 // SCIReportSCNetworkTrafficReport104scAvailability200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.104.scAvailability200ResponseType
+// Definition: report_SCNetworkTrafficReport_104_scAvailability200ResponseType
 type SCIReportSCNetworkTrafficReport104scAvailability200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1603,7 +1613,7 @@ func NewSCIReportSCNetworkTrafficReport104scAvailability200ResponseType() *SCIRe
 
 // SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.105.rscConnectionStats200ResponseType
+// Definition: report_SCNetworkTrafficReport_105_rscConnectionStats200ResponseType
 type SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1617,7 +1627,7 @@ func NewSCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType() *S
 
 // SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.106.rscGpsStats200ResponseType
+// Definition: report_SCNetworkTrafficReport_106_rscGpsStats200ResponseType
 type SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1631,7 +1641,7 @@ func NewSCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType() *SCIRepor
 
 // SCIReportSCNetworkTrafficReport107trafficVolume200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.107.trafficVolume200ResponseType
+// Definition: report_SCNetworkTrafficReport_107_trafficVolume200ResponseType
 type SCIReportSCNetworkTrafficReport107trafficVolume200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1645,7 +1655,7 @@ func NewSCIReportSCNetworkTrafficReport107trafficVolume200ResponseType() *SCIRep
 
 // SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.108.phaseSyncLoss200ResponseType
+// Definition: report_SCNetworkTrafficReport_108_phaseSyncLoss200ResponseType
 type SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1659,7 +1669,7 @@ func NewSCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType() *SCIRep
 
 // SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.109.frequencySyncLoss200ResponseType
+// Definition: report_SCNetworkTrafficReport_109_frequencySyncLoss200ResponseType
 type SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1673,7 +1683,7 @@ func NewSCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType() *SC
 
 // SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType
 //
-// Definition: report.SCNetworkTrafficReport.111.rscTrafficStats200ResponseType
+// Definition: report_SCNetworkTrafficReport_111_rscTrafficStats200ResponseType
 type SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1687,7 +1697,7 @@ func NewSCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType() *SCIR
 
 // SCIReportSearchQuery
 //
-// Definition: report.searchQuery
+// Definition: report_searchQuery
 //
 // Search query
 type SCIReportSearchQuery struct {
@@ -1710,7 +1720,7 @@ func NewSCIReportSearchQuery() *SCIReportSearchQuery {
 
 // SCIReportSessionsSummaryReport33topTable200ResponseType
 //
-// Definition: report.SessionsSummaryReport.33.topTable200ResponseType
+// Definition: report_SessionsSummaryReport_33_topTable200ResponseType
 type SCIReportSessionsSummaryReport33topTable200ResponseType struct {
 	Data SCISessionsSummaryReport33topTableData `json:"data,omitempty"`
 
@@ -1724,7 +1734,7 @@ func NewSCIReportSessionsSummaryReport33topTable200ResponseType() *SCIReportSess
 
 // SCIReportSessionsSummaryReport34overview200ResponseType
 //
-// Definition: report.SessionsSummaryReport.34.overview200ResponseType
+// Definition: report_SessionsSummaryReport_34_overview200ResponseType
 type SCIReportSessionsSummaryReport34overview200ResponseType struct {
 	Data SCISessionsSummaryReport34overviewData `json:"data,omitempty"`
 
@@ -1738,7 +1748,7 @@ func NewSCIReportSessionsSummaryReport34overview200ResponseType() *SCIReportSess
 
 // SCIReportSessionsSummaryReport42durationPercentile200ResponseType
 //
-// Definition: report.SessionsSummaryReport.42.durationPercentile200ResponseType
+// Definition: report_SessionsSummaryReport_42_durationPercentile200ResponseType
 type SCIReportSessionsSummaryReport42durationPercentile200ResponseType struct {
 	Data SCISessionsSummaryReport42durationPercentileData `json:"data,omitempty"`
 
@@ -1752,7 +1762,7 @@ func NewSCIReportSessionsSummaryReport42durationPercentile200ResponseType() *SCI
 
 // SCIReportSwitchDetailsReport125switchSummary200ResponseType
 //
-// Definition: report.SwitchDetailsReport.125.switchSummary200ResponseType
+// Definition: report_SwitchDetailsReport_125_switchSummary200ResponseType
 type SCIReportSwitchDetailsReport125switchSummary200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1766,7 +1776,7 @@ func NewSCIReportSwitchDetailsReport125switchSummary200ResponseType() *SCIReport
 
 // SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType
 //
-// Definition: report.SwitchDetailsReport.126.switchResourceUtilization200ResponseType
+// Definition: report_SwitchDetailsReport_126_switchResourceUtilization200ResponseType
 type SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType struct {
 	Data SCISwitchDetailsReport126switchResourceUtilizationData `json:"data,omitempty"`
 
@@ -1780,7 +1790,7 @@ func NewSCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType(
 
 // SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType
 //
-// Definition: report.SwitchDetailsReport.129.topSwitchPortsByTrafficChart200ResponseType
+// Definition: report_SwitchDetailsReport_129_topSwitchPortsByTrafficChart200ResponseType
 type SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType struct {
 	Data SCISwitchDetailsReport129topSwitchPortsByTrafficChartData `json:"data,omitempty"`
 
@@ -1794,7 +1804,7 @@ func NewSCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTy
 
 // SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType
 //
-// Definition: report.SwitchDetailsReport.130.topSwitchPortsByTrafficTable200ResponseType
+// Definition: report_SwitchDetailsReport_130_topSwitchPortsByTrafficTable200ResponseType
 type SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType struct {
 	Data SCISwitchDetailsReport130topSwitchPortsByTrafficTableData `json:"data,omitempty"`
 
@@ -1808,7 +1818,7 @@ func NewSCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTy
 
 // SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType
 //
-// Definition: report.SwitchDetailsReport.131.switchTrafficTrend200ResponseType
+// Definition: report_SwitchDetailsReport_131_switchTrafficTrend200ResponseType
 type SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1822,7 +1832,7 @@ func NewSCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType() *SCIR
 
 // SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType
 //
-// Definition: report.SwitchDetailsReport.137.lldpNeighborTable200ResponseType
+// Definition: report_SwitchDetailsReport_137_lldpNeighborTable200ResponseType
 type SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1836,7 +1846,7 @@ func NewSCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType() *SCIRe
 
 // SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType
 //
-// Definition: report.SwitchDetailsReport.138.switchUptimeHistory200ResponseType
+// Definition: report_SwitchDetailsReport_138_switchUptimeHistory200ResponseType
 type SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType struct {
 	Data SCISwitchDetailsReport138switchUptimeHistoryData `json:"data,omitempty"`
 
@@ -1850,7 +1860,7 @@ func NewSCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType() *SCI
 
 // SCIReportSwitchDetailsReport139switchDetails200ResponseType
 //
-// Definition: report.SwitchDetailsReport.139.switchDetails200ResponseType
+// Definition: report_SwitchDetailsReport_139_switchDetails200ResponseType
 type SCIReportSwitchDetailsReport139switchDetails200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1864,7 +1874,7 @@ func NewSCIReportSwitchDetailsReport139switchDetails200ResponseType() *SCIReport
 
 // SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType
 //
-// Definition: report.WirelessApplicationsReport.7.top10ApplicationsByTrafficVolume200ResponseType
+// Definition: report_WirelessApplicationsReport_7_top10ApplicationsByTrafficVolume200ResponseType
 type SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1878,7 +1888,7 @@ func NewSCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200R
 
 // SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType
 //
-// Definition: report.WirelessApplicationsReport.8.topAppsByTrafficTable200ResponseType
+// Definition: report_WirelessApplicationsReport_8_topAppsByTrafficTable200ResponseType
 type SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType struct {
 	Data SCIWirelessApplicationsReport8topAppsByTrafficTableData `json:"data,omitempty"`
 
@@ -1892,7 +1902,7 @@ func NewSCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType
 
 // SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType
 //
-// Definition: report.WirelessApplicationsReport.9.topAppsByClientsTable200ResponseType
+// Definition: report_WirelessApplicationsReport_9_topAppsByClientsTable200ResponseType
 type SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType struct {
 	Data SCIWirelessApplicationsReport9topAppsByClientsTableData `json:"data,omitempty"`
 
@@ -1906,7 +1916,7 @@ func NewSCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType
 
 // SCIReportWirelessApplicationsReport10overview200ResponseType
 //
-// Definition: report.WirelessApplicationsReport.10.overview200ResponseType
+// Definition: report_WirelessApplicationsReport_10_overview200ResponseType
 type SCIReportWirelessApplicationsReport10overview200ResponseType struct {
 	Data SCIWirelessApplicationsReport10overviewData `json:"data,omitempty"`
 
@@ -1920,7 +1930,7 @@ func NewSCIReportWirelessApplicationsReport10overview200ResponseType() *SCIRepor
 
 // SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType
 //
-// Definition: report.WirelessApplicationsReport.11.top10ApplicationsByClientCount200ResponseType
+// Definition: report_WirelessApplicationsReport_11_top10ApplicationsByClientCount200ResponseType
 type SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType struct {
 	Data SCIWirelessApplicationsReport11top10ApplicationsByClientCountData `json:"data,omitempty"`
 
@@ -1934,7 +1944,7 @@ func NewSCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200Re
 
 // SCIReportWirelessClientsReport12overview200ResponseType
 //
-// Definition: report.WirelessClientsReport.12.overview200ResponseType
+// Definition: report_WirelessClientsReport_12_overview200ResponseType
 type SCIReportWirelessClientsReport12overview200ResponseType struct {
 	Data SCIWirelessClientsReport12overviewData `json:"data,omitempty"`
 
@@ -1948,7 +1958,7 @@ func NewSCIReportWirelessClientsReport12overview200ResponseType() *SCIReportWire
 
 // SCIReportWirelessClientsReport13topChart200ResponseType
 //
-// Definition: report.WirelessClientsReport.13.topChart200ResponseType
+// Definition: report_WirelessClientsReport_13_topChart200ResponseType
 type SCIReportWirelessClientsReport13topChart200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -1962,7 +1972,7 @@ func NewSCIReportWirelessClientsReport13topChart200ResponseType() *SCIReportWire
 
 // SCIReportWirelessClientsReport14topTable200ResponseType
 //
-// Definition: report.WirelessClientsReport.14.topTable200ResponseType
+// Definition: report_WirelessClientsReport_14_topTable200ResponseType
 type SCIReportWirelessClientsReport14topTable200ResponseType struct {
 	Data SCIWirelessClientsReport14topTableData `json:"data,omitempty"`
 
@@ -1976,7 +1986,7 @@ func NewSCIReportWirelessClientsReport14topTable200ResponseType() *SCIReportWire
 
 // SCIReportWirelessClientsReport15trendChart200ResponseType
 //
-// Definition: report.WirelessClientsReport.15.trendChart200ResponseType
+// Definition: report_WirelessClientsReport_15_trendChart200ResponseType
 type SCIReportWirelessClientsReport15trendChart200ResponseType struct {
 	Data SCIWirelessClientsReport15trendChartData `json:"data,omitempty"`
 
@@ -1990,7 +2000,7 @@ func NewSCIReportWirelessClientsReport15trendChart200ResponseType() *SCIReportWi
 
 // SCIReportWirelessClientsReport16trendTable200ResponseType
 //
-// Definition: report.WirelessClientsReport.16.trendTable200ResponseType
+// Definition: report_WirelessClientsReport_16_trendTable200ResponseType
 type SCIReportWirelessClientsReport16trendTable200ResponseType struct {
 	Data SCIWirelessClientsReport16trendTableData `json:"data,omitempty"`
 
@@ -2004,7 +2014,7 @@ func NewSCIReportWirelessClientsReport16trendTable200ResponseType() *SCIReportWi
 
 // SCIReportWirelessClientsReport17topPercentile200ResponseType
 //
-// Definition: report.WirelessClientsReport.17.topPercentile200ResponseType
+// Definition: report_WirelessClientsReport_17_topPercentile200ResponseType
 type SCIReportWirelessClientsReport17topPercentile200ResponseType struct {
 	Data SCIWirelessClientsReport17topPercentileData `json:"data,omitempty"`
 
@@ -2018,7 +2028,7 @@ func NewSCIReportWirelessClientsReport17topPercentile200ResponseType() *SCIRepor
 
 // SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType
 //
-// Definition: report.WirelessClientsReport.18.topNOSByClientCount200ResponseType
+// Definition: report_WirelessClientsReport_18_topNOSByClientCount200ResponseType
 type SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType struct {
 	Data SCIWirelessClientsReport18topNOSByClientCountData `json:"data,omitempty"`
 
@@ -2032,7 +2042,7 @@ func NewSCIReportWirelessClientsReport18topNOSByClientCount200ResponseType() *SC
 
 // SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType
 //
-// Definition: report.WirelessClientsReport.19.top10ManufacturersByClientCount200ResponseType
+// Definition: report_WirelessClientsReport_19_top10ManufacturersByClientCount200ResponseType
 type SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType struct {
 	Data SCIWirelessClientsReport19top10ManufacturersByClientCountData `json:"data,omitempty"`
 
@@ -2046,7 +2056,7 @@ func NewSCIReportWirelessClientsReport19top10ManufacturersByClientCount200Respon
 
 // SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType
 //
-// Definition: report.WirelessClientsReport.112.top10AuthenticationMechanismByClientCount200ResponseType
+// Definition: report_WirelessClientsReport_112_top10AuthenticationMechanismByClientCount200ResponseType
 type SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType struct {
 	Data SCIWirelessClientsReport112top10AuthenticationMechanismByClientCountData `json:"data,omitempty"`
 
@@ -2060,7 +2070,7 @@ func NewSCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCou
 
 // SCIReportWithRelations
 //
-// Definition: report.withRelations
+// Definition: report_withRelations
 type SCIReportWithRelations struct {
 	Component *string `json:"component,omitempty"`
 
@@ -2096,7 +2106,7 @@ func NewSCIReportWithRelations() *SCIReportWithRelations {
 
 // SCIReportWithRelationsLayoutType
 //
-// Definition: report.withRelationsLayoutType
+// Definition: report_withRelationsLayoutType
 type SCIReportWithRelationsLayoutType struct {
 	DesiredWidth *string `json:"desiredWidth,omitempty"`
 
@@ -2110,7 +2120,7 @@ func NewSCIReportWithRelationsLayoutType() *SCIReportWithRelationsLayoutType {
 
 // SCIReportWithRelationsLayoutTypeLayoutType
 //
-// Definition: report.withRelationsLayoutTypeLayoutType
+// Definition: report_withRelationsLayoutTypeLayoutType
 type SCIReportWithRelationsLayoutTypeLayoutType struct {
 	DesiredWidth *string `json:"desiredWidth,omitempty"`
 
@@ -2124,7 +2134,7 @@ func NewSCIReportWithRelationsLayoutTypeLayoutType() *SCIReportWithRelationsLayo
 
 // SCIReportWithRelationsRouteParametersType
 //
-// Definition: report.withRelationsRouteParametersType
+// Definition: report_withRelationsRouteParametersType
 type SCIReportWithRelationsRouteParametersType struct {
 	Id *string `json:"id,omitempty"`
 }
@@ -2136,7 +2146,7 @@ func NewSCIReportWithRelationsRouteParametersType() *SCIReportWithRelationsRoute
 
 // SCIReportWithRelationsSectionsType
 //
-// Definition: report.withRelationsSectionsType
+// Definition: report_withRelationsSectionsType
 type SCIReportWithRelationsSectionsType struct {
 	Component *string `json:"component,omitempty"`
 
@@ -2162,7 +2172,7 @@ func NewSCIReportWithRelationsSectionsType() *SCIReportWithRelationsSectionsType
 
 // SCIReportWithRelationsSectionsTypeDefaultParametersType
 //
-// Definition: report.withRelationsSectionsTypeDefaultParametersType
+// Definition: report_withRelationsSectionsTypeDefaultParametersType
 type SCIReportWithRelationsSectionsTypeDefaultParametersType struct {
 	Granularity *string `json:"granularity,omitempty"`
 
@@ -2178,7 +2188,7 @@ func NewSCIReportWithRelationsSectionsTypeDefaultParametersType() *SCIReportWith
 
 // SCIReportWithRelationsSectionsTypeLayoutType
 //
-// Definition: report.withRelationsSectionsTypeLayoutType
+// Definition: report_withRelationsSectionsTypeLayoutType
 type SCIReportWithRelationsSectionsTypeLayoutType struct {
 	Headers []*SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType `json:"headers,omitempty"`
 
@@ -2194,7 +2204,7 @@ func NewSCIReportWithRelationsSectionsTypeLayoutType() *SCIReportWithRelationsSe
 
 // SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType
 //
-// Definition: report.withRelationsSectionsTypeLayoutTypeHeadersType
+// Definition: report_withRelationsSectionsTypeLayoutTypeHeadersType
 type SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType struct {
 	Component *string `json:"component,omitempty"`
 }
@@ -2206,7 +2216,7 @@ func NewSCIReportWithRelationsSectionsTypeLayoutTypeHeadersType() *SCIReportWith
 
 // SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType
 //
-// Definition: report.withRelationsSectionsTypeLayoutTypeSubSectionsType
+// Definition: report_withRelationsSectionsTypeLayoutTypeSubSectionsType
 type SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType struct {
 	Component *string `json:"component,omitempty"`
 
@@ -2220,7 +2230,7 @@ func NewSCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType() *SCIReport
 
 // SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutType
 //
-// Definition: report.withRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutType
+// Definition: report_withRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutType
 type SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutType struct {
 	FormatMetadata *SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeFormatMetadataType `json:"formatMetadata,omitempty"`
 
@@ -2244,7 +2254,7 @@ func NewSCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutType() 
 
 // SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeFormatMetadataType
 //
-// Definition: report.withRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeFormatMetadataType
+// Definition: report_withRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeFormatMetadataType
 type SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeFormatMetadataType struct {
 	SubTitle *string `json:"subTitle,omitempty"`
 
@@ -2258,7 +2268,7 @@ func NewSCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeFor
 
 // SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType
 //
-// Definition: report.withRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType
+// Definition: report_withRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType
 type SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType struct {
 	Color *string `json:"color,omitempty"`
 }
@@ -2270,7 +2280,7 @@ func NewSCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSer
 
 // SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeTitleType
 //
-// Definition: report.withRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeTitleType
+// Definition: report_withRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeTitleType
 type SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeTitleType struct {
 	Default *string `json:"default,omitempty"`
 
@@ -2286,7 +2296,7 @@ func NewSCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeTit
 
 // SCIReportWLANsReport35overview200ResponseType
 //
-// Definition: report.WLANsReport.35.overview200ResponseType
+// Definition: report_WLANsReport_35_overview200ResponseType
 type SCIReportWLANsReport35overview200ResponseType struct {
 	Data SCIWLANsReport35overviewData `json:"data,omitempty"`
 
@@ -2300,7 +2310,7 @@ func NewSCIReportWLANsReport35overview200ResponseType() *SCIReportWLANsReport35o
 
 // SCIReportWLANsReport36top10SsidsByTraffic200ResponseType
 //
-// Definition: report.WLANsReport.36.top10SsidsByTraffic200ResponseType
+// Definition: report_WLANsReport_36_top10SsidsByTraffic200ResponseType
 type SCIReportWLANsReport36top10SsidsByTraffic200ResponseType struct {
 	Data interface{} `json:"data,omitempty"`
 
@@ -2314,7 +2324,7 @@ func NewSCIReportWLANsReport36top10SsidsByTraffic200ResponseType() *SCIReportWLA
 
 // SCIReportWLANsReport37activeSsidsTrend200ResponseType
 //
-// Definition: report.WLANsReport.37.activeSsidsTrend200ResponseType
+// Definition: report_WLANsReport_37_activeSsidsTrend200ResponseType
 type SCIReportWLANsReport37activeSsidsTrend200ResponseType struct {
 	Data SCIWLANsReport37activeSsidsTrendData `json:"data,omitempty"`
 
@@ -2328,7 +2338,7 @@ func NewSCIReportWLANsReport37activeSsidsTrend200ResponseType() *SCIReportWLANsR
 
 // SCIReportWLANsReport38top10SsidsByClientCount200ResponseType
 //
-// Definition: report.WLANsReport.38.top10SsidsByClientCount200ResponseType
+// Definition: report_WLANsReport_38_top10SsidsByClientCount200ResponseType
 type SCIReportWLANsReport38top10SsidsByClientCount200ResponseType struct {
 	Data SCIWLANsReport38top10SsidsByClientCountData `json:"data,omitempty"`
 
@@ -2342,7 +2352,7 @@ func NewSCIReportWLANsReport38top10SsidsByClientCount200ResponseType() *SCIRepor
 
 // SCIReportWLANsReport39ssidChangesOverTime200ResponseType
 //
-// Definition: report.WLANsReport.39.ssidChangesOverTime200ResponseType
+// Definition: report_WLANsReport_39_ssidChangesOverTime200ResponseType
 type SCIReportWLANsReport39ssidChangesOverTime200ResponseType struct {
 	Data SCIWLANsReport39ssidChangesOverTimeData `json:"data,omitempty"`
 
@@ -2356,7 +2366,7 @@ func NewSCIReportWLANsReport39ssidChangesOverTime200ResponseType() *SCIReportWLA
 
 // SCIReportWLANsReport40topSsidsByTrafficTable200ResponseType
 //
-// Definition: report.WLANsReport.40.topSsidsByTrafficTable200ResponseType
+// Definition: report_WLANsReport_40_topSsidsByTrafficTable200ResponseType
 type SCIReportWLANsReport40topSsidsByTrafficTable200ResponseType struct {
 	Data SCIWLANsReport40topSsidsByTrafficTableData `json:"data,omitempty"`
 
@@ -2370,7 +2380,7 @@ func NewSCIReportWLANsReport40topSsidsByTrafficTable200ResponseType() *SCIReport
 
 // SCIReportWLANsReport41topSsidsByClientsTable200ResponseType
 //
-// Definition: report.WLANsReport.41.topSsidsByClientsTable200ResponseType
+// Definition: report_WLANsReport_41_topSsidsByClientsTable200ResponseType
 type SCIReportWLANsReport41topSsidsByClientsTable200ResponseType struct {
 	Data SCIWLANsReport41topSsidsByClientsTableData `json:"data,omitempty"`
 
@@ -2384,7 +2394,7 @@ func NewSCIReportWLANsReport41topSsidsByClientsTable200ResponseType() *SCIReport
 
 // ReportDownloadReport
 //
-// Operation ID: report.downloadReport
+// Operation ID: report_downloadReport
 //
 // Form Data Parameters:
 // - state string
@@ -2422,7 +2432,7 @@ func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues 
 
 // ReportFind
 //
-// Operation ID: report.find
+// Operation ID: report_find
 //
 // Find all instances of the model matched by filter from the data source.
 //
@@ -2453,7 +2463,7 @@ func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[st
 
 // ReportFindById
 //
-// Operation ID: report.findById
+// Operation ID: report_findById
 //
 // Find a model instance by id from the data source.
 //
@@ -2489,7 +2499,7 @@ func (s *SCIReportService) ReportFindById(ctx context.Context, id string, option
 
 // ReportGetData
 //
-// Operation ID: report.getData
+// Operation ID: report_getData
 //
 // For the <b><code>filter</code></b> field below, an example would be <pre><code class="json">{ "type": "or", "fields": [{ "type": "selector", "dimension": "apMac", "value": "000000000000" }]}</code></pre>
 //
@@ -2543,7 +2553,7 @@ func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Val
 
 // ReportPrototypeGetSections
 //
-// Operation ID: report.prototype.__get__sections
+// Operation ID: report_prototype___get__sections
 //
 // Queries sections of report.
 //
@@ -2554,11 +2564,11 @@ func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Val
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIReportgetsections200ResponseType, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIReportPrototypegetsections200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     SCIReportgetsections200ResponseType
+		resp     SCIReportPrototypegetsections200ResponseType
 		httpResp *http.Response
 		err      error
 	)
@@ -2572,14 +2582,14 @@ func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id st
 		req.SetQueryParameter("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = MakeSCIReportgetsections200ResponseType()
+	resp = MakeSCIReportPrototypegetsections200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
 
 // ReportWithRelations
 //
-// Operation ID: report.withRelations
+// Operation ID: report_withRelations
 //
 // For the <b><code>urlSegmentName</code></b> field below, examples could be <code>overview</code>, <code>network</code>, <code>ap</code>, <code>clients</code>
 //

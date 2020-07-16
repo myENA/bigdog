@@ -4,7 +4,7 @@ package bigdog
 
 // SCICommonQueryBody
 //
-// Definition: common.queryBody
+// Definition: common_queryBody
 type SCICommonQueryBody struct {
 	// End
 	// Format: 2016-04-06T16:04:46+00:00
@@ -41,7 +41,7 @@ func NewSCICommonQueryBody() *SCICommonQueryBody {
 
 // SCICommonQueryFilter
 //
-// Definition: common.queryFilter
+// Definition: common_queryFilter
 //
 // Data query filter body
 type SCICommonQueryFilter struct {
@@ -49,7 +49,7 @@ type SCICommonQueryFilter struct {
 
 	Dimension *string `json:"dimension,omitempty"`
 
-	Fields SCICommonQueryFilterFields `json:"fields,omitempty"`
+	Fields []*SCICommonQueryFilter `json:"fields,omitempty"`
 
 	Lower *string `json:"lower,omitempty"`
 
@@ -77,19 +77,9 @@ func NewSCICommonQueryFilter() *SCICommonQueryFilter {
 	return m
 }
 
-// SCICommonQueryFilterFields
-//
-// Definition: common.queryFilterFields
-type SCICommonQueryFilterFields []*SCICommonQueryFilter
-
-func MakeSCICommonQueryFilterFields() SCICommonQueryFilterFields {
-	m := make(SCICommonQueryFilterFields, 0)
-	return m
-}
-
 // SCICommonReportQueryBody
 //
-// Definition: common.reportQueryBody
+// Definition: common_reportQueryBody
 type SCICommonReportQueryBody struct {
 	// End
 	// Format: 2016-04-06T16:04:46+00:00

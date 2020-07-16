@@ -23,7 +23,7 @@ func (ss *SCIService) SCIWirelessClientsReportService() *SCIWirelessClientsRepor
 
 // SCIWirelessClientsReport12overviewData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.12.overview.Data
+// Definition: WirelessClientsReport_WirelessClientsReport_12_overview_Data
 type SCIWirelessClientsReport12overviewData []*SCIWirelessClientsReport12overviewDataType
 
 func MakeSCIWirelessClientsReport12overviewData() SCIWirelessClientsReport12overviewData {
@@ -33,7 +33,7 @@ func MakeSCIWirelessClientsReport12overviewData() SCIWirelessClientsReport12over
 
 // SCIWirelessClientsReport12overviewDataType
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.12.overview.DataType
+// Definition: WirelessClientsReport_WirelessClientsReport_12_overview_DataType
 type SCIWirelessClientsReport12overviewDataType struct {
 	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
 
@@ -51,7 +51,7 @@ func NewSCIWirelessClientsReport12overviewDataType() *SCIWirelessClientsReport12
 
 // SCIWirelessClientsReport14topTableData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.14.topTable.Data
+// Definition: WirelessClientsReport_WirelessClientsReport_14_topTable_Data
 type SCIWirelessClientsReport14topTableData []*SCIWirelessClientsReport14topTableDataType
 
 func MakeSCIWirelessClientsReport14topTableData() SCIWirelessClientsReport14topTableData {
@@ -61,7 +61,7 @@ func MakeSCIWirelessClientsReport14topTableData() SCIWirelessClientsReport14topT
 
 // SCIWirelessClientsReport14topTableDataType
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.14.topTable.DataType
+// Definition: WirelessClientsReport_WirelessClientsReport_14_topTable_DataType
 type SCIWirelessClientsReport14topTableDataType struct {
 	ClientIp *string `json:"clientIp,omitempty"`
 
@@ -93,7 +93,7 @@ func NewSCIWirelessClientsReport14topTableDataType() *SCIWirelessClientsReport14
 
 // SCIWirelessClientsReport14topTableMetaData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.14.topTable.MetaData
+// Definition: WirelessClientsReport_WirelessClientsReport_14_topTable_MetaData
 type SCIWirelessClientsReport14topTableMetaData struct {
 	MaxValues *SCIWirelessClientsReport14topTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 
@@ -113,7 +113,7 @@ func NewSCIWirelessClientsReport14topTableMetaData() *SCIWirelessClientsReport14
 
 // SCIWirelessClientsReport14topTableMetaDataMaxValuesType
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.14.topTable.MetaDataMaxValuesType
+// Definition: WirelessClientsReport_WirelessClientsReport_14_topTable_MetaDataMaxValuesType
 type SCIWirelessClientsReport14topTableMetaDataMaxValuesType struct {
 	RxBytes *int `json:"rxBytes,omitempty"`
 
@@ -129,7 +129,7 @@ func NewSCIWirelessClientsReport14topTableMetaDataMaxValuesType() *SCIWirelessCl
 
 // SCIWirelessClientsReport15trendChartData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.15.trendChart.Data
+// Definition: WirelessClientsReport_WirelessClientsReport_15_trendChart_Data
 type SCIWirelessClientsReport15trendChartData []*SCIWirelessClientsReport15trendChartDataType
 
 func MakeSCIWirelessClientsReport15trendChartData() SCIWirelessClientsReport15trendChartData {
@@ -139,7 +139,7 @@ func MakeSCIWirelessClientsReport15trendChartData() SCIWirelessClientsReport15tr
 
 // SCIWirelessClientsReport15trendChartDataType
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.15.trendChart.DataType
+// Definition: WirelessClientsReport_WirelessClientsReport_15_trendChart_DataType
 type SCIWirelessClientsReport15trendChartDataType struct {
 	End *string `json:"end,omitempty"`
 
@@ -159,7 +159,7 @@ func NewSCIWirelessClientsReport15trendChartDataType() *SCIWirelessClientsReport
 
 // SCIWirelessClientsReport16trendTableData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.16.trendTable.Data
+// Definition: WirelessClientsReport_WirelessClientsReport_16_trendTable_Data
 type SCIWirelessClientsReport16trendTableData []*SCIWirelessClientsReport16trendTableDataType
 
 func MakeSCIWirelessClientsReport16trendTableData() SCIWirelessClientsReport16trendTableData {
@@ -169,7 +169,7 @@ func MakeSCIWirelessClientsReport16trendTableData() SCIWirelessClientsReport16tr
 
 // SCIWirelessClientsReport16trendTableDataType
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.16.trendTable.DataType
+// Definition: WirelessClientsReport_WirelessClientsReport_16_trendTable_DataType
 type SCIWirelessClientsReport16trendTableDataType struct {
 	End *string `json:"end,omitempty"`
 
@@ -195,7 +195,7 @@ func NewSCIWirelessClientsReport16trendTableDataType() *SCIWirelessClientsReport
 
 // SCIWirelessClientsReport16trendTableMetaData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.16.trendTable.MetaData
+// Definition: WirelessClientsReport_WirelessClientsReport_16_trendTable_MetaData
 type SCIWirelessClientsReport16trendTableMetaData struct {
 	MaxValues *SCIWirelessClientsReport16trendTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 }
@@ -207,7 +207,7 @@ func NewSCIWirelessClientsReport16trendTableMetaData() *SCIWirelessClientsReport
 
 // SCIWirelessClientsReport16trendTableMetaDataMaxValuesType
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.16.trendTable.MetaDataMaxValuesType
+// Definition: WirelessClientsReport_WirelessClientsReport_16_trendTable_MetaDataMaxValuesType
 type SCIWirelessClientsReport16trendTableMetaDataMaxValuesType struct {
 	RxBytes *int `json:"rxBytes,omitempty"`
 
@@ -229,7 +229,7 @@ func NewSCIWirelessClientsReport16trendTableMetaDataMaxValuesType() *SCIWireless
 
 // SCIWirelessClientsReport17topPercentileData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.17.topPercentile.Data
+// Definition: WirelessClientsReport_WirelessClientsReport_17_topPercentile_Data
 type SCIWirelessClientsReport17topPercentileData []*SCIWirelessClientsReport17topPercentileDataType
 
 func MakeSCIWirelessClientsReport17topPercentileData() SCIWirelessClientsReport17topPercentileData {
@@ -239,7 +239,7 @@ func MakeSCIWirelessClientsReport17topPercentileData() SCIWirelessClientsReport1
 
 // SCIWirelessClientsReport17topPercentileDataType
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.17.topPercentile.DataType
+// Definition: WirelessClientsReport_WirelessClientsReport_17_topPercentile_DataType
 type SCIWirelessClientsReport17topPercentileDataType struct {
 	ClientCount *int `json:"clientCount,omitempty"`
 
@@ -255,7 +255,7 @@ func NewSCIWirelessClientsReport17topPercentileDataType() *SCIWirelessClientsRep
 
 // SCIWirelessClientsReport18topNOSByClientCountData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.18.topNOSByClientCount.Data
+// Definition: WirelessClientsReport_WirelessClientsReport_18_topNOSByClientCount_Data
 type SCIWirelessClientsReport18topNOSByClientCountData []*SCIWirelessClientsReport18topNOSByClientCountDataType
 
 func MakeSCIWirelessClientsReport18topNOSByClientCountData() SCIWirelessClientsReport18topNOSByClientCountData {
@@ -265,7 +265,7 @@ func MakeSCIWirelessClientsReport18topNOSByClientCountData() SCIWirelessClientsR
 
 // SCIWirelessClientsReport18topNOSByClientCountDataType
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.18.topNOSByClientCount.DataType
+// Definition: WirelessClientsReport_WirelessClientsReport_18_topNOSByClientCount_DataType
 type SCIWirelessClientsReport18topNOSByClientCountDataType struct {
 	ClientCount *float64 `json:"clientCount,omitempty"`
 
@@ -283,7 +283,7 @@ func NewSCIWirelessClientsReport18topNOSByClientCountDataType() *SCIWirelessClie
 
 // SCIWirelessClientsReport18topNOSByClientCountMetaData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.18.topNOSByClientCount.MetaData
+// Definition: WirelessClientsReport_WirelessClientsReport_18_topNOSByClientCount_MetaData
 type SCIWirelessClientsReport18topNOSByClientCountMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 
@@ -297,7 +297,7 @@ func NewSCIWirelessClientsReport18topNOSByClientCountMetaData() *SCIWirelessClie
 
 // SCIWirelessClientsReport19top10ManufacturersByClientCountData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.19.top10ManufacturersByClientCount.Data
+// Definition: WirelessClientsReport_WirelessClientsReport_19_top10ManufacturersByClientCount_Data
 type SCIWirelessClientsReport19top10ManufacturersByClientCountData []*SCIWirelessClientsReport19top10ManufacturersByClientCountDataType
 
 func MakeSCIWirelessClientsReport19top10ManufacturersByClientCountData() SCIWirelessClientsReport19top10ManufacturersByClientCountData {
@@ -307,7 +307,7 @@ func MakeSCIWirelessClientsReport19top10ManufacturersByClientCountData() SCIWire
 
 // SCIWirelessClientsReport19top10ManufacturersByClientCountDataType
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.19.top10ManufacturersByClientCount.DataType
+// Definition: WirelessClientsReport_WirelessClientsReport_19_top10ManufacturersByClientCount_DataType
 type SCIWirelessClientsReport19top10ManufacturersByClientCountDataType struct {
 	ClientCount *float64 `json:"clientCount,omitempty"`
 
@@ -325,7 +325,7 @@ func NewSCIWirelessClientsReport19top10ManufacturersByClientCountDataType() *SCI
 
 // SCIWirelessClientsReport19top10ManufacturersByClientCountMetaData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.19.top10ManufacturersByClientCount.MetaData
+// Definition: WirelessClientsReport_WirelessClientsReport_19_top10ManufacturersByClientCount_MetaData
 type SCIWirelessClientsReport19top10ManufacturersByClientCountMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 
@@ -339,7 +339,7 @@ func NewSCIWirelessClientsReport19top10ManufacturersByClientCountMetaData() *SCI
 
 // SCIWirelessClientsReport112top10AuthenticationMechanismByClientCountData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.112.top10AuthenticationMechanismByClientCount.Data
+// Definition: WirelessClientsReport_WirelessClientsReport_112_top10AuthenticationMechanismByClientCount_Data
 type SCIWirelessClientsReport112top10AuthenticationMechanismByClientCountData []*SCIWirelessClientsReport112top10AuthenticationMechanismByClientCountDataType
 
 func MakeSCIWirelessClientsReport112top10AuthenticationMechanismByClientCountData() SCIWirelessClientsReport112top10AuthenticationMechanismByClientCountData {
@@ -349,7 +349,7 @@ func MakeSCIWirelessClientsReport112top10AuthenticationMechanismByClientCountDat
 
 // SCIWirelessClientsReport112top10AuthenticationMechanismByClientCountDataType
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.112.top10AuthenticationMechanismByClientCount.DataType
+// Definition: WirelessClientsReport_WirelessClientsReport_112_top10AuthenticationMechanismByClientCount_DataType
 type SCIWirelessClientsReport112top10AuthenticationMechanismByClientCountDataType struct {
 	AuthMethod *string `json:"authMethod,omitempty"`
 
@@ -367,7 +367,7 @@ func NewSCIWirelessClientsReport112top10AuthenticationMechanismByClientCountData
 
 // SCIWirelessClientsReport112top10AuthenticationMechanismByClientCountMetaData
 //
-// Definition: WirelessClientsReport.WirelessClientsReport.112.top10AuthenticationMechanismByClientCount.MetaData
+// Definition: WirelessClientsReport_WirelessClientsReport_112_top10AuthenticationMechanismByClientCount_MetaData
 type SCIWirelessClientsReport112top10AuthenticationMechanismByClientCountMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 
@@ -381,7 +381,7 @@ func NewSCIWirelessClientsReport112top10AuthenticationMechanismByClientCountMeta
 
 // ReportWirelessClientsReport12Overview
 //
-// Operation ID: report.WirelessClientsReport.12.overview
+// Operation ID: report_WirelessClientsReport_12_overview
 //
 // Wireless - Clients Report - Overview
 //
@@ -412,7 +412,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport12Overview(
 
 // ReportWirelessClientsReport13TopChart
 //
-// Operation ID: report.WirelessClientsReport.13.topChart
+// Operation ID: report_WirelessClientsReport_13_topChart
 //
 // Wireless - Clients Report - Top 10 Unique Clients by Traffic
 //
@@ -443,7 +443,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport13TopChart(
 
 // ReportWirelessClientsReport14TopTable
 //
-// Operation ID: report.WirelessClientsReport.14.topTable
+// Operation ID: report_WirelessClientsReport_14_topTable
 //
 // Wireless - Clients Report - Clients Details
 //
@@ -474,7 +474,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport14TopTable(
 
 // ReportWirelessClientsReport15TrendChart
 //
-// Operation ID: report.WirelessClientsReport.15.trendChart
+// Operation ID: report_WirelessClientsReport_15_trendChart
 //
 // Wireless - Clients Report - Unique Clients Trend Over Time
 //
@@ -505,7 +505,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport15TrendChar
 
 // ReportWirelessClientsReport16TrendTable
 //
-// Operation ID: report.WirelessClientsReport.16.trendTable
+// Operation ID: report_WirelessClientsReport_16_trendTable
 //
 // Wireless - Clients Report - Unique Clients Trend Over Time
 //
@@ -536,7 +536,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport16TrendTabl
 
 // ReportWirelessClientsReport17TopPercentile
 //
-// Operation ID: report.WirelessClientsReport.17.topPercentile
+// Operation ID: report_WirelessClientsReport_17_topPercentile
 //
 // Wireless - Clients Report - Top Clients by Traffic Percentile
 //
@@ -567,7 +567,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport17TopPercen
 
 // ReportWirelessClientsReport18TopNOSByClientCount
 //
-// Operation ID: report.WirelessClientsReport.18.topNOSByClientCount
+// Operation ID: report_WirelessClientsReport_18_topNOSByClientCount
 //
 // Wireless - Clients Report - Top 10 OS by Client Count
 //
@@ -598,7 +598,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport18TopNOSByC
 
 // ReportWirelessClientsReport19Top10ManufacturersByClientCount
 //
-// Operation ID: report.WirelessClientsReport.19.top10ManufacturersByClientCount
+// Operation ID: report_WirelessClientsReport_19_top10ManufacturersByClientCount
 //
 // Wireless - Clients Report - Top 10 Manufacturers by Client Count
 //
@@ -629,7 +629,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport19Top10Manu
 
 // ReportWirelessClientsReport112Top10AuthenticationMechanismByClientCount
 //
-// Operation ID: report.WirelessClientsReport.112.top10AuthenticationMechanismByClientCount
+// Operation ID: report_WirelessClientsReport_112_top10AuthenticationMechanismByClientCount
 //
 // Wireless - Clients Report - Top 10 Authentication Methods by Client Count
 //

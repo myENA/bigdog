@@ -23,7 +23,7 @@ func (ss *SCIService) SCIAirtimeUtilizationReportService() *SCIAirtimeUtilizatio
 
 // SCIAirtimeUtilizationReport1overviewData
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.1.overview.Data
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_1_overview_Data
 type SCIAirtimeUtilizationReport1overviewData []*SCIAirtimeUtilizationReport1overviewDataType
 
 func MakeSCIAirtimeUtilizationReport1overviewData() SCIAirtimeUtilizationReport1overviewData {
@@ -33,7 +33,7 @@ func MakeSCIAirtimeUtilizationReport1overviewData() SCIAirtimeUtilizationReport1
 
 // SCIAirtimeUtilizationReport1overviewDataType
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.1.overview.DataType
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_1_overview_DataType
 type SCIAirtimeUtilizationReport1overviewDataType struct {
 	AirtimeUtilizationAvg *float64 `json:"airtimeUtilizationAvg,omitempty"`
 
@@ -47,7 +47,7 @@ func NewSCIAirtimeUtilizationReport1overviewDataType() *SCIAirtimeUtilizationRep
 
 // SCIAirtimeUtilizationReport2topChartData
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.2.topChart.Data
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_2_topChart_Data
 type SCIAirtimeUtilizationReport2topChartData []*SCIAirtimeUtilizationReport2topChartDataType
 
 func MakeSCIAirtimeUtilizationReport2topChartData() SCIAirtimeUtilizationReport2topChartData {
@@ -57,7 +57,7 @@ func MakeSCIAirtimeUtilizationReport2topChartData() SCIAirtimeUtilizationReport2
 
 // SCIAirtimeUtilizationReport2topChartDataType
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.2.topChart.DataType
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_2_topChart_DataType
 type SCIAirtimeUtilizationReport2topChartDataType struct {
 	Key *string `json:"key,omitempty"`
 
@@ -73,7 +73,7 @@ func NewSCIAirtimeUtilizationReport2topChartDataType() *SCIAirtimeUtilizationRep
 
 // SCIAirtimeUtilizationReport3topAPsByAirtime24TableData
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.3.topAPsByAirtime24Table.Data
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_3_topAPsByAirtime24Table_Data
 type SCIAirtimeUtilizationReport3topAPsByAirtime24TableData []*SCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType
 
 func MakeSCIAirtimeUtilizationReport3topAPsByAirtime24TableData() SCIAirtimeUtilizationReport3topAPsByAirtime24TableData {
@@ -83,7 +83,7 @@ func MakeSCIAirtimeUtilizationReport3topAPsByAirtime24TableData() SCIAirtimeUtil
 
 // SCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.3.topAPsByAirtime24Table.DataType
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_3_topAPsByAirtime24Table_DataType
 type SCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType struct {
 	AirtimeBusyAvg *float64 `json:"airtimeBusyAvg,omitempty"`
 
@@ -139,7 +139,7 @@ func NewSCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType() *SCIAirtime
 
 // SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.3.topAPsByAirtime24Table.MetaData
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_3_topAPsByAirtime24Table_MetaData
 type SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData struct {
 	MaxValues *SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 }
@@ -151,7 +151,7 @@ func NewSCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData() *SCIAirtime
 
 // SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaDataMaxValuesType
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.3.topAPsByAirtime24Table.MetaDataMaxValuesType
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_3_topAPsByAirtime24Table_MetaDataMaxValuesType
 type SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaDataMaxValuesType struct {
 	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
 
@@ -179,7 +179,7 @@ func NewSCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaDataMaxValuesType(
 
 // SCIAirtimeUtilizationReport4topAPsByAirtime5TableData
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.4.topAPsByAirtime5Table.Data
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_4_topAPsByAirtime5Table_Data
 type SCIAirtimeUtilizationReport4topAPsByAirtime5TableData []*SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType
 
 func MakeSCIAirtimeUtilizationReport4topAPsByAirtime5TableData() SCIAirtimeUtilizationReport4topAPsByAirtime5TableData {
@@ -189,7 +189,7 @@ func MakeSCIAirtimeUtilizationReport4topAPsByAirtime5TableData() SCIAirtimeUtili
 
 // SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.4.topAPsByAirtime5Table.DataType
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_4_topAPsByAirtime5Table_DataType
 type SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType struct {
 	AirtimeBusyAvg *float64 `json:"airtimeBusyAvg,omitempty"`
 
@@ -245,7 +245,7 @@ func NewSCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType() *SCIAirtimeU
 
 // SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.4.topAPsByAirtime5Table.MetaData
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_4_topAPsByAirtime5Table_MetaData
 type SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData struct {
 	MaxValues *SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 }
@@ -257,7 +257,7 @@ func NewSCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData() *SCIAirtimeU
 
 // SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaDataMaxValuesType
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.4.topAPsByAirtime5Table.MetaDataMaxValuesType
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_4_topAPsByAirtime5Table_MetaDataMaxValuesType
 type SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaDataMaxValuesType struct {
 	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
 
@@ -285,7 +285,7 @@ func NewSCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaDataMaxValuesType()
 
 // SCIAirtimeUtilizationReport5trendChartData
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.5.trendChart.Data
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_5_trendChart_Data
 type SCIAirtimeUtilizationReport5trendChartData []*SCIAirtimeUtilizationReport5trendChartDataType
 
 func MakeSCIAirtimeUtilizationReport5trendChartData() SCIAirtimeUtilizationReport5trendChartData {
@@ -295,7 +295,7 @@ func MakeSCIAirtimeUtilizationReport5trendChartData() SCIAirtimeUtilizationRepor
 
 // SCIAirtimeUtilizationReport5trendChartDataType
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.5.trendChart.DataType
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_5_trendChart_DataType
 type SCIAirtimeUtilizationReport5trendChartDataType struct {
 	AirtimeBusyAvg *float64 `json:"airtimeBusyAvg,omitempty"`
 
@@ -319,7 +319,7 @@ func NewSCIAirtimeUtilizationReport5trendChartDataType() *SCIAirtimeUtilizationR
 
 // SCIAirtimeUtilizationReport6trendTableData
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.6.trendTable.Data
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_6_trendTable_Data
 type SCIAirtimeUtilizationReport6trendTableData []*SCIAirtimeUtilizationReport6trendTableDataType
 
 func MakeSCIAirtimeUtilizationReport6trendTableData() SCIAirtimeUtilizationReport6trendTableData {
@@ -329,7 +329,7 @@ func MakeSCIAirtimeUtilizationReport6trendTableData() SCIAirtimeUtilizationRepor
 
 // SCIAirtimeUtilizationReport6trendTableDataType
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.6.trendTable.DataType
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_6_trendTable_DataType
 type SCIAirtimeUtilizationReport6trendTableDataType struct {
 	AirtimeBusyAvg24 *float64 `json:"airtimeBusyAvg_2-4,omitempty"`
 
@@ -385,7 +385,7 @@ func NewSCIAirtimeUtilizationReport6trendTableDataType() *SCIAirtimeUtilizationR
 
 // SCIAirtimeUtilizationReport6trendTableMetaData
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.6.trendTable.MetaData
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_6_trendTable_MetaData
 type SCIAirtimeUtilizationReport6trendTableMetaData struct {
 	MaxValues *SCIAirtimeUtilizationReport6trendTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
 }
@@ -397,7 +397,7 @@ func NewSCIAirtimeUtilizationReport6trendTableMetaData() *SCIAirtimeUtilizationR
 
 // SCIAirtimeUtilizationReport6trendTableMetaDataMaxValuesType
 //
-// Definition: AirtimeUtilizationReport.AirtimeUtilizationReport.6.trendTable.MetaDataMaxValuesType
+// Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_6_trendTable_MetaDataMaxValuesType
 type SCIAirtimeUtilizationReport6trendTableMetaDataMaxValuesType struct {
 	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
 
@@ -425,7 +425,7 @@ func NewSCIAirtimeUtilizationReport6trendTableMetaDataMaxValuesType() *SCIAirtim
 
 // ReportAirtimeUtilizationReport1Overview
 //
-// Operation ID: report.AirtimeUtilizationReport.1.overview
+// Operation ID: report_AirtimeUtilizationReport_1_overview
 //
 // Airtime Utilization Report - Overview
 //
@@ -456,7 +456,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport1Over
 
 // ReportAirtimeUtilizationReport2TopChart
 //
-// Operation ID: report.AirtimeUtilizationReport.2.topChart
+// Operation ID: report_AirtimeUtilizationReport_2_topChart
 //
 // Airtime Utilization Report - Top 10 APs by Airtime Utilization
 //
@@ -487,7 +487,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport2TopC
 
 // ReportAirtimeUtilizationReport3TopAPsByAirtime24Table
 //
-// Operation ID: report.AirtimeUtilizationReport.3.topAPsByAirtime24Table
+// Operation ID: report_AirtimeUtilizationReport_3_topAPsByAirtime24Table
 //
 // Airtime Utilization Report - Top APs by Airtime Utilization for 2.4 GHz
 //
@@ -518,7 +518,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport3TopA
 
 // ReportAirtimeUtilizationReport4TopAPsByAirtime5Table
 //
-// Operation ID: report.AirtimeUtilizationReport.4.topAPsByAirtime5Table
+// Operation ID: report_AirtimeUtilizationReport_4_topAPsByAirtime5Table
 //
 // Airtime Utilization Report - Top APs by Airtime Utilization for 5 GHz
 //
@@ -549,7 +549,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport4TopA
 
 // ReportAirtimeUtilizationReport5TrendChart
 //
-// Operation ID: report.AirtimeUtilizationReport.5.trendChart
+// Operation ID: report_AirtimeUtilizationReport_5_trendChart
 //
 // Airtime Utilization Report - Airtime Utilization Trend
 //
@@ -580,7 +580,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport5Tren
 
 // ReportAirtimeUtilizationReport6TrendTable
 //
-// Operation ID: report.AirtimeUtilizationReport.6.trendTable
+// Operation ID: report_AirtimeUtilizationReport_6_trendTable
 //
 // Airtime Utilization Report - Airtime Utilization Over Time
 //

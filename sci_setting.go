@@ -25,7 +25,7 @@ func (ss *SCIService) SCISettingService() *SCISettingService {
 
 // SettingFindById
 //
-// Operation ID: setting.findById
+// Operation ID: setting_findById
 //
 // Find a model instance by id from the data source.
 //
@@ -61,7 +61,7 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 
 // SettingSendTestEmail
 //
-// Operation ID: setting.sendTestEmail
+// Operation ID: setting_sendTestEmail
 //
 // Form Data Parameters:
 // - recipients string
@@ -91,7 +91,7 @@ func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues
 
 // SettingUpsert
 //
-// Operation ID: setting.upsert
+// Operation ID: setting_upsert
 //
 // Update an existing model instance or insert a new one into the data source.
 //

@@ -25,7 +25,7 @@ func (ss *SCIService) SCIScheduleService() *SCIScheduleService {
 
 // SCIScheduleBatchDelete200ResponseType
 //
-// Definition: schedule.batchDelete200ResponseType
+// Definition: schedule_batchDelete200ResponseType
 type SCIScheduleBatchDelete200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
@@ -37,7 +37,7 @@ func NewSCIScheduleBatchDelete200ResponseType() *SCIScheduleBatchDelete200Respon
 
 // ScheduleBatchDelete
 //
-// Operation ID: schedule.batchDelete
+// Operation ID: schedule_batchDelete
 //
 // Delete schedules with their related filters and occurrences in a single transaction.
 //
@@ -69,7 +69,7 @@ func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, formValues
 
 // ScheduleCreateWithRelations
 //
-// Operation ID: schedule.createWithRelations
+// Operation ID: schedule_createWithRelations
 //
 // Create schedule with filter and occurrence in a single transaction.
 //
@@ -105,7 +105,7 @@ func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, fo
 
 // ScheduleExecuteJob
 //
-// Operation ID: schedule.executeJob
+// Operation ID: schedule_executeJob
 //
 // Run schedule job
 func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
@@ -130,7 +130,7 @@ func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ..
 
 // ScheduleUpdateWithRelations
 //
-// Operation ID: schedule.updateWithRelations
+// Operation ID: schedule_updateWithRelations
 //
 // Update schedule with filter and occurrence in a single transaction.
 //

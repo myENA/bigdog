@@ -37,7 +37,7 @@ func NewSCIMigrationCount200ResponseType() *SCIMigrationCount200ResponseType {
 
 // SCIMigrationExistsgetMigrationsidexists200ResponseType
 //
-// Definition: Migration_exists__get_Migrations_{id}_exists200ResponseType
+// Definition: Migration_exists_get_Migrations_{id}_exists200ResponseType
 type SCIMigrationExistsgetMigrationsidexists200ResponseType struct {
 	Exists *bool `json:"exists,omitempty"`
 }
@@ -49,7 +49,7 @@ func NewSCIMigrationExistsgetMigrationsidexists200ResponseType() *SCIMigrationEx
 
 // SCIMigrationExistsheadMigrationsid200ResponseType
 //
-// Definition: Migration_exists__head_Migrations_{id}200ResponseType
+// Definition: Migration_exists_head_Migrations_{id}200ResponseType
 type SCIMigrationExistsheadMigrationsid200ResponseType struct {
 	Exists *bool `json:"exists,omitempty"`
 }
@@ -133,7 +133,7 @@ func (s *SCIMigrationService) MigrationCreate(ctx context.Context, data *SCIMode
 
 // MigrationCreateChangeStreamGetMigrationsChangeStream
 //
-// Operation ID: Migration_createChangeStream__get_Migrations_change-stream
+// Operation ID: Migration_createChangeStream_get_Migrations_change-stream
 //
 // Create a change stream.
 //
@@ -164,7 +164,7 @@ func (s *SCIMigrationService) MigrationCreateChangeStreamGetMigrationsChangeStre
 
 // MigrationCreateChangeStreamPostMigrationsChangeStream
 //
-// Operation ID: Migration_createChangeStream__post_Migrations_change-stream
+// Operation ID: Migration_createChangeStream_post_Migrations_change-stream
 //
 // Create a change stream.
 //
@@ -226,7 +226,7 @@ func (s *SCIMigrationService) MigrationDeleteById(ctx context.Context, id string
 
 // MigrationExistsGetMigrationsIdExists
 //
-// Operation ID: Migration_exists__get_Migrations_{id}_exists
+// Operation ID: Migration_exists_get_Migrations_{id}_exists
 //
 // Check whether a model instance exists in the data source.
 //

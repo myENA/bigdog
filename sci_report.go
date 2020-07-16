@@ -1505,7 +1505,7 @@ func NewSCIReportOverview115networkUsageOverview200ResponseType() *SCIReportOver
 
 // SCIReportPrototypegetsections200ResponseType
 //
-// Definition: report_prototype___get__sections200ResponseType
+// Definition: report_prototype_get_sections200ResponseType
 type SCIReportPrototypegetsections200ResponseType []*SCIModelsSection
 
 func MakeSCIReportPrototypegetsections200ResponseType() SCIReportPrototypegetsections200ResponseType {
@@ -2553,7 +2553,7 @@ func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Val
 
 // ReportPrototypeGetSections
 //
-// Operation ID: report_prototype___get__sections
+// Operation ID: report_prototype_get_sections
 //
 // Queries sections of report.
 //

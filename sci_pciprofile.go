@@ -47,7 +47,7 @@ func MakeSCIPCIProfileFind200ResponseType() SCIPCIProfileFind200ResponseType {
 
 // SCIPCIProfilePrototypecountreports200ResponseType
 //
-// Definition: pciProfile_prototype___count__reports200ResponseType
+// Definition: pciProfile_prototype_count_reports200ResponseType
 type SCIPCIProfilePrototypecountreports200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
@@ -59,7 +59,7 @@ func NewSCIPCIProfilePrototypecountreports200ResponseType() *SCIPCIProfileProtot
 
 // SCIPCIProfilePrototypegetreports200ResponseType
 //
-// Definition: pciProfile_prototype___get__reports200ResponseType
+// Definition: pciProfile_prototype_get_reports200ResponseType
 type SCIPCIProfilePrototypegetreports200ResponseType []*SCIModelsPciReport
 
 func MakeSCIPCIProfilePrototypegetreports200ResponseType() SCIPCIProfilePrototypegetreports200ResponseType {
@@ -168,7 +168,7 @@ func (s *SCIPCIProfileService) PciProfileFind(ctx context.Context, optionalParam
 
 // PciProfilePrototypeCountReports
 //
-// Operation ID: pciProfile_prototype___count__reports
+// Operation ID: pciProfile_prototype_count_reports
 //
 // Counts reports of pciProfile.
 //
@@ -204,7 +204,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCountReports(ctx context.Conte
 
 // PciProfilePrototypeCreateReports
 //
-// Operation ID: pciProfile_prototype___create__reports
+// Operation ID: pciProfile_prototype_create_reports
 //
 // Creates a new instance in reports of this model.
 //
@@ -240,7 +240,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCreateReports(ctx context.Cont
 
 // PciProfilePrototypeDeleteReports
 //
-// Operation ID: pciProfile_prototype___delete__reports
+// Operation ID: pciProfile_prototype_delete_reports
 //
 // Deletes all reports of this model.
 //
@@ -268,7 +268,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeDeleteReports(ctx context.Cont
 
 // PciProfilePrototypeDestroyByIdReports
 //
-// Operation ID: pciProfile_prototype___destroyById__reports
+// Operation ID: pciProfile_prototype_destroyById_reports
 //
 // Delete a related item by id for reports.
 //
@@ -299,7 +299,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeDestroyByIdReports(ctx context
 
 // PciProfilePrototypeFindByIdReports
 //
-// Operation ID: pciProfile_prototype___findById__reports
+// Operation ID: pciProfile_prototype_findById_reports
 //
 // Find a related item by id for reports.
 //
@@ -331,7 +331,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeFindByIdReports(ctx context.Co
 
 // PciProfilePrototypeGetReports
 //
-// Operation ID: pciProfile_prototype___get__reports
+// Operation ID: pciProfile_prototype_get_reports
 //
 // Queries reports of pciProfile.
 //
@@ -367,7 +367,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeGetReports(ctx context.Context
 
 // PciProfilePrototypeUpdateByIdReports
 //
-// Operation ID: pciProfile_prototype___updateById__reports
+// Operation ID: pciProfile_prototype_updateById_reports
 //
 // Update a related item by id for reports.
 //

@@ -37,7 +37,7 @@ func NewSCIMigrationMapCount200ResponseType() *SCIMigrationMapCount200ResponseTy
 
 // SCIMigrationMapExistsgetMigrationMapsidexists200ResponseType
 //
-// Definition: MigrationMap_exists__get_MigrationMaps_{id}_exists200ResponseType
+// Definition: MigrationMap_exists_get_MigrationMaps_{id}_exists200ResponseType
 type SCIMigrationMapExistsgetMigrationMapsidexists200ResponseType struct {
 	Exists *bool `json:"exists,omitempty"`
 }
@@ -49,7 +49,7 @@ func NewSCIMigrationMapExistsgetMigrationMapsidexists200ResponseType() *SCIMigra
 
 // SCIMigrationMapExistsheadMigrationMapsid200ResponseType
 //
-// Definition: MigrationMap_exists__head_MigrationMaps_{id}200ResponseType
+// Definition: MigrationMap_exists_head_MigrationMaps_{id}200ResponseType
 type SCIMigrationMapExistsheadMigrationMapsid200ResponseType struct {
 	Exists *bool `json:"exists,omitempty"`
 }
@@ -133,7 +133,7 @@ func (s *SCIMigrationMapService) MigrationMapCreate(ctx context.Context, data *S
 
 // MigrationMapCreateChangeStreamGetMigrationMapsChangeStream
 //
-// Operation ID: MigrationMap_createChangeStream__get_MigrationMaps_change-stream
+// Operation ID: MigrationMap_createChangeStream_get_MigrationMaps_change-stream
 //
 // Create a change stream.
 //
@@ -164,7 +164,7 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 
 // MigrationMapCreateChangeStreamPostMigrationMapsChangeStream
 //
-// Operation ID: MigrationMap_createChangeStream__post_MigrationMaps_change-stream
+// Operation ID: MigrationMap_createChangeStream_post_MigrationMaps_change-stream
 //
 // Create a change stream.
 //
@@ -226,7 +226,7 @@ func (s *SCIMigrationMapService) MigrationMapDeleteById(ctx context.Context, id 
 
 // MigrationMapExistsGetMigrationMapsIdExists
 //
-// Operation ID: MigrationMap_exists__get_MigrationMaps_{id}_exists
+// Operation ID: MigrationMap_exists_get_MigrationMaps_{id}_exists
 //
 // Check whether a model instance exists in the data source.
 //

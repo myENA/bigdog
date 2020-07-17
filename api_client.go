@@ -343,17 +343,19 @@ func (c *SCIClient) Do(ctx context.Context, request *APIRequest, mutators ...Req
 				c.log.Printf("Error fetching current access token: %v", err)
 			}
 			if cas, err = c.atp.Refresh(ctx, c, cas); err != nil {
-				c.log.Printf("Error refreshing access token: %v", err)
+				if c.debug {
+					c.log.Printf("Error refreshing access token: %v", err)
+				}
+				return nil, err
+			} else if cas, accessToken, err = c.atp.Current(); err != nil {
+				if c.debug {
+					c.log.Printf("Error fetching current access token after refresh: %v", err)
+				}
+				return nil, err
 			}
-			return nil, err
-		} else if cas, accessToken, err = c.atp.Current(); err != nil {
-			if c.debug {
-				c.log.Printf("Error fetching current access token after refresh: %v", err)
-			}
-			return nil, err
 		}
 	}
-	return c.do(ctx, request, SCIAccessTokenQueryParameter, accessToken)
+	return c.do(ctx, request, SCIAccessTokenQueryParameter, accessToken, mutators...)
 }
 
 type APIResponseMeta struct {

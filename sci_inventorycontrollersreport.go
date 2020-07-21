@@ -21,6 +21,152 @@ func (ss *SCIService) SCIInventoryControllersReportService() *SCIInventoryContro
 	return NewSCIInventoryControllersReportService(ss.apiClient)
 }
 
+// SCIInventoryControllersReport96krackData
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_96_krack_Data
+type SCIInventoryControllersReport96krackData []*SCIInventoryControllersReport96krackDataType
+
+func MakeSCIInventoryControllersReport96krackData() SCIInventoryControllersReport96krackData {
+	m := make(SCIInventoryControllersReport96krackData, 0)
+	return m
+}
+
+// SCIInventoryControllersReport96krackDataType
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_96_krack_DataType
+type SCIInventoryControllersReport96krackDataType struct {
+	Number *string `json:"number,omitempty"`
+
+	Percentage *int `json:"percentage,omitempty"`
+
+	Recommendation *string `json:"recommendation,omitempty"`
+
+	System *string `json:"system,omitempty"`
+
+	SystemUrl *string `json:"systemUrl,omitempty"`
+
+	ZoneName *string `json:"zoneName,omitempty"`
+}
+
+func NewSCIInventoryControllersReport96krackDataType() *SCIInventoryControllersReport96krackDataType {
+	m := new(SCIInventoryControllersReport96krackDataType)
+	return m
+}
+
+// SCIInventoryControllersReport96krackMetaData
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_96_krack_MetaData
+type SCIInventoryControllersReport96krackMetaData struct {
+	Number *string `json:"number,omitempty"`
+
+	Percentage *float64 `json:"percentage,omitempty"`
+}
+
+func NewSCIInventoryControllersReport96krackMetaData() *SCIInventoryControllersReport96krackMetaData {
+	m := new(SCIInventoryControllersReport96krackMetaData)
+	return m
+}
+
+// SCIInventoryControllersReport98resourceUtilizationData
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_98_resourceUtilization_Data
+type SCIInventoryControllersReport98resourceUtilizationData []*SCIInventoryControllersReport98resourceUtilizationDataType
+
+func MakeSCIInventoryControllersReport98resourceUtilizationData() SCIInventoryControllersReport98resourceUtilizationData {
+	m := make(SCIInventoryControllersReport98resourceUtilizationData, 0)
+	return m
+}
+
+// SCIInventoryControllersReport98resourceUtilizationDataType
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_98_resourceUtilization_DataType
+type SCIInventoryControllersReport98resourceUtilizationDataType struct {
+	CpuUtilization *float64 `json:"cpuUtilization,omitempty"`
+
+	CtrlMac *string `json:"ctrlMac,omitempty"`
+
+	CtrlName *string `json:"ctrlName,omitempty"`
+
+	CtrlSerial *string `json:"ctrlSerial,omitempty"`
+
+	DiskUtilization *float64 `json:"diskUtilization,omitempty"`
+
+	MemoryUtilization *float64 `json:"memoryUtilization,omitempty"`
+}
+
+func NewSCIInventoryControllersReport98resourceUtilizationDataType() *SCIInventoryControllersReport98resourceUtilizationDataType {
+	m := new(SCIInventoryControllersReport98resourceUtilizationDataType)
+	return m
+}
+
+// SCIInventoryControllersReport99licenseUtilizationData
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_99_licenseUtilization_Data
+type SCIInventoryControllersReport99licenseUtilizationData []*SCIInventoryControllersReport99licenseUtilizationDataType
+
+func MakeSCIInventoryControllersReport99licenseUtilizationData() SCIInventoryControllersReport99licenseUtilizationData {
+	m := make(SCIInventoryControllersReport99licenseUtilizationData, 0)
+	return m
+}
+
+// SCIInventoryControllersReport99licenseUtilizationDataType
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_99_licenseUtilization_DataType
+type SCIInventoryControllersReport99licenseUtilizationDataType struct {
+	ApsDown *int `json:"apsDown,omitempty"`
+
+	ApsManaged *int `json:"apsManaged,omitempty"`
+
+	ApsUp *int `json:"apsUp,omitempty"`
+
+	LicenseAvailable *int `json:"licenseAvailable,omitempty"`
+
+	LicenseConsumed *int `json:"licenseConsumed,omitempty"`
+
+	LicenseCount *int `json:"licenseCount,omitempty"`
+
+	LicenseUtilization *float64 `json:"licenseUtilization,omitempty"`
+
+	System *string `json:"system,omitempty"`
+
+	SystemUrl *string `json:"systemUrl,omitempty"`
+}
+
+func NewSCIInventoryControllersReport99licenseUtilizationDataType() *SCIInventoryControllersReport99licenseUtilizationDataType {
+	m := new(SCIInventoryControllersReport99licenseUtilizationDataType)
+	return m
+}
+
+// SCIInventoryControllersReport114controllerInventoryOverviewData
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_114_controllerInventoryOverview_Data
+type SCIInventoryControllersReport114controllerInventoryOverviewData []*SCIInventoryControllersReport114controllerInventoryOverviewDataType
+
+func MakeSCIInventoryControllersReport114controllerInventoryOverviewData() SCIInventoryControllersReport114controllerInventoryOverviewData {
+	m := make(SCIInventoryControllersReport114controllerInventoryOverviewData, 0)
+	return m
+}
+
+// SCIInventoryControllersReport114controllerInventoryOverviewDataType
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_114_controllerInventoryOverview_DataType
+type SCIInventoryControllersReport114controllerInventoryOverviewDataType struct {
+	Offline *int `json:"offline,omitempty"`
+
+	Online *int `json:"online,omitempty"`
+
+	SzCount *int `json:"szCount,omitempty"`
+
+	Total *int `json:"total,omitempty"`
+
+	ZdCount *int `json:"zdCount,omitempty"`
+}
+
+func NewSCIInventoryControllersReport114controllerInventoryOverviewDataType() *SCIInventoryControllersReport114controllerInventoryOverviewDataType {
+	m := new(SCIInventoryControllersReport114controllerInventoryOverviewDataType)
+	return m
+}
+
 // ReportInventoryControllersReport96Krack
 //
 // Operation ID: report_InventoryControllersReport_96_krack

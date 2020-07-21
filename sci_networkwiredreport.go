@@ -21,6 +21,406 @@ func (ss *SCIService) SCINetworkWiredReportService() *SCINetworkWiredReportServi
 	return NewSCINetworkWiredReportService(ss.apiClient)
 }
 
+// SCINetworkWiredReport123topSwitchPOEUtilChartData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_123_topSwitchPOEUtilChart_Data
+type SCINetworkWiredReport123topSwitchPOEUtilChartData [][]*SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType
+
+func MakeSCINetworkWiredReport123topSwitchPOEUtilChartData() SCINetworkWiredReport123topSwitchPOEUtilChartData {
+	m := make(SCINetworkWiredReport123topSwitchPOEUtilChartData, 0)
+	return m
+}
+
+// SCINetworkWiredReport123topSwitchPOEUtilChartDataType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_123_topSwitchPOEUtilChart_DataType
+type SCINetworkWiredReport123topSwitchPOEUtilChartDataType []*SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType
+
+func MakeSCINetworkWiredReport123topSwitchPOEUtilChartDataType() SCINetworkWiredReport123topSwitchPOEUtilChartDataType {
+	m := make(SCINetworkWiredReport123topSwitchPOEUtilChartDataType, 0)
+	return m
+}
+
+// SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_123_topSwitchPOEUtilChart_DataTypeType
+type SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType struct {
+	PoeUtilization *int `json:"poeUtilization,omitempty"`
+
+	SwitchId *string `json:"switchId,omitempty"`
+
+	SwitchName *string `json:"switchName,omitempty"`
+}
+
+func NewSCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType() *SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType {
+	m := new(SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType)
+	return m
+}
+
+// SCINetworkWiredReport123topSwitchPOEUtilChartMetaData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_123_topSwitchPOEUtilChart_MetaData
+type SCINetworkWiredReport123topSwitchPOEUtilChartMetaData struct {
+	ColorKeys []string `json:"colorKeys,omitempty"`
+}
+
+func NewSCINetworkWiredReport123topSwitchPOEUtilChartMetaData() *SCINetworkWiredReport123topSwitchPOEUtilChartMetaData {
+	m := new(SCINetworkWiredReport123topSwitchPOEUtilChartMetaData)
+	return m
+}
+
+// SCINetworkWiredReport124topSwitchPOEUtilsData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_124_topSwitchPOEUtils_Data
+type SCINetworkWiredReport124topSwitchPOEUtilsData []*SCINetworkWiredReport124topSwitchPOEUtilsDataType
+
+func MakeSCINetworkWiredReport124topSwitchPOEUtilsData() SCINetworkWiredReport124topSwitchPOEUtilsData {
+	m := make(SCINetworkWiredReport124topSwitchPOEUtilsData, 0)
+	return m
+}
+
+// SCINetworkWiredReport124topSwitchPOEUtilsDataType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_124_topSwitchPOEUtils_DataType
+type SCINetworkWiredReport124topSwitchPOEUtilsDataType struct {
+	Index *int `json:"index,omitempty"`
+
+	PoeTotal *int `json:"poeTotal,omitempty"`
+
+	PoeUtilization *int `json:"poeUtilization,omitempty"`
+
+	PoeUtilPercent *float64 `json:"poeUtilPercent,omitempty"`
+
+	SwitchId *string `json:"switchId,omitempty"`
+
+	SwitchName *string `json:"switchName,omitempty"`
+}
+
+func NewSCINetworkWiredReport124topSwitchPOEUtilsDataType() *SCINetworkWiredReport124topSwitchPOEUtilsDataType {
+	m := new(SCINetworkWiredReport124topSwitchPOEUtilsDataType)
+	return m
+}
+
+// SCINetworkWiredReport128topSwitchesByTrafficTableData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_128_topSwitchesByTrafficTable_Data
+type SCINetworkWiredReport128topSwitchesByTrafficTableData []*SCINetworkWiredReport128topSwitchesByTrafficTableDataType
+
+func MakeSCINetworkWiredReport128topSwitchesByTrafficTableData() SCINetworkWiredReport128topSwitchesByTrafficTableData {
+	m := make(SCINetworkWiredReport128topSwitchesByTrafficTableData, 0)
+	return m
+}
+
+// SCINetworkWiredReport128topSwitchesByTrafficTableDataType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_128_topSwitchesByTrafficTable_DataType
+type SCINetworkWiredReport128topSwitchesByTrafficTableDataType struct {
+	AvgRateTotalRxTraffic *float64 `json:"avgRateTotalRxTraffic,omitempty"`
+
+	AvgRateTotalTraffic *float64 `json:"avgRateTotalTraffic,omitempty"`
+
+	AvgRateTotalTxTraffic *float64 `json:"avgRateTotalTxTraffic,omitempty"`
+
+	Index *int `json:"index,omitempty"`
+
+	PortCount *int `json:"portCount,omitempty"`
+
+	SwitchId *string `json:"switchId,omitempty"`
+
+	SwitchName *string `json:"switchName,omitempty"`
+
+	SwitchUnitCount *int `json:"switchUnitCount,omitempty"`
+
+	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+
+	TotalTraffic *int `json:"totalTraffic,omitempty"`
+
+	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+}
+
+func NewSCINetworkWiredReport128topSwitchesByTrafficTableDataType() *SCINetworkWiredReport128topSwitchesByTrafficTableDataType {
+	m := new(SCINetworkWiredReport128topSwitchesByTrafficTableDataType)
+	return m
+}
+
+// SCINetworkWiredReport128topSwitchesByTrafficTableMetaData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_128_topSwitchesByTrafficTable_MetaData
+type SCINetworkWiredReport128topSwitchesByTrafficTableMetaData struct {
+	MaxValues *SCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
+
+	Name *string `json:"name,omitempty"`
+
+	Percentage *int `json:"percentage,omitempty"`
+
+	TotalTraffic *int `json:"totalTraffic,omitempty"`
+
+	Traffic *int `json:"traffic,omitempty"`
+}
+
+func NewSCINetworkWiredReport128topSwitchesByTrafficTableMetaData() *SCINetworkWiredReport128topSwitchesByTrafficTableMetaData {
+	m := new(SCINetworkWiredReport128topSwitchesByTrafficTableMetaData)
+	return m
+}
+
+// SCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_128_topSwitchesByTrafficTable_MetaDataMaxValuesType
+type SCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType struct {
+	AvgRateTotalRxTraffic *float64 `json:"avgRateTotalRxTraffic,omitempty"`
+
+	AvgRateTotalTraffic *float64 `json:"avgRateTotalTraffic,omitempty"`
+
+	AvgRateTotalTxTraffic *float64 `json:"avgRateTotalTxTraffic,omitempty"`
+
+	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+
+	TotalTraffic *int `json:"totalTraffic,omitempty"`
+
+	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+}
+
+func NewSCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType() *SCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType {
+	m := new(SCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType)
+	return m
+}
+
+// SCINetworkWiredReport134wiredOverviewData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_134_wiredOverview_Data
+type SCINetworkWiredReport134wiredOverviewData []*SCINetworkWiredReport134wiredOverviewDataType
+
+func MakeSCINetworkWiredReport134wiredOverviewData() SCINetworkWiredReport134wiredOverviewData {
+	m := make(SCINetworkWiredReport134wiredOverviewData, 0)
+	return m
+}
+
+// SCINetworkWiredReport134wiredOverviewDataType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_134_wiredOverview_DataType
+type SCINetworkWiredReport134wiredOverviewDataType struct {
+	AvgRateTotalRxTraffic *float64 `json:"avgRateTotalRxTraffic,omitempty"`
+
+	AvgRateTotalTraffic *float64 `json:"avgRateTotalTraffic,omitempty"`
+
+	AvgRateTotalTxTraffic *float64 `json:"avgRateTotalTxTraffic,omitempty"`
+
+	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+
+	TotalSwitches *int `json:"totalSwitches,omitempty"`
+
+	TotalTraffic *int `json:"totalTraffic,omitempty"`
+
+	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+}
+
+func NewSCINetworkWiredReport134wiredOverviewDataType() *SCINetworkWiredReport134wiredOverviewDataType {
+	m := new(SCINetworkWiredReport134wiredOverviewDataType)
+	return m
+}
+
+// SCINetworkWiredReport135wiredTrafficDistributionData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_135_wiredTrafficDistribution_Data
+type SCINetworkWiredReport135wiredTrafficDistributionData []*SCINetworkWiredReport135wiredTrafficDistributionDataType
+
+func MakeSCINetworkWiredReport135wiredTrafficDistributionData() SCINetworkWiredReport135wiredTrafficDistributionData {
+	m := make(SCINetworkWiredReport135wiredTrafficDistributionData, 0)
+	return m
+}
+
+// SCINetworkWiredReport135wiredTrafficDistributionDataType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_135_wiredTrafficDistribution_DataType
+type SCINetworkWiredReport135wiredTrafficDistributionDataType struct {
+	Categories []string `json:"categories,omitempty"`
+
+	Series []*SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType `json:"series,omitempty"`
+}
+
+func NewSCINetworkWiredReport135wiredTrafficDistributionDataType() *SCINetworkWiredReport135wiredTrafficDistributionDataType {
+	m := new(SCINetworkWiredReport135wiredTrafficDistributionDataType)
+	return m
+}
+
+// SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_135_wiredTrafficDistribution_DataTypeSeriesType
+type SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType struct {
+	Data []float64 `json:"data,omitempty"`
+
+	Name *string `json:"name,omitempty"`
+}
+
+func NewSCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType() *SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType {
+	m := new(SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType)
+	return m
+}
+
+// SCINetworkWiredReport135wiredTrafficDistributionMetaData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_135_wiredTrafficDistribution_MetaData
+type SCINetworkWiredReport135wiredTrafficDistributionMetaData struct {
+	ChartType *string `json:"chartType,omitempty"`
+}
+
+func NewSCINetworkWiredReport135wiredTrafficDistributionMetaData() *SCINetworkWiredReport135wiredTrafficDistributionMetaData {
+	m := new(SCINetworkWiredReport135wiredTrafficDistributionMetaData)
+	return m
+}
+
+// SCINetworkWiredReport136switchTrafficTrendData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_136_switchTrafficTrend_Data
+type SCINetworkWiredReport136switchTrafficTrendData [][]*SCINetworkWiredReport136switchTrafficTrendDataTypeType
+
+func MakeSCINetworkWiredReport136switchTrafficTrendData() SCINetworkWiredReport136switchTrafficTrendData {
+	m := make(SCINetworkWiredReport136switchTrafficTrendData, 0)
+	return m
+}
+
+// SCINetworkWiredReport136switchTrafficTrendDataType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_136_switchTrafficTrend_DataType
+type SCINetworkWiredReport136switchTrafficTrendDataType []*SCINetworkWiredReport136switchTrafficTrendDataTypeType
+
+func MakeSCINetworkWiredReport136switchTrafficTrendDataType() SCINetworkWiredReport136switchTrafficTrendDataType {
+	m := make(SCINetworkWiredReport136switchTrafficTrendDataType, 0)
+	return m
+}
+
+// SCINetworkWiredReport136switchTrafficTrendDataTypeType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_136_switchTrafficTrend_DataTypeType
+type SCINetworkWiredReport136switchTrafficTrendDataTypeType struct {
+	End *string `json:"end,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+
+	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+
+	TotalTraffic *int `json:"totalTraffic,omitempty"`
+
+	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+}
+
+func NewSCINetworkWiredReport136switchTrafficTrendDataTypeType() *SCINetworkWiredReport136switchTrafficTrendDataTypeType {
+	m := new(SCINetworkWiredReport136switchTrafficTrendDataTypeType)
+	return m
+}
+
+// SCINetworkWiredReport141switchErrorTrendData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_141_switchErrorTrend_Data
+type SCINetworkWiredReport141switchErrorTrendData []*SCINetworkWiredReport141switchErrorTrendDataType
+
+func MakeSCINetworkWiredReport141switchErrorTrendData() SCINetworkWiredReport141switchErrorTrendData {
+	m := make(SCINetworkWiredReport141switchErrorTrendData, 0)
+	return m
+}
+
+// SCINetworkWiredReport141switchErrorTrendDataType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_141_switchErrorTrend_DataType
+type SCINetworkWiredReport141switchErrorTrendDataType struct {
+	CrcErrors *int `json:"crcErrors,omitempty"`
+
+	End *string `json:"end,omitempty"`
+
+	InDiscards *int `json:"inDiscards,omitempty"`
+
+	InErrors *int `json:"inErrors,omitempty"`
+
+	OutErrors *int `json:"outErrors,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+}
+
+func NewSCINetworkWiredReport141switchErrorTrendDataType() *SCINetworkWiredReport141switchErrorTrendDataType {
+	m := new(SCINetworkWiredReport141switchErrorTrendDataType)
+	return m
+}
+
+// SCINetworkWiredReport142topSwitchesByErrorsChartData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_142_topSwitchesByErrorsChart_Data
+type SCINetworkWiredReport142topSwitchesByErrorsChartData [][]*SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType
+
+func MakeSCINetworkWiredReport142topSwitchesByErrorsChartData() SCINetworkWiredReport142topSwitchesByErrorsChartData {
+	m := make(SCINetworkWiredReport142topSwitchesByErrorsChartData, 0)
+	return m
+}
+
+// SCINetworkWiredReport142topSwitchesByErrorsChartDataType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_142_topSwitchesByErrorsChart_DataType
+type SCINetworkWiredReport142topSwitchesByErrorsChartDataType []*SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType
+
+func MakeSCINetworkWiredReport142topSwitchesByErrorsChartDataType() SCINetworkWiredReport142topSwitchesByErrorsChartDataType {
+	m := make(SCINetworkWiredReport142topSwitchesByErrorsChartDataType, 0)
+	return m
+}
+
+// SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_142_topSwitchesByErrorsChart_DataTypeType
+type SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType struct {
+	Error *int `json:"error,omitempty"`
+
+	SwitchId *string `json:"switchId,omitempty"`
+
+	SwitchName *string `json:"switchName,omitempty"`
+}
+
+func NewSCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType() *SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType {
+	m := new(SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType)
+	return m
+}
+
+// SCINetworkWiredReport142topSwitchesByErrorsChartMetaData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_142_topSwitchesByErrorsChart_MetaData
+type SCINetworkWiredReport142topSwitchesByErrorsChartMetaData struct {
+	ColorKeys []string `json:"colorKeys,omitempty"`
+}
+
+func NewSCINetworkWiredReport142topSwitchesByErrorsChartMetaData() *SCINetworkWiredReport142topSwitchesByErrorsChartMetaData {
+	m := new(SCINetworkWiredReport142topSwitchesByErrorsChartMetaData)
+	return m
+}
+
+// SCINetworkWiredReport143topSwitchesByErrorsTableData
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_143_topSwitchesByErrorsTable_Data
+type SCINetworkWiredReport143topSwitchesByErrorsTableData []*SCINetworkWiredReport143topSwitchesByErrorsTableDataType
+
+func MakeSCINetworkWiredReport143topSwitchesByErrorsTableData() SCINetworkWiredReport143topSwitchesByErrorsTableData {
+	m := make(SCINetworkWiredReport143topSwitchesByErrorsTableData, 0)
+	return m
+}
+
+// SCINetworkWiredReport143topSwitchesByErrorsTableDataType
+//
+// Definition: NetworkWiredReport_NetworkWiredReport_143_topSwitchesByErrorsTable_DataType
+type SCINetworkWiredReport143topSwitchesByErrorsTableDataType struct {
+	Error *int `json:"error,omitempty"`
+
+	Index *int `json:"index,omitempty"`
+
+	InErr *int `json:"inErr,omitempty"`
+
+	OutErr *int `json:"outErr,omitempty"`
+
+	SwitchId *string `json:"switchId,omitempty"`
+
+	SwitchName *string `json:"switchName,omitempty"`
+}
+
+func NewSCINetworkWiredReport143topSwitchesByErrorsTableDataType() *SCINetworkWiredReport143topSwitchesByErrorsTableDataType {
+	m := new(SCINetworkWiredReport143topSwitchesByErrorsTableDataType)
+	return m
+}
+
 // ReportNetworkWiredReport123TopSwitchPOEUtilChart
 //
 // Operation ID: report_NetworkWiredReport_123_topSwitchPOEUtilChart

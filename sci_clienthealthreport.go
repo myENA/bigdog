@@ -21,6 +21,132 @@ func (ss *SCIService) SCIClientHealthReportService() *SCIClientHealthReportServi
 	return NewSCIClientHealthReportService(ss.apiClient)
 }
 
+// SCIClientHealthReport144clientHealthSummaryData
+//
+// Definition: ClientHealthReport_ClientHealthReport_144_clientHealthSummary_Data
+type SCIClientHealthReport144clientHealthSummaryData []*SCIClientHealthReport144clientHealthSummaryDataType
+
+func MakeSCIClientHealthReport144clientHealthSummaryData() SCIClientHealthReport144clientHealthSummaryData {
+	m := make(SCIClientHealthReport144clientHealthSummaryData, 0)
+	return m
+}
+
+// SCIClientHealthReport144clientHealthSummaryDataType
+//
+// Definition: ClientHealthReport_ClientHealthReport_144_clientHealthSummary_DataType
+type SCIClientHealthReport144clientHealthSummaryDataType struct {
+	AvgRFHealthClientCount *int `json:"avgRFHealthClientCount,omitempty"`
+
+	AvgRFHealthRatio *int `json:"avgRFHealthRatio,omitempty"`
+
+	GoodRFHealthClientCount *int `json:"goodRFHealthClientCount,omitempty"`
+
+	GoodRFHealthRatio *int `json:"goodRFHealthRatio,omitempty"`
+
+	PoorRFHealthClientCount *int `json:"poorRFHealthClientCount,omitempty"`
+
+	PoorRFHealthRatio *int `json:"poorRFHealthRatio,omitempty"`
+
+	TotalClients *int `json:"totalClients,omitempty"`
+}
+
+func NewSCIClientHealthReport144clientHealthSummaryDataType() *SCIClientHealthReport144clientHealthSummaryDataType {
+	m := new(SCIClientHealthReport144clientHealthSummaryDataType)
+	return m
+}
+
+// SCIClientHealthReport148clientConnectionHealthData
+//
+// Definition: ClientHealthReport_ClientHealthReport_148_clientConnectionHealth_Data
+type SCIClientHealthReport148clientConnectionHealthData [][]*SCIClientHealthReport148clientConnectionHealthDataTypeType
+
+func MakeSCIClientHealthReport148clientConnectionHealthData() SCIClientHealthReport148clientConnectionHealthData {
+	m := make(SCIClientHealthReport148clientConnectionHealthData, 0)
+	return m
+}
+
+// SCIClientHealthReport148clientConnectionHealthDataType
+//
+// Definition: ClientHealthReport_ClientHealthReport_148_clientConnectionHealth_DataType
+type SCIClientHealthReport148clientConnectionHealthDataType []*SCIClientHealthReport148clientConnectionHealthDataTypeType
+
+func MakeSCIClientHealthReport148clientConnectionHealthDataType() SCIClientHealthReport148clientConnectionHealthDataType {
+	m := make(SCIClientHealthReport148clientConnectionHealthDataType, 0)
+	return m
+}
+
+// SCIClientHealthReport148clientConnectionHealthDataTypeType
+//
+// Definition: ClientHealthReport_ClientHealthReport_148_clientConnectionHealth_DataTypeType
+type SCIClientHealthReport148clientConnectionHealthDataTypeType struct {
+	Avg *int `json:"avg,omitempty"`
+
+	Good *int `json:"good,omitempty"`
+
+	Poor *int `json:"poor,omitempty"`
+
+	Timestamp *string `json:"timestamp,omitempty"`
+}
+
+func NewSCIClientHealthReport148clientConnectionHealthDataTypeType() *SCIClientHealthReport148clientConnectionHealthDataTypeType {
+	m := new(SCIClientHealthReport148clientConnectionHealthDataTypeType)
+	return m
+}
+
+// SCIClientHealthReport148clientConnectionHealthMetaData
+//
+// Definition: ClientHealthReport_ClientHealthReport_148_clientConnectionHealth_MetaData
+type SCIClientHealthReport148clientConnectionHealthMetaData struct {
+	CategoryKey *string `json:"categoryKey,omitempty"`
+
+	Granularity *string `json:"granularity,omitempty"`
+}
+
+func NewSCIClientHealthReport148clientConnectionHealthMetaData() *SCIClientHealthReport148clientConnectionHealthMetaData {
+	m := new(SCIClientHealthReport148clientConnectionHealthMetaData)
+	return m
+}
+
+// SCIClientHealthReport149clientHealthMetricTrendsData
+//
+// Definition: ClientHealthReport_ClientHealthReport_149_clientHealthMetricTrends_Data
+type SCIClientHealthReport149clientHealthMetricTrendsData [][]*SCIClientHealthReport149clientHealthMetricTrendsDataTypeType
+
+func MakeSCIClientHealthReport149clientHealthMetricTrendsData() SCIClientHealthReport149clientHealthMetricTrendsData {
+	m := make(SCIClientHealthReport149clientHealthMetricTrendsData, 0)
+	return m
+}
+
+// SCIClientHealthReport149clientHealthMetricTrendsDataType
+//
+// Definition: ClientHealthReport_ClientHealthReport_149_clientHealthMetricTrends_DataType
+type SCIClientHealthReport149clientHealthMetricTrendsDataType []*SCIClientHealthReport149clientHealthMetricTrendsDataTypeType
+
+func MakeSCIClientHealthReport149clientHealthMetricTrendsDataType() SCIClientHealthReport149clientHealthMetricTrendsDataType {
+	m := make(SCIClientHealthReport149clientHealthMetricTrendsDataType, 0)
+	return m
+}
+
+// SCIClientHealthReport149clientHealthMetricTrendsDataTypeType
+//
+// Definition: ClientHealthReport_ClientHealthReport_149_clientHealthMetricTrends_DataTypeType
+type SCIClientHealthReport149clientHealthMetricTrendsDataTypeType struct {
+	AvgSnr *float64 `json:"avgSnr,omitempty"`
+
+	End *string `json:"end,omitempty"`
+
+	MaxSnr *int `json:"maxSnr,omitempty"`
+
+	MinSnr *int `json:"minSnr,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+}
+
+func NewSCIClientHealthReport149clientHealthMetricTrendsDataTypeType() *SCIClientHealthReport149clientHealthMetricTrendsDataTypeType {
+	m := new(SCIClientHealthReport149clientHealthMetricTrendsDataTypeType)
+	return m
+}
+
 // ReportClientHealthReport144ClientHealthSummary
 //
 // Operation ID: report_ClientHealthReport_144_clientHealthSummary

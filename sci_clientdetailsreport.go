@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -46,6 +47,59 @@ type SCIClientDetailsReport8topAppsByTrafficTableDataType struct {
 	Traffic *int `json:"traffic,omitempty"`
 
 	TxBytes *int `json:"txBytes,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientDetailsReport8topAppsByTrafficTableDataType) UnmarshalJSON(b []byte) error {
+	type _SCIClientDetailsReport8topAppsByTrafficTableDataType SCIClientDetailsReport8topAppsByTrafficTableDataType
+	tmpType := new(_SCIClientDetailsReport8topAppsByTrafficTableDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "app")
+	delete(tmpType.XAdditionalProperties, "index")
+	delete(tmpType.XAdditionalProperties, "port")
+	delete(tmpType.XAdditionalProperties, "rxBytes")
+	delete(tmpType.XAdditionalProperties, "traffic")
+	delete(tmpType.XAdditionalProperties, "txBytes")
+	*t = SCIClientDetailsReport8topAppsByTrafficTableDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIClientDetailsReport8topAppsByTrafficTableDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.App != nil {
+		tmp["app"] = t.App
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	if t.Port != nil {
+		tmp["port"] = t.Port
+	}
+	if t.RxBytes != nil {
+		tmp["rxBytes"] = t.RxBytes
+	}
+	if t.Traffic != nil {
+		tmp["traffic"] = t.Traffic
+	}
+	if t.TxBytes != nil {
+		tmp["txBytes"] = t.TxBytes
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientDetailsReport8topAppsByTrafficTableDataType() *SCIClientDetailsReport8topAppsByTrafficTableDataType {
@@ -66,6 +120,55 @@ type SCIClientDetailsReport8topAppsByTrafficTableMetaData struct {
 	TotalTraffic *int `json:"totalTraffic,omitempty"`
 
 	Traffic *int `json:"traffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientDetailsReport8topAppsByTrafficTableMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIClientDetailsReport8topAppsByTrafficTableMetaData SCIClientDetailsReport8topAppsByTrafficTableMetaData
+	tmpType := new(_SCIClientDetailsReport8topAppsByTrafficTableMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "maxValues")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "percentage")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "traffic")
+	*t = SCIClientDetailsReport8topAppsByTrafficTableMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIClientDetailsReport8topAppsByTrafficTableMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MaxValues != nil {
+		tmp["maxValues"] = t.MaxValues
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.Percentage != nil {
+		tmp["percentage"] = t.Percentage
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.Traffic != nil {
+		tmp["traffic"] = t.Traffic
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientDetailsReport8topAppsByTrafficTableMetaData() *SCIClientDetailsReport8topAppsByTrafficTableMetaData {
@@ -112,6 +215,55 @@ type SCIClientDetailsReport82rssTrendDataType struct {
 	MinRss *float64 `json:"minRss,omitempty"`
 
 	Start *string `json:"start,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientDetailsReport82rssTrendDataType) UnmarshalJSON(b []byte) error {
+	type _SCIClientDetailsReport82rssTrendDataType SCIClientDetailsReport82rssTrendDataType
+	tmpType := new(_SCIClientDetailsReport82rssTrendDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "avgRss")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "maxRss")
+	delete(tmpType.XAdditionalProperties, "minRss")
+	delete(tmpType.XAdditionalProperties, "start")
+	*t = SCIClientDetailsReport82rssTrendDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIClientDetailsReport82rssTrendDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AvgRss != nil {
+		tmp["avgRss"] = t.AvgRss
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.MaxRss != nil {
+		tmp["maxRss"] = t.MaxRss
+	}
+	if t.MinRss != nil {
+		tmp["minRss"] = t.MinRss
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientDetailsReport82rssTrendDataType() *SCIClientDetailsReport82rssTrendDataType {
@@ -142,6 +294,55 @@ type SCIClientDetailsReport83snrTrendDataType struct {
 	MinSnr *float64 `json:"minSnr,omitempty"`
 
 	Start *string `json:"start,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientDetailsReport83snrTrendDataType) UnmarshalJSON(b []byte) error {
+	type _SCIClientDetailsReport83snrTrendDataType SCIClientDetailsReport83snrTrendDataType
+	tmpType := new(_SCIClientDetailsReport83snrTrendDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "avgSnr")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "maxSnr")
+	delete(tmpType.XAdditionalProperties, "minSnr")
+	delete(tmpType.XAdditionalProperties, "start")
+	*t = SCIClientDetailsReport83snrTrendDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIClientDetailsReport83snrTrendDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AvgSnr != nil {
+		tmp["avgSnr"] = t.AvgSnr
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.MaxSnr != nil {
+		tmp["maxSnr"] = t.MaxSnr
+	}
+	if t.MinSnr != nil {
+		tmp["minSnr"] = t.MinSnr
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientDetailsReport83snrTrendDataType() *SCIClientDetailsReport83snrTrendDataType {
@@ -178,6 +379,67 @@ type SCIClientDetailsReport86summaryDataType struct {
 	Manufacturer *string `json:"manufacturer,omitempty"`
 
 	OsType *string `json:"osType,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientDetailsReport86summaryDataType) UnmarshalJSON(b []byte) error {
+	type _SCIClientDetailsReport86summaryDataType SCIClientDetailsReport86summaryDataType
+	tmpType := new(_SCIClientDetailsReport86summaryDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "clientIp")
+	delete(tmpType.XAdditionalProperties, "clientMac")
+	delete(tmpType.XAdditionalProperties, "hostname")
+	delete(tmpType.XAdditionalProperties, "lastApMac")
+	delete(tmpType.XAdditionalProperties, "lastApName")
+	delete(tmpType.XAdditionalProperties, "lastStatus")
+	delete(tmpType.XAdditionalProperties, "manufacturer")
+	delete(tmpType.XAdditionalProperties, "osType")
+	*t = SCIClientDetailsReport86summaryDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIClientDetailsReport86summaryDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ClientIp != nil {
+		tmp["clientIp"] = t.ClientIp
+	}
+	if t.ClientMac != nil {
+		tmp["clientMac"] = t.ClientMac
+	}
+	if t.Hostname != nil {
+		tmp["hostname"] = t.Hostname
+	}
+	if t.LastApMac != nil {
+		tmp["lastApMac"] = t.LastApMac
+	}
+	if t.LastApName != nil {
+		tmp["lastApName"] = t.LastApName
+	}
+	if t.LastStatus != nil {
+		tmp["lastStatus"] = t.LastStatus
+	}
+	if t.Manufacturer != nil {
+		tmp["manufacturer"] = t.Manufacturer
+	}
+	if t.OsType != nil {
+		tmp["osType"] = t.OsType
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientDetailsReport86summaryDataType() *SCIClientDetailsReport86summaryDataType {
@@ -214,6 +476,67 @@ type SCIClientDetailsReport87clientStatsDataType struct {
 	TotalTraffic24 *int `json:"totalTraffic_2-4,omitempty"`
 
 	TotalTraffic5 *int `json:"totalTraffic_5,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientDetailsReport87clientStatsDataType) UnmarshalJSON(b []byte) error {
+	type _SCIClientDetailsReport87clientStatsDataType SCIClientDetailsReport87clientStatsDataType
+	tmpType := new(_SCIClientDetailsReport87clientStatsDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "avgRateTotalTraffic")
+	delete(tmpType.XAdditionalProperties, "avgSessionDuration")
+	delete(tmpType.XAdditionalProperties, "numApps")
+	delete(tmpType.XAdditionalProperties, "sessionCount")
+	delete(tmpType.XAdditionalProperties, "totalAps")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTraffic_2-4")
+	delete(tmpType.XAdditionalProperties, "totalTraffic_5")
+	*t = SCIClientDetailsReport87clientStatsDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIClientDetailsReport87clientStatsDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AvgRateTotalTraffic != nil {
+		tmp["avgRateTotalTraffic"] = t.AvgRateTotalTraffic
+	}
+	if t.AvgSessionDuration != nil {
+		tmp["avgSessionDuration"] = t.AvgSessionDuration
+	}
+	if t.NumApps != nil {
+		tmp["numApps"] = t.NumApps
+	}
+	if t.SessionCount != nil {
+		tmp["sessionCount"] = t.SessionCount
+	}
+	if t.TotalAps != nil {
+		tmp["totalAps"] = t.TotalAps
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.TotalTraffic24 != nil {
+		tmp["totalTraffic_2-4"] = t.TotalTraffic24
+	}
+	if t.TotalTraffic5 != nil {
+		tmp["totalTraffic_5"] = t.TotalTraffic5
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientDetailsReport87clientStatsDataType() *SCIClientDetailsReport87clientStatsDataType {
@@ -253,7 +576,68 @@ type SCIClientDetailsReport89trafficTrendDataTypeType struct {
 
 	UserTraffic *int `json:"userTraffic,omitempty"`
 
+	UserTraffic24 *int `json:"userTraffic_2-4,omitempty"`
+
+	UserTraffic5 *int `json:"userTraffic_5,omitempty"`
+
 	UserTxTraffic *int `json:"userTxTraffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientDetailsReport89trafficTrendDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIClientDetailsReport89trafficTrendDataTypeType SCIClientDetailsReport89trafficTrendDataTypeType
+	tmpType := new(_SCIClientDetailsReport89trafficTrendDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "userRxTraffic")
+	delete(tmpType.XAdditionalProperties, "userTraffic")
+	delete(tmpType.XAdditionalProperties, "userTraffic_2-4")
+	delete(tmpType.XAdditionalProperties, "userTraffic_5")
+	delete(tmpType.XAdditionalProperties, "userTxTraffic")
+	*t = SCIClientDetailsReport89trafficTrendDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIClientDetailsReport89trafficTrendDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.UserRxTraffic != nil {
+		tmp["userRxTraffic"] = t.UserRxTraffic
+	}
+	if t.UserTraffic != nil {
+		tmp["userTraffic"] = t.UserTraffic
+	}
+	if t.UserTraffic24 != nil {
+		tmp["userTraffic_2-4"] = t.UserTraffic24
+	}
+	if t.UserTraffic5 != nil {
+		tmp["userTraffic_5"] = t.UserTraffic5
+	}
+	if t.UserTxTraffic != nil {
+		tmp["userTxTraffic"] = t.UserTxTraffic
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientDetailsReport89trafficTrendDataTypeType() *SCIClientDetailsReport89trafficTrendDataTypeType {
@@ -296,6 +680,79 @@ type SCIClientDetailsReport92sessionsTableDataType struct {
 	Traffic *int `json:"traffic,omitempty"`
 
 	TxBytes *int `json:"txBytes,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientDetailsReport92sessionsTableDataType) UnmarshalJSON(b []byte) error {
+	type _SCIClientDetailsReport92sessionsTableDataType SCIClientDetailsReport92sessionsTableDataType
+	tmpType := new(_SCIClientDetailsReport92sessionsTableDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apMac")
+	delete(tmpType.XAdditionalProperties, "apName")
+	delete(tmpType.XAdditionalProperties, "authMethod")
+	delete(tmpType.XAdditionalProperties, "disconnectTime")
+	delete(tmpType.XAdditionalProperties, "firstConnection")
+	delete(tmpType.XAdditionalProperties, "radio")
+	delete(tmpType.XAdditionalProperties, "rxBytes")
+	delete(tmpType.XAdditionalProperties, "sessionDuration")
+	delete(tmpType.XAdditionalProperties, "ssid")
+	delete(tmpType.XAdditionalProperties, "traffic")
+	delete(tmpType.XAdditionalProperties, "txBytes")
+	*t = SCIClientDetailsReport92sessionsTableDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIClientDetailsReport92sessionsTableDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApMac != nil {
+		tmp["apMac"] = t.ApMac
+	}
+	if t.ApName != nil {
+		tmp["apName"] = t.ApName
+	}
+	if t.AuthMethod != nil {
+		tmp["authMethod"] = t.AuthMethod
+	}
+	if t.DisconnectTime != nil {
+		tmp["disconnectTime"] = t.DisconnectTime
+	}
+	if t.FirstConnection != nil {
+		tmp["firstConnection"] = t.FirstConnection
+	}
+	if t.Radio != nil {
+		tmp["radio"] = t.Radio
+	}
+	if t.RxBytes != nil {
+		tmp["rxBytes"] = t.RxBytes
+	}
+	if t.SessionDuration != nil {
+		tmp["sessionDuration"] = t.SessionDuration
+	}
+	if t.Ssid != nil {
+		tmp["ssid"] = t.Ssid
+	}
+	if t.Traffic != nil {
+		tmp["traffic"] = t.Traffic
+	}
+	if t.TxBytes != nil {
+		tmp["txBytes"] = t.TxBytes
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientDetailsReport92sessionsTableDataType() *SCIClientDetailsReport92sessionsTableDataType {
@@ -308,6 +765,39 @@ func NewSCIClientDetailsReport92sessionsTableDataType() *SCIClientDetailsReport9
 // Definition: ClientDetailsReport_ClientDetailsReport_92_sessionsTable_MetaData
 type SCIClientDetailsReport92sessionsTableMetaData struct {
 	MaxValues *SCIClientDetailsReport92sessionsTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientDetailsReport92sessionsTableMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIClientDetailsReport92sessionsTableMetaData SCIClientDetailsReport92sessionsTableMetaData
+	tmpType := new(_SCIClientDetailsReport92sessionsTableMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "maxValues")
+	*t = SCIClientDetailsReport92sessionsTableMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIClientDetailsReport92sessionsTableMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MaxValues != nil {
+		tmp["maxValues"] = t.MaxValues
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientDetailsReport92sessionsTableMetaData() *SCIClientDetailsReport92sessionsTableMetaData {

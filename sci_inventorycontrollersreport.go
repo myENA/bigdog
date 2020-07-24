@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -37,7 +38,7 @@ func MakeSCIInventoryControllersReport96krackData() SCIInventoryControllersRepor
 type SCIInventoryControllersReport96krackDataType struct {
 	Number *string `json:"number,omitempty"`
 
-	Percentage *int `json:"percentage,omitempty"`
+	Percentage *float64 `json:"percentage,omitempty"`
 
 	Recommendation *string `json:"recommendation,omitempty"`
 
@@ -46,6 +47,59 @@ type SCIInventoryControllersReport96krackDataType struct {
 	SystemUrl *string `json:"systemUrl,omitempty"`
 
 	ZoneName *string `json:"zoneName,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryControllersReport96krackDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryControllersReport96krackDataType SCIInventoryControllersReport96krackDataType
+	tmpType := new(_SCIInventoryControllersReport96krackDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "number")
+	delete(tmpType.XAdditionalProperties, "percentage")
+	delete(tmpType.XAdditionalProperties, "recommendation")
+	delete(tmpType.XAdditionalProperties, "system")
+	delete(tmpType.XAdditionalProperties, "systemUrl")
+	delete(tmpType.XAdditionalProperties, "zoneName")
+	*t = SCIInventoryControllersReport96krackDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryControllersReport96krackDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Number != nil {
+		tmp["number"] = t.Number
+	}
+	if t.Percentage != nil {
+		tmp["percentage"] = t.Percentage
+	}
+	if t.Recommendation != nil {
+		tmp["recommendation"] = t.Recommendation
+	}
+	if t.System != nil {
+		tmp["system"] = t.System
+	}
+	if t.SystemUrl != nil {
+		tmp["systemUrl"] = t.SystemUrl
+	}
+	if t.ZoneName != nil {
+		tmp["zoneName"] = t.ZoneName
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryControllersReport96krackDataType() *SCIInventoryControllersReport96krackDataType {
@@ -60,6 +114,43 @@ type SCIInventoryControllersReport96krackMetaData struct {
 	Number *string `json:"number,omitempty"`
 
 	Percentage *float64 `json:"percentage,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryControllersReport96krackMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryControllersReport96krackMetaData SCIInventoryControllersReport96krackMetaData
+	tmpType := new(_SCIInventoryControllersReport96krackMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "number")
+	delete(tmpType.XAdditionalProperties, "percentage")
+	*t = SCIInventoryControllersReport96krackMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryControllersReport96krackMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Number != nil {
+		tmp["number"] = t.Number
+	}
+	if t.Percentage != nil {
+		tmp["percentage"] = t.Percentage
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryControllersReport96krackMetaData() *SCIInventoryControllersReport96krackMetaData {
@@ -92,6 +183,59 @@ type SCIInventoryControllersReport98resourceUtilizationDataType struct {
 	DiskUtilization *float64 `json:"diskUtilization,omitempty"`
 
 	MemoryUtilization *float64 `json:"memoryUtilization,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryControllersReport98resourceUtilizationDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryControllersReport98resourceUtilizationDataType SCIInventoryControllersReport98resourceUtilizationDataType
+	tmpType := new(_SCIInventoryControllersReport98resourceUtilizationDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "cpuUtilization")
+	delete(tmpType.XAdditionalProperties, "ctrlMac")
+	delete(tmpType.XAdditionalProperties, "ctrlName")
+	delete(tmpType.XAdditionalProperties, "ctrlSerial")
+	delete(tmpType.XAdditionalProperties, "diskUtilization")
+	delete(tmpType.XAdditionalProperties, "memoryUtilization")
+	*t = SCIInventoryControllersReport98resourceUtilizationDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryControllersReport98resourceUtilizationDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.CpuUtilization != nil {
+		tmp["cpuUtilization"] = t.CpuUtilization
+	}
+	if t.CtrlMac != nil {
+		tmp["ctrlMac"] = t.CtrlMac
+	}
+	if t.CtrlName != nil {
+		tmp["ctrlName"] = t.CtrlName
+	}
+	if t.CtrlSerial != nil {
+		tmp["ctrlSerial"] = t.CtrlSerial
+	}
+	if t.DiskUtilization != nil {
+		tmp["diskUtilization"] = t.DiskUtilization
+	}
+	if t.MemoryUtilization != nil {
+		tmp["memoryUtilization"] = t.MemoryUtilization
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryControllersReport98resourceUtilizationDataType() *SCIInventoryControllersReport98resourceUtilizationDataType {
@@ -130,6 +274,71 @@ type SCIInventoryControllersReport99licenseUtilizationDataType struct {
 	System *string `json:"system,omitempty"`
 
 	SystemUrl *string `json:"systemUrl,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryControllersReport99licenseUtilizationDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryControllersReport99licenseUtilizationDataType SCIInventoryControllersReport99licenseUtilizationDataType
+	tmpType := new(_SCIInventoryControllersReport99licenseUtilizationDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apsDown")
+	delete(tmpType.XAdditionalProperties, "apsManaged")
+	delete(tmpType.XAdditionalProperties, "apsUp")
+	delete(tmpType.XAdditionalProperties, "licenseAvailable")
+	delete(tmpType.XAdditionalProperties, "licenseConsumed")
+	delete(tmpType.XAdditionalProperties, "licenseCount")
+	delete(tmpType.XAdditionalProperties, "licenseUtilization")
+	delete(tmpType.XAdditionalProperties, "system")
+	delete(tmpType.XAdditionalProperties, "systemUrl")
+	*t = SCIInventoryControllersReport99licenseUtilizationDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryControllersReport99licenseUtilizationDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApsDown != nil {
+		tmp["apsDown"] = t.ApsDown
+	}
+	if t.ApsManaged != nil {
+		tmp["apsManaged"] = t.ApsManaged
+	}
+	if t.ApsUp != nil {
+		tmp["apsUp"] = t.ApsUp
+	}
+	if t.LicenseAvailable != nil {
+		tmp["licenseAvailable"] = t.LicenseAvailable
+	}
+	if t.LicenseConsumed != nil {
+		tmp["licenseConsumed"] = t.LicenseConsumed
+	}
+	if t.LicenseCount != nil {
+		tmp["licenseCount"] = t.LicenseCount
+	}
+	if t.LicenseUtilization != nil {
+		tmp["licenseUtilization"] = t.LicenseUtilization
+	}
+	if t.System != nil {
+		tmp["system"] = t.System
+	}
+	if t.SystemUrl != nil {
+		tmp["systemUrl"] = t.SystemUrl
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryControllersReport99licenseUtilizationDataType() *SCIInventoryControllersReport99licenseUtilizationDataType {
@@ -160,6 +369,55 @@ type SCIInventoryControllersReport114controllerInventoryOverviewDataType struct 
 	Total *int `json:"total,omitempty"`
 
 	ZdCount *int `json:"zdCount,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryControllersReport114controllerInventoryOverviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryControllersReport114controllerInventoryOverviewDataType SCIInventoryControllersReport114controllerInventoryOverviewDataType
+	tmpType := new(_SCIInventoryControllersReport114controllerInventoryOverviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "offline")
+	delete(tmpType.XAdditionalProperties, "online")
+	delete(tmpType.XAdditionalProperties, "szCount")
+	delete(tmpType.XAdditionalProperties, "total")
+	delete(tmpType.XAdditionalProperties, "zdCount")
+	*t = SCIInventoryControllersReport114controllerInventoryOverviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryControllersReport114controllerInventoryOverviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Offline != nil {
+		tmp["offline"] = t.Offline
+	}
+	if t.Online != nil {
+		tmp["online"] = t.Online
+	}
+	if t.SzCount != nil {
+		tmp["szCount"] = t.SzCount
+	}
+	if t.Total != nil {
+		tmp["total"] = t.Total
+	}
+	if t.ZdCount != nil {
+		tmp["zdCount"] = t.ZdCount
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryControllersReport114controllerInventoryOverviewDataType() *SCIInventoryControllersReport114controllerInventoryOverviewDataType {

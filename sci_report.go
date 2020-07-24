@@ -5,6 +5,7 @@ package bigdog
 import (
 	"bytes"
 	"context"
+	"encoding/json"
 	"net/http"
 	"net/url"
 )
@@ -2097,6 +2098,87 @@ type SCIReportWithRelations struct {
 	Title *string `json:"title,omitempty"`
 
 	UrlSegmentName *string `json:"urlSegmentName,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIReportWithRelations) UnmarshalJSON(b []byte) error {
+	type _SCIReportWithRelations SCIReportWithRelations
+	tmpType := new(_SCIReportWithRelations)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "component")
+	delete(tmpType.XAdditionalProperties, "datasourcesUsed")
+	delete(tmpType.XAdditionalProperties, "excludedFilters")
+	delete(tmpType.XAdditionalProperties, "filterDataSource")
+	delete(tmpType.XAdditionalProperties, "filters")
+	delete(tmpType.XAdditionalProperties, "headers")
+	delete(tmpType.XAdditionalProperties, "id")
+	delete(tmpType.XAdditionalProperties, "layout")
+	delete(tmpType.XAdditionalProperties, "routeParameters")
+	delete(tmpType.XAdditionalProperties, "schedules")
+	delete(tmpType.XAdditionalProperties, "sections")
+	delete(tmpType.XAdditionalProperties, "title")
+	delete(tmpType.XAdditionalProperties, "urlSegmentName")
+	*t = SCIReportWithRelations(*tmpType)
+	return nil
+}
+
+func (t *SCIReportWithRelations) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Component != nil {
+		tmp["component"] = t.Component
+	}
+	if t.DatasourcesUsed != nil {
+		tmp["datasourcesUsed"] = t.DatasourcesUsed
+	}
+	if t.ExcludedFilters != nil {
+		tmp["excludedFilters"] = t.ExcludedFilters
+	}
+	if t.FilterDataSource != nil {
+		tmp["filterDataSource"] = t.FilterDataSource
+	}
+	if t.Filters != nil {
+		tmp["filters"] = t.Filters
+	}
+	if t.Headers != nil {
+		tmp["headers"] = t.Headers
+	}
+	if t.Id != nil {
+		tmp["id"] = t.Id
+	}
+	if t.Layout != nil {
+		tmp["layout"] = t.Layout
+	}
+	if t.RouteParameters != nil {
+		tmp["routeParameters"] = t.RouteParameters
+	}
+	if t.Schedules != nil {
+		tmp["schedules"] = t.Schedules
+	}
+	if t.Sections != nil {
+		tmp["sections"] = t.Sections
+	}
+	if t.Title != nil {
+		tmp["title"] = t.Title
+	}
+	if t.UrlSegmentName != nil {
+		tmp["urlSegmentName"] = t.UrlSegmentName
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIReportWithRelations() *SCIReportWithRelations {
@@ -2111,6 +2193,49 @@ type SCIReportWithRelationsLayoutType struct {
 	DesiredWidth *string `json:"desiredWidth,omitempty"`
 
 	Layout []*SCIReportWithRelationsLayoutTypeLayoutType `json:"layout,omitempty"`
+
+	Section *int `json:"section,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIReportWithRelationsLayoutType) UnmarshalJSON(b []byte) error {
+	type _SCIReportWithRelationsLayoutType SCIReportWithRelationsLayoutType
+	tmpType := new(_SCIReportWithRelationsLayoutType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "desiredWidth")
+	delete(tmpType.XAdditionalProperties, "layout")
+	delete(tmpType.XAdditionalProperties, "section")
+	*t = SCIReportWithRelationsLayoutType(*tmpType)
+	return nil
+}
+
+func (t *SCIReportWithRelationsLayoutType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.DesiredWidth != nil {
+		tmp["desiredWidth"] = t.DesiredWidth
+	}
+	if t.Layout != nil {
+		tmp["layout"] = t.Layout
+	}
+	if t.Section != nil {
+		tmp["section"] = t.Section
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIReportWithRelationsLayoutType() *SCIReportWithRelationsLayoutType {
@@ -2125,6 +2250,43 @@ type SCIReportWithRelationsLayoutTypeLayoutType struct {
 	DesiredWidth *string `json:"desiredWidth,omitempty"`
 
 	Section *int `json:"section,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIReportWithRelationsLayoutTypeLayoutType) UnmarshalJSON(b []byte) error {
+	type _SCIReportWithRelationsLayoutTypeLayoutType SCIReportWithRelationsLayoutTypeLayoutType
+	tmpType := new(_SCIReportWithRelationsLayoutTypeLayoutType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "desiredWidth")
+	delete(tmpType.XAdditionalProperties, "section")
+	*t = SCIReportWithRelationsLayoutTypeLayoutType(*tmpType)
+	return nil
+}
+
+func (t *SCIReportWithRelationsLayoutTypeLayoutType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.DesiredWidth != nil {
+		tmp["desiredWidth"] = t.DesiredWidth
+	}
+	if t.Section != nil {
+		tmp["section"] = t.Section
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIReportWithRelationsLayoutTypeLayoutType() *SCIReportWithRelationsLayoutTypeLayoutType {
@@ -2163,6 +2325,67 @@ type SCIReportWithRelationsSectionsType struct {
 	Title *string `json:"title,omitempty"`
 
 	Url interface{} `json:"url,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIReportWithRelationsSectionsType) UnmarshalJSON(b []byte) error {
+	type _SCIReportWithRelationsSectionsType SCIReportWithRelationsSectionsType
+	tmpType := new(_SCIReportWithRelationsSectionsType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "component")
+	delete(tmpType.XAdditionalProperties, "defaultParameters")
+	delete(tmpType.XAdditionalProperties, "id")
+	delete(tmpType.XAdditionalProperties, "layout")
+	delete(tmpType.XAdditionalProperties, "queryName")
+	delete(tmpType.XAdditionalProperties, "systemOwnerOnly")
+	delete(tmpType.XAdditionalProperties, "title")
+	delete(tmpType.XAdditionalProperties, "url")
+	*t = SCIReportWithRelationsSectionsType(*tmpType)
+	return nil
+}
+
+func (t *SCIReportWithRelationsSectionsType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Component != nil {
+		tmp["component"] = t.Component
+	}
+	if t.DefaultParameters != nil {
+		tmp["defaultParameters"] = t.DefaultParameters
+	}
+	if t.Id != nil {
+		tmp["id"] = t.Id
+	}
+	if t.Layout != nil {
+		tmp["layout"] = t.Layout
+	}
+	if t.QueryName != nil {
+		tmp["queryName"] = t.QueryName
+	}
+	if t.SystemOwnerOnly != nil {
+		tmp["systemOwnerOnly"] = t.SystemOwnerOnly
+	}
+	if t.Title != nil {
+		tmp["title"] = t.Title
+	}
+	if t.Url != nil {
+		tmp["url"] = t.Url
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIReportWithRelationsSectionsType() *SCIReportWithRelationsSectionsType {
@@ -2175,6 +2398,10 @@ func NewSCIReportWithRelationsSectionsType() *SCIReportWithRelationsSectionsType
 // Definition: report_withRelationsSectionsTypeDefaultParametersType
 type SCIReportWithRelationsSectionsTypeDefaultParametersType struct {
 	Granularity *string `json:"granularity,omitempty"`
+
+	Hidden *bool `json:"hidden,omitempty"`
+
+	Limit *int `json:"limit,omitempty"`
 
 	Metric *string `json:"metric,omitempty"`
 
@@ -2190,15 +2417,134 @@ func NewSCIReportWithRelationsSectionsTypeDefaultParametersType() *SCIReportWith
 //
 // Definition: report_withRelationsSectionsTypeLayoutType
 type SCIReportWithRelationsSectionsTypeLayoutType struct {
+	Columns []*SCIReportWithRelationsSectionsTypeLayoutTypeColumnsType `json:"columns,omitempty"`
+
+	Formats *SCIReportWithRelationsSectionsTypeLayoutTypeFormatsType `json:"formats,omitempty"`
+
 	Headers []*SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType `json:"headers,omitempty"`
+
+	Image *SCIReportWithRelationsSectionsTypeLayoutTypeImageType `json:"image,omitempty"`
+
+	Rows []*SCIReportWithRelationsSectionsTypeLayoutTypeRowsType `json:"rows,omitempty"`
+
+	Series []*SCIReportWithRelationsSectionsTypeLayoutTypeSeriesType `json:"series,omitempty"`
 
 	SubSections []*SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType `json:"subSections,omitempty"`
 
+	WidgetTheme *string `json:"widgetTheme,omitempty"`
+
 	Width *string `json:"width,omitempty"`
+
+	XAxisType *string `json:"xAxisType,omitempty"`
+
+	YAxisType *string `json:"yAxisType,omitempty"`
 }
 
 func NewSCIReportWithRelationsSectionsTypeLayoutType() *SCIReportWithRelationsSectionsTypeLayoutType {
 	m := new(SCIReportWithRelationsSectionsTypeLayoutType)
+	return m
+}
+
+// SCIReportWithRelationsSectionsTypeLayoutTypeColumnsType
+//
+// Definition: report_withRelationsSectionsTypeLayoutTypeColumnsType
+type SCIReportWithRelationsSectionsTypeLayoutTypeColumnsType struct {
+	ColumnName *string `json:"columnName,omitempty"`
+
+	CustomComponent *string `json:"customComponent,omitempty"`
+
+	DisplayName *string `json:"displayName,omitempty"`
+
+	DrillDownRoute *string `json:"drillDownRoute,omitempty"`
+
+	Format *string `json:"format,omitempty"`
+
+	Hidden *bool `json:"hidden,omitempty"`
+
+	Suffix *string `json:"suffix,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIReportWithRelationsSectionsTypeLayoutTypeColumnsType) UnmarshalJSON(b []byte) error {
+	type _SCIReportWithRelationsSectionsTypeLayoutTypeColumnsType SCIReportWithRelationsSectionsTypeLayoutTypeColumnsType
+	tmpType := new(_SCIReportWithRelationsSectionsTypeLayoutTypeColumnsType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "columnName")
+	delete(tmpType.XAdditionalProperties, "customComponent")
+	delete(tmpType.XAdditionalProperties, "displayName")
+	delete(tmpType.XAdditionalProperties, "drillDownRoute")
+	delete(tmpType.XAdditionalProperties, "format")
+	delete(tmpType.XAdditionalProperties, "hidden")
+	delete(tmpType.XAdditionalProperties, "suffix")
+	*t = SCIReportWithRelationsSectionsTypeLayoutTypeColumnsType(*tmpType)
+	return nil
+}
+
+func (t *SCIReportWithRelationsSectionsTypeLayoutTypeColumnsType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColumnName != nil {
+		tmp["columnName"] = t.ColumnName
+	}
+	if t.CustomComponent != nil {
+		tmp["customComponent"] = t.CustomComponent
+	}
+	if t.DisplayName != nil {
+		tmp["displayName"] = t.DisplayName
+	}
+	if t.DrillDownRoute != nil {
+		tmp["drillDownRoute"] = t.DrillDownRoute
+	}
+	if t.Format != nil {
+		tmp["format"] = t.Format
+	}
+	if t.Hidden != nil {
+		tmp["hidden"] = t.Hidden
+	}
+	if t.Suffix != nil {
+		tmp["suffix"] = t.Suffix
+	}
+	return json.Marshal(tmp)
+}
+
+func NewSCIReportWithRelationsSectionsTypeLayoutTypeColumnsType() *SCIReportWithRelationsSectionsTypeLayoutTypeColumnsType {
+	m := new(SCIReportWithRelationsSectionsTypeLayoutTypeColumnsType)
+	return m
+}
+
+// SCIReportWithRelationsSectionsTypeLayoutTypeFormatsType
+//
+// Definition: report_withRelationsSectionsTypeLayoutTypeFormatsType
+type SCIReportWithRelationsSectionsTypeLayoutTypeFormatsType struct {
+	AvgRateTotalTraffic *string `json:"avgRateTotalTraffic,omitempty"`
+
+	AvgSessionDuration *string `json:"avgSessionDuration,omitempty"`
+
+	NumApps *string `json:"numApps,omitempty"`
+
+	SessionCount *string `json:"sessionCount,omitempty"`
+
+	TotalAps *string `json:"totalAps,omitempty"`
+
+	TotalTraffic *string `json:"totalTraffic,omitempty"`
+}
+
+func NewSCIReportWithRelationsSectionsTypeLayoutTypeFormatsType() *SCIReportWithRelationsSectionsTypeLayoutTypeFormatsType {
+	m := new(SCIReportWithRelationsSectionsTypeLayoutTypeFormatsType)
 	return m
 }
 
@@ -2207,10 +2553,247 @@ func NewSCIReportWithRelationsSectionsTypeLayoutType() *SCIReportWithRelationsSe
 // Definition: report_withRelationsSectionsTypeLayoutTypeHeadersType
 type SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType struct {
 	Component *string `json:"component,omitempty"`
+
+	Content *SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeContentType `json:"content,omitempty"`
+
+	Name *string `json:"name,omitempty"`
+
+	Options *SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeOptionsType `json:"options,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType) UnmarshalJSON(b []byte) error {
+	type _SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType
+	tmpType := new(_SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "component")
+	delete(tmpType.XAdditionalProperties, "content")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "options")
+	*t = SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType(*tmpType)
+	return nil
+}
+
+func (t *SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Component != nil {
+		tmp["component"] = t.Component
+	}
+	if t.Content != nil {
+		tmp["content"] = t.Content
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.Options != nil {
+		tmp["options"] = t.Options
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIReportWithRelationsSectionsTypeLayoutTypeHeadersType() *SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType {
 	m := new(SCIReportWithRelationsSectionsTypeLayoutTypeHeadersType)
+	return m
+}
+
+// SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeContentType
+//
+// Definition: report_withRelationsSectionsTypeLayoutTypeHeadersTypeContentType
+type SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeContentType struct {
+	Formats *SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeContentTypeFormatsType `json:"formats,omitempty"`
+
+	Text *string `json:"text,omitempty"`
+}
+
+func NewSCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeContentType() *SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeContentType {
+	m := new(SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeContentType)
+	return m
+}
+
+// SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeContentTypeFormatsType
+//
+// Definition: report_withRelationsSectionsTypeLayoutTypeHeadersTypeContentTypeFormatsType
+type SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeContentTypeFormatsType struct {
+	Percentage *string `json:"percentage,omitempty"`
+
+	TotalTraffic *string `json:"totalTraffic,omitempty"`
+
+	Traffic *string `json:"traffic,omitempty"`
+}
+
+func NewSCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeContentTypeFormatsType() *SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeContentTypeFormatsType {
+	m := new(SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeContentTypeFormatsType)
+	return m
+}
+
+// SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeOptionsType
+//
+// Definition: report_withRelationsSectionsTypeLayoutTypeHeadersTypeOptionsType
+type SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeOptionsType struct {
+	RxBytes *string `json:"rxBytes,omitempty"`
+
+	Traffic *string `json:"traffic,omitempty"`
+
+	TxBytes *string `json:"txBytes,omitempty"`
+}
+
+func NewSCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeOptionsType() *SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeOptionsType {
+	m := new(SCIReportWithRelationsSectionsTypeLayoutTypeHeadersTypeOptionsType)
+	return m
+}
+
+// SCIReportWithRelationsSectionsTypeLayoutTypeImageType
+//
+// Definition: report_withRelationsSectionsTypeLayoutTypeImageType
+type SCIReportWithRelationsSectionsTypeLayoutTypeImageType struct {
+	Name *string `json:"name,omitempty"`
+
+	Value *string `json:"value,omitempty"`
+}
+
+func NewSCIReportWithRelationsSectionsTypeLayoutTypeImageType() *SCIReportWithRelationsSectionsTypeLayoutTypeImageType {
+	m := new(SCIReportWithRelationsSectionsTypeLayoutTypeImageType)
+	return m
+}
+
+// SCIReportWithRelationsSectionsTypeLayoutTypeRowsType
+//
+// Definition: report_withRelationsSectionsTypeLayoutTypeRowsType
+type SCIReportWithRelationsSectionsTypeLayoutTypeRowsType struct {
+	DrillDownRoute *string `json:"drillDownRoute,omitempty"`
+
+	DrillDownTitle *string `json:"drillDownTitle,omitempty"`
+
+	Label *string `json:"label,omitempty"`
+
+	Value *string `json:"value,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIReportWithRelationsSectionsTypeLayoutTypeRowsType) UnmarshalJSON(b []byte) error {
+	type _SCIReportWithRelationsSectionsTypeLayoutTypeRowsType SCIReportWithRelationsSectionsTypeLayoutTypeRowsType
+	tmpType := new(_SCIReportWithRelationsSectionsTypeLayoutTypeRowsType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "drillDownRoute")
+	delete(tmpType.XAdditionalProperties, "drillDownTitle")
+	delete(tmpType.XAdditionalProperties, "label")
+	delete(tmpType.XAdditionalProperties, "value")
+	*t = SCIReportWithRelationsSectionsTypeLayoutTypeRowsType(*tmpType)
+	return nil
+}
+
+func (t *SCIReportWithRelationsSectionsTypeLayoutTypeRowsType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.DrillDownRoute != nil {
+		tmp["drillDownRoute"] = t.DrillDownRoute
+	}
+	if t.DrillDownTitle != nil {
+		tmp["drillDownTitle"] = t.DrillDownTitle
+	}
+	if t.Label != nil {
+		tmp["label"] = t.Label
+	}
+	if t.Value != nil {
+		tmp["value"] = t.Value
+	}
+	return json.Marshal(tmp)
+}
+
+func NewSCIReportWithRelationsSectionsTypeLayoutTypeRowsType() *SCIReportWithRelationsSectionsTypeLayoutTypeRowsType {
+	m := new(SCIReportWithRelationsSectionsTypeLayoutTypeRowsType)
+	return m
+}
+
+// SCIReportWithRelationsSectionsTypeLayoutTypeSeriesType
+//
+// Definition: report_withRelationsSectionsTypeLayoutTypeSeriesType
+type SCIReportWithRelationsSectionsTypeLayoutTypeSeriesType struct {
+	Area *bool `json:"area,omitempty"`
+
+	Color *string `json:"color,omitempty"`
+
+	Key *string `json:"key,omitempty"`
+
+	Values *string `json:"values,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIReportWithRelationsSectionsTypeLayoutTypeSeriesType) UnmarshalJSON(b []byte) error {
+	type _SCIReportWithRelationsSectionsTypeLayoutTypeSeriesType SCIReportWithRelationsSectionsTypeLayoutTypeSeriesType
+	tmpType := new(_SCIReportWithRelationsSectionsTypeLayoutTypeSeriesType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "area")
+	delete(tmpType.XAdditionalProperties, "color")
+	delete(tmpType.XAdditionalProperties, "key")
+	delete(tmpType.XAdditionalProperties, "values")
+	*t = SCIReportWithRelationsSectionsTypeLayoutTypeSeriesType(*tmpType)
+	return nil
+}
+
+func (t *SCIReportWithRelationsSectionsTypeLayoutTypeSeriesType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Area != nil {
+		tmp["area"] = t.Area
+	}
+	if t.Color != nil {
+		tmp["color"] = t.Color
+	}
+	if t.Key != nil {
+		tmp["key"] = t.Key
+	}
+	if t.Values != nil {
+		tmp["values"] = t.Values
+	}
+	return json.Marshal(tmp)
+}
+
+func NewSCIReportWithRelationsSectionsTypeLayoutTypeSeriesType() *SCIReportWithRelationsSectionsTypeLayoutTypeSeriesType {
+	m := new(SCIReportWithRelationsSectionsTypeLayoutTypeSeriesType)
 	return m
 }
 
@@ -2221,6 +2804,49 @@ type SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType struct {
 	Component *string `json:"component,omitempty"`
 
 	Layout *SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutType `json:"layout,omitempty"`
+
+	Title *string `json:"title,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType) UnmarshalJSON(b []byte) error {
+	type _SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType
+	tmpType := new(_SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "component")
+	delete(tmpType.XAdditionalProperties, "layout")
+	delete(tmpType.XAdditionalProperties, "title")
+	*t = SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType(*tmpType)
+	return nil
+}
+
+func (t *SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Component != nil {
+		tmp["component"] = t.Component
+	}
+	if t.Layout != nil {
+		tmp["layout"] = t.Layout
+	}
+	if t.Title != nil {
+		tmp["title"] = t.Title
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType() *SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType {
@@ -2232,7 +2858,11 @@ func NewSCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsType() *SCIReport
 //
 // Definition: report_withRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutType
 type SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutType struct {
+	Component *string `json:"component,omitempty"`
+
 	FormatMetadata *SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeFormatMetadataType `json:"formatMetadata,omitempty"`
+
+	HideLegendLabels *bool `json:"hideLegendLabels,omitempty"`
 
 	Label *string `json:"label,omitempty"`
 
@@ -2245,6 +2875,10 @@ type SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutType struc
 	Value *string `json:"value,omitempty"`
 
 	Width *string `json:"width,omitempty"`
+
+	XAxisType *string `json:"xAxisType,omitempty"`
+
+	YAxisType *string `json:"yAxisType,omitempty"`
 }
 
 func NewSCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutType() *SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutType {
@@ -2271,6 +2905,57 @@ func NewSCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeFor
 // Definition: report_withRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType
 type SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType struct {
 	Color *string `json:"color,omitempty"`
+
+	Disabled *bool `json:"disabled,omitempty"`
+
+	Key *string `json:"key,omitempty"`
+
+	Values *string `json:"values,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType) UnmarshalJSON(b []byte) error {
+	type _SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType
+	tmpType := new(_SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "color")
+	delete(tmpType.XAdditionalProperties, "disabled")
+	delete(tmpType.XAdditionalProperties, "key")
+	delete(tmpType.XAdditionalProperties, "values")
+	*t = SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType(*tmpType)
+	return nil
+}
+
+func (t *SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Color != nil {
+		tmp["color"] = t.Color
+	}
+	if t.Disabled != nil {
+		tmp["disabled"] = t.Disabled
+	}
+	if t.Key != nil {
+		tmp["key"] = t.Key
+	}
+	if t.Values != nil {
+		tmp["values"] = t.Values
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType() *SCIReportWithRelationsSectionsTypeLayoutTypeSubSectionsTypeLayoutTypeSeriesType {

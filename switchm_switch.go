@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -972,6 +973,39 @@ func NewSwitchMSwitchQueryResultList() *SwitchMSwitchQueryResultList {
 // Definition: switch_switchRebootResponse
 type SwitchMSwitchRebootResponse struct {
 	Id *string `json:"id,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchMSwitchRebootResponse) UnmarshalJSON(b []byte) error {
+	type _SwitchMSwitchRebootResponse SwitchMSwitchRebootResponse
+	tmpType := new(_SwitchMSwitchRebootResponse)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "id")
+	*t = SwitchMSwitchRebootResponse(*tmpType)
+	return nil
+}
+
+func (t *SwitchMSwitchRebootResponse) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Id != nil {
+		tmp["id"] = t.Id
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSwitchMSwitchRebootResponse() *SwitchMSwitchRebootResponse {

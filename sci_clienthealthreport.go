@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -48,6 +49,63 @@ type SCIClientHealthReport144clientHealthSummaryDataType struct {
 	PoorRFHealthRatio *int `json:"poorRFHealthRatio,omitempty"`
 
 	TotalClients *int `json:"totalClients,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientHealthReport144clientHealthSummaryDataType) UnmarshalJSON(b []byte) error {
+	type _SCIClientHealthReport144clientHealthSummaryDataType SCIClientHealthReport144clientHealthSummaryDataType
+	tmpType := new(_SCIClientHealthReport144clientHealthSummaryDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "avgRFHealthClientCount")
+	delete(tmpType.XAdditionalProperties, "avgRFHealthRatio")
+	delete(tmpType.XAdditionalProperties, "goodRFHealthClientCount")
+	delete(tmpType.XAdditionalProperties, "goodRFHealthRatio")
+	delete(tmpType.XAdditionalProperties, "poorRFHealthClientCount")
+	delete(tmpType.XAdditionalProperties, "poorRFHealthRatio")
+	delete(tmpType.XAdditionalProperties, "totalClients")
+	*t = SCIClientHealthReport144clientHealthSummaryDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIClientHealthReport144clientHealthSummaryDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AvgRFHealthClientCount != nil {
+		tmp["avgRFHealthClientCount"] = t.AvgRFHealthClientCount
+	}
+	if t.AvgRFHealthRatio != nil {
+		tmp["avgRFHealthRatio"] = t.AvgRFHealthRatio
+	}
+	if t.GoodRFHealthClientCount != nil {
+		tmp["goodRFHealthClientCount"] = t.GoodRFHealthClientCount
+	}
+	if t.GoodRFHealthRatio != nil {
+		tmp["goodRFHealthRatio"] = t.GoodRFHealthRatio
+	}
+	if t.PoorRFHealthClientCount != nil {
+		tmp["poorRFHealthClientCount"] = t.PoorRFHealthClientCount
+	}
+	if t.PoorRFHealthRatio != nil {
+		tmp["poorRFHealthRatio"] = t.PoorRFHealthRatio
+	}
+	if t.TotalClients != nil {
+		tmp["totalClients"] = t.TotalClients
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientHealthReport144clientHealthSummaryDataType() *SCIClientHealthReport144clientHealthSummaryDataType {
@@ -86,6 +144,51 @@ type SCIClientHealthReport148clientConnectionHealthDataTypeType struct {
 	Poor *int `json:"poor,omitempty"`
 
 	Timestamp *string `json:"timestamp,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientHealthReport148clientConnectionHealthDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIClientHealthReport148clientConnectionHealthDataTypeType SCIClientHealthReport148clientConnectionHealthDataTypeType
+	tmpType := new(_SCIClientHealthReport148clientConnectionHealthDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "avg")
+	delete(tmpType.XAdditionalProperties, "good")
+	delete(tmpType.XAdditionalProperties, "poor")
+	delete(tmpType.XAdditionalProperties, "timestamp")
+	*t = SCIClientHealthReport148clientConnectionHealthDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIClientHealthReport148clientConnectionHealthDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Avg != nil {
+		tmp["avg"] = t.Avg
+	}
+	if t.Good != nil {
+		tmp["good"] = t.Good
+	}
+	if t.Poor != nil {
+		tmp["poor"] = t.Poor
+	}
+	if t.Timestamp != nil {
+		tmp["timestamp"] = t.Timestamp
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientHealthReport148clientConnectionHealthDataTypeType() *SCIClientHealthReport148clientConnectionHealthDataTypeType {
@@ -100,6 +203,43 @@ type SCIClientHealthReport148clientConnectionHealthMetaData struct {
 	CategoryKey *string `json:"categoryKey,omitempty"`
 
 	Granularity *string `json:"granularity,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientHealthReport148clientConnectionHealthMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIClientHealthReport148clientConnectionHealthMetaData SCIClientHealthReport148clientConnectionHealthMetaData
+	tmpType := new(_SCIClientHealthReport148clientConnectionHealthMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "categoryKey")
+	delete(tmpType.XAdditionalProperties, "granularity")
+	*t = SCIClientHealthReport148clientConnectionHealthMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIClientHealthReport148clientConnectionHealthMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.CategoryKey != nil {
+		tmp["categoryKey"] = t.CategoryKey
+	}
+	if t.Granularity != nil {
+		tmp["granularity"] = t.Granularity
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientHealthReport148clientConnectionHealthMetaData() *SCIClientHealthReport148clientConnectionHealthMetaData {
@@ -131,15 +271,130 @@ func MakeSCIClientHealthReport149clientHealthMetricTrendsDataType() SCIClientHea
 //
 // Definition: ClientHealthReport_ClientHealthReport_149_clientHealthMetricTrends_DataTypeType
 type SCIClientHealthReport149clientHealthMetricTrendsDataTypeType struct {
+	AvgMedianTxMCSRate *float64 `json:"avgMedianTxMCSRate,omitempty"`
+
+	AvgRss *float64 `json:"avgRss,omitempty"`
+
 	AvgSnr *float64 `json:"avgSnr,omitempty"`
+
+	AvgThroughputEstimate *float64 `json:"avgThroughputEstimate,omitempty"`
 
 	End *string `json:"end,omitempty"`
 
+	MaxMedianTxMCSRate *int `json:"maxMedianTxMCSRate,omitempty"`
+
+	MaxRss *int `json:"maxRss,omitempty"`
+
 	MaxSnr *int `json:"maxSnr,omitempty"`
+
+	MaxThroughputEstimate *int `json:"maxThroughputEstimate,omitempty"`
+
+	MinMedianTxMCSRate *int `json:"minMedianTxMCSRate,omitempty"`
+
+	MinRss *int `json:"minRss,omitempty"`
 
 	MinSnr *int `json:"minSnr,omitempty"`
 
+	MinThroughputEstimate *int `json:"minThroughputEstimate,omitempty"`
+
+	Name *string `json:"name,omitempty"`
+
 	Start *string `json:"start,omitempty"`
+
+	Value *string `json:"value,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIClientHealthReport149clientHealthMetricTrendsDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIClientHealthReport149clientHealthMetricTrendsDataTypeType SCIClientHealthReport149clientHealthMetricTrendsDataTypeType
+	tmpType := new(_SCIClientHealthReport149clientHealthMetricTrendsDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "avgMedianTxMCSRate")
+	delete(tmpType.XAdditionalProperties, "avgRss")
+	delete(tmpType.XAdditionalProperties, "avgSnr")
+	delete(tmpType.XAdditionalProperties, "avgThroughputEstimate")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "maxMedianTxMCSRate")
+	delete(tmpType.XAdditionalProperties, "maxRss")
+	delete(tmpType.XAdditionalProperties, "maxSnr")
+	delete(tmpType.XAdditionalProperties, "maxThroughputEstimate")
+	delete(tmpType.XAdditionalProperties, "minMedianTxMCSRate")
+	delete(tmpType.XAdditionalProperties, "minRss")
+	delete(tmpType.XAdditionalProperties, "minSnr")
+	delete(tmpType.XAdditionalProperties, "minThroughputEstimate")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "value")
+	*t = SCIClientHealthReport149clientHealthMetricTrendsDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIClientHealthReport149clientHealthMetricTrendsDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AvgMedianTxMCSRate != nil {
+		tmp["avgMedianTxMCSRate"] = t.AvgMedianTxMCSRate
+	}
+	if t.AvgRss != nil {
+		tmp["avgRss"] = t.AvgRss
+	}
+	if t.AvgSnr != nil {
+		tmp["avgSnr"] = t.AvgSnr
+	}
+	if t.AvgThroughputEstimate != nil {
+		tmp["avgThroughputEstimate"] = t.AvgThroughputEstimate
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.MaxMedianTxMCSRate != nil {
+		tmp["maxMedianTxMCSRate"] = t.MaxMedianTxMCSRate
+	}
+	if t.MaxRss != nil {
+		tmp["maxRss"] = t.MaxRss
+	}
+	if t.MaxSnr != nil {
+		tmp["maxSnr"] = t.MaxSnr
+	}
+	if t.MaxThroughputEstimate != nil {
+		tmp["maxThroughputEstimate"] = t.MaxThroughputEstimate
+	}
+	if t.MinMedianTxMCSRate != nil {
+		tmp["minMedianTxMCSRate"] = t.MinMedianTxMCSRate
+	}
+	if t.MinRss != nil {
+		tmp["minRss"] = t.MinRss
+	}
+	if t.MinSnr != nil {
+		tmp["minSnr"] = t.MinSnr
+	}
+	if t.MinThroughputEstimate != nil {
+		tmp["minThroughputEstimate"] = t.MinThroughputEstimate
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.Value != nil {
+		tmp["value"] = t.Value
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIClientHealthReport149clientHealthMetricTrendsDataTypeType() *SCIClientHealthReport149clientHealthMetricTrendsDataTypeType {

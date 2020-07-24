@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -230,6 +231,57 @@ func NewWSGNorthboundDataStreamingProfile() *WSGNorthboundDataStreamingProfile {
 	return m
 }
 
+// WSGNorthboundDataStreamingProfileList
+//
+// Definition: northboundDataStreaming_northboundDataStreamingProfileList
+type WSGNorthboundDataStreamingProfileList struct {
+	Extra *WSGNorthboundDataStreamingProfileListExtraType `json:"extra,omitempty"`
+
+	List []*WSGNorthboundDataStreamingProfile `json:"list,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *WSGNorthboundDataStreamingProfileList) UnmarshalJSON(b []byte) error {
+	type _WSGNorthboundDataStreamingProfileList WSGNorthboundDataStreamingProfileList
+	tmpType := new(_WSGNorthboundDataStreamingProfileList)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "extra")
+	delete(tmpType.XAdditionalProperties, "list")
+	*t = WSGNorthboundDataStreamingProfileList(*tmpType)
+	return nil
+}
+
+func (t *WSGNorthboundDataStreamingProfileList) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Extra != nil {
+		tmp["extra"] = t.Extra
+	}
+	if t.List != nil {
+		tmp["list"] = t.List
+	}
+	return json.Marshal(tmp)
+}
+
+func NewWSGNorthboundDataStreamingProfileList() *WSGNorthboundDataStreamingProfileList {
+	m := new(WSGNorthboundDataStreamingProfileList)
+	return m
+}
+
 // WSGNorthboundDataStreamingProfileListExtraType
 //
 // Definition: northboundDataStreaming_northboundDataStreamingProfileListExtraType
@@ -403,11 +455,11 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 // Operation ID: findNorthboundDataStreamingProfileList
 //
 // Use this API command to retrieve northbound Data Streaming Profile List
-func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context, mutators ...RequestMutator) (*WSGNorthboundDataStreamingProfileList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *WSGNorthboundDataStreamingProfileList
 		httpResp *http.Response
 		err      error
 	)
@@ -417,7 +469,7 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileLi
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileList, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
+	resp = NewWSGNorthboundDataStreamingProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

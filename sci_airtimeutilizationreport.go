@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -38,6 +39,43 @@ type SCIAirtimeUtilizationReport1overviewDataType struct {
 	AirtimeUtilizationAvg *float64 `json:"airtimeUtilizationAvg,omitempty"`
 
 	Radio *string `json:"radio,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAirtimeUtilizationReport1overviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIAirtimeUtilizationReport1overviewDataType SCIAirtimeUtilizationReport1overviewDataType
+	tmpType := new(_SCIAirtimeUtilizationReport1overviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "airtimeUtilizationAvg")
+	delete(tmpType.XAdditionalProperties, "radio")
+	*t = SCIAirtimeUtilizationReport1overviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIAirtimeUtilizationReport1overviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AirtimeUtilizationAvg != nil {
+		tmp["airtimeUtilizationAvg"] = t.AirtimeUtilizationAvg
+	}
+	if t.Radio != nil {
+		tmp["radio"] = t.Radio
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAirtimeUtilizationReport1overviewDataType() *SCIAirtimeUtilizationReport1overviewDataType {
@@ -64,6 +102,47 @@ type SCIAirtimeUtilizationReport2topChartDataType struct {
 	Label *string `json:"label,omitempty"`
 
 	Value *float64 `json:"value,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAirtimeUtilizationReport2topChartDataType) UnmarshalJSON(b []byte) error {
+	type _SCIAirtimeUtilizationReport2topChartDataType SCIAirtimeUtilizationReport2topChartDataType
+	tmpType := new(_SCIAirtimeUtilizationReport2topChartDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "key")
+	delete(tmpType.XAdditionalProperties, "label")
+	delete(tmpType.XAdditionalProperties, "value")
+	*t = SCIAirtimeUtilizationReport2topChartDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIAirtimeUtilizationReport2topChartDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Key != nil {
+		tmp["key"] = t.Key
+	}
+	if t.Label != nil {
+		tmp["label"] = t.Label
+	}
+	if t.Value != nil {
+		tmp["value"] = t.Value
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAirtimeUtilizationReport2topChartDataType() *SCIAirtimeUtilizationReport2topChartDataType {
@@ -130,6 +209,127 @@ type SCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType struct {
 	UserTraffic *int `json:"userTraffic,omitempty"`
 
 	UserTxBytes *int `json:"userTxBytes,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType) UnmarshalJSON(b []byte) error {
+	type _SCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType SCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType
+	tmpType := new(_SCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "airtimeBusyAvg")
+	delete(tmpType.XAdditionalProperties, "airtimeIdleAvg")
+	delete(tmpType.XAdditionalProperties, "airtimeRxAvg")
+	delete(tmpType.XAdditionalProperties, "airtimeTxAvg")
+	delete(tmpType.XAdditionalProperties, "airtimeUtilizationAvg")
+	delete(tmpType.XAdditionalProperties, "apIp")
+	delete(tmpType.XAdditionalProperties, "apMac")
+	delete(tmpType.XAdditionalProperties, "apName")
+	delete(tmpType.XAdditionalProperties, "clientCount")
+	delete(tmpType.XAdditionalProperties, "ctrlMac")
+	delete(tmpType.XAdditionalProperties, "ctrlName")
+	delete(tmpType.XAdditionalProperties, "ctrlSerial")
+	delete(tmpType.XAdditionalProperties, "index")
+	delete(tmpType.XAdditionalProperties, "mgmtRxBytes")
+	delete(tmpType.XAdditionalProperties, "mgmtTraffic")
+	delete(tmpType.XAdditionalProperties, "mgmtTxBytes")
+	delete(tmpType.XAdditionalProperties, "sessionCount")
+	delete(tmpType.XAdditionalProperties, "totalRxTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTxTraffic")
+	delete(tmpType.XAdditionalProperties, "userRxBytes")
+	delete(tmpType.XAdditionalProperties, "userTraffic")
+	delete(tmpType.XAdditionalProperties, "userTxBytes")
+	*t = SCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AirtimeBusyAvg != nil {
+		tmp["airtimeBusyAvg"] = t.AirtimeBusyAvg
+	}
+	if t.AirtimeIdleAvg != nil {
+		tmp["airtimeIdleAvg"] = t.AirtimeIdleAvg
+	}
+	if t.AirtimeRxAvg != nil {
+		tmp["airtimeRxAvg"] = t.AirtimeRxAvg
+	}
+	if t.AirtimeTxAvg != nil {
+		tmp["airtimeTxAvg"] = t.AirtimeTxAvg
+	}
+	if t.AirtimeUtilizationAvg != nil {
+		tmp["airtimeUtilizationAvg"] = t.AirtimeUtilizationAvg
+	}
+	if t.ApIp != nil {
+		tmp["apIp"] = t.ApIp
+	}
+	if t.ApMac != nil {
+		tmp["apMac"] = t.ApMac
+	}
+	if t.ApName != nil {
+		tmp["apName"] = t.ApName
+	}
+	if t.ClientCount != nil {
+		tmp["clientCount"] = t.ClientCount
+	}
+	if t.CtrlMac != nil {
+		tmp["ctrlMac"] = t.CtrlMac
+	}
+	if t.CtrlName != nil {
+		tmp["ctrlName"] = t.CtrlName
+	}
+	if t.CtrlSerial != nil {
+		tmp["ctrlSerial"] = t.CtrlSerial
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	if t.MgmtRxBytes != nil {
+		tmp["mgmtRxBytes"] = t.MgmtRxBytes
+	}
+	if t.MgmtTraffic != nil {
+		tmp["mgmtTraffic"] = t.MgmtTraffic
+	}
+	if t.MgmtTxBytes != nil {
+		tmp["mgmtTxBytes"] = t.MgmtTxBytes
+	}
+	if t.SessionCount != nil {
+		tmp["sessionCount"] = t.SessionCount
+	}
+	if t.TotalRxTraffic != nil {
+		tmp["totalRxTraffic"] = t.TotalRxTraffic
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.TotalTxTraffic != nil {
+		tmp["totalTxTraffic"] = t.TotalTxTraffic
+	}
+	if t.UserRxBytes != nil {
+		tmp["userRxBytes"] = t.UserRxBytes
+	}
+	if t.UserTraffic != nil {
+		tmp["userTraffic"] = t.UserTraffic
+	}
+	if t.UserTxBytes != nil {
+		tmp["userTxBytes"] = t.UserTxBytes
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType() *SCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType {
@@ -142,6 +342,39 @@ func NewSCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType() *SCIAirtime
 // Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_3_topAPsByAirtime24Table_MetaData
 type SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData struct {
 	MaxValues *SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaDataMaxValuesType `json:"maxValues,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData
+	tmpType := new(_SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "maxValues")
+	*t = SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MaxValues != nil {
+		tmp["maxValues"] = t.MaxValues
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData() *SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData {
@@ -236,6 +469,127 @@ type SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType struct {
 	UserTraffic *int `json:"userTraffic,omitempty"`
 
 	UserTxBytes *int `json:"userTxBytes,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType) UnmarshalJSON(b []byte) error {
+	type _SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType
+	tmpType := new(_SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "airtimeBusyAvg")
+	delete(tmpType.XAdditionalProperties, "airtimeIdleAvg")
+	delete(tmpType.XAdditionalProperties, "airtimeRxAvg")
+	delete(tmpType.XAdditionalProperties, "airtimeTxAvg")
+	delete(tmpType.XAdditionalProperties, "airtimeUtilizationAvg")
+	delete(tmpType.XAdditionalProperties, "apIp")
+	delete(tmpType.XAdditionalProperties, "apMac")
+	delete(tmpType.XAdditionalProperties, "apName")
+	delete(tmpType.XAdditionalProperties, "clientCount")
+	delete(tmpType.XAdditionalProperties, "ctrlMac")
+	delete(tmpType.XAdditionalProperties, "ctrlName")
+	delete(tmpType.XAdditionalProperties, "ctrlSerial")
+	delete(tmpType.XAdditionalProperties, "index")
+	delete(tmpType.XAdditionalProperties, "mgmtRxBytes")
+	delete(tmpType.XAdditionalProperties, "mgmtTraffic")
+	delete(tmpType.XAdditionalProperties, "mgmtTxBytes")
+	delete(tmpType.XAdditionalProperties, "sessionCount")
+	delete(tmpType.XAdditionalProperties, "totalRxTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTxTraffic")
+	delete(tmpType.XAdditionalProperties, "userRxBytes")
+	delete(tmpType.XAdditionalProperties, "userTraffic")
+	delete(tmpType.XAdditionalProperties, "userTxBytes")
+	*t = SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AirtimeBusyAvg != nil {
+		tmp["airtimeBusyAvg"] = t.AirtimeBusyAvg
+	}
+	if t.AirtimeIdleAvg != nil {
+		tmp["airtimeIdleAvg"] = t.AirtimeIdleAvg
+	}
+	if t.AirtimeRxAvg != nil {
+		tmp["airtimeRxAvg"] = t.AirtimeRxAvg
+	}
+	if t.AirtimeTxAvg != nil {
+		tmp["airtimeTxAvg"] = t.AirtimeTxAvg
+	}
+	if t.AirtimeUtilizationAvg != nil {
+		tmp["airtimeUtilizationAvg"] = t.AirtimeUtilizationAvg
+	}
+	if t.ApIp != nil {
+		tmp["apIp"] = t.ApIp
+	}
+	if t.ApMac != nil {
+		tmp["apMac"] = t.ApMac
+	}
+	if t.ApName != nil {
+		tmp["apName"] = t.ApName
+	}
+	if t.ClientCount != nil {
+		tmp["clientCount"] = t.ClientCount
+	}
+	if t.CtrlMac != nil {
+		tmp["ctrlMac"] = t.CtrlMac
+	}
+	if t.CtrlName != nil {
+		tmp["ctrlName"] = t.CtrlName
+	}
+	if t.CtrlSerial != nil {
+		tmp["ctrlSerial"] = t.CtrlSerial
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	if t.MgmtRxBytes != nil {
+		tmp["mgmtRxBytes"] = t.MgmtRxBytes
+	}
+	if t.MgmtTraffic != nil {
+		tmp["mgmtTraffic"] = t.MgmtTraffic
+	}
+	if t.MgmtTxBytes != nil {
+		tmp["mgmtTxBytes"] = t.MgmtTxBytes
+	}
+	if t.SessionCount != nil {
+		tmp["sessionCount"] = t.SessionCount
+	}
+	if t.TotalRxTraffic != nil {
+		tmp["totalRxTraffic"] = t.TotalRxTraffic
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.TotalTxTraffic != nil {
+		tmp["totalTxTraffic"] = t.TotalTxTraffic
+	}
+	if t.UserRxBytes != nil {
+		tmp["userRxBytes"] = t.UserRxBytes
+	}
+	if t.UserTraffic != nil {
+		tmp["userTraffic"] = t.UserTraffic
+	}
+	if t.UserTxBytes != nil {
+		tmp["userTxBytes"] = t.UserTxBytes
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType() *SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType {
@@ -248,6 +602,39 @@ func NewSCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType() *SCIAirtimeU
 // Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_4_topAPsByAirtime5Table_MetaData
 type SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData struct {
 	MaxValues *SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaDataMaxValuesType `json:"maxValues,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData
+	tmpType := new(_SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "maxValues")
+	*t = SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MaxValues != nil {
+		tmp["maxValues"] = t.MaxValues
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData() *SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData {
@@ -320,6 +707,63 @@ type SCIAirtimeUtilizationReport5trendChartDataTypeType struct {
 	End *string `json:"end,omitempty"`
 
 	Start *string `json:"start,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAirtimeUtilizationReport5trendChartDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIAirtimeUtilizationReport5trendChartDataTypeType SCIAirtimeUtilizationReport5trendChartDataTypeType
+	tmpType := new(_SCIAirtimeUtilizationReport5trendChartDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "airtimeBusyAvg")
+	delete(tmpType.XAdditionalProperties, "airtimeIdleAvg")
+	delete(tmpType.XAdditionalProperties, "airtimeRxAvg")
+	delete(tmpType.XAdditionalProperties, "airtimeTxAvg")
+	delete(tmpType.XAdditionalProperties, "airtimeUtilizationAvg")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "start")
+	*t = SCIAirtimeUtilizationReport5trendChartDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIAirtimeUtilizationReport5trendChartDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AirtimeBusyAvg != nil {
+		tmp["airtimeBusyAvg"] = t.AirtimeBusyAvg
+	}
+	if t.AirtimeIdleAvg != nil {
+		tmp["airtimeIdleAvg"] = t.AirtimeIdleAvg
+	}
+	if t.AirtimeRxAvg != nil {
+		tmp["airtimeRxAvg"] = t.AirtimeRxAvg
+	}
+	if t.AirtimeTxAvg != nil {
+		tmp["airtimeTxAvg"] = t.AirtimeTxAvg
+	}
+	if t.AirtimeUtilizationAvg != nil {
+		tmp["airtimeUtilizationAvg"] = t.AirtimeUtilizationAvg
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAirtimeUtilizationReport5trendChartDataTypeType() *SCIAirtimeUtilizationReport5trendChartDataTypeType {
@@ -386,6 +830,127 @@ type SCIAirtimeUtilizationReport6trendTableDataType struct {
 	UserTraffic *int `json:"userTraffic,omitempty"`
 
 	UserTxBytes *int `json:"userTxBytes,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAirtimeUtilizationReport6trendTableDataType) UnmarshalJSON(b []byte) error {
+	type _SCIAirtimeUtilizationReport6trendTableDataType SCIAirtimeUtilizationReport6trendTableDataType
+	tmpType := new(_SCIAirtimeUtilizationReport6trendTableDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "airtimeBusyAvg_2-4")
+	delete(tmpType.XAdditionalProperties, "airtimeBusyAvg_5")
+	delete(tmpType.XAdditionalProperties, "airtimeIdleAvg_2-4")
+	delete(tmpType.XAdditionalProperties, "airtimeIdleAvg_5")
+	delete(tmpType.XAdditionalProperties, "airtimeRxAvg_2-4")
+	delete(tmpType.XAdditionalProperties, "airtimeRxAvg_5")
+	delete(tmpType.XAdditionalProperties, "airtimeTxAvg_2-4")
+	delete(tmpType.XAdditionalProperties, "airtimeTxAvg_5")
+	delete(tmpType.XAdditionalProperties, "airtimeUtilizationAvg_2-4")
+	delete(tmpType.XAdditionalProperties, "airtimeUtilizationAvg_5")
+	delete(tmpType.XAdditionalProperties, "clientCount")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "mgmtRxBytes")
+	delete(tmpType.XAdditionalProperties, "mgmtTraffic")
+	delete(tmpType.XAdditionalProperties, "mgmtTxBytes")
+	delete(tmpType.XAdditionalProperties, "sessionCount")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "totalRxTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTxTraffic")
+	delete(tmpType.XAdditionalProperties, "userRxBytes")
+	delete(tmpType.XAdditionalProperties, "userTraffic")
+	delete(tmpType.XAdditionalProperties, "userTxBytes")
+	*t = SCIAirtimeUtilizationReport6trendTableDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIAirtimeUtilizationReport6trendTableDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AirtimeBusyAvg24 != nil {
+		tmp["airtimeBusyAvg_2-4"] = t.AirtimeBusyAvg24
+	}
+	if t.AirtimeBusyAvg5 != nil {
+		tmp["airtimeBusyAvg_5"] = t.AirtimeBusyAvg5
+	}
+	if t.AirtimeIdleAvg24 != nil {
+		tmp["airtimeIdleAvg_2-4"] = t.AirtimeIdleAvg24
+	}
+	if t.AirtimeIdleAvg5 != nil {
+		tmp["airtimeIdleAvg_5"] = t.AirtimeIdleAvg5
+	}
+	if t.AirtimeRxAvg24 != nil {
+		tmp["airtimeRxAvg_2-4"] = t.AirtimeRxAvg24
+	}
+	if t.AirtimeRxAvg5 != nil {
+		tmp["airtimeRxAvg_5"] = t.AirtimeRxAvg5
+	}
+	if t.AirtimeTxAvg24 != nil {
+		tmp["airtimeTxAvg_2-4"] = t.AirtimeTxAvg24
+	}
+	if t.AirtimeTxAvg5 != nil {
+		tmp["airtimeTxAvg_5"] = t.AirtimeTxAvg5
+	}
+	if t.AirtimeUtilizationAvg24 != nil {
+		tmp["airtimeUtilizationAvg_2-4"] = t.AirtimeUtilizationAvg24
+	}
+	if t.AirtimeUtilizationAvg5 != nil {
+		tmp["airtimeUtilizationAvg_5"] = t.AirtimeUtilizationAvg5
+	}
+	if t.ClientCount != nil {
+		tmp["clientCount"] = t.ClientCount
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.MgmtRxBytes != nil {
+		tmp["mgmtRxBytes"] = t.MgmtRxBytes
+	}
+	if t.MgmtTraffic != nil {
+		tmp["mgmtTraffic"] = t.MgmtTraffic
+	}
+	if t.MgmtTxBytes != nil {
+		tmp["mgmtTxBytes"] = t.MgmtTxBytes
+	}
+	if t.SessionCount != nil {
+		tmp["sessionCount"] = t.SessionCount
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.TotalRxTraffic != nil {
+		tmp["totalRxTraffic"] = t.TotalRxTraffic
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.TotalTxTraffic != nil {
+		tmp["totalTxTraffic"] = t.TotalTxTraffic
+	}
+	if t.UserRxBytes != nil {
+		tmp["userRxBytes"] = t.UserRxBytes
+	}
+	if t.UserTraffic != nil {
+		tmp["userTraffic"] = t.UserTraffic
+	}
+	if t.UserTxBytes != nil {
+		tmp["userTxBytes"] = t.UserTxBytes
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAirtimeUtilizationReport6trendTableDataType() *SCIAirtimeUtilizationReport6trendTableDataType {
@@ -398,6 +963,39 @@ func NewSCIAirtimeUtilizationReport6trendTableDataType() *SCIAirtimeUtilizationR
 // Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_6_trendTable_MetaData
 type SCIAirtimeUtilizationReport6trendTableMetaData struct {
 	MaxValues *SCIAirtimeUtilizationReport6trendTableMetaDataMaxValuesType `json:"maxValues,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAirtimeUtilizationReport6trendTableMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIAirtimeUtilizationReport6trendTableMetaData SCIAirtimeUtilizationReport6trendTableMetaData
+	tmpType := new(_SCIAirtimeUtilizationReport6trendTableMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "maxValues")
+	*t = SCIAirtimeUtilizationReport6trendTableMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIAirtimeUtilizationReport6trendTableMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MaxValues != nil {
+		tmp["maxValues"] = t.MaxValues
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAirtimeUtilizationReport6trendTableMetaData() *SCIAirtimeUtilizationReport6trendTableMetaData {

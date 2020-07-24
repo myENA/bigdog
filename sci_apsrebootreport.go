@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -38,6 +39,43 @@ type SCIAPsRebootReport43totalRebootsDataType struct {
 	TotalRebootedAps *float64 `json:"totalRebootedAps,omitempty"`
 
 	TotalReboots *int `json:"totalReboots,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAPsRebootReport43totalRebootsDataType) UnmarshalJSON(b []byte) error {
+	type _SCIAPsRebootReport43totalRebootsDataType SCIAPsRebootReport43totalRebootsDataType
+	tmpType := new(_SCIAPsRebootReport43totalRebootsDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "totalRebootedAps")
+	delete(tmpType.XAdditionalProperties, "totalReboots")
+	*t = SCIAPsRebootReport43totalRebootsDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIAPsRebootReport43totalRebootsDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.TotalRebootedAps != nil {
+		tmp["totalRebootedAps"] = t.TotalRebootedAps
+	}
+	if t.TotalReboots != nil {
+		tmp["totalReboots"] = t.TotalReboots
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAPsRebootReport43totalRebootsDataType() *SCIAPsRebootReport43totalRebootsDataType {
@@ -68,6 +106,55 @@ type SCIAPsRebootReport44topApRebootsTableDataType struct {
 	Count *int `json:"count,omitempty"`
 
 	Index *int `json:"index,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAPsRebootReport44topApRebootsTableDataType) UnmarshalJSON(b []byte) error {
+	type _SCIAPsRebootReport44topApRebootsTableDataType SCIAPsRebootReport44topApRebootsTableDataType
+	tmpType := new(_SCIAPsRebootReport44topApRebootsTableDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apMac")
+	delete(tmpType.XAdditionalProperties, "apModel")
+	delete(tmpType.XAdditionalProperties, "apName")
+	delete(tmpType.XAdditionalProperties, "count")
+	delete(tmpType.XAdditionalProperties, "index")
+	*t = SCIAPsRebootReport44topApRebootsTableDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIAPsRebootReport44topApRebootsTableDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApMac != nil {
+		tmp["apMac"] = t.ApMac
+	}
+	if t.ApModel != nil {
+		tmp["apModel"] = t.ApModel
+	}
+	if t.ApName != nil {
+		tmp["apName"] = t.ApName
+	}
+	if t.Count != nil {
+		tmp["count"] = t.Count
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAPsRebootReport44topApRebootsTableDataType() *SCIAPsRebootReport44topApRebootsTableDataType {
@@ -80,6 +167,39 @@ func NewSCIAPsRebootReport44topApRebootsTableDataType() *SCIAPsRebootReport44top
 // Definition: APsRebootReport_APsRebootReport_44_topApRebootsTable_MetaData
 type SCIAPsRebootReport44topApRebootsTableMetaData struct {
 	TotalCount *int `json:"totalCount,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAPsRebootReport44topApRebootsTableMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIAPsRebootReport44topApRebootsTableMetaData SCIAPsRebootReport44topApRebootsTableMetaData
+	tmpType := new(_SCIAPsRebootReport44topApRebootsTableMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "totalCount")
+	*t = SCIAPsRebootReport44topApRebootsTableMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIAPsRebootReport44topApRebootsTableMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.TotalCount != nil {
+		tmp["totalCount"] = t.TotalCount
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAPsRebootReport44topApRebootsTableMetaData() *SCIAPsRebootReport44topApRebootsTableMetaData {
@@ -103,27 +223,44 @@ func MakeSCIAPsRebootReport45topApRebootsOverTimeData() SCIAPsRebootReport45topA
 type SCIAPsRebootReport45topApRebootsOverTimeDataType struct {
 	End *string `json:"end,omitempty"`
 
-	R320297594CB1CD0615F0 *int `json:"r320.29759 (4C:B1:CD:06:15:F0),omitempty"`
-
-	R500E0107F25FC10 *int `json:"R500 (E0:10:7F:25:FC:10),omitempty"`
-
-	R610297591C3A600152C0 *int `json:"r610.29759 (1C:3A:60:01:52:C0),omitempty"`
-
-	R710297592CC5D3098780 *int `json:"r710.29759 (2C:C5:D3:09:87:80),omitempty"`
-
-	R75029759C803F5046120 *int `json:"r750.29759 (C8:03:F5:04:61:20),omitempty"`
-
-	RuckusAP34FA9F1B7F80 *int `json:"RuckusAP (34:FA:9F:1B:7F:80),omitempty"`
-
-	RuckusAP34FA9F1B81C0 *int `json:"RuckusAP (34:FA:9F:1B:81:C0),omitempty"`
-
-	RuckusAPC803F50468F0 *int `json:"RuckusAP (C8:03:F5:04:68:F0),omitempty"`
-
-	RuckusAPE0107F288420 *int `json:"RuckusAP (E0:10:7F:28:84:20),omitempty"`
-
 	Start *string `json:"start,omitempty"`
 
-	T61029759187C0B0C9D60 *int `json:"t610.29759 (18:7C:0B:0C:9D:60),omitempty"`
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIAPsRebootReport45topApRebootsOverTimeDataType) UnmarshalJSON(b []byte) error {
+	type _SCIAPsRebootReport45topApRebootsOverTimeDataType SCIAPsRebootReport45topApRebootsOverTimeDataType
+	tmpType := new(_SCIAPsRebootReport45topApRebootsOverTimeDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "start")
+	*t = SCIAPsRebootReport45topApRebootsOverTimeDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIAPsRebootReport45topApRebootsOverTimeDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIAPsRebootReport45topApRebootsOverTimeDataType() *SCIAPsRebootReport45topApRebootsOverTimeDataType {

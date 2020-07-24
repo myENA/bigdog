@@ -2,6 +2,10 @@ package bigdog
 
 // API Version: 1.0.0
 
+import (
+	"encoding/json"
+)
+
 // SCIModelsFilter
 //
 // Definition: filter
@@ -155,7 +159,7 @@ type SCIModelsReport struct {
 
 	Id *float64 `json:"id,omitempty"`
 
-	Layout []interface{} `json:"layout,omitempty"`
+	Layout []*SCIModelsReportLayout `json:"layout,omitempty"`
 
 	RouteParameters interface{} `json:"routeParameters,omitempty"`
 
@@ -172,6 +176,65 @@ type SCIModelsReport struct {
 
 func NewSCIModelsReport() *SCIModelsReport {
 	m := new(SCIModelsReport)
+	return m
+}
+
+// SCIModelsReportLayout
+//
+// Definition: reportLayout
+//
+// Layout descriptor of a report
+type SCIModelsReportLayout struct {
+	DesiredWidth *string `json:"desiredWidth,omitempty"`
+
+	Layout []*SCIModelsReportLayout `json:"layout,omitempty"`
+
+	Section *int `json:"section,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIModelsReportLayout) UnmarshalJSON(b []byte) error {
+	type _SCIModelsReportLayout SCIModelsReportLayout
+	tmpType := new(_SCIModelsReportLayout)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "desiredWidth")
+	delete(tmpType.XAdditionalProperties, "layout")
+	delete(tmpType.XAdditionalProperties, "section")
+	*t = SCIModelsReportLayout(*tmpType)
+	return nil
+}
+
+func (t *SCIModelsReportLayout) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.DesiredWidth != nil {
+		tmp["desiredWidth"] = t.DesiredWidth
+	}
+	if t.Layout != nil {
+		tmp["layout"] = t.Layout
+	}
+	if t.Section != nil {
+		tmp["section"] = t.Section
+	}
+	return json.Marshal(tmp)
+}
+
+func NewSCIModelsReportLayout() *SCIModelsReportLayout {
+	m := new(SCIModelsReportLayout)
 	return m
 }
 

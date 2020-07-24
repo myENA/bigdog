@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -46,6 +47,59 @@ type SCIWLANsReport35overviewDataType struct {
 	TotalDeletedSsids *float64 `json:"totalDeletedSsids,omitempty"`
 
 	TotalSsids *int `json:"totalSsids,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIWLANsReport35overviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIWLANsReport35overviewDataType SCIWLANsReport35overviewDataType
+	tmpType := new(_SCIWLANsReport35overviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "totalAddedClientCount")
+	delete(tmpType.XAdditionalProperties, "totalAddedSsids")
+	delete(tmpType.XAdditionalProperties, "totalClientCount")
+	delete(tmpType.XAdditionalProperties, "totalDeletedClientCount")
+	delete(tmpType.XAdditionalProperties, "totalDeletedSsids")
+	delete(tmpType.XAdditionalProperties, "totalSsids")
+	*t = SCIWLANsReport35overviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIWLANsReport35overviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.TotalAddedClientCount != nil {
+		tmp["totalAddedClientCount"] = t.TotalAddedClientCount
+	}
+	if t.TotalAddedSsids != nil {
+		tmp["totalAddedSsids"] = t.TotalAddedSsids
+	}
+	if t.TotalClientCount != nil {
+		tmp["totalClientCount"] = t.TotalClientCount
+	}
+	if t.TotalDeletedClientCount != nil {
+		tmp["totalDeletedClientCount"] = t.TotalDeletedClientCount
+	}
+	if t.TotalDeletedSsids != nil {
+		tmp["totalDeletedSsids"] = t.TotalDeletedSsids
+	}
+	if t.TotalSsids != nil {
+		tmp["totalSsids"] = t.TotalSsids
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIWLANsReport35overviewDataType() *SCIWLANsReport35overviewDataType {
@@ -82,6 +136,53 @@ type SCIWLANsReport37activeSsidsTrendDataTypeType struct {
 	Ssid *float64 `json:"ssid,omitempty"`
 
 	Start *string `json:"start,omitempty"`
+
+	Traffic *int `json:"traffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIWLANsReport37activeSsidsTrendDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIWLANsReport37activeSsidsTrendDataTypeType SCIWLANsReport37activeSsidsTrendDataTypeType
+	tmpType := new(_SCIWLANsReport37activeSsidsTrendDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "ssid")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "traffic")
+	*t = SCIWLANsReport37activeSsidsTrendDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIWLANsReport37activeSsidsTrendDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Ssid != nil {
+		tmp["ssid"] = t.Ssid
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.Traffic != nil {
+		tmp["traffic"] = t.Traffic
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIWLANsReport37activeSsidsTrendDataTypeType() *SCIWLANsReport37activeSsidsTrendDataTypeType {
@@ -120,6 +221,51 @@ type SCIWLANsReport38top10SsidsByClientCountDataTypeType struct {
 	Start *string `json:"start,omitempty"`
 
 	UniqueUsers *float64 `json:"uniqueUsers,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIWLANsReport38top10SsidsByClientCountDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIWLANsReport38top10SsidsByClientCountDataTypeType SCIWLANsReport38top10SsidsByClientCountDataTypeType
+	tmpType := new(_SCIWLANsReport38top10SsidsByClientCountDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "ssid")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "uniqueUsers")
+	*t = SCIWLANsReport38top10SsidsByClientCountDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIWLANsReport38top10SsidsByClientCountDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Ssid != nil {
+		tmp["ssid"] = t.Ssid
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.UniqueUsers != nil {
+		tmp["uniqueUsers"] = t.UniqueUsers
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIWLANsReport38top10SsidsByClientCountDataTypeType() *SCIWLANsReport38top10SsidsByClientCountDataTypeType {
@@ -134,6 +280,43 @@ type SCIWLANsReport38top10SsidsByClientCountMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 
 	TotalClients *float64 `json:"totalClients,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIWLANsReport38top10SsidsByClientCountMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIWLANsReport38top10SsidsByClientCountMetaData SCIWLANsReport38top10SsidsByClientCountMetaData
+	tmpType := new(_SCIWLANsReport38top10SsidsByClientCountMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	delete(tmpType.XAdditionalProperties, "totalClients")
+	*t = SCIWLANsReport38top10SsidsByClientCountMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIWLANsReport38top10SsidsByClientCountMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	if t.TotalClients != nil {
+		tmp["totalClients"] = t.TotalClients
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIWLANsReport38top10SsidsByClientCountMetaData() *SCIWLANsReport38top10SsidsByClientCountMetaData {
@@ -155,13 +338,58 @@ func MakeSCIWLANsReport39ssidChangesOverTimeData() SCIWLANsReport39ssidChangesOv
 //
 // Definition: WLANsReport_WLANsReport_39_ssidChangesOverTime_DataType
 type SCIWLANsReport39ssidChangesOverTimeDataType struct {
-	ClientCount *float64 `json:"clientCount,omitempty"`
+	ClientCount *int `json:"clientCount,omitempty"`
 
 	Ssid *string `json:"ssid,omitempty"`
 
 	Status *string `json:"status,omitempty"`
 
 	Time *int `json:"time,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIWLANsReport39ssidChangesOverTimeDataType) UnmarshalJSON(b []byte) error {
+	type _SCIWLANsReport39ssidChangesOverTimeDataType SCIWLANsReport39ssidChangesOverTimeDataType
+	tmpType := new(_SCIWLANsReport39ssidChangesOverTimeDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "clientCount")
+	delete(tmpType.XAdditionalProperties, "ssid")
+	delete(tmpType.XAdditionalProperties, "status")
+	delete(tmpType.XAdditionalProperties, "time")
+	*t = SCIWLANsReport39ssidChangesOverTimeDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIWLANsReport39ssidChangesOverTimeDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ClientCount != nil {
+		tmp["clientCount"] = t.ClientCount
+	}
+	if t.Ssid != nil {
+		tmp["ssid"] = t.Ssid
+	}
+	if t.Status != nil {
+		tmp["status"] = t.Status
+	}
+	if t.Time != nil {
+		tmp["time"] = t.Time
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIWLANsReport39ssidChangesOverTimeDataType() *SCIWLANsReport39ssidChangesOverTimeDataType {
@@ -210,6 +438,91 @@ type SCIWLANsReport40topSsidsByTrafficTableDataType struct {
 	UserTraffic *int `json:"userTraffic,omitempty"`
 
 	UserTxBytes *int `json:"userTxBytes,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIWLANsReport40topSsidsByTrafficTableDataType) UnmarshalJSON(b []byte) error {
+	type _SCIWLANsReport40topSsidsByTrafficTableDataType SCIWLANsReport40topSsidsByTrafficTableDataType
+	tmpType := new(_SCIWLANsReport40topSsidsByTrafficTableDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apCount")
+	delete(tmpType.XAdditionalProperties, "clientCount")
+	delete(tmpType.XAdditionalProperties, "index")
+	delete(tmpType.XAdditionalProperties, "mgmtRxBytes")
+	delete(tmpType.XAdditionalProperties, "mgmtTraffic")
+	delete(tmpType.XAdditionalProperties, "mgmtTxBytes")
+	delete(tmpType.XAdditionalProperties, "sessionCount")
+	delete(tmpType.XAdditionalProperties, "ssid")
+	delete(tmpType.XAdditionalProperties, "totalRxTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTxTraffic")
+	delete(tmpType.XAdditionalProperties, "userRxBytes")
+	delete(tmpType.XAdditionalProperties, "userTraffic")
+	delete(tmpType.XAdditionalProperties, "userTxBytes")
+	*t = SCIWLANsReport40topSsidsByTrafficTableDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIWLANsReport40topSsidsByTrafficTableDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApCount != nil {
+		tmp["apCount"] = t.ApCount
+	}
+	if t.ClientCount != nil {
+		tmp["clientCount"] = t.ClientCount
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	if t.MgmtRxBytes != nil {
+		tmp["mgmtRxBytes"] = t.MgmtRxBytes
+	}
+	if t.MgmtTraffic != nil {
+		tmp["mgmtTraffic"] = t.MgmtTraffic
+	}
+	if t.MgmtTxBytes != nil {
+		tmp["mgmtTxBytes"] = t.MgmtTxBytes
+	}
+	if t.SessionCount != nil {
+		tmp["sessionCount"] = t.SessionCount
+	}
+	if t.Ssid != nil {
+		tmp["ssid"] = t.Ssid
+	}
+	if t.TotalRxTraffic != nil {
+		tmp["totalRxTraffic"] = t.TotalRxTraffic
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.TotalTxTraffic != nil {
+		tmp["totalTxTraffic"] = t.TotalTxTraffic
+	}
+	if t.UserRxBytes != nil {
+		tmp["userRxBytes"] = t.UserRxBytes
+	}
+	if t.UserTraffic != nil {
+		tmp["userTraffic"] = t.UserTraffic
+	}
+	if t.UserTxBytes != nil {
+		tmp["userTxBytes"] = t.UserTxBytes
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIWLANsReport40topSsidsByTrafficTableDataType() *SCIWLANsReport40topSsidsByTrafficTableDataType {
@@ -230,6 +543,55 @@ type SCIWLANsReport40topSsidsByTrafficTableMetaData struct {
 	TotalTraffic *int `json:"totalTraffic,omitempty"`
 
 	Traffic *int `json:"traffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIWLANsReport40topSsidsByTrafficTableMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIWLANsReport40topSsidsByTrafficTableMetaData SCIWLANsReport40topSsidsByTrafficTableMetaData
+	tmpType := new(_SCIWLANsReport40topSsidsByTrafficTableMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "maxValues")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "percentage")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "traffic")
+	*t = SCIWLANsReport40topSsidsByTrafficTableMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIWLANsReport40topSsidsByTrafficTableMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MaxValues != nil {
+		tmp["maxValues"] = t.MaxValues
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.Percentage != nil {
+		tmp["percentage"] = t.Percentage
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.Traffic != nil {
+		tmp["traffic"] = t.Traffic
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIWLANsReport40topSsidsByTrafficTableMetaData() *SCIWLANsReport40topSsidsByTrafficTableMetaData {
@@ -306,6 +668,91 @@ type SCIWLANsReport41topSsidsByClientsTableDataType struct {
 	UserTraffic *int `json:"userTraffic,omitempty"`
 
 	UserTxBytes *int `json:"userTxBytes,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIWLANsReport41topSsidsByClientsTableDataType) UnmarshalJSON(b []byte) error {
+	type _SCIWLANsReport41topSsidsByClientsTableDataType SCIWLANsReport41topSsidsByClientsTableDataType
+	tmpType := new(_SCIWLANsReport41topSsidsByClientsTableDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apCount")
+	delete(tmpType.XAdditionalProperties, "clientCount")
+	delete(tmpType.XAdditionalProperties, "index")
+	delete(tmpType.XAdditionalProperties, "mgmtRxBytes")
+	delete(tmpType.XAdditionalProperties, "mgmtTraffic")
+	delete(tmpType.XAdditionalProperties, "mgmtTxBytes")
+	delete(tmpType.XAdditionalProperties, "sessionCount")
+	delete(tmpType.XAdditionalProperties, "ssid")
+	delete(tmpType.XAdditionalProperties, "totalRxTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTxTraffic")
+	delete(tmpType.XAdditionalProperties, "userRxBytes")
+	delete(tmpType.XAdditionalProperties, "userTraffic")
+	delete(tmpType.XAdditionalProperties, "userTxBytes")
+	*t = SCIWLANsReport41topSsidsByClientsTableDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIWLANsReport41topSsidsByClientsTableDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApCount != nil {
+		tmp["apCount"] = t.ApCount
+	}
+	if t.ClientCount != nil {
+		tmp["clientCount"] = t.ClientCount
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	if t.MgmtRxBytes != nil {
+		tmp["mgmtRxBytes"] = t.MgmtRxBytes
+	}
+	if t.MgmtTraffic != nil {
+		tmp["mgmtTraffic"] = t.MgmtTraffic
+	}
+	if t.MgmtTxBytes != nil {
+		tmp["mgmtTxBytes"] = t.MgmtTxBytes
+	}
+	if t.SessionCount != nil {
+		tmp["sessionCount"] = t.SessionCount
+	}
+	if t.Ssid != nil {
+		tmp["ssid"] = t.Ssid
+	}
+	if t.TotalRxTraffic != nil {
+		tmp["totalRxTraffic"] = t.TotalRxTraffic
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.TotalTxTraffic != nil {
+		tmp["totalTxTraffic"] = t.TotalTxTraffic
+	}
+	if t.UserRxBytes != nil {
+		tmp["userRxBytes"] = t.UserRxBytes
+	}
+	if t.UserTraffic != nil {
+		tmp["userTraffic"] = t.UserTraffic
+	}
+	if t.UserTxBytes != nil {
+		tmp["userTxBytes"] = t.UserTxBytes
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIWLANsReport41topSsidsByClientsTableDataType() *SCIWLANsReport41topSsidsByClientsTableDataType {
@@ -321,11 +768,60 @@ type SCIWLANsReport41topSsidsByClientsTableMetaData struct {
 
 	Name *string `json:"name,omitempty"`
 
-	Percentage *int `json:"percentage,omitempty"`
+	Percentage *float64 `json:"percentage,omitempty"`
 
 	TotalTraffic *int `json:"totalTraffic,omitempty"`
 
 	Traffic *int `json:"traffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIWLANsReport41topSsidsByClientsTableMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIWLANsReport41topSsidsByClientsTableMetaData SCIWLANsReport41topSsidsByClientsTableMetaData
+	tmpType := new(_SCIWLANsReport41topSsidsByClientsTableMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "maxValues")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "percentage")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "traffic")
+	*t = SCIWLANsReport41topSsidsByClientsTableMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIWLANsReport41topSsidsByClientsTableMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MaxValues != nil {
+		tmp["maxValues"] = t.MaxValues
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.Percentage != nil {
+		tmp["percentage"] = t.Percentage
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.Traffic != nil {
+		tmp["traffic"] = t.Traffic
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIWLANsReport41topSsidsByClientsTableMetaData() *SCIWLANsReport41topSsidsByClientsTableMetaData {

@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -41,9 +42,9 @@ type SCIOverview62overviewDataType struct {
 
 	ClientCount interface{} `json:"clientCount,omitempty"`
 
-	RebootCount interface{} `json:"rebootCount,omitempty"`
+	RebootCount *float64 `json:"rebootCount,omitempty"`
 
-	SessionCount *float64 `json:"sessionCount,omitempty"`
+	SessionCount interface{} `json:"sessionCount,omitempty"`
 
 	ShortSessionRatio interface{} `json:"shortSessionRatio,omitempty"`
 
@@ -52,6 +53,71 @@ type SCIOverview62overviewDataType struct {
 	TotalHistory *int `json:"totalHistory,omitempty"`
 
 	UserTraffic interface{} `json:"userTraffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview62overviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview62overviewDataType SCIOverview62overviewDataType
+	tmpType := new(_SCIOverview62overviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apMac")
+	delete(tmpType.XAdditionalProperties, "apName")
+	delete(tmpType.XAdditionalProperties, "clientCount")
+	delete(tmpType.XAdditionalProperties, "rebootCount")
+	delete(tmpType.XAdditionalProperties, "sessionCount")
+	delete(tmpType.XAdditionalProperties, "shortSessionRatio")
+	delete(tmpType.XAdditionalProperties, "total")
+	delete(tmpType.XAdditionalProperties, "totalHistory")
+	delete(tmpType.XAdditionalProperties, "userTraffic")
+	*t = SCIOverview62overviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview62overviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApMac != nil {
+		tmp["apMac"] = t.ApMac
+	}
+	if t.ApName != nil {
+		tmp["apName"] = t.ApName
+	}
+	if t.ClientCount != nil {
+		tmp["clientCount"] = t.ClientCount
+	}
+	if t.RebootCount != nil {
+		tmp["rebootCount"] = t.RebootCount
+	}
+	if t.SessionCount != nil {
+		tmp["sessionCount"] = t.SessionCount
+	}
+	if t.ShortSessionRatio != nil {
+		tmp["shortSessionRatio"] = t.ShortSessionRatio
+	}
+	if t.Total != nil {
+		tmp["total"] = t.Total
+	}
+	if t.TotalHistory != nil {
+		tmp["totalHistory"] = t.TotalHistory
+	}
+	if t.UserTraffic != nil {
+		tmp["userTraffic"] = t.UserTraffic
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview62overviewDataType() *SCIOverview62overviewDataType {
@@ -64,6 +130,39 @@ func NewSCIOverview62overviewDataType() *SCIOverview62overviewDataType {
 // Definition: Overview_Overview_62_overview_MetaData
 type SCIOverview62overviewMetaData struct {
 	LastAnomalyUpdatedTime *string `json:"lastAnomalyUpdatedTime,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview62overviewMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIOverview62overviewMetaData SCIOverview62overviewMetaData
+	tmpType := new(_SCIOverview62overviewMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "lastAnomalyUpdatedTime")
+	*t = SCIOverview62overviewMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview62overviewMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.LastAnomalyUpdatedTime != nil {
+		tmp["lastAnomalyUpdatedTime"] = t.LastAnomalyUpdatedTime
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview62overviewMetaData() *SCIOverview62overviewMetaData {
@@ -94,6 +193,55 @@ type SCIOverview63controllerDataType struct {
 	Total *int `json:"total,omitempty"`
 
 	ZdCount *int `json:"zdCount,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview63controllerDataType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview63controllerDataType SCIOverview63controllerDataType
+	tmpType := new(_SCIOverview63controllerDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "offline")
+	delete(tmpType.XAdditionalProperties, "online")
+	delete(tmpType.XAdditionalProperties, "szCount")
+	delete(tmpType.XAdditionalProperties, "total")
+	delete(tmpType.XAdditionalProperties, "zdCount")
+	*t = SCIOverview63controllerDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview63controllerDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Offline != nil {
+		tmp["offline"] = t.Offline
+	}
+	if t.Online != nil {
+		tmp["online"] = t.Online
+	}
+	if t.SzCount != nil {
+		tmp["szCount"] = t.SzCount
+	}
+	if t.Total != nil {
+		tmp["total"] = t.Total
+	}
+	if t.ZdCount != nil {
+		tmp["zdCount"] = t.ZdCount
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview63controllerDataType() *SCIOverview63controllerDataType {
@@ -128,6 +276,63 @@ type SCIOverview64apOverviewDataType struct {
 	TotalApsWAlarm *int `json:"totalApsWAlarm,omitempty"`
 
 	TotalApsWReboot *int `json:"totalApsWReboot,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview64apOverviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview64apOverviewDataType SCIOverview64apOverviewDataType
+	tmpType := new(_SCIOverview64apOverviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "offline")
+	delete(tmpType.XAdditionalProperties, "online")
+	delete(tmpType.XAdditionalProperties, "others")
+	delete(tmpType.XAdditionalProperties, "reboots")
+	delete(tmpType.XAdditionalProperties, "total")
+	delete(tmpType.XAdditionalProperties, "totalApsWAlarm")
+	delete(tmpType.XAdditionalProperties, "totalApsWReboot")
+	*t = SCIOverview64apOverviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview64apOverviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Offline != nil {
+		tmp["offline"] = t.Offline
+	}
+	if t.Online != nil {
+		tmp["online"] = t.Online
+	}
+	if t.Others != nil {
+		tmp["others"] = t.Others
+	}
+	if t.Reboots != nil {
+		tmp["reboots"] = t.Reboots
+	}
+	if t.Total != nil {
+		tmp["total"] = t.Total
+	}
+	if t.TotalApsWAlarm != nil {
+		tmp["totalApsWAlarm"] = t.TotalApsWAlarm
+	}
+	if t.TotalApsWReboot != nil {
+		tmp["totalApsWReboot"] = t.TotalApsWReboot
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview64apOverviewDataType() *SCIOverview64apOverviewDataType {
@@ -152,6 +357,43 @@ type SCIOverview66apAlarmOverviewDataType struct {
 	AlarmType *string `json:"alarmType,omitempty"`
 
 	Count *int `json:"count,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview66apAlarmOverviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview66apAlarmOverviewDataType SCIOverview66apAlarmOverviewDataType
+	tmpType := new(_SCIOverview66apAlarmOverviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "alarmType")
+	delete(tmpType.XAdditionalProperties, "count")
+	*t = SCIOverview66apAlarmOverviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview66apAlarmOverviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AlarmType != nil {
+		tmp["alarmType"] = t.AlarmType
+	}
+	if t.Count != nil {
+		tmp["count"] = t.Count
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview66apAlarmOverviewDataType() *SCIOverview66apAlarmOverviewDataType {
@@ -166,6 +408,43 @@ type SCIOverview66apAlarmOverviewMetaData struct {
 	AlarmStat *SCIOverview66apAlarmOverviewMetaDataAlarmStatType `json:"alarmStat,omitempty"`
 
 	AlarmTotalCount *int `json:"alarmTotalCount,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview66apAlarmOverviewMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIOverview66apAlarmOverviewMetaData SCIOverview66apAlarmOverviewMetaData
+	tmpType := new(_SCIOverview66apAlarmOverviewMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "alarmStat")
+	delete(tmpType.XAdditionalProperties, "alarmTotalCount")
+	*t = SCIOverview66apAlarmOverviewMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview66apAlarmOverviewMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AlarmStat != nil {
+		tmp["alarmStat"] = t.AlarmStat
+	}
+	if t.AlarmTotalCount != nil {
+		tmp["alarmTotalCount"] = t.AlarmTotalCount
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview66apAlarmOverviewMetaData() *SCIOverview66apAlarmOverviewMetaData {
@@ -236,6 +515,51 @@ type SCIOverview67switchOverviewDataType struct {
 	Others *int `json:"others,omitempty"`
 
 	Total *int `json:"total,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview67switchOverviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview67switchOverviewDataType SCIOverview67switchOverviewDataType
+	tmpType := new(_SCIOverview67switchOverviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "offline")
+	delete(tmpType.XAdditionalProperties, "online")
+	delete(tmpType.XAdditionalProperties, "others")
+	delete(tmpType.XAdditionalProperties, "total")
+	*t = SCIOverview67switchOverviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview67switchOverviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Offline != nil {
+		tmp["offline"] = t.Offline
+	}
+	if t.Online != nil {
+		tmp["online"] = t.Online
+	}
+	if t.Others != nil {
+		tmp["others"] = t.Others
+	}
+	if t.Total != nil {
+		tmp["total"] = t.Total
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview67switchOverviewDataType() *SCIOverview67switchOverviewDataType {
@@ -262,6 +586,47 @@ type SCIOverview68apClientCountOverviewDataType struct {
 	Label *string `json:"label,omitempty"`
 
 	Value *float64 `json:"value,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview68apClientCountOverviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview68apClientCountOverviewDataType SCIOverview68apClientCountOverviewDataType
+	tmpType := new(_SCIOverview68apClientCountOverviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "key")
+	delete(tmpType.XAdditionalProperties, "label")
+	delete(tmpType.XAdditionalProperties, "value")
+	*t = SCIOverview68apClientCountOverviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview68apClientCountOverviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Key != nil {
+		tmp["key"] = t.Key
+	}
+	if t.Label != nil {
+		tmp["label"] = t.Label
+	}
+	if t.Value != nil {
+		tmp["value"] = t.Value
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview68apClientCountOverviewDataType() *SCIOverview68apClientCountOverviewDataType {
@@ -274,6 +639,39 @@ func NewSCIOverview68apClientCountOverviewDataType() *SCIOverview68apClientCount
 // Definition: Overview_Overview_68_apClientCountOverview_MetaData
 type SCIOverview68apClientCountOverviewMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview68apClientCountOverviewMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIOverview68apClientCountOverviewMetaData SCIOverview68apClientCountOverviewMetaData
+	tmpType := new(_SCIOverview68apClientCountOverviewMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCIOverview68apClientCountOverviewMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview68apClientCountOverviewMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview68apClientCountOverviewMetaData() *SCIOverview68apClientCountOverviewMetaData {
@@ -305,9 +703,76 @@ func MakeSCIOverview69totalTrafficMinMaxRateDataType() SCIOverview69totalTraffic
 //
 // Definition: Overview_Overview_69_totalTrafficMinMaxRate_DataTypeType
 type SCIOverview69totalTrafficMinMaxRateDataTypeType struct {
+	Avg *float64 `json:"avg,omitempty"`
+
+	Max *float64 `json:"max,omitempty"`
+
+	MaxLabel *string `json:"maxLabel,omitempty"`
+
+	Min *float64 `json:"min,omitempty"`
+
+	MinLabel *string `json:"minLabel,omitempty"`
+
 	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
 
 	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview69totalTrafficMinMaxRateDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview69totalTrafficMinMaxRateDataTypeType SCIOverview69totalTrafficMinMaxRateDataTypeType
+	tmpType := new(_SCIOverview69totalTrafficMinMaxRateDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "avg")
+	delete(tmpType.XAdditionalProperties, "max")
+	delete(tmpType.XAdditionalProperties, "maxLabel")
+	delete(tmpType.XAdditionalProperties, "min")
+	delete(tmpType.XAdditionalProperties, "minLabel")
+	delete(tmpType.XAdditionalProperties, "totalRxTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTxTraffic")
+	*t = SCIOverview69totalTrafficMinMaxRateDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview69totalTrafficMinMaxRateDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Avg != nil {
+		tmp["avg"] = t.Avg
+	}
+	if t.Max != nil {
+		tmp["max"] = t.Max
+	}
+	if t.MaxLabel != nil {
+		tmp["maxLabel"] = t.MaxLabel
+	}
+	if t.Min != nil {
+		tmp["min"] = t.Min
+	}
+	if t.MinLabel != nil {
+		tmp["minLabel"] = t.MinLabel
+	}
+	if t.TotalRxTraffic != nil {
+		tmp["totalRxTraffic"] = t.TotalRxTraffic
+	}
+	if t.TotalTxTraffic != nil {
+		tmp["totalTxTraffic"] = t.TotalTxTraffic
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview69totalTrafficMinMaxRateDataTypeType() *SCIOverview69totalTrafficMinMaxRateDataTypeType {
@@ -339,7 +804,70 @@ func MakeSCIOverview70sessionsOverviewDataType() SCIOverview70sessionsOverviewDa
 //
 // Definition: Overview_Overview_70_sessionsOverview_DataTypeType
 type SCIOverview70sessionsOverviewDataTypeType struct {
+	Avg *float64 `json:"avg,omitempty"`
+
 	Current *float64 `json:"current,omitempty"`
+
+	Max *float64 `json:"max,omitempty"`
+
+	MaxLabel *string `json:"maxLabel,omitempty"`
+
+	Min *float64 `json:"min,omitempty"`
+
+	MinLabel *string `json:"minLabel,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview70sessionsOverviewDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview70sessionsOverviewDataTypeType SCIOverview70sessionsOverviewDataTypeType
+	tmpType := new(_SCIOverview70sessionsOverviewDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "avg")
+	delete(tmpType.XAdditionalProperties, "current")
+	delete(tmpType.XAdditionalProperties, "max")
+	delete(tmpType.XAdditionalProperties, "maxLabel")
+	delete(tmpType.XAdditionalProperties, "min")
+	delete(tmpType.XAdditionalProperties, "minLabel")
+	*t = SCIOverview70sessionsOverviewDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview70sessionsOverviewDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Avg != nil {
+		tmp["avg"] = t.Avg
+	}
+	if t.Current != nil {
+		tmp["current"] = t.Current
+	}
+	if t.Max != nil {
+		tmp["max"] = t.Max
+	}
+	if t.MaxLabel != nil {
+		tmp["maxLabel"] = t.MaxLabel
+	}
+	if t.Min != nil {
+		tmp["min"] = t.Min
+	}
+	if t.MinLabel != nil {
+		tmp["minLabel"] = t.MinLabel
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview70sessionsOverviewDataTypeType() *SCIOverview70sessionsOverviewDataTypeType {
@@ -374,6 +902,55 @@ type SCIOverview71ssidOverviewDataTypeType struct {
 	Current *int `json:"current,omitempty"`
 
 	Previous *int `json:"previous,omitempty"`
+
+	Ssid *string `json:"ssid,omitempty"`
+
+	TotalMetric *int `json:"totalMetric,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview71ssidOverviewDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview71ssidOverviewDataTypeType SCIOverview71ssidOverviewDataTypeType
+	tmpType := new(_SCIOverview71ssidOverviewDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "current")
+	delete(tmpType.XAdditionalProperties, "previous")
+	delete(tmpType.XAdditionalProperties, "ssid")
+	delete(tmpType.XAdditionalProperties, "totalMetric")
+	*t = SCIOverview71ssidOverviewDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview71ssidOverviewDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Current != nil {
+		tmp["current"] = t.Current
+	}
+	if t.Previous != nil {
+		tmp["previous"] = t.Previous
+	}
+	if t.Ssid != nil {
+		tmp["ssid"] = t.Ssid
+	}
+	if t.TotalMetric != nil {
+		tmp["totalMetric"] = t.TotalMetric
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview71ssidOverviewDataTypeType() *SCIOverview71ssidOverviewDataTypeType {
@@ -388,6 +965,43 @@ type SCIOverview71ssidOverviewMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 
 	TotalMetric *int `json:"totalMetric,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview71ssidOverviewMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIOverview71ssidOverviewMetaData SCIOverview71ssidOverviewMetaData
+	tmpType := new(_SCIOverview71ssidOverviewMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	delete(tmpType.XAdditionalProperties, "totalMetric")
+	*t = SCIOverview71ssidOverviewMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview71ssidOverviewMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	if t.TotalMetric != nil {
+		tmp["totalMetric"] = t.TotalMetric
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview71ssidOverviewMetaData() *SCIOverview71ssidOverviewMetaData {
@@ -414,6 +1028,47 @@ type SCIOverview72radioOverviewDataType struct {
 	Radio *string `json:"radio,omitempty"`
 
 	TotalTraffic *int `json:"totalTraffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview72radioOverviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview72radioOverviewDataType SCIOverview72radioOverviewDataType
+	tmpType := new(_SCIOverview72radioOverviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "airtimeUtilizationAvg")
+	delete(tmpType.XAdditionalProperties, "radio")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	*t = SCIOverview72radioOverviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview72radioOverviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AirtimeUtilizationAvg != nil {
+		tmp["airtimeUtilizationAvg"] = t.AirtimeUtilizationAvg
+	}
+	if t.Radio != nil {
+		tmp["radio"] = t.Radio
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview72radioOverviewDataType() *SCIOverview72radioOverviewDataType {
@@ -435,11 +1090,52 @@ func MakeSCIOverview73applicationsOverviewData() SCIOverview73applicationsOvervi
 //
 // Definition: Overview_Overview_73_applicationsOverview_DataType
 type SCIOverview73applicationsOverviewDataType struct {
-	Key *string `json:"key,omitempty"`
+	Key *int `json:"key,omitempty"`
 
-	Label interface{} `json:"label,omitempty"`
+	Label *string `json:"label,omitempty"`
 
 	Value *float64 `json:"value,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview73applicationsOverviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview73applicationsOverviewDataType SCIOverview73applicationsOverviewDataType
+	tmpType := new(_SCIOverview73applicationsOverviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "key")
+	delete(tmpType.XAdditionalProperties, "label")
+	delete(tmpType.XAdditionalProperties, "value")
+	*t = SCIOverview73applicationsOverviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview73applicationsOverviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Key != nil {
+		tmp["key"] = t.Key
+	}
+	if t.Label != nil {
+		tmp["label"] = t.Label
+	}
+	if t.Value != nil {
+		tmp["value"] = t.Value
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview73applicationsOverviewDataType() *SCIOverview73applicationsOverviewDataType {
@@ -464,6 +1160,43 @@ type SCIOverview74apEventOverviewDataType struct {
 	Count *int `json:"count,omitempty"`
 
 	EventType *string `json:"eventType,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview74apEventOverviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview74apEventOverviewDataType SCIOverview74apEventOverviewDataType
+	tmpType := new(_SCIOverview74apEventOverviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "count")
+	delete(tmpType.XAdditionalProperties, "eventType")
+	*t = SCIOverview74apEventOverviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview74apEventOverviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Count != nil {
+		tmp["count"] = t.Count
+	}
+	if t.EventType != nil {
+		tmp["eventType"] = t.EventType
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview74apEventOverviewDataType() *SCIOverview74apEventOverviewDataType {
@@ -476,6 +1209,39 @@ func NewSCIOverview74apEventOverviewDataType() *SCIOverview74apEventOverviewData
 // Definition: Overview_Overview_74_apEventOverview_MetaData
 type SCIOverview74apEventOverviewMetaData struct {
 	EventTotalCount *int `json:"eventTotalCount,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview74apEventOverviewMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIOverview74apEventOverviewMetaData SCIOverview74apEventOverviewMetaData
+	tmpType := new(_SCIOverview74apEventOverviewMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "eventTotalCount")
+	*t = SCIOverview74apEventOverviewMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview74apEventOverviewMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.EventTotalCount != nil {
+		tmp["eventTotalCount"] = t.EventTotalCount
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview74apEventOverviewMetaData() *SCIOverview74apEventOverviewMetaData {
@@ -499,9 +1265,50 @@ func MakeSCIOverview97factOverviewData() SCIOverview97factOverviewData {
 type SCIOverview97factOverviewDataType struct {
 	Key *string `json:"key,omitempty"`
 
-	Label *string `json:"label,omitempty"`
+	Label interface{} `json:"label,omitempty"`
 
 	Value *float64 `json:"value,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview97factOverviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview97factOverviewDataType SCIOverview97factOverviewDataType
+	tmpType := new(_SCIOverview97factOverviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "key")
+	delete(tmpType.XAdditionalProperties, "label")
+	delete(tmpType.XAdditionalProperties, "value")
+	*t = SCIOverview97factOverviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview97factOverviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Key != nil {
+		tmp["key"] = t.Key
+	}
+	if t.Label != nil {
+		tmp["label"] = t.Label
+	}
+	if t.Value != nil {
+		tmp["value"] = t.Value
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview97factOverviewDataType() *SCIOverview97factOverviewDataType {
@@ -530,6 +1337,71 @@ type SCIOverview115networkUsageOverviewData struct {
 	System []*SCIOverview115networkUsageOverviewDataSystemType `json:"System,omitempty"`
 
 	Zone []*SCIOverview115networkUsageOverviewDataZoneType `json:"Zone,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview115networkUsageOverviewData) UnmarshalJSON(b []byte) error {
+	type _SCIOverview115networkUsageOverviewData SCIOverview115networkUsageOverviewData
+	tmpType := new(_SCIOverview115networkUsageOverviewData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "Ap")
+	delete(tmpType.XAdditionalProperties, "ApGroup")
+	delete(tmpType.XAdditionalProperties, "App")
+	delete(tmpType.XAdditionalProperties, "Domain")
+	delete(tmpType.XAdditionalProperties, "OS")
+	delete(tmpType.XAdditionalProperties, "SSID")
+	delete(tmpType.XAdditionalProperties, "Switch")
+	delete(tmpType.XAdditionalProperties, "System")
+	delete(tmpType.XAdditionalProperties, "Zone")
+	*t = SCIOverview115networkUsageOverviewData(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview115networkUsageOverviewData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Ap != nil {
+		tmp["Ap"] = t.Ap
+	}
+	if t.ApGroup != nil {
+		tmp["ApGroup"] = t.ApGroup
+	}
+	if t.App != nil {
+		tmp["App"] = t.App
+	}
+	if t.Domain != nil {
+		tmp["Domain"] = t.Domain
+	}
+	if t.OS != nil {
+		tmp["OS"] = t.OS
+	}
+	if t.SSID != nil {
+		tmp["SSID"] = t.SSID
+	}
+	if t.Switch != nil {
+		tmp["Switch"] = t.Switch
+	}
+	if t.System != nil {
+		tmp["System"] = t.System
+	}
+	if t.Zone != nil {
+		tmp["Zone"] = t.Zone
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview115networkUsageOverviewData() *SCIOverview115networkUsageOverviewData {
@@ -550,6 +1422,55 @@ type SCIOverview115networkUsageOverviewDataApGroupType struct {
 	Y *int `json:"y,omitempty"`
 
 	Z *int `json:"z,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview115networkUsageOverviewDataApGroupType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview115networkUsageOverviewDataApGroupType SCIOverview115networkUsageOverviewDataApGroupType
+	tmpType := new(_SCIOverview115networkUsageOverviewDataApGroupType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "macId")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "x")
+	delete(tmpType.XAdditionalProperties, "y")
+	delete(tmpType.XAdditionalProperties, "z")
+	*t = SCIOverview115networkUsageOverviewDataApGroupType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview115networkUsageOverviewDataApGroupType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MacId != nil {
+		tmp["macId"] = t.MacId
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.X != nil {
+		tmp["x"] = t.X
+	}
+	if t.Y != nil {
+		tmp["y"] = t.Y
+	}
+	if t.Z != nil {
+		tmp["z"] = t.Z
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview115networkUsageOverviewDataApGroupType() *SCIOverview115networkUsageOverviewDataApGroupType {
@@ -570,6 +1491,55 @@ type SCIOverview115networkUsageOverviewDataAppType struct {
 	Y *int `json:"y,omitempty"`
 
 	Z *int `json:"z,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview115networkUsageOverviewDataAppType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview115networkUsageOverviewDataAppType SCIOverview115networkUsageOverviewDataAppType
+	tmpType := new(_SCIOverview115networkUsageOverviewDataAppType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "macId")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "x")
+	delete(tmpType.XAdditionalProperties, "y")
+	delete(tmpType.XAdditionalProperties, "z")
+	*t = SCIOverview115networkUsageOverviewDataAppType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview115networkUsageOverviewDataAppType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MacId != nil {
+		tmp["macId"] = t.MacId
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.X != nil {
+		tmp["x"] = t.X
+	}
+	if t.Y != nil {
+		tmp["y"] = t.Y
+	}
+	if t.Z != nil {
+		tmp["z"] = t.Z
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview115networkUsageOverviewDataAppType() *SCIOverview115networkUsageOverviewDataAppType {
@@ -590,6 +1560,55 @@ type SCIOverview115networkUsageOverviewDataApType struct {
 	Y *int `json:"y,omitempty"`
 
 	Z *int `json:"z,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview115networkUsageOverviewDataApType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview115networkUsageOverviewDataApType SCIOverview115networkUsageOverviewDataApType
+	tmpType := new(_SCIOverview115networkUsageOverviewDataApType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "macId")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "x")
+	delete(tmpType.XAdditionalProperties, "y")
+	delete(tmpType.XAdditionalProperties, "z")
+	*t = SCIOverview115networkUsageOverviewDataApType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview115networkUsageOverviewDataApType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MacId != nil {
+		tmp["macId"] = t.MacId
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.X != nil {
+		tmp["x"] = t.X
+	}
+	if t.Y != nil {
+		tmp["y"] = t.Y
+	}
+	if t.Z != nil {
+		tmp["z"] = t.Z
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview115networkUsageOverviewDataApType() *SCIOverview115networkUsageOverviewDataApType {
@@ -610,6 +1629,55 @@ type SCIOverview115networkUsageOverviewDataDomainType struct {
 	Y *int `json:"y,omitempty"`
 
 	Z *int `json:"z,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview115networkUsageOverviewDataDomainType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview115networkUsageOverviewDataDomainType SCIOverview115networkUsageOverviewDataDomainType
+	tmpType := new(_SCIOverview115networkUsageOverviewDataDomainType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "macId")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "x")
+	delete(tmpType.XAdditionalProperties, "y")
+	delete(tmpType.XAdditionalProperties, "z")
+	*t = SCIOverview115networkUsageOverviewDataDomainType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview115networkUsageOverviewDataDomainType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MacId != nil {
+		tmp["macId"] = t.MacId
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.X != nil {
+		tmp["x"] = t.X
+	}
+	if t.Y != nil {
+		tmp["y"] = t.Y
+	}
+	if t.Z != nil {
+		tmp["z"] = t.Z
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview115networkUsageOverviewDataDomainType() *SCIOverview115networkUsageOverviewDataDomainType {
@@ -630,6 +1698,55 @@ type SCIOverview115networkUsageOverviewDataOSType struct {
 	Y *int `json:"y,omitempty"`
 
 	Z *int `json:"z,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview115networkUsageOverviewDataOSType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview115networkUsageOverviewDataOSType SCIOverview115networkUsageOverviewDataOSType
+	tmpType := new(_SCIOverview115networkUsageOverviewDataOSType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "macId")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "x")
+	delete(tmpType.XAdditionalProperties, "y")
+	delete(tmpType.XAdditionalProperties, "z")
+	*t = SCIOverview115networkUsageOverviewDataOSType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview115networkUsageOverviewDataOSType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MacId != nil {
+		tmp["macId"] = t.MacId
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.X != nil {
+		tmp["x"] = t.X
+	}
+	if t.Y != nil {
+		tmp["y"] = t.Y
+	}
+	if t.Z != nil {
+		tmp["z"] = t.Z
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview115networkUsageOverviewDataOSType() *SCIOverview115networkUsageOverviewDataOSType {
@@ -650,6 +1767,55 @@ type SCIOverview115networkUsageOverviewDataSSIDType struct {
 	Y *int `json:"y,omitempty"`
 
 	Z *int `json:"z,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview115networkUsageOverviewDataSSIDType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview115networkUsageOverviewDataSSIDType SCIOverview115networkUsageOverviewDataSSIDType
+	tmpType := new(_SCIOverview115networkUsageOverviewDataSSIDType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "macId")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "x")
+	delete(tmpType.XAdditionalProperties, "y")
+	delete(tmpType.XAdditionalProperties, "z")
+	*t = SCIOverview115networkUsageOverviewDataSSIDType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview115networkUsageOverviewDataSSIDType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MacId != nil {
+		tmp["macId"] = t.MacId
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.X != nil {
+		tmp["x"] = t.X
+	}
+	if t.Y != nil {
+		tmp["y"] = t.Y
+	}
+	if t.Z != nil {
+		tmp["z"] = t.Z
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview115networkUsageOverviewDataSSIDType() *SCIOverview115networkUsageOverviewDataSSIDType {
@@ -670,6 +1836,55 @@ type SCIOverview115networkUsageOverviewDataSwitchType struct {
 	Y *int `json:"y,omitempty"`
 
 	Z *int `json:"z,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview115networkUsageOverviewDataSwitchType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview115networkUsageOverviewDataSwitchType SCIOverview115networkUsageOverviewDataSwitchType
+	tmpType := new(_SCIOverview115networkUsageOverviewDataSwitchType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "macId")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "x")
+	delete(tmpType.XAdditionalProperties, "y")
+	delete(tmpType.XAdditionalProperties, "z")
+	*t = SCIOverview115networkUsageOverviewDataSwitchType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview115networkUsageOverviewDataSwitchType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MacId != nil {
+		tmp["macId"] = t.MacId
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.X != nil {
+		tmp["x"] = t.X
+	}
+	if t.Y != nil {
+		tmp["y"] = t.Y
+	}
+	if t.Z != nil {
+		tmp["z"] = t.Z
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview115networkUsageOverviewDataSwitchType() *SCIOverview115networkUsageOverviewDataSwitchType {
@@ -690,6 +1905,55 @@ type SCIOverview115networkUsageOverviewDataSystemType struct {
 	Y *int `json:"y,omitempty"`
 
 	Z *int `json:"z,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview115networkUsageOverviewDataSystemType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview115networkUsageOverviewDataSystemType SCIOverview115networkUsageOverviewDataSystemType
+	tmpType := new(_SCIOverview115networkUsageOverviewDataSystemType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "macId")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "x")
+	delete(tmpType.XAdditionalProperties, "y")
+	delete(tmpType.XAdditionalProperties, "z")
+	*t = SCIOverview115networkUsageOverviewDataSystemType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview115networkUsageOverviewDataSystemType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MacId != nil {
+		tmp["macId"] = t.MacId
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.X != nil {
+		tmp["x"] = t.X
+	}
+	if t.Y != nil {
+		tmp["y"] = t.Y
+	}
+	if t.Z != nil {
+		tmp["z"] = t.Z
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview115networkUsageOverviewDataSystemType() *SCIOverview115networkUsageOverviewDataSystemType {
@@ -710,6 +1974,55 @@ type SCIOverview115networkUsageOverviewDataZoneType struct {
 	Y *int `json:"y,omitempty"`
 
 	Z *int `json:"z,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview115networkUsageOverviewDataZoneType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview115networkUsageOverviewDataZoneType SCIOverview115networkUsageOverviewDataZoneType
+	tmpType := new(_SCIOverview115networkUsageOverviewDataZoneType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "macId")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "x")
+	delete(tmpType.XAdditionalProperties, "y")
+	delete(tmpType.XAdditionalProperties, "z")
+	*t = SCIOverview115networkUsageOverviewDataZoneType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview115networkUsageOverviewDataZoneType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MacId != nil {
+		tmp["macId"] = t.MacId
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.X != nil {
+		tmp["x"] = t.X
+	}
+	if t.Y != nil {
+		tmp["y"] = t.Y
+	}
+	if t.Z != nil {
+		tmp["z"] = t.Z
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIOverview115networkUsageOverviewDataZoneType() *SCIOverview115networkUsageOverviewDataZoneType {

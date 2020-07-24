@@ -2,6 +2,10 @@ package bigdog
 
 // API Version: v9_0
 
+import (
+	"encoding/json"
+)
+
 // WSGAPAlarmSummary
 //
 // Definition: ap_alarmSummary
@@ -456,6 +460,55 @@ type WSGAPRadioConfiguration struct {
 	MetaData *WSGAPRadioConfigurationMetaDataType `json:"metaData,omitempty"`
 
 	Success *bool `json:"success,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *WSGAPRadioConfiguration) UnmarshalJSON(b []byte) error {
+	type _WSGAPRadioConfiguration WSGAPRadioConfiguration
+	tmpType := new(_WSGAPRadioConfiguration)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "data")
+	delete(tmpType.XAdditionalProperties, "error")
+	delete(tmpType.XAdditionalProperties, "extra")
+	delete(tmpType.XAdditionalProperties, "metaData")
+	delete(tmpType.XAdditionalProperties, "success")
+	*t = WSGAPRadioConfiguration(*tmpType)
+	return nil
+}
+
+func (t *WSGAPRadioConfiguration) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Data != nil {
+		tmp["data"] = t.Data
+	}
+	if t.Error != nil {
+		tmp["error"] = t.Error
+	}
+	if t.Extra != nil {
+		tmp["extra"] = t.Extra
+	}
+	if t.MetaData != nil {
+		tmp["metaData"] = t.MetaData
+	}
+	if t.Success != nil {
+		tmp["success"] = t.Success
+	}
+	return json.Marshal(tmp)
 }
 
 func NewWSGAPRadioConfiguration() *WSGAPRadioConfiguration {
@@ -501,7 +554,7 @@ type WSGAPRadioConfigurationDataTypeListType struct {
 
 	ChannelWidth *int `json:"channelWidth,omitempty"`
 
-	ClientCount *int `json:"clientCount,omitempty"`
+	ClientCount *string `json:"clientCount,omitempty"`
 
 	Columns *WSGAPRadioConfigurationDataTypeListTypeColumnsType `json:"columns,omitempty"`
 
@@ -558,6 +611,183 @@ type WSGAPRadioConfigurationDataTypeListType struct {
 	WlanGroupName *string `json:"wlanGroupName,omitempty"`
 
 	WlanGroupWlanNum *int `json:"wlanGroupWlanNum,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *WSGAPRadioConfigurationDataTypeListType) UnmarshalJSON(b []byte) error {
+	type _WSGAPRadioConfigurationDataTypeListType WSGAPRadioConfigurationDataTypeListType
+	tmpType := new(_WSGAPRadioConfigurationDataTypeListType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apMac")
+	delete(tmpType.XAdditionalProperties, "autoCellSizing")
+	delete(tmpType.XAdditionalProperties, "backgroundScan")
+	delete(tmpType.XAdditionalProperties, "busy")
+	delete(tmpType.XAdditionalProperties, "channel")
+	delete(tmpType.XAdditionalProperties, "channelBlacklist")
+	delete(tmpType.XAdditionalProperties, "channelList")
+	delete(tmpType.XAdditionalProperties, "channelWidth")
+	delete(tmpType.XAdditionalProperties, "clientCount")
+	delete(tmpType.XAdditionalProperties, "columns")
+	delete(tmpType.XAdditionalProperties, "deployedWlanNum")
+	delete(tmpType.XAdditionalProperties, "drop")
+	delete(tmpType.XAdditionalProperties, "key")
+	delete(tmpType.XAdditionalProperties, "maxWlanNum")
+	delete(tmpType.XAdditionalProperties, "mode")
+	delete(tmpType.XAdditionalProperties, "noiseFloor")
+	delete(tmpType.XAdditionalProperties, "nullValueColumnNames")
+	delete(tmpType.XAdditionalProperties, "numOfAuthorizedClients")
+	delete(tmpType.XAdditionalProperties, "phyError")
+	delete(tmpType.XAdditionalProperties, "radioId")
+	delete(tmpType.XAdditionalProperties, "retry")
+	delete(tmpType.XAdditionalProperties, "rx")
+	delete(tmpType.XAdditionalProperties, "rxBytes")
+	delete(tmpType.XAdditionalProperties, "rxFrames")
+	delete(tmpType.XAdditionalProperties, "rxMulticast")
+	delete(tmpType.XAdditionalProperties, "rxRadioFrames")
+	delete(tmpType.XAdditionalProperties, "secondaryChannel")
+	delete(tmpType.XAdditionalProperties, "total")
+	delete(tmpType.XAdditionalProperties, "tx")
+	delete(tmpType.XAdditionalProperties, "txBytes")
+	delete(tmpType.XAdditionalProperties, "txFrames")
+	delete(tmpType.XAdditionalProperties, "txMulticast")
+	delete(tmpType.XAdditionalProperties, "txPower")
+	delete(tmpType.XAdditionalProperties, "txRadioFrames")
+	delete(tmpType.XAdditionalProperties, "wlanGroupId")
+	delete(tmpType.XAdditionalProperties, "wlanGroupName")
+	delete(tmpType.XAdditionalProperties, "wlanGroupWlanNum")
+	*t = WSGAPRadioConfigurationDataTypeListType(*tmpType)
+	return nil
+}
+
+func (t *WSGAPRadioConfigurationDataTypeListType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApMac != nil {
+		tmp["apMac"] = t.ApMac
+	}
+	if t.AutoCellSizing != nil {
+		tmp["autoCellSizing"] = t.AutoCellSizing
+	}
+	if t.BackgroundScan != nil {
+		tmp["backgroundScan"] = t.BackgroundScan
+	}
+	if t.Busy != nil {
+		tmp["busy"] = t.Busy
+	}
+	if t.Channel != nil {
+		tmp["channel"] = t.Channel
+	}
+	if t.ChannelBlacklist != nil {
+		tmp["channelBlacklist"] = t.ChannelBlacklist
+	}
+	if t.ChannelList != nil {
+		tmp["channelList"] = t.ChannelList
+	}
+	if t.ChannelWidth != nil {
+		tmp["channelWidth"] = t.ChannelWidth
+	}
+	if t.ClientCount != nil {
+		tmp["clientCount"] = t.ClientCount
+	}
+	if t.Columns != nil {
+		tmp["columns"] = t.Columns
+	}
+	if t.DeployedWlanNum != nil {
+		tmp["deployedWlanNum"] = t.DeployedWlanNum
+	}
+	if t.Drop != nil {
+		tmp["drop"] = t.Drop
+	}
+	if t.Key != nil {
+		tmp["key"] = t.Key
+	}
+	if t.MaxWlanNum != nil {
+		tmp["maxWlanNum"] = t.MaxWlanNum
+	}
+	if t.Mode != nil {
+		tmp["mode"] = t.Mode
+	}
+	if t.NoiseFloor != nil {
+		tmp["noiseFloor"] = t.NoiseFloor
+	}
+	if t.NullValueColumnNames != nil {
+		tmp["nullValueColumnNames"] = t.NullValueColumnNames
+	}
+	if t.NumOfAuthorizedClients != nil {
+		tmp["numOfAuthorizedClients"] = t.NumOfAuthorizedClients
+	}
+	if t.PhyError != nil {
+		tmp["phyError"] = t.PhyError
+	}
+	if t.RadioId != nil {
+		tmp["radioId"] = t.RadioId
+	}
+	if t.Retry != nil {
+		tmp["retry"] = t.Retry
+	}
+	if t.Rx != nil {
+		tmp["rx"] = t.Rx
+	}
+	if t.RxBytes != nil {
+		tmp["rxBytes"] = t.RxBytes
+	}
+	if t.RxFrames != nil {
+		tmp["rxFrames"] = t.RxFrames
+	}
+	if t.RxMulticast != nil {
+		tmp["rxMulticast"] = t.RxMulticast
+	}
+	if t.RxRadioFrames != nil {
+		tmp["rxRadioFrames"] = t.RxRadioFrames
+	}
+	if t.SecondaryChannel != nil {
+		tmp["secondaryChannel"] = t.SecondaryChannel
+	}
+	if t.Total != nil {
+		tmp["total"] = t.Total
+	}
+	if t.Tx != nil {
+		tmp["tx"] = t.Tx
+	}
+	if t.TxBytes != nil {
+		tmp["txBytes"] = t.TxBytes
+	}
+	if t.TxFrames != nil {
+		tmp["txFrames"] = t.TxFrames
+	}
+	if t.TxMulticast != nil {
+		tmp["txMulticast"] = t.TxMulticast
+	}
+	if t.TxPower != nil {
+		tmp["txPower"] = t.TxPower
+	}
+	if t.TxRadioFrames != nil {
+		tmp["txRadioFrames"] = t.TxRadioFrames
+	}
+	if t.WlanGroupId != nil {
+		tmp["wlanGroupId"] = t.WlanGroupId
+	}
+	if t.WlanGroupName != nil {
+		tmp["wlanGroupName"] = t.WlanGroupName
+	}
+	if t.WlanGroupWlanNum != nil {
+		tmp["wlanGroupWlanNum"] = t.WlanGroupWlanNum
+	}
+	return json.Marshal(tmp)
 }
 
 func NewWSGAPRadioConfigurationDataTypeListType() *WSGAPRadioConfigurationDataTypeListType {
@@ -660,6 +890,39 @@ func NewWSGAPRadioConfigurationMetaDataType() *WSGAPRadioConfigurationMetaDataTy
 // Definition: ap_apRadioConfigurationMetaDataTypeFieldsType
 type WSGAPRadioConfigurationMetaDataTypeFieldsType struct {
 	Name *string `json:"name,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *WSGAPRadioConfigurationMetaDataTypeFieldsType) UnmarshalJSON(b []byte) error {
+	type _WSGAPRadioConfigurationMetaDataTypeFieldsType WSGAPRadioConfigurationMetaDataTypeFieldsType
+	tmpType := new(_WSGAPRadioConfigurationMetaDataTypeFieldsType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "name")
+	*t = WSGAPRadioConfigurationMetaDataTypeFieldsType(*tmpType)
+	return nil
+}
+
+func (t *WSGAPRadioConfigurationMetaDataTypeFieldsType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	return json.Marshal(tmp)
 }
 
 func NewWSGAPRadioConfigurationMetaDataTypeFieldsType() *WSGAPRadioConfigurationMetaDataTypeFieldsType {

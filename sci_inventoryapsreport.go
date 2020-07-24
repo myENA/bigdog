@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -48,6 +49,63 @@ type SCIInventoryAPsReport46apInventoryOverviewDataType struct {
 	TotalApsWAlarm *int `json:"totalApsWAlarm,omitempty"`
 
 	TotalApsWReboot *int `json:"totalApsWReboot,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport46apInventoryOverviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport46apInventoryOverviewDataType SCIInventoryAPsReport46apInventoryOverviewDataType
+	tmpType := new(_SCIInventoryAPsReport46apInventoryOverviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "offline")
+	delete(tmpType.XAdditionalProperties, "online")
+	delete(tmpType.XAdditionalProperties, "others")
+	delete(tmpType.XAdditionalProperties, "reboots")
+	delete(tmpType.XAdditionalProperties, "total")
+	delete(tmpType.XAdditionalProperties, "totalApsWAlarm")
+	delete(tmpType.XAdditionalProperties, "totalApsWReboot")
+	*t = SCIInventoryAPsReport46apInventoryOverviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport46apInventoryOverviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Offline != nil {
+		tmp["offline"] = t.Offline
+	}
+	if t.Online != nil {
+		tmp["online"] = t.Online
+	}
+	if t.Others != nil {
+		tmp["others"] = t.Others
+	}
+	if t.Reboots != nil {
+		tmp["reboots"] = t.Reboots
+	}
+	if t.Total != nil {
+		tmp["total"] = t.Total
+	}
+	if t.TotalApsWAlarm != nil {
+		tmp["totalApsWAlarm"] = t.TotalApsWAlarm
+	}
+	if t.TotalApsWReboot != nil {
+		tmp["totalApsWReboot"] = t.TotalApsWReboot
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport46apInventoryOverviewDataType() *SCIInventoryAPsReport46apInventoryOverviewDataType {
@@ -74,6 +132,47 @@ type SCIInventoryAPsReport47topApsDisconnectionDataType struct {
 	Label *string `json:"label,omitempty"`
 
 	Value *int `json:"value,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport47topApsDisconnectionDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport47topApsDisconnectionDataType SCIInventoryAPsReport47topApsDisconnectionDataType
+	tmpType := new(_SCIInventoryAPsReport47topApsDisconnectionDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "key")
+	delete(tmpType.XAdditionalProperties, "label")
+	delete(tmpType.XAdditionalProperties, "value")
+	*t = SCIInventoryAPsReport47topApsDisconnectionDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport47topApsDisconnectionDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Key != nil {
+		tmp["key"] = t.Key
+	}
+	if t.Label != nil {
+		tmp["label"] = t.Label
+	}
+	if t.Value != nil {
+		tmp["value"] = t.Value
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport47topApsDisconnectionDataType() *SCIInventoryAPsReport47topApsDisconnectionDataType {
@@ -86,6 +185,39 @@ func NewSCIInventoryAPsReport47topApsDisconnectionDataType() *SCIInventoryAPsRep
 // Definition: InventoryAPsReport_InventoryAPsReport_47_topApsDisconnection_MetaData
 type SCIInventoryAPsReport47topApsDisconnectionMetaData struct {
 	Legend *SCIInventoryAPsReport47topApsDisconnectionMetaDataLegendType `json:"legend,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport47topApsDisconnectionMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport47topApsDisconnectionMetaData SCIInventoryAPsReport47topApsDisconnectionMetaData
+	tmpType := new(_SCIInventoryAPsReport47topApsDisconnectionMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "legend")
+	*t = SCIInventoryAPsReport47topApsDisconnectionMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport47topApsDisconnectionMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Legend != nil {
+		tmp["legend"] = t.Legend
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport47topApsDisconnectionMetaData() *SCIInventoryAPsReport47topApsDisconnectionMetaData {
@@ -126,6 +258,51 @@ type SCIInventoryAPsReport48apCountTrendDataType struct {
 	Start *string `json:"start,omitempty"`
 
 	TotalAPs *float64 `json:"totalAPs,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport48apCountTrendDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport48apCountTrendDataType SCIInventoryAPsReport48apCountTrendDataType
+	tmpType := new(_SCIInventoryAPsReport48apCountTrendDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "connectedAPs")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "totalAPs")
+	*t = SCIInventoryAPsReport48apCountTrendDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport48apCountTrendDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ConnectedAPs != nil {
+		tmp["connectedAPs"] = t.ConnectedAPs
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.TotalAPs != nil {
+		tmp["totalAPs"] = t.TotalAPs
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport48apCountTrendDataType() *SCIInventoryAPsReport48apCountTrendDataType {
@@ -160,6 +337,67 @@ type SCIInventoryAPsReport49apStatusTrendDataTypeType struct {
 	ConnectionStatus *string `json:"connectionStatus,omitempty"`
 
 	Count *int `json:"count,omitempty"`
+
+	End *string `json:"end,omitempty"`
+
+	Offline *float64 `json:"Offline,omitempty"`
+
+	Online *float64 `json:"Online,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport49apStatusTrendDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport49apStatusTrendDataTypeType SCIInventoryAPsReport49apStatusTrendDataTypeType
+	tmpType := new(_SCIInventoryAPsReport49apStatusTrendDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "connectionStatus")
+	delete(tmpType.XAdditionalProperties, "count")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "Offline")
+	delete(tmpType.XAdditionalProperties, "Online")
+	delete(tmpType.XAdditionalProperties, "start")
+	*t = SCIInventoryAPsReport49apStatusTrendDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport49apStatusTrendDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ConnectionStatus != nil {
+		tmp["connectionStatus"] = t.ConnectionStatus
+	}
+	if t.Count != nil {
+		tmp["count"] = t.Count
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Offline != nil {
+		tmp["Offline"] = t.Offline
+	}
+	if t.Online != nil {
+		tmp["Online"] = t.Online
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport49apStatusTrendDataTypeType() *SCIInventoryAPsReport49apStatusTrendDataTypeType {
@@ -172,6 +410,39 @@ func NewSCIInventoryAPsReport49apStatusTrendDataTypeType() *SCIInventoryAPsRepor
 // Definition: InventoryAPsReport_InventoryAPsReport_49_apStatusTrend_MetaData
 type SCIInventoryAPsReport49apStatusTrendMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport49apStatusTrendMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport49apStatusTrendMetaData SCIInventoryAPsReport49apStatusTrendMetaData
+	tmpType := new(_SCIInventoryAPsReport49apStatusTrendMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCIInventoryAPsReport49apStatusTrendMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport49apStatusTrendMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport49apStatusTrendMetaData() *SCIInventoryAPsReport49apStatusTrendMetaData {
@@ -206,6 +477,55 @@ type SCIInventoryAPsReport50topApsModelsChartDataTypeType struct {
 	ApCount *int `json:"apCount,omitempty"`
 
 	ApModel *string `json:"apModel,omitempty"`
+
+	End *string `json:"end,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport50topApsModelsChartDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport50topApsModelsChartDataTypeType SCIInventoryAPsReport50topApsModelsChartDataTypeType
+	tmpType := new(_SCIInventoryAPsReport50topApsModelsChartDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apCount")
+	delete(tmpType.XAdditionalProperties, "apModel")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "start")
+	*t = SCIInventoryAPsReport50topApsModelsChartDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport50topApsModelsChartDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApCount != nil {
+		tmp["apCount"] = t.ApCount
+	}
+	if t.ApModel != nil {
+		tmp["apModel"] = t.ApModel
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport50topApsModelsChartDataTypeType() *SCIInventoryAPsReport50topApsModelsChartDataTypeType {
@@ -218,6 +538,39 @@ func NewSCIInventoryAPsReport50topApsModelsChartDataTypeType() *SCIInventoryAPsR
 // Definition: InventoryAPsReport_InventoryAPsReport_50_topApsModelsChart_MetaData
 type SCIInventoryAPsReport50topApsModelsChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport50topApsModelsChartMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport50topApsModelsChartMetaData SCIInventoryAPsReport50topApsModelsChartMetaData
+	tmpType := new(_SCIInventoryAPsReport50topApsModelsChartMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCIInventoryAPsReport50topApsModelsChartMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport50topApsModelsChartMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport50topApsModelsChartMetaData() *SCIInventoryAPsReport50topApsModelsChartMetaData {
@@ -252,6 +605,61 @@ type SCIInventoryAPsReport51top10ApVersionsChartDataTypeType struct {
 	ApCount *int `json:"apCount,omitempty"`
 
 	ApFwVersion *string `json:"apFwVersion,omitempty"`
+
+	End *string `json:"end,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+
+	Unknown *float64 `json:"Unknown,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport51top10ApVersionsChartDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport51top10ApVersionsChartDataTypeType SCIInventoryAPsReport51top10ApVersionsChartDataTypeType
+	tmpType := new(_SCIInventoryAPsReport51top10ApVersionsChartDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apCount")
+	delete(tmpType.XAdditionalProperties, "apFwVersion")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "Unknown")
+	*t = SCIInventoryAPsReport51top10ApVersionsChartDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport51top10ApVersionsChartDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApCount != nil {
+		tmp["apCount"] = t.ApCount
+	}
+	if t.ApFwVersion != nil {
+		tmp["apFwVersion"] = t.ApFwVersion
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.Unknown != nil {
+		tmp["Unknown"] = t.Unknown
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport51top10ApVersionsChartDataTypeType() *SCIInventoryAPsReport51top10ApVersionsChartDataTypeType {
@@ -264,6 +672,39 @@ func NewSCIInventoryAPsReport51top10ApVersionsChartDataTypeType() *SCIInventoryA
 // Definition: InventoryAPsReport_InventoryAPsReport_51_top10ApVersionsChart_MetaData
 type SCIInventoryAPsReport51top10ApVersionsChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport51top10ApVersionsChartMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport51top10ApVersionsChartMetaData SCIInventoryAPsReport51top10ApVersionsChartMetaData
+	tmpType := new(_SCIInventoryAPsReport51top10ApVersionsChartMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCIInventoryAPsReport51top10ApVersionsChartMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport51top10ApVersionsChartMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport51top10ApVersionsChartMetaData() *SCIInventoryAPsReport51top10ApVersionsChartMetaData {
@@ -297,7 +738,56 @@ func MakeSCIInventoryAPsReport52topApsRebootReasonsDataType() SCIInventoryAPsRep
 type SCIInventoryAPsReport52topApsRebootReasonsDataTypeType struct {
 	Count *int `json:"count,omitempty"`
 
+	End *string `json:"end,omitempty"`
+
 	Reason *string `json:"reason,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport52topApsRebootReasonsDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport52topApsRebootReasonsDataTypeType SCIInventoryAPsReport52topApsRebootReasonsDataTypeType
+	tmpType := new(_SCIInventoryAPsReport52topApsRebootReasonsDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "count")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "reason")
+	delete(tmpType.XAdditionalProperties, "start")
+	*t = SCIInventoryAPsReport52topApsRebootReasonsDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport52topApsRebootReasonsDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Count != nil {
+		tmp["count"] = t.Count
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Reason != nil {
+		tmp["reason"] = t.Reason
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport52topApsRebootReasonsDataTypeType() *SCIInventoryAPsReport52topApsRebootReasonsDataTypeType {
@@ -310,6 +800,39 @@ func NewSCIInventoryAPsReport52topApsRebootReasonsDataTypeType() *SCIInventoryAP
 // Definition: InventoryAPsReport_InventoryAPsReport_52_topApsRebootReasons_MetaData
 type SCIInventoryAPsReport52topApsRebootReasonsMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport52topApsRebootReasonsMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport52topApsRebootReasonsMetaData SCIInventoryAPsReport52topApsRebootReasonsMetaData
+	tmpType := new(_SCIInventoryAPsReport52topApsRebootReasonsMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCIInventoryAPsReport52topApsRebootReasonsMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport52topApsRebootReasonsMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport52topApsRebootReasonsMetaData() *SCIInventoryAPsReport52topApsRebootReasonsMetaData {
@@ -346,6 +869,59 @@ type SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType struct {
 	ApName *string `json:"apName,omitempty"`
 
 	Count *int `json:"count,omitempty"`
+
+	End *string `json:"end,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType
+	tmpType := new(_SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apMac")
+	delete(tmpType.XAdditionalProperties, "apName")
+	delete(tmpType.XAdditionalProperties, "count")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "start")
+	*t = SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApMac != nil {
+		tmp["apMac"] = t.ApMac
+	}
+	if t.ApName != nil {
+		tmp["apName"] = t.ApName
+	}
+	if t.Count != nil {
+		tmp["count"] = t.Count
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport53top10ApsRebootCountsDataTypeType() *SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType {
@@ -358,6 +934,39 @@ func NewSCIInventoryAPsReport53top10ApsRebootCountsDataTypeType() *SCIInventoryA
 // Definition: InventoryAPsReport_InventoryAPsReport_53_top10ApsRebootCounts_MetaData
 type SCIInventoryAPsReport53top10ApsRebootCountsMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport53top10ApsRebootCountsMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport53top10ApsRebootCountsMetaData SCIInventoryAPsReport53top10ApsRebootCountsMetaData
+	tmpType := new(_SCIInventoryAPsReport53top10ApsRebootCountsMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCIInventoryAPsReport53top10ApsRebootCountsMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport53top10ApsRebootCountsMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport53top10ApsRebootCountsMetaData() *SCIInventoryAPsReport53top10ApsRebootCountsMetaData {
@@ -391,7 +1000,74 @@ func MakeSCIInventoryAPsReport54topApAlarmTypesDataType() SCIInventoryAPsReport5
 type SCIInventoryAPsReport54topApAlarmTypesDataTypeType struct {
 	AlarmType *string `json:"alarmType,omitempty"`
 
+	ApConnectionLost *int `json:"apConnectionLost,omitempty"`
+
+	ApRebootBySystem *int `json:"apRebootBySystem,omitempty"`
+
+	ApSigningInformation *int `json:"apSigningInformation,omitempty"`
+
 	Count *int `json:"count,omitempty"`
+
+	End *string `json:"end,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport54topApAlarmTypesDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport54topApAlarmTypesDataTypeType SCIInventoryAPsReport54topApAlarmTypesDataTypeType
+	tmpType := new(_SCIInventoryAPsReport54topApAlarmTypesDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "alarmType")
+	delete(tmpType.XAdditionalProperties, "apConnectionLost")
+	delete(tmpType.XAdditionalProperties, "apRebootBySystem")
+	delete(tmpType.XAdditionalProperties, "apSigningInformation")
+	delete(tmpType.XAdditionalProperties, "count")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "start")
+	*t = SCIInventoryAPsReport54topApAlarmTypesDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport54topApAlarmTypesDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AlarmType != nil {
+		tmp["alarmType"] = t.AlarmType
+	}
+	if t.ApConnectionLost != nil {
+		tmp["apConnectionLost"] = t.ApConnectionLost
+	}
+	if t.ApRebootBySystem != nil {
+		tmp["apRebootBySystem"] = t.ApRebootBySystem
+	}
+	if t.ApSigningInformation != nil {
+		tmp["apSigningInformation"] = t.ApSigningInformation
+	}
+	if t.Count != nil {
+		tmp["count"] = t.Count
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport54topApAlarmTypesDataTypeType() *SCIInventoryAPsReport54topApAlarmTypesDataTypeType {
@@ -404,6 +1080,39 @@ func NewSCIInventoryAPsReport54topApAlarmTypesDataTypeType() *SCIInventoryAPsRep
 // Definition: InventoryAPsReport_InventoryAPsReport_54_topApAlarmTypes_MetaData
 type SCIInventoryAPsReport54topApAlarmTypesMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport54topApAlarmTypesMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport54topApAlarmTypesMetaData SCIInventoryAPsReport54topApAlarmTypesMetaData
+	tmpType := new(_SCIInventoryAPsReport54topApAlarmTypesMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCIInventoryAPsReport54topApAlarmTypesMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport54topApAlarmTypesMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport54topApAlarmTypesMetaData() *SCIInventoryAPsReport54topApAlarmTypesMetaData {
@@ -432,6 +1141,51 @@ type SCIInventoryAPsReport55topAPModelsDataType struct {
 	ApPercent *float64 `json:"apPercent,omitempty"`
 
 	Index *int `json:"index,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport55topAPModelsDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport55topAPModelsDataType SCIInventoryAPsReport55topAPModelsDataType
+	tmpType := new(_SCIInventoryAPsReport55topAPModelsDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apCount")
+	delete(tmpType.XAdditionalProperties, "apModel")
+	delete(tmpType.XAdditionalProperties, "apPercent")
+	delete(tmpType.XAdditionalProperties, "index")
+	*t = SCIInventoryAPsReport55topAPModelsDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport55topAPModelsDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApCount != nil {
+		tmp["apCount"] = t.ApCount
+	}
+	if t.ApModel != nil {
+		tmp["apModel"] = t.ApModel
+	}
+	if t.ApPercent != nil {
+		tmp["apPercent"] = t.ApPercent
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport55topAPModelsDataType() *SCIInventoryAPsReport55topAPModelsDataType {
@@ -460,6 +1214,51 @@ type SCIInventoryAPsReport56topAPVersionsDataType struct {
 	ApPercent *float64 `json:"apPercent,omitempty"`
 
 	Index *int `json:"index,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport56topAPVersionsDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport56topAPVersionsDataType SCIInventoryAPsReport56topAPVersionsDataType
+	tmpType := new(_SCIInventoryAPsReport56topAPVersionsDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apCount")
+	delete(tmpType.XAdditionalProperties, "apFwVersion")
+	delete(tmpType.XAdditionalProperties, "apPercent")
+	delete(tmpType.XAdditionalProperties, "index")
+	*t = SCIInventoryAPsReport56topAPVersionsDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport56topAPVersionsDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApCount != nil {
+		tmp["apCount"] = t.ApCount
+	}
+	if t.ApFwVersion != nil {
+		tmp["apFwVersion"] = t.ApFwVersion
+	}
+	if t.ApPercent != nil {
+		tmp["apPercent"] = t.ApPercent
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport56topAPVersionsDataType() *SCIInventoryAPsReport56topAPVersionsDataType {
@@ -496,6 +1295,67 @@ type SCIInventoryAPsReport57topAPsOfflineDataType struct {
 	DisconnectDuration *int `json:"disconnectDuration,omitempty"`
 
 	Index *int `json:"index,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport57topAPsOfflineDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport57topAPsOfflineDataType SCIInventoryAPsReport57topAPsOfflineDataType
+	tmpType := new(_SCIInventoryAPsReport57topAPsOfflineDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apIp")
+	delete(tmpType.XAdditionalProperties, "apLocation")
+	delete(tmpType.XAdditionalProperties, "apMac")
+	delete(tmpType.XAdditionalProperties, "apModel")
+	delete(tmpType.XAdditionalProperties, "apName")
+	delete(tmpType.XAdditionalProperties, "ctrlName")
+	delete(tmpType.XAdditionalProperties, "disconnectDuration")
+	delete(tmpType.XAdditionalProperties, "index")
+	*t = SCIInventoryAPsReport57topAPsOfflineDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport57topAPsOfflineDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApIp != nil {
+		tmp["apIp"] = t.ApIp
+	}
+	if t.ApLocation != nil {
+		tmp["apLocation"] = t.ApLocation
+	}
+	if t.ApMac != nil {
+		tmp["apMac"] = t.ApMac
+	}
+	if t.ApModel != nil {
+		tmp["apModel"] = t.ApModel
+	}
+	if t.ApName != nil {
+		tmp["apName"] = t.ApName
+	}
+	if t.CtrlName != nil {
+		tmp["ctrlName"] = t.CtrlName
+	}
+	if t.DisconnectDuration != nil {
+		tmp["disconnectDuration"] = t.DisconnectDuration
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport57topAPsOfflineDataType() *SCIInventoryAPsReport57topAPsOfflineDataType {
@@ -508,6 +1368,39 @@ func NewSCIInventoryAPsReport57topAPsOfflineDataType() *SCIInventoryAPsReport57t
 // Definition: InventoryAPsReport_InventoryAPsReport_57_topAPsOffline_MetaData
 type SCIInventoryAPsReport57topAPsOfflineMetaData struct {
 	MaxValues *SCIInventoryAPsReport57topAPsOfflineMetaDataMaxValuesType `json:"maxValues,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport57topAPsOfflineMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport57topAPsOfflineMetaData SCIInventoryAPsReport57topAPsOfflineMetaData
+	tmpType := new(_SCIInventoryAPsReport57topAPsOfflineMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "maxValues")
+	*t = SCIInventoryAPsReport57topAPsOfflineMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport57topAPsOfflineMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MaxValues != nil {
+		tmp["maxValues"] = t.MaxValues
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport57topAPsOfflineMetaData() *SCIInventoryAPsReport57topAPsOfflineMetaData {
@@ -541,13 +1434,82 @@ func MakeSCIInventoryAPsReport58topAPsByRebootsData() SCIInventoryAPsReport58top
 //
 // Definition: InventoryAPsReport_InventoryAPsReport_58_topAPsByReboots_DataType
 type SCIInventoryAPsReport58topAPsByRebootsDataType struct {
+	ApIp *string `json:"apIp,omitempty"`
+
+	ApLocation *string `json:"apLocation,omitempty"`
+
 	ApMac *string `json:"apMac,omitempty"`
+
+	ApName *string `json:"apName,omitempty"`
 
 	Count *int `json:"count,omitempty"`
 
 	Index *int `json:"index,omitempty"`
 
 	LastRebootTime *int `json:"lastRebootTime,omitempty"`
+
+	Reason *string `json:"reason,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport58topAPsByRebootsDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport58topAPsByRebootsDataType SCIInventoryAPsReport58topAPsByRebootsDataType
+	tmpType := new(_SCIInventoryAPsReport58topAPsByRebootsDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apIp")
+	delete(tmpType.XAdditionalProperties, "apLocation")
+	delete(tmpType.XAdditionalProperties, "apMac")
+	delete(tmpType.XAdditionalProperties, "apName")
+	delete(tmpType.XAdditionalProperties, "count")
+	delete(tmpType.XAdditionalProperties, "index")
+	delete(tmpType.XAdditionalProperties, "lastRebootTime")
+	delete(tmpType.XAdditionalProperties, "reason")
+	*t = SCIInventoryAPsReport58topAPsByRebootsDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport58topAPsByRebootsDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApIp != nil {
+		tmp["apIp"] = t.ApIp
+	}
+	if t.ApLocation != nil {
+		tmp["apLocation"] = t.ApLocation
+	}
+	if t.ApMac != nil {
+		tmp["apMac"] = t.ApMac
+	}
+	if t.ApName != nil {
+		tmp["apName"] = t.ApName
+	}
+	if t.Count != nil {
+		tmp["count"] = t.Count
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	if t.LastRebootTime != nil {
+		tmp["lastRebootTime"] = t.LastRebootTime
+	}
+	if t.Reason != nil {
+		tmp["reason"] = t.Reason
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport58topAPsByRebootsDataType() *SCIInventoryAPsReport58topAPsByRebootsDataType {
@@ -586,6 +1548,71 @@ type SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType struct {
 	Index *int `json:"index,omitempty"`
 
 	LastStatusChangeTime *string `json:"lastStatusChangeTime,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType
+	tmpType := new(_SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apIp")
+	delete(tmpType.XAdditionalProperties, "apLocation")
+	delete(tmpType.XAdditionalProperties, "apMac")
+	delete(tmpType.XAdditionalProperties, "apModel")
+	delete(tmpType.XAdditionalProperties, "apName")
+	delete(tmpType.XAdditionalProperties, "connectionStatus")
+	delete(tmpType.XAdditionalProperties, "ctrlName")
+	delete(tmpType.XAdditionalProperties, "index")
+	delete(tmpType.XAdditionalProperties, "lastStatusChangeTime")
+	*t = SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApIp != nil {
+		tmp["apIp"] = t.ApIp
+	}
+	if t.ApLocation != nil {
+		tmp["apLocation"] = t.ApLocation
+	}
+	if t.ApMac != nil {
+		tmp["apMac"] = t.ApMac
+	}
+	if t.ApModel != nil {
+		tmp["apModel"] = t.ApModel
+	}
+	if t.ApName != nil {
+		tmp["apName"] = t.ApName
+	}
+	if t.ConnectionStatus != nil {
+		tmp["connectionStatus"] = t.ConnectionStatus
+	}
+	if t.CtrlName != nil {
+		tmp["ctrlName"] = t.CtrlName
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	if t.LastStatusChangeTime != nil {
+		tmp["lastStatusChangeTime"] = t.LastStatusChangeTime
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventoryAPsReport60apDetailsOnOfflineStatusDataType() *SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType {

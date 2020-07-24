@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -45,11 +46,64 @@ func MakeSCINetworkWiredReport123topSwitchPOEUtilChartDataType() SCINetworkWired
 //
 // Definition: NetworkWiredReport_NetworkWiredReport_123_topSwitchPOEUtilChart_DataTypeType
 type SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType struct {
+	End *string `json:"end,omitempty"`
+
 	PoeUtilization *int `json:"poeUtilization,omitempty"`
+
+	Start *string `json:"start,omitempty"`
 
 	SwitchId *string `json:"switchId,omitempty"`
 
 	SwitchName *string `json:"switchName,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType
+	tmpType := new(_SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "poeUtilization")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "switchId")
+	delete(tmpType.XAdditionalProperties, "switchName")
+	*t = SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.PoeUtilization != nil {
+		tmp["poeUtilization"] = t.PoeUtilization
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.SwitchId != nil {
+		tmp["switchId"] = t.SwitchId
+	}
+	if t.SwitchName != nil {
+		tmp["switchName"] = t.SwitchName
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType() *SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType {
@@ -62,6 +116,39 @@ func NewSCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType() *SCINetworkW
 // Definition: NetworkWiredReport_NetworkWiredReport_123_topSwitchPOEUtilChart_MetaData
 type SCINetworkWiredReport123topSwitchPOEUtilChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport123topSwitchPOEUtilChartMetaData) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport123topSwitchPOEUtilChartMetaData SCINetworkWiredReport123topSwitchPOEUtilChartMetaData
+	tmpType := new(_SCINetworkWiredReport123topSwitchPOEUtilChartMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCINetworkWiredReport123topSwitchPOEUtilChartMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport123topSwitchPOEUtilChartMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport123topSwitchPOEUtilChartMetaData() *SCINetworkWiredReport123topSwitchPOEUtilChartMetaData {
@@ -89,11 +176,64 @@ type SCINetworkWiredReport124topSwitchPOEUtilsDataType struct {
 
 	PoeUtilization *int `json:"poeUtilization,omitempty"`
 
-	PoeUtilPercent *float64 `json:"poeUtilPercent,omitempty"`
+	PoeUtilPercent *int `json:"poeUtilPercent,omitempty"`
 
 	SwitchId *string `json:"switchId,omitempty"`
 
 	SwitchName *string `json:"switchName,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport124topSwitchPOEUtilsDataType) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport124topSwitchPOEUtilsDataType SCINetworkWiredReport124topSwitchPOEUtilsDataType
+	tmpType := new(_SCINetworkWiredReport124topSwitchPOEUtilsDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "index")
+	delete(tmpType.XAdditionalProperties, "poeTotal")
+	delete(tmpType.XAdditionalProperties, "poeUtilization")
+	delete(tmpType.XAdditionalProperties, "poeUtilPercent")
+	delete(tmpType.XAdditionalProperties, "switchId")
+	delete(tmpType.XAdditionalProperties, "switchName")
+	*t = SCINetworkWiredReport124topSwitchPOEUtilsDataType(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport124topSwitchPOEUtilsDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	if t.PoeTotal != nil {
+		tmp["poeTotal"] = t.PoeTotal
+	}
+	if t.PoeUtilization != nil {
+		tmp["poeUtilization"] = t.PoeUtilization
+	}
+	if t.PoeUtilPercent != nil {
+		tmp["poeUtilPercent"] = t.PoeUtilPercent
+	}
+	if t.SwitchId != nil {
+		tmp["switchId"] = t.SwitchId
+	}
+	if t.SwitchName != nil {
+		tmp["switchName"] = t.SwitchName
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport124topSwitchPOEUtilsDataType() *SCINetworkWiredReport124topSwitchPOEUtilsDataType {
@@ -136,6 +276,79 @@ type SCINetworkWiredReport128topSwitchesByTrafficTableDataType struct {
 	TotalTraffic *int `json:"totalTraffic,omitempty"`
 
 	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport128topSwitchesByTrafficTableDataType) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport128topSwitchesByTrafficTableDataType SCINetworkWiredReport128topSwitchesByTrafficTableDataType
+	tmpType := new(_SCINetworkWiredReport128topSwitchesByTrafficTableDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "avgRateTotalRxTraffic")
+	delete(tmpType.XAdditionalProperties, "avgRateTotalTraffic")
+	delete(tmpType.XAdditionalProperties, "avgRateTotalTxTraffic")
+	delete(tmpType.XAdditionalProperties, "index")
+	delete(tmpType.XAdditionalProperties, "portCount")
+	delete(tmpType.XAdditionalProperties, "switchId")
+	delete(tmpType.XAdditionalProperties, "switchName")
+	delete(tmpType.XAdditionalProperties, "switchUnitCount")
+	delete(tmpType.XAdditionalProperties, "totalRxTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTxTraffic")
+	*t = SCINetworkWiredReport128topSwitchesByTrafficTableDataType(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport128topSwitchesByTrafficTableDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AvgRateTotalRxTraffic != nil {
+		tmp["avgRateTotalRxTraffic"] = t.AvgRateTotalRxTraffic
+	}
+	if t.AvgRateTotalTraffic != nil {
+		tmp["avgRateTotalTraffic"] = t.AvgRateTotalTraffic
+	}
+	if t.AvgRateTotalTxTraffic != nil {
+		tmp["avgRateTotalTxTraffic"] = t.AvgRateTotalTxTraffic
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	if t.PortCount != nil {
+		tmp["portCount"] = t.PortCount
+	}
+	if t.SwitchId != nil {
+		tmp["switchId"] = t.SwitchId
+	}
+	if t.SwitchName != nil {
+		tmp["switchName"] = t.SwitchName
+	}
+	if t.SwitchUnitCount != nil {
+		tmp["switchUnitCount"] = t.SwitchUnitCount
+	}
+	if t.TotalRxTraffic != nil {
+		tmp["totalRxTraffic"] = t.TotalRxTraffic
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.TotalTxTraffic != nil {
+		tmp["totalTxTraffic"] = t.TotalTxTraffic
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport128topSwitchesByTrafficTableDataType() *SCINetworkWiredReport128topSwitchesByTrafficTableDataType {
@@ -156,6 +369,55 @@ type SCINetworkWiredReport128topSwitchesByTrafficTableMetaData struct {
 	TotalTraffic *int `json:"totalTraffic,omitempty"`
 
 	Traffic *int `json:"traffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport128topSwitchesByTrafficTableMetaData) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport128topSwitchesByTrafficTableMetaData SCINetworkWiredReport128topSwitchesByTrafficTableMetaData
+	tmpType := new(_SCINetworkWiredReport128topSwitchesByTrafficTableMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "maxValues")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "percentage")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "traffic")
+	*t = SCINetworkWiredReport128topSwitchesByTrafficTableMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport128topSwitchesByTrafficTableMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MaxValues != nil {
+		tmp["maxValues"] = t.MaxValues
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.Percentage != nil {
+		tmp["percentage"] = t.Percentage
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.Traffic != nil {
+		tmp["traffic"] = t.Traffic
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport128topSwitchesByTrafficTableMetaData() *SCINetworkWiredReport128topSwitchesByTrafficTableMetaData {
@@ -212,6 +474,63 @@ type SCINetworkWiredReport134wiredOverviewDataType struct {
 	TotalTraffic *int `json:"totalTraffic,omitempty"`
 
 	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport134wiredOverviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport134wiredOverviewDataType SCINetworkWiredReport134wiredOverviewDataType
+	tmpType := new(_SCINetworkWiredReport134wiredOverviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "avgRateTotalRxTraffic")
+	delete(tmpType.XAdditionalProperties, "avgRateTotalTraffic")
+	delete(tmpType.XAdditionalProperties, "avgRateTotalTxTraffic")
+	delete(tmpType.XAdditionalProperties, "totalRxTraffic")
+	delete(tmpType.XAdditionalProperties, "totalSwitches")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTxTraffic")
+	*t = SCINetworkWiredReport134wiredOverviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport134wiredOverviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AvgRateTotalRxTraffic != nil {
+		tmp["avgRateTotalRxTraffic"] = t.AvgRateTotalRxTraffic
+	}
+	if t.AvgRateTotalTraffic != nil {
+		tmp["avgRateTotalTraffic"] = t.AvgRateTotalTraffic
+	}
+	if t.AvgRateTotalTxTraffic != nil {
+		tmp["avgRateTotalTxTraffic"] = t.AvgRateTotalTxTraffic
+	}
+	if t.TotalRxTraffic != nil {
+		tmp["totalRxTraffic"] = t.TotalRxTraffic
+	}
+	if t.TotalSwitches != nil {
+		tmp["totalSwitches"] = t.TotalSwitches
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.TotalTxTraffic != nil {
+		tmp["totalTxTraffic"] = t.TotalTxTraffic
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport134wiredOverviewDataType() *SCINetworkWiredReport134wiredOverviewDataType {
@@ -236,6 +555,43 @@ type SCINetworkWiredReport135wiredTrafficDistributionDataType struct {
 	Categories []string `json:"categories,omitempty"`
 
 	Series []*SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType `json:"series,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport135wiredTrafficDistributionDataType) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport135wiredTrafficDistributionDataType SCINetworkWiredReport135wiredTrafficDistributionDataType
+	tmpType := new(_SCINetworkWiredReport135wiredTrafficDistributionDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "categories")
+	delete(tmpType.XAdditionalProperties, "series")
+	*t = SCINetworkWiredReport135wiredTrafficDistributionDataType(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport135wiredTrafficDistributionDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Categories != nil {
+		tmp["categories"] = t.Categories
+	}
+	if t.Series != nil {
+		tmp["series"] = t.Series
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport135wiredTrafficDistributionDataType() *SCINetworkWiredReport135wiredTrafficDistributionDataType {
@@ -250,6 +606,43 @@ type SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType struct {
 	Data []float64 `json:"data,omitempty"`
 
 	Name *string `json:"name,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType
+	tmpType := new(_SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "data")
+	delete(tmpType.XAdditionalProperties, "name")
+	*t = SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Data != nil {
+		tmp["data"] = t.Data
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType() *SCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType {
@@ -262,6 +655,39 @@ func NewSCINetworkWiredReport135wiredTrafficDistributionDataTypeSeriesType() *SC
 // Definition: NetworkWiredReport_NetworkWiredReport_135_wiredTrafficDistribution_MetaData
 type SCINetworkWiredReport135wiredTrafficDistributionMetaData struct {
 	ChartType *string `json:"chartType,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport135wiredTrafficDistributionMetaData) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport135wiredTrafficDistributionMetaData SCINetworkWiredReport135wiredTrafficDistributionMetaData
+	tmpType := new(_SCINetworkWiredReport135wiredTrafficDistributionMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "chartType")
+	*t = SCINetworkWiredReport135wiredTrafficDistributionMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport135wiredTrafficDistributionMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ChartType != nil {
+		tmp["chartType"] = t.ChartType
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport135wiredTrafficDistributionMetaData() *SCINetworkWiredReport135wiredTrafficDistributionMetaData {
@@ -293,6 +719,12 @@ func MakeSCINetworkWiredReport136switchTrafficTrendDataType() SCINetworkWiredRep
 //
 // Definition: NetworkWiredReport_NetworkWiredReport_136_switchTrafficTrend_DataTypeType
 type SCINetworkWiredReport136switchTrafficTrendDataTypeType struct {
+	AvgRateTotalRxTraffic *float64 `json:"avgRateTotalRxTraffic,omitempty"`
+
+	AvgRateTotalTraffic *float64 `json:"avgRateTotalTraffic,omitempty"`
+
+	AvgRateTotalTxTraffic *float64 `json:"avgRateTotalTxTraffic,omitempty"`
+
 	End *string `json:"end,omitempty"`
 
 	Start *string `json:"start,omitempty"`
@@ -302,6 +734,67 @@ type SCINetworkWiredReport136switchTrafficTrendDataTypeType struct {
 	TotalTraffic *int `json:"totalTraffic,omitempty"`
 
 	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport136switchTrafficTrendDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport136switchTrafficTrendDataTypeType SCINetworkWiredReport136switchTrafficTrendDataTypeType
+	tmpType := new(_SCINetworkWiredReport136switchTrafficTrendDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "avgRateTotalRxTraffic")
+	delete(tmpType.XAdditionalProperties, "avgRateTotalTraffic")
+	delete(tmpType.XAdditionalProperties, "avgRateTotalTxTraffic")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "totalRxTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTraffic")
+	delete(tmpType.XAdditionalProperties, "totalTxTraffic")
+	*t = SCINetworkWiredReport136switchTrafficTrendDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport136switchTrafficTrendDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AvgRateTotalRxTraffic != nil {
+		tmp["avgRateTotalRxTraffic"] = t.AvgRateTotalRxTraffic
+	}
+	if t.AvgRateTotalTraffic != nil {
+		tmp["avgRateTotalTraffic"] = t.AvgRateTotalTraffic
+	}
+	if t.AvgRateTotalTxTraffic != nil {
+		tmp["avgRateTotalTxTraffic"] = t.AvgRateTotalTxTraffic
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.TotalRxTraffic != nil {
+		tmp["totalRxTraffic"] = t.TotalRxTraffic
+	}
+	if t.TotalTraffic != nil {
+		tmp["totalTraffic"] = t.TotalTraffic
+	}
+	if t.TotalTxTraffic != nil {
+		tmp["totalTxTraffic"] = t.TotalTxTraffic
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport136switchTrafficTrendDataTypeType() *SCINetworkWiredReport136switchTrafficTrendDataTypeType {
@@ -334,6 +827,59 @@ type SCINetworkWiredReport141switchErrorTrendDataType struct {
 	OutErrors *int `json:"outErrors,omitempty"`
 
 	Start *string `json:"start,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport141switchErrorTrendDataType) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport141switchErrorTrendDataType SCINetworkWiredReport141switchErrorTrendDataType
+	tmpType := new(_SCINetworkWiredReport141switchErrorTrendDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "crcErrors")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "inDiscards")
+	delete(tmpType.XAdditionalProperties, "inErrors")
+	delete(tmpType.XAdditionalProperties, "outErrors")
+	delete(tmpType.XAdditionalProperties, "start")
+	*t = SCINetworkWiredReport141switchErrorTrendDataType(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport141switchErrorTrendDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.CrcErrors != nil {
+		tmp["crcErrors"] = t.CrcErrors
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.InDiscards != nil {
+		tmp["inDiscards"] = t.InDiscards
+	}
+	if t.InErrors != nil {
+		tmp["inErrors"] = t.InErrors
+	}
+	if t.OutErrors != nil {
+		tmp["outErrors"] = t.OutErrors
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport141switchErrorTrendDataType() *SCINetworkWiredReport141switchErrorTrendDataType {
@@ -365,11 +911,64 @@ func MakeSCINetworkWiredReport142topSwitchesByErrorsChartDataType() SCINetworkWi
 //
 // Definition: NetworkWiredReport_NetworkWiredReport_142_topSwitchesByErrorsChart_DataTypeType
 type SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType struct {
+	End *string `json:"end,omitempty"`
+
 	Error *int `json:"error,omitempty"`
+
+	Start *string `json:"start,omitempty"`
 
 	SwitchId *string `json:"switchId,omitempty"`
 
 	SwitchName *string `json:"switchName,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType
+	tmpType := new(_SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "error")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "switchId")
+	delete(tmpType.XAdditionalProperties, "switchName")
+	*t = SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Error != nil {
+		tmp["error"] = t.Error
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.SwitchId != nil {
+		tmp["switchId"] = t.SwitchId
+	}
+	if t.SwitchName != nil {
+		tmp["switchName"] = t.SwitchName
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType() *SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType {
@@ -382,6 +981,39 @@ func NewSCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType() *SCINetwo
 // Definition: NetworkWiredReport_NetworkWiredReport_142_topSwitchesByErrorsChart_MetaData
 type SCINetworkWiredReport142topSwitchesByErrorsChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport142topSwitchesByErrorsChartMetaData) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport142topSwitchesByErrorsChartMetaData SCINetworkWiredReport142topSwitchesByErrorsChartMetaData
+	tmpType := new(_SCINetworkWiredReport142topSwitchesByErrorsChartMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCINetworkWiredReport142topSwitchesByErrorsChartMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport142topSwitchesByErrorsChartMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport142topSwitchesByErrorsChartMetaData() *SCINetworkWiredReport142topSwitchesByErrorsChartMetaData {
@@ -414,6 +1046,59 @@ type SCINetworkWiredReport143topSwitchesByErrorsTableDataType struct {
 	SwitchId *string `json:"switchId,omitempty"`
 
 	SwitchName *string `json:"switchName,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCINetworkWiredReport143topSwitchesByErrorsTableDataType) UnmarshalJSON(b []byte) error {
+	type _SCINetworkWiredReport143topSwitchesByErrorsTableDataType SCINetworkWiredReport143topSwitchesByErrorsTableDataType
+	tmpType := new(_SCINetworkWiredReport143topSwitchesByErrorsTableDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "error")
+	delete(tmpType.XAdditionalProperties, "index")
+	delete(tmpType.XAdditionalProperties, "inErr")
+	delete(tmpType.XAdditionalProperties, "outErr")
+	delete(tmpType.XAdditionalProperties, "switchId")
+	delete(tmpType.XAdditionalProperties, "switchName")
+	*t = SCINetworkWiredReport143topSwitchesByErrorsTableDataType(*tmpType)
+	return nil
+}
+
+func (t *SCINetworkWiredReport143topSwitchesByErrorsTableDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Error != nil {
+		tmp["error"] = t.Error
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	if t.InErr != nil {
+		tmp["inErr"] = t.InErr
+	}
+	if t.OutErr != nil {
+		tmp["outErr"] = t.OutErr
+	}
+	if t.SwitchId != nil {
+		tmp["switchId"] = t.SwitchId
+	}
+	if t.SwitchName != nil {
+		tmp["switchName"] = t.SwitchName
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCINetworkWiredReport143topSwitchesByErrorsTableDataType() *SCINetworkWiredReport143topSwitchesByErrorsTableDataType {

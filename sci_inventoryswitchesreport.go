@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -50,6 +51,67 @@ type SCIInventorySwitchesReport113overviewDataType struct {
 	SwitchUnitCount *int `json:"switchUnitCount,omitempty"`
 
 	UpPortCount *int `json:"upPortCount,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventorySwitchesReport113overviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventorySwitchesReport113overviewDataType SCIInventorySwitchesReport113overviewDataType
+	tmpType := new(_SCIInventorySwitchesReport113overviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "downPortCount")
+	delete(tmpType.XAdditionalProperties, "offlineSwitchCount")
+	delete(tmpType.XAdditionalProperties, "onlineSwitchCount")
+	delete(tmpType.XAdditionalProperties, "otherSwitchCount")
+	delete(tmpType.XAdditionalProperties, "portCount")
+	delete(tmpType.XAdditionalProperties, "switchCount")
+	delete(tmpType.XAdditionalProperties, "switchUnitCount")
+	delete(tmpType.XAdditionalProperties, "upPortCount")
+	*t = SCIInventorySwitchesReport113overviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventorySwitchesReport113overviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.DownPortCount != nil {
+		tmp["downPortCount"] = t.DownPortCount
+	}
+	if t.OfflineSwitchCount != nil {
+		tmp["offlineSwitchCount"] = t.OfflineSwitchCount
+	}
+	if t.OnlineSwitchCount != nil {
+		tmp["onlineSwitchCount"] = t.OnlineSwitchCount
+	}
+	if t.OtherSwitchCount != nil {
+		tmp["otherSwitchCount"] = t.OtherSwitchCount
+	}
+	if t.PortCount != nil {
+		tmp["portCount"] = t.PortCount
+	}
+	if t.SwitchCount != nil {
+		tmp["switchCount"] = t.SwitchCount
+	}
+	if t.SwitchUnitCount != nil {
+		tmp["switchUnitCount"] = t.SwitchUnitCount
+	}
+	if t.UpPortCount != nil {
+		tmp["upPortCount"] = t.UpPortCount
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventorySwitchesReport113overviewDataType() *SCIInventorySwitchesReport113overviewDataType {
@@ -82,6 +144,59 @@ type SCIInventorySwitchesReport116switchCountTrendDataType struct {
 	Start *string `json:"start,omitempty"`
 
 	SwitchUnitCount *int `json:"switchUnitCount,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventorySwitchesReport116switchCountTrendDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventorySwitchesReport116switchCountTrendDataType SCIInventorySwitchesReport116switchCountTrendDataType
+	tmpType := new(_SCIInventorySwitchesReport116switchCountTrendDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "count")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "offlineCount")
+	delete(tmpType.XAdditionalProperties, "onlineCount")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "switchUnitCount")
+	*t = SCIInventorySwitchesReport116switchCountTrendDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventorySwitchesReport116switchCountTrendDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Count != nil {
+		tmp["count"] = t.Count
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.OfflineCount != nil {
+		tmp["offlineCount"] = t.OfflineCount
+	}
+	if t.OnlineCount != nil {
+		tmp["onlineCount"] = t.OnlineCount
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.SwitchUnitCount != nil {
+		tmp["switchUnitCount"] = t.SwitchUnitCount
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventorySwitchesReport116switchCountTrendDataType() *SCIInventorySwitchesReport116switchCountTrendDataType {
@@ -113,9 +228,58 @@ func MakeSCIInventorySwitchesReport117top10SwitchVersionChartDataType() SCIInven
 //
 // Definition: InventorySwitchesReport_InventorySwitchesReport_117_top10SwitchVersionChart_DataTypeType
 type SCIInventorySwitchesReport117top10SwitchVersionChartDataTypeType struct {
+	End *string `json:"end,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+
 	SwitchCount *int `json:"switchCount,omitempty"`
 
 	SwitchFirmware *string `json:"switchFirmware,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventorySwitchesReport117top10SwitchVersionChartDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIInventorySwitchesReport117top10SwitchVersionChartDataTypeType SCIInventorySwitchesReport117top10SwitchVersionChartDataTypeType
+	tmpType := new(_SCIInventorySwitchesReport117top10SwitchVersionChartDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "switchCount")
+	delete(tmpType.XAdditionalProperties, "switchFirmware")
+	*t = SCIInventorySwitchesReport117top10SwitchVersionChartDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventorySwitchesReport117top10SwitchVersionChartDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.SwitchCount != nil {
+		tmp["switchCount"] = t.SwitchCount
+	}
+	if t.SwitchFirmware != nil {
+		tmp["switchFirmware"] = t.SwitchFirmware
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventorySwitchesReport117top10SwitchVersionChartDataTypeType() *SCIInventorySwitchesReport117top10SwitchVersionChartDataTypeType {
@@ -128,6 +292,39 @@ func NewSCIInventorySwitchesReport117top10SwitchVersionChartDataTypeType() *SCII
 // Definition: InventorySwitchesReport_InventorySwitchesReport_117_top10SwitchVersionChart_MetaData
 type SCIInventorySwitchesReport117top10SwitchVersionChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventorySwitchesReport117top10SwitchVersionChartMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventorySwitchesReport117top10SwitchVersionChartMetaData SCIInventorySwitchesReport117top10SwitchVersionChartMetaData
+	tmpType := new(_SCIInventorySwitchesReport117top10SwitchVersionChartMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCIInventorySwitchesReport117top10SwitchVersionChartMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventorySwitchesReport117top10SwitchVersionChartMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventorySwitchesReport117top10SwitchVersionChartMetaData() *SCIInventorySwitchesReport117top10SwitchVersionChartMetaData {
@@ -156,6 +353,51 @@ type SCIInventorySwitchesReport118topSwitchVersionsDataType struct {
 	SwitchFirmware *string `json:"switchFirmware,omitempty"`
 
 	SwitchPercent *float64 `json:"switchPercent,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventorySwitchesReport118topSwitchVersionsDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventorySwitchesReport118topSwitchVersionsDataType SCIInventorySwitchesReport118topSwitchVersionsDataType
+	tmpType := new(_SCIInventorySwitchesReport118topSwitchVersionsDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "index")
+	delete(tmpType.XAdditionalProperties, "switchCount")
+	delete(tmpType.XAdditionalProperties, "switchFirmware")
+	delete(tmpType.XAdditionalProperties, "switchPercent")
+	*t = SCIInventorySwitchesReport118topSwitchVersionsDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventorySwitchesReport118topSwitchVersionsDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	if t.SwitchCount != nil {
+		tmp["switchCount"] = t.SwitchCount
+	}
+	if t.SwitchFirmware != nil {
+		tmp["switchFirmware"] = t.SwitchFirmware
+	}
+	if t.SwitchPercent != nil {
+		tmp["switchPercent"] = t.SwitchPercent
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventorySwitchesReport118topSwitchVersionsDataType() *SCIInventorySwitchesReport118topSwitchVersionsDataType {
@@ -187,9 +429,82 @@ func MakeSCIInventorySwitchesReport121topSwitchModelsChartDataType() SCIInventor
 //
 // Definition: InventorySwitchesReport_InventorySwitchesReport_121_topSwitchModelsChart_DataTypeType
 type SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType struct {
+	End *string `json:"end,omitempty"`
+
+	ICX715024P *float64 `json:"ICX7150-24P,omitempty"`
+
+	ICX715048PF *float64 `json:"ICX7150-48PF,omitempty"`
+
+	ICX715048ZP *float64 `json:"ICX7150-48ZP,omitempty"`
+
+	ICX765048ZP *float64 `json:"ICX7650-48ZP,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+
 	SwitchCount *int `json:"switchCount,omitempty"`
 
 	SwitchModel *string `json:"switchModel,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType
+	tmpType := new(_SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "ICX7150-24P")
+	delete(tmpType.XAdditionalProperties, "ICX7150-48PF")
+	delete(tmpType.XAdditionalProperties, "ICX7150-48ZP")
+	delete(tmpType.XAdditionalProperties, "ICX7650-48ZP")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "switchCount")
+	delete(tmpType.XAdditionalProperties, "switchModel")
+	*t = SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.ICX715024P != nil {
+		tmp["ICX7150-24P"] = t.ICX715024P
+	}
+	if t.ICX715048PF != nil {
+		tmp["ICX7150-48PF"] = t.ICX715048PF
+	}
+	if t.ICX715048ZP != nil {
+		tmp["ICX7150-48ZP"] = t.ICX715048ZP
+	}
+	if t.ICX765048ZP != nil {
+		tmp["ICX7650-48ZP"] = t.ICX765048ZP
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.SwitchCount != nil {
+		tmp["switchCount"] = t.SwitchCount
+	}
+	if t.SwitchModel != nil {
+		tmp["switchModel"] = t.SwitchModel
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventorySwitchesReport121topSwitchModelsChartDataTypeType() *SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType {
@@ -202,6 +517,39 @@ func NewSCIInventorySwitchesReport121topSwitchModelsChartDataTypeType() *SCIInve
 // Definition: InventorySwitchesReport_InventorySwitchesReport_121_topSwitchModelsChart_MetaData
 type SCIInventorySwitchesReport121topSwitchModelsChartMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventorySwitchesReport121topSwitchModelsChartMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventorySwitchesReport121topSwitchModelsChartMetaData SCIInventorySwitchesReport121topSwitchModelsChartMetaData
+	tmpType := new(_SCIInventorySwitchesReport121topSwitchModelsChartMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCIInventorySwitchesReport121topSwitchModelsChartMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventorySwitchesReport121topSwitchModelsChartMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventorySwitchesReport121topSwitchModelsChartMetaData() *SCIInventorySwitchesReport121topSwitchModelsChartMetaData {
@@ -230,6 +578,51 @@ type SCIInventorySwitchesReport122topSwitchModelsDataType struct {
 	SwitchModel *string `json:"switchModel,omitempty"`
 
 	SwitchPercent *float64 `json:"switchPercent,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventorySwitchesReport122topSwitchModelsDataType) UnmarshalJSON(b []byte) error {
+	type _SCIInventorySwitchesReport122topSwitchModelsDataType SCIInventorySwitchesReport122topSwitchModelsDataType
+	tmpType := new(_SCIInventorySwitchesReport122topSwitchModelsDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "index")
+	delete(tmpType.XAdditionalProperties, "switchCount")
+	delete(tmpType.XAdditionalProperties, "switchModel")
+	delete(tmpType.XAdditionalProperties, "switchPercent")
+	*t = SCIInventorySwitchesReport122topSwitchModelsDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventorySwitchesReport122topSwitchModelsDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Index != nil {
+		tmp["index"] = t.Index
+	}
+	if t.SwitchCount != nil {
+		tmp["switchCount"] = t.SwitchCount
+	}
+	if t.SwitchModel != nil {
+		tmp["switchModel"] = t.SwitchModel
+	}
+	if t.SwitchPercent != nil {
+		tmp["switchPercent"] = t.SwitchPercent
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventorySwitchesReport122topSwitchModelsDataType() *SCIInventorySwitchesReport122topSwitchModelsDataType {
@@ -261,9 +654,70 @@ func MakeSCIInventorySwitchesReport132portStatusTrendDataType() SCIInventorySwit
 //
 // Definition: InventorySwitchesReport_InventorySwitchesReport_132_portStatusTrend_DataTypeType
 type SCIInventorySwitchesReport132portStatusTrendDataTypeType struct {
+	Down *int `json:"Down,omitempty"`
+
+	End *string `json:"end,omitempty"`
+
 	PortCount *int `json:"portCount,omitempty"`
 
 	PortStatus *string `json:"portStatus,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+
+	Up *int `json:"Up,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventorySwitchesReport132portStatusTrendDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIInventorySwitchesReport132portStatusTrendDataTypeType SCIInventorySwitchesReport132portStatusTrendDataTypeType
+	tmpType := new(_SCIInventorySwitchesReport132portStatusTrendDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "Down")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "portCount")
+	delete(tmpType.XAdditionalProperties, "portStatus")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "Up")
+	*t = SCIInventorySwitchesReport132portStatusTrendDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventorySwitchesReport132portStatusTrendDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Down != nil {
+		tmp["Down"] = t.Down
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.PortCount != nil {
+		tmp["portCount"] = t.PortCount
+	}
+	if t.PortStatus != nil {
+		tmp["portStatus"] = t.PortStatus
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.Up != nil {
+		tmp["Up"] = t.Up
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventorySwitchesReport132portStatusTrendDataTypeType() *SCIInventorySwitchesReport132portStatusTrendDataTypeType {
@@ -276,6 +730,39 @@ func NewSCIInventorySwitchesReport132portStatusTrendDataTypeType() *SCIInventory
 // Definition: InventorySwitchesReport_InventorySwitchesReport_132_portStatusTrend_MetaData
 type SCIInventorySwitchesReport132portStatusTrendMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventorySwitchesReport132portStatusTrendMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventorySwitchesReport132portStatusTrendMetaData SCIInventorySwitchesReport132portStatusTrendMetaData
+	tmpType := new(_SCIInventorySwitchesReport132portStatusTrendMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCIInventorySwitchesReport132portStatusTrendMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventorySwitchesReport132portStatusTrendMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSCIInventorySwitchesReport132portStatusTrendMetaData() *SCIInventorySwitchesReport132portStatusTrendMetaData {

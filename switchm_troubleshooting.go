@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -30,6 +31,47 @@ type SwitchMTroubleshootingRemoteClientConnectivityRequest struct {
 	GroupId *string `json:"groupId,omitempty"`
 
 	SwitchIds []string `json:"switchIds,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchMTroubleshootingRemoteClientConnectivityRequest) UnmarshalJSON(b []byte) error {
+	type _SwitchMTroubleshootingRemoteClientConnectivityRequest SwitchMTroubleshootingRemoteClientConnectivityRequest
+	tmpType := new(_SwitchMTroubleshootingRemoteClientConnectivityRequest)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "clientMac")
+	delete(tmpType.XAdditionalProperties, "groupId")
+	delete(tmpType.XAdditionalProperties, "switchIds")
+	*t = SwitchMTroubleshootingRemoteClientConnectivityRequest(*tmpType)
+	return nil
+}
+
+func (t *SwitchMTroubleshootingRemoteClientConnectivityRequest) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ClientMac != nil {
+		tmp["clientMac"] = t.ClientMac
+	}
+	if t.GroupId != nil {
+		tmp["groupId"] = t.GroupId
+	}
+	if t.SwitchIds != nil {
+		tmp["switchIds"] = t.SwitchIds
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSwitchMTroubleshootingRemoteClientConnectivityRequest() *SwitchMTroubleshootingRemoteClientConnectivityRequest {
@@ -50,6 +92,55 @@ type SwitchMTroubleshootingRemoteClientConnectivityResponse struct {
 	MetaData interface{} `json:"metaData,omitempty"`
 
 	Success *bool `json:"success,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchMTroubleshootingRemoteClientConnectivityResponse) UnmarshalJSON(b []byte) error {
+	type _SwitchMTroubleshootingRemoteClientConnectivityResponse SwitchMTroubleshootingRemoteClientConnectivityResponse
+	tmpType := new(_SwitchMTroubleshootingRemoteClientConnectivityResponse)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "data")
+	delete(tmpType.XAdditionalProperties, "error")
+	delete(tmpType.XAdditionalProperties, "extra")
+	delete(tmpType.XAdditionalProperties, "metaData")
+	delete(tmpType.XAdditionalProperties, "success")
+	*t = SwitchMTroubleshootingRemoteClientConnectivityResponse(*tmpType)
+	return nil
+}
+
+func (t *SwitchMTroubleshootingRemoteClientConnectivityResponse) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Data != nil {
+		tmp["data"] = t.Data
+	}
+	if t.Error != nil {
+		tmp["error"] = t.Error
+	}
+	if t.Extra != nil {
+		tmp["extra"] = t.Extra
+	}
+	if t.MetaData != nil {
+		tmp["metaData"] = t.MetaData
+	}
+	if t.Success != nil {
+		tmp["success"] = t.Success
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSwitchMTroubleshootingRemoteClientConnectivityResponse() *SwitchMTroubleshootingRemoteClientConnectivityResponse {
@@ -114,6 +205,47 @@ type SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitch
 	Name *string `json:"name,omitempty"`
 
 	PortName *string `json:"portName,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType) UnmarshalJSON(b []byte) error {
+	type _SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType
+	tmpType := new(_SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "connected")
+	delete(tmpType.XAdditionalProperties, "name")
+	delete(tmpType.XAdditionalProperties, "portName")
+	*t = SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType(*tmpType)
+	return nil
+}
+
+func (t *SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Connected != nil {
+		tmp["connected"] = t.Connected
+	}
+	if t.Name != nil {
+		tmp["name"] = t.Name
+	}
+	if t.PortName != nil {
+		tmp["portName"] = t.PortName
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType() *SwitchMTroubleshootingRemoteClientConnectivityResponseDataTypeNetworkSwitchesType {
@@ -150,6 +282,55 @@ type SwitchMTroubleshootingRemoteCommandResponse struct {
 	MetaData interface{} `json:"metaData,omitempty"`
 
 	Success *bool `json:"success,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchMTroubleshootingRemoteCommandResponse) UnmarshalJSON(b []byte) error {
+	type _SwitchMTroubleshootingRemoteCommandResponse SwitchMTroubleshootingRemoteCommandResponse
+	tmpType := new(_SwitchMTroubleshootingRemoteCommandResponse)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "data")
+	delete(tmpType.XAdditionalProperties, "error")
+	delete(tmpType.XAdditionalProperties, "extra")
+	delete(tmpType.XAdditionalProperties, "metaData")
+	delete(tmpType.XAdditionalProperties, "success")
+	*t = SwitchMTroubleshootingRemoteCommandResponse(*tmpType)
+	return nil
+}
+
+func (t *SwitchMTroubleshootingRemoteCommandResponse) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Data != nil {
+		tmp["data"] = t.Data
+	}
+	if t.Error != nil {
+		tmp["error"] = t.Error
+	}
+	if t.Extra != nil {
+		tmp["extra"] = t.Extra
+	}
+	if t.MetaData != nil {
+		tmp["metaData"] = t.MetaData
+	}
+	if t.Success != nil {
+		tmp["success"] = t.Success
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSwitchMTroubleshootingRemoteCommandResponse() *SwitchMTroubleshootingRemoteCommandResponse {
@@ -170,6 +351,55 @@ type SwitchMTroubleshootingRemotePingRequest struct {
 	TargetIp *string `json:"targetIp,omitempty"`
 
 	Ttl *int `json:"ttl,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchMTroubleshootingRemotePingRequest) UnmarshalJSON(b []byte) error {
+	type _SwitchMTroubleshootingRemotePingRequest SwitchMTroubleshootingRemotePingRequest
+	tmpType := new(_SwitchMTroubleshootingRemotePingRequest)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "packetSize")
+	delete(tmpType.XAdditionalProperties, "sourceId")
+	delete(tmpType.XAdditionalProperties, "sourceIp")
+	delete(tmpType.XAdditionalProperties, "targetIp")
+	delete(tmpType.XAdditionalProperties, "ttl")
+	*t = SwitchMTroubleshootingRemotePingRequest(*tmpType)
+	return nil
+}
+
+func (t *SwitchMTroubleshootingRemotePingRequest) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.PacketSize != nil {
+		tmp["packetSize"] = t.PacketSize
+	}
+	if t.SourceId != nil {
+		tmp["sourceId"] = t.SourceId
+	}
+	if t.SourceIp != nil {
+		tmp["sourceIp"] = t.SourceIp
+	}
+	if t.TargetIp != nil {
+		tmp["targetIp"] = t.TargetIp
+	}
+	if t.Ttl != nil {
+		tmp["ttl"] = t.Ttl
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSwitchMTroubleshootingRemotePingRequest() *SwitchMTroubleshootingRemotePingRequest {
@@ -188,6 +418,51 @@ type SwitchMTroubleshootingRemoteTracerouteRequest struct {
 	SourceIp *string `json:"sourceIp,omitempty"`
 
 	TargetIp *string `json:"targetIp,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SwitchMTroubleshootingRemoteTracerouteRequest) UnmarshalJSON(b []byte) error {
+	type _SwitchMTroubleshootingRemoteTracerouteRequest SwitchMTroubleshootingRemoteTracerouteRequest
+	tmpType := new(_SwitchMTroubleshootingRemoteTracerouteRequest)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "maxTtl")
+	delete(tmpType.XAdditionalProperties, "sourceId")
+	delete(tmpType.XAdditionalProperties, "sourceIp")
+	delete(tmpType.XAdditionalProperties, "targetIp")
+	*t = SwitchMTroubleshootingRemoteTracerouteRequest(*tmpType)
+	return nil
+}
+
+func (t *SwitchMTroubleshootingRemoteTracerouteRequest) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.MaxTtl != nil {
+		tmp["maxTtl"] = t.MaxTtl
+	}
+	if t.SourceId != nil {
+		tmp["sourceId"] = t.SourceId
+	}
+	if t.SourceIp != nil {
+		tmp["sourceIp"] = t.SourceIp
+	}
+	if t.TargetIp != nil {
+		tmp["targetIp"] = t.TargetIp
+	}
+	return json.Marshal(tmp)
 }
 
 func NewSwitchMTroubleshootingRemoteTracerouteRequest() *SwitchMTroubleshootingRemoteTracerouteRequest {

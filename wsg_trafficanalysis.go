@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -21,6 +22,115 @@ func (ss *WSGService) WSGTrafficAnalysisService() *WSGTrafficAnalysisService {
 	return NewWSGTrafficAnalysisService(ss.apiClient)
 }
 
+// WSGTrafficAnalysisResultItem
+//
+// Definition: trafficanalysis_trafficAnalysisResultItem
+//
+// Single traffic result item
+type WSGTrafficAnalysisResultItem struct {
+	AppName *string `json:"appName,omitempty"`
+
+	// ExtraValues24
+	// Value seems to usually be a map of other key => values, but is probably other things, too
+	ExtraValues24 interface{} `json:"extraValues24,omitempty"`
+
+	// ExtraValues50
+	// Value seems to usually be a map of other key => values, but is probably other things, too
+	ExtraValues50 interface{} `json:"extraValues50,omitempty"`
+
+	// ExtraValuesTotal
+	// Value seems to usually be a map of other key => values, but is probably other things, too
+	ExtraValuesTotal interface{} `json:"extraValuesTotal,omitempty"`
+
+	Key *string `json:"key,omitempty"`
+
+	// Total
+	// Value may be string, float, or integer type
+	Total interface{} `json:"total,omitempty"`
+
+	// Value
+	// Value may be string, float, or integer type
+	Value interface{} `json:"value,omitempty"`
+
+	// Value24
+	// Value may be string, float, or integer type
+	Value24 interface{} `json:"value24,omitempty"`
+
+	// Value50
+	// Value may be string, float, or integer type
+	Value50 interface{} `json:"value50,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *WSGTrafficAnalysisResultItem) UnmarshalJSON(b []byte) error {
+	type _WSGTrafficAnalysisResultItem WSGTrafficAnalysisResultItem
+	tmpType := new(_WSGTrafficAnalysisResultItem)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "appName")
+	delete(tmpType.XAdditionalProperties, "extraValues24")
+	delete(tmpType.XAdditionalProperties, "extraValues50")
+	delete(tmpType.XAdditionalProperties, "extraValuesTotal")
+	delete(tmpType.XAdditionalProperties, "key")
+	delete(tmpType.XAdditionalProperties, "total")
+	delete(tmpType.XAdditionalProperties, "value")
+	delete(tmpType.XAdditionalProperties, "value24")
+	delete(tmpType.XAdditionalProperties, "value50")
+	*t = WSGTrafficAnalysisResultItem(*tmpType)
+	return nil
+}
+
+func (t *WSGTrafficAnalysisResultItem) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.AppName != nil {
+		tmp["appName"] = t.AppName
+	}
+	if t.ExtraValues24 != nil {
+		tmp["extraValues24"] = t.ExtraValues24
+	}
+	if t.ExtraValues50 != nil {
+		tmp["extraValues50"] = t.ExtraValues50
+	}
+	if t.ExtraValuesTotal != nil {
+		tmp["extraValuesTotal"] = t.ExtraValuesTotal
+	}
+	if t.Key != nil {
+		tmp["key"] = t.Key
+	}
+	if t.Total != nil {
+		tmp["total"] = t.Total
+	}
+	if t.Value != nil {
+		tmp["value"] = t.Value
+	}
+	if t.Value24 != nil {
+		tmp["value24"] = t.Value24
+	}
+	if t.Value50 != nil {
+		tmp["value50"] = t.Value50
+	}
+	return json.Marshal(tmp)
+}
+
+func NewWSGTrafficAnalysisResultItem() *WSGTrafficAnalysisResultItem {
+	m := new(WSGTrafficAnalysisResultItem)
+	return m
+}
+
 // WSGTrafficAnalysisResults
 //
 // Definition: trafficanalysis_trafficAnalysisResults
@@ -35,7 +145,7 @@ type WSGTrafficAnalysisResults struct {
 	// Can probably be ignored
 	HasMore *bool `json:"hasMore,omitempty"`
 
-	List []interface{} `json:"list,omitempty"`
+	List []*WSGTrafficAnalysisResultItem `json:"list,omitempty"`
 
 	// RawDataTotalCount
 	// Always seems to be zero, not sure.

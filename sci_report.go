@@ -2085,7 +2085,7 @@ type SCIReportWithRelations struct {
 
 	Headers []string `json:"headers,omitempty"`
 
-	Id *int `json:"id,omitempty"`
+	Id *float64 `json:"id,omitempty"`
 
 	Layout []*SCIReportWithRelationsLayoutType `json:"layout,omitempty"`
 
@@ -2194,7 +2194,7 @@ type SCIReportWithRelationsLayoutType struct {
 
 	Layout []*SCIReportWithRelationsLayoutTypeLayoutType `json:"layout,omitempty"`
 
-	Section *int `json:"section,omitempty"`
+	Section *float64 `json:"section,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -2249,7 +2249,7 @@ func NewSCIReportWithRelationsLayoutType() *SCIReportWithRelationsLayoutType {
 type SCIReportWithRelationsLayoutTypeLayoutType struct {
 	DesiredWidth *string `json:"desiredWidth,omitempty"`
 
-	Section *int `json:"section,omitempty"`
+	Section *float64 `json:"section,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -2314,7 +2314,7 @@ type SCIReportWithRelationsSectionsType struct {
 
 	DefaultParameters *SCIReportWithRelationsSectionsTypeDefaultParametersType `json:"defaultParameters,omitempty"`
 
-	Id *int `json:"id,omitempty"`
+	Id *float64 `json:"id,omitempty"`
 
 	Layout *SCIReportWithRelationsSectionsTypeLayoutType `json:"layout,omitempty"`
 
@@ -2401,11 +2401,11 @@ type SCIReportWithRelationsSectionsTypeDefaultParametersType struct {
 
 	Hidden *bool `json:"hidden,omitempty"`
 
-	Limit *int `json:"limit,omitempty"`
+	Limit *float64 `json:"limit,omitempty"`
 
 	Metric *string `json:"metric,omitempty"`
 
-	ToggleSection *int `json:"toggleSection,omitempty"`
+	ToggleSection *float64 `json:"toggleSection,omitempty"`
 }
 
 func NewSCIReportWithRelationsSectionsTypeDefaultParametersType() *SCIReportWithRelationsSectionsTypeDefaultParametersType {

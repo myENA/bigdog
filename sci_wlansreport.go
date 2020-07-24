@@ -38,7 +38,7 @@ func MakeSCIWLANsReport35overviewData() SCIWLANsReport35overviewData {
 type SCIWLANsReport35overviewDataType struct {
 	TotalAddedClientCount *float64 `json:"totalAddedClientCount,omitempty"`
 
-	TotalAddedSsids *int `json:"totalAddedSsids,omitempty"`
+	TotalAddedSsids *float64 `json:"totalAddedSsids,omitempty"`
 
 	TotalClientCount *float64 `json:"totalClientCount,omitempty"`
 
@@ -46,7 +46,7 @@ type SCIWLANsReport35overviewDataType struct {
 
 	TotalDeletedSsids *float64 `json:"totalDeletedSsids,omitempty"`
 
-	TotalSsids *int `json:"totalSsids,omitempty"`
+	TotalSsids *float64 `json:"totalSsids,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -137,7 +137,7 @@ type SCIWLANsReport37activeSsidsTrendDataTypeType struct {
 
 	Start *string `json:"start,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -338,13 +338,13 @@ func MakeSCIWLANsReport39ssidChangesOverTimeData() SCIWLANsReport39ssidChangesOv
 //
 // Definition: WLANsReport_WLANsReport_39_ssidChangesOverTime_DataType
 type SCIWLANsReport39ssidChangesOverTimeDataType struct {
-	ClientCount *int `json:"clientCount,omitempty"`
+	ClientCount *float64 `json:"clientCount,omitempty"`
 
 	Ssid *string `json:"ssid,omitempty"`
 
 	Status *string `json:"status,omitempty"`
 
-	Time *int `json:"time,omitempty"`
+	Time *float64 `json:"time,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -415,29 +415,29 @@ type SCIWLANsReport40topSsidsByTrafficTableDataType struct {
 
 	ClientCount *float64 `json:"clientCount,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
 	SessionCount *float64 `json:"sessionCount,omitempty"`
 
 	Ssid *string `json:"ssid,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -538,11 +538,11 @@ type SCIWLANsReport40topSsidsByTrafficTableMetaData struct {
 
 	Name *string `json:"name,omitempty"`
 
-	Percentage *int `json:"percentage,omitempty"`
+	Percentage *float64 `json:"percentage,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -603,23 +603,23 @@ func NewSCIWLANsReport40topSsidsByTrafficTableMetaData() *SCIWLANsReport40topSsi
 //
 // Definition: WLANsReport_WLANsReport_40_topSsidsByTrafficTable_MetaDataMaxValuesType
 type SCIWLANsReport40topSsidsByTrafficTableMetaDataMaxValuesType struct {
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 }
 
 func NewSCIWLANsReport40topSsidsByTrafficTableMetaDataMaxValuesType() *SCIWLANsReport40topSsidsByTrafficTableMetaDataMaxValuesType {
@@ -645,29 +645,29 @@ type SCIWLANsReport41topSsidsByClientsTableDataType struct {
 
 	ClientCount *float64 `json:"clientCount,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
 	SessionCount *float64 `json:"sessionCount,omitempty"`
 
 	Ssid *string `json:"ssid,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -770,9 +770,9 @@ type SCIWLANsReport41topSsidsByClientsTableMetaData struct {
 
 	Percentage *float64 `json:"percentage,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -833,23 +833,23 @@ func NewSCIWLANsReport41topSsidsByClientsTableMetaData() *SCIWLANsReport41topSsi
 //
 // Definition: WLANsReport_WLANsReport_41_topSsidsByClientsTable_MetaDataMaxValuesType
 type SCIWLANsReport41topSsidsByClientsTableMetaDataMaxValuesType struct {
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 }
 
 func NewSCIWLANsReport41topSsidsByClientsTableMetaDataMaxValuesType() *SCIWLANsReport41topSsidsByClientsTableMetaDataMaxValuesType {

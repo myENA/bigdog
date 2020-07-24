@@ -38,7 +38,7 @@ func MakeSCIAPsRebootReport43totalRebootsData() SCIAPsRebootReport43totalReboots
 type SCIAPsRebootReport43totalRebootsDataType struct {
 	TotalRebootedAps *float64 `json:"totalRebootedAps,omitempty"`
 
-	TotalReboots *int `json:"totalReboots,omitempty"`
+	TotalReboots *float64 `json:"totalReboots,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -103,9 +103,9 @@ type SCIAPsRebootReport44topApRebootsTableDataType struct {
 
 	ApName *string `json:"apName,omitempty"`
 
-	Count *int `json:"count,omitempty"`
+	Count *float64 `json:"count,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -166,7 +166,7 @@ func NewSCIAPsRebootReport44topApRebootsTableDataType() *SCIAPsRebootReport44top
 //
 // Definition: APsRebootReport_APsRebootReport_44_topApRebootsTable_MetaData
 type SCIAPsRebootReport44topApRebootsTableMetaData struct {
-	TotalCount *int `json:"totalCount,omitempty"`
+	TotalCount *float64 `json:"totalCount,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

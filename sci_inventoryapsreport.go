@@ -36,19 +36,19 @@ func MakeSCIInventoryAPsReport46apInventoryOverviewData() SCIInventoryAPsReport4
 //
 // Definition: InventoryAPsReport_InventoryAPsReport_46_apInventoryOverview_DataType
 type SCIInventoryAPsReport46apInventoryOverviewDataType struct {
-	Offline *int `json:"offline,omitempty"`
+	Offline *float64 `json:"offline,omitempty"`
 
-	Online *int `json:"online,omitempty"`
+	Online *float64 `json:"online,omitempty"`
 
-	Others *int `json:"others,omitempty"`
+	Others *float64 `json:"others,omitempty"`
 
-	Reboots *int `json:"reboots,omitempty"`
+	Reboots *float64 `json:"reboots,omitempty"`
 
-	Total *int `json:"total,omitempty"`
+	Total *float64 `json:"total,omitempty"`
 
-	TotalApsWAlarm *int `json:"totalApsWAlarm,omitempty"`
+	TotalApsWAlarm *float64 `json:"totalApsWAlarm,omitempty"`
 
-	TotalApsWReboot *int `json:"totalApsWReboot,omitempty"`
+	TotalApsWReboot *float64 `json:"totalApsWReboot,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -131,7 +131,7 @@ type SCIInventoryAPsReport47topApsDisconnectionDataType struct {
 
 	Label *string `json:"label,omitempty"`
 
-	Value *int `json:"value,omitempty"`
+	Value *float64 `json:"value,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -336,7 +336,7 @@ func MakeSCIInventoryAPsReport49apStatusTrendDataType() SCIInventoryAPsReport49a
 type SCIInventoryAPsReport49apStatusTrendDataTypeType struct {
 	ConnectionStatus *string `json:"connectionStatus,omitempty"`
 
-	Count *int `json:"count,omitempty"`
+	Count *float64 `json:"count,omitempty"`
 
 	End *string `json:"end,omitempty"`
 
@@ -474,7 +474,7 @@ func MakeSCIInventoryAPsReport50topApsModelsChartDataType() SCIInventoryAPsRepor
 //
 // Definition: InventoryAPsReport_InventoryAPsReport_50_topApsModelsChart_DataTypeType
 type SCIInventoryAPsReport50topApsModelsChartDataTypeType struct {
-	ApCount *int `json:"apCount,omitempty"`
+	ApCount *float64 `json:"apCount,omitempty"`
 
 	ApModel *string `json:"apModel,omitempty"`
 
@@ -602,7 +602,7 @@ func MakeSCIInventoryAPsReport51top10ApVersionsChartDataType() SCIInventoryAPsRe
 //
 // Definition: InventoryAPsReport_InventoryAPsReport_51_top10ApVersionsChart_DataTypeType
 type SCIInventoryAPsReport51top10ApVersionsChartDataTypeType struct {
-	ApCount *int `json:"apCount,omitempty"`
+	ApCount *float64 `json:"apCount,omitempty"`
 
 	ApFwVersion *string `json:"apFwVersion,omitempty"`
 
@@ -736,7 +736,7 @@ func MakeSCIInventoryAPsReport52topApsRebootReasonsDataType() SCIInventoryAPsRep
 //
 // Definition: InventoryAPsReport_InventoryAPsReport_52_topApsRebootReasons_DataTypeType
 type SCIInventoryAPsReport52topApsRebootReasonsDataTypeType struct {
-	Count *int `json:"count,omitempty"`
+	Count *float64 `json:"count,omitempty"`
 
 	End *string `json:"end,omitempty"`
 
@@ -868,7 +868,7 @@ type SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType struct {
 
 	ApName *string `json:"apName,omitempty"`
 
-	Count *int `json:"count,omitempty"`
+	Count *float64 `json:"count,omitempty"`
 
 	End *string `json:"end,omitempty"`
 
@@ -1000,13 +1000,13 @@ func MakeSCIInventoryAPsReport54topApAlarmTypesDataType() SCIInventoryAPsReport5
 type SCIInventoryAPsReport54topApAlarmTypesDataTypeType struct {
 	AlarmType *string `json:"alarmType,omitempty"`
 
-	ApConnectionLost *int `json:"apConnectionLost,omitempty"`
+	ApConnectionLost *float64 `json:"apConnectionLost,omitempty"`
 
-	ApRebootBySystem *int `json:"apRebootBySystem,omitempty"`
+	ApRebootBySystem *float64 `json:"apRebootBySystem,omitempty"`
 
-	ApSigningInformation *int `json:"apSigningInformation,omitempty"`
+	ApSigningInformation *float64 `json:"apSigningInformation,omitempty"`
 
-	Count *int `json:"count,omitempty"`
+	Count *float64 `json:"count,omitempty"`
 
 	End *string `json:"end,omitempty"`
 
@@ -1134,13 +1134,13 @@ func MakeSCIInventoryAPsReport55topAPModelsData() SCIInventoryAPsReport55topAPMo
 //
 // Definition: InventoryAPsReport_InventoryAPsReport_55_topAPModels_DataType
 type SCIInventoryAPsReport55topAPModelsDataType struct {
-	ApCount *int `json:"apCount,omitempty"`
+	ApCount *float64 `json:"apCount,omitempty"`
 
 	ApModel *string `json:"apModel,omitempty"`
 
 	ApPercent *float64 `json:"apPercent,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1207,13 +1207,13 @@ func MakeSCIInventoryAPsReport56topAPVersionsData() SCIInventoryAPsReport56topAP
 //
 // Definition: InventoryAPsReport_InventoryAPsReport_56_topAPVersions_DataType
 type SCIInventoryAPsReport56topAPVersionsDataType struct {
-	ApCount *int `json:"apCount,omitempty"`
+	ApCount *float64 `json:"apCount,omitempty"`
 
 	ApFwVersion *string `json:"apFwVersion,omitempty"`
 
 	ApPercent *float64 `json:"apPercent,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1292,9 +1292,9 @@ type SCIInventoryAPsReport57topAPsOfflineDataType struct {
 
 	CtrlName *string `json:"ctrlName,omitempty"`
 
-	DisconnectDuration *int `json:"disconnectDuration,omitempty"`
+	DisconnectDuration *float64 `json:"disconnectDuration,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1412,7 +1412,7 @@ func NewSCIInventoryAPsReport57topAPsOfflineMetaData() *SCIInventoryAPsReport57t
 //
 // Definition: InventoryAPsReport_InventoryAPsReport_57_topAPsOffline_MetaDataMaxValuesType
 type SCIInventoryAPsReport57topAPsOfflineMetaDataMaxValuesType struct {
-	DisconnectDuration *int `json:"disconnectDuration,omitempty"`
+	DisconnectDuration *float64 `json:"disconnectDuration,omitempty"`
 }
 
 func NewSCIInventoryAPsReport57topAPsOfflineMetaDataMaxValuesType() *SCIInventoryAPsReport57topAPsOfflineMetaDataMaxValuesType {
@@ -1442,11 +1442,11 @@ type SCIInventoryAPsReport58topAPsByRebootsDataType struct {
 
 	ApName *string `json:"apName,omitempty"`
 
-	Count *int `json:"count,omitempty"`
+	Count *float64 `json:"count,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	LastRebootTime *int `json:"lastRebootTime,omitempty"`
+	LastRebootTime *float64 `json:"lastRebootTime,omitempty"`
 
 	Reason *string `json:"reason,omitempty"`
 
@@ -1545,7 +1545,7 @@ type SCIInventoryAPsReport60apDetailsOnOfflineStatusDataType struct {
 
 	CtrlName *string `json:"ctrlName,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
 	LastStatusChangeTime *string `json:"lastStatusChangeTime,omitempty"`
 

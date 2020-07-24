@@ -36,21 +36,21 @@ func MakeSCIInventorySwitchesReport113overviewData() SCIInventorySwitchesReport1
 //
 // Definition: InventorySwitchesReport_InventorySwitchesReport_113_overview_DataType
 type SCIInventorySwitchesReport113overviewDataType struct {
-	DownPortCount *int `json:"downPortCount,omitempty"`
+	DownPortCount *float64 `json:"downPortCount,omitempty"`
 
-	OfflineSwitchCount *int `json:"offlineSwitchCount,omitempty"`
+	OfflineSwitchCount *float64 `json:"offlineSwitchCount,omitempty"`
 
-	OnlineSwitchCount *int `json:"onlineSwitchCount,omitempty"`
+	OnlineSwitchCount *float64 `json:"onlineSwitchCount,omitempty"`
 
-	OtherSwitchCount *int `json:"otherSwitchCount,omitempty"`
+	OtherSwitchCount *float64 `json:"otherSwitchCount,omitempty"`
 
-	PortCount *int `json:"portCount,omitempty"`
+	PortCount *float64 `json:"portCount,omitempty"`
 
-	SwitchCount *int `json:"switchCount,omitempty"`
+	SwitchCount *float64 `json:"switchCount,omitempty"`
 
-	SwitchUnitCount *int `json:"switchUnitCount,omitempty"`
+	SwitchUnitCount *float64 `json:"switchUnitCount,omitempty"`
 
-	UpPortCount *int `json:"upPortCount,omitempty"`
+	UpPortCount *float64 `json:"upPortCount,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -133,17 +133,17 @@ func MakeSCIInventorySwitchesReport116switchCountTrendData() SCIInventorySwitche
 //
 // Definition: InventorySwitchesReport_InventorySwitchesReport_116_switchCountTrend_DataType
 type SCIInventorySwitchesReport116switchCountTrendDataType struct {
-	Count *int `json:"count,omitempty"`
+	Count *float64 `json:"count,omitempty"`
 
 	End *string `json:"end,omitempty"`
 
-	OfflineCount *int `json:"offlineCount,omitempty"`
+	OfflineCount *float64 `json:"offlineCount,omitempty"`
 
-	OnlineCount *int `json:"onlineCount,omitempty"`
+	OnlineCount *float64 `json:"onlineCount,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
-	SwitchUnitCount *int `json:"switchUnitCount,omitempty"`
+	SwitchUnitCount *float64 `json:"switchUnitCount,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -232,7 +232,7 @@ type SCIInventorySwitchesReport117top10SwitchVersionChartDataTypeType struct {
 
 	Start *string `json:"start,omitempty"`
 
-	SwitchCount *int `json:"switchCount,omitempty"`
+	SwitchCount *float64 `json:"switchCount,omitempty"`
 
 	SwitchFirmware *string `json:"switchFirmware,omitempty"`
 
@@ -346,9 +346,9 @@ func MakeSCIInventorySwitchesReport118topSwitchVersionsData() SCIInventorySwitch
 //
 // Definition: InventorySwitchesReport_InventorySwitchesReport_118_topSwitchVersions_DataType
 type SCIInventorySwitchesReport118topSwitchVersionsDataType struct {
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	SwitchCount *int `json:"switchCount,omitempty"`
+	SwitchCount *float64 `json:"switchCount,omitempty"`
 
 	SwitchFirmware *string `json:"switchFirmware,omitempty"`
 
@@ -441,7 +441,7 @@ type SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType struct {
 
 	Start *string `json:"start,omitempty"`
 
-	SwitchCount *int `json:"switchCount,omitempty"`
+	SwitchCount *float64 `json:"switchCount,omitempty"`
 
 	SwitchModel *string `json:"switchModel,omitempty"`
 
@@ -571,9 +571,9 @@ func MakeSCIInventorySwitchesReport122topSwitchModelsData() SCIInventorySwitches
 //
 // Definition: InventorySwitchesReport_InventorySwitchesReport_122_topSwitchModels_DataType
 type SCIInventorySwitchesReport122topSwitchModelsDataType struct {
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	SwitchCount *int `json:"switchCount,omitempty"`
+	SwitchCount *float64 `json:"switchCount,omitempty"`
 
 	SwitchModel *string `json:"switchModel,omitempty"`
 
@@ -654,17 +654,17 @@ func MakeSCIInventorySwitchesReport132portStatusTrendDataType() SCIInventorySwit
 //
 // Definition: InventorySwitchesReport_InventorySwitchesReport_132_portStatusTrend_DataTypeType
 type SCIInventorySwitchesReport132portStatusTrendDataTypeType struct {
-	Down *int `json:"Down,omitempty"`
+	Down *float64 `json:"Down,omitempty"`
 
 	End *string `json:"end,omitempty"`
 
-	PortCount *int `json:"portCount,omitempty"`
+	PortCount *float64 `json:"portCount,omitempty"`
 
 	PortStatus *string `json:"portStatus,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
-	Up *int `json:"Up,omitempty"`
+	Up *float64 `json:"Up,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

@@ -139,15 +139,15 @@ func MakeSCIAPDetailsReport8topAppsByTrafficTableData() SCIAPDetailsReport8topAp
 type SCIAPDetailsReport8topAppsByTrafficTableDataType struct {
 	App *string `json:"app,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
 	Port *string `json:"port,omitempty"`
 
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -218,9 +218,9 @@ type SCIAPDetailsReport8topAppsByTrafficTableMetaData struct {
 
 	Percentage *float64 `json:"percentage,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -281,11 +281,11 @@ func NewSCIAPDetailsReport8topAppsByTrafficTableMetaData() *SCIAPDetailsReport8t
 //
 // Definition: APDetailsReport_APDetailsReport_8_topAppsByTrafficTable_MetaDataMaxValuesType
 type SCIAPDetailsReport8topAppsByTrafficTableMetaDataMaxValuesType struct {
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 }
 
 func NewSCIAPDetailsReport8topAppsByTrafficTableMetaDataMaxValuesType() *SCIAPDetailsReport8topAppsByTrafficTableMetaDataMaxValuesType {
@@ -313,19 +313,19 @@ type SCIAPDetailsReport14topTableDataType struct {
 
 	Hostname *string `json:"hostname,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
 	Manufacturer *string `json:"manufacturer,omitempty"`
 
 	OsType *string `json:"osType,omitempty"`
 
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
 	SessionCount *float64 `json:"sessionCount,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 
 	Username *string `json:"username,omitempty"`
 
@@ -416,11 +416,11 @@ type SCIAPDetailsReport14topTableMetaData struct {
 
 	Name *string `json:"name,omitempty"`
 
-	Percentage *int `json:"percentage,omitempty"`
+	Percentage *float64 `json:"percentage,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -481,11 +481,11 @@ func NewSCIAPDetailsReport14topTableMetaData() *SCIAPDetailsReport14topTableMeta
 //
 // Definition: APDetailsReport_APDetailsReport_14_topTable_MetaDataMaxValuesType
 type SCIAPDetailsReport14topTableMetaDataMaxValuesType struct {
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 }
 
 func NewSCIAPDetailsReport14topTableMetaDataMaxValuesType() *SCIAPDetailsReport14topTableMetaDataMaxValuesType {
@@ -519,13 +519,13 @@ func MakeSCIAPDetailsReport15trendChartDataType() SCIAPDetailsReport15trendChart
 type SCIAPDetailsReport15trendChartDataTypeType struct {
 	End *string `json:"end,omitempty"`
 
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 
 	Uniqueusers *float64 `json:"unique_users,omitempty"`
 
@@ -636,21 +636,21 @@ type SCIAPDetailsReport22trafficTrendDataTypeType struct {
 
 	End *string `json:"end,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTraffic24 *int `json:"totalTraffic_2-4,omitempty"`
+	TotalTraffic24 *float64 `json:"totalTraffic_2-4,omitempty"`
 
-	TotalTraffic5 *int `json:"totalTraffic_5,omitempty"`
+	TotalTraffic5 *float64 `json:"totalTraffic_5,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -761,29 +761,29 @@ type SCIAPDetailsReport40topSsidsByTrafficTableDataType struct {
 
 	ClientCount *float64 `json:"clientCount,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
 	SessionCount *float64 `json:"sessionCount,omitempty"`
 
 	Ssid *string `json:"ssid,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -884,11 +884,11 @@ type SCIAPDetailsReport40topSsidsByTrafficTableMetaData struct {
 
 	Name *string `json:"name,omitempty"`
 
-	Percentage *int `json:"percentage,omitempty"`
+	Percentage *float64 `json:"percentage,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -949,23 +949,23 @@ func NewSCIAPDetailsReport40topSsidsByTrafficTableMetaData() *SCIAPDetailsReport
 //
 // Definition: APDetailsReport_APDetailsReport_40_topSsidsByTrafficTable_MetaDataMaxValuesType
 type SCIAPDetailsReport40topSsidsByTrafficTableMetaDataMaxValuesType struct {
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 }
 
 func NewSCIAPDetailsReport40topSsidsByTrafficTableMetaDataMaxValuesType() *SCIAPDetailsReport40topSsidsByTrafficTableMetaDataMaxValuesType {
@@ -1078,13 +1078,13 @@ func MakeSCIAPDetailsReport78apStatsOverviewData() SCIAPDetailsReport78apStatsOv
 type SCIAPDetailsReport78apStatsOverviewDataType struct {
 	TotalClientCount *float64 `json:"totalClientCount,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalSsids *int `json:"totalSsids,omitempty"`
+	TotalSsids *float64 `json:"totalSsids,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1159,7 +1159,7 @@ type SCIAPDetailsReport79apUptimeHistoryDataType struct {
 
 	Start *string `json:"start,omitempty"`
 
-	Status *int `json:"status,omitempty"`
+	Status *float64 `json:"status,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1212,9 +1212,9 @@ func NewSCIAPDetailsReport79apUptimeHistoryDataType() *SCIAPDetailsReport79apUpt
 //
 // Definition: APDetailsReport_APDetailsReport_79_apUptimeHistory_MetaData
 type SCIAPDetailsReport79apUptimeHistoryMetaData struct {
-	TotalDowntime *int `json:"totalDowntime,omitempty"`
+	TotalDowntime *float64 `json:"totalDowntime,omitempty"`
 
-	TotalUptime *int `json:"totalUptime,omitempty"`
+	TotalUptime *float64 `json:"totalUptime,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1285,15 +1285,15 @@ type SCIAPDetailsReport81sessionsTableDataType struct {
 
 	Radio *string `json:"radio,omitempty"`
 
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
-	SessionDuration *int `json:"sessionDuration,omitempty"`
+	SessionDuration *float64 `json:"sessionDuration,omitempty"`
 
 	Ssid *string `json:"ssid,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1423,11 +1423,11 @@ func NewSCIAPDetailsReport81sessionsTableMetaData() *SCIAPDetailsReport81session
 //
 // Definition: APDetailsReport_APDetailsReport_81_sessionsTable_MetaDataMaxValuesType
 type SCIAPDetailsReport81sessionsTableMetaDataMaxValuesType struct {
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 }
 
 func NewSCIAPDetailsReport81sessionsTableMetaDataMaxValuesType() *SCIAPDetailsReport81sessionsTableMetaDataMaxValuesType {

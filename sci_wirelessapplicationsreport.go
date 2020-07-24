@@ -38,15 +38,15 @@ func MakeSCIWirelessApplicationsReport8topAppsByTrafficTableData() SCIWirelessAp
 type SCIWirelessApplicationsReport8topAppsByTrafficTableDataType struct {
 	App *string `json:"app,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
 	Port *string `json:"port,omitempty"`
 
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -117,9 +117,9 @@ type SCIWirelessApplicationsReport8topAppsByTrafficTableMetaData struct {
 
 	Percentage *float64 `json:"percentage,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -180,11 +180,11 @@ func NewSCIWirelessApplicationsReport8topAppsByTrafficTableMetaData() *SCIWirele
 //
 // Definition: WirelessApplicationsReport_WirelessApplicationsReport_8_topAppsByTrafficTable_MetaDataMaxValuesType
 type SCIWirelessApplicationsReport8topAppsByTrafficTableMetaDataMaxValuesType struct {
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 }
 
 func NewSCIWirelessApplicationsReport8topAppsByTrafficTableMetaDataMaxValuesType() *SCIWirelessApplicationsReport8topAppsByTrafficTableMetaDataMaxValuesType {
@@ -210,15 +210,15 @@ type SCIWirelessApplicationsReport9topAppsByClientsTableDataType struct {
 
 	ClientCount *float64 `json:"clientCount,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
 	Port *string `json:"port,omitempty"`
 
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -293,9 +293,9 @@ type SCIWirelessApplicationsReport9topAppsByClientsTableMetaData struct {
 
 	Percentage *float64 `json:"percentage,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -356,11 +356,11 @@ func NewSCIWirelessApplicationsReport9topAppsByClientsTableMetaData() *SCIWirele
 //
 // Definition: WirelessApplicationsReport_WirelessApplicationsReport_9_topAppsByClientsTable_MetaDataMaxValuesType
 type SCIWirelessApplicationsReport9topAppsByClientsTableMetaDataMaxValuesType struct {
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 }
 
 func NewSCIWirelessApplicationsReport9topAppsByClientsTableMetaDataMaxValuesType() *SCIWirelessApplicationsReport9topAppsByClientsTableMetaDataMaxValuesType {
@@ -394,11 +394,11 @@ func MakeSCIWirelessApplicationsReport10overviewDataType() SCIWirelessApplicatio
 type SCIWirelessApplicationsReport10overviewDataTypeType struct {
 	Applications *float64 `json:"applications,omitempty"`
 
-	TotalRxBytes *int `json:"totalRxBytes,omitempty"`
+	TotalRxBytes *float64 `json:"totalRxBytes,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxBytes *int `json:"totalTxBytes,omitempty"`
+	TotalTxBytes *float64 `json:"totalTxBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -459,9 +459,9 @@ type SCIWirelessApplicationsReport10overviewMetaData struct {
 
 	Percentage *float64 `json:"percentage,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -558,15 +558,15 @@ type SCIWirelessApplicationsReport11top10ApplicationsByClientCountDataTypeType s
 
 	Ntp *float64 `json:"ntp,omitempty"`
 
-	Rx *int `json:"rx,omitempty"`
+	Rx *float64 `json:"rx,omitempty"`
 
 	Snmp *float64 `json:"snmp,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	Tx *int `json:"tx,omitempty"`
+	Tx *float64 `json:"tx,omitempty"`
 
 	UniqueUsers *float64 `json:"uniqueUsers,omitempty"`
 

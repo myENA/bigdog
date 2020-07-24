@@ -257,17 +257,17 @@ func MakeSCIInventoryControllersReport99licenseUtilizationData() SCIInventoryCon
 //
 // Definition: InventoryControllersReport_InventoryControllersReport_99_licenseUtilization_DataType
 type SCIInventoryControllersReport99licenseUtilizationDataType struct {
-	ApsDown *int `json:"apsDown,omitempty"`
+	ApsDown *float64 `json:"apsDown,omitempty"`
 
-	ApsManaged *int `json:"apsManaged,omitempty"`
+	ApsManaged *float64 `json:"apsManaged,omitempty"`
 
-	ApsUp *int `json:"apsUp,omitempty"`
+	ApsUp *float64 `json:"apsUp,omitempty"`
 
-	LicenseAvailable *int `json:"licenseAvailable,omitempty"`
+	LicenseAvailable *float64 `json:"licenseAvailable,omitempty"`
 
-	LicenseConsumed *int `json:"licenseConsumed,omitempty"`
+	LicenseConsumed *float64 `json:"licenseConsumed,omitempty"`
 
-	LicenseCount *int `json:"licenseCount,omitempty"`
+	LicenseCount *float64 `json:"licenseCount,omitempty"`
 
 	LicenseUtilization *float64 `json:"licenseUtilization,omitempty"`
 
@@ -360,15 +360,15 @@ func MakeSCIInventoryControllersReport114controllerInventoryOverviewData() SCIIn
 //
 // Definition: InventoryControllersReport_InventoryControllersReport_114_controllerInventoryOverview_DataType
 type SCIInventoryControllersReport114controllerInventoryOverviewDataType struct {
-	Offline *int `json:"offline,omitempty"`
+	Offline *float64 `json:"offline,omitempty"`
 
-	Online *int `json:"online,omitempty"`
+	Online *float64 `json:"online,omitempty"`
 
-	SzCount *int `json:"szCount,omitempty"`
+	SzCount *float64 `json:"szCount,omitempty"`
 
-	Total *int `json:"total,omitempty"`
+	Total *float64 `json:"total,omitempty"`
 
-	ZdCount *int `json:"zdCount,omitempty"`
+	ZdCount *float64 `json:"zdCount,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

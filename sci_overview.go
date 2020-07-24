@@ -48,9 +48,9 @@ type SCIOverview62overviewDataType struct {
 
 	ShortSessionRatio interface{} `json:"shortSessionRatio,omitempty"`
 
-	Total *int `json:"total,omitempty"`
+	Total *float64 `json:"total,omitempty"`
 
-	TotalHistory *int `json:"totalHistory,omitempty"`
+	TotalHistory *float64 `json:"totalHistory,omitempty"`
 
 	UserTraffic interface{} `json:"userTraffic,omitempty"`
 
@@ -184,15 +184,15 @@ func MakeSCIOverview63controllerData() SCIOverview63controllerData {
 //
 // Definition: Overview_Overview_63_controller_DataType
 type SCIOverview63controllerDataType struct {
-	Offline *int `json:"offline,omitempty"`
+	Offline *float64 `json:"offline,omitempty"`
 
-	Online *int `json:"online,omitempty"`
+	Online *float64 `json:"online,omitempty"`
 
-	SzCount *int `json:"szCount,omitempty"`
+	SzCount *float64 `json:"szCount,omitempty"`
 
-	Total *int `json:"total,omitempty"`
+	Total *float64 `json:"total,omitempty"`
 
-	ZdCount *int `json:"zdCount,omitempty"`
+	ZdCount *float64 `json:"zdCount,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -263,19 +263,19 @@ func MakeSCIOverview64apOverviewData() SCIOverview64apOverviewData {
 //
 // Definition: Overview_Overview_64_apOverview_DataType
 type SCIOverview64apOverviewDataType struct {
-	Offline *int `json:"offline,omitempty"`
+	Offline *float64 `json:"offline,omitempty"`
 
-	Online *int `json:"online,omitempty"`
+	Online *float64 `json:"online,omitempty"`
 
-	Others *int `json:"others,omitempty"`
+	Others *float64 `json:"others,omitempty"`
 
-	Reboots *int `json:"reboots,omitempty"`
+	Reboots *float64 `json:"reboots,omitempty"`
 
-	Total *int `json:"total,omitempty"`
+	Total *float64 `json:"total,omitempty"`
 
-	TotalApsWAlarm *int `json:"totalApsWAlarm,omitempty"`
+	TotalApsWAlarm *float64 `json:"totalApsWAlarm,omitempty"`
 
-	TotalApsWReboot *int `json:"totalApsWReboot,omitempty"`
+	TotalApsWReboot *float64 `json:"totalApsWReboot,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -356,7 +356,7 @@ func MakeSCIOverview66apAlarmOverviewData() SCIOverview66apAlarmOverviewData {
 type SCIOverview66apAlarmOverviewDataType struct {
 	AlarmType *string `json:"alarmType,omitempty"`
 
-	Count *int `json:"count,omitempty"`
+	Count *float64 `json:"count,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -407,7 +407,7 @@ func NewSCIOverview66apAlarmOverviewDataType() *SCIOverview66apAlarmOverviewData
 type SCIOverview66apAlarmOverviewMetaData struct {
 	AlarmStat *SCIOverview66apAlarmOverviewMetaDataAlarmStatType `json:"alarmStat,omitempty"`
 
-	AlarmTotalCount *int `json:"alarmTotalCount,omitempty"`
+	AlarmTotalCount *float64 `json:"alarmTotalCount,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -470,9 +470,9 @@ func NewSCIOverview66apAlarmOverviewMetaDataAlarmStatType() *SCIOverview66apAlar
 //
 // Definition: Overview_Overview_66_apAlarmOverview_MetaDataAlarmStatTypeByApGroupType
 type SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType struct {
-	Alarm *int `json:"alarm,omitempty"`
+	Alarm *float64 `json:"alarm,omitempty"`
 
-	Total *int `json:"total,omitempty"`
+	Total *float64 `json:"total,omitempty"`
 }
 
 func NewSCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType() *SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType {
@@ -484,9 +484,9 @@ func NewSCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType() *SCIOve
 //
 // Definition: Overview_Overview_66_apAlarmOverview_MetaDataAlarmStatTypeByZoneType
 type SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByZoneType struct {
-	Alarm *int `json:"alarm,omitempty"`
+	Alarm *float64 `json:"alarm,omitempty"`
 
-	Total *int `json:"total,omitempty"`
+	Total *float64 `json:"total,omitempty"`
 }
 
 func NewSCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByZoneType() *SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByZoneType {
@@ -508,13 +508,13 @@ func MakeSCIOverview67switchOverviewData() SCIOverview67switchOverviewData {
 //
 // Definition: Overview_Overview_67_switchOverview_DataType
 type SCIOverview67switchOverviewDataType struct {
-	Offline *int `json:"offline,omitempty"`
+	Offline *float64 `json:"offline,omitempty"`
 
-	Online *int `json:"online,omitempty"`
+	Online *float64 `json:"online,omitempty"`
 
-	Others *int `json:"others,omitempty"`
+	Others *float64 `json:"others,omitempty"`
 
-	Total *int `json:"total,omitempty"`
+	Total *float64 `json:"total,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -713,9 +713,9 @@ type SCIOverview69totalTrafficMinMaxRateDataTypeType struct {
 
 	MinLabel *string `json:"minLabel,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -899,13 +899,13 @@ func MakeSCIOverview71ssidOverviewDataType() SCIOverview71ssidOverviewDataType {
 //
 // Definition: Overview_Overview_71_ssidOverview_DataTypeType
 type SCIOverview71ssidOverviewDataTypeType struct {
-	Current *int `json:"current,omitempty"`
+	Current *float64 `json:"current,omitempty"`
 
-	Previous *int `json:"previous,omitempty"`
+	Previous *float64 `json:"previous,omitempty"`
 
 	Ssid *string `json:"ssid,omitempty"`
 
-	TotalMetric *int `json:"totalMetric,omitempty"`
+	TotalMetric *float64 `json:"totalMetric,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -964,7 +964,7 @@ func NewSCIOverview71ssidOverviewDataTypeType() *SCIOverview71ssidOverviewDataTy
 type SCIOverview71ssidOverviewMetaData struct {
 	ColorKeys []string `json:"colorKeys,omitempty"`
 
-	TotalMetric *int `json:"totalMetric,omitempty"`
+	TotalMetric *float64 `json:"totalMetric,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1027,7 +1027,7 @@ type SCIOverview72radioOverviewDataType struct {
 
 	Radio *string `json:"radio,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1090,7 +1090,7 @@ func MakeSCIOverview73applicationsOverviewData() SCIOverview73applicationsOvervi
 //
 // Definition: Overview_Overview_73_applicationsOverview_DataType
 type SCIOverview73applicationsOverviewDataType struct {
-	Key *int `json:"key,omitempty"`
+	Key *float64 `json:"key,omitempty"`
 
 	Label *string `json:"label,omitempty"`
 
@@ -1157,7 +1157,7 @@ func MakeSCIOverview74apEventOverviewData() SCIOverview74apEventOverviewData {
 //
 // Definition: Overview_Overview_74_apEventOverview_DataType
 type SCIOverview74apEventOverviewDataType struct {
-	Count *int `json:"count,omitempty"`
+	Count *float64 `json:"count,omitempty"`
 
 	EventType *string `json:"eventType,omitempty"`
 
@@ -1208,7 +1208,7 @@ func NewSCIOverview74apEventOverviewDataType() *SCIOverview74apEventOverviewData
 //
 // Definition: Overview_Overview_74_apEventOverview_MetaData
 type SCIOverview74apEventOverviewMetaData struct {
-	EventTotalCount *int `json:"eventTotalCount,omitempty"`
+	EventTotalCount *float64 `json:"eventTotalCount,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1417,11 +1417,11 @@ type SCIOverview115networkUsageOverviewDataApGroupType struct {
 
 	Name *string `json:"name,omitempty"`
 
-	X *int `json:"x,omitempty"`
+	X *float64 `json:"x,omitempty"`
 
-	Y *int `json:"y,omitempty"`
+	Y *float64 `json:"y,omitempty"`
 
-	Z *int `json:"z,omitempty"`
+	Z *float64 `json:"z,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1486,11 +1486,11 @@ type SCIOverview115networkUsageOverviewDataAppType struct {
 
 	Name *string `json:"name,omitempty"`
 
-	X *int `json:"x,omitempty"`
+	X *float64 `json:"x,omitempty"`
 
-	Y *int `json:"y,omitempty"`
+	Y *float64 `json:"y,omitempty"`
 
-	Z *int `json:"z,omitempty"`
+	Z *float64 `json:"z,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1555,11 +1555,11 @@ type SCIOverview115networkUsageOverviewDataApType struct {
 
 	Name *string `json:"name,omitempty"`
 
-	X *int `json:"x,omitempty"`
+	X *float64 `json:"x,omitempty"`
 
-	Y *int `json:"y,omitempty"`
+	Y *float64 `json:"y,omitempty"`
 
-	Z *int `json:"z,omitempty"`
+	Z *float64 `json:"z,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1624,11 +1624,11 @@ type SCIOverview115networkUsageOverviewDataDomainType struct {
 
 	Name *string `json:"name,omitempty"`
 
-	X *int `json:"x,omitempty"`
+	X *float64 `json:"x,omitempty"`
 
-	Y *int `json:"y,omitempty"`
+	Y *float64 `json:"y,omitempty"`
 
-	Z *int `json:"z,omitempty"`
+	Z *float64 `json:"z,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1693,11 +1693,11 @@ type SCIOverview115networkUsageOverviewDataOSType struct {
 
 	Name *string `json:"name,omitempty"`
 
-	X *int `json:"x,omitempty"`
+	X *float64 `json:"x,omitempty"`
 
-	Y *int `json:"y,omitempty"`
+	Y *float64 `json:"y,omitempty"`
 
-	Z *int `json:"z,omitempty"`
+	Z *float64 `json:"z,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1762,11 +1762,11 @@ type SCIOverview115networkUsageOverviewDataSSIDType struct {
 
 	Name *string `json:"name,omitempty"`
 
-	X *int `json:"x,omitempty"`
+	X *float64 `json:"x,omitempty"`
 
-	Y *int `json:"y,omitempty"`
+	Y *float64 `json:"y,omitempty"`
 
-	Z *int `json:"z,omitempty"`
+	Z *float64 `json:"z,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1831,11 +1831,11 @@ type SCIOverview115networkUsageOverviewDataSwitchType struct {
 
 	Name *string `json:"name,omitempty"`
 
-	X *int `json:"x,omitempty"`
+	X *float64 `json:"x,omitempty"`
 
-	Y *int `json:"y,omitempty"`
+	Y *float64 `json:"y,omitempty"`
 
-	Z *int `json:"z,omitempty"`
+	Z *float64 `json:"z,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1900,11 +1900,11 @@ type SCIOverview115networkUsageOverviewDataSystemType struct {
 
 	Name *string `json:"name,omitempty"`
 
-	X *int `json:"x,omitempty"`
+	X *float64 `json:"x,omitempty"`
 
-	Y *int `json:"y,omitempty"`
+	Y *float64 `json:"y,omitempty"`
 
-	Z *int `json:"z,omitempty"`
+	Z *float64 `json:"z,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1969,11 +1969,11 @@ type SCIOverview115networkUsageOverviewDataZoneType struct {
 
 	Name *string `json:"name,omitempty"`
 
-	X *int `json:"x,omitempty"`
+	X *float64 `json:"x,omitempty"`
 
-	Y *int `json:"y,omitempty"`
+	Y *float64 `json:"y,omitempty"`
 
-	Z *int `json:"z,omitempty"`
+	Z *float64 `json:"z,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

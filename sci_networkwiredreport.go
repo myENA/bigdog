@@ -48,7 +48,7 @@ func MakeSCINetworkWiredReport123topSwitchPOEUtilChartDataType() SCINetworkWired
 type SCINetworkWiredReport123topSwitchPOEUtilChartDataTypeType struct {
 	End *string `json:"end,omitempty"`
 
-	PoeUtilization *int `json:"poeUtilization,omitempty"`
+	PoeUtilization *float64 `json:"poeUtilization,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
@@ -170,13 +170,13 @@ func MakeSCINetworkWiredReport124topSwitchPOEUtilsData() SCINetworkWiredReport12
 //
 // Definition: NetworkWiredReport_NetworkWiredReport_124_topSwitchPOEUtils_DataType
 type SCINetworkWiredReport124topSwitchPOEUtilsDataType struct {
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	PoeTotal *int `json:"poeTotal,omitempty"`
+	PoeTotal *float64 `json:"poeTotal,omitempty"`
 
-	PoeUtilization *int `json:"poeUtilization,omitempty"`
+	PoeUtilization *float64 `json:"poeUtilization,omitempty"`
 
-	PoeUtilPercent *int `json:"poeUtilPercent,omitempty"`
+	PoeUtilPercent *float64 `json:"poeUtilPercent,omitempty"`
 
 	SwitchId *string `json:"switchId,omitempty"`
 
@@ -261,21 +261,21 @@ type SCINetworkWiredReport128topSwitchesByTrafficTableDataType struct {
 
 	AvgRateTotalTxTraffic *float64 `json:"avgRateTotalTxTraffic,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	PortCount *int `json:"portCount,omitempty"`
+	PortCount *float64 `json:"portCount,omitempty"`
 
 	SwitchId *string `json:"switchId,omitempty"`
 
 	SwitchName *string `json:"switchName,omitempty"`
 
-	SwitchUnitCount *int `json:"switchUnitCount,omitempty"`
+	SwitchUnitCount *float64 `json:"switchUnitCount,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -364,11 +364,11 @@ type SCINetworkWiredReport128topSwitchesByTrafficTableMetaData struct {
 
 	Name *string `json:"name,omitempty"`
 
-	Percentage *int `json:"percentage,omitempty"`
+	Percentage *float64 `json:"percentage,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -435,11 +435,11 @@ type SCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType stru
 
 	AvgRateTotalTxTraffic *float64 `json:"avgRateTotalTxTraffic,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 }
 
 func NewSCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType() *SCINetworkWiredReport128topSwitchesByTrafficTableMetaDataMaxValuesType {
@@ -467,13 +467,13 @@ type SCINetworkWiredReport134wiredOverviewDataType struct {
 
 	AvgRateTotalTxTraffic *float64 `json:"avgRateTotalTxTraffic,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalSwitches *int `json:"totalSwitches,omitempty"`
+	TotalSwitches *float64 `json:"totalSwitches,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -729,11 +729,11 @@ type SCINetworkWiredReport136switchTrafficTrendDataTypeType struct {
 
 	Start *string `json:"start,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -816,15 +816,15 @@ func MakeSCINetworkWiredReport141switchErrorTrendData() SCINetworkWiredReport141
 //
 // Definition: NetworkWiredReport_NetworkWiredReport_141_switchErrorTrend_DataType
 type SCINetworkWiredReport141switchErrorTrendDataType struct {
-	CrcErrors *int `json:"crcErrors,omitempty"`
+	CrcErrors *float64 `json:"crcErrors,omitempty"`
 
 	End *string `json:"end,omitempty"`
 
-	InDiscards *int `json:"inDiscards,omitempty"`
+	InDiscards *float64 `json:"inDiscards,omitempty"`
 
-	InErrors *int `json:"inErrors,omitempty"`
+	InErrors *float64 `json:"inErrors,omitempty"`
 
-	OutErrors *int `json:"outErrors,omitempty"`
+	OutErrors *float64 `json:"outErrors,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
@@ -913,7 +913,7 @@ func MakeSCINetworkWiredReport142topSwitchesByErrorsChartDataType() SCINetworkWi
 type SCINetworkWiredReport142topSwitchesByErrorsChartDataTypeType struct {
 	End *string `json:"end,omitempty"`
 
-	Error *int `json:"error,omitempty"`
+	Error *float64 `json:"error,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
@@ -1035,13 +1035,13 @@ func MakeSCINetworkWiredReport143topSwitchesByErrorsTableData() SCINetworkWiredR
 //
 // Definition: NetworkWiredReport_NetworkWiredReport_143_topSwitchesByErrorsTable_DataType
 type SCINetworkWiredReport143topSwitchesByErrorsTableDataType struct {
-	Error *int `json:"error,omitempty"`
+	Error *float64 `json:"error,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	InErr *int `json:"inErr,omitempty"`
+	InErr *float64 `json:"inErr,omitempty"`
 
-	OutErr *int `json:"outErr,omitempty"`
+	OutErr *float64 `json:"outErr,omitempty"`
 
 	SwitchId *string `json:"switchId,omitempty"`
 

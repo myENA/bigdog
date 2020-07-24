@@ -342,7 +342,7 @@ func NewSwitchMTroubleshootingRemoteCommandResponse() *SwitchMTroubleshootingRem
 //
 // Definition: troubleShooting_remotePingRequest
 type SwitchMTroubleshootingRemotePingRequest struct {
-	PacketSize *int `json:"packetSize,omitempty"`
+	PacketSize *float64 `json:"packetSize,omitempty"`
 
 	SourceId *string `json:"sourceId,omitempty"`
 
@@ -350,7 +350,7 @@ type SwitchMTroubleshootingRemotePingRequest struct {
 
 	TargetIp *string `json:"targetIp,omitempty"`
 
-	Ttl *int `json:"ttl,omitempty"`
+	Ttl *float64 `json:"ttl,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -411,7 +411,7 @@ func NewSwitchMTroubleshootingRemotePingRequest() *SwitchMTroubleshootingRemoteP
 //
 // Definition: troubleShooting_remoteTracerouteRequest
 type SwitchMTroubleshootingRemoteTracerouteRequest struct {
-	MaxTtl *int `json:"maxTtl,omitempty"`
+	MaxTtl *float64 `json:"maxTtl,omitempty"`
 
 	SourceId *string `json:"sourceId,omitempty"`
 

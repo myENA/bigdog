@@ -36,19 +36,19 @@ func MakeSCIClientHealthReport144clientHealthSummaryData() SCIClientHealthReport
 //
 // Definition: ClientHealthReport_ClientHealthReport_144_clientHealthSummary_DataType
 type SCIClientHealthReport144clientHealthSummaryDataType struct {
-	AvgRFHealthClientCount *int `json:"avgRFHealthClientCount,omitempty"`
+	AvgRFHealthClientCount *float64 `json:"avgRFHealthClientCount,omitempty"`
 
-	AvgRFHealthRatio *int `json:"avgRFHealthRatio,omitempty"`
+	AvgRFHealthRatio *float64 `json:"avgRFHealthRatio,omitempty"`
 
-	GoodRFHealthClientCount *int `json:"goodRFHealthClientCount,omitempty"`
+	GoodRFHealthClientCount *float64 `json:"goodRFHealthClientCount,omitempty"`
 
-	GoodRFHealthRatio *int `json:"goodRFHealthRatio,omitempty"`
+	GoodRFHealthRatio *float64 `json:"goodRFHealthRatio,omitempty"`
 
-	PoorRFHealthClientCount *int `json:"poorRFHealthClientCount,omitempty"`
+	PoorRFHealthClientCount *float64 `json:"poorRFHealthClientCount,omitempty"`
 
-	PoorRFHealthRatio *int `json:"poorRFHealthRatio,omitempty"`
+	PoorRFHealthRatio *float64 `json:"poorRFHealthRatio,omitempty"`
 
-	TotalClients *int `json:"totalClients,omitempty"`
+	TotalClients *float64 `json:"totalClients,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -137,11 +137,11 @@ func MakeSCIClientHealthReport148clientConnectionHealthDataType() SCIClientHealt
 //
 // Definition: ClientHealthReport_ClientHealthReport_148_clientConnectionHealth_DataTypeType
 type SCIClientHealthReport148clientConnectionHealthDataTypeType struct {
-	Avg *int `json:"avg,omitempty"`
+	Avg *float64 `json:"avg,omitempty"`
 
-	Good *int `json:"good,omitempty"`
+	Good *float64 `json:"good,omitempty"`
 
-	Poor *int `json:"poor,omitempty"`
+	Poor *float64 `json:"poor,omitempty"`
 
 	Timestamp *string `json:"timestamp,omitempty"`
 
@@ -281,21 +281,21 @@ type SCIClientHealthReport149clientHealthMetricTrendsDataTypeType struct {
 
 	End *string `json:"end,omitempty"`
 
-	MaxMedianTxMCSRate *int `json:"maxMedianTxMCSRate,omitempty"`
+	MaxMedianTxMCSRate *float64 `json:"maxMedianTxMCSRate,omitempty"`
 
-	MaxRss *int `json:"maxRss,omitempty"`
+	MaxRss *float64 `json:"maxRss,omitempty"`
 
-	MaxSnr *int `json:"maxSnr,omitempty"`
+	MaxSnr *float64 `json:"maxSnr,omitempty"`
 
-	MaxThroughputEstimate *int `json:"maxThroughputEstimate,omitempty"`
+	MaxThroughputEstimate *float64 `json:"maxThroughputEstimate,omitempty"`
 
-	MinMedianTxMCSRate *int `json:"minMedianTxMCSRate,omitempty"`
+	MinMedianTxMCSRate *float64 `json:"minMedianTxMCSRate,omitempty"`
 
-	MinRss *int `json:"minRss,omitempty"`
+	MinRss *float64 `json:"minRss,omitempty"`
 
-	MinSnr *int `json:"minSnr,omitempty"`
+	MinSnr *float64 `json:"minSnr,omitempty"`
 
-	MinThroughputEstimate *int `json:"minThroughputEstimate,omitempty"`
+	MinThroughputEstimate *float64 `json:"minThroughputEstimate,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 

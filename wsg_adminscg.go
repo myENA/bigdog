@@ -70,7 +70,7 @@ type WSGAdminSCGScgAaaServerEntry struct {
 
 	CnSanIdentity *string `json:"cnSanIdentity,omitempty"`
 
-	CreateOn *int `json:"createOn,omitempty"`
+	CreateOn *float64 `json:"createOn,omitempty"`
 
 	CreateUserName *string `json:"createUserName,omitempty"`
 
@@ -88,7 +88,7 @@ type WSGAdminSCGScgAaaServerEntry struct {
 
 	DomainName *string `json:"domainName,omitempty"`
 
-	EnableSecondaryRadius *int `json:"enableSecondaryRadius,omitempty"`
+	EnableSecondaryRadius *float64 `json:"enableSecondaryRadius,omitempty"`
 
 	GlobalCatalog *string `json:"globalCatalog,omitempty"`
 
@@ -100,13 +100,13 @@ type WSGAdminSCGScgAaaServerEntry struct {
 
 	Ipv6 *string `json:"ipv6,omitempty"`
 
-	IsConflict *int `json:"isConflict,omitempty"`
+	IsConflict *float64 `json:"isConflict,omitempty"`
 
 	Key *string `json:"key,omitempty"`
 
 	KeyAttribute *string `json:"keyAttribute,omitempty"`
 
-	MaxRetries *int `json:"maxRetries,omitempty"`
+	MaxRetries *float64 `json:"maxRetries,omitempty"`
 
 	Name *string `json:"name,omitempty"`
 
@@ -116,7 +116,7 @@ type WSGAdminSCGScgAaaServerEntry struct {
 
 	Password *string `json:"password,omitempty"`
 
-	Port *int `json:"port,omitempty"`
+	Port *float64 `json:"port,omitempty"`
 
 	ProxyAgentEnabled *bool `json:"proxyAgentEnabled,omitempty"`
 
@@ -128,7 +128,7 @@ type WSGAdminSCGScgAaaServerEntry struct {
 
 	RadiusIPv6 *string `json:"radiusIPv6,omitempty"`
 
-	RadiusPort *int `json:"radiusPort,omitempty"`
+	RadiusPort *float64 `json:"radiusPort,omitempty"`
 
 	RadiusProtocol *string `json:"radiusProtocol,omitempty"`
 
@@ -138,15 +138,15 @@ type WSGAdminSCGScgAaaServerEntry struct {
 
 	Realms []string `json:"realms,omitempty"`
 
-	RequestTimeout *int `json:"requestTimeout,omitempty"`
+	RequestTimeout *float64 `json:"requestTimeout,omitempty"`
 
 	ResponseFail *bool `json:"responseFail,omitempty"`
 
-	RespWindow *int `json:"respWindow,omitempty"`
+	RespWindow *float64 `json:"respWindow,omitempty"`
 
-	RetryPriInvl *int `json:"retryPriInvl,omitempty"`
+	RetryPriInvl *float64 `json:"retryPriInvl,omitempty"`
 
-	ReviveInterval *int `json:"reviveInterval,omitempty"`
+	ReviveInterval *float64 `json:"reviveInterval,omitempty"`
 
 	SearchFilter *string `json:"searchFilter,omitempty"`
 
@@ -194,7 +194,7 @@ type WSGAdminSCGScgAaaServerEntry struct {
 
 	StandbySecondaryRadiusIPv6 *string `json:"standbySecondaryRadiusIPv6,omitempty"`
 
-	StandbySecondaryRadiusPort *int `json:"standbySecondaryRadiusPort,omitempty"`
+	StandbySecondaryRadiusPort *float64 `json:"standbySecondaryRadiusPort,omitempty"`
 
 	StandbySecondaryRadiusShareSecret *string `json:"standbySecondaryRadiusShareSecret,omitempty"`
 
@@ -226,7 +226,7 @@ type WSGAdminSCGScgAaaServerEntry struct {
 
 	WindowsDomainName *string `json:"windowsDomainName,omitempty"`
 
-	ZombiePeriod *int `json:"zombiePeriod,omitempty"`
+	ZombiePeriod *float64 `json:"zombiePeriod,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

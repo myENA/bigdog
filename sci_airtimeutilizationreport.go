@@ -188,27 +188,27 @@ type SCIAirtimeUtilizationReport3topAPsByAirtime24TableDataType struct {
 
 	CtrlSerial *string `json:"ctrlSerial,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
 	SessionCount *float64 `json:"sessionCount,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -386,23 +386,23 @@ func NewSCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData() *SCIAirtime
 //
 // Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_3_topAPsByAirtime24Table_MetaDataMaxValuesType
 type SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaDataMaxValuesType struct {
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 }
 
 func NewSCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaDataMaxValuesType() *SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaDataMaxValuesType {
@@ -448,27 +448,27 @@ type SCIAirtimeUtilizationReport4topAPsByAirtime5TableDataType struct {
 
 	CtrlSerial *string `json:"ctrlSerial,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
 	SessionCount *float64 `json:"sessionCount,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -646,23 +646,23 @@ func NewSCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData() *SCIAirtimeU
 //
 // Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_4_topAPsByAirtime5Table_MetaDataMaxValuesType
 type SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaDataMaxValuesType struct {
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 }
 
 func NewSCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaDataMaxValuesType() *SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaDataMaxValuesType {
@@ -809,27 +809,27 @@ type SCIAirtimeUtilizationReport6trendTableDataType struct {
 
 	End *string `json:"end,omitempty"`
 
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
 	SessionCount interface{} `json:"sessionCount,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1007,23 +1007,23 @@ func NewSCIAirtimeUtilizationReport6trendTableMetaData() *SCIAirtimeUtilizationR
 //
 // Definition: AirtimeUtilizationReport_AirtimeUtilizationReport_6_trendTable_MetaDataMaxValuesType
 type SCIAirtimeUtilizationReport6trendTableMetaDataMaxValuesType struct {
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 }
 
 func NewSCIAirtimeUtilizationReport6trendTableMetaDataMaxValuesType() *SCIAirtimeUtilizationReport6trendTableMetaDataMaxValuesType {

@@ -117,7 +117,7 @@ type SCISwitchDetailsReport129topSwitchPortsByTrafficChartDataTypeType struct {
 
 	Start *string `json:"start,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -233,17 +233,17 @@ func MakeSCISwitchDetailsReport130topSwitchPortsByTrafficTableData() SCISwitchDe
 //
 // Definition: SwitchDetailsReport_SwitchDetailsReport_130_topSwitchPortsByTrafficTable_DataType
 type SCISwitchDetailsReport130topSwitchPortsByTrafficTableDataType struct {
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
 	PortName *string `json:"portName,omitempty"`
 
 	PortNumber *string `json:"portNumber,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -359,11 +359,11 @@ func NewSCISwitchDetailsReport130topSwitchPortsByTrafficTableMetaData() *SCISwit
 //
 // Definition: SwitchDetailsReport_SwitchDetailsReport_130_topSwitchPortsByTrafficTable_MetaDataMaxValuesType
 type SCISwitchDetailsReport130topSwitchPortsByTrafficTableMetaDataMaxValuesType struct {
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 }
 
 func NewSCISwitchDetailsReport130topSwitchPortsByTrafficTableMetaDataMaxValuesType() *SCISwitchDetailsReport130topSwitchPortsByTrafficTableMetaDataMaxValuesType {
@@ -387,7 +387,7 @@ func MakeSCISwitchDetailsReport138switchUptimeHistoryData() SCISwitchDetailsRepo
 type SCISwitchDetailsReport138switchUptimeHistoryDataType struct {
 	End *string `json:"end,omitempty"`
 
-	IsSwitchUp *int `json:"isSwitchUp,omitempty"`
+	IsSwitchUp *float64 `json:"isSwitchUp,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
@@ -442,9 +442,9 @@ func NewSCISwitchDetailsReport138switchUptimeHistoryDataType() *SCISwitchDetails
 //
 // Definition: SwitchDetailsReport_SwitchDetailsReport_138_switchUptimeHistory_MetaData
 type SCISwitchDetailsReport138switchUptimeHistoryMetaData struct {
-	TotalDowntime *int `json:"totalDowntime,omitempty"`
+	TotalDowntime *float64 `json:"totalDowntime,omitempty"`
 
-	TotalUptime *int `json:"totalUptime,omitempty"`
+	TotalUptime *float64 `json:"totalUptime,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

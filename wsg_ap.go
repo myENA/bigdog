@@ -524,9 +524,9 @@ type WSGAPRadioConfigurationDataType struct {
 
 	List []*WSGAPRadioConfigurationDataTypeListType `json:"list,omitempty"`
 
-	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+	RawDataTotalCount *float64 `json:"rawDataTotalCount,omitempty"`
 
-	TotalCount *int `json:"totalCount,omitempty"`
+	TotalCount *float64 `json:"totalCount,omitempty"`
 }
 
 func NewWSGAPRadioConfigurationDataType() *WSGAPRadioConfigurationDataType {
@@ -544,7 +544,7 @@ type WSGAPRadioConfigurationDataTypeListType struct {
 
 	BackgroundScan *bool `json:"backgroundScan,omitempty"`
 
-	Busy *int `json:"busy,omitempty"`
+	Busy *float64 `json:"busy,omitempty"`
 
 	Channel *string `json:"channel,omitempty"`
 
@@ -552,65 +552,65 @@ type WSGAPRadioConfigurationDataTypeListType struct {
 
 	ChannelList *string `json:"channelList,omitempty"`
 
-	ChannelWidth *int `json:"channelWidth,omitempty"`
+	ChannelWidth *float64 `json:"channelWidth,omitempty"`
 
 	ClientCount *string `json:"clientCount,omitempty"`
 
 	Columns *WSGAPRadioConfigurationDataTypeListTypeColumnsType `json:"columns,omitempty"`
 
-	DeployedWlanNum *int `json:"deployedWlanNum,omitempty"`
+	DeployedWlanNum *float64 `json:"deployedWlanNum,omitempty"`
 
-	Drop *int `json:"drop,omitempty"`
+	Drop *float64 `json:"drop,omitempty"`
 
 	Key *string `json:"key,omitempty"`
 
-	MaxWlanNum *int `json:"maxWlanNum,omitempty"`
+	MaxWlanNum *float64 `json:"maxWlanNum,omitempty"`
 
 	Mode *string `json:"mode,omitempty"`
 
-	NoiseFloor *int `json:"noiseFloor,omitempty"`
+	NoiseFloor *float64 `json:"noiseFloor,omitempty"`
 
 	NullValueColumnNames []interface{} `json:"nullValueColumnNames,omitempty"`
 
-	NumOfAuthorizedClients *int `json:"numOfAuthorizedClients,omitempty"`
+	NumOfAuthorizedClients *float64 `json:"numOfAuthorizedClients,omitempty"`
 
-	PhyError *int `json:"phyError,omitempty"`
+	PhyError *float64 `json:"phyError,omitempty"`
 
 	RadioId *string `json:"radioId,omitempty"`
 
-	Retry *int `json:"retry,omitempty"`
+	Retry *float64 `json:"retry,omitempty"`
 
-	Rx *int `json:"rx,omitempty"`
+	Rx *float64 `json:"rx,omitempty"`
 
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
-	RxFrames *int `json:"rxFrames,omitempty"`
+	RxFrames *float64 `json:"rxFrames,omitempty"`
 
-	RxMulticast *int `json:"rxMulticast,omitempty"`
+	RxMulticast *float64 `json:"rxMulticast,omitempty"`
 
-	RxRadioFrames *int `json:"rxRadioFrames,omitempty"`
+	RxRadioFrames *float64 `json:"rxRadioFrames,omitempty"`
 
 	SecondaryChannel *string `json:"secondaryChannel,omitempty"`
 
-	Total *int `json:"total,omitempty"`
+	Total *float64 `json:"total,omitempty"`
 
-	Tx *int `json:"tx,omitempty"`
+	Tx *float64 `json:"tx,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 
-	TxFrames *int `json:"txFrames,omitempty"`
+	TxFrames *float64 `json:"txFrames,omitempty"`
 
-	TxMulticast *int `json:"txMulticast,omitempty"`
+	TxMulticast *float64 `json:"txMulticast,omitempty"`
 
 	TxPower *string `json:"txPower,omitempty"`
 
-	TxRadioFrames *int `json:"txRadioFrames,omitempty"`
+	TxRadioFrames *float64 `json:"txRadioFrames,omitempty"`
 
 	WlanGroupId *string `json:"wlanGroupId,omitempty"`
 
 	WlanGroupName *string `json:"wlanGroupName,omitempty"`
 
-	WlanGroupWlanNum *int `json:"wlanGroupWlanNum,omitempty"`
+	WlanGroupWlanNum *float64 `json:"wlanGroupWlanNum,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

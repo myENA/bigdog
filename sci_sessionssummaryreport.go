@@ -54,15 +54,15 @@ type SCISessionsSummaryReport33topTableDataType struct {
 
 	OsType *string `json:"osType,omitempty"`
 
-	RxBytes *int `json:"rxBytes,omitempty"`
+	RxBytes *float64 `json:"rxBytes,omitempty"`
 
-	SessionDuration *int `json:"sessionDuration,omitempty"`
+	SessionDuration *float64 `json:"sessionDuration,omitempty"`
 
 	SessionId *string `json:"sessionId,omitempty"`
 
 	Timestamp *string `json:"timestamp,omitempty"`
 
-	TxBytes *int `json:"txBytes,omitempty"`
+	TxBytes *float64 `json:"txBytes,omitempty"`
 
 	Username *string `json:"username,omitempty"`
 
@@ -167,7 +167,7 @@ func NewSCISessionsSummaryReport33topTableDataType() *SCISessionsSummaryReport33
 type SCISessionsSummaryReport33topTableMetaData struct {
 	PagingIdentifiers *SCISessionsSummaryReport33topTableMetaDataPagingIdentifiersType `json:"pagingIdentifiers,omitempty"`
 
-	TotalCount *int `json:"totalCount,omitempty"`
+	TotalCount *float64 `json:"totalCount,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -293,9 +293,9 @@ func MakeSCISessionsSummaryReport42durationPercentileData() SCISessionsSummaryRe
 //
 // Definition: SessionsSummaryReport_SessionsSummaryReport_42_durationPercentile_DataType
 type SCISessionsSummaryReport42durationPercentileDataType struct {
-	Duration *int `json:"duration,omitempty"`
+	Duration *float64 `json:"duration,omitempty"`
 
-	PercentRank *int `json:"percentRank,omitempty"`
+	PercentRank *float64 `json:"percentRank,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }

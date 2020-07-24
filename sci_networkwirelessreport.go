@@ -42,13 +42,13 @@ type SCINetworkWirelessReport20overviewDataType struct {
 
 	AvgRateTotalTxTraffic *float64 `json:"avgRateTotalTxTraffic,omitempty"`
 
-	TotalAps *int `json:"totalAps,omitempty"`
+	TotalAps *float64 `json:"totalAps,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
 	UniqueUsers *float64 `json:"uniqueUsers,omitempty"`
 
@@ -259,7 +259,7 @@ type SCINetworkWirelessReport21trafficDistributionDataTypeChildrenTypeChildrenTy
 
 	Name *string `json:"name,omitempty"`
 
-	Size *int `json:"size,omitempty"`
+	Size *float64 `json:"size,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -348,21 +348,21 @@ type SCINetworkWirelessReport22trafficTrendDataTypeType struct {
 
 	End *string `json:"end,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTraffic24 *int `json:"totalTraffic_2-4,omitempty"`
+	TotalTraffic24 *float64 `json:"totalTraffic_2-4,omitempty"`
 
-	TotalTraffic5 *int `json:"totalTraffic_5,omitempty"`
+	TotalTraffic5 *float64 `json:"totalTraffic_5,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -477,33 +477,33 @@ type SCINetworkWirelessReport23trafficOverTimeTableDataType struct {
 
 	End *string `json:"end,omitempty"`
 
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
 	SessionCount interface{} `json:"sessionCount,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTraffic24 *int `json:"totalTraffic_2-4,omitempty"`
+	TotalTraffic24 *float64 `json:"totalTraffic_2-4,omitempty"`
 
-	TotalTraffic5 *int `json:"totalTraffic_5,omitempty"`
+	TotalTraffic5 *float64 `json:"totalTraffic_5,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
 	UniqueUsers interface{} `json:"uniqueUsers,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -667,29 +667,29 @@ type SCINetworkWirelessReport23trafficOverTimeTableMetaDataMaxValuesType struct 
 
 	AvgRateTotalTxTraffic *float64 `json:"avgRateTotalTxTraffic,omitempty"`
 
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTraffic24 *int `json:"totalTraffic_2-4,omitempty"`
+	TotalTraffic24 *float64 `json:"totalTraffic_2-4,omitempty"`
 
-	TotalTraffic5 *int `json:"totalTraffic_5,omitempty"`
+	TotalTraffic5 *float64 `json:"totalTraffic_5,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
 	UniqueUsers interface{} `json:"uniqueUsers,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 }
 
 func NewSCINetworkWirelessReport23trafficOverTimeTableMetaDataMaxValuesType() *SCINetworkWirelessReport23trafficOverTimeTableMetaDataMaxValuesType {
@@ -731,27 +731,27 @@ type SCINetworkWirelessReport24topAPsByTrafficTableDataType struct {
 
 	CtrlSerial *string `json:"ctrlSerial,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
 	SessionCount *float64 `json:"sessionCount,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -880,11 +880,11 @@ type SCINetworkWirelessReport24topAPsByTrafficTableMetaData struct {
 
 	Name *string `json:"name,omitempty"`
 
-	Percentage *int `json:"percentage,omitempty"`
+	Percentage *float64 `json:"percentage,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -951,23 +951,23 @@ type SCINetworkWirelessReport24topAPsByTrafficTableMetaDataMaxValuesType struct 
 
 	AvgRateTotalTxTraffic *float64 `json:"avgRateTotalTxTraffic,omitempty"`
 
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 }
 
 func NewSCINetworkWirelessReport24topAPsByTrafficTableMetaDataMaxValuesType() *SCINetworkWirelessReport24topAPsByTrafficTableMetaDataMaxValuesType {
@@ -1009,27 +1009,27 @@ type SCINetworkWirelessReport25topAPsByClientsTableDataType struct {
 
 	CtrlSerial *string `json:"ctrlSerial,omitempty"`
 
-	Index *int `json:"index,omitempty"`
+	Index *float64 `json:"index,omitempty"`
 
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
 	SessionCount *float64 `json:"sessionCount,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1158,11 +1158,11 @@ type SCINetworkWirelessReport25topAPsByClientsTableMetaData struct {
 
 	Name *string `json:"name,omitempty"`
 
-	Percentage *int `json:"percentage,omitempty"`
+	Percentage *float64 `json:"percentage,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	Traffic *int `json:"traffic,omitempty"`
+	Traffic *float64 `json:"traffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1229,23 +1229,23 @@ type SCINetworkWirelessReport25topAPsByClientsTableMetaDataMaxValuesType struct 
 
 	AvgRateTotalTxTraffic *float64 `json:"avgRateTotalTxTraffic,omitempty"`
 
-	MgmtRxBytes *int `json:"mgmtRxBytes,omitempty"`
+	MgmtRxBytes *float64 `json:"mgmtRxBytes,omitempty"`
 
-	MgmtTraffic *int `json:"mgmtTraffic,omitempty"`
+	MgmtTraffic *float64 `json:"mgmtTraffic,omitempty"`
 
-	MgmtTxBytes *int `json:"mgmtTxBytes,omitempty"`
+	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
-	TotalRxTraffic *int `json:"totalRxTraffic,omitempty"`
+	TotalRxTraffic *float64 `json:"totalRxTraffic,omitempty"`
 
-	TotalTraffic *int `json:"totalTraffic,omitempty"`
+	TotalTraffic *float64 `json:"totalTraffic,omitempty"`
 
-	TotalTxTraffic *int `json:"totalTxTraffic,omitempty"`
+	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UserRxBytes *int `json:"userRxBytes,omitempty"`
+	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
-	UserTraffic *int `json:"userTraffic,omitempty"`
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
 
-	UserTxBytes *int `json:"userTxBytes,omitempty"`
+	UserTxBytes *float64 `json:"userTxBytes,omitempty"`
 }
 
 func NewSCINetworkWirelessReport25topAPsByClientsTableMetaDataMaxValuesType() *SCINetworkWirelessReport25topAPsByClientsTableMetaDataMaxValuesType {

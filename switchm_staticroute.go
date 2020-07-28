@@ -71,7 +71,7 @@ func NewSwitchMStaticRouteSettingCreateStaticRoute() *SwitchMStaticRouteSettingC
 type SwitchMStaticRouteSettingStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
-	AdminDistance *string `json:"adminDistance,omitempty"`
+	AdminDistance interface{} `json:"adminDistance,omitempty"`
 
 	// CreatedTime
 	// The create time of the Static Route

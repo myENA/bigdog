@@ -466,7 +466,7 @@ type WSGSCGUserQueryCriteria struct {
 
 	// ExpandDomains
 	// Whether to expand domains into sub domains/ zones or not
-	ExpandDomains *bool `json:"expandDomains,omitempty"`
+	ExpandDomains interface{} `json:"expandDomains,omitempty"`
 
 	// ExtraFilters
 	// "AND" condition for multiple filters

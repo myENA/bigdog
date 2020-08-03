@@ -1898,7 +1898,7 @@ func NewWSGCommonTargetConfig() *WSGCommonTargetConfig {
 type WSGCommonTimeRange struct {
 	// End
 	// end time for collecting data
-	End *int `json:"end,omitempty"`
+	End *float64 `json:"end,omitempty"`
 
 	// Field
 	// time field for collecting data
@@ -1908,11 +1908,11 @@ type WSGCommonTimeRange struct {
 
 	// Interval
 	// time interval in second
-	Interval *int `json:"interval,omitempty"`
+	Interval *float64 `json:"interval,omitempty"`
 
 	// Start
 	// start time for collecting data
-	Start *int `json:"start,omitempty"`
+	Start *float64 `json:"start,omitempty"`
 }
 
 func NewWSGCommonTimeRange() *WSGCommonTimeRange {

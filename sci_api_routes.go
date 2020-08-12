@@ -4,7 +4,12 @@ package bigdog
 
 const (
 	RouteSCIAlertSendNotification                                                   = "/api/alerts/sendNotification"
+	RouteSCIFacetGetApmacFacet                                                      = "/api/facets/apmac"
 	RouteSCIFacetGetFacet                                                           = "/api/facets/{name}"
+	RouteSCIFacetGetSsidFacet                                                       = "/api/facets/ssid"
+	RouteSCIFacetGetSwitchesFacet                                                   = "/api/facets/switches"
+	RouteSCIFacetGetSwitchHierarchyFacet                                            = "/api/facets/switchHierarchy"
+	RouteSCIFacetGetSystemFacet                                                     = "/api/facets/system"
 	RouteSCIMigrationCount                                                          = "/api/Migrations/count"
 	RouteSCIMigrationCreate                                                         = "/api/Migrations"
 	RouteSCIMigrationCreateChangeStreamGetMigrationsChangeStream                    = "/api/Migrations/change-stream"

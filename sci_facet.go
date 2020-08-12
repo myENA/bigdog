@@ -377,8 +377,8 @@ func NewSCIFacetSystemFacetStateType() *SCIFacetSystemFacetStateType {
 // Retrieve list of apmac facets based on query
 //
 // Request Body:
-//	 - body *SCICommonReportQueryBody
-func (s *SCIFacetService) FacetGetApmacFacet(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (SCIFacetGetApmacFacet200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonQueryBody
+func (s *SCIFacetService) FacetGetApmacFacet(ctx context.Context, body *SCICommonQueryBody, mutators ...RequestMutator) (SCIFacetGetApmacFacet200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -450,8 +450,8 @@ func (s *SCIFacetService) FacetGetFacet(ctx context.Context, body *SCICommonQuer
 // Retrieve list of ssid facets based on query
 //
 // Request Body:
-//	 - body *SCICommonReportQueryBody
-func (s *SCIFacetService) FacetGetSsidFacet(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (SCIFacetGetSsidFacet200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonQueryBody
+func (s *SCIFacetService) FacetGetSsidFacet(ctx context.Context, body *SCICommonQueryBody, mutators ...RequestMutator) (SCIFacetGetSsidFacet200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -481,8 +481,8 @@ func (s *SCIFacetService) FacetGetSsidFacet(ctx context.Context, body *SCICommon
 // Retrieve list of switches facets based on query
 //
 // Request Body:
-//	 - body *SCICommonReportQueryBody
-func (s *SCIFacetService) FacetGetSwitchesFacet(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (SCIFacetGetSwitchesFacet200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonQueryBody
+func (s *SCIFacetService) FacetGetSwitchesFacet(ctx context.Context, body *SCICommonQueryBody, mutators ...RequestMutator) (SCIFacetGetSwitchesFacet200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -512,8 +512,8 @@ func (s *SCIFacetService) FacetGetSwitchesFacet(ctx context.Context, body *SCICo
 // Retrieve list of switchHierarchy facets based on query
 //
 // Request Body:
-//	 - body *SCICommonReportQueryBody
-func (s *SCIFacetService) FacetGetSwitchHierarchyFacet(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (SCIFacetGetSwitchHierarchyFacet200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonQueryBody
+func (s *SCIFacetService) FacetGetSwitchHierarchyFacet(ctx context.Context, body *SCICommonQueryBody, mutators ...RequestMutator) (SCIFacetGetSwitchHierarchyFacet200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -543,8 +543,8 @@ func (s *SCIFacetService) FacetGetSwitchHierarchyFacet(ctx context.Context, body
 // Retrieve list of system facets based on query
 //
 // Request Body:
-//	 - body *SCICommonReportQueryBody
-func (s *SCIFacetService) FacetGetSystemFacet(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (SCIFacetGetSystemFacet200ResponseType, *APIResponseMeta, error) {
+//	 - body *SCICommonQueryBody
+func (s *SCIFacetService) FacetGetSystemFacet(ctx context.Context, body *SCICommonQueryBody, mutators ...RequestMutator) (SCIFacetGetSystemFacet200ResponseType, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -86,6 +86,9 @@ const (
 	SCIReportIDClientHealth         = 20
 
 	SCIAccessTokenQueryParameter = "access_token"
+
+	// 2016-04-06T16:04:46+00:00
+	SCIFilterTimestampFormat = "2006-01-02T15:04:05-07:00"
 )
 
 const (
@@ -93,11 +96,6 @@ const (
 	logDebugAPIRequestNoBodyFormat   = "%s without body"
 	logDebugAPIRequestWithBodyFormat = "%s with body"
 )
-
-type AuthParam struct {
-	Name  string
-	Value string
-}
 
 type baseClient struct {
 	log   *log.Logger
@@ -530,4 +528,8 @@ func (r *RawResponse) ContentLength() int {
 
 func (r *RawResponse) ContentDisposition() string {
 	return r.Header.Get("Content-Disposition")
+}
+
+func SCIFilterFormatTimestamp(t time.Time) string {
+	return t.Format(SCIFilterTimestampFormat)
 }

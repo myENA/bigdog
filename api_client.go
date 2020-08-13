@@ -11,6 +11,7 @@ import (
 	"net/http"
 	"runtime"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -456,7 +457,13 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 			}
 		}
 	} else {
-		apiErr := new(VSZAPIError)
+		var apiErr error
+		// todo: do something better here.
+		if strings.HasPrefix(req.uri, "/wsg/") || strings.HasPrefix(req.uri, "/switchm/") {
+			apiErr = new(VSZAPIError)
+		} else {
+			apiErr = new(SCIAPIError)
+		}
 		if err := json.NewDecoder(httpResp.Body).Decode(apiErr); err != nil {
 			finalErr = fmt.Errorf("error unmarshalling error body into %T: %w", finalErr, err)
 		} else {

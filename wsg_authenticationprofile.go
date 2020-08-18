@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -285,37 +285,6 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx co
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileAuthenticationProfileList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
-	return resp, rm, err
-}
-
-// FindRadiusProxyStatsByQueryCriteria
-//
-// Operation ID: findRadiusProxyStatsByQueryCriteria
-//
-// Use this API command to retrieve a list of Radius Proxy.
-//
-// Request Body:
-//	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAuthenticationProfileService) FindRadiusProxyStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRACStatsRadiusProxyList, *APIResponseMeta, error) {
-	var (
-		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGRACStatsRadiusProxyList
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindRadiusProxyStatsByQueryCriteria, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
-	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGRACStatsRadiusProxyList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

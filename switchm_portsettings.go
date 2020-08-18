@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -25,6 +25,8 @@ func (ss *SwitchMService) SwitchMPortSettingsService() *SwitchMPortSettingsServi
 //
 // Definition: portSettings_createBulk
 type SwitchMPortSettingsCreateBulk struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	// DhcpSnoopingTrustPortEnabled
 	// DHCP Snooping Trust Port Enabled
 	DhcpSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
@@ -39,6 +41,8 @@ type SwitchMPortSettingsCreateBulk struct {
 	// attributes not to overwrite
 	IgnoreList []string `json:"ignoreList,omitempty"`
 
+	InAclConfigName *string `json:"inAclConfigName,omitempty"`
+
 	// InAclConfigUUID
 	// Ingress ACL Config UUID
 	InAclConfigUUID *string `json:"inAclConfigUUID,omitempty"`
@@ -51,14 +55,20 @@ type SwitchMPortSettingsCreateBulk struct {
 	// LLDP Enabled
 	LldpEnabled *bool `json:"lldpEnabled,omitempty"`
 
+	LldpQosList []*SwitchMPortSettingsLldpQos `json:"lldpQosList,omitempty"`
+
+	OutAclConfigName *string `json:"outAclConfigName,omitempty"`
+
 	// OutAclConfigUUID
 	// Egress ACL Config UUID
 	OutAclConfigUUID *string `json:"outAclConfigUUID,omitempty"`
 
+	PoeBudget *int `json:"poeBudget,omitempty"`
+
 	// PoeClass
 	// PoE Class
 	// Constraints:
-	//    - oneof:[0,1,2,3,4]
+	//    - oneof:[0,1,2,3,4,5,6,7,8]
 	PoeClass *string `json:"poeClass,omitempty"`
 
 	// PoeEnabled
@@ -76,6 +86,12 @@ type SwitchMPortSettingsCreateBulk struct {
 	// PortEnabled
 	// Port Enabled
 	PortEnabled *bool `json:"portEnabled,omitempty"`
+
+	// PortName
+	// Port Name
+	PortName *string `json:"portName,omitempty"`
+
+	PortProtected *bool `json:"portProtected,omitempty"`
 
 	// PortSpeed
 	// Port Speed
@@ -106,6 +122,8 @@ type SwitchMPortSettingsCreateBulk struct {
 	// UntaggedVlans
 	// Untagged vlans
 	UntaggedVlans *string `json:"untaggedVlans,omitempty"`
+
+	VoiceVlanId *int `json:"voiceVlanId,omitempty"`
 }
 
 func NewSwitchMPortSettingsCreateBulk() *SwitchMPortSettingsCreateBulk {
@@ -113,10 +131,38 @@ func NewSwitchMPortSettingsCreateBulk() *SwitchMPortSettingsCreateBulk {
 	return m
 }
 
+// SwitchMPortSettingsLldpQos
+//
+// Definition: portSettings_LldpQos
+type SwitchMPortSettingsLldpQos struct {
+	// ApplicationType
+	// Constraints:
+	//    - oneof:[GUEST_VOICE,GUEST_VOICE_SIGNALING,SOFTPHONE_VOICE,STREAMING_VIDEO,VIDEO_CONFERENCING,VIDEO_SIGNALING,VOICE,VOICE_SIGNALING]
+	ApplicationType *string `json:"applicationType,omitempty"`
+
+	Dscp *int `json:"dscp,omitempty"`
+
+	Priority *int `json:"priority,omitempty"`
+
+	// QosVlanType
+	// Constraints:
+	//    - oneof:[PRIORITY_TAGGED,TAGGED,UNTAGGED]
+	QosVlanType *string `json:"qosVlanType,omitempty"`
+
+	VlanId *int `json:"vlanId,omitempty"`
+}
+
+func NewSwitchMPortSettingsLldpQos() *SwitchMPortSettingsLldpQos {
+	m := new(SwitchMPortSettingsLldpQos)
+	return m
+}
+
 // SwitchMPortSettings
 //
 // Definition: portSettings_PortSettings
 type SwitchMPortSettings struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	// CreatedTime
 	// The create time of the Port Settings
 	CreatedTime *int `json:"createdTime,omitempty"`
@@ -133,6 +179,8 @@ type SwitchMPortSettings struct {
 	// Id
 	Id *string `json:"id,omitempty"`
 
+	InAclConfigName *string `json:"inAclConfigName,omitempty"`
+
 	// InAclConfigUUID
 	// Ingress ACL Config UUID
 	InAclConfigUUID *string `json:"inAclConfigUUID,omitempty"`
@@ -145,9 +193,15 @@ type SwitchMPortSettings struct {
 	// LLDP Enabled
 	LldpEnabled *bool `json:"lldpEnabled,omitempty"`
 
+	LldpQosList []*SwitchMPortSettingsLldpQos `json:"lldpQosList,omitempty"`
+
+	OutAclConfigName *string `json:"outAclConfigName,omitempty"`
+
 	// OutAclConfigUUID
 	// Egress ACL Config UUID
 	OutAclConfigUUID *string `json:"outAclConfigUUID,omitempty"`
+
+	PoeBudget *int `json:"poeBudget,omitempty"`
 
 	// PoeCapability
 	// PoE Capability
@@ -156,7 +210,7 @@ type SwitchMPortSettings struct {
 	// PoeClass
 	// PoE Class
 	// Constraints:
-	//    - oneof:[0,1,2,3,4]
+	//    - oneof:[0,1,2,3,4,5,6,7,8]
 	PoeClass *string `json:"poeClass,omitempty"`
 
 	// PoeEnabled
@@ -178,6 +232,8 @@ type SwitchMPortSettings struct {
 	// PortName
 	// Port Name
 	PortName *string `json:"portName,omitempty"`
+
+	PortProtected *bool `json:"portProtected,omitempty"`
 
 	// PortSpeed
 	// Port Speed
@@ -212,6 +268,8 @@ type SwitchMPortSettings struct {
 	// UpdatedTime
 	// The modify time of the Port Settings
 	UpdatedTime *int `json:"updatedTime,omitempty"`
+
+	VoiceVlanId *int `json:"voiceVlanId,omitempty"`
 }
 
 func NewSwitchMPortSettings() *SwitchMPortSettings {
@@ -255,9 +313,13 @@ func NewSwitchMPortSettingsQueryResult() *SwitchMPortSettingsQueryResult {
 //
 // Definition: portSettings_UpdatePortSettings
 type SwitchMPortSettingsUpdatePortSettings struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	// DhcpSnoopingTrustPortEnabled
 	// DHCP Snooping Trust Port Enabled
 	DhcpSnoopingTrustPortEnabled *bool `json:"dhcpSnoopingTrustPortEnabled,omitempty"`
+
+	InAclConfigName *string `json:"inAclConfigName,omitempty"`
 
 	// InAclConfigUUID
 	// Ingress ACL Config UUID
@@ -271,14 +333,20 @@ type SwitchMPortSettingsUpdatePortSettings struct {
 	// LLDP Enabled
 	LldpEnabled *bool `json:"lldpEnabled,omitempty"`
 
+	LldpQosList []*SwitchMPortSettingsLldpQos `json:"lldpQosList,omitempty"`
+
+	OutAclConfigName *string `json:"outAclConfigName,omitempty"`
+
 	// OutAclConfigUUID
 	// Egress ACL Config UUID
 	OutAclConfigUUID *string `json:"outAclConfigUUID,omitempty"`
 
+	PoeBudget *int `json:"poeBudget,omitempty"`
+
 	// PoeClass
 	// PoE Class
 	// Constraints:
-	//    - oneof:[0,1,2,3,4]
+	//    - oneof:[0,1,2,3,4,5,6,7,8]
 	PoeClass *string `json:"poeClass,omitempty"`
 
 	// PoeEnabled
@@ -296,6 +364,8 @@ type SwitchMPortSettingsUpdatePortSettings struct {
 	// PortName
 	// Port Name
 	PortName *string `json:"portName,omitempty"`
+
+	PortProtected *bool `json:"portProtected,omitempty"`
 
 	// PortSpeed
 	// Port Speed
@@ -322,6 +392,8 @@ type SwitchMPortSettingsUpdatePortSettings struct {
 	// UntaggedVlans
 	// Untagged vlans
 	UntaggedVlans *string `json:"untaggedVlans,omitempty"`
+
+	VoiceVlanId *int `json:"voiceVlanId,omitempty"`
 }
 
 func NewSwitchMPortSettingsUpdatePortSettings() *SwitchMPortSettingsUpdatePortSettings {

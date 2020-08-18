@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -75,6 +75,30 @@ func NewSwitchMHealthAggs() *SwitchMHealthAggs {
 	return m
 }
 
+// SwitchMHealthFan
+//
+// Definition: health_fan
+type SwitchMHealthFan struct {
+	SerialNumber *string `json:"serialNumber,omitempty"`
+
+	// SlotNumber
+	// Fan slot number
+	SlotNumber *int `json:"slotNumber,omitempty"`
+
+	// Status
+	// Fan status
+	Status *string `json:"status,omitempty"`
+
+	// Type
+	// Fan type
+	Type *string `json:"type,omitempty"`
+}
+
+func NewSwitchMHealthFan() *SwitchMHealthFan {
+	m := new(SwitchMHealthFan)
+	return m
+}
+
 // SwitchMHealthIcxMetrics
 //
 // Definition: health_icxMetrics
@@ -133,6 +157,30 @@ func NewSwitchMHealthMetrics() *SwitchMHealthMetrics {
 	return m
 }
 
+// SwitchMHealthPowerSupply
+//
+// Definition: health_powerSupply
+type SwitchMHealthPowerSupply struct {
+	SerialNumber *string `json:"serialNumber,omitempty"`
+
+	// SlotNumber
+	// Power supply slot number
+	SlotNumber *int `json:"slotNumber,omitempty"`
+
+	// Status
+	// Power supply status
+	Status *string `json:"status,omitempty"`
+
+	// Type
+	// Power supply type
+	Type *string `json:"type,omitempty"`
+}
+
+func NewSwitchMHealthPowerSupply() *SwitchMHealthPowerSupply {
+	m := new(SwitchMHealthPowerSupply)
+	return m
+}
+
 // SwitchMHealthStatus
 //
 // Definition: health_status
@@ -152,6 +200,10 @@ type SwitchMHealthStatus struct {
 	// OnlineCount
 	// Online status count
 	OnlineCount *int `json:"onlineCount,omitempty"`
+
+	// PowerHealthStatus
+	// Health status for ICX/Stack that contains power supply, temperature and fan
+	PowerHealthStatus []*SwitchMHealthStatusPowerHealthStatusType `json:"powerHealthStatus,omitempty"`
 
 	// PowerSupply
 	// Powersupply
@@ -191,6 +243,24 @@ func NewSwitchMHealthStatusFanType() *SwitchMHealthStatusFanType {
 	return m
 }
 
+// SwitchMHealthStatusPowerHealthStatusType
+//
+// Definition: health_statusPowerHealthStatusType
+type SwitchMHealthStatusPowerHealthStatusType struct {
+	Fan []*SwitchMHealthFan `json:"fan,omitempty"`
+
+	PowerSupply []*SwitchMHealthPowerSupply `json:"powerSupply,omitempty"`
+
+	SerialNumber *string `json:"serialNumber,omitempty"`
+
+	Temperature []*SwitchMHealthTemperature `json:"temperature,omitempty"`
+}
+
+func NewSwitchMHealthStatusPowerHealthStatusType() *SwitchMHealthStatusPowerHealthStatusType {
+	m := new(SwitchMHealthStatusPowerHealthStatusType)
+	return m
+}
+
 // SwitchMHealthStatusPowerSupplyType
 //
 // Definition: health_statusPowerSupplyType
@@ -219,6 +289,8 @@ func NewSwitchMHealthStatusPowerSupplyType() *SwitchMHealthStatusPowerSupplyType
 //
 // Definition: health_statusTemperatureType
 type SwitchMHealthStatusTemperatureType struct {
+	SerialNumber *string `json:"serialNumber,omitempty"`
+
 	// SlotNumber
 	// Solt number
 	SlotNumber *int `json:"slotNumber,omitempty"`
@@ -230,6 +302,26 @@ type SwitchMHealthStatusTemperatureType struct {
 
 func NewSwitchMHealthStatusTemperatureType() *SwitchMHealthStatusTemperatureType {
 	m := new(SwitchMHealthStatusTemperatureType)
+	return m
+}
+
+// SwitchMHealthTemperature
+//
+// Definition: health_temperature
+type SwitchMHealthTemperature struct {
+	SerialNumber *string `json:"serialNumber,omitempty"`
+
+	// SlotNumber
+	// Solt number
+	SlotNumber *int `json:"slotNumber,omitempty"`
+
+	// TemperatureValue
+	// Slot temperature
+	TemperatureValue *float64 `json:"temperatureValue,omitempty"`
+}
+
+func NewSwitchMHealthTemperature() *SwitchMHealthTemperature {
+	m := new(SwitchMHealthTemperature)
 	return m
 }
 
@@ -413,6 +505,42 @@ func (s *SwitchMHealthService) AddHealthStatusAll(ctx context.Context, body *Swi
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = NewSwitchMHealthStatus()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// AddHealthStatusBySerialNumber
+//
+// Operation ID: addHealthStatusBySerialNumber
+//
+// Use this API command to retrieve fan, temperature and power supply status for the switch unit managed by SmartZone.
+//
+// Request Body:
+//	 - body *SwitchMCommonQueryCriteriaSuperSet
+//
+// Required Parameters:
+// - serialNumber string
+//		- required
+func (s *SwitchMHealthService) AddHealthStatusBySerialNumber(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, serialNumber string, mutators ...RequestMutator) (*SwitchMHealthStatus, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMHealthStatus
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthStatusBySerialNumber, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	req.SetPathParameter("serialNumber", serialNumber)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMHealthStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

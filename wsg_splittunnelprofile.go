@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -55,6 +55,35 @@ func (s *WSGSplitTunnelProfileService) AddRkszonesSplitTunnelProfilesByZoneId(ct
 	resp = NewWSGCommonCreateResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
+}
+
+// DeleteRkszonesSplitTunnelProfiles
+//
+// Operation ID: deleteRkszonesSplitTunnelProfiles
+//
+// Use this API command to delete bulk split tunnel profiles.
+//
+// Request Body:
+//	 - body *WSGCommonBulkDeleteRequest
+func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return rm, err
+	}
+	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesSplitTunnelProfiles, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, "*/*")
+	if err = req.SetBody(body); err != nil {
+		return rm, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }
 
 // DeleteRkszonesSplitTunnelProfilesById

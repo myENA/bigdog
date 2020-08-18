@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -19,6 +19,128 @@ func NewSwitchMTrafficService(c *VSZClient) *SwitchMTrafficService {
 
 func (ss *SwitchMService) SwitchMTrafficService() *SwitchMTrafficService {
 	return NewSwitchMTrafficService(ss.apiClient)
+}
+
+// SwitchMTrafficBroadcast
+//
+// Definition: traffic_broadcast
+type SwitchMTrafficBroadcast struct {
+	BroadcastIn *string `json:"broadcastIn,omitempty"`
+
+	BroadcastOut *string `json:"broadcastOut,omitempty"`
+
+	Timestamp *string `json:"timestamp,omitempty"`
+
+	Total *int `json:"total,omitempty"`
+}
+
+func NewSwitchMTrafficBroadcast() *SwitchMTrafficBroadcast {
+	m := new(SwitchMTrafficBroadcast)
+	return m
+}
+
+// SwitchMTrafficBroadcastQueryResultList
+//
+// Definition: traffic_broadcastQueryResultList
+type SwitchMTrafficBroadcastQueryResultList struct {
+	Extra interface{} `json:"extra,omitempty"`
+
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*SwitchMTrafficBroadcast `json:"list,omitempty"`
+
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMTrafficBroadcastQueryResultList() *SwitchMTrafficBroadcastQueryResultList {
+	m := new(SwitchMTrafficBroadcastQueryResultList)
+	return m
+}
+
+// SwitchMTrafficMulticast
+//
+// Definition: traffic_multicast
+type SwitchMTrafficMulticast struct {
+	MulticastIn *string `json:"multicastIn,omitempty"`
+
+	MulticastOut *string `json:"multicastOut,omitempty"`
+
+	Timestamp *string `json:"timestamp,omitempty"`
+
+	Total *int `json:"total,omitempty"`
+}
+
+func NewSwitchMTrafficMulticast() *SwitchMTrafficMulticast {
+	m := new(SwitchMTrafficMulticast)
+	return m
+}
+
+// SwitchMTrafficMulticastQueryResultList
+//
+// Definition: traffic_multicastQueryResultList
+type SwitchMTrafficMulticastQueryResultList struct {
+	Extra interface{} `json:"extra,omitempty"`
+
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*SwitchMTrafficMulticast `json:"list,omitempty"`
+
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMTrafficMulticastQueryResultList() *SwitchMTrafficMulticastQueryResultList {
+	m := new(SwitchMTrafficMulticastQueryResultList)
+	return m
+}
+
+// SwitchMTrafficPortError
+//
+// Definition: traffic_portError
+type SwitchMTrafficPortError struct {
+	CrcErr *string `json:"crcErr,omitempty"`
+
+	InErr *string `json:"inErr,omitempty"`
+
+	OutErr *string `json:"outErr,omitempty"`
+
+	Timestamp *string `json:"timestamp,omitempty"`
+
+	Total *int `json:"total,omitempty"`
+}
+
+func NewSwitchMTrafficPortError() *SwitchMTrafficPortError {
+	m := new(SwitchMTrafficPortError)
+	return m
+}
+
+// SwitchMTrafficPortErrorQueryResultList
+//
+// Definition: traffic_portErrorQueryResultList
+type SwitchMTrafficPortErrorQueryResultList struct {
+	Extra interface{} `json:"extra,omitempty"`
+
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*SwitchMTrafficPortError `json:"list,omitempty"`
+
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMTrafficPortErrorQueryResultList() *SwitchMTrafficPortErrorQueryResultList {
+	m := new(SwitchMTrafficPortErrorQueryResultList)
+	return m
 }
 
 // SwitchMTrafficTopPortErrorQueryResultList
@@ -229,6 +351,46 @@ func NewSwitchMTrafficUsage() *SwitchMTrafficUsage {
 	return m
 }
 
+// SwitchMTrafficUnicast
+//
+// Definition: traffic_unicast
+type SwitchMTrafficUnicast struct {
+	Timestamp *string `json:"timestamp,omitempty"`
+
+	Total *int `json:"total,omitempty"`
+
+	UnicastIn *string `json:"unicastIn,omitempty"`
+
+	UnicastOut *string `json:"unicastOut,omitempty"`
+}
+
+func NewSwitchMTrafficUnicast() *SwitchMTrafficUnicast {
+	m := new(SwitchMTrafficUnicast)
+	return m
+}
+
+// SwitchMTrafficUnicastQueryResultList
+//
+// Definition: traffic_unicastQueryResultList
+type SwitchMTrafficUnicastQueryResultList struct {
+	Extra interface{} `json:"extra,omitempty"`
+
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*SwitchMTrafficUnicast `json:"list,omitempty"`
+
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMTrafficUnicastQueryResultList() *SwitchMTrafficUnicastQueryResultList {
+	m := new(SwitchMTrafficUnicastQueryResultList)
+	return m
+}
+
 // AddTrafficTopPoeutilization
 //
 // Operation ID: addTrafficTopPoeutilization
@@ -353,6 +515,99 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 	return resp, rm, err
 }
 
+// AddTrafficTotalBroadcast
+//
+// Operation ID: addTrafficTotalBroadcast
+//
+// Use this API command to retrieve Switch/Port Broadcast trend data based on the time duration.
+//
+// Request Body:
+//	 - body *SwitchMCommonQueryCriteriaSuperSet
+func (s *SwitchMTrafficService) AddTrafficTotalBroadcast(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficBroadcastQueryResultList, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMTrafficBroadcastQueryResultList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTotalBroadcast, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = NewSwitchMTrafficBroadcastQueryResultList()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// AddTrafficTotalMulticast
+//
+// Operation ID: addTrafficTotalMulticast
+//
+// Use this API command to retrieve Switch/Port Multicast trend data based on the time duration.
+//
+// Request Body:
+//	 - body *SwitchMCommonQueryCriteriaSuperSet
+func (s *SwitchMTrafficService) AddTrafficTotalMulticast(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficMulticastQueryResultList, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMTrafficMulticastQueryResultList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTotalMulticast, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = NewSwitchMTrafficMulticastQueryResultList()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// AddTrafficTotalPorterror
+//
+// Operation ID: addTrafficTotalPorterror
+//
+// Use this API command to retrieve Switch/Port Port Errors data based on the time duration.
+//
+// Request Body:
+//	 - body *SwitchMCommonQueryCriteriaSuperSet
+func (s *SwitchMTrafficService) AddTrafficTotalPorterror(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficPortErrorQueryResultList, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMTrafficPortErrorQueryResultList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTotalPorterror, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = NewSwitchMTrafficPortErrorQueryResultList()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
 // AddTrafficTotalTrend
 //
 // Operation ID: addTrafficTotalTrend
@@ -380,6 +635,37 @@ func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTrafficQueryResultList()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// AddTrafficTotalUnicast
+//
+// Operation ID: addTrafficTotalUnicast
+//
+// Use this API command to retrieve Switch/Port Unicast trend data based on the time duration.
+//
+// Request Body:
+//	 - body *SwitchMCommonQueryCriteriaSuperSet
+func (s *SwitchMTrafficService) AddTrafficTotalUnicast(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficUnicastQueryResultList, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMTrafficUnicastQueryResultList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddTrafficTotalUnicast, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = NewSwitchMTrafficUnicastQueryResultList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -134,6 +134,8 @@ type WSGAPGroupConfiguration struct {
 	// Constraints:
 	//    - oneof:[LOW,MEDIUM,HIGH]
 	RogueScanFreq *string `json:"rogueScanFreq,omitempty"`
+
+	SnmpAgent *WSGZoneApSnmpOptions `json:"snmpAgent,omitempty"`
 
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 
@@ -299,6 +301,8 @@ type WSGAPGroupCreateAPGroup struct {
 	//    - oneof:[LOW,MEDIUM,HIGH]
 	RogueScanFreq *string `json:"rogueScanFreq,omitempty"`
 
+	SnmpAgent *WSGZoneApSnmpOptions `json:"snmpAgent,omitempty"`
+
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 
 	Wifi24 *WSGCommonRadio24 `json:"wifi24,omitempty"`
@@ -406,6 +410,8 @@ type WSGAPGroupModifyAPGroup struct {
 	// Constraints:
 	//    - oneof:[LOW,MEDIUM,HIGH]
 	RogueScanFreq *string `json:"rogueScanFreq,omitempty"`
+
+	SnmpAgent *WSGZoneApSnmpOptions `json:"snmpAgent,omitempty"`
 
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 

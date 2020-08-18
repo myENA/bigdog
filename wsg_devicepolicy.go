@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -26,7 +26,7 @@ func (ss *WSGService) WSGDevicePolicyService() *WSGDevicePolicyService {
 // Definition: devicePolicy_createDevicePolicy
 type WSGDevicePolicyCreateDevicePolicy struct {
 	// DefaultAction
-	// defaultAction of the device policy cofig
+	// defaultAction of the device policy config
 	// Constraints:
 	//    - required
 	//    - oneof:[ALLOW,BLOCK]
@@ -50,7 +50,7 @@ func NewWSGDevicePolicyCreateDevicePolicy() *WSGDevicePolicyCreateDevicePolicy {
 // Definition: devicePolicy_devicePolicyPorfile
 type WSGDevicePolicyPorfile struct {
 	// DefaultAction
-	// defaultAction of the device policy cofig
+	// defaultAction of the device policy config
 	// Constraints:
 	//    - oneof:[ALLOW,BLOCK]
 	DefaultAction *string `json:"defaultAction,omitempty"`
@@ -58,13 +58,13 @@ type WSGDevicePolicyPorfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
-	// identifier of the device policy cofig
+	// identifier of the device policy config
 	Id *string `json:"id,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Rule
-	// rule of the device policy cofig
+	// rule of the device policy config
 	Rule []*WSGDevicePolicyRule `json:"rule,omitempty"`
 }
 
@@ -78,7 +78,7 @@ func NewWSGDevicePolicyPorfile() *WSGDevicePolicyPorfile {
 // Definition: devicePolicy_devicePolicyRule
 type WSGDevicePolicyRule struct {
 	// Action
-	// defaultAction of the device policy cofig
+	// defaultAction of the device policy config
 	// Constraints:
 	//    - oneof:[ALLOW,BLOCK]
 	Action *string `json:"action,omitempty"`
@@ -124,7 +124,7 @@ func NewWSGDevicePolicyRule() *WSGDevicePolicyRule {
 // Definition: devicePolicy_modifyDevicePolicy
 type WSGDevicePolicyModifyDevicePolicy struct {
 	// DefaultAction
-	// defaultAction of the device policy cofig
+	// defaultAction of the device policy config
 	// Constraints:
 	//    - oneof:[ALLOW,BLOCK]
 	DefaultAction *string `json:"defaultAction,omitempty"`
@@ -134,7 +134,7 @@ type WSGDevicePolicyModifyDevicePolicy struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Rule
-	// rule of the device policy cofig
+	// rule of the device policy config
 	Rule []*WSGDevicePolicyRule `json:"rule,omitempty"`
 }
 

@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // WSGWLANQueryApWlanBssid
 //
@@ -122,6 +122,8 @@ type WSGWLANQueryCreateWlanQuery struct {
 	// Constraints:
 	//    - oneof:[Enabled,Disabled]
 	ZeroITOnboard *string `json:"zeroITOnboard,omitempty"`
+
+	ZoneId *string `json:"zoneId,omitempty"`
 
 	ZoneName *string `json:"zoneName,omitempty"`
 }

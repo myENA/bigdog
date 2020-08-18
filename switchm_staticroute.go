@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -28,6 +28,8 @@ type SwitchMStaticRouteSettingCreateStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
 	AdminDistance *int `json:"adminDistance,omitempty"`
+
+	AltoId *string `json:"altoId,omitempty"`
 
 	// DestinationIp
 	// Destination IP
@@ -72,6 +74,8 @@ type SwitchMStaticRouteSettingStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
 	AdminDistance interface{} `json:"adminDistance,omitempty"`
+
+	AltoId *string `json:"altoId,omitempty"`
 
 	// CreatedTime
 	// The create time of the Static Route
@@ -160,6 +164,8 @@ type SwitchMStaticRouteSettingUpdateStaticRoute struct {
 	// AdminDistance
 	// Admin Distance
 	AdminDistance *int `json:"adminDistance,omitempty"`
+
+	AltoId *string `json:"altoId,omitempty"`
 
 	// DestinationIp
 	// Destination IP

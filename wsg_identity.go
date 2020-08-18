@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // WSGIdentityAaaServer
 //
@@ -382,6 +382,10 @@ type WSGIdentityGuestPassConfiguration struct {
 	// ID of the identity guest pass
 	Id *string `json:"id,omitempty"`
 
+	// IsDisabled
+	// Is Disabled
+	IsDisabled *string `json:"isDisabled,omitempty"`
+
 	// Key
 	// Identifier of the identity guest pass
 	Key *string `json:"key,omitempty"`
@@ -688,6 +692,22 @@ type WSGIdentityMaxDevices struct {
 
 func NewWSGIdentityMaxDevices() *WSGIdentityMaxDevices {
 	m := new(WSGIdentityMaxDevices)
+	return m
+}
+
+// WSGIdentityModifyGuestPass
+//
+// Definition: identity_modifyGuestPass
+type WSGIdentityModifyGuestPass struct {
+	// IsDisabled
+	// Is Disabled
+	// Constraints:
+	//    - oneof:[NO,YES]
+	IsDisabled *string `json:"isDisabled,omitempty"`
+}
+
+func NewWSGIdentityModifyGuestPass() *WSGIdentityModifyGuestPass {
+	m := new(WSGIdentityModifyGuestPass)
 	return m
 }
 

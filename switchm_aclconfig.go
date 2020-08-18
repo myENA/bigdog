@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // SwitchMACLConfig
 //
@@ -13,6 +13,8 @@ type SwitchMACLConfig struct {
 	// Constraints:
 	//    - oneof:[STANDARD,EXTENDED]
 	AclType *string `json:"aclType,omitempty"`
+
+	AltoId *string `json:"altoId,omitempty"`
 
 	// CreatedTime
 	// The create time of the AccessControl
@@ -108,6 +110,18 @@ type SwitchMACLConfigACLRule struct {
 	// The destination port of AccessControl Rule
 	DestPort *string `json:"destPort,omitempty"`
 
+	// DscpMarking
+	// The DSCP value to be used for marking of AccessControl Rule
+	DscpMarking *int `json:"dscpMarking,omitempty"`
+
+	// DscpMatching
+	// The DSCP value for matching of AccessControl Rule
+	DscpMatching *int `json:"dscpMatching,omitempty"`
+
+	// InternalPriority
+	// The QoS priority of AccessControl Rule
+	InternalPriority *int `json:"internalPriority,omitempty"`
+
 	// Protocol
 	// The protocol of AccessControl Rule
 	// Constraints:
@@ -143,6 +157,8 @@ type SwitchMACLConfigCreateACLConfig struct {
 	// Constraints:
 	//    - oneof:[STANDARD,EXTENDED]
 	AclType *string `json:"aclType,omitempty"`
+
+	AltoId *string `json:"altoId,omitempty"`
 
 	// FamilyId
 	// Family Id
@@ -187,6 +203,8 @@ type SwitchMACLConfigUpdateACLConfig struct {
 	// Constraints:
 	//    - oneof:[STANDARD,EXTENDED]
 	AclType *string `json:"aclType,omitempty"`
+
+	AltoId *string `json:"altoId,omitempty"`
 
 	// PushTime
 	// Puch Schedule Time

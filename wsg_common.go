@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // WSGCommonAltitude
 //
@@ -103,7 +103,7 @@ func NewWSGCommonApManagementVlan() *WSGCommonApManagementVlan {
 // Definition: common_apRadio50
 type WSGCommonApRadio50 struct {
 	// AutoCellSizing
-	// Auto Cell Sizing
+	// Auto Cell Sizing.(When Auto Cell Sizing is enabled, The TX Power settings will invalid.)
 	AutoCellSizing *bool `json:"autoCellSizing,omitempty"`
 
 	// Channel
@@ -160,6 +160,14 @@ func NewWSGCommonApRebootTimeout() *WSGCommonApRebootTimeout {
 //
 // Definition: common_autoChannelSelection
 type WSGCommonAutoChannelSelection struct {
+	// ChannelFlyChangeFrequency
+	// ChannelFly Change Frequency
+	// Constraints:
+	//    - default:33
+	//    - min:1
+	//    - max:100
+	ChannelFlyChangeFrequency *int `json:"channelFlyChangeFrequency,omitempty"`
+
 	// ChannelFlyMtbc
 	// ChannelFly MTBC
 	// Constraints:
@@ -167,6 +175,10 @@ type WSGCommonAutoChannelSelection struct {
 	//    - min:100
 	//    - max:1440
 	ChannelFlyMtbc *int `json:"channelFlyMtbc,omitempty"`
+
+	// ChannelFlyOptimizationTimePeriod
+	// ChannelFly Optimization Time Period
+	ChannelFlyOptimizationTimePeriod []string `json:"channelFlyOptimizationTimePeriod,omitempty"`
 
 	// ChannelSelectMode
 	// Channel Select Mode
@@ -583,7 +595,7 @@ func NewWSGCommonEmail() *WSGCommonEmail {
 // Definition: common_etherType
 //
 // Constraints:
-//    - oneof:[0x0800,0x86DD,0x8100,0x0806,0x8035,0x8808,0x8809,0x8863,0x8864,0x8870,0x888E,0x8906,0x22EA,0x88CC,0x9100]
+//    - oneof:[0x0800,0x86DD,0x0806,0x8808,0x8809,0x8863,0x8864,0x888E,0x88CC]
 type WSGCommonEtherType string
 
 func NewWSGCommonEtherType() *WSGCommonEtherType {
@@ -851,6 +863,22 @@ type WSGCommonMonitoringSummary struct {
 
 func NewWSGCommonMonitoringSummary() *WSGCommonMonitoringSummary {
 	m := new(WSGCommonMonitoringSummary)
+	return m
+}
+
+// WSGCommonMyRuckusConfig
+//
+// Definition: common_myRuckusConfig
+type WSGCommonMyRuckusConfig struct {
+	// AclForTunnelWlanAndVlanEnable
+	// My.Ruckus support for tunnel-wlan/vlan
+	// Constraints:
+	//    - required
+	AclForTunnelWlanAndVlanEnable *bool `json:"aclForTunnelWlanAndVlanEnable"`
+}
+
+func NewWSGCommonMyRuckusConfig() *WSGCommonMyRuckusConfig {
+	m := new(WSGCommonMyRuckusConfig)
 	return m
 }
 
@@ -1772,7 +1800,9 @@ type WSGCommonSnmpCommunity struct {
 
 	// NotificationEnabled
 	// notification privilege of the SNMP Coummunity
-	NotificationEnabled *bool `json:"notificationEnabled,omitempty"`
+	// Constraints:
+	//    - required
+	NotificationEnabled *bool `json:"notificationEnabled"`
 
 	// NotificationTarget
 	// Trap List of the SNMP Coummunity
@@ -1786,11 +1816,15 @@ type WSGCommonSnmpCommunity struct {
 
 	// ReadEnabled
 	// read privilege of the SNMP Coummunity
-	ReadEnabled *bool `json:"readEnabled,omitempty"`
+	// Constraints:
+	//    - required
+	ReadEnabled *bool `json:"readEnabled"`
 
 	// WriteEnabled
 	// write privilege of the SNMP Coummunity
-	WriteEnabled *bool `json:"writeEnabled,omitempty"`
+	// Constraints:
+	//    - required
+	WriteEnabled *bool `json:"writeEnabled"`
 }
 
 func NewWSGCommonSnmpCommunity() *WSGCommonSnmpCommunity {

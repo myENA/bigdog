@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -132,10 +132,6 @@ type WSGDomainModifyDomain struct {
 	DomainType *string `json:"domainType,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
-
-	// ParentDomainId
-	// parent domain id
-	ParentDomainId *string `json:"parentDomainId,omitempty"`
 
 	// ZeroTouchStatus
 	// Zero Touch enable/disable

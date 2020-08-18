@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -51,6 +51,8 @@ type WSGL2AccessControlCreateL2AccessControl struct {
 	Restriction *string `json:"restriction"`
 
 	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
+
+	UserDefinedEtherTypes []*WSGL2AccessControlUserDefinedEtherTypeObject `json:"userDefinedEtherTypes,omitempty"`
 }
 
 func NewWSGL2AccessControlCreateL2AccessControl() *WSGL2AccessControlCreateL2AccessControl {
@@ -123,6 +125,8 @@ type WSGL2AccessControl struct {
 	Restriction *string `json:"restriction,omitempty"`
 
 	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
+
+	UserDefinedEtherTypes []*WSGL2AccessControlUserDefinedEtherTypeObject `json:"userDefinedEtherTypes,omitempty"`
 }
 
 func NewWSGL2AccessControl() *WSGL2AccessControl {
@@ -175,6 +179,8 @@ type WSGL2AccessControlModifyL2AccessControl struct {
 	Restriction *string `json:"restriction"`
 
 	Rules []*WSGL2AccessControlRuleObject `json:"rules,omitempty"`
+
+	UserDefinedEtherTypes []*WSGL2AccessControlUserDefinedEtherTypeObject `json:"userDefinedEtherTypes,omitempty"`
 }
 
 func NewWSGL2AccessControlModifyL2AccessControl() *WSGL2AccessControlModifyL2AccessControl {
@@ -194,6 +200,30 @@ type WSGL2AccessControlRuleObject struct {
 
 func NewWSGL2AccessControlRuleObject() *WSGL2AccessControlRuleObject {
 	m := new(WSGL2AccessControlRuleObject)
+	return m
+}
+
+// WSGL2AccessControlUserDefinedEtherTypeObject
+//
+// Definition: l2AccessControl_userDefinedEtherTypeObject
+type WSGL2AccessControlUserDefinedEtherTypeObject struct {
+	// EtherType
+	// Constraints:
+	//    - required
+	//    - max:6
+	//    - min:1
+	EtherType *string `json:"etherType"`
+
+	// ProtocolName
+	// Constraints:
+	//    - required
+	//    - max:32
+	//    - min:1
+	ProtocolName *string `json:"protocolName"`
+}
+
+func NewWSGL2AccessControlUserDefinedEtherTypeObject() *WSGL2AccessControlUserDefinedEtherTypeObject {
+	m := new(WSGL2AccessControlUserDefinedEtherTypeObject)
 	return m
 }
 

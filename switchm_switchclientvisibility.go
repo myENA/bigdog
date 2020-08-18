@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // SwitchMSwitchClientVisibilityClient
 //
@@ -13,8 +13,6 @@ type SwitchMSwitchClientVisibilityClient struct {
 	ClientIpv4Addr *string `json:"clientIpv4Addr,omitempty"`
 
 	ClientIpv6Addr *string `json:"clientIpv6Addr,omitempty"`
-
-	ClientLastSeen *string `json:"clientLastSeen,omitempty"`
 
 	ClientMac *string `json:"clientMac,omitempty"`
 
@@ -31,6 +29,8 @@ type SwitchMSwitchClientVisibilityClient struct {
 	SwitchName *string `json:"switchName,omitempty"`
 
 	SwitchPort *int `json:"switchPort,omitempty"`
+
+	UpdatedTime *string `json:"updatedTime,omitempty"`
 }
 
 func NewSwitchMSwitchClientVisibilityClient() *SwitchMSwitchClientVisibilityClient {

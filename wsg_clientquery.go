@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // WSGClientQueryList
 //
@@ -123,6 +123,16 @@ type WSGClientQueryCreateClientQuery struct {
 
 func NewWSGClientQueryCreateClientQuery() *WSGClientQueryCreateClientQuery {
 	m := new(WSGClientQueryCreateClientQuery)
+	return m
+}
+
+// WSGClientQueryQueryCriteria
+//
+// Definition: clientQuery_queryCriteria
+type WSGClientQueryQueryCriteria struct{}
+
+func NewWSGClientQueryQueryCriteria() *WSGClientQueryQueryCriteria {
+	m := new(WSGClientQueryQueryCriteria)
 	return m
 }
 

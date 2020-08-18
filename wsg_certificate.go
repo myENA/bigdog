@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -349,6 +349,7 @@ type WSGCertificateCreateCSR struct {
 	// Country code of the certificates signing request
 	// Constraints:
 	//    - required
+	//    - max:2
 	CountryCode *string `json:"countryCode"`
 
 	Description *WSGCommonDescription `json:"description,omitempty"`

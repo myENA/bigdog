@@ -1,11 +1,13 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // SwitchMVEConfigCreate
 //
 // Definition: veConfig_create
 type SwitchMVEConfigCreate struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	// DhcpRelayAgent
 	// DHCP Replay IP Address
 	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
@@ -100,6 +102,8 @@ func NewSwitchMVEConfigList() *SwitchMVEConfigList {
 //
 // Definition: veConfig_modify
 type SwitchMVEConfigModify struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	// DhcpRelayAgent
 	// DHCP Replay IP Address
 	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
@@ -146,6 +150,8 @@ func NewSwitchMVEConfigModify() *SwitchMVEConfigModify {
 //
 // Definition: veConfig_veConfig
 type SwitchMVEConfig struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	// CreatedTime
 	// Created Time
 	CreatedTime *int `json:"createdTime,omitempty"`

@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -1428,14 +1428,20 @@ type WSGSystemModifySystemTimeSetting struct {
 	AuthenticationKey *WSGSystemAuthenticationKey `json:"authenticationKey,omitempty"`
 
 	// NtpServer
-	// NtpServer address
+	// Primary NtpServer address
 	NtpServer *string `json:"ntpServer,omitempty"`
 
 	SecondaryAuthenticationKey *WSGSystemAuthenticationKey `json:"secondaryAuthenticationKey,omitempty"`
 
 	// SecondaryNtpServer
-	// Backup NtpServer address
+	// Secondary NtpServer address
 	SecondaryNtpServer *string `json:"secondaryNtpServer,omitempty"`
+
+	ThirdAuthenticationKey *WSGSystemAuthenticationKey `json:"thirdAuthenticationKey,omitempty"`
+
+	// ThirdNtpServer
+	// Third NtpServer address
+	ThirdNtpServer *string `json:"thirdNtpServer,omitempty"`
 
 	// Timezone
 	// System defined time zone, please refer to the 'Overview > Time Zone' list
@@ -2042,14 +2048,20 @@ type WSGSystemTimeSetting struct {
 	CurrentSystemTimeUTCString *string `json:"currentSystemTimeUTCString,omitempty"`
 
 	// NtpServer
-	// NtpServer address
+	// Primary NtpServer address
 	NtpServer *string `json:"ntpServer,omitempty"`
 
 	SecondaryAuthenticationKey *WSGSystemAuthenticationKey `json:"secondaryAuthenticationKey,omitempty"`
 
 	// SecondaryNtpServer
-	// Backup NtpServer address
+	// Secondary NtpServer address
 	SecondaryNtpServer *string `json:"secondaryNtpServer,omitempty"`
+
+	ThirdAuthenticationKey *WSGSystemAuthenticationKey `json:"thirdAuthenticationKey,omitempty"`
+
+	// ThirdNtpServer
+	// Third NtpServer address
+	ThirdNtpServer *string `json:"thirdNtpServer,omitempty"`
 
 	// Timezone
 	// System defined time zone, please refer to the 'Overview > Time Zone' list

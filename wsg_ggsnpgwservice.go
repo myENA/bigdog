@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -65,68 +65,6 @@ func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList(ctx context.Contex
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
-}
-
-// FindGgsnGtpcConStatsByQueryCriteria
-//
-// Operation ID: findGgsnGtpcConStatsByQueryCriteria
-//
-// Use this API command to retrieve a list of GGSN Connection.
-//
-// Request Body:
-//	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGGGSNPGWServiceService) FindGgsnGtpcConStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRACStatsGgsnGtpcConList, *APIResponseMeta, error) {
-	var (
-		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGRACStatsGgsnGtpcConList
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindGgsnGtpcConStatsByQueryCriteria, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
-	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGRACStatsGgsnGtpcConList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
-	return resp, rm, err
-}
-
-// FindGgsnGtpStatsByQueryCriteria
-//
-// Operation ID: findGgsnGtpStatsByQueryCriteria
-//
-// Use this API command to retrieve a list of GGSN/PGW GTP-C Sessions.
-//
-// Request Body:
-//	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGGGSNPGWServiceService) FindGgsnGtpStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRACStatsGgsnGtpList, *APIResponseMeta, error) {
-	var (
-		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGRACStatsGgsnGtpList
-		httpResp *http.Response
-		err      error
-	)
-	if err = ctx.Err(); err != nil {
-		return resp, rm, err
-	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindGgsnGtpStatsByQueryCriteria, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
-	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGRACStatsGgsnGtpList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
-	return resp, rm, err
 }
 
 // FindServicesGgsn

@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"encoding/json"
@@ -135,6 +135,8 @@ type WSGAPConfiguration struct {
 
 	SmartMonitor *WSGCommonOverrideSmartMonitor `json:"smartMonitor,omitempty"`
 
+	SnmpAgent *WSGZoneApSnmpOptions `json:"snmpAgent,omitempty"`
+
 	Specific *WSGAPModel `json:"specific,omitempty"`
 
 	SwapInMac *string `json:"swapInMac,omitempty"`
@@ -142,6 +144,10 @@ type WSGAPConfiguration struct {
 	SwapOutMac *string `json:"swapOutMac,omitempty"`
 
 	Syslog *WSGAPSyslog `json:"syslog,omitempty"`
+
+	// TestSpeedEnabled
+	// Test Speed is enabled or disabled
+	TestSpeedEnabled *bool `json:"testSpeedEnabled,omitempty"`
 
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 
@@ -976,6 +982,10 @@ type WSGAPCreateAP struct {
 	// Serial number of the AP
 	Serial *string `json:"serial,omitempty"`
 
+	// TestSpeedEnabled
+	// Test Speed is enabled or disabled
+	TestSpeedEnabled *bool `json:"testSpeedEnabled,omitempty"`
+
 	// ZoneId
 	// Identifier of the zone to which the AP belongs
 	// Constraints:
@@ -1136,7 +1146,13 @@ type WSGAPModifyAP struct {
 
 	SmartMonitor *WSGCommonOverrideSmartMonitor `json:"smartMonitor,omitempty"`
 
+	SnmpAgent *WSGZoneApSnmpOptions `json:"snmpAgent,omitempty"`
+
 	Syslog *WSGAPSyslog `json:"syslog,omitempty"`
+
+	// TestSpeedEnabled
+	// Test Speed is enabled or disabled
+	TestSpeedEnabled *bool `json:"testSpeedEnabled,omitempty"`
 
 	VenueProfile *WSGCommonGenericRef `json:"venueProfile,omitempty"`
 

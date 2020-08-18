@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // WSGZoneApFirmware
 //
@@ -534,6 +534,8 @@ type WSGZoneCreateZone struct {
 
 	Mesh *WSGZoneMeshConfiguration `json:"mesh,omitempty"`
 
+	MyRuckusConfig *WSGCommonMyRuckusConfig `json:"myRuckusConfig,omitempty"`
+
 	// Name
 	// Constraints:
 	//    - required
@@ -545,7 +547,7 @@ type WSGZoneCreateZone struct {
 
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
-	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
+	RecoverySsid *WSGZoneRecoverySsidSet `json:"recoverySsid,omitempty"`
 
 	// RksGreForwardBroadcast
 	// Ruckus GRE tunnel broadcast packet forwarding
@@ -1076,6 +1078,8 @@ type WSGZoneModifyZone struct {
 
 	Mesh *WSGZoneMeshConfiguration `json:"mesh,omitempty"`
 
+	MyRuckusConfig *WSGCommonMyRuckusConfig `json:"myRuckusConfig,omitempty"`
+
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	NodeAffinityProfile *WSGCommonGenericRef `json:"nodeAffinityProfile,omitempty"`
@@ -1084,7 +1088,7 @@ type WSGZoneModifyZone struct {
 
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
-	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
+	RecoverySsid *WSGZoneRecoverySsidSet `json:"recoverySsid,omitempty"`
 
 	// RestrictedApAccessEnabled
 	// Enable Restricted AP Access of the zone.
@@ -1291,6 +1295,24 @@ func NewWSGZoneQueryCriteriaOptionsType() *WSGZoneQueryCriteriaOptionsType {
 	return m
 }
 
+// WSGZoneRecoverySsidSet
+//
+// Definition: zone_recoverySsidSet
+type WSGZoneRecoverySsidSet struct {
+	// RecoverySsidEnabled
+	// recovery ssid enable/disable
+	RecoverySsidEnabled *bool `json:"recoverySsidEnabled,omitempty"`
+
+	// RecoverySsidPskKey
+	// Custom recovery ssid passphrase. If passphrase has been customized, this property cannot be empty in the future.
+	RecoverySsidPskKey *string `json:"recoverySsidPskKey,omitempty"`
+}
+
+func NewWSGZoneRecoverySsidSet() *WSGZoneRecoverySsidSet {
+	m := new(WSGZoneRecoverySsidSet)
+	return m
+}
+
 // WSGZoneRogue
 //
 // Definition: zone_rogue
@@ -1335,7 +1357,9 @@ type WSGZoneSnmpUser struct {
 
 	// NotificationEnabled
 	// notification privilege of the SNMP User
-	NotificationEnabled *bool `json:"notificationEnabled,omitempty"`
+	// Constraints:
+	//    - required
+	NotificationEnabled *bool `json:"notificationEnabled"`
 
 	// NotificationTarget
 	// Trap List of the SNMP User
@@ -1361,7 +1385,9 @@ type WSGZoneSnmpUser struct {
 
 	// ReadEnabled
 	// read privilege of the SNMP User
-	ReadEnabled *bool `json:"readEnabled,omitempty"`
+	// Constraints:
+	//    - required
+	ReadEnabled *bool `json:"readEnabled"`
 
 	// UserName
 	// name of the SNMP User.
@@ -1371,7 +1397,9 @@ type WSGZoneSnmpUser struct {
 
 	// WriteEnabled
 	// write privilege of the SNMP User
-	WriteEnabled *bool `json:"writeEnabled,omitempty"`
+	// Constraints:
+	//    - required
+	WriteEnabled *bool `json:"writeEnabled"`
 }
 
 func NewWSGZoneSnmpUser() *WSGZoneSnmpUser {
@@ -1679,6 +1707,8 @@ type WSGZoneConfiguration struct {
 
 	Mesh *WSGZoneMeshConfiguration `json:"mesh,omitempty"`
 
+	MyRuckusConfig *WSGCommonMyRuckusConfig `json:"myRuckusConfig,omitempty"`
+
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	NodeAffinityProfile *WSGCommonGenericRef `json:"nodeAffinityProfile,omitempty"`
@@ -1687,7 +1717,7 @@ type WSGZoneConfiguration struct {
 
 	ProtectionMode24 *WSGCommonProtectionMode `json:"protectionMode24,omitempty"`
 
-	RecoverySsid *WSGCommonRecoverySsid `json:"recoverySsid,omitempty"`
+	RecoverySsid *WSGZoneRecoverySsidSet `json:"recoverySsid,omitempty"`
 
 	// RestrictedApAccessEnabled
 	// Enable Restricted AP Access of the zone.

@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -434,6 +434,7 @@ type WSGSCGUserPatchScgUserGroup struct {
 	// Role
 	// Constraints:
 	//    - nullable
+	//    - oneof:[SUPER_ADMIN,SYSTEM_ADMIN,NETWORK_ADMIN,RO_NETWORK_ADMIN,RO_SYSTEM_ADMIN,AP_ADMIN,GUEST_PASS_ADMIN,MVNO_SUPER_ADMIN,CUSTOM]
 	Role *string `json:"role,omitempty"`
 
 	// TenantId
@@ -632,6 +633,7 @@ type WSGSCGUserGroup struct {
 	// User group role
 	// Constraints:
 	//    - required
+	//    - oneof:[SUPER_ADMIN,SYSTEM_ADMIN,NETWORK_ADMIN,RO_NETWORK_ADMIN,RO_SYSTEM_ADMIN,AP_ADMIN,GUEST_PASS_ADMIN,MVNO_SUPER_ADMIN,CUSTOM]
 	Role *string `json:"role"`
 
 	// TenantId

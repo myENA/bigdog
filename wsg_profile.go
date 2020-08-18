@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // WSGProfileAccountingProfile
 //
@@ -2209,6 +2209,8 @@ func NewWSGProfileFirewallProfile() *WSGProfileFirewallProfile {
 //
 // Definition: profile_firewallProfileArray
 type WSGProfileFirewallProfileArray struct {
+	Extra interface{} `json:"extra,omitempty"`
+
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
@@ -2942,6 +2944,8 @@ func NewWSGProfileL3AccessControlPolicy() *WSGProfileL3AccessControlPolicy {
 //
 // Definition: profile_l3AccessControlPolicyArray
 type WSGProfileL3AccessControlPolicyArray struct {
+	Extra interface{} `json:"extra,omitempty"`
+
 	FirstIndex *int `json:"firstIndex,omitempty"`
 
 	HasMore *bool `json:"hasMore,omitempty"`
@@ -4244,141 +4248,11 @@ func NewWSGProfileProviderHomeOIs() *WSGProfileProviderHomeOIs {
 	return m
 }
 
-// WSGProfileProviderInternalOSU
-//
-// Definition: profile_providerInternalOSU
-type WSGProfileProviderInternalOSU struct {
-	// Certificate
-	// Constraints:
-	//    - required
-	Certificate *WSGCommonGenericRef `json:"certificate"`
-
-	// CommonLanguageIcon
-	// The base64 encoded data of icon.
-	// Constraints:
-	//    - required
-	CommonLanguageIcon *string `json:"commonLanguageIcon"`
-
-	// OsuAuthServices
-	// Online signup authentication services
-	// Constraints:
-	//    - required
-	OsuAuthServices []*WSGProfileProviderInternalOSUOsuAuthServicesType `json:"osuAuthServices"`
-
-	// OsuPortal
-	// Constraints:
-	//    - required
-	OsuPortal *WSGProfileProviderInternalOSUOsuPortalType `json:"osuPortal"`
-
-	// ProvisioningFormat
-	// Provisioning format
-	// Constraints:
-	//    - required
-	//    - oneof:[R1_R2_ZEROIT,R2_ZEROIT]
-	ProvisioningFormat *string `json:"provisioningFormat"`
-
-	// ProvisioningProtocals
-	// Provisioning protocal
-	// Constraints:
-	//    - required
-	ProvisioningProtocals []*WSGProfileProviderProvisionProtocal `json:"provisioningProtocals"`
-
-	// ProvisioningUpdateType
-	// Provisioning update at
-	// Constraints:
-	//    - required
-	//    - oneof:[ALWAYS,KNOWN_ROAM_PARTNERS,NEVER]
-	ProvisioningUpdateType *string `json:"provisioningUpdateType"`
-
-	// SubscriptionDescriptions
-	// Subscription descriptions
-	// Constraints:
-	//    - required
-	SubscriptionDescriptions []*WSGProfileProviderSubscriptionDescription `json:"subscriptionDescriptions"`
-
-	// WhitelistedDomains
-	// whitelisted domains
-	WhitelistedDomains []*WSGCommonWildFQDN `json:"whitelistedDomains,omitempty"`
-}
-
-func NewWSGProfileProviderInternalOSU() *WSGProfileProviderInternalOSU {
-	m := new(WSGProfileProviderInternalOSU)
-	return m
-}
-
-// WSGProfileProviderInternalOSUOsuAuthServicesType
-//
-// Definition: profile_providerInternalOSUOsuAuthServicesType
-type WSGProfileProviderInternalOSUOsuAuthServicesType struct {
-	// CredentialType
-	// Authentication credential type
-	// Constraints:
-	//    - required
-	//    - oneof:[LOCAL,REMOTE]
-	CredentialType *string `json:"credentialType"`
-
-	// Expiration
-	// Expiration hour. null mean never expire
-	// Constraints:
-	//    - nullable
-	//    - min:1
-	//    - max:175200
-	Expiration *int `json:"expiration,omitempty"`
-
-	// Id
-	// Identifier of authentication service
-	Id *string `json:"id,omitempty"`
-
-	// Name
-	// Authentication service name
-	Name *string `json:"name,omitempty"`
-
-	// Realm
-	// Constraints:
-	//    - required
-	Realm *WSGCommonRealm `json:"realm"`
-}
-
-func NewWSGProfileProviderInternalOSUOsuAuthServicesType() *WSGProfileProviderInternalOSUOsuAuthServicesType {
-	m := new(WSGProfileProviderInternalOSUOsuAuthServicesType)
-	return m
-}
-
-// WSGProfileProviderInternalOSUOsuPortalType
-//
-// Definition: profile_providerInternalOSUOsuPortalType
-type WSGProfileProviderInternalOSUOsuPortalType struct {
-	ExternalUrl *WSGCommonHTTPS `json:"externalUrl,omitempty"`
-
-	InternalOSUPortal *WSGCommonGenericRef `json:"internalOSUPortal,omitempty"`
-
-	// Type
-	// Portal type
-	// Constraints:
-	//    - required
-	//    - oneof:[Internal,External]
-	Type *string `json:"type"`
-}
-
-func NewWSGProfileProviderInternalOSUOsuPortalType() *WSGProfileProviderInternalOSUOsuPortalType {
-	m := new(WSGProfileProviderInternalOSUOsuPortalType)
-	return m
-}
-
 // WSGProfileProviderOnlineSignup
 //
 // Definition: profile_providerOnlineSignup
 type WSGProfileProviderOnlineSignup struct {
 	ExternalOSU *WSGProfileProviderExternalOSU `json:"externalOSU,omitempty"`
-
-	InternalOSU *WSGProfileProviderInternalOSU `json:"internalOSU,omitempty"`
-
-	// Type
-	// Online singup type
-	// Constraints:
-	//    - required
-	//    - oneof:[Internal,External]
-	Type *string `json:"type"`
 }
 
 func NewWSGProfileProviderOnlineSignup() *WSGProfileProviderOnlineSignup {

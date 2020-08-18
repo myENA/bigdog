@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -36,6 +36,28 @@ type SwitchMGroupAuditId struct {
 
 func NewSwitchMGroupAuditId() *SwitchMGroupAuditId {
 	m := new(SwitchMGroupAuditId)
+	return m
+}
+
+// SwitchMGroupAuditIdList
+//
+// Definition: group_auditIdList
+type SwitchMGroupAuditIdList struct {
+	Extra interface{} `json:"extra,omitempty"`
+
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*SwitchMGroupAuditId `json:"list,omitempty"`
+
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+func NewSwitchMGroupAuditIdList() *SwitchMGroupAuditIdList {
+	m := new(SwitchMGroupAuditIdList)
 	return m
 }
 
@@ -213,6 +235,10 @@ type SwitchMGroupSwitchGroup struct {
 	// Identifier of the management domain to which the switch group belong
 	DomainId *string `json:"domainId,omitempty"`
 
+	// EnableTwoFactor
+	// Enable two factor authentication. Only support FIPS mode
+	EnableTwoFactor *bool `json:"enableTwoFactor,omitempty"`
+
 	// Firmware
 	// Firmware of the switch group
 	Firmware *string `json:"firmware,omitempty"`
@@ -252,6 +278,88 @@ type SwitchMGroupSwitchGroup struct {
 
 func NewSwitchMGroupSwitchGroup() *SwitchMGroupSwitchGroup {
 	m := new(SwitchMGroupSwitchGroup)
+	return m
+}
+
+// SwitchMGroupSwitchGroupFirmwareByDomain
+//
+// Definition: group_switchGroupFirmwareByDomain
+type SwitchMGroupSwitchGroupFirmwareByDomain struct {
+	// DomainId
+	// Domain Id
+	DomainId *string `json:"domainId,omitempty"`
+
+	// Firmware
+	// Firmware Version
+	Firmware *string `json:"firmware,omitempty"`
+}
+
+func NewSwitchMGroupSwitchGroupFirmwareByDomain() *SwitchMGroupSwitchGroupFirmwareByDomain {
+	m := new(SwitchMGroupSwitchGroupFirmwareByDomain)
+	return m
+}
+
+// SwitchMGroupUpdateSwitchGroupByPut
+//
+// Definition: group_updateSwitchGroupByPut
+type SwitchMGroupUpdateSwitchGroupByPut struct {
+	// CreateDatetime
+	// Create datetime of the switch group
+	CreateDatetime *int `json:"createDatetime,omitempty"`
+
+	// CreatorId
+	// Creator Id of the switch group
+	CreatorId *string `json:"creatorId,omitempty"`
+
+	// Description
+	// Description of the switch group
+	Description *string `json:"description,omitempty"`
+
+	// DomainId
+	// Identifier of the management domain to which the switch group belong
+	DomainId *string `json:"domainId,omitempty"`
+
+	// EnableTwoFactor
+	// Enable two factor authentication. Only support FIPS mode
+	EnableTwoFactor *bool `json:"enableTwoFactor,omitempty"`
+
+	// Firmware
+	// Firmware of the switch group
+	Firmware *string `json:"firmware,omitempty"`
+
+	Id *string `json:"id,omitempty"`
+
+	// LevelOne
+	// Level one  of the switch group
+	LevelOne *bool `json:"levelOne,omitempty"`
+
+	// LevelTwo
+	// Level two of the switch group
+	LevelTwo *bool `json:"levelTwo,omitempty"`
+
+	// Name
+	// Name of the switch group
+	Name *string `json:"name,omitempty"`
+
+	// SampledInstant
+	// Sampled instant of the switch group
+	SampledInstant interface{} `json:"sampledInstant,omitempty"`
+
+	// SwitchGroupLevelOneId
+	// Level one Id of the switch group
+	SwitchGroupLevelOneId *string `json:"switchGroupLevelOneId,omitempty"`
+
+	// SwitchGroupLevelTwoId
+	// Level two Id of the switch group
+	SwitchGroupLevelTwoId *string `json:"switchGroupLevelTwoId,omitempty"`
+
+	// TenantId
+	// Tenant Id of the switch group
+	TenantId *string `json:"tenantId,omitempty"`
+}
+
+func NewSwitchMGroupUpdateSwitchGroupByPut() *SwitchMGroupUpdateSwitchGroupByPut {
+	m := new(SwitchMGroupUpdateSwitchGroupByPut)
 	return m
 }
 
@@ -444,6 +552,73 @@ func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Cont
 	req.SetPathParameter("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMGroupAuditId()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// UpdateGroupBySwitchGroupId
+//
+// Operation ID: updateGroupBySwitchGroupId
+//
+// Use this API command to update an existing switch group name, description.
+//
+// Request Body:
+//	 - body *SwitchMGroupUpdateSwitchGroupByPut
+//
+// Required Parameters:
+// - switchGroupId string
+//		- required
+func (s *SwitchMGroupService) UpdateGroupBySwitchGroupId(ctx context.Context, body *SwitchMGroupUpdateSwitchGroupByPut, switchGroupId string, mutators ...RequestMutator) (*SwitchMGroupAuditId, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMGroupAuditId
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateGroupBySwitchGroupId, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	req.SetPathParameter("switchGroupId", switchGroupId)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = NewSwitchMGroupAuditId()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// UpdateGroupFirmwareByDomain
+//
+// Operation ID: updateGroupFirmwareByDomain
+//
+// Use this API command to update default firmware of groups under a specific domain
+//
+// Request Body:
+//	 - body *SwitchMGroupSwitchGroupFirmwareByDomain
+func (s *SwitchMGroupService) UpdateGroupFirmwareByDomain(ctx context.Context, body *SwitchMGroupSwitchGroupFirmwareByDomain, mutators ...RequestMutator) (*SwitchMGroupAuditIdList, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMGroupAuditIdList
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodPut, RouteSwitchMUpdateGroupFirmwareByDomain, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = NewSwitchMGroupAuditIdList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -25,10 +25,18 @@ func (ss *SwitchMService) SwitchMAAASettingsService() *SwitchMAAASettingsService
 //
 // Definition: aaaSettings_AAASetting
 type SwitchMAAASettingsAAASetting struct {
+	// Accounting
+	// Accounting service
 	Accounting *SwitchMAAASettingsAAASettingAccountingType `json:"accounting,omitempty"`
 
+	AltoId *string `json:"altoId,omitempty"`
+
+	// Authentication
+	// Authentication service
 	Authentication *SwitchMAAASettingsAAASettingAuthenticationType `json:"authentication,omitempty"`
 
+	// Authorization
+	// Authorization service
 	Authorization *SwitchMAAASettingsAAASettingAuthorizationType `json:"authorization,omitempty"`
 }
 
@@ -40,13 +48,23 @@ func NewSwitchMAAASettingsAAASetting() *SwitchMAAASettingsAAASetting {
 // SwitchMAAASettingsAAASettingAccountingType
 //
 // Definition: aaaSettings_AAASettingAccountingType
+//
+// Accounting service
 type SwitchMAAASettingsAAASettingAccountingType struct {
+	// Commands
+	// Commands service
 	Commands *SwitchMAAASettingsAAASettingAccountingTypeCommandsType `json:"commands,omitempty"`
 
+	// EnabledCommandAccounting
+	// Command Enabled
 	EnabledCommandAccounting *bool `json:"enabledCommandAccounting,omitempty"`
 
+	// EnabledExecAccounting
+	// Exec Enabled
 	EnabledExecAccounting *bool `json:"enabledExecAccounting,omitempty"`
 
+	// Exec
+	// Exec service
 	Exec *SwitchMAAASettingsAAASettingAccountingTypeExecType `json:"exec,omitempty"`
 }
 
@@ -58,18 +76,23 @@ func NewSwitchMAAASettingsAAASettingAccountingType() *SwitchMAAASettingsAAASetti
 // SwitchMAAASettingsAAASettingAccountingTypeCommandsType
 //
 // Definition: aaaSettings_AAASettingAccountingTypeCommandsType
+//
+// Commands service
 type SwitchMAAASettingsAAASettingAccountingTypeCommandsType struct {
 	// Level
+	// Access level of command
 	// Constraints:
 	//    - oneof:[READ_WRITE,PORT_CONFIG,READ_ONLY]
 	Level *string `json:"level,omitempty"`
 
 	// Server1
+	// Primary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server1 *string `json:"server1,omitempty"`
 
 	// Server2
+	// Secondary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server2 *string `json:"server2,omitempty"`
@@ -83,13 +106,17 @@ func NewSwitchMAAASettingsAAASettingAccountingTypeCommandsType() *SwitchMAAASett
 // SwitchMAAASettingsAAASettingAccountingTypeExecType
 //
 // Definition: aaaSettings_AAASettingAccountingTypeExecType
+//
+// Exec service
 type SwitchMAAASettingsAAASettingAccountingTypeExecType struct {
 	// Server1
+	// Primary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server1 *string `json:"server1,omitempty"`
 
 	// Server2
+	// Secondary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server2 *string `json:"server2,omitempty"`
@@ -103,22 +130,31 @@ func NewSwitchMAAASettingsAAASettingAccountingTypeExecType() *SwitchMAAASettings
 // SwitchMAAASettingsAAASettingAuthenticationType
 //
 // Definition: aaaSettings_AAASettingAuthenticationType
+//
+// Authentication service
 type SwitchMAAASettingsAAASettingAuthenticationType struct {
+	// EnabledSSHAuthn
+	// SSH Enabled
 	EnabledSSHAuthn *bool `json:"enabledSSHAuthn,omitempty"`
 
+	// EnableTelnetAuthn
+	// Telnet Enabled
 	EnableTelnetAuthn *bool `json:"enableTelnetAuthn,omitempty"`
 
 	// FirstPref
+	// Primary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
 	FirstPref *string `json:"firstPref,omitempty"`
 
 	// SecondPref
+	// Secondary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
 	SecondPref *string `json:"secondPref,omitempty"`
 
 	// ThirdPref
+	// Third server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS,LOCAL]
 	ThirdPref *string `json:"thirdPref,omitempty"`
@@ -132,13 +168,23 @@ func NewSwitchMAAASettingsAAASettingAuthenticationType() *SwitchMAAASettingsAAAS
 // SwitchMAAASettingsAAASettingAuthorizationType
 //
 // Definition: aaaSettings_AAASettingAuthorizationType
+//
+// Authorization service
 type SwitchMAAASettingsAAASettingAuthorizationType struct {
+	// Commands
+	// Commands service
 	Commands *SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType `json:"commands,omitempty"`
 
+	// EnabledCommandAuthz
+	// Command Enabled
 	EnabledCommandAuthz *bool `json:"enabledCommandAuthz,omitempty"`
 
+	// EnabledExecAuthz
+	// Exec Enabled
 	EnabledExecAuthz *bool `json:"enabledExecAuthz,omitempty"`
 
+	// Exec
+	// Exec Service
 	Exec *SwitchMAAASettingsAAASettingAuthorizationTypeExecType `json:"exec,omitempty"`
 }
 
@@ -150,18 +196,23 @@ func NewSwitchMAAASettingsAAASettingAuthorizationType() *SwitchMAAASettingsAAASe
 // SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType
 //
 // Definition: aaaSettings_AAASettingAuthorizationTypeCommandsType
+//
+// Commands service
 type SwitchMAAASettingsAAASettingAuthorizationTypeCommandsType struct {
 	// Level
+	// Access level of command
 	// Constraints:
 	//    - oneof:[READ_WRITE,PORT_CONFIG,READ_ONLY]
 	Level *string `json:"level,omitempty"`
 
 	// Server1
+	// Primary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server1 *string `json:"server1,omitempty"`
 
 	// Server2
+	// Secondary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server2 *string `json:"server2,omitempty"`
@@ -175,13 +226,17 @@ func NewSwitchMAAASettingsAAASettingAuthorizationTypeCommandsType() *SwitchMAAAS
 // SwitchMAAASettingsAAASettingAuthorizationTypeExecType
 //
 // Definition: aaaSettings_AAASettingAuthorizationTypeExecType
+//
+// Exec Service
 type SwitchMAAASettingsAAASettingAuthorizationTypeExecType struct {
 	// Server1
+	// Primary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server1 *string `json:"server1,omitempty"`
 
 	// Server2
+	// Secondary server type
 	// Constraints:
 	//    - oneof:[RADIUS,TACACS_PLUS]
 	Server2 *string `json:"server2,omitempty"`

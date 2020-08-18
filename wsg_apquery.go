@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // WSGAPQueryList
 //
@@ -262,6 +262,10 @@ type WSGAPQueryCreateApQuery struct {
 
 	Rx50G *int `json:"rx50G,omitempty"`
 
+	RxDesense5G *int `json:"rxDesense5G,omitempty"`
+
+	RxDesense24G *int `json:"rxDesense24G,omitempty"`
+
 	Serial *string `json:"serial,omitempty"`
 
 	// Status
@@ -280,6 +284,10 @@ type WSGAPQueryCreateApQuery struct {
 	Tx24G *int `json:"tx24G,omitempty"`
 
 	Tx50G *int `json:"tx50G,omitempty"`
+
+	TxPowerOffset5G *int `json:"txPowerOffset5G,omitempty"`
+
+	TxPowerOffset24G *int `json:"txPowerOffset24G,omitempty"`
 
 	TxRx *int `json:"txRx,omitempty"`
 
@@ -338,5 +346,15 @@ type WSGAPQueryCreateApQueryIndoorMapXyType struct {
 
 func NewWSGAPQueryCreateApQueryIndoorMapXyType() *WSGAPQueryCreateApQueryIndoorMapXyType {
 	m := new(WSGAPQueryCreateApQueryIndoorMapXyType)
+	return m
+}
+
+// WSGAPQueryQueryCriteria
+//
+// Definition: apQuery_queryCriteria
+type WSGAPQueryQueryCriteria struct{}
+
+func NewWSGAPQueryQueryCriteria() *WSGAPQueryQueryCriteria {
+	m := new(WSGAPQueryQueryCriteria)
 	return m
 }

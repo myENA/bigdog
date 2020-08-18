@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -187,11 +187,11 @@ func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicyById(ctx context.C
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGDomainDevicePolicyProfileByQueryCriteria, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *WSGDomainDevicePolicyProfileByQueryCriteria
 		httpResp *http.Response
 		err      error
 	)
@@ -205,7 +205,7 @@ func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicyByQueryCriteria(ct
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
+	resp = NewWSGDomainDevicePolicyProfileByQueryCriteria()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

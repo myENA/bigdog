@@ -1,13 +1,17 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
+
+import (
+	"encoding/json"
+)
 
 // WSGDomainDevicePolicyCreateDomainDevicePolicy
 //
 // Definition: domainDevicePolicy_createDomainDevicePolicy
 type WSGDomainDevicePolicyCreateDomainDevicePolicy struct {
 	// DefaultAction
-	// defaultAction of the device policy cofig
+	// defaultAction of the device policy config
 	// Constraints:
 	//    - required
 	//    - oneof:[ALLOW,BLOCK]
@@ -16,7 +20,7 @@ type WSGDomainDevicePolicyCreateDomainDevicePolicy struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// DomainId
-	// domainId of the device policy cofig
+	// domainId of the device policy config
 	DomainId *string `json:"domainId,omitempty"`
 
 	// Name
@@ -25,7 +29,7 @@ type WSGDomainDevicePolicyCreateDomainDevicePolicy struct {
 	Name *WSGCommonNormalName `json:"name"`
 
 	// Rule
-	// rule of the device policy cofig
+	// rule of the device policy config
 	// Constraints:
 	//    - required
 	Rule []*WSGDomainDevicePolicyRule `json:"rule"`
@@ -41,7 +45,7 @@ func NewWSGDomainDevicePolicyCreateDomainDevicePolicy() *WSGDomainDevicePolicyCr
 // Definition: domainDevicePolicy_domainDevicePolicyProfile
 type WSGDomainDevicePolicyProfile struct {
 	// DefaultAction
-	// defaultAction of the device policy cofig
+	// defaultAction of the device policy config
 	// Constraints:
 	//    - oneof:[ALLOW,BLOCK]
 	DefaultAction *string `json:"defaultAction,omitempty"`
@@ -49,13 +53,13 @@ type WSGDomainDevicePolicyProfile struct {
 	Description *WSGCommonDescription `json:"description,omitempty"`
 
 	// Id
-	// identifier of the device policy cofig
+	// identifier of the device policy config
 	Id *string `json:"id,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Rule
-	// rule of the device policy cofig
+	// rule of the device policy config
 	Rule []*WSGDomainDevicePolicyRule `json:"rule,omitempty"`
 }
 
@@ -64,12 +68,95 @@ func NewWSGDomainDevicePolicyProfile() *WSGDomainDevicePolicyProfile {
 	return m
 }
 
+// WSGDomainDevicePolicyProfileByQueryCriteria
+//
+// Definition: domainDevicePolicy_domainDevicePolicyProfileByQueryCriteria
+type WSGDomainDevicePolicyProfileByQueryCriteria struct {
+	Extra interface{} `json:"extra,omitempty"`
+
+	// FirstIndex
+	// Index of the first device policy returned out of the complete device policy list
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	// HasMore
+	// Indicates if there are more device policy after the currently displayed list
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*WSGDomainDevicePolicyProfile `json:"list,omitempty"`
+
+	// RawDataTotalCount
+	// Total device policy count
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	// TotalCount
+	// Current page device policy count
+	TotalCount *int `json:"totalCount,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *WSGDomainDevicePolicyProfileByQueryCriteria) UnmarshalJSON(b []byte) error {
+	type _WSGDomainDevicePolicyProfileByQueryCriteria WSGDomainDevicePolicyProfileByQueryCriteria
+	tmpType := new(_WSGDomainDevicePolicyProfileByQueryCriteria)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "extra")
+	delete(tmpType.XAdditionalProperties, "firstIndex")
+	delete(tmpType.XAdditionalProperties, "hasMore")
+	delete(tmpType.XAdditionalProperties, "list")
+	delete(tmpType.XAdditionalProperties, "rawDataTotalCount")
+	delete(tmpType.XAdditionalProperties, "totalCount")
+	*t = WSGDomainDevicePolicyProfileByQueryCriteria(*tmpType)
+	return nil
+}
+
+func (t *WSGDomainDevicePolicyProfileByQueryCriteria) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.Extra != nil {
+		tmp["extra"] = t.Extra
+	}
+	if t.FirstIndex != nil {
+		tmp["firstIndex"] = t.FirstIndex
+	}
+	if t.HasMore != nil {
+		tmp["hasMore"] = t.HasMore
+	}
+	if t.List != nil {
+		tmp["list"] = t.List
+	}
+	if t.RawDataTotalCount != nil {
+		tmp["rawDataTotalCount"] = t.RawDataTotalCount
+	}
+	if t.TotalCount != nil {
+		tmp["totalCount"] = t.TotalCount
+	}
+	return json.Marshal(tmp)
+}
+
+func NewWSGDomainDevicePolicyProfileByQueryCriteria() *WSGDomainDevicePolicyProfileByQueryCriteria {
+	m := new(WSGDomainDevicePolicyProfileByQueryCriteria)
+	return m
+}
+
 // WSGDomainDevicePolicyRule
 //
 // Definition: domainDevicePolicy_domainDevicePolicyRule
 type WSGDomainDevicePolicyRule struct {
 	// Action
-	// defaultAction of the device policy cofig
+	// defaultAction of the device policy config
 	// Constraints:
 	//    - oneof:[ALLOW,BLOCK]
 	Action *string `json:"action,omitempty"`
@@ -117,7 +204,7 @@ func NewWSGDomainDevicePolicyRule() *WSGDomainDevicePolicyRule {
 // Definition: domainDevicePolicy_modifyDomainDevicePolicy
 type WSGDomainDevicePolicyModifyDomainDevicePolicy struct {
 	// DefaultAction
-	// defaultAction of the device policy cofig
+	// defaultAction of the device policy config
 	// Constraints:
 	//    - oneof:[ALLOW,BLOCK]
 	DefaultAction *string `json:"defaultAction,omitempty"`
@@ -127,7 +214,7 @@ type WSGDomainDevicePolicyModifyDomainDevicePolicy struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Rule
-	// rule of the device policy cofig
+	// rule of the device policy config
 	Rule []*WSGDomainDevicePolicyRule `json:"rule,omitempty"`
 }
 

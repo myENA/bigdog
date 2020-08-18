@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -28,8 +28,8 @@ func (ss *WSGService) WSGZDImportService() *WSGZDImportService {
 // Connect to ZD.
 //
 // Request Body:
-//	 - body *WSGAdministrationZdImport
-func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSGAdministrationZdImport, mutators ...RequestMutator) (*APIResponseMeta, error) {
+//	 - body *WSGAdministrationConnectZD
+func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSGAdministrationConnectZD, mutators ...RequestMutator) (*APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

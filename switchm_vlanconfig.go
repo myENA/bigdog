@@ -1,11 +1,13 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // SwitchMVLANConfigCreateVlanConfig
 //
 // Definition: vlanConfig_createVlanConfig
 type SwitchMVLANConfigCreateVlanConfig struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	ArpInspections []*SwitchMVLANConfigVlanArpInspections `json:"arpInspections,omitempty"`
 
 	// ArpInspectionTrustPort
@@ -16,9 +18,13 @@ type SwitchMVLANConfigCreateVlanConfig struct {
 	// ARP Inspection Enabled
 	EnableArpInspection *bool `json:"enableArpInspection,omitempty"`
 
+	EnableAsDefaultVlan *bool `json:"enableAsDefaultVlan,omitempty"`
+
 	// EnableIpv4DhcpSnooping
 	// IPv4 DHCP Snooping Enabled
 	EnableIpv4DhcpSnooping *bool `json:"enableIpv4DhcpSnooping,omitempty"`
+
+	EnableManagementVlan *bool `json:"enableManagementVlan,omitempty"`
 
 	// FamilyId
 	// Family Id
@@ -88,6 +94,8 @@ func NewSwitchMVLANConfigCreateVlanConfig() *SwitchMVLANConfigCreateVlanConfig {
 //
 // Definition: vlanConfig_updateVlanConfig
 type SwitchMVLANConfigUpdateVlanConfig struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	ArpInspections []*SwitchMVLANConfigVlanArpInspections `json:"arpInspections,omitempty"`
 
 	// ArpInspectionTrustPort
@@ -101,6 +109,8 @@ type SwitchMVLANConfigUpdateVlanConfig struct {
 	// EnableIpv4DhcpSnooping
 	// IPv4 DHCP Snooping Enabled
 	EnableIpv4DhcpSnooping *bool `json:"enableIpv4DhcpSnooping,omitempty"`
+
+	EnableManagementVlan *bool `json:"enableManagementVlan,omitempty"`
 
 	// IgmpSnooping
 	// IGMP Snooping
@@ -172,6 +182,8 @@ func NewSwitchMVLANConfigVlanArpInspections() *SwitchMVLANConfigVlanArpInspectio
 //
 // Definition: vlanConfig_VlanConfig
 type SwitchMVLANConfig struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	ArpInspections []*SwitchMVLANConfigVlanArpInspections `json:"arpInspections,omitempty"`
 
 	// ArpInspectionTrustPort
@@ -186,9 +198,13 @@ type SwitchMVLANConfig struct {
 	// ARP Inspection Enabled
 	EnableArpInspection *bool `json:"enableArpInspection,omitempty"`
 
+	EnableAsDefaultVlan *bool `json:"enableAsDefaultVlan,omitempty"`
+
 	// EnableIpv4DhcpSnooping
 	// IPv4 DHCP Snooping Enabled
 	EnableIpv4DhcpSnooping *bool `json:"enableIpv4DhcpSnooping,omitempty"`
+
+	EnableManagementVlan *bool `json:"enableManagementVlan,omitempty"`
 
 	// FamilyId
 	// Family Id

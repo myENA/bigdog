@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -1679,12 +1679,10 @@ type WSGWLANAdvanced struct {
 	Priority *string `json:"priority,omitempty"`
 
 	// ProbeRssiThr
-	// Join RSSI threshold.
+	// Join RSSI threshold. Value should be 0 (disabled) or between -90 and -60
 	// Constraints:
 	//    - nullable
 	//    - default:-85
-	//    - min:-90
-	//    - max:-60
 	ProbeRssiThr *int `json:"probeRssiThr,omitempty"`
 
 	// ProxyARPEnabled
@@ -1754,6 +1752,10 @@ type WSGWLANAdvanced struct {
 	// UrlFilteringPolicyId
 	// The URL Filtering policy ID.
 	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
+
+	// Wifi6Enabled
+	// Indicates whether wifi6 feature is enabled or disabled
+	Wifi6Enabled *bool `json:"wifi6Enabled,omitempty"`
 
 	// WifiCallingPolicyEnabled
 	// Indicator of whether Wi-Fi Calling is enabled or disabled
@@ -1894,6 +1896,8 @@ type WSGWLANConfiguration struct {
 	DpTunnelNatEnabled *bool `json:"dpTunnelNatEnabled,omitempty"`
 
 	Encryption *WSGWLANEncryption `json:"encryption,omitempty"`
+
+	ExternalDpsk *WSGDPSKWlanExternalDpsk `json:"externalDpsk,omitempty"`
 
 	// FirewallAppPolicyId
 	// Firewall Application Policy of WLAN specific

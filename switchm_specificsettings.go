@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -109,9 +109,15 @@ func NewSwitchMSpecificSettingsIdList() *SwitchMSpecificSettingsIdList {
 //
 // Definition: specificSettings_SpecificSettings
 type SwitchMSpecificSettings struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	// CreatedTime
 	// The create time of the Specific Settings
 	CreatedTime *int `json:"createdTime,omitempty"`
+
+	// DefaultGateway
+	// DefaultGateway
+	DefaultGateway *string `json:"defaultGateway,omitempty"`
 
 	// DhcpServerEnabled
 	// DHCP server enabled
@@ -131,9 +137,17 @@ type SwitchMSpecificSettings struct {
 	// IGMP snopping
 	IgmpSnooping *string `json:"igmpSnooping,omitempty"`
 
+	// IpAddress
+	// IP Address
+	IpAddress *string `json:"ipAddress,omitempty"`
+
 	// JumboMode
 	// JumboMode
 	JumboMode *bool `json:"jumboMode,omitempty"`
+
+	// SubnetMask
+	// SubnetMask
+	SubnetMask *string `json:"subnetMask,omitempty"`
 
 	// UpdatedTime
 	// The modify time of the Specific Settings
@@ -181,6 +195,12 @@ func NewSwitchMSpecificSettingsAllResult() *SwitchMSpecificSettingsAllResult {
 //
 // Definition: specificSettings_UpdateSpecificSettings
 type SwitchMSpecificSettingsUpdateSpecificSettings struct {
+	AltoId *string `json:"altoId,omitempty"`
+
+	// DefaultGateway
+	// DefaultGateway
+	DefaultGateway *string `json:"defaultGateway,omitempty"`
+
 	// DhcpServerEnabled
 	// DHCP server enabled
 	DhcpServerEnabled *bool `json:"dhcpServerEnabled,omitempty"`
@@ -195,9 +215,17 @@ type SwitchMSpecificSettingsUpdateSpecificSettings struct {
 	// IGMP snopping
 	IgmpSnooping *string `json:"igmpSnooping,omitempty"`
 
+	// IpAddress
+	// IP Address
+	IpAddress *string `json:"ipAddress,omitempty"`
+
 	// JumboMode
 	// JumboMode
 	JumboMode *bool `json:"jumboMode,omitempty"`
+
+	// SubnetMask
+	// SubnetMask
+	SubnetMask *string `json:"subnetMask,omitempty"`
 }
 
 func NewSwitchMSpecificSettingsUpdateSpecificSettings() *SwitchMSpecificSettingsUpdateSpecificSettings {

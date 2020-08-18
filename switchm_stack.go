@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -85,6 +85,10 @@ type SwitchMSwitchStackConfigMember struct {
 	// Switch model of stack
 	Model *string `json:"model,omitempty"`
 
+	// Poe
+	// Information of PoE
+	Poe *SwitchMSwitchStackConfigMemberPoeType `json:"poe,omitempty"`
+
 	// Ports
 	// Port count  of stack
 	Ports *int `json:"ports,omitempty"`
@@ -120,6 +124,30 @@ type SwitchMSwitchStackConfigMember struct {
 
 func NewSwitchMSwitchStackConfigMember() *SwitchMSwitchStackConfigMember {
 	m := new(SwitchMSwitchStackConfigMember)
+	return m
+}
+
+// SwitchMSwitchStackConfigMemberPoeType
+//
+// Definition: stack_memberPoeType
+//
+// Information of PoE
+type SwitchMSwitchStackConfigMemberPoeType struct {
+	// Free
+	// Free power capacity of a switch unit in stack
+	Free *int `json:"free,omitempty"`
+
+	// Percent
+	// Percentage of power usage for a switch unit in stack
+	Percent *float64 `json:"percent,omitempty"`
+
+	// Total
+	// Total power capacity of a switch unit in stack
+	Total *int `json:"total,omitempty"`
+}
+
+func NewSwitchMSwitchStackConfigMemberPoeType() *SwitchMSwitchStackConfigMemberPoeType {
+	m := new(SwitchMSwitchStackConfigMemberPoeType)
 	return m
 }
 

@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -29,6 +29,8 @@ type SwitchMAAAServersAAAServer struct {
 	// AAA server accounting port
 	AcctPort *int `json:"acctPort,omitempty"`
 
+	AltoId *string `json:"altoId,omitempty"`
+
 	// AuthPort
 	// AAA server authentication port
 	AuthPort *int `json:"authPort,omitempty"`
@@ -45,6 +47,8 @@ type SwitchMAAAServersAAAServer struct {
 	// AAA server creator name
 	CreatorUsername *string `json:"creatorUsername,omitempty"`
 
+	// GroupId
+	// Group ID of the AAA server
 	GroupId *string `json:"groupId,omitempty"`
 
 	// Id
@@ -146,6 +150,8 @@ type SwitchMAAAServersCreateAdminAAAServer struct {
 	// AcctPort
 	// AAA server accounting port
 	AcctPort *int `json:"acctPort,omitempty"`
+
+	AltoId *string `json:"altoId,omitempty"`
 
 	// AuthPort
 	// AAA server authentication port

@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -86,12 +86,12 @@ func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context,
 // Use this API command to query client by wlan name.
 //
 // Request Body:
-//	 - body *WSGCommonQueryCriteriaSuperSet
+//	 - body *WSGClientQueryQueryCriteria
 //
 // Required Parameters:
 // - wlanname string
 //		- required
-func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, wlanname string, mutators ...RequestMutator) (*WSGClientQueryList, *APIResponseMeta, error) {
+func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Context, body *WSGClientQueryQueryCriteria, wlanname string, mutators ...RequestMutator) (*WSGClientQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -209,8 +209,8 @@ func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx
 // Query clients with specified filters.
 //
 // Request Body:
-//	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGWirelessClientService) FindClientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGClientQueryList, *APIResponseMeta, error) {
+//	 - body *WSGClientQueryQueryCriteria
+func (s *WSGWirelessClientService) FindClientByQueryCriteria(ctx context.Context, body *WSGClientQueryQueryCriteria, mutators ...RequestMutator) (*WSGClientQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

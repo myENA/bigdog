@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -312,6 +312,22 @@ type WSGAdministrationConfigurationBackupList struct {
 
 func NewWSGAdministrationConfigurationBackupList() *WSGAdministrationConfigurationBackupList {
 	m := new(WSGAdministrationConfigurationBackupList)
+	return m
+}
+
+// WSGAdministrationConnectZD
+//
+// Definition: administration_connectZD
+type WSGAdministrationConnectZD struct {
+	Ip *string `json:"ip,omitempty"`
+
+	Password *string `json:"password,omitempty"`
+
+	User *string `json:"user,omitempty"`
+}
+
+func NewWSGAdministrationConnectZD() *WSGAdministrationConnectZD {
+	m := new(WSGAdministrationConnectZD)
 	return m
 }
 

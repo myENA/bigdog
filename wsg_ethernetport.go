@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // WSGEthernetPortCreateEthernetPortProfile
 //
@@ -28,9 +28,17 @@ type WSGEthernetPortCreateEthernetPortProfile struct {
 
 	DynamicVlanEnabled *bool `json:"dynamicVlanEnabled,omitempty"`
 
+	// FirewallAVCEnabled
+	// Application Recognition & Control enabled
+	FirewallAVCEnabled *bool `json:"firewallAVCEnabled,omitempty"`
+
 	// FirewallProfileId
 	// Firewall Profile Id
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUrlFilteringPolicyEnabled
+	// URL Filtering Policy enabled
+	FirewallUrlFilteringPolicyEnabled *bool `json:"firewallUrlFilteringPolicyEnabled,omitempty"`
 
 	// GuestVlan
 	// Constraints:
@@ -39,6 +47,10 @@ type WSGEthernetPortCreateEthernetPortProfile struct {
 	GuestVlan *int `json:"guestVlan,omitempty"`
 
 	IpsecProfile *WSGCommonGenericRef `json:"ipsecProfile,omitempty"`
+
+	// L2AccessControlPolicyId
+	// L2 Access Control Policy Id
+	L2AccessControlPolicyId *string `json:"l2AccessControlPolicyId,omitempty"`
 
 	// Name
 	// Constraints:
@@ -122,9 +134,17 @@ type WSGEthernetPortProfile struct {
 
 	DynamicVlanEnabled *bool `json:"dynamicVlanEnabled,omitempty"`
 
+	// FirewallAVCEnabled
+	// Application Recognition & Control enabled
+	FirewallAVCEnabled *bool `json:"firewallAVCEnabled,omitempty"`
+
 	// FirewallProfileId
 	// Firewall Profile Id
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUrlFilteringPolicyEnabled
+	// URL Filtering Policy enabled
+	FirewallUrlFilteringPolicyEnabled *bool `json:"firewallUrlFilteringPolicyEnabled,omitempty"`
 
 	// GuestVlan
 	// Constraints:
@@ -137,6 +157,10 @@ type WSGEthernetPortProfile struct {
 	Id *string `json:"id,omitempty"`
 
 	IpsecProfile *WSGCommonGenericRef `json:"ipsecProfile,omitempty"`
+
+	// L2AccessControlPolicyId
+	// L2 Access Control Policy Id
+	L2AccessControlPolicyId *string `json:"l2AccessControlPolicyId,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
@@ -212,9 +236,17 @@ type WSGEthernetPortModifyEthernetPortProfile struct {
 
 	DynamicVlanEnabled *bool `json:"dynamicVlanEnabled,omitempty"`
 
+	// FirewallAVCEnabled
+	// Application Recognition & Control enabled
+	FirewallAVCEnabled *bool `json:"firewallAVCEnabled,omitempty"`
+
 	// FirewallProfileId
 	// Firewall Profile Id
 	FirewallProfileId *string `json:"firewallProfileId,omitempty"`
+
+	// FirewallUrlFilteringPolicyEnabled
+	// URL Filtering Policy enabled
+	FirewallUrlFilteringPolicyEnabled *bool `json:"firewallUrlFilteringPolicyEnabled,omitempty"`
 
 	// GuestVlan
 	// Constraints:
@@ -223,6 +255,10 @@ type WSGEthernetPortModifyEthernetPortProfile struct {
 	GuestVlan *int `json:"guestVlan,omitempty"`
 
 	IpsecProfile *WSGCommonGenericRef `json:"ipsecProfile,omitempty"`
+
+	// L2AccessControlPolicyId
+	// L2 Access Control Policy Id
+	L2AccessControlPolicyId *string `json:"l2AccessControlPolicyId,omitempty"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 

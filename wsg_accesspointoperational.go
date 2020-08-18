@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -291,8 +291,8 @@ func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.C
 // Query APs with specified filters
 //
 // Request Body:
-//	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGAccessPointOperationalService) FindApByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGAPQueryList, *APIResponseMeta, error) {
+//	 - body *WSGAPQueryQueryCriteria
+func (s *WSGAccessPointOperationalService) FindApByQueryCriteria(ctx context.Context, body *WSGAPQueryQueryCriteria, mutators ...RequestMutator) (*WSGAPQueryList, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

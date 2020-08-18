@@ -1,11 +1,13 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 // SwitchMIPConfigCreate
 //
 // Definition: ipConfig_create
 type SwitchMIPConfigCreate struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	// DhcpRelayAgent
 	// DHCP Relay IP Address
 	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`
@@ -70,6 +72,8 @@ func NewSwitchMIPConfigCreateResult() *SwitchMIPConfigCreateResult {
 //
 // Definition: ipConfig_ipConfig
 type SwitchMIPConfig struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	// CreatedTime
 	// Config Created Time
 	CreatedTime *int `json:"createdTime,omitempty"`
@@ -174,6 +178,8 @@ func NewSwitchMIPConfigList() *SwitchMIPConfigList {
 //
 // Definition: ipConfig_modify
 type SwitchMIPConfigModify struct {
+	AltoId *string `json:"altoId,omitempty"`
+
 	// DhcpRelayAgent
 	// DHCP Relay IP Address
 	DhcpRelayAgent *string `json:"dhcpRelayAgent,omitempty"`

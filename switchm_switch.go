@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -420,6 +420,8 @@ type SwitchMSwitchNetworkSwitch struct {
 	// Status of switch, Ex: ONLINE, OFFLINE
 	Status *string `json:"status,omitempty"`
 
+	SupportedCsl *int `json:"supportedCsl,omitempty"`
+
 	// SwitchName
 	// Switch name
 	SwitchName *string `json:"switchName,omitempty"`
@@ -614,9 +616,15 @@ type SwitchMSwitchPortDetails struct {
 	// Switch port STP state
 	StpState *int `json:"stpState,omitempty"`
 
+	SwitchFamily *string `json:"switchFamily,omitempty"`
+
 	// SwitchGroup
 	// Switch group of switch port
 	SwitchGroup *string `json:"switchGroup,omitempty"`
+
+	SwitchId *string `json:"switchId,omitempty"`
+
+	SwitchModel *string `json:"switchModel,omitempty"`
 
 	// SwitchName
 	// Switch Name of switch port
@@ -1315,6 +1323,30 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 	req.SetPathParameter("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchFirmwareHistoryQueryResultList()
+	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// FindSwitchModelList
+//
+// Operation ID: findSwitchModelList
+//
+// Use this API command to Retrieve Switch Model List.
+func (s *SwitchMSwitchService) FindSwitchModelList(ctx context.Context, mutators ...RequestMutator) (*SwitchMSwitchModelResult, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SwitchMSwitchModelResult
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindSwitchModelList, true)
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = NewSwitchMSwitchModelResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

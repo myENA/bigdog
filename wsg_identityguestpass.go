@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -274,4 +274,38 @@ func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context,
 	resp = NewWSGIdentityGuestPassList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
+}
+
+// PartialUpdateIdentityGuestpassByUserId
+//
+// Operation ID: partialUpdateIdentityGuestpassByUserId
+//
+// Use this API command to modify the configuration of identity guest.
+//
+// Request Body:
+//	 - body *WSGIdentityModifyGuestPass
+//
+// Required Parameters:
+// - userId string
+//		- required
+func (s *WSGIdentityGuestPassService) PartialUpdateIdentityGuestpassByUserId(ctx context.Context, body *WSGIdentityModifyGuestPass, userId string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return rm, err
+	}
+	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateIdentityGuestpassByUserId, true)
+	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
+	req.SetHeader(headerKeyAccept, "*/*")
+	if err = req.SetBody(body); err != nil {
+		return rm, err
+	}
+	req.SetPathParameter("userId", userId)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	return rm, err
 }

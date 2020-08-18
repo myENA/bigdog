@@ -1,6 +1,6 @@
 package bigdog
 
-// API Version: v9_0
+// API Version: v9_1
 
 import (
 	"context"
@@ -134,22 +134,24 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 // Operation ID: addConfigurationBackup
 //
 // Backup system configuration.
-func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context, mutators ...RequestMutator) (*WSGCommonCreateResult, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
+		resp     *WSGCommonCreateResult
 		httpResp *http.Response
 		err      error
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp, rm, err
 	}
 	req = NewAPIRequest(http.MethodPost, RouteWSGAddConfigurationBackup, true)
 	req.SetHeader(headerKeyContentType, "*/*")
-	req.SetHeader(headerKeyAccept, "*/*")
+	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, nil, err)
-	return rm, err
+	resp = NewWSGCommonCreateResult()
+	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	return resp, rm, err
 }
 
 // AddConfigurationRestoreById

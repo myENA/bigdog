@@ -63,11 +63,11 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 //		- required
 // - targetIP string
 //		- required
-func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac string, targetIP string, mutators ...RequestMutator) (*WSGModelsFindToolPing200ResponseType, *APIResponseMeta, error) {
+func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac string, targetIP string, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGModelsFindToolPing200ResponseType
+		resp     *RawResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -79,7 +79,7 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 	req.SetQueryParameter("apMac", []string{apMac})
 	req.SetQueryParameter("targetIP", []string{targetIP})
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGModelsFindToolPing200ResponseType()
+	resp = new(RawResponse)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
@@ -128,11 +128,11 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 // Optional Parameters:
 // - timeoutInSec string
 //		- nullable
-func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, apMac string, targetIP string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGModelsFindToolTraceRoute200ResponseType, *APIResponseMeta, error) {
+func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, apMac string, targetIP string, optionalParams map[string][]string, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *WSGModelsFindToolTraceRoute200ResponseType
+		resp     *RawResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -147,7 +147,7 @@ func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, ap
 		req.SetQueryParameter("timeoutInSec", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGModelsFindToolTraceRoute200ResponseType()
+	resp = new(RawResponse)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

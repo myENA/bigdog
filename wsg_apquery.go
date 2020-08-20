@@ -352,7 +352,59 @@ func NewWSGAPQueryCreateApQueryIndoorMapXyType() *WSGAPQueryCreateApQueryIndoorM
 // WSGAPQueryQueryCriteria
 //
 // Definition: apQuery_queryCriteria
-type WSGAPQueryQueryCriteria struct{}
+type WSGAPQueryQueryCriteria struct {
+	// Attributes
+	// Get specific columns only
+	Attributes []string `json:"attributes,omitempty"`
+
+	// Criteria
+	// Add backward compatibility for UI framework
+	Criteria *string `json:"criteria,omitempty"`
+
+	// ExpandDomains
+	// Whether to expand domains into sub domains/ zones or not
+	ExpandDomains *bool `json:"expandDomains,omitempty"`
+
+	// ExtraFilters
+	// "AND" condition for multiple filters
+	ExtraFilters []*WSGCommonQueryCriteriaSuperSetExtraFiltersType `json:"extraFilters,omitempty"`
+
+	// ExtraNotFilters
+	// "NOT" condition for multiple filters
+	ExtraNotFilters []*WSGCommonQueryCriteriaSuperSetExtraNotFiltersType `json:"extraNotFilters,omitempty"`
+
+	ExtraTimeRange *WSGCommonTimeRange `json:"extraTimeRange,omitempty"`
+
+	// Filters
+	// Filters used to select specific resource scope
+	Filters []*WSGCommonQueryCriteriaSuperSetFiltersType `json:"filters,omitempty"`
+
+	FullTextSearch *WSGCommonFullTextSearch `json:"fullTextSearch,omitempty"`
+
+	// Limit
+	// Size of one page
+	// Constraints:
+	//    - min:1
+	Limit *int `json:"limit,omitempty"`
+
+	// Options
+	// Specified feature required information
+	Options *WSGCommonQueryCriteriaSuperSetOptionsType `json:"options,omitempty"`
+
+	// Page
+	// Page number to get
+	// Constraints:
+	//    - min:1
+	Page *int `json:"page,omitempty"`
+
+	// Query
+	// Add backward compatibility for UI framework
+	Query *string `json:"query,omitempty"`
+
+	// SortInfo
+	// About sorting
+	SortInfo *WSGCommonQueryCriteriaSortInfoType `json:"sortInfo,omitempty"`
+}
 
 func NewWSGAPQueryQueryCriteria() *WSGAPQueryQueryCriteria {
 	m := new(WSGAPQueryQueryCriteria)

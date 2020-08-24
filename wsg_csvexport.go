@@ -28,13 +28,13 @@ func (ss *WSGService) WSGCSVExportService() *WSGCSVExportService {
 // Download CSV of resources within the VSZ
 //
 // Request Body:
-//	 - body string
+//	 - body *WSGCommonQueryCriteriaSuperSet
 //
 // Required Parameters:
 // - resource string
 //		- required
 //		- oneof:[alarm,event,ap,client,zone]
-func (s *WSGCSVExportService) ExportCSVByQuery(ctx context.Context, body string, resource string, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGCSVExportService) ExportCSVByQuery(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, resource string, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

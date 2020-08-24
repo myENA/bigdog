@@ -66,26 +66,6 @@ const (
 )
 
 const (
-	SCIReportIDWirelessClients      = 1
-	SCIReportIDNetworkWireless      = 2
-	SCIReportIDWirelessApplications = 3
-	SCIReportIDWLANs                = 4
-	SCIReportIDAirtimeUtilization   = 5
-	SCIReportIDSessionsSummary      = 6
-	SCIReportIDAPsReboot            = 8
-	SCIReportIDInventoryAPs         = 9
-	SCIReportIDOverview             = 10
-	SCIReportIDAPDetails            = 11
-	SCIReportIDClientDetails        = 12
-	SCIReportIDSCNetworkTraffic     = 13
-	SCIReportIDDataExplorer         = 14
-	SCIReportIDInventoryControllers = 15
-	SCIReportIDInventorySwitches    = 16
-	SCIReportIDNetworkWired         = 17
-	SCIReportIDSwitchDetails        = 18
-	SCIReportIDComparison           = 19
-	SCIReportIDClientHealth         = 20
-
 	SCIAccessTokenQueryParameter = "access_token"
 
 	// 2016-04-06T16:04:46+00:00

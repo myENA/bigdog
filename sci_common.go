@@ -16,7 +16,7 @@ type SCICommonQueryBody struct {
 
 	// Granularity
 	// Constraints:
-	//    - oneof:[all,fifteen_minute,thirty_minute,hour,day]
+	//    - oneof:[all,fifteen_minute,thirty_minute,hour,day,week,month]
 	Granularity *string `json:"granularity,omitempty"`
 
 	Limit *float64 `json:"limit,omitempty"`
@@ -47,15 +47,21 @@ func NewSCICommonQueryBody() *SCICommonQueryBody {
 type SCICommonQueryFilter struct {
 	AlphaNumeric *bool `json:"alphaNumeric,omitempty"`
 
+	Datasource *string `json:"datasource,omitempty"`
+
 	Dimension *string `json:"dimension,omitempty"`
 
 	Fields []*SCICommonQueryFilter `json:"fields,omitempty"`
+
+	GroupBy *string `json:"groupBy,omitempty"`
 
 	Lower *string `json:"lower,omitempty"`
 
 	LowerStrict *bool `json:"lowerStrict,omitempty"`
 
 	Pattern *string `json:"pattern,omitempty"`
+
+	Sorting *string `json:"sorting,omitempty"`
 
 	// Type
 	// Type of filter
@@ -91,7 +97,7 @@ type SCICommonReportQueryBody struct {
 
 	// Granularity
 	// Constraints:
-	//    - oneof:[all,fifteen_minute,thirty_minute,hour,day]
+	//    - oneof:[all,fifteen_minute,thirty_minute,hour,day,week,month]
 	Granularity *string `json:"granularity,omitempty"`
 
 	Limit *float64 `json:"limit,omitempty"`

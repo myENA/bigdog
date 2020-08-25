@@ -244,6 +244,12 @@ func (c *VSZClient) Do(ctx context.Context, request *APIRequest, mutators ...Req
 			if c.debug {
 				c.log.Printf("Error fetching current service ticket: %v", err)
 			}
+			// always call invalidate prior to refresh, just in case...
+			if cas, err = c.stp.Invalidate(ctx, c, cas); err != nil {
+				if c.debug {
+					c.log.Printf("Error invalidating existing service ticket before refresh: %v", err)
+				}
+			}
 			if cas, err = c.stp.Refresh(ctx, c, cas); err != nil {
 				if c.debug {
 					c.log.Printf("Error refreshing service ticket: %v", err)
@@ -320,6 +326,12 @@ func (c *SCIClient) Do(ctx context.Context, request *APIRequest, mutators ...Req
 		if cas, accessToken, err = c.atp.Current(); err != nil {
 			if c.debug {
 				c.log.Printf("Error fetching current access token: %v", err)
+			}
+			// always invalidate, just in case...
+			if cas, err = c.atp.Invalidate(ctx, c, cas); err != nil {
+				if c.debug {
+					c.log.Printf("Error invalidating existing access token: %v", err)
+				}
 			}
 			if cas, err = c.atp.Refresh(ctx, c, cas); err != nil {
 				if c.debug {

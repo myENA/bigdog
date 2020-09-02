@@ -10,6 +10,7 @@ import (
 	"mime/multipart"
 	"net/http"
 	"net/url"
+	"strconv"
 	"strings"
 	"sync/atomic"
 )
@@ -352,4 +353,15 @@ func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName
 	}
 
 	return httpRequest.WithContext(ctx), nil
+}
+
+func addContentDispositionHeader(req *APIRequest, key, filename string) {
+	req.AddHeader(
+		headerKeyContentDisposition,
+		fmt.Sprintf(
+			"form-data: name=%s; filename=%s;",
+			strconv.Quote(key),
+			strconv.Quote(filename),
+		),
+	)
 }

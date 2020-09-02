@@ -467,17 +467,6 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 	return newAPIResponseMeta(req, successCode, httpResp), finalErr
 }
 
-func addContentDispositionHeader(req *APIRequest, key, filename string) {
-	req.AddHeader(
-		headerKeyContentDisposition,
-		fmt.Sprintf(
-			"form-data: name=%s; filename=%s;",
-			strconv.Quote(key),
-			strconv.Quote(filename),
-		),
-	)
-}
-
 type WSGService struct {
 	apiClient *VSZClient
 }

@@ -3138,7 +3138,7 @@ func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[st
 	req = NewAPIRequest(http.MethodGet, RouteSCIReportFind, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIReportFind200ResponseType()
@@ -3174,7 +3174,7 @@ func (s *SCIReportService) ReportFindById(ctx context.Context, id string, option
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsReport()
@@ -3264,7 +3264,7 @@ func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id st
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIReportPrototypegetsections200ResponseType()
@@ -3296,7 +3296,7 @@ func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentNa
 	req = NewAPIRequest(http.MethodPost, RouteSCIReportWithRelations, true)
 	req.SetHeader(headerKeyContentType, "*/*")
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetQueryParameter("urlSegmentName", []string{urlSegmentName})
+	req.SetQueryParameter("urlSegmentName", urlSegmentName)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWithRelations()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

@@ -79,7 +79,7 @@ type WSGAPConfiguration struct {
 
 	GpsSource *WSGCommonApGpsSource `json:"gpsSource,omitempty"`
 
-	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
+	Latitude interface{} `json:"latitude,omitempty"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
@@ -87,7 +87,7 @@ type WSGAPConfiguration struct {
 
 	Login *WSGAPLogin `json:"login,omitempty"`
 
-	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
+	Longitude interface{} `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
@@ -213,11 +213,11 @@ type WSGAPLinemanSummaryListType struct {
 	//    - oneof:[newConfig,fwApplied,fwDownloaded,fwFailed,configApplied,completed,configFailed]
 	ConfigState *string `json:"configState,omitempty"`
 
-	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
+	Latitude interface{} `json:"latitude,omitempty"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
-	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
+	Longitude interface{} `json:"longitude,omitempty"`
 
 	Mac *WSGCommonMac `json:"mac,omitempty"`
 
@@ -381,13 +381,13 @@ type WSGAPOperationalSummary struct {
 	// Timestamp of the last successful communication with the AP
 	LastSeenTime *int `json:"lastSeenTime,omitempty"`
 
-	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
+	Latitude interface{} `json:"latitude,omitempty"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
 	LocationAdditionalInfo *WSGCommonLocationAdditionalInfo `json:"locationAdditionalInfo,omitempty"`
 
-	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
+	Longitude interface{} `json:"longitude,omitempty"`
 
 	Mac *WSGCommonMac `json:"mac,omitempty"`
 
@@ -957,11 +957,11 @@ type WSGAPCreateAP struct {
 
 	GpsSource *WSGCommonApGpsSource `json:"gpsSource,omitempty"`
 
-	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
+	Latitude interface{} `json:"latitude,omitempty"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
-	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
+	Longitude interface{} `json:"longitude,omitempty"`
 
 	// Mac
 	// Constraints:
@@ -1092,7 +1092,7 @@ type WSGAPModifyAP struct {
 
 	GpsSource *WSGCommonApGpsSource `json:"gpsSource,omitempty"`
 
-	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
+	Latitude interface{} `json:"latitude,omitempty"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
@@ -1100,7 +1100,7 @@ type WSGAPModifyAP struct {
 
 	Login *WSGAPLogin `json:"login,omitempty"`
 
-	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
+	Longitude interface{} `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options

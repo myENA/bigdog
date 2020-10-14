@@ -51,10 +51,10 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationApplicationLogAndStatusList()
@@ -90,10 +90,10 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApplicationsDownloadByBladeUUID, true)
 	req.SetHeader(headerKeyAccept, "application/octet-stream")
-	req.SetQueryParameter("appName", []string{appName})
+	req.SetQueryParameter("appName", appName)
 	req.SetPathParameter("bladeUUID", bladeUUID)
 	if v, ok := optionalParams["logFileName"]; ok && len(v) > 0 {
-		req.SetQueryParameter("logFileName", v)
+		req.SetQueryParameterValues("logFileName", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)

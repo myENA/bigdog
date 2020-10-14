@@ -168,7 +168,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("userGroupId", userGroupId)
 	if v, ok := optionalParams["includeUsers"]; ok && len(v) > 0 {
-		req.SetQueryParameter("includeUsers", v)
+		req.SetQueryParameterValues("includeUsers", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCGUserGroup()
@@ -252,7 +252,7 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("role", role)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
-		req.SetQueryParameter("domainId", v)
+		req.SetQueryParameterValues("domainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCGUserGroupPermissionList()

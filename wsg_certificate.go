@@ -896,10 +896,10 @@ func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, op
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCertificate, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCertificateList()
@@ -961,10 +961,10 @@ func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, opt
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreClientCert, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCertificateClientCertList()
@@ -1026,10 +1026,10 @@ func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, optionalPa
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreCsr, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCertificateCsrList()
@@ -1115,10 +1115,10 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Cont
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCertstoreTrustedCAChainCert, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCertificateTrustedCAChainCertList()

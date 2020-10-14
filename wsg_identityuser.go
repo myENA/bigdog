@@ -189,46 +189,46 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsers, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["createdOnFrom"]; ok && len(v) > 0 {
-		req.SetQueryParameter("createdOnFrom", v)
+		req.SetQueryParameterValues("createdOnFrom", v)
 	}
 	if v, ok := optionalParams["createdOnTo"]; ok && len(v) > 0 {
-		req.SetQueryParameter("createdOnTo", v)
+		req.SetQueryParameterValues("createdOnTo", v)
 	}
 	if v, ok := optionalParams["displayName"]; ok && len(v) > 0 {
-		req.SetQueryParameter("displayName", v)
+		req.SetQueryParameterValues("displayName", v)
 	}
 	if v, ok := optionalParams["email"]; ok && len(v) > 0 {
-		req.SetQueryParameter("email", v)
+		req.SetQueryParameterValues("email", v)
 	}
 	if v, ok := optionalParams["firstName"]; ok && len(v) > 0 {
-		req.SetQueryParameter("firstName", v)
+		req.SetQueryParameterValues("firstName", v)
 	}
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["isDisabled"]; ok && len(v) > 0 {
-		req.SetQueryParameter("isDisabled", v)
+		req.SetQueryParameterValues("isDisabled", v)
 	}
 	if v, ok := optionalParams["lastName"]; ok && len(v) > 0 {
-		req.SetQueryParameter("lastName", v)
+		req.SetQueryParameterValues("lastName", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	if v, ok := optionalParams["phone"]; ok && len(v) > 0 {
-		req.SetQueryParameter("phone", v)
+		req.SetQueryParameterValues("phone", v)
 	}
 	if v, ok := optionalParams["timeZone"]; ok && len(v) > 0 {
-		req.SetQueryParameter("timeZone", v)
+		req.SetQueryParameterValues("timeZone", v)
 	}
 	if v, ok := optionalParams["userName"]; ok && len(v) > 0 {
-		req.SetQueryParameter("userName", v)
+		req.SetQueryParameterValues("userName", v)
 	}
 	if v, ok := optionalParams["userSource"]; ok && len(v) > 0 {
-		req.SetQueryParameter("userSource", v)
+		req.SetQueryParameterValues("userSource", v)
 	}
 	if v, ok := optionalParams["userType"]; ok && len(v) > 0 {
-		req.SetQueryParameter("userType", v)
+		req.SetQueryParameterValues("userType", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIdentityUserList()

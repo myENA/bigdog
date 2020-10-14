@@ -244,31 +244,31 @@ func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context,
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityGuestpass, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["displayName"]; ok && len(v) > 0 {
-		req.SetQueryParameter("displayName", v)
+		req.SetQueryParameterValues("displayName", v)
 	}
 	if v, ok := optionalParams["expirationFrom"]; ok && len(v) > 0 {
-		req.SetQueryParameter("expirationFrom", v)
+		req.SetQueryParameterValues("expirationFrom", v)
 	}
 	if v, ok := optionalParams["expirationTo"]; ok && len(v) > 0 {
-		req.SetQueryParameter("expirationTo", v)
+		req.SetQueryParameterValues("expirationTo", v)
 	}
 	if v, ok := optionalParams["generatedTimeFrom"]; ok && len(v) > 0 {
-		req.SetQueryParameter("generatedTimeFrom", v)
+		req.SetQueryParameterValues("generatedTimeFrom", v)
 	}
 	if v, ok := optionalParams["generatedTimeTo"]; ok && len(v) > 0 {
-		req.SetQueryParameter("generatedTimeTo", v)
+		req.SetQueryParameterValues("generatedTimeTo", v)
 	}
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	if v, ok := optionalParams["timeZone"]; ok && len(v) > 0 {
-		req.SetQueryParameter("timeZone", v)
+		req.SetQueryParameterValues("timeZone", v)
 	}
 	if v, ok := optionalParams["wlan"]; ok && len(v) > 0 {
-		req.SetQueryParameter("wlan", v)
+		req.SetQueryParameterValues("wlan", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIdentityGuestPassList()

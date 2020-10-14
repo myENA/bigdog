@@ -125,7 +125,7 @@ func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[st
 	req = NewAPIRequest(http.MethodGet, RouteSCISystemFind, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCISystemFind200ResponseType()
@@ -161,7 +161,7 @@ func (s *SCISystemService) SystemFindById(ctx context.Context, id string, option
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSystem()

@@ -44,7 +44,7 @@ func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParam
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindSmsGateway, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
-		req.SetQueryParameter("domainId", v)
+		req.SetQueryParameterValues("domainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemSms()

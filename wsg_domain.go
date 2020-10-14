@@ -173,7 +173,7 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 		return resp, rm, err
 	}
 	if v, ok := optionalParams["parentDomainId"]; ok && len(v) > 0 {
-		req.SetQueryParameter("parentDomainId", v)
+		req.SetQueryParameterValues("parentDomainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
@@ -240,19 +240,19 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindDomains, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["excludeRegularDomain"]; ok && len(v) > 0 {
-		req.SetQueryParameter("excludeRegularDomain", v)
+		req.SetQueryParameterValues("excludeRegularDomain", v)
 	}
 	if v, ok := optionalParams["includeSelf"]; ok && len(v) > 0 {
-		req.SetQueryParameter("includeSelf", v)
+		req.SetQueryParameterValues("includeSelf", v)
 	}
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
-		req.SetQueryParameter("recursively", v)
+		req.SetQueryParameterValues("recursively", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDomainList()
@@ -288,7 +288,7 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
-		req.SetQueryParameter("recursively", v)
+		req.SetQueryParameterValues("recursively", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDomainConfiguration()
@@ -361,19 +361,19 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["excludeRegularDomain"]; ok && len(v) > 0 {
-		req.SetQueryParameter("excludeRegularDomain", v)
+		req.SetQueryParameterValues("excludeRegularDomain", v)
 	}
 	if v, ok := optionalParams["includeSelf"]; ok && len(v) > 0 {
-		req.SetQueryParameter("includeSelf", v)
+		req.SetQueryParameterValues("includeSelf", v)
 	}
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
-		req.SetQueryParameter("recursively", v)
+		req.SetQueryParameterValues("recursively", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDomainList()

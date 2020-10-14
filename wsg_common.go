@@ -774,16 +774,6 @@ func NewWSGCommonLanguageName() *WSGCommonLanguageName {
 	return m
 }
 
-// WSGCommonLatitude
-//
-// Definition: common_latitude
-type WSGCommonLatitude float64
-
-func NewWSGCommonLatitude() *WSGCommonLatitude {
-	m := new(WSGCommonLatitude)
-	return m
-}
-
 // WSGCommonLocation
 //
 // Definition: common_location
@@ -801,16 +791,6 @@ type WSGCommonLocationAdditionalInfo string
 
 func NewWSGCommonLocationAdditionalInfo() *WSGCommonLocationAdditionalInfo {
 	m := new(WSGCommonLocationAdditionalInfo)
-	return m
-}
-
-// WSGCommonLongitude
-//
-// Definition: common_longitude
-type WSGCommonLongitude float64
-
-func NewWSGCommonLongitude() *WSGCommonLongitude {
-	m := new(WSGCommonLongitude)
 	return m
 }
 

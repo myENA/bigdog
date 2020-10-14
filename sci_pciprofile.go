@@ -158,7 +158,7 @@ func (s *SCIPCIProfileService) PciProfileFind(ctx context.Context, optionalParam
 	req = NewAPIRequest(http.MethodGet, RouteSCIPciProfileFind, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIPCIProfileFind200ResponseType()
@@ -194,7 +194,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCountReports(ctx context.Conte
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
-		req.SetQueryParameter("where", v)
+		req.SetQueryParameterValues("where", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIPCIProfilePrototypecountreports200ResponseType()
@@ -357,7 +357,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeGetReports(ctx context.Context
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIPCIProfilePrototypegetreports200ResponseType()

@@ -41,7 +41,7 @@ func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, sys
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIZdXmlGetAjaxRequest, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetQueryParameter("system_id", []string{systemid})
+	req.SetQueryParameter("system_id", systemid)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

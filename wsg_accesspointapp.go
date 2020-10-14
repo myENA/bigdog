@@ -53,19 +53,19 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsLineman, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
-		req.SetQueryParameter("domainId", v)
+		req.SetQueryParameterValues("domainId", v)
 	}
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	if v, ok := optionalParams["showAlarm"]; ok && len(v) > 0 {
-		req.SetQueryParameter("showAlarm", v)
+		req.SetQueryParameterValues("showAlarm", v)
 	}
 	if v, ok := optionalParams["zoneId"]; ok && len(v) > 0 {
-		req.SetQueryParameter("zoneId", v)
+		req.SetQueryParameterValues("zoneId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAPLinemanSummary()
@@ -98,10 +98,10 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApsTotalCount, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
-		req.SetQueryParameter("domainId", v)
+		req.SetQueryParameterValues("domainId", v)
 	}
 	if v, ok := optionalParams["zoneId"]; ok && len(v) > 0 {
-		req.SetQueryParameter("zoneId", v)
+		req.SetQueryParameterValues("zoneId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)

@@ -378,13 +378,13 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindApPatchHistory, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	if v, ok := optionalParams["timezone"]; ok && len(v) > 0 {
-		req.SetQueryParameter("timezone", v)
+		req.SetQueryParameterValues("timezone", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationApPatchHistoryList()
@@ -443,13 +443,13 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindCluster, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	if v, ok := optionalParams["timezone"]; ok && len(v) > 0 {
-		req.SetQueryParameter("timezone", v)
+		req.SetQueryParameterValues("timezone", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationClusterBackupList()
@@ -530,10 +530,10 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfiguration, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationConfigurationBackupList()
@@ -567,9 +567,9 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindConfigurationDownload, true)
 	req.SetHeader(headerKeyAccept, "application/octet-stream")
-	req.SetQueryParameter("backupUUID", []string{backupUUID})
+	req.SetQueryParameter("backupUUID", backupUUID)
 	if v, ok := optionalParams["timeZone"]; ok && len(v) > 0 {
-		req.SetQueryParameter("timeZone", v)
+		req.SetQueryParameterValues("timeZone", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)
@@ -652,13 +652,13 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindUpgradeHistory, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	if v, ok := optionalParams["timezone"]; ok && len(v) > 0 {
-		req.SetQueryParameter("timezone", v)
+		req.SetQueryParameterValues("timezone", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationUpgradeHistoryList()

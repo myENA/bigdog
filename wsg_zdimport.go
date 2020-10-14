@@ -101,7 +101,7 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindZdImportGetZDAPs, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetQueryParameter("ip", []string{ip})
+	req.SetQueryParameter("ip", ip)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationZdAPList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -131,7 +131,7 @@ func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalPar
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindZdImportStatus, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["details"]; ok && len(v) > 0 {
-		req.SetQueryParameter("details", v)
+		req.SetQueryParameterValues("details", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationZdImportStatus()

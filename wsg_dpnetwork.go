@@ -125,7 +125,7 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context, opt
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindPlanesDpTunnelSetting, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["useless"]; ok && len(v) > 0 {
-		req.SetQueryParameter("useless", v)
+		req.SetQueryParameterValues("useless", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemGetDataPlaneMeshTunnelSetting()

@@ -441,8 +441,8 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, grou
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindMaps, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetQueryParameter("groupId", []string{groupId})
-	req.SetQueryParameter("groupType", []string{groupType})
+	req.SetQueryParameter("groupId", groupId)
+	req.SetQueryParameter("groupType", groupType)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIndoorMapList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

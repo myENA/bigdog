@@ -128,7 +128,7 @@ func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, bo
 	}
 	req.SetPathParameter("zoneId", zoneId)
 	if v, ok := optionalParams["forAccounting"]; ok && len(v) > 0 {
-		req.SetQueryParameter("forAccounting", v)
+		req.SetQueryParameterValues("forAccounting", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
@@ -538,7 +538,7 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, z
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("zoneId", zoneId)
 	if v, ok := optionalParams["forAccounting"]; ok && len(v) > 0 {
-		req.SetQueryParameter("forAccounting", v)
+		req.SetQueryParameterValues("forAccounting", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAAAAuthenticationServerList()

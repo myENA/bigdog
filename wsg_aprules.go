@@ -120,9 +120,9 @@ type WSGAPRulesGpsCoordinates struct {
 	// distance
 	Distance *float64 `json:"distance,omitempty"`
 
-	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
+	Latitude interface{} `json:"latitude,omitempty"`
 
-	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
+	Longitude interface{} `json:"longitude,omitempty"`
 }
 
 func NewWSGAPRulesGpsCoordinates() *WSGAPRulesGpsCoordinates {

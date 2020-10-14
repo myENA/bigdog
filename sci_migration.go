@@ -92,7 +92,7 @@ func (s *SCIMigrationService) MigrationCount(ctx context.Context, optionalParams
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationCount, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
-		req.SetQueryParameter("where", v)
+		req.SetQueryParameterValues("where", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIMigrationCount200ResponseType()
@@ -154,7 +154,7 @@ func (s *SCIMigrationService) MigrationCreateChangeStreamGetMigrationsChangeStre
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationCreateChangeStreamGetMigrationsChangeStream, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["options"]; ok && len(v) > 0 {
-		req.SetQueryParameter("options", v)
+		req.SetQueryParameterValues("options", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)
@@ -276,7 +276,7 @@ func (s *SCIMigrationService) MigrationFind(ctx context.Context, optionalParams 
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationFind, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIMigrationFind200ResponseType()
@@ -312,7 +312,7 @@ func (s *SCIMigrationService) MigrationFindById(ctx context.Context, id string, 
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsMigration()
@@ -343,7 +343,7 @@ func (s *SCIMigrationService) MigrationFindOne(ctx context.Context, optionalPara
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationFindOne, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsMigration()
@@ -376,9 +376,9 @@ func (s *SCIMigrationService) MigrationMigrateByName(ctx context.Context, name s
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMigrateByName, true)
 	req.SetHeader(headerKeyAccept, "*/*")
-	req.SetQueryParameter("name", []string{name})
+	req.SetQueryParameter("name", name)
 	if v, ok := optionalParams["record"]; ok && len(v) > 0 {
-		req.SetQueryParameter("record", v)
+		req.SetQueryParameterValues("record", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -407,7 +407,7 @@ func (s *SCIMigrationService) MigrationMigrateTo(ctx context.Context, optionalPa
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationMigrateTo, true)
 	req.SetHeader(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["to"]; ok && len(v) > 0 {
-		req.SetQueryParameter("to", v)
+		req.SetQueryParameterValues("to", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -471,7 +471,7 @@ func (s *SCIMigrationService) MigrationRollbackTo(ctx context.Context, to string
 	}
 	req = NewAPIRequest(http.MethodGet, RouteSCIMigrationRollbackTo, true)
 	req.SetHeader(headerKeyAccept, "*/*")
-	req.SetQueryParameter("to", []string{to})
+	req.SetQueryParameter("to", to)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -507,7 +507,7 @@ func (s *SCIMigrationService) MigrationUpdateAll(ctx context.Context, data *SCIM
 		return resp, rm, err
 	}
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
-		req.SetQueryParameter("where", v)
+		req.SetQueryParameterValues("where", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)

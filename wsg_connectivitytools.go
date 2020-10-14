@@ -76,8 +76,8 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolPing, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetQueryParameter("apMac", []string{apMac})
-	req.SetQueryParameter("targetIP", []string{targetIP})
+	req.SetQueryParameter("apMac", apMac)
+	req.SetQueryParameter("targetIP", targetIP)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -141,10 +141,10 @@ func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, ap
 	}
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolTraceRoute, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetQueryParameter("apMac", []string{apMac})
-	req.SetQueryParameter("targetIP", []string{targetIP})
+	req.SetQueryParameter("apMac", apMac)
+	req.SetQueryParameter("targetIP", targetIP)
 	if v, ok := optionalParams["timeoutInSec"]; ok && len(v) > 0 {
-		req.SetQueryParameter("timeoutInSec", v)
+		req.SetQueryParameterValues("timeoutInSec", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)

@@ -16,11 +16,8 @@ import (
 )
 
 const (
-	uriPathParameterSearchFormat      = "{%s}"
-	uriQueryParameterPrefixFormat     = "%s?"
-	uriQueryParameterAddNoValueFormat = "%s%s&"
-	uriQueryParameterAddValueFormat   = "%s%s=%s&"
-	uriQueryParameterCutSet           = "&"
+	uriPathParameterSearchFormat  = "{%s}"
+	uriQueryParameterPrefixFormat = "%s?%s"
 
 	apiRequestURLFormat = "%s%s%s"
 
@@ -43,7 +40,7 @@ type APIRequest struct {
 
 	compiledURI string
 
-	queryParameters map[string][]string
+	queryParameters url.Values
 	pathParameters  map[string]string
 	headers         url.Values
 	cookies         []*http.Cookie
@@ -57,7 +54,7 @@ func NewAPIRequest(method, uri string, authenticated bool) *APIRequest {
 		method:          method,
 		uri:             uri,
 		authenticated:   authenticated,
-		queryParameters: make(map[string][]string),
+		queryParameters: make(url.Values),
 		pathParameters:  make(map[string]string),
 		headers:         make(url.Values),
 		cookies:         make([]*http.Cookie, 0),
@@ -90,6 +87,7 @@ func (r *APIRequest) SetHeader(name, value string) {
 }
 
 func (r *APIRequest) SetHeaders(headers url.Values) {
+	r.headers = headers
 	r.headers = make(url.Values)
 	for k, vs := range headers {
 		for _, v := range vs {
@@ -139,36 +137,45 @@ func (r *APIRequest) Cookies() []*http.Cookie {
 }
 
 // AddQueryParameter will add a value to the specified param
-func (r *APIRequest) AddQueryParameter(param string, value []string) {
+func (r *APIRequest) AddQueryParameter(param, value string) {
 	r.compiledURI = ""
-	if _, ok := r.queryParameters[param]; !ok {
-		r.queryParameters[param] = make([]string, 0)
+	r.queryParameters.Add(param, value)
+}
+
+func (r *APIRequest) AddQueryParameterValues(param string, values []string) {
+	for _, v := range values {
+		r.AddQueryParameter(param, v)
 	}
-	r.queryParameters[param] = append(r.queryParameters[param], value...)
 }
 
 // SetQueryParameter will set a query param to a specific value, overriding any previously set value
-func (r *APIRequest) SetQueryParameter(param string, value []string) {
-	delete(r.queryParameters, param)
-	r.AddQueryParameter(param, value)
+func (r *APIRequest) SetQueryParameter(param, value string) {
+	r.queryParameters.Set(param, value)
+}
+
+func (r *APIRequest) SetQueryParameterValues(param string, values []string) {
+	r.RemoveQueryParameter(param)
+	r.AddQueryParameterValues(param, values)
 }
 
 // SetQueryParameters will override any / all existing query parameters
-func (r *APIRequest) SetQueryParameters(params map[string][]string) {
-	r.queryParameters = make(map[string][]string)
-	for k, v := range params {
-		r.AddQueryParameter(k, v)
+func (r *APIRequest) SetQueryParameters(params url.Values) {
+	r.queryParameters = make(url.Values)
+	for k, vs := range params {
+		for _, v := range vs {
+			r.AddQueryParameter(k, v)
+		}
 	}
 }
 
 // RemoveQueryParameter will attempt to delete all values for a specific query parameter from this request.
 func (r *APIRequest) RemoveQueryParameter(param string) {
 	r.compiledURI = ""
-	delete(r.queryParameters, param)
+	r.queryParameters.Del(param)
 }
 
 // QueryParameters will return all values of currently set query parameters
-func (r *APIRequest) QueryParameters() map[string][]string {
+func (r *APIRequest) QueryParameters() url.Values {
 	return r.queryParameters
 }
 
@@ -289,22 +296,12 @@ func (r *APIRequest) compileURI() string {
 	uri := r.uri
 	if len(pathParams) > 0 {
 		for k, v := range pathParams {
-			uri = strings.Replace(uri, fmt.Sprintf(uriPathParameterSearchFormat, k), v, 1)
+			uri = strings.Replace(uri, fmt.Sprintf(uriPathParameterSearchFormat, k), url.PathEscape(v), 1)
 		}
 	}
 	// TODO: could probably be made more efficient.
 	if len(queryParams) > 0 {
-		uri = fmt.Sprintf(uriQueryParameterPrefixFormat, uri)
-		for param, values := range queryParams {
-			for _, value := range values {
-				if value == "" {
-					uri = fmt.Sprintf(uriQueryParameterAddNoValueFormat, uri, param)
-				} else {
-					uri = fmt.Sprintf(uriQueryParameterAddValueFormat, uri, param, value)
-				}
-			}
-		}
-		uri = strings.TrimRight(uri, uriQueryParameterCutSet)
+		uri = fmt.Sprintf(uriQueryParameterPrefixFormat, uri, queryParams.Encode())
 	}
 	return uri
 }
@@ -330,7 +327,7 @@ func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName
 		if authParamName == "" || authParamValue == "" {
 			return nil, errors.New("authParam cannot be empty with authenticated request")
 		}
-		r.SetQueryParameter(authParamName, []string{authParamValue})
+		r.SetQueryParameter(authParamName, authParamValue)
 	}
 
 	compiledURL = fmt.Sprintf(apiRequestURLFormat, addr, pathPrefix, r.CompiledURI())

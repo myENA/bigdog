@@ -701,13 +701,13 @@ func (s *WSGRuckusWirelessAPZoneService) FindRkszones(ctx context.Context, optio
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszones, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
-		req.SetQueryParameter("domainId", v)
+		req.SetQueryParameterValues("domainId", v)
 	}
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGZoneList()

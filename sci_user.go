@@ -230,7 +230,7 @@ func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalPa
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsUser()
@@ -285,7 +285,7 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 	req = NewAPIRequest(http.MethodGet, RouteSCIUserGetUsers, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIUserGetUsers200ResponseType()
@@ -323,7 +323,7 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLogi
 		return resp, rm, err
 	}
 	if v, ok := optionalParams["include"]; ok && len(v) > 0 {
-		req.SetQueryParameter("include", v)
+		req.SetQueryParameterValues("include", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIUserLoginResponse()
@@ -353,7 +353,7 @@ func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mut
 	req = NewAPIRequest(http.MethodPost, RouteSCIUserLogout, false)
 	req.SetHeader(headerKeyContentType, "*/*")
 	req.SetHeader(headerKeyAccept, "*/*")
-	req.SetQueryParameter("access_token", []string{accesstoken})
+	req.SetQueryParameter("access_token", accesstoken)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -486,7 +486,7 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIUserPrototypegetfilters200ResponseType()
@@ -522,7 +522,7 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameter("filter", v)
+		req.SetQueryParameterValues("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIUserPrototypegetschedules200ResponseType()

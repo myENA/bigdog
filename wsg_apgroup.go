@@ -79,7 +79,7 @@ type WSGAPGroupConfiguration struct {
 	// Identifier of the AP group
 	Id *string `json:"id,omitempty"`
 
-	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
+	Latitude interface{} `json:"latitude,omitempty"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
@@ -87,7 +87,7 @@ type WSGAPGroupConfiguration struct {
 
 	LocationBasedService *WSGCommonOverrideGenericRef `json:"locationBasedService,omitempty"`
 
-	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
+	Longitude interface{} `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
@@ -253,7 +253,7 @@ type WSGAPGroupCreateAPGroup struct {
 	// Directed multicast from wireless client to network.
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
+	Latitude interface{} `json:"latitude,omitempty"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
@@ -261,7 +261,7 @@ type WSGAPGroupCreateAPGroup struct {
 
 	LocationBasedService *WSGCommonOverrideGenericRef `json:"locationBasedService,omitempty"`
 
-	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
+	Longitude interface{} `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
@@ -363,7 +363,7 @@ type WSGAPGroupModifyAPGroup struct {
 	// Directed multicast from wireless client to network.
 	DirectedMulticastFromWirelessClientEnabled *bool `json:"directedMulticastFromWirelessClientEnabled,omitempty"`
 
-	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
+	Latitude interface{} `json:"latitude,omitempty"`
 
 	Location *WSGCommonLocation `json:"location,omitempty"`
 
@@ -371,7 +371,7 @@ type WSGAPGroupModifyAPGroup struct {
 
 	LocationBasedService *WSGCommonOverrideGenericRef `json:"locationBasedService,omitempty"`
 
-	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
+	Longitude interface{} `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
@@ -1848,10 +1848,10 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsByZoneId(ctx context.Context, zo
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	req.SetPathParameter("zoneId", zoneId)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAPGroupList()

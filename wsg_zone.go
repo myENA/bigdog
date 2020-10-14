@@ -511,7 +511,7 @@ type WSGZoneCreateZone struct {
 	// IPv6 Traffic filtering on the AP
 	Ipv6TrafficFilterEnabled *int `json:"ipv6TrafficFilterEnabled,omitempty"`
 
-	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
+	Latitude interface{} `json:"latitude,omitempty"`
 
 	LoadBalancing *WSGZoneLoadBalancing `json:"loadBalancing,omitempty"`
 
@@ -526,7 +526,7 @@ type WSGZoneCreateZone struct {
 	//    - required
 	Login *WSGZoneApLogin `json:"login"`
 
-	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
+	Longitude interface{} `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
@@ -1058,7 +1058,7 @@ type WSGZoneModifyZone struct {
 	// IPv6 Traffic filtering on the AP
 	Ipv6TrafficFilterEnabled *int `json:"ipv6TrafficFilterEnabled,omitempty"`
 
-	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
+	Latitude interface{} `json:"latitude,omitempty"`
 
 	LoadBalancing *WSGZoneLoadBalancing `json:"loadBalancing,omitempty"`
 
@@ -1070,7 +1070,7 @@ type WSGZoneModifyZone struct {
 
 	Login *WSGZoneApLogin `json:"login,omitempty"`
 
-	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
+	Longitude interface{} `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options
@@ -1687,7 +1687,7 @@ type WSGZoneConfiguration struct {
 	// IPv6 Traffic filtering on the AP
 	Ipv6TrafficFilterEnabled *int `json:"ipv6TrafficFilterEnabled,omitempty"`
 
-	Latitude *WSGCommonLatitude `json:"latitude,omitempty"`
+	Latitude interface{} `json:"latitude,omitempty"`
 
 	LoadBalancing *WSGZoneLoadBalancing `json:"loadBalancing,omitempty"`
 
@@ -1699,7 +1699,7 @@ type WSGZoneConfiguration struct {
 
 	Login *WSGZoneApLogin `json:"login,omitempty"`
 
-	Longitude *WSGCommonLongitude `json:"longitude,omitempty"`
+	Longitude interface{} `json:"longitude,omitempty"`
 
 	// LteBandLockChannels
 	// LTE band lock channels options

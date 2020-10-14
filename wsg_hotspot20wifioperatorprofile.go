@@ -162,10 +162,10 @@ func (s *WSGHotspot20WiFiOperatorProfileService) FindProfilesHs20Operators(ctx c
 	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesHs20Operators, true)
 	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameter("index", v)
+		req.SetQueryParameterValues("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameter("listSize", v)
+		req.SetQueryParameterValues("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileHs20OperatorList()

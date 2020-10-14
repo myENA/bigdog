@@ -38,8 +38,6 @@ type APIRequest struct {
 	uri           string
 	authenticated bool
 
-	compiledURI string
-
 	queryParameters url.Values
 	pathParameters  map[string]string
 	headers         url.Values
@@ -138,7 +136,6 @@ func (r *APIRequest) Cookies() []*http.Cookie {
 
 // AddQueryParameter will add a value to the specified param
 func (r *APIRequest) AddQueryParameter(param, value string) {
-	r.compiledURI = ""
 	r.queryParameters.Add(param, value)
 }
 
@@ -170,7 +167,6 @@ func (r *APIRequest) SetQueryParameters(params url.Values) {
 
 // RemoveQueryParameter will attempt to delete all values for a specific query parameter from this request.
 func (r *APIRequest) RemoveQueryParameter(param string) {
-	r.compiledURI = ""
 	r.queryParameters.Del(param)
 }
 
@@ -181,7 +177,6 @@ func (r *APIRequest) QueryParameters() url.Values {
 
 // SetPathParameter will define a path parameter value, overriding any existing value
 func (r *APIRequest) SetPathParameter(param, value string) {
-	r.compiledURI = ""
 	r.pathParameters[param] = value
 }
 
@@ -196,7 +191,6 @@ func (r *APIRequest) SetPathParameters(params map[string]string) {
 // RemovePathParameter will attempt to remove a single parameter from the current list of path parameters
 func (r *APIRequest) RemovePathParameter(param string) {
 	delete(r.pathParameters, param)
-	r.compiledURI = ""
 }
 
 func (r *APIRequest) PathParameters() map[string]string {
@@ -290,7 +284,9 @@ func (r *APIRequest) AddMultipartFieldsFromValues(values url.Values) error {
 	return nil
 }
 
-func (r *APIRequest) compileURI() string {
+// CompiledURI will return to you the full request URI, not including scheme, hostname, and port.  This method is not
+// thread safe, as you shouldn't be calling this asynchronously anyway.
+func (r *APIRequest) CompiledURI() string {
 	pathParams := r.PathParameters()
 	queryParams := r.QueryParameters()
 	uri := r.uri
@@ -299,20 +295,10 @@ func (r *APIRequest) compileURI() string {
 			uri = strings.Replace(uri, fmt.Sprintf(uriPathParameterSearchFormat, k), url.PathEscape(v), 1)
 		}
 	}
-	// TODO: could probably be made more efficient.
 	if len(queryParams) > 0 {
 		uri = fmt.Sprintf(uriQueryParameterPrefixFormat, uri, queryParams.Encode())
 	}
 	return uri
-}
-
-// CompiledURI will return to you the full request URI, not including scheme, hostname, and port.  This method is not
-// thread safe, as you shouldn't be calling this asynchronously anyway.
-func (r *APIRequest) CompiledURI() string {
-	if r.compiledURI == "" {
-		r.compiledURI = r.compileURI()
-	}
-	return r.compiledURI
 }
 
 // ToHTTP will attempt to construct an executable http.request

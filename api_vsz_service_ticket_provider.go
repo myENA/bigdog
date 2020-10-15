@@ -52,21 +52,25 @@ type (
 // UsernamePasswordVSZSServiceTicketProvider is a simple example implementation of an VSZServiceTicketProvider that will
 // attempt to automatically  handle the login / logout cycle for api requests using a username and password.
 type UsernamePasswordVSZSServiceTicketProvider struct {
-	username string
-	password string
-
 	mu sync.RWMutex
+
+	username   string
+	password   string
+	retries    uint
+	retryWait  time.Duration
+	sessionTTL time.Duration
 
 	cas           VSZServiceTicketCAS
 	expires       time.Time
-	sessionTTL    time.Duration
 	serviceTicket string
 }
 
-func NewUsernamePasswordServiceTicketProvider(username, password string, sessionTTL time.Duration) *UsernamePasswordVSZSServiceTicketProvider {
+func NewUsernamePasswordServiceTicketProvider(username, password string, retries uint, retryWait, sessionTTL time.Duration) *UsernamePasswordVSZSServiceTicketProvider {
 	stp := new(UsernamePasswordVSZSServiceTicketProvider)
 	stp.username = username
 	stp.password = password
+	stp.retries = retries
+	stp.retryWait = retryWait
 	stp.sessionTTL = sessionTTL
 	return stp
 }
@@ -92,7 +96,7 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Current() (VSZServiceTicke
 		return stp.cas, stp.serviceTicket, nil
 	}
 
-	return stp.cas, "", ErrServiceTicketRequiresRefresh
+	return stp.cas, "", NewVSZServiceTicketProviderError(newErrAPIResponseMeta(), ErrServiceTicketRequiresRefresh)
 }
 
 // Refresh will attempt to fetch a new serviceTicket from the VSZ for use in subsequent requests
@@ -129,7 +133,15 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Contex
 
 	// try to execute logon
 	loginRequest = &WSGServiceTicketLoginRequest{Username: &username, Password: &password}
-	if loginResponse, rm, err = client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest); err != nil {
+
+	// retry logic...
+	loginResponse, rm, err = client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest)
+	for i := uint(1); err != nil && i <= stp.retries; i++ {
+		time.Sleep(stp.retryWait)
+		loginResponse, rm, err = client.WSG().WSGServiceTicketService().AddServiceTicket(ctx, loginRequest)
+	}
+
+	if err != nil {
 		stp.cas = stp.iterateCAS()
 		stp.serviceTicket = ""
 		stp.expires = time.Time{}

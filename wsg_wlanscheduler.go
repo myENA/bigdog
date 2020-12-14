@@ -281,13 +281,14 @@ func (s *WSGWLANSchedulerService) AddRkszonesWlanSchedulersByZoneId(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesWlanSchedulersByZoneId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesWlanSchedulersByZoneId, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetPathParameter("zoneId", zoneId)
+	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
@@ -315,11 +316,12 @@ func (s *WSGWLANSchedulerService) DeleteRkszonesWlanSchedulersById(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesWlanSchedulersById, true)
-	req.SetHeader(headerKeyContentType, "*/*")
-	req.SetHeader(headerKeyAccept, "*/*")
-	req.SetPathParameter("id", id)
-	req.SetPathParameter("zoneId", zoneId)
+	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlanSchedulersById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "*/*")
+	req.Header.Set(headerKeyAccept, "*/*")
+	req.PathParams.Set("id", id)
+	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -347,10 +349,11 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlanSchedulersById, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetPathParameter("id", id)
-	req.SetPathParameter("zoneId", zoneId)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesWlanSchedulersById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.PathParams.Set("id", id)
+	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGWLANSchedulerWlanSchedule()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -383,14 +386,19 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesWlanSchedulersByZoneId, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetPathParameter("zoneId", zoneId)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesWlanSchedulersByZoneId, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.PathParams.Set("zoneId", zoneId)
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("index", v)
+		for _, vv := range v {
+			req.QueryParams.Add("index", vv)
+		}
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("listSize", v)
+		for _, vv := range v {
+			req.QueryParams.Add("listSize", vv)
+		}
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGWLANSchedulerWlanScheduleList()
@@ -417,9 +425,10 @@ func (s *WSGWLANSchedulerService) FindServicesWlanSchedulerByQueryCriteria(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesWlanSchedulerByQueryCriteria, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesWlanSchedulerByQueryCriteria, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -453,14 +462,15 @@ func (s *WSGWLANSchedulerService) PartialUpdateRkszonesWlanSchedulersById(ctx co
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlanSchedulersById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlanSchedulersById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetPathParameter("id", id)
-	req.SetPathParameter("zoneId", zoneId)
+	req.PathParams.Set("id", id)
+	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

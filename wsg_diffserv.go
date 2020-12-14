@@ -44,13 +44,14 @@ func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddRkszonesDiffservByZoneId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesDiffservByZoneId, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetPathParameter("zoneId", zoneId)
+	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
 	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
@@ -78,11 +79,12 @@ func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, id 
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteRkszonesDiffservById, true)
-	req.SetHeader(headerKeyContentType, "*/*")
-	req.SetHeader(headerKeyAccept, "*/*")
-	req.SetPathParameter("id", id)
-	req.SetPathParameter("zoneId", zoneId)
+	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesDiffservById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "*/*")
+	req.Header.Set(headerKeyAccept, "*/*")
+	req.PathParams.Set("id", id)
+	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -110,10 +112,11 @@ func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, id st
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDiffservById, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetPathParameter("id", id)
-	req.SetPathParameter("zoneId", zoneId)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesDiffservById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.PathParams.Set("id", id)
+	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGZoneDiffServConfiguration()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -140,9 +143,10 @@ func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, z
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindRkszonesDiffservByZoneId, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetPathParameter("zoneId", zoneId)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesDiffservByZoneId, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGZoneDiffServList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -168,9 +172,10 @@ func (s *WSGDiffServService) FindServicesDscpProfileByQueryCriteria(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindServicesDscpProfileByQueryCriteria, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesDscpProfileByQueryCriteria, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -204,14 +209,15 @@ func (s *WSGDiffServService) PartialUpdateRkszonesDiffservById(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateRkszonesDiffservById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesDiffservById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetPathParameter("id", id)
-	req.SetPathParameter("zoneId", zoneId)
+	req.PathParams.Set("id", id)
+	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

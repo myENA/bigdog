@@ -40,9 +40,10 @@ func (s *WSGSoftGRETunnelProfileService) AddProfilesTunnelSoftgre(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddProfilesTunnelSoftgre, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGAddProfilesTunnelSoftgre, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -70,9 +71,10 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgre(ctx context
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelSoftgre, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesTunnelSoftgre, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -100,10 +102,11 @@ func (s *WSGSoftGRETunnelProfileService) DeleteProfilesTunnelSoftgreById(ctx con
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteProfilesTunnelSoftgreById, true)
-	req.SetHeader(headerKeyContentType, "*/*")
-	req.SetHeader(headerKeyAccept, "*/*")
-	req.SetPathParameter("id", id)
+	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesTunnelSoftgreById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "*/*")
+	req.Header.Set(headerKeyAccept, "*/*")
+	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -125,8 +128,9 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgre(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelSoftgre, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesTunnelSoftgre, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -153,9 +157,10 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreById(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindProfilesTunnelSoftgreById, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetPathParameter("id", id)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesTunnelSoftgreById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileSoftGREProfile()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -181,9 +186,10 @@ func (s *WSGSoftGRETunnelProfileService) FindProfilesTunnelSoftgreByQueryCriteri
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGFindProfilesTunnelSoftgreByQueryCriteria, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGFindProfilesTunnelSoftgreByQueryCriteria, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -215,13 +221,14 @@ func (s *WSGSoftGRETunnelProfileService) PartialUpdateProfilesTunnelSoftgreById(
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelSoftgreById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelSoftgreById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetPathParameter("id", id)
+	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

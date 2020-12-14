@@ -41,9 +41,10 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassGenerate(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityGuestpassGenerate, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityGuestpassGenerate, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -72,9 +73,10 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityGuestpassList, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityGuestpassList, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -104,9 +106,10 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityGuestpassUpload, true)
-	req.SetHeader(headerKeyContentType, headerValueMultipartFormData)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityGuestpassUpload, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueMultipartFormData)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	req.MultipartForm()
 	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return resp, rm, err
@@ -136,9 +139,10 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityGuestpassUploadCommon, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityGuestpassUploadCommon, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -166,9 +170,10 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpass(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityGuestpass, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityGuestpass, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -196,10 +201,11 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx contex
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityGuestpassByUserId, true)
-	req.SetHeader(headerKeyContentType, "*/*")
-	req.SetHeader(headerKeyAccept, "*/*")
-	req.SetPathParameter("userId", userId)
+	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityGuestpassByUserId, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "*/*")
+	req.Header.Set(headerKeyAccept, "*/*")
+	req.PathParams.Set("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -241,34 +247,53 @@ func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityGuestpass, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityGuestpass, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["displayName"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("displayName", v)
+		for _, vv := range v {
+			req.QueryParams.Add("displayName", vv)
+		}
 	}
 	if v, ok := optionalParams["expirationFrom"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("expirationFrom", v)
+		for _, vv := range v {
+			req.QueryParams.Add("expirationFrom", vv)
+		}
 	}
 	if v, ok := optionalParams["expirationTo"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("expirationTo", v)
+		for _, vv := range v {
+			req.QueryParams.Add("expirationTo", vv)
+		}
 	}
 	if v, ok := optionalParams["generatedTimeFrom"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("generatedTimeFrom", v)
+		for _, vv := range v {
+			req.QueryParams.Add("generatedTimeFrom", vv)
+		}
 	}
 	if v, ok := optionalParams["generatedTimeTo"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("generatedTimeTo", v)
+		for _, vv := range v {
+			req.QueryParams.Add("generatedTimeTo", vv)
+		}
 	}
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("index", v)
+		for _, vv := range v {
+			req.QueryParams.Add("index", vv)
+		}
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("listSize", v)
+		for _, vv := range v {
+			req.QueryParams.Add("listSize", vv)
+		}
 	}
 	if v, ok := optionalParams["timeZone"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("timeZone", v)
+		for _, vv := range v {
+			req.QueryParams.Add("timeZone", vv)
+		}
 	}
 	if v, ok := optionalParams["wlan"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("wlan", v)
+		for _, vv := range v {
+			req.QueryParams.Add("wlan", vv)
+		}
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIdentityGuestPassList()
@@ -298,13 +323,14 @@ func (s *WSGIdentityGuestPassService) PartialUpdateIdentityGuestpassByUserId(ctx
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateIdentityGuestpassByUserId, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateIdentityGuestpassByUserId, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetPathParameter("userId", userId)
+	req.PathParams.Set("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

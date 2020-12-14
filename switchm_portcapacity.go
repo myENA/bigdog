@@ -89,10 +89,11 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSwitchMFindPortCapacity, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetQueryParameter("model", model)
-	req.SetQueryParameter("portIdentifier", portIdentifier)
+	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindPortCapacity, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.QueryParams.Set("model", model)
+	req.QueryParams.Set("portIdentifier", portIdentifier)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMPortCapacityResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

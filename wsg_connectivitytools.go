@@ -40,9 +40,10 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddToolSpeedflex, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGAddToolSpeedflex, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -74,10 +75,11 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolPing, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetQueryParameter("apMac", apMac)
-	req.SetQueryParameter("targetIP", targetIP)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindToolPing, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.QueryParams.Set("apMac", apMac)
+	req.QueryParams.Set("targetIP", targetIP)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -104,9 +106,10 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolSpeedflexByWcid, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetPathParameter("wcid", wcid)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindToolSpeedflexByWcid, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.PathParams.Set("wcid", wcid)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGToolTestResult()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -139,12 +142,15 @@ func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, ap
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindToolTraceRoute, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetQueryParameter("apMac", apMac)
-	req.SetQueryParameter("targetIP", targetIP)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindToolTraceRoute, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.QueryParams.Set("apMac", apMac)
+	req.QueryParams.Set("targetIP", targetIP)
 	if v, ok := optionalParams["timeoutInSec"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("timeoutInSec", v)
+		for _, vv := range v {
+			req.QueryParams.Add("timeoutInSec", vv)
+		}
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)

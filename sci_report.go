@@ -3102,14 +3102,15 @@ func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues 
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIReportDownloadReport, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodPost, RouteSCIReportDownloadReport, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
 		return rm, err
 	}
-	req.SetPathParameter("format", format)
-	req.SetPathParameter("id", id)
+	req.PathParams.Set("format", format)
+	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -3135,10 +3136,13 @@ func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[st
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIReportFind, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodGet, RouteSCIReportFind, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("filter", v)
+		for _, vv := range v {
+			req.QueryParams.Add("filter", vv)
+		}
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIReportFind200ResponseType()
@@ -3170,11 +3174,14 @@ func (s *SCIReportService) ReportFindById(ctx context.Context, id string, option
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIReportFindById, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetPathParameter("id", id)
+	req = apiRequestFromPool(http.MethodGet, RouteSCIReportFindById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.PathParams.Set("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("filter", v)
+		for _, vv := range v {
+			req.QueryParams.Add("filter", vv)
+		}
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsReport()
@@ -3222,14 +3229,15 @@ func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Val
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIReportGetData, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteSCIReportGetData, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
 		return resp, rm, err
 	}
-	req.SetPathParameter("id", id)
-	req.SetPathParameter("sectionId", sectionId)
+	req.PathParams.Set("id", id)
+	req.PathParams.Set("sectionId", sectionId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportGetData200ResponseType()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -3260,11 +3268,14 @@ func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id st
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteSCIReportPrototypeGetSections, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetPathParameter("id", id)
+	req = apiRequestFromPool(http.MethodGet, RouteSCIReportPrototypeGetSections, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.PathParams.Set("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("filter", v)
+		for _, vv := range v {
+			req.QueryParams.Add("filter", vv)
+		}
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIReportPrototypegetsections200ResponseType()
@@ -3293,10 +3304,11 @@ func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentNa
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSCIReportWithRelations, true)
-	req.SetHeader(headerKeyContentType, "*/*")
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetQueryParameter("urlSegmentName", urlSegmentName)
+	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWithRelations, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "*/*")
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.QueryParams.Set("urlSegmentName", urlSegmentName)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWithRelations()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

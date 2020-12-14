@@ -344,9 +344,10 @@ func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *Switch
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthCpuAgg, true)
-	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddHealthCpuAgg, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "text/plain;charset=UTF-8")
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -375,9 +376,10 @@ func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *Switc
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthCpuLine, true)
-	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddHealthCpuLine, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "text/plain;charset=UTF-8")
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -406,9 +408,10 @@ func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *Switch
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthMemAgg, true)
-	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddHealthMemAgg, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "text/plain;charset=UTF-8")
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -437,9 +440,10 @@ func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *Switc
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthMemLine, true)
-	req.SetHeader(headerKeyContentType, "text/plain;charset=UTF-8")
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddHealthMemLine, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "text/plain;charset=UTF-8")
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -468,9 +472,10 @@ func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *Switch
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthStatus, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddHealthStatus, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -499,9 +504,10 @@ func (s *SwitchMHealthService) AddHealthStatusAll(ctx context.Context, body *Swi
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthStatusAll, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddHealthStatusAll, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -534,13 +540,14 @@ func (s *SwitchMHealthService) AddHealthStatusBySerialNumber(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddHealthStatusBySerialNumber, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddHealthStatusBySerialNumber, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
-	req.SetPathParameter("serialNumber", serialNumber)
+	req.PathParams.Set("serialNumber", serialNumber)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMHealthStatus()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

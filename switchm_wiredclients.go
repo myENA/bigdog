@@ -43,9 +43,10 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchClients, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchClients, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -74,9 +75,10 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchClientsAp, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchClientsAp, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -105,9 +107,10 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAPExport(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchClientsAPExport, true)
-	req.SetHeader(headerKeyContentType, "application/x-www-form-urlencoded")
-	req.SetHeader(headerKeyAccept, "application/octet-stream")
+	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchClientsAPExport, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "application/x-www-form-urlencoded")
+	req.Header.Set(headerKeyAccept, "application/octet-stream")
 	if b, err := json.Marshal(body); err != nil {
 		return resp, rm, err
 	} else if err = req.SetBody(bytes.NewBufferString((url.Values{"json": []string{string(b)}}).Encode())); err != nil {
@@ -138,9 +141,10 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsExport(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteSwitchMAddSwitchClientsExport, true)
-	req.SetHeader(headerKeyContentType, "application/x-www-form-urlencoded")
-	req.SetHeader(headerKeyAccept, "application/octet-stream")
+	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchClientsExport, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "application/x-www-form-urlencoded")
+	req.Header.Set(headerKeyAccept, "application/octet-stream")
 	if b, err := json.Marshal(body); err != nil {
 		return resp, rm, err
 	} else if err = req.SetBody(bytes.NewBufferString((url.Values{"json": []string{string(b)}}).Encode())); err != nil {

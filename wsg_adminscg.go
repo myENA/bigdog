@@ -615,8 +615,9 @@ func (s *WSGAdminSCGService) FindScgAdminAaaServers(ctx context.Context, mutator
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindScgAdminAaaServers, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindScgAdminAaaServers, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdminSCGScgAaaServer()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)

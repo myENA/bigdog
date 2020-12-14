@@ -40,9 +40,10 @@ func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUserList, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityUserList, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -71,9 +72,10 @@ func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSG
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodPost, RouteWSGAddIdentityUsers, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityUsers, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if err = req.SetBody(body); err != nil {
 		return resp, rm, err
 	}
@@ -101,9 +103,10 @@ func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUsers, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityUsers, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
@@ -131,10 +134,11 @@ func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodDelete, RouteWSGDeleteIdentityUsersById, true)
-	req.SetHeader(headerKeyContentType, "*/*")
-	req.SetHeader(headerKeyAccept, "*/*")
-	req.SetPathParameter("id", id)
+	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityUsersById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "*/*")
+	req.Header.Set(headerKeyAccept, "*/*")
+	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
@@ -186,49 +190,78 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsers, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityUsers, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["createdOnFrom"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("createdOnFrom", v)
+		for _, vv := range v {
+			req.QueryParams.Add("createdOnFrom", vv)
+		}
 	}
 	if v, ok := optionalParams["createdOnTo"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("createdOnTo", v)
+		for _, vv := range v {
+			req.QueryParams.Add("createdOnTo", vv)
+		}
 	}
 	if v, ok := optionalParams["displayName"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("displayName", v)
+		for _, vv := range v {
+			req.QueryParams.Add("displayName", vv)
+		}
 	}
 	if v, ok := optionalParams["email"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("email", v)
+		for _, vv := range v {
+			req.QueryParams.Add("email", vv)
+		}
 	}
 	if v, ok := optionalParams["firstName"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("firstName", v)
+		for _, vv := range v {
+			req.QueryParams.Add("firstName", vv)
+		}
 	}
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("index", v)
+		for _, vv := range v {
+			req.QueryParams.Add("index", vv)
+		}
 	}
 	if v, ok := optionalParams["isDisabled"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("isDisabled", v)
+		for _, vv := range v {
+			req.QueryParams.Add("isDisabled", vv)
+		}
 	}
 	if v, ok := optionalParams["lastName"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("lastName", v)
+		for _, vv := range v {
+			req.QueryParams.Add("lastName", vv)
+		}
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("listSize", v)
+		for _, vv := range v {
+			req.QueryParams.Add("listSize", vv)
+		}
 	}
 	if v, ok := optionalParams["phone"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("phone", v)
+		for _, vv := range v {
+			req.QueryParams.Add("phone", vv)
+		}
 	}
 	if v, ok := optionalParams["timeZone"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("timeZone", v)
+		for _, vv := range v {
+			req.QueryParams.Add("timeZone", vv)
+		}
 	}
 	if v, ok := optionalParams["userName"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("userName", v)
+		for _, vv := range v {
+			req.QueryParams.Add("userName", vv)
+		}
 	}
 	if v, ok := optionalParams["userSource"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("userSource", v)
+		for _, vv := range v {
+			req.QueryParams.Add("userSource", vv)
+		}
 	}
 	if v, ok := optionalParams["userType"]; ok && len(v) > 0 {
-		req.SetQueryParameterValues("userType", v)
+		for _, vv := range v {
+			req.QueryParams.Add("userType", vv)
+		}
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIdentityUserList()
@@ -252,8 +285,9 @@ func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersAaaserver, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityUsersAaaserver, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIdentityAaaServerList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -280,9 +314,10 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id s
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersById, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
-	req.SetPathParameter("id", id)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityUsersById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIdentityUserConfiguration()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -305,8 +340,9 @@ func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersCountries, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityUsersCountries, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIdentityCountryList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -329,8 +365,9 @@ func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp, rm, err
 	}
-	req = NewAPIRequest(http.MethodGet, RouteWSGFindIdentityUsersPackages, true)
-	req.SetHeader(headerKeyAccept, headerValueApplicationJSON)
+	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityUsersPackages, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIdentityPackageList()
 	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
@@ -359,13 +396,14 @@ func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return rm, err
 	}
-	req = NewAPIRequest(http.MethodPatch, RouteWSGPartialUpdateIdentityUsersById, true)
-	req.SetHeader(headerKeyContentType, headerValueApplicationJSON)
-	req.SetHeader(headerKeyAccept, "*/*")
+	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateIdentityUsersById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
 		return rm, err
 	}
-	req.SetPathParameter("id", id)
+	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err

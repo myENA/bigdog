@@ -144,7 +144,7 @@ func (c *baseClient) do(ctx context.Context, request *APIRequest, authParamName,
 	)
 
 	if c.debug {
-		logMsg := fmt.Sprintf(logDebugAPIRequestPrepFormat, request.ID(), request.Method(), request.CompiledURI())
+		logMsg := fmt.Sprintf(logDebugAPIRequestPrepFormat, request.ID(), request.Method, request.CompiledURI())
 
 		body := request.Body()
 
@@ -239,7 +239,7 @@ func (c *VSZClient) Do(ctx context.Context, request *APIRequest, mutators ...Req
 		serviceTicket string
 		err           error
 	)
-	if request.authenticated {
+	if request.Authenticated {
 		if cas, serviceTicket, err = c.stp.Current(); err != nil {
 			if c.debug {
 				c.log.Printf("Error fetching current service ticket: %v", err)
@@ -322,7 +322,7 @@ func (c *SCIClient) Do(ctx context.Context, request *APIRequest, mutators ...Req
 		accessToken string
 		err         error
 	)
-	if request.authenticated {
+	if request.Authenticated {
 		if cas, accessToken, err = c.atp.Current(); err != nil {
 			if c.debug {
 				c.log.Printf("Error fetching current access token: %v", err)
@@ -361,7 +361,7 @@ type APIResponseMeta struct {
 
 func newAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Response) *APIResponseMeta {
 	rm := new(APIResponseMeta)
-	rm.RequestMethod = req.Method()
+	rm.RequestMethod = req.Method
 	rm.RequestURI = req.CompiledURI()
 	rm.SuccessCode = successCode
 	if httpResp != nil {
@@ -451,7 +451,7 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 	} else {
 		var apiErr error
 		// todo: do something better here.
-		if strings.HasPrefix(req.uri, "/wsg/") || strings.HasPrefix(req.uri, "/switchm/") {
+		if strings.HasPrefix(req.URI, "/wsg/") || strings.HasPrefix(req.URI, "/switchm/") {
 			apiErr = new(VSZAPIError)
 		} else {
 			apiErr = new(SCIAPIError)

@@ -12,6 +12,7 @@ import (
 	"net/url"
 	"strconv"
 	"strings"
+	"sync"
 	"sync/atomic"
 )
 
@@ -30,171 +31,122 @@ const (
 
 type RequestMutator func(*http.Request)
 
+func ToString(value interface{}) string {
+	switch value.(type) {
+	case string:
+		return value.(string)
+	case int:
+		return strconv.Itoa(value.(int))
+	case bool:
+		return strconv.FormatBool(value.(bool))
+	case []string:
+		return strings.Join(value.([]string), ",")
+	case []int:
+		l := len(value.([]int))
+		if l == 0 {
+			return ""
+		}
+		tmp := make([]string, l, l)
+		for i, v := range value.([]int) {
+			tmp[i] = strconv.Itoa(v)
+		}
+		return ToString(tmp)
+	default:
+		panic(fmt.Sprintf("unable to handle type %T", value))
+	}
+}
+
+type PathValues map[string]string
+
+func (pv PathValues) Set(key string, value interface{}) {
+	pv[key] = ToString(value)
+}
+
+func (pv PathValues) Get(key string) string {
+	v, _ := pv[key]
+	return v
+}
+
+type QueryValues url.Values
+
+func (qv QueryValues) Values() url.Values {
+	return url.Values(qv)
+}
+
+func (qv QueryValues) Get(key string) string {
+	return url.Values(qv).Get(key)
+}
+
+func (qv QueryValues) Set(key string, value interface{}) {
+	url.Values(qv).Set(key, ToString(value))
+}
+
+func (qv QueryValues) Add(key string, value interface{}) {
+	url.Values(qv).Add(key, ToString(value))
+}
+
+func (qv QueryValues) Del(key string) {
+	url.Values(qv).Del(key)
+}
+
+func (qv QueryValues) Encode() string {
+	return url.Values(qv).Encode()
+}
+
 var apiRequestID uint64
 
 type APIRequest struct {
-	id            uint64
-	method        string
-	uri           string
-	authenticated bool
+	Method        string
+	URI           string
+	Authenticated bool
+	QueryParams   QueryValues
+	PathParams    PathValues
+	Header        http.Header
 
-	queryParameters url.Values
-	pathParameters  map[string]string
-	headers         url.Values
-	cookies         []*http.Cookie
-	body            io.Reader
-	mpw             *multipart.Writer
+	id   uint64
+	body io.Reader
+	mpw  *multipart.Writer
+}
+
+var apiRequestPool = sync.Pool{New: func() interface{} { return new(APIRequest) }}
+
+func bootstrapRequest(req *APIRequest, method, uri string, authenticated bool) {
+	req.id = atomic.AddUint64(&apiRequestID, 1)
+	req.Method = method
+	req.URI = uri
+	req.Authenticated = authenticated
+	req.QueryParams = make(QueryValues)
+	req.PathParams = make(PathValues)
+	req.Header = make(http.Header)
+}
+
+func apiRequestFromPool(method, uri string, authenticated bool) *APIRequest {
+	req := apiRequestPool.Get().(*APIRequest)
+	bootstrapRequest(req, method, uri, authenticated)
+	return req
+}
+
+func recycleAPIRequest(req *APIRequest) {
+	req.id = 0
+	req.Method = ""
+	req.URI = ""
+	req.Authenticated = false
+	req.QueryParams = nil
+	req.PathParams = nil
+	req.Header = nil
+	req.body = nil
+	req.mpw = nil
+	apiRequestPool.Put(req)
 }
 
 func NewAPIRequest(method, uri string, authenticated bool) *APIRequest {
-	r := &APIRequest{
-		id:              atomic.AddUint64(&apiRequestID, 1),
-		method:          method,
-		uri:             uri,
-		authenticated:   authenticated,
-		queryParameters: make(url.Values),
-		pathParameters:  make(map[string]string),
-		headers:         make(url.Values),
-		cookies:         make([]*http.Cookie, 0),
-	}
-	return r
+	req := new(APIRequest)
+	bootstrapRequest(req, method, uri, authenticated)
+	return req
 }
 
 func (r *APIRequest) ID() uint64 {
 	return r.id
-}
-
-func (r *APIRequest) Method() string {
-	return r.method
-}
-
-func (r *APIRequest) URI() string {
-	return r.uri
-}
-
-func (r *APIRequest) Authenticated() bool {
-	return r.authenticated
-}
-
-func (r *APIRequest) AddHeader(name, value string) {
-	r.headers.Add(name, value)
-}
-
-func (r *APIRequest) SetHeader(name, value string) {
-	r.headers.Set(name, value)
-}
-
-func (r *APIRequest) SetHeaders(headers url.Values) {
-	r.headers = headers
-	r.headers = make(url.Values)
-	for k, vs := range headers {
-		for _, v := range vs {
-			r.AddHeader(k, v)
-		}
-	}
-}
-
-func (r *APIRequest) RemoveHeader(name string) {
-	r.headers.Del(name)
-}
-
-func (r *APIRequest) Headers() url.Values {
-	return r.headers
-}
-
-func (r *APIRequest) SetCookies(cookies []*http.Cookie) {
-	r.cookies = cookies
-}
-
-func (r *APIRequest) AddCookie(cookie *http.Cookie) {
-	r.cookies = append(r.cookies, cookie)
-}
-
-func (r *APIRequest) SetCookie(cookie *http.Cookie) {
-	for i, cc := range r.cookies {
-		if cc.Name == cookie.Name {
-			r.cookies[i] = cookie
-			return
-		}
-	}
-	r.cookies = append(r.cookies, cookie)
-}
-
-func (r *APIRequest) RemoveCookie(name string) {
-	nc := make([]*http.Cookie, 0)
-	for _, cc := range r.cookies {
-		if cc.Name != name {
-			nc = append(nc, cc)
-		}
-	}
-	r.cookies = nc
-}
-
-func (r *APIRequest) Cookies() []*http.Cookie {
-	return r.cookies
-}
-
-// AddQueryParameter will add a value to the specified param
-func (r *APIRequest) AddQueryParameter(param, value string) {
-	r.queryParameters.Add(param, value)
-}
-
-func (r *APIRequest) AddQueryParameterValues(param string, values []string) {
-	for _, v := range values {
-		r.AddQueryParameter(param, v)
-	}
-}
-
-// SetQueryParameter will set a query param to a specific value, overriding any previously set value
-func (r *APIRequest) SetQueryParameter(param, value string) {
-	r.queryParameters.Set(param, value)
-}
-
-func (r *APIRequest) SetQueryParameterValues(param string, values []string) {
-	r.RemoveQueryParameter(param)
-	r.AddQueryParameterValues(param, values)
-}
-
-// SetQueryParameters will override any / all existing query parameters
-func (r *APIRequest) SetQueryParameters(params url.Values) {
-	r.queryParameters = make(url.Values)
-	for k, vs := range params {
-		for _, v := range vs {
-			r.AddQueryParameter(k, v)
-		}
-	}
-}
-
-// RemoveQueryParameter will attempt to delete all values for a specific query parameter from this request.
-func (r *APIRequest) RemoveQueryParameter(param string) {
-	r.queryParameters.Del(param)
-}
-
-// QueryParameters will return all values of currently set query parameters
-func (r *APIRequest) QueryParameters() url.Values {
-	return r.queryParameters
-}
-
-// SetPathParameter will define a path parameter value, overriding any existing value
-func (r *APIRequest) SetPathParameter(param, value string) {
-	r.pathParameters[param] = value
-}
-
-// SetPathParameters will re-define all path parameters, overriding any / all existing ones
-func (r *APIRequest) SetPathParameters(params map[string]string) {
-	r.pathParameters = make(map[string]string)
-	for k, v := range params {
-		r.SetPathParameter(k, v)
-	}
-}
-
-// RemovePathParameter will attempt to remove a single parameter from the current list of path parameters
-func (r *APIRequest) RemovePathParameter(param string) {
-	delete(r.pathParameters, param)
-}
-
-func (r *APIRequest) PathParameters() map[string]string {
-	return r.pathParameters
 }
 
 func (r *APIRequest) SetBody(body interface{}) error {
@@ -287,16 +239,14 @@ func (r *APIRequest) AddMultipartFieldsFromValues(values url.Values) error {
 // CompiledURI will return to you the full request URI, not including scheme, hostname, and port.  This method is not
 // thread safe, as you shouldn't be calling this asynchronously anyway.
 func (r *APIRequest) CompiledURI() string {
-	pathParams := r.PathParameters()
-	queryParams := r.QueryParameters()
-	uri := r.uri
-	if len(pathParams) > 0 {
-		for k, v := range pathParams {
+	uri := r.URI
+	if len(r.PathParams) > 0 {
+		for k, v := range r.PathParams {
 			uri = strings.Replace(uri, fmt.Sprintf(uriPathParameterSearchFormat, k), url.PathEscape(v), 1)
 		}
 	}
-	if len(queryParams) > 0 {
-		uri = fmt.Sprintf(uriQueryParameterPrefixFormat, uri, queryParams.Encode())
+	if len(r.QueryParams) > 0 {
+		uri = fmt.Sprintf(uriQueryParameterPrefixFormat, uri, r.QueryParams.Encode())
 	}
 	return uri
 }
@@ -309,27 +259,27 @@ func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName
 		err         error
 	)
 
-	if r.authenticated {
+	if r.Authenticated {
 		if authParamName == "" || authParamValue == "" {
 			return nil, errors.New("authParam cannot be empty with authenticated request")
 		}
-		r.SetQueryParameter(authParamName, authParamValue)
+		r.QueryParams.Set(authParamName, authParamValue)
 	}
 
 	compiledURL = fmt.Sprintf(apiRequestURLFormat, addr, pathPrefix, r.CompiledURI())
 
 	if r.mpw != nil {
-		r.SetHeader(headerKeyContentType, r.mpw.FormDataContentType())
+		r.Header.Set(headerKeyContentType, r.mpw.FormDataContentType())
 		if err = r.mpw.Close(); err != nil {
 			return nil, fmt.Errorf("error closing multipart writer: %w", err)
 		}
 	}
 
-	if httpRequest, err = http.NewRequest(r.method, compiledURL, r.Body()); err != nil {
+	if httpRequest, err = http.NewRequest(r.Method, compiledURL, r.Body()); err != nil {
 		return nil, err
 	}
 
-	for header, values := range r.headers {
+	for header, values := range r.Header {
 		for _, value := range values {
 			httpRequest.Header.Add(header, value)
 		}
@@ -339,7 +289,7 @@ func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName
 }
 
 func addContentDispositionHeader(req *APIRequest, key, filename string) {
-	req.AddHeader(
+	req.Header.Add(
 		headerKeyContentDisposition,
 		fmt.Sprintf(
 			"form-data: name=%s; filename=%s;",

@@ -81,8 +81,24 @@ func (qv QueryValues) Set(key string, value interface{}) {
 	url.Values(qv).Set(key, ToString(value))
 }
 
+func (qv QueryValues) SetStrings(key string, values []string) {
+	for i, v := range values {
+		if i == 0 {
+			qv.Set(key, v)
+		} else {
+			qv.Add(key, v)
+		}
+	}
+}
+
 func (qv QueryValues) Add(key string, value interface{}) {
 	url.Values(qv).Add(key, ToString(value))
+}
+
+func (qv QueryValues) AddStrings(key string, values []string) {
+	for _, v := range values {
+		qv.Add(key, v)
+	}
 }
 
 func (qv QueryValues) Del(key string) {

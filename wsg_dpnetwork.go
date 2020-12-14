@@ -129,9 +129,7 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context, opt
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["useless"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("useless", vv)
-		}
+		req.QueryParams.SetStrings("useless", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemGetDataPlaneMeshTunnelSetting()

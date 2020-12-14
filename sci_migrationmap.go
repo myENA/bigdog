@@ -93,9 +93,7 @@ func (s *SCIMigrationMapService) MigrationMapCount(ctx context.Context, optional
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("where", vv)
-		}
+		req.QueryParams.SetStrings("where", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIMigrationMapCount200ResponseType()
@@ -159,9 +157,7 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["options"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("options", vv)
-		}
+		req.QueryParams.SetStrings("options", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)
@@ -287,9 +283,7 @@ func (s *SCIMigrationMapService) MigrationMapFind(ctx context.Context, optionalP
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("filter", vv)
-		}
+		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIMigrationMapFind200ResponseType()
@@ -326,9 +320,7 @@ func (s *SCIMigrationMapService) MigrationMapFindById(ctx context.Context, id st
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	req.PathParams.Set("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("filter", vv)
-		}
+		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsMigrationMap()
@@ -360,9 +352,7 @@ func (s *SCIMigrationMapService) MigrationMapFindOne(ctx context.Context, option
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("filter", vv)
-		}
+		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsMigrationMap()
@@ -438,9 +428,7 @@ func (s *SCIMigrationMapService) MigrationMapUpdateAll(ctx context.Context, data
 		return resp, rm, err
 	}
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("where", vv)
-		}
+		req.QueryParams.SetStrings("where", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)

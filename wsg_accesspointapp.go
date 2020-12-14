@@ -54,29 +54,19 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("domainId", vv)
-		}
+		req.QueryParams.SetStrings("domainId", v)
 	}
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("index", vv)
-		}
+		req.QueryParams.SetStrings("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("listSize", vv)
-		}
+		req.QueryParams.SetStrings("listSize", v)
 	}
 	if v, ok := optionalParams["showAlarm"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("showAlarm", vv)
-		}
+		req.QueryParams.SetStrings("showAlarm", v)
 	}
 	if v, ok := optionalParams["zoneId"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("zoneId", vv)
-		}
+		req.QueryParams.SetStrings("zoneId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAPLinemanSummary()
@@ -110,14 +100,10 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("domainId", vv)
-		}
+		req.QueryParams.SetStrings("domainId", v)
 	}
 	if v, ok := optionalParams["zoneId"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("zoneId", vv)
-		}
+		req.QueryParams.SetStrings("zoneId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)

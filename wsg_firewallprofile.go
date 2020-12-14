@@ -140,19 +140,13 @@ func (s *WSGFirewallProfileService) FindFirewallProfiles(ctx context.Context, op
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("domainId", vv)
-		}
+		req.QueryParams.SetStrings("domainId", v)
 	}
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("index", vv)
-		}
+		req.QueryParams.SetStrings("index", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("listSize", vv)
-		}
+		req.QueryParams.SetStrings("listSize", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileIdList()

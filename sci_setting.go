@@ -52,9 +52,7 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	req.PathParams.Set("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("filter", vv)
-		}
+		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSetting()

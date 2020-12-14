@@ -45,9 +45,7 @@ func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParam
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("domainId", vv)
-		}
+		req.QueryParams.SetStrings("domainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemSms()

@@ -675,9 +675,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applic
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["appName"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("appName", vv)
-		}
+		req.QueryParams.SetStrings("appName", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAVCApplicationList()
@@ -709,9 +707,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Catego
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["catName"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("catName", vv)
-		}
+		req.QueryParams.SetStrings("catName", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAVCAppCategoryList()

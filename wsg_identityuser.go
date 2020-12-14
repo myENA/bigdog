@@ -194,74 +194,46 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["createdOnFrom"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("createdOnFrom", vv)
-		}
+		req.QueryParams.SetStrings("createdOnFrom", v)
 	}
 	if v, ok := optionalParams["createdOnTo"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("createdOnTo", vv)
-		}
+		req.QueryParams.SetStrings("createdOnTo", v)
 	}
 	if v, ok := optionalParams["displayName"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("displayName", vv)
-		}
+		req.QueryParams.SetStrings("displayName", v)
 	}
 	if v, ok := optionalParams["email"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("email", vv)
-		}
+		req.QueryParams.SetStrings("email", v)
 	}
 	if v, ok := optionalParams["firstName"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("firstName", vv)
-		}
+		req.QueryParams.SetStrings("firstName", v)
 	}
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("index", vv)
-		}
+		req.QueryParams.SetStrings("index", v)
 	}
 	if v, ok := optionalParams["isDisabled"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("isDisabled", vv)
-		}
+		req.QueryParams.SetStrings("isDisabled", v)
 	}
 	if v, ok := optionalParams["lastName"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("lastName", vv)
-		}
+		req.QueryParams.SetStrings("lastName", v)
 	}
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("listSize", vv)
-		}
+		req.QueryParams.SetStrings("listSize", v)
 	}
 	if v, ok := optionalParams["phone"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("phone", vv)
-		}
+		req.QueryParams.SetStrings("phone", v)
 	}
 	if v, ok := optionalParams["timeZone"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("timeZone", vv)
-		}
+		req.QueryParams.SetStrings("timeZone", v)
 	}
 	if v, ok := optionalParams["userName"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("userName", vv)
-		}
+		req.QueryParams.SetStrings("userName", v)
 	}
 	if v, ok := optionalParams["userSource"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("userSource", vv)
-		}
+		req.QueryParams.SetStrings("userSource", v)
 	}
 	if v, ok := optionalParams["userType"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("userType", vv)
-		}
+		req.QueryParams.SetStrings("userType", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIdentityUserList()

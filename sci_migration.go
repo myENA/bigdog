@@ -93,9 +93,7 @@ func (s *SCIMigrationService) MigrationCount(ctx context.Context, optionalParams
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("where", vv)
-		}
+		req.QueryParams.SetStrings("where", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIMigrationCount200ResponseType()
@@ -159,9 +157,7 @@ func (s *SCIMigrationService) MigrationCreateChangeStreamGetMigrationsChangeStre
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["options"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("options", vv)
-		}
+		req.QueryParams.SetStrings("options", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)
@@ -287,9 +283,7 @@ func (s *SCIMigrationService) MigrationFind(ctx context.Context, optionalParams 
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("filter", vv)
-		}
+		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIMigrationFind200ResponseType()
@@ -326,9 +320,7 @@ func (s *SCIMigrationService) MigrationFindById(ctx context.Context, id string, 
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	req.PathParams.Set("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("filter", vv)
-		}
+		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsMigration()
@@ -360,9 +352,7 @@ func (s *SCIMigrationService) MigrationFindOne(ctx context.Context, optionalPara
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("filter", vv)
-		}
+		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsMigration()
@@ -398,9 +388,7 @@ func (s *SCIMigrationService) MigrationMigrateByName(ctx context.Context, name s
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("name", name)
 	if v, ok := optionalParams["record"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("record", vv)
-		}
+		req.QueryParams.SetStrings("record", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -430,9 +418,7 @@ func (s *SCIMigrationService) MigrationMigrateTo(ctx context.Context, optionalPa
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["to"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("to", vv)
-		}
+		req.QueryParams.SetStrings("to", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
@@ -535,9 +521,7 @@ func (s *SCIMigrationService) MigrationUpdateAll(ctx context.Context, data *SCIM
 		return resp, rm, err
 	}
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("where", vv)
-		}
+		req.QueryParams.SetStrings("where", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)

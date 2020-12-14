@@ -230,9 +230,7 @@ func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Con
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "application/octet-stream")
 	if v, ok := optionalParams["type"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("type", vv)
-		}
+		req.QueryParams.SetStrings("type", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawResponse)

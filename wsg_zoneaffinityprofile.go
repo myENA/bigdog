@@ -106,9 +106,7 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Con
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["vdpId"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("vdpId", vv)
-		}
+		req.QueryParams.SetStrings("vdpId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileZoneAffinityProfileList()

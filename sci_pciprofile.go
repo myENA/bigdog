@@ -161,9 +161,7 @@ func (s *SCIPCIProfileService) PciProfileFind(ctx context.Context, optionalParam
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("filter", vv)
-		}
+		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIPCIProfileFind200ResponseType()
@@ -200,9 +198,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCountReports(ctx context.Conte
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	req.PathParams.Set("id", id)
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("where", vv)
-		}
+		req.QueryParams.SetStrings("where", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIPCIProfilePrototypecountreports200ResponseType()
@@ -370,9 +366,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeGetReports(ctx context.Context
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	req.PathParams.Set("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
-		for _, vv := range v {
-			req.QueryParams.Add("filter", vv)
-		}
+		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIPCIProfilePrototypegetreports200ResponseType()

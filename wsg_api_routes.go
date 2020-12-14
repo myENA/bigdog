@@ -846,6 +846,8 @@ const (
 	RouteWSGFindWlanByQueryCriteria                                              = "/wsg/api/public/v9_1/query/wlan"
 	RouteWSGFindZdImportGetZDAPs                                                 = "/wsg/api/public/v9_1/zdImport/getZDAPs"
 	RouteWSGFindZdImportStatus                                                   = "/wsg/api/public/v9_1/zdImport/status"
+	RouteWSGHccdCount                                                            = "/wsg/api/public/v9_1/hccd/hccdClientConnection/{type}/count"
+	RouteWSGHccdTypeCount                                                        = "/wsg/api/public/v9_1/hccd/hccdClientConnection/{type}/failedMsgId/count"
 	RouteWSGHealthExtendGroupBarByType                                           = "/wsg/api/public/v9_1/healthExtend/groupBar/{type}"
 	RouteWSGHealthExtendLineByType                                               = "/wsg/api/public/v9_1/healthExtend/line/{type}"
 	RouteWSGPartialUpdateAccountSecurityById                                     = "/wsg/api/public/v9_1/accountSecurity/{id}"

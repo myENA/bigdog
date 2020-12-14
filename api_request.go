@@ -111,13 +111,14 @@ type APIRequest struct {
 var apiRequestPool = sync.Pool{New: func() interface{} { return new(APIRequest) }}
 
 func bootstrapRequest(req *APIRequest, method, uri string, authenticated bool) {
-	req.id = atomic.AddUint64(&apiRequestID, 1)
 	req.Method = method
 	req.URI = uri
 	req.Authenticated = authenticated
 	req.QueryParams = make(QueryValues)
 	req.PathParams = make(PathValues)
 	req.Header = make(http.Header)
+
+	req.id = atomic.AddUint64(&apiRequestID, 1)
 }
 
 func apiRequestFromPool(method, uri string, authenticated bool) *APIRequest {
@@ -127,15 +128,17 @@ func apiRequestFromPool(method, uri string, authenticated bool) *APIRequest {
 }
 
 func recycleAPIRequest(req *APIRequest) {
-	req.id = 0
 	req.Method = ""
 	req.URI = ""
 	req.Authenticated = false
 	req.QueryParams = nil
 	req.PathParams = nil
 	req.Header = nil
+
+	req.id = 0
 	req.body = nil
 	req.mpw = nil
+
 	apiRequestPool.Put(req)
 }
 

@@ -425,6 +425,146 @@ func NewSCIInventoryControllersReport114controllerInventoryOverviewDataType() *S
 	return m
 }
 
+// SCIInventoryControllersReport151licenseUtilizationOverTimeChartData
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_151_licenseUtilizationOverTimeChart_Data
+type SCIInventoryControllersReport151licenseUtilizationOverTimeChartData [][]*SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType
+
+func MakeSCIInventoryControllersReport151licenseUtilizationOverTimeChartData() SCIInventoryControllersReport151licenseUtilizationOverTimeChartData {
+	m := make(SCIInventoryControllersReport151licenseUtilizationOverTimeChartData, 0)
+	return m
+}
+
+// SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataType
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_151_licenseUtilizationOverTimeChart_DataType
+type SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataType []*SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType
+
+func MakeSCIInventoryControllersReport151licenseUtilizationOverTimeChartDataType() SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataType {
+	m := make(SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataType, 0)
+	return m
+}
+
+// SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_151_licenseUtilizationOverTimeChart_DataTypeType
+type SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType struct {
+	End *string `json:"end,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+
+	Vsz01c01dev []float64 `json:"vsz01c01-dev,omitempty"`
+
+	Vsz02c01dev []float64 `json:"vsz02c01-dev,omitempty"`
+
+	Vsz03c01dev []float64 `json:"vsz03c01-dev,omitempty"`
+
+	Vsz04c01dev []float64 `json:"vsz04c01-dev,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType
+	tmpType := new(_SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "start")
+	delete(tmpType.XAdditionalProperties, "vsz01c01-dev")
+	delete(tmpType.XAdditionalProperties, "vsz02c01-dev")
+	delete(tmpType.XAdditionalProperties, "vsz03c01-dev")
+	delete(tmpType.XAdditionalProperties, "vsz04c01-dev")
+	*t = SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	if t.Vsz01c01dev != nil {
+		tmp["vsz01c01-dev"] = t.Vsz01c01dev
+	}
+	if t.Vsz02c01dev != nil {
+		tmp["vsz02c01-dev"] = t.Vsz02c01dev
+	}
+	if t.Vsz03c01dev != nil {
+		tmp["vsz03c01-dev"] = t.Vsz03c01dev
+	}
+	if t.Vsz04c01dev != nil {
+		tmp["vsz04c01-dev"] = t.Vsz04c01dev
+	}
+	return json.Marshal(tmp)
+}
+
+func NewSCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType() *SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType {
+	m := new(SCIInventoryControllersReport151licenseUtilizationOverTimeChartDataTypeType)
+	return m
+}
+
+// SCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData
+//
+// Definition: InventoryControllersReport_InventoryControllersReport_151_licenseUtilizationOverTimeChart_MetaData
+type SCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData struct {
+	ColorKeys []string `json:"colorKeys,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData) UnmarshalJSON(b []byte) error {
+	type _SCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData SCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData
+	tmpType := new(_SCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "colorKeys")
+	*t = SCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData(*tmpType)
+	return nil
+}
+
+func (t *SCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ColorKeys != nil {
+		tmp["colorKeys"] = t.ColorKeys
+	}
+	return json.Marshal(tmp)
+}
+
+func NewSCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData() *SCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData {
+	m := new(SCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData)
+	return m
+}
+
 // ReportInventoryControllersReport96Krack
 //
 // Operation ID: report_InventoryControllersReport_96_krack
@@ -453,7 +593,7 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportInventoryControllersReport96krack200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -485,7 +625,7 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportInventoryControllersReport98resourceUtilization200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -517,7 +657,7 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportInventoryControllersReport99licenseUtilization200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -549,6 +689,38 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport1
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// ReportInventoryControllersReport151LicenseUtilizationOverTimeChart
+//
+// Operation ID: report_InventoryControllersReport_151_licenseUtilizationOverTimeChart
+//
+// Inventory - Controllers Report - License Utilization Over Time
+//
+// Request Body:
+//	 - body *SCICommonReportQueryBody
+func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport151LicenseUtilizationOverTimeChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryControllersReport151LicenseUtilizationOverTimeChart, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	if err = req.SetBody(body); err != nil {
+		return resp, rm, err
+	}
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = NewSCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType()
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

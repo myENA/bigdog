@@ -554,9 +554,9 @@ type SCIWirelessApplicationsReport11top10ApplicationsByClientCountDataTypeType s
 
 	Lb01devenanet *float64 `json:"lb01.dev.ena.net,omitempty"`
 
-	Nbns *float64 `json:"nbns,omitempty"`
+	Lb02devenanet *float64 `json:"lb02.dev.ena.net,omitempty"`
 
-	Ntp *float64 `json:"ntp,omitempty"`
+	Nbns *float64 `json:"nbns,omitempty"`
 
 	Rx *float64 `json:"rx,omitempty"`
 
@@ -593,8 +593,8 @@ func (t *SCIWirelessApplicationsReport11top10ApplicationsByClientCountDataTypeTy
 	delete(tmpType.XAdditionalProperties, "dns")
 	delete(tmpType.XAdditionalProperties, "end")
 	delete(tmpType.XAdditionalProperties, "lb01.dev.ena.net")
+	delete(tmpType.XAdditionalProperties, "lb02.dev.ena.net")
 	delete(tmpType.XAdditionalProperties, "nbns")
-	delete(tmpType.XAdditionalProperties, "ntp")
 	delete(tmpType.XAdditionalProperties, "rx")
 	delete(tmpType.XAdditionalProperties, "snmp")
 	delete(tmpType.XAdditionalProperties, "start")
@@ -640,11 +640,11 @@ func (t *SCIWirelessApplicationsReport11top10ApplicationsByClientCountDataTypeTy
 	if t.Lb01devenanet != nil {
 		tmp["lb01.dev.ena.net"] = t.Lb01devenanet
 	}
+	if t.Lb02devenanet != nil {
+		tmp["lb02.dev.ena.net"] = t.Lb02devenanet
+	}
 	if t.Nbns != nil {
 		tmp["nbns"] = t.Nbns
-	}
-	if t.Ntp != nil {
-		tmp["ntp"] = t.Ntp
 	}
 	if t.Rx != nil {
 		tmp["rx"] = t.Rx
@@ -754,7 +754,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport7
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -786,7 +786,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport8
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -818,7 +818,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport9
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -850,7 +850,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport1
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessApplicationsReport10overview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -882,6 +882,6 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport1
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

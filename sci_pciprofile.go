@@ -5,6 +5,7 @@ package bigdog
 import (
 	"bytes"
 	"context"
+	"encoding/json"
 	"net/http"
 	"net/url"
 )
@@ -30,6 +31,21 @@ type SCIPCIProfileBatchDelete200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
 
+type SCIPCIProfileBatchDelete200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIPCIProfileBatchDelete200ResponseType
+}
+
+func newSCIPCIProfileBatchDelete200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIPCIProfileBatchDelete200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIPCIProfileBatchDelete200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIPCIProfileBatchDelete200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIPCIProfileBatchDelete200ResponseType() *SCIPCIProfileBatchDelete200ResponseType {
 	m := new(SCIPCIProfileBatchDelete200ResponseType)
 	return m
@@ -52,6 +68,21 @@ type SCIPCIProfilePrototypecountreports200ResponseType struct {
 	Count *float64 `json:"count,omitempty"`
 }
 
+type SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIPCIProfilePrototypecountreports200ResponseType
+}
+
+func newSCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIPCIProfilePrototypecountreports200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIPCIProfilePrototypecountreports200ResponseType() *SCIPCIProfilePrototypecountreports200ResponseType {
 	m := new(SCIPCIProfilePrototypecountreports200ResponseType)
 	return m
@@ -96,7 +127,7 @@ func (s *SCIPCIProfileService) PciProfileBatchDelete(ctx context.Context, formVa
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIPCIProfileBatchDelete200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -113,11 +144,11 @@ func (s *SCIPCIProfileService) PciProfileBatchDelete(ctx context.Context, formVa
 //		- required
 // - ssids string
 //		- required
-func (s *SCIPCIProfileService) PciProfileCreateWithRelations(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *SCIPCIProfileService) PciProfileCreateWithRelations(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -132,8 +163,8 @@ func (s *SCIPCIProfileService) PciProfileCreateWithRelations(ctx context.Context
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -165,7 +196,7 @@ func (s *SCIPCIProfileService) PciProfileFind(ctx context.Context, optionalParam
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIPCIProfileFind200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
 
@@ -202,7 +233,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCountReports(ctx context.Conte
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIPCIProfilePrototypecountreports200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -239,7 +270,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCreateReports(ctx context.Cont
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsPciReport()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -268,7 +299,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeDeleteReports(ctx context.Cont
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -300,7 +331,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeDestroyByIdReports(ctx context
 	req.PathParams.Set("fk", fk)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -333,7 +364,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeFindByIdReports(ctx context.Co
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsPciReport()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -370,7 +401,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeGetReports(ctx context.Context
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIPCIProfilePrototypegetreports200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
 
@@ -410,7 +441,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeUpdateByIdReports(ctx context.
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsPciReport()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -431,11 +462,11 @@ func (s *SCIPCIProfileService) PciProfilePrototypeUpdateByIdReports(ctx context.
 // Required Parameters:
 // - id float64
 //		- required
-func (s *SCIPCIProfileService) PciProfileUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *SCIPCIProfileService) PciProfileUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -451,7 +482,7 @@ func (s *SCIPCIProfileService) PciProfileUpdateWithRelations(ctx context.Context
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

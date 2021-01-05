@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -30,6 +31,21 @@ type WSGVendorSpecificAttributeProfileCreateResult struct {
 	Id *string `json:"id,omitempty"`
 }
 
+type WSGVendorSpecificAttributeProfileCreateResultAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGVendorSpecificAttributeProfileCreateResult
+}
+
+func newWSGVendorSpecificAttributeProfileCreateResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGVendorSpecificAttributeProfileCreateResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGVendorSpecificAttributeProfileCreateResultAPIResponse) Hydrate() error {
+	r.Data = new(WSGVendorSpecificAttributeProfileCreateResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGVendorSpecificAttributeProfileCreateResult() *WSGVendorSpecificAttributeProfileCreateResult {
 	m := new(WSGVendorSpecificAttributeProfileCreateResult)
 	return m
@@ -72,6 +88,21 @@ type WSGVendorSpecificAttributeProfileGet struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGVendorSpecificAttributeProfileGetAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGVendorSpecificAttributeProfileGet
+}
+
+func newWSGVendorSpecificAttributeProfileGetAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGVendorSpecificAttributeProfileGetAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGVendorSpecificAttributeProfileGetAPIResponse) Hydrate() error {
+	r.Data = new(WSGVendorSpecificAttributeProfileGet)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGVendorSpecificAttributeProfileGet() *WSGVendorSpecificAttributeProfileGet {
 	m := new(WSGVendorSpecificAttributeProfileGet)
 	return m
@@ -98,6 +129,21 @@ type WSGVendorSpecificAttributeProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGVendorSpecificAttributeProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGVendorSpecificAttributeProfileList
+}
+
+func newWSGVendorSpecificAttributeProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGVendorSpecificAttributeProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGVendorSpecificAttributeProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGVendorSpecificAttributeProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGVendorSpecificAttributeProfileList() *WSGVendorSpecificAttributeProfileList {
 	m := new(WSGVendorSpecificAttributeProfileList)
 	return m
@@ -157,6 +203,21 @@ type WSGVendorSpecificAttributeProfileQueryCriteriaResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGVendorSpecificAttributeProfileQueryCriteriaResult
+}
+
+func newWSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse) Hydrate() error {
+	r.Data = new(WSGVendorSpecificAttributeProfileQueryCriteriaResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGVendorSpecificAttributeProfileQueryCriteriaResult() *WSGVendorSpecificAttributeProfileQueryCriteriaResult {
 	m := new(WSGVendorSpecificAttributeProfileQueryCriteriaResult)
 	return m
@@ -237,7 +298,7 @@ func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttr
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGVendorSpecificAttributeProfileCreateResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -269,7 +330,7 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -304,7 +365,7 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -337,7 +398,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGVendorSpecificAttributeProfileGet()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -369,7 +430,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGVendorSpecificAttributeProfileQueryCriteriaResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -399,7 +460,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGVendorSpecificAttributeProfileList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -437,6 +498,6 @@ func (s *WSGVendorSpecificAttributeProfileService) UpdateRkszonesVendorSpecificA
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

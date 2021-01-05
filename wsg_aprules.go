@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGAPRulesApRuleConfiguration
 //
 // Definition: aprules_apRuleConfiguration
@@ -35,6 +40,21 @@ type WSGAPRulesApRuleConfiguration struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type WSGAPRulesApRuleConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAPRulesApRuleConfiguration
+}
+
+func newWSGAPRulesApRuleConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAPRulesApRuleConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAPRulesApRuleConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGAPRulesApRuleConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAPRulesApRuleConfiguration() *WSGAPRulesApRuleConfiguration {
 	m := new(WSGAPRulesApRuleConfiguration)
 	return m
@@ -53,6 +73,21 @@ type WSGAPRulesApRuleList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAPRulesApRuleListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAPRulesApRuleList
+}
+
+func newWSGAPRulesApRuleListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAPRulesApRuleListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAPRulesApRuleListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAPRulesApRuleList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAPRulesApRuleList() *WSGAPRulesApRuleList {
 	m := new(WSGAPRulesApRuleList)
 	return m

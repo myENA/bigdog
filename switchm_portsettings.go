@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -272,6 +273,21 @@ type SwitchMPortSettings struct {
 	VoiceVlanId *int `json:"voiceVlanId,omitempty"`
 }
 
+type SwitchMPortSettingsAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMPortSettings
+}
+
+func newSwitchMPortSettingsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMPortSettingsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMPortSettingsAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMPortSettings)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMPortSettings() *SwitchMPortSettings {
 	m := new(SwitchMPortSettings)
 	return m
@@ -304,6 +320,21 @@ type SwitchMPortSettingsQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMPortSettingsQueryResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMPortSettingsQueryResult
+}
+
+func newSwitchMPortSettingsQueryResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMPortSettingsQueryResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMPortSettingsQueryResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMPortSettingsQueryResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMPortSettingsQueryResult() *SwitchMPortSettingsQueryResult {
 	m := new(SwitchMPortSettingsQueryResult)
 	return m
@@ -427,7 +458,7 @@ func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, bo
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -452,7 +483,7 @@ func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context, mutat
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMPortSettingsQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -482,7 +513,7 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, i
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMPortSettings()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -514,7 +545,7 @@ func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMPortSettingsQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -549,6 +580,6 @@ func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context,
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, err)
 	return rm, err
 }

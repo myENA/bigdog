@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -40,6 +41,21 @@ type SwitchMAAASettingsAAASetting struct {
 	Authorization *SwitchMAAASettingsAAASettingAuthorizationType `json:"authorization,omitempty"`
 }
 
+type SwitchMAAASettingsAAASettingAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMAAASettingsAAASetting
+}
+
+func newSwitchMAAASettingsAAASettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMAAASettingsAAASettingAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMAAASettingsAAASettingAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMAAASettingsAAASetting)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMAAASettingsAAASetting() *SwitchMAAASettingsAAASetting {
 	m := new(SwitchMAAASettingsAAASetting)
 	return m
@@ -273,7 +289,7 @@ func (s *SwitchMAAASettingsService) FindGroupAaaSettingsByGroupId(ctx context.Co
 	req.PathParams.Set("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMAAASettingsAAASetting()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -308,6 +324,6 @@ func (s *SwitchMAAASettingsService) UpdateGroupAaaSettingsByGroupId(ctx context.
 	}
 	req.PathParams.Set("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

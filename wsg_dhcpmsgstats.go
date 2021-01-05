@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGDHCPMessageStatsDhcpMsgStats
 //
 // Definition: dhcpMsgStats_dhcpMsgStats
@@ -34,6 +39,21 @@ type WSGDHCPMessageStatsDhcpMsgStats struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
+type WSGDHCPMessageStatsDhcpMsgStatsAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDHCPMessageStatsDhcpMsgStats
+}
+
+func newWSGDHCPMessageStatsDhcpMsgStatsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDHCPMessageStatsDhcpMsgStatsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDHCPMessageStatsDhcpMsgStatsAPIResponse) Hydrate() error {
+	r.Data = new(WSGDHCPMessageStatsDhcpMsgStats)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDHCPMessageStatsDhcpMsgStats() *WSGDHCPMessageStatsDhcpMsgStats {
 	m := new(WSGDHCPMessageStatsDhcpMsgStats)
 	return m

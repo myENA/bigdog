@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGDPProfileBulkDelete
 //
 // Definition: dpProfile_bulkDelete
@@ -47,6 +52,21 @@ type WSGDPProfileDpDhcpProfileBasicBO struct {
 	SecondaryDnsServer *string `json:"secondaryDnsServer,omitempty"`
 }
 
+type WSGDPProfileDpDhcpProfileBasicBOAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileDpDhcpProfileBasicBO
+}
+
+func newWSGDPProfileDpDhcpProfileBasicBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileDpDhcpProfileBasicBOAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileDpDhcpProfileBasicBOAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileDpDhcpProfileBasicBO)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileDpDhcpProfileBasicBO() *WSGDPProfileDpDhcpProfileBasicBO {
 	m := new(WSGDPProfileDpDhcpProfileBasicBO)
 	return m
@@ -65,6 +85,21 @@ type WSGDPProfileDpDhcpProfileBasicBOList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDPProfileDpDhcpProfileBasicBOListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileDpDhcpProfileBasicBOList
+}
+
+func newWSGDPProfileDpDhcpProfileBasicBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileDpDhcpProfileBasicBOListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileDpDhcpProfileBasicBOListAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileDpDhcpProfileBasicBOList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileDpDhcpProfileBasicBOList() *WSGDPProfileDpDhcpProfileBasicBOList {
 	m := new(WSGDPProfileDpDhcpProfileBasicBOList)
 	return m
@@ -123,6 +158,21 @@ type WSGDPProfileDpDhcpProfileHostBO struct {
 	Routers []string `json:"routers,omitempty"`
 }
 
+type WSGDPProfileDpDhcpProfileHostBOAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileDpDhcpProfileHostBO
+}
+
+func newWSGDPProfileDpDhcpProfileHostBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileDpDhcpProfileHostBOAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileDpDhcpProfileHostBOAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileDpDhcpProfileHostBO)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileDpDhcpProfileHostBO() *WSGDPProfileDpDhcpProfileHostBO {
 	m := new(WSGDPProfileDpDhcpProfileHostBO)
 	return m
@@ -141,6 +191,21 @@ type WSGDPProfileDpDhcpProfileHostBOList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDPProfileDpDhcpProfileHostBOListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileDpDhcpProfileHostBOList
+}
+
+func newWSGDPProfileDpDhcpProfileHostBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileDpDhcpProfileHostBOListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileDpDhcpProfileHostBOListAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileDpDhcpProfileHostBOList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileDpDhcpProfileHostBOList() *WSGDPProfileDpDhcpProfileHostBOList {
 	m := new(WSGDPProfileDpDhcpProfileHostBOList)
 	return m
@@ -209,6 +274,21 @@ type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO struct {
 	SpaceId *string `json:"spaceId,omitempty"`
 }
 
+type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO
+}
+
+func newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBO() *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO {
 	m := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO)
 	return m
@@ -227,6 +307,21 @@ type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList
+}
+
+func newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList() *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList {
 	m := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList)
 	return m
@@ -357,6 +452,21 @@ type WSGDPProfileDpDhcpProfilePoolBO struct {
 	VlanRange *string `json:"vlanRange,omitempty"`
 }
 
+type WSGDPProfileDpDhcpProfilePoolBOAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileDpDhcpProfilePoolBO
+}
+
+func newWSGDPProfileDpDhcpProfilePoolBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileDpDhcpProfilePoolBOAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileDpDhcpProfilePoolBOAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileDpDhcpProfilePoolBO)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileDpDhcpProfilePoolBO() *WSGDPProfileDpDhcpProfilePoolBO {
 	m := new(WSGDPProfileDpDhcpProfilePoolBO)
 	return m
@@ -375,6 +485,21 @@ type WSGDPProfileDpDhcpProfilePoolBOList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDPProfileDpDhcpProfilePoolBOListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileDpDhcpProfilePoolBOList
+}
+
+func newWSGDPProfileDpDhcpProfilePoolBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileDpDhcpProfilePoolBOListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileDpDhcpProfilePoolBOListAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileDpDhcpProfilePoolBOList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileDpDhcpProfilePoolBOList() *WSGDPProfileDpDhcpProfilePoolBOList {
 	m := new(WSGDPProfileDpDhcpProfilePoolBOList)
 	return m
@@ -433,6 +558,21 @@ type WSGDPProfileDpNatProfileBasicBO struct {
 	SecondaryNatDefaultRouteGateway *string `json:"secondaryNatDefaultRouteGateway,omitempty"`
 }
 
+type WSGDPProfileDpNatProfileBasicBOAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileDpNatProfileBasicBO
+}
+
+func newWSGDPProfileDpNatProfileBasicBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileDpNatProfileBasicBOAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileDpNatProfileBasicBOAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileDpNatProfileBasicBO)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileDpNatProfileBasicBO() *WSGDPProfileDpNatProfileBasicBO {
 	m := new(WSGDPProfileDpNatProfileBasicBO)
 	return m
@@ -451,6 +591,21 @@ type WSGDPProfileDpNatProfileBasicBOList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDPProfileDpNatProfileBasicBOListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileDpNatProfileBasicBOList
+}
+
+func newWSGDPProfileDpNatProfileBasicBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileDpNatProfileBasicBOListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileDpNatProfileBasicBOListAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileDpNatProfileBasicBOList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileDpNatProfileBasicBOList() *WSGDPProfileDpNatProfileBasicBOList {
 	m := new(WSGDPProfileDpNatProfileBasicBOList)
 	return m
@@ -501,6 +656,21 @@ type WSGDPProfileDpNatProfilePoolBO struct {
 	PublicVlan *int `json:"publicVlan,omitempty"`
 }
 
+type WSGDPProfileDpNatProfilePoolBOAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileDpNatProfilePoolBO
+}
+
+func newWSGDPProfileDpNatProfilePoolBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileDpNatProfilePoolBOAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileDpNatProfilePoolBOAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileDpNatProfilePoolBO)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileDpNatProfilePoolBO() *WSGDPProfileDpNatProfilePoolBO {
 	m := new(WSGDPProfileDpNatProfilePoolBO)
 	return m
@@ -519,6 +689,21 @@ type WSGDPProfileDpNatProfilePoolBOList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDPProfileDpNatProfilePoolBOListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileDpNatProfilePoolBOList
+}
+
+func newWSGDPProfileDpNatProfilePoolBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileDpNatProfilePoolBOListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileDpNatProfilePoolBOListAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileDpNatProfilePoolBOList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileDpNatProfilePoolBOList() *WSGDPProfileDpNatProfilePoolBOList {
 	m := new(WSGDPProfileDpNatProfilePoolBOList)
 	return m
@@ -597,6 +782,21 @@ type WSGDPProfileSettingBO struct {
 	NatProfileName *string `json:"natProfileName,omitempty"`
 }
 
+type WSGDPProfileSettingBOAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileSettingBO
+}
+
+func newWSGDPProfileSettingBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileSettingBOAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileSettingBOAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileSettingBO)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileSettingBO() *WSGDPProfileSettingBO {
 	m := new(WSGDPProfileSettingBO)
 	return m
@@ -615,6 +815,21 @@ type WSGDPProfileSettingBOList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDPProfileSettingBOListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPProfileSettingBOList
+}
+
+func newWSGDPProfileSettingBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPProfileSettingBOListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPProfileSettingBOListAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPProfileSettingBOList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPProfileSettingBOList() *WSGDPProfileSettingBOList {
 	m := new(WSGDPProfileSettingBOList)
 	return m

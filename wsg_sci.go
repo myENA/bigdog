@@ -196,6 +196,21 @@ type WSGSCIEventCode struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSCIEventCodeAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSCIEventCode
+}
+
+func newWSGSCIEventCodeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSCIEventCodeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSCIEventCodeAPIResponse) Hydrate() error {
+	r.Data = new(WSGSCIEventCode)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSCIEventCode() *WSGSCIEventCode {
 	m := new(WSGSCIEventCode)
 	return m
@@ -256,6 +271,21 @@ type WSGSCIProfile struct {
 	SciUser *string `json:"sciUser,omitempty"`
 }
 
+type WSGSCIProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSCIProfile
+}
+
+func newWSGSCIProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSCIProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSCIProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGSCIProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSCIProfile() *WSGSCIProfile {
 	m := new(WSGSCIProfile)
 	return m
@@ -307,6 +337,21 @@ func (t *WSGSCIProfileList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(tmp)
 }
 
+type WSGSCIProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSCIProfileList
+}
+
+func newWSGSCIProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSCIProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSCIProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSCIProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSCIProfileList() *WSGSCIProfileList {
 	m := new(WSGSCIProfileList)
 	return m
@@ -334,11 +379,11 @@ func NewWSGSCIProfileListExtraType() *WSGSCIProfileListExtraType {
 //
 // Request Body:
 //	 - body *WSGSCIModifyEventCode
-func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModifyEventCode, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModifyEventCode, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -353,8 +398,8 @@ func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModi
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -386,7 +431,7 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -398,11 +443,11 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 //
 // Request Body:
 //	 - body *WSGSCIDeleteSciProfileList
-func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDeleteSciProfileList, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDeleteSciProfileList, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -417,8 +462,8 @@ func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDel
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -447,7 +492,7 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string, 
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, err)
 	return rm, err
 }
 
@@ -472,7 +517,7 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context, mutators ...Req
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCIEventCode()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -497,7 +542,7 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context, mutators ...Reque
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCIProfileList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -527,7 +572,7 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string, mu
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCIProfile()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -539,11 +584,11 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string, mu
 //
 // Request Body:
 //	 - body *WSGSCIModifySciEnabled
-func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WSGSCIModifySciEnabled, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WSGSCIModifySciEnabled, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -558,8 +603,8 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -575,11 +620,11 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body *WSGSCIModifySciProfile, id string, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body *WSGSCIModifySciProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -595,7 +640,7 @@ func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

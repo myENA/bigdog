@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -38,6 +39,21 @@ type SwitchMSwitchStackConfigAuditIdList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchStackConfigAuditIdListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchStackConfigAuditIdList
+}
+
+func newSwitchMSwitchStackConfigAuditIdListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchStackConfigAuditIdListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchStackConfigAuditIdListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchStackConfigAuditIdList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchStackConfigAuditIdList() *SwitchMSwitchStackConfigAuditIdList {
 	m := new(SwitchMSwitchStackConfigAuditIdList)
 	return m
@@ -68,6 +84,21 @@ type SwitchMSwitchStackConfigList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchStackConfigListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchStackConfigList
+}
+
+func newSwitchMSwitchStackConfigListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchStackConfigListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchStackConfigListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchStackConfigList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchStackConfigList() *SwitchMSwitchStackConfigList {
 	m := new(SwitchMSwitchStackConfigList)
 	return m
@@ -208,6 +239,21 @@ type SwitchMSwitchStackConfigStackConfig struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
+type SwitchMSwitchStackConfigStackConfigAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchStackConfigStackConfig
+}
+
+func newSwitchMSwitchStackConfigStackConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchStackConfigStackConfigAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchStackConfigStackConfigAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchStackConfigStackConfig)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchStackConfigStackConfig() *SwitchMSwitchStackConfigStackConfig {
 	m := new(SwitchMSwitchStackConfigStackConfig)
 	return m
@@ -251,7 +297,7 @@ func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body Swi
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchStackConfigAuditIdList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -281,7 +327,7 @@ func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Contex
 	req.PathParams.Set("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchStackConfigStackConfig()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -311,6 +357,6 @@ func (s *SwitchMSwitchStackConfigService) FindStackMemberBySerialNumber(ctx cont
 	req.PathParams.Set("serialNumber", serialNumber)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchStackConfigList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -33,6 +33,21 @@ type SCIReportAirtimeUtilizationReport1overview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAirtimeUtilizationReport1overview200ResponseType
+}
+
+func newSCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAirtimeUtilizationReport1overview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAirtimeUtilizationReport1overview200ResponseType() *SCIReportAirtimeUtilizationReport1overview200ResponseType {
 	m := new(SCIReportAirtimeUtilizationReport1overview200ResponseType)
 	return m
@@ -47,6 +62,21 @@ type SCIReportAirtimeUtilizationReport2topChart200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAirtimeUtilizationReport2topChart200ResponseType
+}
+
+func newSCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAirtimeUtilizationReport2topChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAirtimeUtilizationReport2topChart200ResponseType() *SCIReportAirtimeUtilizationReport2topChart200ResponseType {
 	m := new(SCIReportAirtimeUtilizationReport2topChart200ResponseType)
 	return m
@@ -61,6 +91,21 @@ type SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType str
 	Metadata *SCIAirtimeUtilizationReport3topAPsByAirtime24TableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType
+}
+
+func newSCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType() *SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType {
 	m := new(SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType)
 	return m
@@ -75,6 +120,21 @@ type SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType stru
 	Metadata *SCIAirtimeUtilizationReport4topAPsByAirtime5TableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType
+}
+
+func newSCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType() *SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType {
 	m := new(SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType)
 	return m
@@ -89,6 +149,21 @@ type SCIReportAirtimeUtilizationReport5trendChart200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAirtimeUtilizationReport5trendChart200ResponseType
+}
+
+func newSCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAirtimeUtilizationReport5trendChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAirtimeUtilizationReport5trendChart200ResponseType() *SCIReportAirtimeUtilizationReport5trendChart200ResponseType {
 	m := new(SCIReportAirtimeUtilizationReport5trendChart200ResponseType)
 	return m
@@ -103,6 +178,21 @@ type SCIReportAirtimeUtilizationReport6trendTable200ResponseType struct {
 	Metadata *SCIAirtimeUtilizationReport6trendTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAirtimeUtilizationReport6trendTable200ResponseType
+}
+
+func newSCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAirtimeUtilizationReport6trendTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAirtimeUtilizationReport6trendTable200ResponseType() *SCIReportAirtimeUtilizationReport6trendTable200ResponseType {
 	m := new(SCIReportAirtimeUtilizationReport6trendTable200ResponseType)
 	return m
@@ -117,6 +207,21 @@ type SCIReportAPDetailsReport5trendChart200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport5trendChart200ResponseType
+}
+
+func newSCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport5trendChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport5trendChart200ResponseType() *SCIReportAPDetailsReport5trendChart200ResponseType {
 	m := new(SCIReportAPDetailsReport5trendChart200ResponseType)
 	return m
@@ -131,6 +236,21 @@ type SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType st
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType
+}
+
+func newSCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType() *SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType {
 	m := new(SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType)
 	return m
@@ -145,6 +265,21 @@ type SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType struct {
 	Metadata *SCIAPDetailsReport8topAppsByTrafficTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType
+}
+
+func newSCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType() *SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType {
 	m := new(SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType)
 	return m
@@ -159,6 +294,21 @@ type SCIReportAPDetailsReport14topTable200ResponseType struct {
 	Metadata *SCIAPDetailsReport14topTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport14topTable200ResponseType
+}
+
+func newSCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport14topTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport14topTable200ResponseType() *SCIReportAPDetailsReport14topTable200ResponseType {
 	m := new(SCIReportAPDetailsReport14topTable200ResponseType)
 	return m
@@ -173,6 +323,21 @@ type SCIReportAPDetailsReport15trendChart200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport15trendChart200ResponseType
+}
+
+func newSCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport15trendChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport15trendChart200ResponseType() *SCIReportAPDetailsReport15trendChart200ResponseType {
 	m := new(SCIReportAPDetailsReport15trendChart200ResponseType)
 	return m
@@ -187,6 +352,21 @@ type SCIReportAPDetailsReport22trafficTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport22trafficTrend200ResponseType
+}
+
+func newSCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport22trafficTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport22trafficTrend200ResponseType() *SCIReportAPDetailsReport22trafficTrend200ResponseType {
 	m := new(SCIReportAPDetailsReport22trafficTrend200ResponseType)
 	return m
@@ -201,6 +381,21 @@ type SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType struct {
 	Metadata *SCIAPDetailsReport40topSsidsByTrafficTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType
+}
+
+func newSCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType() *SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType {
 	m := new(SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType)
 	return m
@@ -215,6 +410,21 @@ type SCIReportAPDetailsReport75apSummary200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport75apSummary200ResponseType
+}
+
+func newSCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport75apSummary200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport75apSummary200ResponseType() *SCIReportAPDetailsReport75apSummary200ResponseType {
 	m := new(SCIReportAPDetailsReport75apSummary200ResponseType)
 	return m
@@ -229,6 +439,21 @@ type SCIReportAPDetailsReport76apPerformance200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport76apPerformance200ResponseType
+}
+
+func newSCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport76apPerformance200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport76apPerformance200ResponseType() *SCIReportAPDetailsReport76apPerformance200ResponseType {
 	m := new(SCIReportAPDetailsReport76apPerformance200ResponseType)
 	return m
@@ -243,6 +468,21 @@ type SCIReportAPDetailsReport77apDetails200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport77apDetails200ResponseType
+}
+
+func newSCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport77apDetails200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport77apDetails200ResponseType() *SCIReportAPDetailsReport77apDetails200ResponseType {
 	m := new(SCIReportAPDetailsReport77apDetails200ResponseType)
 	return m
@@ -257,6 +497,21 @@ type SCIReportAPDetailsReport78apStatsOverview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport78apStatsOverview200ResponseType
+}
+
+func newSCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport78apStatsOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport78apStatsOverview200ResponseType() *SCIReportAPDetailsReport78apStatsOverview200ResponseType {
 	m := new(SCIReportAPDetailsReport78apStatsOverview200ResponseType)
 	return m
@@ -271,6 +526,21 @@ type SCIReportAPDetailsReport79apUptimeHistory200ResponseType struct {
 	Metadata *SCIAPDetailsReport79apUptimeHistoryMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport79apUptimeHistory200ResponseType
+}
+
+func newSCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport79apUptimeHistory200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport79apUptimeHistory200ResponseType() *SCIReportAPDetailsReport79apUptimeHistory200ResponseType {
 	m := new(SCIReportAPDetailsReport79apUptimeHistory200ResponseType)
 	return m
@@ -285,6 +555,21 @@ type SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType struct
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType
+}
+
+func newSCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType() *SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType {
 	m := new(SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType)
 	return m
@@ -299,6 +584,21 @@ type SCIReportAPDetailsReport81sessionsTable200ResponseType struct {
 	Metadata *SCIAPDetailsReport81sessionsTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport81sessionsTable200ResponseType
+}
+
+func newSCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport81sessionsTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport81sessionsTable200ResponseType() *SCIReportAPDetailsReport81sessionsTable200ResponseType {
 	m := new(SCIReportAPDetailsReport81sessionsTable200ResponseType)
 	return m
@@ -313,6 +613,21 @@ type SCIReportAPDetailsReport82rssTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport82rssTrend200ResponseType
+}
+
+func newSCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport82rssTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport82rssTrend200ResponseType() *SCIReportAPDetailsReport82rssTrend200ResponseType {
 	m := new(SCIReportAPDetailsReport82rssTrend200ResponseType)
 	return m
@@ -327,6 +642,21 @@ type SCIReportAPDetailsReport83snrTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport83snrTrend200ResponseType
+}
+
+func newSCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport83snrTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport83snrTrend200ResponseType() *SCIReportAPDetailsReport83snrTrend200ResponseType {
 	m := new(SCIReportAPDetailsReport83snrTrend200ResponseType)
 	return m
@@ -341,6 +671,21 @@ type SCIReportAPDetailsReport84alarmsTable200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport84alarmsTable200ResponseType
+}
+
+func newSCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport84alarmsTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport84alarmsTable200ResponseType() *SCIReportAPDetailsReport84alarmsTable200ResponseType {
 	m := new(SCIReportAPDetailsReport84alarmsTable200ResponseType)
 	return m
@@ -355,6 +700,21 @@ type SCIReportAPDetailsReport85eventsTable200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport85eventsTable200ResponseType
+}
+
+func newSCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport85eventsTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport85eventsTable200ResponseType() *SCIReportAPDetailsReport85eventsTable200ResponseType {
 	m := new(SCIReportAPDetailsReport85eventsTable200ResponseType)
 	return m
@@ -369,6 +729,21 @@ type SCIReportAPDetailsReport95anomalies200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport95anomalies200ResponseType
+}
+
+func newSCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport95anomalies200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport95anomalies200ResponseType() *SCIReportAPDetailsReport95anomalies200ResponseType {
 	m := new(SCIReportAPDetailsReport95anomalies200ResponseType)
 	return m
@@ -383,6 +758,21 @@ type SCIReportAPDetailsReport110apAnomaly200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPDetailsReport110apAnomaly200ResponseType
+}
+
+func newSCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPDetailsReport110apAnomaly200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPDetailsReport110apAnomaly200ResponseType() *SCIReportAPDetailsReport110apAnomaly200ResponseType {
 	m := new(SCIReportAPDetailsReport110apAnomaly200ResponseType)
 	return m
@@ -397,6 +787,21 @@ type SCIReportAPsRebootReport43totalReboots200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPsRebootReport43totalReboots200ResponseType
+}
+
+func newSCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPsRebootReport43totalReboots200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPsRebootReport43totalReboots200ResponseType() *SCIReportAPsRebootReport43totalReboots200ResponseType {
 	m := new(SCIReportAPsRebootReport43totalReboots200ResponseType)
 	return m
@@ -411,6 +816,21 @@ type SCIReportAPsRebootReport44topApRebootsTable200ResponseType struct {
 	Metadata *SCIAPsRebootReport44topApRebootsTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPsRebootReport44topApRebootsTable200ResponseType
+}
+
+func newSCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPsRebootReport44topApRebootsTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPsRebootReport44topApRebootsTable200ResponseType() *SCIReportAPsRebootReport44topApRebootsTable200ResponseType {
 	m := new(SCIReportAPsRebootReport44topApRebootsTable200ResponseType)
 	return m
@@ -425,6 +845,21 @@ type SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType
+}
+
+func newSCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportAPsRebootReport45topApRebootsOverTime200ResponseType() *SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType {
 	m := new(SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType)
 	return m
@@ -439,6 +874,21 @@ type SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseTyp
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType
+}
+
+func newSCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType() *SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType {
 	m := new(SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType)
 	return m
@@ -453,6 +903,21 @@ type SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType struct {
 	Metadata *SCIClientDetailsReport8topAppsByTrafficTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType
+}
+
+func newSCIReportClientDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType() *SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType {
 	m := new(SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType)
 	return m
@@ -467,6 +932,21 @@ type SCIReportClientDetailsReport82rssTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportClientDetailsReport82rssTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportClientDetailsReport82rssTrend200ResponseType
+}
+
+func newSCIReportClientDetailsReport82rssTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportClientDetailsReport82rssTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportClientDetailsReport82rssTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportClientDetailsReport82rssTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportClientDetailsReport82rssTrend200ResponseType() *SCIReportClientDetailsReport82rssTrend200ResponseType {
 	m := new(SCIReportClientDetailsReport82rssTrend200ResponseType)
 	return m
@@ -481,6 +961,21 @@ type SCIReportClientDetailsReport83snrTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportClientDetailsReport83snrTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportClientDetailsReport83snrTrend200ResponseType
+}
+
+func newSCIReportClientDetailsReport83snrTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportClientDetailsReport83snrTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportClientDetailsReport83snrTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportClientDetailsReport83snrTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportClientDetailsReport83snrTrend200ResponseType() *SCIReportClientDetailsReport83snrTrend200ResponseType {
 	m := new(SCIReportClientDetailsReport83snrTrend200ResponseType)
 	return m
@@ -495,6 +990,21 @@ type SCIReportClientDetailsReport86summary200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportClientDetailsReport86summary200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportClientDetailsReport86summary200ResponseType
+}
+
+func newSCIReportClientDetailsReport86summary200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportClientDetailsReport86summary200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportClientDetailsReport86summary200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportClientDetailsReport86summary200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportClientDetailsReport86summary200ResponseType() *SCIReportClientDetailsReport86summary200ResponseType {
 	m := new(SCIReportClientDetailsReport86summary200ResponseType)
 	return m
@@ -509,6 +1019,21 @@ type SCIReportClientDetailsReport87clientStats200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportClientDetailsReport87clientStats200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportClientDetailsReport87clientStats200ResponseType
+}
+
+func newSCIReportClientDetailsReport87clientStats200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportClientDetailsReport87clientStats200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportClientDetailsReport87clientStats200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportClientDetailsReport87clientStats200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportClientDetailsReport87clientStats200ResponseType() *SCIReportClientDetailsReport87clientStats200ResponseType {
 	m := new(SCIReportClientDetailsReport87clientStats200ResponseType)
 	return m
@@ -523,6 +1048,21 @@ type SCIReportClientDetailsReport89trafficTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportClientDetailsReport89trafficTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportClientDetailsReport89trafficTrend200ResponseType
+}
+
+func newSCIReportClientDetailsReport89trafficTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportClientDetailsReport89trafficTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportClientDetailsReport89trafficTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportClientDetailsReport89trafficTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportClientDetailsReport89trafficTrend200ResponseType() *SCIReportClientDetailsReport89trafficTrend200ResponseType {
 	m := new(SCIReportClientDetailsReport89trafficTrend200ResponseType)
 	return m
@@ -537,6 +1077,21 @@ type SCIReportClientDetailsReport92sessionsTable200ResponseType struct {
 	Metadata *SCIClientDetailsReport92sessionsTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportClientDetailsReport92sessionsTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportClientDetailsReport92sessionsTable200ResponseType
+}
+
+func newSCIReportClientDetailsReport92sessionsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportClientDetailsReport92sessionsTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportClientDetailsReport92sessionsTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportClientDetailsReport92sessionsTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportClientDetailsReport92sessionsTable200ResponseType() *SCIReportClientDetailsReport92sessionsTable200ResponseType {
 	m := new(SCIReportClientDetailsReport92sessionsTable200ResponseType)
 	return m
@@ -551,6 +1106,21 @@ type SCIReportClientHealthReport144clientHealthSummary200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportClientHealthReport144clientHealthSummary200ResponseType
+}
+
+func newSCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportClientHealthReport144clientHealthSummary200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportClientHealthReport144clientHealthSummary200ResponseType() *SCIReportClientHealthReport144clientHealthSummary200ResponseType {
 	m := new(SCIReportClientHealthReport144clientHealthSummary200ResponseType)
 	return m
@@ -565,6 +1135,21 @@ type SCIReportClientHealthReport148clientConnectionHealth200ResponseType struct 
 	Metadata *SCIClientHealthReport148clientConnectionHealthMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportClientHealthReport148clientConnectionHealth200ResponseType
+}
+
+func newSCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportClientHealthReport148clientConnectionHealth200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportClientHealthReport148clientConnectionHealth200ResponseType() *SCIReportClientHealthReport148clientConnectionHealth200ResponseType {
 	m := new(SCIReportClientHealthReport148clientConnectionHealth200ResponseType)
 	return m
@@ -579,6 +1164,21 @@ type SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType struc
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType
+}
+
+func newSCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportClientHealthReport149clientHealthMetricTrends200ResponseType() *SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType {
 	m := new(SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType)
 	return m
@@ -593,6 +1193,21 @@ type SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType st
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType
+}
+
+func newSCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType() *SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType {
 	m := new(SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType)
 	return m
@@ -607,6 +1222,21 @@ type SCIReportComparisonReport140comparisionOverview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportComparisonReport140comparisionOverview200ResponseType
+}
+
+func newSCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportComparisonReport140comparisionOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportComparisonReport140comparisionOverview200ResponseType() *SCIReportComparisonReport140comparisionOverview200ResponseType {
 	m := new(SCIReportComparisonReport140comparisionOverview200ResponseType)
 	return m
@@ -621,6 +1251,21 @@ type SCIReportComparisonReport145comparisionMetric1200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportComparisonReport145comparisionMetric1200ResponseType
+}
+
+func newSCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportComparisonReport145comparisionMetric1200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportComparisonReport145comparisionMetric1200ResponseType() *SCIReportComparisonReport145comparisionMetric1200ResponseType {
 	m := new(SCIReportComparisonReport145comparisionMetric1200ResponseType)
 	return m
@@ -635,6 +1280,21 @@ type SCIReportComparisonReport146comparisionMetric2200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportComparisonReport146comparisionMetric2200ResponseType
+}
+
+func newSCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportComparisonReport146comparisionMetric2200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportComparisonReport146comparisionMetric2200ResponseType() *SCIReportComparisonReport146comparisionMetric2200ResponseType {
 	m := new(SCIReportComparisonReport146comparisionMetric2200ResponseType)
 	return m
@@ -649,6 +1309,21 @@ type SCIReportComparisonReport147comparisionTable200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportComparisonReport147comparisionTable200ResponseType
+}
+
+func newSCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportComparisonReport147comparisionTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportComparisonReport147comparisionTable200ResponseType() *SCIReportComparisonReport147comparisionTable200ResponseType {
 	m := new(SCIReportComparisonReport147comparisionTable200ResponseType)
 	return m
@@ -673,6 +1348,21 @@ type SCIReportGetData200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportGetData200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportGetData200ResponseType
+}
+
+func newSCIReportGetData200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportGetData200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportGetData200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportGetData200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportGetData200ResponseType() *SCIReportGetData200ResponseType {
 	m := new(SCIReportGetData200ResponseType)
 	return m
@@ -687,6 +1377,21 @@ type SCIReportInventoryAPsReport46apInventoryOverview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport46apInventoryOverview200ResponseType
+}
+
+func newSCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport46apInventoryOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport46apInventoryOverview200ResponseType() *SCIReportInventoryAPsReport46apInventoryOverview200ResponseType {
 	m := new(SCIReportInventoryAPsReport46apInventoryOverview200ResponseType)
 	return m
@@ -701,6 +1406,21 @@ type SCIReportInventoryAPsReport47topApsDisconnection200ResponseType struct {
 	Metadata *SCIInventoryAPsReport47topApsDisconnectionMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport47topApsDisconnection200ResponseType
+}
+
+func newSCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport47topApsDisconnection200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport47topApsDisconnection200ResponseType() *SCIReportInventoryAPsReport47topApsDisconnection200ResponseType {
 	m := new(SCIReportInventoryAPsReport47topApsDisconnection200ResponseType)
 	return m
@@ -715,6 +1435,21 @@ type SCIReportInventoryAPsReport48apCountTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport48apCountTrend200ResponseType
+}
+
+func newSCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport48apCountTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport48apCountTrend200ResponseType() *SCIReportInventoryAPsReport48apCountTrend200ResponseType {
 	m := new(SCIReportInventoryAPsReport48apCountTrend200ResponseType)
 	return m
@@ -729,6 +1464,21 @@ type SCIReportInventoryAPsReport49apStatusTrend200ResponseType struct {
 	Metadata *SCIInventoryAPsReport49apStatusTrendMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport49apStatusTrend200ResponseType
+}
+
+func newSCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport49apStatusTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport49apStatusTrend200ResponseType() *SCIReportInventoryAPsReport49apStatusTrend200ResponseType {
 	m := new(SCIReportInventoryAPsReport49apStatusTrend200ResponseType)
 	return m
@@ -743,6 +1493,21 @@ type SCIReportInventoryAPsReport50topApsModelsChart200ResponseType struct {
 	Metadata *SCIInventoryAPsReport50topApsModelsChartMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport50topApsModelsChart200ResponseType
+}
+
+func newSCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport50topApsModelsChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport50topApsModelsChart200ResponseType() *SCIReportInventoryAPsReport50topApsModelsChart200ResponseType {
 	m := new(SCIReportInventoryAPsReport50topApsModelsChart200ResponseType)
 	return m
@@ -757,6 +1522,21 @@ type SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType struct {
 	Metadata *SCIInventoryAPsReport51top10ApVersionsChartMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType
+}
+
+func newSCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType() *SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType {
 	m := new(SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType)
 	return m
@@ -771,6 +1551,21 @@ type SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType struct {
 	Metadata *SCIInventoryAPsReport52topApsRebootReasonsMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType
+}
+
+func newSCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport52topApsRebootReasons200ResponseType() *SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType {
 	m := new(SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType)
 	return m
@@ -785,6 +1580,21 @@ type SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType struct {
 	Metadata *SCIInventoryAPsReport53top10ApsRebootCountsMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType
+}
+
+func newSCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType() *SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType {
 	m := new(SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType)
 	return m
@@ -799,6 +1609,21 @@ type SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType struct {
 	Metadata *SCIInventoryAPsReport54topApAlarmTypesMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType
+}
+
+func newSCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport54topApAlarmTypes200ResponseType() *SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType {
 	m := new(SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType)
 	return m
@@ -813,6 +1638,21 @@ type SCIReportInventoryAPsReport55topAPModels200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport55topAPModels200ResponseType
+}
+
+func newSCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport55topAPModels200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport55topAPModels200ResponseType() *SCIReportInventoryAPsReport55topAPModels200ResponseType {
 	m := new(SCIReportInventoryAPsReport55topAPModels200ResponseType)
 	return m
@@ -827,6 +1667,21 @@ type SCIReportInventoryAPsReport56topAPVersions200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport56topAPVersions200ResponseType
+}
+
+func newSCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport56topAPVersions200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport56topAPVersions200ResponseType() *SCIReportInventoryAPsReport56topAPVersions200ResponseType {
 	m := new(SCIReportInventoryAPsReport56topAPVersions200ResponseType)
 	return m
@@ -841,6 +1696,21 @@ type SCIReportInventoryAPsReport57topAPsOffline200ResponseType struct {
 	Metadata *SCIInventoryAPsReport57topAPsOfflineMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport57topAPsOffline200ResponseType
+}
+
+func newSCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport57topAPsOffline200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport57topAPsOffline200ResponseType() *SCIReportInventoryAPsReport57topAPsOffline200ResponseType {
 	m := new(SCIReportInventoryAPsReport57topAPsOffline200ResponseType)
 	return m
@@ -855,6 +1725,21 @@ type SCIReportInventoryAPsReport58topAPsByReboots200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport58topAPsByReboots200ResponseType
+}
+
+func newSCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport58topAPsByReboots200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport58topAPsByReboots200ResponseType() *SCIReportInventoryAPsReport58topAPsByReboots200ResponseType {
 	m := new(SCIReportInventoryAPsReport58topAPsByReboots200ResponseType)
 	return m
@@ -869,6 +1754,21 @@ type SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType struct
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType
+}
+
+func newSCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType() *SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType {
 	m := new(SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType)
 	return m
@@ -883,6 +1783,21 @@ type SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType struct
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType
+}
+
+func newSCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType() *SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType {
 	m := new(SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType)
 	return m
@@ -897,6 +1812,21 @@ type SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType
+}
+
+func newSCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType() *SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType {
 	m := new(SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType)
 	return m
@@ -911,6 +1841,21 @@ type SCIReportInventoryControllersReport96krack200ResponseType struct {
 	Metadata *SCIInventoryControllersReport96krackMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryControllersReport96krack200ResponseType
+}
+
+func newSCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryControllersReport96krack200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryControllersReport96krack200ResponseType() *SCIReportInventoryControllersReport96krack200ResponseType {
 	m := new(SCIReportInventoryControllersReport96krack200ResponseType)
 	return m
@@ -925,6 +1870,21 @@ type SCIReportInventoryControllersReport98resourceUtilization200ResponseType str
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryControllersReport98resourceUtilization200ResponseType
+}
+
+func newSCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryControllersReport98resourceUtilization200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryControllersReport98resourceUtilization200ResponseType() *SCIReportInventoryControllersReport98resourceUtilization200ResponseType {
 	m := new(SCIReportInventoryControllersReport98resourceUtilization200ResponseType)
 	return m
@@ -939,6 +1899,21 @@ type SCIReportInventoryControllersReport99licenseUtilization200ResponseType stru
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryControllersReport99licenseUtilization200ResponseType
+}
+
+func newSCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryControllersReport99licenseUtilization200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryControllersReport99licenseUtilization200ResponseType() *SCIReportInventoryControllersReport99licenseUtilization200ResponseType {
 	m := new(SCIReportInventoryControllersReport99licenseUtilization200ResponseType)
 	return m
@@ -953,8 +1928,52 @@ type SCIReportInventoryControllersReport114controllerInventoryOverview200Respons
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType
+}
+
+func newSCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType() *SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType {
 	m := new(SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType)
+	return m
+}
+
+// SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType
+//
+// Definition: report_InventoryControllersReport_151_licenseUtilizationOverTimeChart200ResponseType
+type SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType struct {
+	Data SCIInventoryControllersReport151licenseUtilizationOverTimeChartData `json:"data,omitempty"`
+
+	Metadata *SCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData `json:"metadata,omitempty"`
+}
+
+type SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType
+}
+
+func newSCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
+func NewSCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType() *SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType {
+	m := new(SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType)
 	return m
 }
 
@@ -967,6 +1986,21 @@ type SCIReportInventorySwitchesReport113overview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventorySwitchesReport113overview200ResponseType
+}
+
+func newSCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventorySwitchesReport113overview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventorySwitchesReport113overview200ResponseType() *SCIReportInventorySwitchesReport113overview200ResponseType {
 	m := new(SCIReportInventorySwitchesReport113overview200ResponseType)
 	return m
@@ -981,6 +2015,21 @@ type SCIReportInventorySwitchesReport116switchCountTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventorySwitchesReport116switchCountTrend200ResponseType
+}
+
+func newSCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventorySwitchesReport116switchCountTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventorySwitchesReport116switchCountTrend200ResponseType() *SCIReportInventorySwitchesReport116switchCountTrend200ResponseType {
 	m := new(SCIReportInventorySwitchesReport116switchCountTrend200ResponseType)
 	return m
@@ -995,6 +2044,21 @@ type SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType s
 	Metadata *SCIInventorySwitchesReport117top10SwitchVersionChartMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType
+}
+
+func newSCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType() *SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType {
 	m := new(SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType)
 	return m
@@ -1009,6 +2073,21 @@ type SCIReportInventorySwitchesReport118topSwitchVersions200ResponseType struct 
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventorySwitchesReport118topSwitchVersions200ResponseType
+}
+
+func newSCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventorySwitchesReport118topSwitchVersions200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventorySwitchesReport118topSwitchVersions200ResponseType() *SCIReportInventorySwitchesReport118topSwitchVersions200ResponseType {
 	m := new(SCIReportInventorySwitchesReport118topSwitchVersions200ResponseType)
 	return m
@@ -1023,6 +2102,21 @@ type SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType stru
 	Metadata *SCIInventorySwitchesReport121topSwitchModelsChartMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType
+}
+
+func newSCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType() *SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType {
 	m := new(SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType)
 	return m
@@ -1037,6 +2131,21 @@ type SCIReportInventorySwitchesReport122topSwitchModels200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventorySwitchesReport122topSwitchModels200ResponseType
+}
+
+func newSCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventorySwitchesReport122topSwitchModels200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventorySwitchesReport122topSwitchModels200ResponseType() *SCIReportInventorySwitchesReport122topSwitchModels200ResponseType {
 	m := new(SCIReportInventorySwitchesReport122topSwitchModels200ResponseType)
 	return m
@@ -1051,6 +2160,21 @@ type SCIReportInventorySwitchesReport132portStatusTrend200ResponseType struct {
 	Metadata *SCIInventorySwitchesReport132portStatusTrendMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportInventorySwitchesReport132portStatusTrend200ResponseType
+}
+
+func newSCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportInventorySwitchesReport132portStatusTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportInventorySwitchesReport132portStatusTrend200ResponseType() *SCIReportInventorySwitchesReport132portStatusTrend200ResponseType {
 	m := new(SCIReportInventorySwitchesReport132portStatusTrend200ResponseType)
 	return m
@@ -1065,6 +2189,21 @@ type SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType struct {
 	Metadata *SCINetworkWiredReport123topSwitchPOEUtilChartMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType
+}
+
+func newSCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType() *SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType {
 	m := new(SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType)
 	return m
@@ -1079,6 +2218,21 @@ type SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType
+}
+
+func newSCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType() *SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType {
 	m := new(SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType)
 	return m
@@ -1093,6 +2247,21 @@ type SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType s
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType
+}
+
+func newSCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType() *SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType {
 	m := new(SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType)
 	return m
@@ -1107,6 +2276,21 @@ type SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType stru
 	Metadata *SCINetworkWiredReport128topSwitchesByTrafficTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType
+}
+
+func newSCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType() *SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType {
 	m := new(SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType)
 	return m
@@ -1121,6 +2305,21 @@ type SCIReportNetworkWiredReport134wiredOverview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWiredReport134wiredOverview200ResponseType
+}
+
+func newSCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWiredReport134wiredOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWiredReport134wiredOverview200ResponseType() *SCIReportNetworkWiredReport134wiredOverview200ResponseType {
 	m := new(SCIReportNetworkWiredReport134wiredOverview200ResponseType)
 	return m
@@ -1135,6 +2334,21 @@ type SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType struc
 	Metadata *SCINetworkWiredReport135wiredTrafficDistributionMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType
+}
+
+func newSCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType() *SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType {
 	m := new(SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType)
 	return m
@@ -1149,6 +2363,21 @@ type SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType
+}
+
+func newSCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWiredReport136switchTrafficTrend200ResponseType() *SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType {
 	m := new(SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType)
 	return m
@@ -1163,6 +2392,21 @@ type SCIReportNetworkWiredReport141switchErrorTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWiredReport141switchErrorTrend200ResponseType
+}
+
+func newSCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWiredReport141switchErrorTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWiredReport141switchErrorTrend200ResponseType() *SCIReportNetworkWiredReport141switchErrorTrend200ResponseType {
 	m := new(SCIReportNetworkWiredReport141switchErrorTrend200ResponseType)
 	return m
@@ -1177,6 +2421,21 @@ type SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType struc
 	Metadata *SCINetworkWiredReport142topSwitchesByErrorsChartMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType
+}
+
+func newSCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType() *SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType {
 	m := new(SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType)
 	return m
@@ -1191,6 +2450,21 @@ type SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType struc
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType
+}
+
+func newSCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType() *SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType {
 	m := new(SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType)
 	return m
@@ -1205,6 +2479,21 @@ type SCIReportNetworkWirelessReport20overview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWirelessReport20overview200ResponseType
+}
+
+func newSCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWirelessReport20overview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWirelessReport20overview200ResponseType() *SCIReportNetworkWirelessReport20overview200ResponseType {
 	m := new(SCIReportNetworkWirelessReport20overview200ResponseType)
 	return m
@@ -1219,6 +2508,21 @@ type SCIReportNetworkWirelessReport21trafficDistribution200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWirelessReport21trafficDistribution200ResponseType
+}
+
+func newSCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWirelessReport21trafficDistribution200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWirelessReport21trafficDistribution200ResponseType() *SCIReportNetworkWirelessReport21trafficDistribution200ResponseType {
 	m := new(SCIReportNetworkWirelessReport21trafficDistribution200ResponseType)
 	return m
@@ -1233,6 +2537,21 @@ type SCIReportNetworkWirelessReport22trafficTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWirelessReport22trafficTrend200ResponseType
+}
+
+func newSCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWirelessReport22trafficTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWirelessReport22trafficTrend200ResponseType() *SCIReportNetworkWirelessReport22trafficTrend200ResponseType {
 	m := new(SCIReportNetworkWirelessReport22trafficTrend200ResponseType)
 	return m
@@ -1247,6 +2566,21 @@ type SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType struct 
 	Metadata *SCINetworkWirelessReport23trafficOverTimeTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType
+}
+
+func newSCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType() *SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType {
 	m := new(SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType)
 	return m
@@ -1261,6 +2595,21 @@ type SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType struct 
 	Metadata *SCINetworkWirelessReport24topAPsByTrafficTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType
+}
+
+func newSCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType() *SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType {
 	m := new(SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType)
 	return m
@@ -1275,6 +2624,21 @@ type SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType struct 
 	Metadata *SCINetworkWirelessReport25topAPsByClientsTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType
+}
+
+func newSCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType() *SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType {
 	m := new(SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType)
 	return m
@@ -1289,6 +2653,21 @@ type SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType stru
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType
+}
+
+func newSCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType() *SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType {
 	m := new(SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType)
 	return m
@@ -1303,6 +2682,21 @@ type SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType struct 
 	Metadata *SCINetworkWirelessReport27top10ApByClientCountMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType
+}
+
+func newSCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType() *SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType {
 	m := new(SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType)
 	return m
@@ -1312,11 +2706,26 @@ func NewSCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType() *S
 //
 // Definition: report_Overview_62_overview200ResponseType
 type SCIReportOverview62overview200ResponseType struct {
-	Data SCIOverview62overviewData `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
 	Metadata *SCIOverview62overviewMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview62overview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview62overview200ResponseType
+}
+
+func newSCIReportOverview62overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview62overview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview62overview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview62overview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview62overview200ResponseType() *SCIReportOverview62overview200ResponseType {
 	m := new(SCIReportOverview62overview200ResponseType)
 	return m
@@ -1331,6 +2740,21 @@ type SCIReportOverview63controller200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview63controller200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview63controller200ResponseType
+}
+
+func newSCIReportOverview63controller200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview63controller200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview63controller200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview63controller200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview63controller200ResponseType() *SCIReportOverview63controller200ResponseType {
 	m := new(SCIReportOverview63controller200ResponseType)
 	return m
@@ -1345,6 +2769,21 @@ type SCIReportOverview64apOverview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview64apOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview64apOverview200ResponseType
+}
+
+func newSCIReportOverview64apOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview64apOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview64apOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview64apOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview64apOverview200ResponseType() *SCIReportOverview64apOverview200ResponseType {
 	m := new(SCIReportOverview64apOverview200ResponseType)
 	return m
@@ -1359,6 +2798,21 @@ type SCIReportOverview66apAlarmOverview200ResponseType struct {
 	Metadata *SCIOverview66apAlarmOverviewMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview66apAlarmOverview200ResponseType
+}
+
+func newSCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview66apAlarmOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview66apAlarmOverview200ResponseType() *SCIReportOverview66apAlarmOverview200ResponseType {
 	m := new(SCIReportOverview66apAlarmOverview200ResponseType)
 	return m
@@ -1373,6 +2827,21 @@ type SCIReportOverview67switchOverview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview67switchOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview67switchOverview200ResponseType
+}
+
+func newSCIReportOverview67switchOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview67switchOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview67switchOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview67switchOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview67switchOverview200ResponseType() *SCIReportOverview67switchOverview200ResponseType {
 	m := new(SCIReportOverview67switchOverview200ResponseType)
 	return m
@@ -1387,6 +2856,21 @@ type SCIReportOverview68apClientCountOverview200ResponseType struct {
 	Metadata *SCIOverview68apClientCountOverviewMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview68apClientCountOverview200ResponseType
+}
+
+func newSCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview68apClientCountOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview68apClientCountOverview200ResponseType() *SCIReportOverview68apClientCountOverview200ResponseType {
 	m := new(SCIReportOverview68apClientCountOverview200ResponseType)
 	return m
@@ -1401,6 +2885,21 @@ type SCIReportOverview69totalTrafficMinMaxRate200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview69totalTrafficMinMaxRate200ResponseType
+}
+
+func newSCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview69totalTrafficMinMaxRate200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview69totalTrafficMinMaxRate200ResponseType() *SCIReportOverview69totalTrafficMinMaxRate200ResponseType {
 	m := new(SCIReportOverview69totalTrafficMinMaxRate200ResponseType)
 	return m
@@ -1415,6 +2914,21 @@ type SCIReportOverview70sessionsOverview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview70sessionsOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview70sessionsOverview200ResponseType
+}
+
+func newSCIReportOverview70sessionsOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview70sessionsOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview70sessionsOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview70sessionsOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview70sessionsOverview200ResponseType() *SCIReportOverview70sessionsOverview200ResponseType {
 	m := new(SCIReportOverview70sessionsOverview200ResponseType)
 	return m
@@ -1429,6 +2943,21 @@ type SCIReportOverview71ssidOverview200ResponseType struct {
 	Metadata *SCIOverview71ssidOverviewMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview71ssidOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview71ssidOverview200ResponseType
+}
+
+func newSCIReportOverview71ssidOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview71ssidOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview71ssidOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview71ssidOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview71ssidOverview200ResponseType() *SCIReportOverview71ssidOverview200ResponseType {
 	m := new(SCIReportOverview71ssidOverview200ResponseType)
 	return m
@@ -1443,6 +2972,21 @@ type SCIReportOverview72radioOverview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview72radioOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview72radioOverview200ResponseType
+}
+
+func newSCIReportOverview72radioOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview72radioOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview72radioOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview72radioOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview72radioOverview200ResponseType() *SCIReportOverview72radioOverview200ResponseType {
 	m := new(SCIReportOverview72radioOverview200ResponseType)
 	return m
@@ -1457,6 +3001,21 @@ type SCIReportOverview73applicationsOverview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview73applicationsOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview73applicationsOverview200ResponseType
+}
+
+func newSCIReportOverview73applicationsOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview73applicationsOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview73applicationsOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview73applicationsOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview73applicationsOverview200ResponseType() *SCIReportOverview73applicationsOverview200ResponseType {
 	m := new(SCIReportOverview73applicationsOverview200ResponseType)
 	return m
@@ -1471,6 +3030,21 @@ type SCIReportOverview74apEventOverview200ResponseType struct {
 	Metadata *SCIOverview74apEventOverviewMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview74apEventOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview74apEventOverview200ResponseType
+}
+
+func newSCIReportOverview74apEventOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview74apEventOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview74apEventOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview74apEventOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview74apEventOverview200ResponseType() *SCIReportOverview74apEventOverview200ResponseType {
 	m := new(SCIReportOverview74apEventOverview200ResponseType)
 	return m
@@ -1485,6 +3059,21 @@ type SCIReportOverview97factOverview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview97factOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview97factOverview200ResponseType
+}
+
+func newSCIReportOverview97factOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview97factOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview97factOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview97factOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview97factOverview200ResponseType() *SCIReportOverview97factOverview200ResponseType {
 	m := new(SCIReportOverview97factOverview200ResponseType)
 	return m
@@ -1499,6 +3088,21 @@ type SCIReportOverview115networkUsageOverview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportOverview115networkUsageOverview200ResponseType
+}
+
+func newSCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportOverview115networkUsageOverview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportOverview115networkUsageOverview200ResponseType() *SCIReportOverview115networkUsageOverview200ResponseType {
 	m := new(SCIReportOverview115networkUsageOverview200ResponseType)
 	return m
@@ -1523,6 +3127,21 @@ type SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType() *SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType)
 	return m
@@ -1537,6 +3156,21 @@ type SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType() *SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType)
 	return m
@@ -1551,6 +3185,21 @@ type SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType() *SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType)
 	return m
@@ -1565,6 +3214,21 @@ type SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType() *SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType)
 	return m
@@ -1579,6 +3243,21 @@ type SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType struct
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType() *SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType)
 	return m
@@ -1593,6 +3272,21 @@ type SCIReportSCNetworkTrafficReport103avgThroughput200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport103avgThroughput200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport103avgThroughput200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport103avgThroughput200ResponseType() *SCIReportSCNetworkTrafficReport103avgThroughput200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport103avgThroughput200ResponseType)
 	return m
@@ -1607,6 +3301,21 @@ type SCIReportSCNetworkTrafficReport104scAvailability200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport104scAvailability200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport104scAvailability200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport104scAvailability200ResponseType() *SCIReportSCNetworkTrafficReport104scAvailability200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport104scAvailability200ResponseType)
 	return m
@@ -1621,6 +3330,21 @@ type SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType struct 
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType() *SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType)
 	return m
@@ -1635,6 +3359,21 @@ type SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType() *SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType)
 	return m
@@ -1649,6 +3388,21 @@ type SCIReportSCNetworkTrafficReport107trafficVolume200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport107trafficVolume200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport107trafficVolume200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport107trafficVolume200ResponseType() *SCIReportSCNetworkTrafficReport107trafficVolume200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport107trafficVolume200ResponseType)
 	return m
@@ -1663,6 +3417,21 @@ type SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType() *SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType)
 	return m
@@ -1677,6 +3446,21 @@ type SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType() *SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType)
 	return m
@@ -1691,6 +3475,21 @@ type SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType
+}
+
+func newSCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType() *SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType)
 	return m
@@ -1728,6 +3527,21 @@ type SCIReportSessionsSummaryReport33topTable200ResponseType struct {
 	Metadata *SCISessionsSummaryReport33topTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSessionsSummaryReport33topTable200ResponseType
+}
+
+func newSCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSessionsSummaryReport33topTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSessionsSummaryReport33topTable200ResponseType() *SCIReportSessionsSummaryReport33topTable200ResponseType {
 	m := new(SCIReportSessionsSummaryReport33topTable200ResponseType)
 	return m
@@ -1742,6 +3556,21 @@ type SCIReportSessionsSummaryReport34overview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSessionsSummaryReport34overview200ResponseType
+}
+
+func newSCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSessionsSummaryReport34overview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSessionsSummaryReport34overview200ResponseType() *SCIReportSessionsSummaryReport34overview200ResponseType {
 	m := new(SCIReportSessionsSummaryReport34overview200ResponseType)
 	return m
@@ -1756,6 +3585,21 @@ type SCIReportSessionsSummaryReport42durationPercentile200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSessionsSummaryReport42durationPercentile200ResponseType
+}
+
+func newSCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSessionsSummaryReport42durationPercentile200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSessionsSummaryReport42durationPercentile200ResponseType() *SCIReportSessionsSummaryReport42durationPercentile200ResponseType {
 	m := new(SCIReportSessionsSummaryReport42durationPercentile200ResponseType)
 	return m
@@ -1770,6 +3614,21 @@ type SCIReportSwitchDetailsReport125switchSummary200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSwitchDetailsReport125switchSummary200ResponseType
+}
+
+func newSCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSwitchDetailsReport125switchSummary200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSwitchDetailsReport125switchSummary200ResponseType() *SCIReportSwitchDetailsReport125switchSummary200ResponseType {
 	m := new(SCIReportSwitchDetailsReport125switchSummary200ResponseType)
 	return m
@@ -1784,6 +3643,21 @@ type SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType str
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType
+}
+
+func newSCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType() *SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType {
 	m := new(SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType)
 	return m
@@ -1798,6 +3672,21 @@ type SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType 
 	Metadata *SCISwitchDetailsReport129topSwitchPortsByTrafficChartMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType
+}
+
+func newSCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType() *SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType {
 	m := new(SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType)
 	return m
@@ -1812,6 +3701,21 @@ type SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType 
 	Metadata *SCISwitchDetailsReport130topSwitchPortsByTrafficTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType
+}
+
+func newSCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType() *SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType {
 	m := new(SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType)
 	return m
@@ -1826,6 +3730,21 @@ type SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType
+}
+
+func newSCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType() *SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType {
 	m := new(SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType)
 	return m
@@ -1840,6 +3759,21 @@ type SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType
+}
+
+func newSCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType() *SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType {
 	m := new(SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType)
 	return m
@@ -1854,6 +3788,21 @@ type SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType struct {
 	Metadata *SCISwitchDetailsReport138switchUptimeHistoryMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType
+}
+
+func newSCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType() *SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType {
 	m := new(SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType)
 	return m
@@ -1868,8 +3817,52 @@ type SCIReportSwitchDetailsReport139switchDetails200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSwitchDetailsReport139switchDetails200ResponseType
+}
+
+func newSCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSwitchDetailsReport139switchDetails200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportSwitchDetailsReport139switchDetails200ResponseType() *SCIReportSwitchDetailsReport139switchDetails200ResponseType {
 	m := new(SCIReportSwitchDetailsReport139switchDetails200ResponseType)
+	return m
+}
+
+// SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType
+//
+// Definition: report_SwitchDetailsReport_152_perSwitchErrorTrend200ResponseType
+type SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType struct {
+	Data SCISwitchDetailsReport152perSwitchErrorTrendData `json:"data,omitempty"`
+
+	Metadata interface{} `json:"metadata,omitempty"`
+}
+
+type SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType
+}
+
+func newSCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
+func NewSCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType() *SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType {
+	m := new(SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType)
 	return m
 }
 
@@ -1882,6 +3875,21 @@ type SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200Resp
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType
+}
+
+func newSCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType() *SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType {
 	m := new(SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType)
 	return m
@@ -1896,6 +3904,21 @@ type SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType st
 	Metadata *SCIWirelessApplicationsReport8topAppsByTrafficTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType
+}
+
+func newSCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType() *SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType {
 	m := new(SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType)
 	return m
@@ -1910,6 +3933,21 @@ type SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType st
 	Metadata *SCIWirelessApplicationsReport9topAppsByClientsTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType
+}
+
+func newSCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType() *SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType {
 	m := new(SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType)
 	return m
@@ -1924,6 +3962,21 @@ type SCIReportWirelessApplicationsReport10overview200ResponseType struct {
 	Metadata *SCIWirelessApplicationsReport10overviewMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessApplicationsReport10overview200ResponseType
+}
+
+func newSCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessApplicationsReport10overview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessApplicationsReport10overview200ResponseType() *SCIReportWirelessApplicationsReport10overview200ResponseType {
 	m := new(SCIReportWirelessApplicationsReport10overview200ResponseType)
 	return m
@@ -1938,6 +3991,21 @@ type SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200Respo
 	Metadata *SCIWirelessApplicationsReport11top10ApplicationsByClientCountMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType
+}
+
+func newSCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType() *SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType {
 	m := new(SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType)
 	return m
@@ -1952,6 +4020,21 @@ type SCIReportWirelessClientsReport12overview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessClientsReport12overview200ResponseType
+}
+
+func newSCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessClientsReport12overview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessClientsReport12overview200ResponseType() *SCIReportWirelessClientsReport12overview200ResponseType {
 	m := new(SCIReportWirelessClientsReport12overview200ResponseType)
 	return m
@@ -1966,6 +4049,21 @@ type SCIReportWirelessClientsReport13topChart200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessClientsReport13topChart200ResponseType
+}
+
+func newSCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessClientsReport13topChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessClientsReport13topChart200ResponseType() *SCIReportWirelessClientsReport13topChart200ResponseType {
 	m := new(SCIReportWirelessClientsReport13topChart200ResponseType)
 	return m
@@ -1980,6 +4078,21 @@ type SCIReportWirelessClientsReport14topTable200ResponseType struct {
 	Metadata *SCIWirelessClientsReport14topTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessClientsReport14topTable200ResponseType
+}
+
+func newSCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessClientsReport14topTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessClientsReport14topTable200ResponseType() *SCIReportWirelessClientsReport14topTable200ResponseType {
 	m := new(SCIReportWirelessClientsReport14topTable200ResponseType)
 	return m
@@ -1994,6 +4107,21 @@ type SCIReportWirelessClientsReport15trendChart200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessClientsReport15trendChart200ResponseType
+}
+
+func newSCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessClientsReport15trendChart200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessClientsReport15trendChart200ResponseType() *SCIReportWirelessClientsReport15trendChart200ResponseType {
 	m := new(SCIReportWirelessClientsReport15trendChart200ResponseType)
 	return m
@@ -2008,6 +4136,21 @@ type SCIReportWirelessClientsReport16trendTable200ResponseType struct {
 	Metadata *SCIWirelessClientsReport16trendTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessClientsReport16trendTable200ResponseType
+}
+
+func newSCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessClientsReport16trendTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessClientsReport16trendTable200ResponseType() *SCIReportWirelessClientsReport16trendTable200ResponseType {
 	m := new(SCIReportWirelessClientsReport16trendTable200ResponseType)
 	return m
@@ -2022,6 +4165,21 @@ type SCIReportWirelessClientsReport17topPercentile200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessClientsReport17topPercentile200ResponseType
+}
+
+func newSCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessClientsReport17topPercentile200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessClientsReport17topPercentile200ResponseType() *SCIReportWirelessClientsReport17topPercentile200ResponseType {
 	m := new(SCIReportWirelessClientsReport17topPercentile200ResponseType)
 	return m
@@ -2036,6 +4194,21 @@ type SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType struct {
 	Metadata *SCIWirelessClientsReport18topNOSByClientCountMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType
+}
+
+func newSCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessClientsReport18topNOSByClientCount200ResponseType() *SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType {
 	m := new(SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType)
 	return m
@@ -2050,6 +4223,21 @@ type SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseT
 	Metadata *SCIWirelessClientsReport19top10ManufacturersByClientCountMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType
+}
+
+func newSCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType() *SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType {
 	m := new(SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType)
 	return m
@@ -2064,6 +4252,21 @@ type SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount2
 	Metadata *SCIWirelessClientsReport112top10AuthenticationMechanismByClientCountMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType
+}
+
+func newSCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType() *SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType {
 	m := new(SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType)
 	return m
@@ -2181,6 +4384,21 @@ func (t *SCIReportWithRelations) MarshalJSON() ([]byte, error) {
 	return json.Marshal(tmp)
 }
 
+type SCIReportWithRelationsAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWithRelations
+}
+
+func newSCIReportWithRelationsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWithRelationsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWithRelationsAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWithRelations)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWithRelations() *SCIReportWithRelations {
 	m := new(SCIReportWithRelations)
 	return m
@@ -2988,6 +5206,21 @@ type SCIReportWLANsReport35overview200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportWLANsReport35overview200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWLANsReport35overview200ResponseType
+}
+
+func newSCIReportWLANsReport35overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWLANsReport35overview200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWLANsReport35overview200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWLANsReport35overview200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWLANsReport35overview200ResponseType() *SCIReportWLANsReport35overview200ResponseType {
 	m := new(SCIReportWLANsReport35overview200ResponseType)
 	return m
@@ -3002,6 +5235,21 @@ type SCIReportWLANsReport36top10SsidsByTraffic200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWLANsReport36top10SsidsByTraffic200ResponseType
+}
+
+func newSCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWLANsReport36top10SsidsByTraffic200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWLANsReport36top10SsidsByTraffic200ResponseType() *SCIReportWLANsReport36top10SsidsByTraffic200ResponseType {
 	m := new(SCIReportWLANsReport36top10SsidsByTraffic200ResponseType)
 	return m
@@ -3016,6 +5264,21 @@ type SCIReportWLANsReport37activeSsidsTrend200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWLANsReport37activeSsidsTrend200ResponseType
+}
+
+func newSCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWLANsReport37activeSsidsTrend200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWLANsReport37activeSsidsTrend200ResponseType() *SCIReportWLANsReport37activeSsidsTrend200ResponseType {
 	m := new(SCIReportWLANsReport37activeSsidsTrend200ResponseType)
 	return m
@@ -3030,6 +5293,21 @@ type SCIReportWLANsReport38top10SsidsByClientCount200ResponseType struct {
 	Metadata *SCIWLANsReport38top10SsidsByClientCountMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWLANsReport38top10SsidsByClientCount200ResponseType
+}
+
+func newSCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWLANsReport38top10SsidsByClientCount200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWLANsReport38top10SsidsByClientCount200ResponseType() *SCIReportWLANsReport38top10SsidsByClientCount200ResponseType {
 	m := new(SCIReportWLANsReport38top10SsidsByClientCount200ResponseType)
 	return m
@@ -3044,6 +5322,21 @@ type SCIReportWLANsReport39ssidChangesOverTime200ResponseType struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 }
 
+type SCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWLANsReport39ssidChangesOverTime200ResponseType
+}
+
+func newSCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWLANsReport39ssidChangesOverTime200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWLANsReport39ssidChangesOverTime200ResponseType() *SCIReportWLANsReport39ssidChangesOverTime200ResponseType {
 	m := new(SCIReportWLANsReport39ssidChangesOverTime200ResponseType)
 	return m
@@ -3058,6 +5351,21 @@ type SCIReportWLANsReport40topSsidsByTrafficTable200ResponseType struct {
 	Metadata *SCIWLANsReport40topSsidsByTrafficTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWLANsReport40topSsidsByTrafficTable200ResponseType
+}
+
+func newSCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWLANsReport40topSsidsByTrafficTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWLANsReport40topSsidsByTrafficTable200ResponseType() *SCIReportWLANsReport40topSsidsByTrafficTable200ResponseType {
 	m := new(SCIReportWLANsReport40topSsidsByTrafficTable200ResponseType)
 	return m
@@ -3072,6 +5380,21 @@ type SCIReportWLANsReport41topSsidsByClientsTable200ResponseType struct {
 	Metadata *SCIWLANsReport41topSsidsByClientsTableMetaData `json:"metadata,omitempty"`
 }
 
+type SCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIReportWLANsReport41topSsidsByClientsTable200ResponseType
+}
+
+func newSCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = new(SCIReportWLANsReport41topSsidsByClientsTable200ResponseType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIReportWLANsReport41topSsidsByClientsTable200ResponseType() *SCIReportWLANsReport41topSsidsByClientsTable200ResponseType {
 	m := new(SCIReportWLANsReport41topSsidsByClientsTable200ResponseType)
 	return m
@@ -3112,7 +5435,7 @@ func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues 
 	req.PathParams.Set("format", format)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -3144,7 +5467,7 @@ func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[st
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIReportFind200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
 
@@ -3181,7 +5504,7 @@ func (s *SCIReportService) ReportFindById(ctx context.Context, id string, option
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsReport()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -3236,7 +5559,30 @@ func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Val
 	req.PathParams.Set("sectionId", sectionId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportGetData200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
+}
+
+// ReportLatestIngestedTime
+//
+// Operation ID: report_latestIngestedTime
+func (s *SCIReportService) ReportLatestIngestedTime(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *RawAPIResponse
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = apiRequestFromPool(http.MethodGet, RouteSCIReportLatestIngestedTime, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -3273,7 +5619,7 @@ func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id st
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCIReportPrototypegetsections200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
 
@@ -3305,6 +5651,6 @@ func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentNa
 	req.QueryParams.Set("urlSegmentName", urlSegmentName)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWithRelations()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

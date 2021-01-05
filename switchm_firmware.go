@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"io"
 	"net/http"
 )
@@ -49,6 +50,21 @@ type SwitchMFirmwareConfigFirmwaresQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMFirmwareConfigFirmwaresQueryResultList
+}
+
+func newSwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMFirmwareConfigFirmwaresQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMFirmwareConfigFirmwaresQueryResultList() *SwitchMFirmwareConfigFirmwaresQueryResultList {
 	m := new(SwitchMFirmwareConfigFirmwaresQueryResultList)
 	return m
@@ -81,6 +97,21 @@ type SwitchMFirmwareConfigScheduleIds struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMFirmwareConfigScheduleIdsAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMFirmwareConfigScheduleIds
+}
+
+func newSwitchMFirmwareConfigScheduleIdsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMFirmwareConfigScheduleIdsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMFirmwareConfigScheduleIdsAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMFirmwareConfigScheduleIds)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMFirmwareConfigScheduleIds() *SwitchMFirmwareConfigScheduleIds {
 	m := new(SwitchMFirmwareConfigScheduleIds)
 	return m
@@ -148,7 +179,7 @@ func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *Sw
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMFirmwareConfigFirmwaresQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -161,11 +192,11 @@ func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *Sw
 // Form Data Parameters:
 // - uploadFile io.Reader
 //		- required
-func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -181,8 +212,8 @@ func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, fi
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -195,11 +226,11 @@ func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, fi
 // Required Parameters:
 // - version string
 //		- required
-func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Context, version string, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Context, version string, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -212,8 +243,8 @@ func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Conte
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	req.PathParams.Set("version", version)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -238,7 +269,7 @@ func (s *SwitchMFirmwareConfigService) FindFirmware(ctx context.Context, mutator
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMFirmwareConfigFirmwaresQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -275,6 +306,6 @@ func (s *SwitchMFirmwareConfigService) PartialUpdateFirmwareByVersion(ctx contex
 	req.PathParams.Set("version", version)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMFirmwareConfigScheduleIds()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -35,6 +35,21 @@ type SwitchMSwitchAuditId struct {
 	Name *string `json:"name,omitempty"`
 }
 
+type SwitchMSwitchAuditIdAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchAuditId
+}
+
+func newSwitchMSwitchAuditIdAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchAuditIdAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchAuditIdAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchAuditId)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchAuditId() *SwitchMSwitchAuditId {
 	m := new(SwitchMSwitchAuditId)
 	return m
@@ -89,6 +104,21 @@ type SwitchMSwitchConnectedAPsQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchConnectedAPsQueryListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchConnectedAPsQueryList
+}
+
+func newSwitchMSwitchConnectedAPsQueryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchConnectedAPsQueryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchConnectedAPsQueryListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchConnectedAPsQueryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchConnectedAPsQueryList() *SwitchMSwitchConnectedAPsQueryList {
 	m := new(SwitchMSwitchConnectedAPsQueryList)
 	return m
@@ -209,6 +239,21 @@ type SwitchMSwitchConnectedDevicesQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchConnectedDevicesQueryListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchConnectedDevicesQueryList
+}
+
+func newSwitchMSwitchConnectedDevicesQueryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchConnectedDevicesQueryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchConnectedDevicesQueryListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchConnectedDevicesQueryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchConnectedDevicesQueryList() *SwitchMSwitchConnectedDevicesQueryList {
 	m := new(SwitchMSwitchConnectedDevicesQueryList)
 	return m
@@ -241,6 +286,21 @@ type SwitchMSwitchDeleteSwitchesResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchDeleteSwitchesResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchDeleteSwitchesResultList
+}
+
+func newSwitchMSwitchDeleteSwitchesResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchDeleteSwitchesResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchDeleteSwitchesResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchDeleteSwitchesResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchDeleteSwitchesResultList() *SwitchMSwitchDeleteSwitchesResultList {
 	m := new(SwitchMSwitchDeleteSwitchesResultList)
 	return m
@@ -295,6 +355,21 @@ type SwitchMSwitchFirmwareHistoryQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchFirmwareHistoryQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchFirmwareHistoryQueryResultList
+}
+
+func newSwitchMSwitchFirmwareHistoryQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchFirmwareHistoryQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchFirmwareHistoryQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchFirmwareHistoryQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchFirmwareHistoryQueryResultList() *SwitchMSwitchFirmwareHistoryQueryResultList {
 	m := new(SwitchMSwitchFirmwareHistoryQueryResultList)
 	return m
@@ -431,6 +506,21 @@ type SwitchMSwitchNetworkSwitch struct {
 	UpTime *string `json:"upTime,omitempty"`
 }
 
+type SwitchMSwitchNetworkSwitchAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchNetworkSwitch
+}
+
+func newSwitchMSwitchNetworkSwitchAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchNetworkSwitchAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchNetworkSwitchAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchNetworkSwitch)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchNetworkSwitch() *SwitchMSwitchNetworkSwitch {
 	m := new(SwitchMSwitchNetworkSwitch)
 	return m
@@ -763,6 +853,21 @@ type SwitchMSwitchPortDetailsQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchPortDetailsQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchPortDetailsQueryResultList
+}
+
+func newSwitchMSwitchPortDetailsQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchPortDetailsQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchPortDetailsQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchPortDetailsQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchPortDetailsQueryResultList() *SwitchMSwitchPortDetailsQueryResultList {
 	m := new(SwitchMSwitchPortDetailsQueryResultList)
 	return m
@@ -897,6 +1002,21 @@ type SwitchMSwitchStackMemberQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchStackMemberQueryResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchStackMemberQueryResult
+}
+
+func newSwitchMSwitchStackMemberQueryResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchStackMemberQueryResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchStackMemberQueryResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchStackMemberQueryResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchStackMemberQueryResult() *SwitchMSwitchStackMemberQueryResult {
 	m := new(SwitchMSwitchStackMemberQueryResult)
 	return m
@@ -941,6 +1061,21 @@ type SwitchMSwitchPortsSummaryQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchPortsSummaryQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchPortsSummaryQueryResultList
+}
+
+func newSwitchMSwitchPortsSummaryQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchPortsSummaryQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchPortsSummaryQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchPortsSummaryQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchPortsSummaryQueryResultList() *SwitchMSwitchPortsSummaryQueryResultList {
 	m := new(SwitchMSwitchPortsSummaryQueryResultList)
 	return m
@@ -971,6 +1106,21 @@ type SwitchMSwitchQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchQueryResultList
+}
+
+func newSwitchMSwitchQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchQueryResultList() *SwitchMSwitchQueryResultList {
 	m := new(SwitchMSwitchQueryResultList)
 	return m
@@ -1016,6 +1166,21 @@ func (t *SwitchMSwitchRebootResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(tmp)
 }
 
+type SwitchMSwitchRebootResponseAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchRebootResponse
+}
+
+func newSwitchMSwitchRebootResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchRebootResponseAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchRebootResponseAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchRebootResponse)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchRebootResponse() *SwitchMSwitchRebootResponse {
 	m := new(SwitchMSwitchRebootResponse)
 	return m
@@ -1048,6 +1213,21 @@ type SwitchMSwitchTopSwitchesByFirmwareQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchTopSwitchesByFirmwareQueryResultList
+}
+
+func newSwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchTopSwitchesByFirmwareQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchTopSwitchesByFirmwareQueryResultList() *SwitchMSwitchTopSwitchesByFirmwareQueryResultList {
 	m := new(SwitchMSwitchTopSwitchesByFirmwareQueryResultList)
 	return m
@@ -1080,6 +1260,21 @@ type SwitchMSwitchTopSwitchesByModelQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchTopSwitchesByModelQueryResultList
+}
+
+func newSwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchTopSwitchesByModelQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchTopSwitchesByModelQueryResultList() *SwitchMSwitchTopSwitchesByModelQueryResultList {
 	m := new(SwitchMSwitchTopSwitchesByModelQueryResultList)
 	return m
@@ -1113,7 +1308,7 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommo
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1144,7 +1339,7 @@ func (s *SwitchMSwitchService) AddSwitchReboot(ctx context.Context, switchId str
 	req.PathParams.Set("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchRebootResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1176,7 +1371,7 @@ func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, bo
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1208,7 +1403,7 @@ func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *S
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchStackMemberQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1240,7 +1435,7 @@ func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwi
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchDeleteSwitchesResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1271,7 +1466,7 @@ func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string, 
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchAuditId()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1301,7 +1496,7 @@ func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string, mu
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchNetworkSwitch()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1331,7 +1526,7 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 	req.PathParams.Set("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchFirmwareHistoryQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1356,7 +1551,7 @@ func (s *SwitchMSwitchService) FindSwitchModelList(ctx context.Context, mutators
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSwitchModelResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1372,11 +1567,11 @@ func (s *SwitchMSwitchService) FindSwitchModelList(ctx context.Context, mutators
 // Required Parameters:
 // - destinationSwitchGroupId string
 //		- required
-func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx context.Context, body SwitchMSwitchIdList, destinationSwitchGroupId string, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx context.Context, body SwitchMSwitchIdList, destinationSwitchGroupId string, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -1392,7 +1587,7 @@ func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx co
 	}
 	req.PathParams.Set("destinationSwitchGroupId", destinationSwitchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

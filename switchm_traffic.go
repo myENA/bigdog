@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -56,6 +57,21 @@ type SwitchMTrafficBroadcastQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMTrafficBroadcastQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMTrafficBroadcastQueryResultList
+}
+
+func newSwitchMTrafficBroadcastQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMTrafficBroadcastQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMTrafficBroadcastQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMTrafficBroadcastQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMTrafficBroadcastQueryResultList() *SwitchMTrafficBroadcastQueryResultList {
 	m := new(SwitchMTrafficBroadcastQueryResultList)
 	return m
@@ -96,6 +112,21 @@ type SwitchMTrafficMulticastQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMTrafficMulticastQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMTrafficMulticastQueryResultList
+}
+
+func newSwitchMTrafficMulticastQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMTrafficMulticastQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMTrafficMulticastQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMTrafficMulticastQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMTrafficMulticastQueryResultList() *SwitchMTrafficMulticastQueryResultList {
 	m := new(SwitchMTrafficMulticastQueryResultList)
 	return m
@@ -138,6 +169,21 @@ type SwitchMTrafficPortErrorQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMTrafficPortErrorQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMTrafficPortErrorQueryResultList
+}
+
+func newSwitchMTrafficPortErrorQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMTrafficPortErrorQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMTrafficPortErrorQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMTrafficPortErrorQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMTrafficPortErrorQueryResultList() *SwitchMTrafficPortErrorQueryResultList {
 	m := new(SwitchMTrafficPortErrorQueryResultList)
 	return m
@@ -170,6 +216,21 @@ type SwitchMTrafficTopPortErrorQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMTrafficTopPortErrorQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMTrafficTopPortErrorQueryResultList
+}
+
+func newSwitchMTrafficTopPortErrorQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMTrafficTopPortErrorQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMTrafficTopPortErrorQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMTrafficTopPortErrorQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMTrafficTopPortErrorQueryResultList() *SwitchMTrafficTopPortErrorQueryResultList {
 	m := new(SwitchMTrafficTopPortErrorQueryResultList)
 	return m
@@ -202,6 +263,21 @@ type SwitchMTrafficTopPortTrafficUsageQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMTrafficTopPortTrafficUsageQueryResultList
+}
+
+func newSwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMTrafficTopPortTrafficUsageQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMTrafficTopPortTrafficUsageQueryResultList() *SwitchMTrafficTopPortTrafficUsageQueryResultList {
 	m := new(SwitchMTrafficTopPortTrafficUsageQueryResultList)
 	return m
@@ -234,6 +310,21 @@ type SwitchMTrafficTopSwitchPoEUtilizationQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMTrafficTopSwitchPoEUtilizationQueryResultList
+}
+
+func newSwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMTrafficTopSwitchPoEUtilizationQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultList() *SwitchMTrafficTopSwitchPoEUtilizationQueryResultList {
 	m := new(SwitchMTrafficTopSwitchPoEUtilizationQueryResultList)
 	return m
@@ -266,6 +357,21 @@ type SwitchMTrafficTopTrafficUsageQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMTrafficTopTrafficUsageQueryResultList
+}
+
+func newSwitchMTrafficTopTrafficUsageQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMTrafficTopTrafficUsageQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMTrafficTopTrafficUsageQueryResultList() *SwitchMTrafficTopTrafficUsageQueryResultList {
 	m := new(SwitchMTrafficTopTrafficUsageQueryResultList)
 	return m
@@ -324,6 +430,21 @@ type SwitchMTrafficQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMTrafficQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMTrafficQueryResultList
+}
+
+func newSwitchMTrafficQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMTrafficQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMTrafficQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMTrafficQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMTrafficQueryResultList() *SwitchMTrafficQueryResultList {
 	m := new(SwitchMTrafficQueryResultList)
 	return m
@@ -386,6 +507,21 @@ type SwitchMTrafficUnicastQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMTrafficUnicastQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMTrafficUnicastQueryResultList
+}
+
+func newSwitchMTrafficUnicastQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMTrafficUnicastQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMTrafficUnicastQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMTrafficUnicastQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMTrafficUnicastQueryResultList() *SwitchMTrafficUnicastQueryResultList {
 	m := new(SwitchMTrafficUnicastQueryResultList)
 	return m
@@ -419,7 +555,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -451,7 +587,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTrafficTopPortErrorQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -483,7 +619,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTrafficTopPortTrafficUsageQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -515,7 +651,7 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTrafficTopTrafficUsageQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -547,7 +683,7 @@ func (s *SwitchMTrafficService) AddTrafficTotalBroadcast(ctx context.Context, bo
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTrafficBroadcastQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -579,7 +715,7 @@ func (s *SwitchMTrafficService) AddTrafficTotalMulticast(ctx context.Context, bo
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTrafficMulticastQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -611,7 +747,7 @@ func (s *SwitchMTrafficService) AddTrafficTotalPorterror(ctx context.Context, bo
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTrafficPortErrorQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -643,7 +779,7 @@ func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTrafficQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -675,6 +811,6 @@ func (s *SwitchMTrafficService) AddTrafficTotalUnicast(ctx context.Context, body
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTrafficUnicastQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -10,7 +10,6 @@ import (
 	"net"
 	"net/http"
 	"runtime"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -76,6 +75,20 @@ const (
 	logDebugAPIRequestPrepFormat     = "Preparing api request #%d \"%s %s\""
 	logDebugAPIRequestNoBodyFormat   = "%s without body"
 	logDebugAPIRequestWithBodyFormat = "%s with body"
+)
+
+const (
+	uriPathParameterSearchFormat  = "{%s}"
+	uriQueryParameterPrefixFormat = "%s?%s"
+
+	apiRequestURLFormat = "%s%s%s"
+
+	headerKeyContentType         = "Content-Type"
+	headerKeyContentDisposition  = "Content-Disposition"
+	headerKeyContentLength       = "Content-Length"
+	headerKeyAccept              = "Accept"
+	headerValueApplicationJSON   = "application/json"
+	headerValueMultipartFormData = "multipart/form-data"
 )
 
 type baseClient struct {
@@ -193,6 +206,13 @@ type VSZClientConfig struct {
 	//
 	// ServiceTicketProvider to use to handle request auth session
 	ServiceTicketProvider VSZServiceTicketProvider
+
+	// DisableAutoHydrate [bool]
+	//
+	// If true, response bodies will no longer automatically hydrated into the returned response models.  This enables
+	// you to instead use the response models as Readers to receive the raw bytes of the response in favor of having
+	// then unmarshalled if you don't need it.
+	DisableAutoHydrate bool
 
 	// Logger [optional]
 	//
@@ -359,7 +379,7 @@ type APIResponseMeta struct {
 	ResponseStatus string `json:"responseStatus"`
 }
 
-func newAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Response) *APIResponseMeta {
+func NewAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Response) *APIResponseMeta {
 	rm := new(APIResponseMeta)
 	rm.RequestMethod = req.Method
 	rm.RequestURI = req.CompiledURI()
@@ -371,7 +391,7 @@ func newAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Respons
 	return rm
 }
 
-func newErrAPIResponseMeta() *APIResponseMeta {
+func NewErrAPIResponseMeta() *APIResponseMeta {
 	rm := new(APIResponseMeta)
 	rm.ResponseCode = http.StatusInternalServerError
 	rm.ResponseStatus = http.StatusText(http.StatusInternalServerError)
@@ -381,14 +401,14 @@ func newErrAPIResponseMeta() *APIResponseMeta {
 func (rm *APIResponseMeta) String() string {
 	var msg string
 	if rm.SuccessCode == rm.ResponseCode {
-		msg = "Successful"
+		msg = "Success"
 	} else {
-		msg = "Failed"
+		msg = "Error"
 	}
 	return fmt.Sprintf("%s response from request %s %s", msg, rm.RequestMethod, rm.RequestURI)
 }
 
-func cleanupHTTPResponseBody(hp *http.Response) {
+func CleanupHTTPResponseBody(hp *http.Response) {
 	if hp == nil {
 		return
 	}
@@ -396,16 +416,17 @@ func cleanupHTTPResponseBody(hp *http.Response) {
 	_ = hp.Body.Close()
 }
 
-func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, modelPtr interface{}, sourceErr error) (*APIResponseMeta, error) {
+func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response, respFunc ResponseFactoryFunc, sourceErr error) (APIResponse, error) {
 	var (
 		finalErr error
 
+		apiResp         = respFunc(req, successCode, httpResp)
 		requiresCleanup = true
 	)
 
 	defer func() {
 		if requiresCleanup {
-			cleanupHTTPResponseBody(httpResp)
+			CleanupHTTPResponseBody(httpResp)
 		}
 	}()
 
@@ -415,15 +436,19 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 			return sterr.ResponseMeta(), sterr
 		}
 
+		if aterr, ok := sourceErr.(*SCIAccessTokenProviderError); ok {
+
+		}
+
 		if httpResp != nil {
 			// otherwise, build response meta and return source error
-			return newAPIResponseMeta(req, successCode, httpResp), sourceErr
+			return NewAPIResponseMeta(req, successCode, httpResp), sourceErr
 		}
-		return newErrAPIResponseMeta(), sourceErr
+		return NewErrAPIResponseMeta(), sourceErr
 	}
 
 	if httpResp == nil {
-		panic(fmt.Sprintf("severe problem: nil *http.Response seen with nil error. meta: %v", newAPIResponseMeta(req, successCode, httpResp)))
+		panic(fmt.Sprintf("severe problem: nil *http.Response seen with nil error. meta: %v", NewAPIResponseMeta(req, successCode, httpResp)))
 	}
 
 	// if the response code matches the expected "success" code...
@@ -439,7 +464,7 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 				} else {
 					*b = tmp
 				}
-			} else if rr, ok := modelPtr.(*RawResponse); ok {
+			} else if rr, ok := modelPtr.(*RawAPIResponse); ok {
 				requiresCleanup = false
 				rr.Body = httpResp.Body
 				rr.Header = httpResp.Header
@@ -464,7 +489,7 @@ func handleResponse(req *APIRequest, successCode int, httpResp *http.Response, m
 	}
 
 	// build response.
-	return newAPIResponseMeta(req, successCode, httpResp), finalErr
+	return NewAPIResponseMeta(req, successCode, httpResp), finalErr
 }
 
 type WSGService struct {
@@ -495,27 +520,6 @@ func NewSCIService(c *SCIClient) *SCIService {
 	s := new(SCIService)
 	s.apiClient = c
 	return s
-}
-
-type RawResponse struct {
-	Header http.Header
-	Body   io.ReadCloser
-}
-
-func (r *RawResponse) ContentType() string {
-	return r.Header.Get("Content-Type")
-}
-
-func (r *RawResponse) ContentLength() int {
-	if v := r.Header.Get("Content-Length"); v != "" {
-		l, _ := strconv.Atoi(v)
-		return l
-	}
-	return 0
-}
-
-func (r *RawResponse) ContentDisposition() string {
-	return r.Header.Get("Content-Disposition")
 }
 
 func SCIFilterFormatTimestamp(t time.Time) string {

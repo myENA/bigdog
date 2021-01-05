@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -106,6 +107,21 @@ type SwitchMAAAServersAAAServer struct {
 	Username *string `json:"username,omitempty"`
 }
 
+type SwitchMAAAServersAAAServerAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMAAAServersAAAServer
+}
+
+func newSwitchMAAAServersAAAServerAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMAAAServersAAAServerAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMAAAServersAAAServerAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMAAAServersAAAServer)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMAAAServersAAAServer() *SwitchMAAAServersAAAServer {
 	m := new(SwitchMAAAServersAAAServer)
 	return m
@@ -138,6 +154,21 @@ type SwitchMAAAServersQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMAAAServersQueryResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMAAAServersQueryResult
+}
+
+func newSwitchMAAAServersQueryResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMAAAServersQueryResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMAAAServersQueryResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMAAAServersQueryResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMAAAServersQueryResult() *SwitchMAAAServersQueryResult {
 	m := new(SwitchMAAAServersQueryResult)
 	return m
@@ -234,7 +265,7 @@ func (s *SwitchMAAAServersService) AddGroupAaaServersByGroupId(ctx context.Conte
 	req.PathParams.Set("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -269,7 +300,7 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersByGroupId(ctx context.Co
 	}
 	req.PathParams.Set("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -301,7 +332,7 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersById(ctx context.Context
 	req.PathParams.Set("groupId", groupId)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -331,7 +362,7 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersByGroupId(ctx context.Cont
 	req.PathParams.Set("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMAAAServersQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -364,7 +395,7 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersById(ctx context.Context, 
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMAAAServersAAAServer()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -402,6 +433,6 @@ func (s *SwitchMAAAServersService) UpdateGroupAaaServersById(ctx context.Context
 	req.PathParams.Set("groupId", groupId)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

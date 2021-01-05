@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGProfileAccountingProfile
 //
 // Definition: profile_accountingProfile
@@ -51,6 +56,21 @@ type WSGProfileAccountingProfile struct {
 	RealmMappings []*WSGProfileAcctServiceRealmMapping `json:"realmMappings,omitempty"`
 }
 
+type WSGProfileAccountingProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileAccountingProfile
+}
+
+func newWSGProfileAccountingProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileAccountingProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileAccountingProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileAccountingProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileAccountingProfile() *WSGProfileAccountingProfile {
 	m := new(WSGProfileAccountingProfile)
 	return m
@@ -71,6 +91,21 @@ type WSGProfileAccountingProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileAccountingProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileAccountingProfileList
+}
+
+func newWSGProfileAccountingProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileAccountingProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileAccountingProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileAccountingProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileAccountingProfileList() *WSGProfileAccountingProfileList {
 	m := new(WSGProfileAccountingProfileList)
 	return m
@@ -255,6 +290,21 @@ type WSGProfileAuthenticationProfile struct {
 	TtgCommonSetting *WSGProfileTtgCommonSetting `json:"ttgCommonSetting,omitempty"`
 }
 
+type WSGProfileAuthenticationProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileAuthenticationProfile
+}
+
+func newWSGProfileAuthenticationProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileAuthenticationProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileAuthenticationProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileAuthenticationProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileAuthenticationProfile() *WSGProfileAuthenticationProfile {
 	m := new(WSGProfileAuthenticationProfile)
 	return m
@@ -275,6 +325,21 @@ type WSGProfileAuthenticationProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileAuthenticationProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileAuthenticationProfileList
+}
+
+func newWSGProfileAuthenticationProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileAuthenticationProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileAuthenticationProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileAuthenticationProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileAuthenticationProfileList() *WSGProfileAuthenticationProfileList {
 	m := new(WSGProfileAuthenticationProfileList)
 	return m
@@ -293,6 +358,21 @@ type WSGProfileBaseServiceInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileBaseServiceInfoListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileBaseServiceInfoList
+}
+
+func newWSGProfileBaseServiceInfoListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileBaseServiceInfoListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileBaseServiceInfoListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileBaseServiceInfoList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileBaseServiceInfoList() *WSGProfileBaseServiceInfoList {
 	m := new(WSGProfileBaseServiceInfoList)
 	return m
@@ -338,6 +418,21 @@ type WSGProfileBlockClient struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGProfileBlockClientAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileBlockClient
+}
+
+func newWSGProfileBlockClientAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileBlockClientAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileBlockClientAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileBlockClient)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileBlockClient() *WSGProfileBlockClient {
 	m := new(WSGProfileBlockClient)
 	return m
@@ -356,6 +451,21 @@ type WSGProfileBlockClientList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileBlockClientListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileBlockClientList
+}
+
+func newWSGProfileBlockClientListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileBlockClientListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileBlockClientListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileBlockClientList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileBlockClientList() *WSGProfileBlockClientList {
 	m := new(WSGProfileBlockClientList)
 	return m
@@ -465,6 +575,21 @@ type WSGProfileBonjourFencingPolicy struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGProfileBonjourFencingPolicyAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileBonjourFencingPolicy
+}
+
+func newWSGProfileBonjourFencingPolicyAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileBonjourFencingPolicyAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileBonjourFencingPolicyAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileBonjourFencingPolicy)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileBonjourFencingPolicy() *WSGProfileBonjourFencingPolicy {
 	m := new(WSGProfileBonjourFencingPolicy)
 	return m
@@ -483,6 +608,21 @@ type WSGProfileBonjourFencingPolicyList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileBonjourFencingPolicyListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileBonjourFencingPolicyList
+}
+
+func newWSGProfileBonjourFencingPolicyListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileBonjourFencingPolicyListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileBonjourFencingPolicyListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileBonjourFencingPolicyList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileBonjourFencingPolicyList() *WSGProfileBonjourFencingPolicyList {
 	m := new(WSGProfileBonjourFencingPolicyList)
 	return m
@@ -593,6 +733,21 @@ type WSGProfileBonjourFencingStatistic struct {
 	ServiceList []*WSGProfileBonjourFencingService `json:"serviceList,omitempty"`
 }
 
+type WSGProfileBonjourFencingStatisticAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileBonjourFencingStatistic
+}
+
+func newWSGProfileBonjourFencingStatisticAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileBonjourFencingStatisticAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileBonjourFencingStatisticAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileBonjourFencingStatistic)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileBonjourFencingStatistic() *WSGProfileBonjourFencingStatistic {
 	m := new(WSGProfileBonjourFencingStatistic)
 	return m
@@ -641,6 +796,21 @@ type WSGProfileBridgeProfile struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
+type WSGProfileBridgeProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileBridgeProfile
+}
+
+func newWSGProfileBridgeProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileBridgeProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileBridgeProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileBridgeProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileBridgeProfile() *WSGProfileBridgeProfile {
 	m := new(WSGProfileBridgeProfile)
 	return m
@@ -661,6 +831,21 @@ type WSGProfileBridgeProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileBridgeProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileBridgeProfileList
+}
+
+func newWSGProfileBridgeProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileBridgeProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileBridgeProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileBridgeProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileBridgeProfileList() *WSGProfileBridgeProfileList {
 	m := new(WSGProfileBridgeProfileList)
 	return m
@@ -797,6 +982,21 @@ type WSGProfileClientIsolationWhitelist struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGProfileClientIsolationWhitelistAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileClientIsolationWhitelist
+}
+
+func newWSGProfileClientIsolationWhitelistAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileClientIsolationWhitelistAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileClientIsolationWhitelistAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileClientIsolationWhitelist)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileClientIsolationWhitelist() *WSGProfileClientIsolationWhitelist {
 	m := new(WSGProfileClientIsolationWhitelist)
 	return m
@@ -839,6 +1039,21 @@ type WSGProfileClientIsolationWhitelistArray struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileClientIsolationWhitelistArrayAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileClientIsolationWhitelistArray
+}
+
+func newWSGProfileClientIsolationWhitelistArrayAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileClientIsolationWhitelistArrayAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileClientIsolationWhitelistArrayAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileClientIsolationWhitelistArray)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileClientIsolationWhitelistArray() *WSGProfileClientIsolationWhitelistArray {
 	m := new(WSGProfileClientIsolationWhitelistArray)
 	return m
@@ -1391,6 +1606,21 @@ type WSGProfileCreatePrecedenceProfile struct {
 	VlanPrecedence []*WSGProfileVlanPrecedenceItem `json:"vlanPrecedence,omitempty"`
 }
 
+type WSGProfileCreatePrecedenceProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileCreatePrecedenceProfile
+}
+
+func newWSGProfileCreatePrecedenceProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileCreatePrecedenceProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileCreatePrecedenceProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileCreatePrecedenceProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileCreatePrecedenceProfile() *WSGProfileCreatePrecedenceProfile {
 	m := new(WSGProfileCreatePrecedenceProfile)
 	return m
@@ -1482,6 +1712,21 @@ type WSGProfileCreateRtlsProfile struct {
 	StanleyEnabled *bool `json:"stanleyEnabled"`
 }
 
+type WSGProfileCreateRtlsProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileCreateRtlsProfile
+}
+
+func newWSGProfileCreateRtlsProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileCreateRtlsProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileCreateRtlsProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileCreateRtlsProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileCreateRtlsProfile() *WSGProfileCreateRtlsProfile {
 	m := new(WSGProfileCreateRtlsProfile)
 	return m
@@ -1947,6 +2192,21 @@ type WSGProfileDhcpProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileDhcpProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileDhcpProfileList
+}
+
+func newWSGProfileDhcpProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileDhcpProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileDhcpProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileDhcpProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileDhcpProfileList() *WSGProfileDhcpProfileList {
 	m := new(WSGProfileDhcpProfileList)
 	return m
@@ -2037,6 +2297,21 @@ type WSGProfileDnsServerProfile struct {
 	TertiaryIp *string `json:"tertiaryIp,omitempty"`
 }
 
+type WSGProfileDnsServerProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileDnsServerProfile
+}
+
+func newWSGProfileDnsServerProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileDnsServerProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileDnsServerProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileDnsServerProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileDnsServerProfile() *WSGProfileDnsServerProfile {
 	m := new(WSGProfileDnsServerProfile)
 	return m
@@ -2057,6 +2332,21 @@ type WSGProfileDnsServerProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileDnsServerProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileDnsServerProfileList
+}
+
+func newWSGProfileDnsServerProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileDnsServerProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileDnsServerProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileDnsServerProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileDnsServerProfileList() *WSGProfileDnsServerProfileList {
 	m := new(WSGProfileDnsServerProfileList)
 	return m
@@ -2200,6 +2490,21 @@ type WSGProfileFirewallProfile struct {
 	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
 }
 
+type WSGProfileFirewallProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileFirewallProfile
+}
+
+func newWSGProfileFirewallProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileFirewallProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileFirewallProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileFirewallProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileFirewallProfile() *WSGProfileFirewallProfile {
 	m := new(WSGProfileFirewallProfile)
 	return m
@@ -2220,6 +2525,21 @@ type WSGProfileFirewallProfileArray struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileFirewallProfileArrayAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileFirewallProfileArray
+}
+
+func newWSGProfileFirewallProfileArrayAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileFirewallProfileArrayAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileFirewallProfileArrayAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileFirewallProfileArray)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileFirewallProfileArray() *WSGProfileFirewallProfileArray {
 	m := new(WSGProfileFirewallProfileArray)
 	return m
@@ -2308,6 +2628,21 @@ type WSGProfileFlexiVpnProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileFlexiVpnProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileFlexiVpnProfileList
+}
+
+func newWSGProfileFlexiVpnProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileFlexiVpnProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileFlexiVpnProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileFlexiVpnProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileFlexiVpnProfileList() *WSGProfileFlexiVpnProfileList {
 	m := new(WSGProfileFlexiVpnProfileList)
 	return m
@@ -2322,6 +2657,21 @@ type WSGProfileGetL3RoamingConfig struct {
 	DataPlanes []*WSGProfileDataPlaneL3RoamingData `json:"dataPlanes,omitempty"`
 }
 
+type WSGProfileGetL3RoamingConfigAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileGetL3RoamingConfig
+}
+
+func newWSGProfileGetL3RoamingConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileGetL3RoamingConfigAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileGetL3RoamingConfigAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileGetL3RoamingConfig)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileGetL3RoamingConfig() *WSGProfileGetL3RoamingConfig {
 	m := new(WSGProfileGetL3RoamingConfig)
 	return m
@@ -2408,6 +2758,21 @@ type WSGProfileHs20Operator struct {
 	Name *WSGCommonNormalName `json:"name"`
 }
 
+type WSGProfileHs20OperatorAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileHs20Operator
+}
+
+func newWSGProfileHs20OperatorAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileHs20OperatorAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileHs20OperatorAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileHs20Operator)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileHs20Operator() *WSGProfileHs20Operator {
 	m := new(WSGProfileHs20Operator)
 	return m
@@ -2428,6 +2793,21 @@ type WSGProfileHs20OperatorList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileHs20OperatorListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileHs20OperatorList
+}
+
+func newWSGProfileHs20OperatorListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileHs20OperatorListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileHs20OperatorListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileHs20OperatorList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileHs20OperatorList() *WSGProfileHs20OperatorList {
 	m := new(WSGProfileHs20OperatorList)
 	return m
@@ -2496,6 +2876,21 @@ type WSGProfileHs20Provider struct {
 	Realms []*WSGProfileProviderRealm `json:"realms,omitempty"`
 }
 
+type WSGProfileHs20ProviderAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileHs20Provider
+}
+
+func newWSGProfileHs20ProviderAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileHs20ProviderAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileHs20ProviderAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileHs20Provider)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileHs20Provider() *WSGProfileHs20Provider {
 	m := new(WSGProfileHs20Provider)
 	return m
@@ -2516,6 +2911,21 @@ type WSGProfileHs20ProviderList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileHs20ProviderListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileHs20ProviderList
+}
+
+func newWSGProfileHs20ProviderListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileHs20ProviderListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileHs20ProviderListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileHs20ProviderList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileHs20ProviderList() *WSGProfileHs20ProviderList {
 	m := new(WSGProfileHs20ProviderList)
 	return m
@@ -2808,6 +3218,21 @@ type WSGProfileIpsecProfile struct {
 	TunnelMode *string `json:"tunnelMode,omitempty"`
 }
 
+type WSGProfileIpsecProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileIpsecProfile
+}
+
+func newWSGProfileIpsecProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileIpsecProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileIpsecProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileIpsecProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileIpsecProfile() *WSGProfileIpsecProfile {
 	m := new(WSGProfileIpsecProfile)
 	return m
@@ -2828,6 +3253,21 @@ type WSGProfileIpsecProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileIpsecProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileIpsecProfileList
+}
+
+func newWSGProfileIpsecProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileIpsecProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileIpsecProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileIpsecProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileIpsecProfileList() *WSGProfileIpsecProfileList {
 	m := new(WSGProfileIpsecProfileList)
 	return m
@@ -2878,6 +3318,21 @@ type WSGProfileL2oGREProfile struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
+type WSGProfileL2oGREProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileL2oGREProfile
+}
+
+func newWSGProfileL2oGREProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileL2oGREProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileL2oGREProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileL2oGREProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileL2oGREProfile() *WSGProfileL2oGREProfile {
 	m := new(WSGProfileL2oGREProfile)
 	return m
@@ -2898,6 +3353,21 @@ type WSGProfileL2oGREProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileL2oGREProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileL2oGREProfileList
+}
+
+func newWSGProfileL2oGREProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileL2oGREProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileL2oGREProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileL2oGREProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileL2oGREProfileList() *WSGProfileL2oGREProfileList {
 	m := new(WSGProfileL2oGREProfileList)
 	return m
@@ -2935,6 +3405,21 @@ type WSGProfileL3AccessControlPolicy struct {
 	Name *WSGCommonNormalName `json:"name"`
 }
 
+type WSGProfileL3AccessControlPolicyAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileL3AccessControlPolicy
+}
+
+func newWSGProfileL3AccessControlPolicyAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileL3AccessControlPolicyAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileL3AccessControlPolicyAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileL3AccessControlPolicy)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileL3AccessControlPolicy() *WSGProfileL3AccessControlPolicy {
 	m := new(WSGProfileL3AccessControlPolicy)
 	return m
@@ -2955,6 +3440,21 @@ type WSGProfileL3AccessControlPolicyArray struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileL3AccessControlPolicyArrayAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileL3AccessControlPolicyArray
+}
+
+func newWSGProfileL3AccessControlPolicyArrayAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileL3AccessControlPolicyArrayAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileL3AccessControlPolicyArrayAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileL3AccessControlPolicyArray)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileL3AccessControlPolicyArray() *WSGProfileL3AccessControlPolicyArray {
 	m := new(WSGProfileL3AccessControlPolicyArray)
 	return m
@@ -3131,6 +3631,21 @@ type WSGProfileLbsProfile struct {
 	Venue *string `json:"venue,omitempty"`
 }
 
+type WSGProfileLbsProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileLbsProfile
+}
+
+func newWSGProfileLbsProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileLbsProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileLbsProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileLbsProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileLbsProfile() *WSGProfileLbsProfile {
 	m := new(WSGProfileLbsProfile)
 	return m
@@ -3151,6 +3666,21 @@ type WSGProfileLbsProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileLbsProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileLbsProfileList
+}
+
+func newWSGProfileLbsProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileLbsProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileLbsProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileLbsProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileLbsProfileList() *WSGProfileLbsProfileList {
 	m := new(WSGProfileLbsProfileList)
 	return m
@@ -3909,6 +4439,21 @@ type WSGProfilePrecedenceList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfilePrecedenceListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfilePrecedenceList
+}
+
+func newWSGProfilePrecedenceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfilePrecedenceListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfilePrecedenceListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfilePrecedenceList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfilePrecedenceList() *WSGProfilePrecedenceList {
 	m := new(WSGProfilePrecedenceList)
 	return m
@@ -3963,6 +4508,21 @@ type WSGProfileClone struct {
 	OldName *string `json:"oldName,omitempty"`
 }
 
+type WSGProfileCloneAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileClone
+}
+
+func newWSGProfileCloneAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileCloneAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileCloneAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileClone)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileClone() *WSGProfileClone {
 	m := new(WSGProfileClone)
 	return m
@@ -3981,6 +4541,21 @@ type WSGProfileIdList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileIdListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileIdList
+}
+
+func newWSGProfileIdListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileIdListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileIdListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileIdList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileIdList() *WSGProfileIdList {
 	m := new(WSGProfileIdList)
 	return m
@@ -4025,6 +4600,21 @@ type WSGProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileList
+}
+
+func newWSGProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileList() *WSGProfileList {
 	m := new(WSGProfileList)
 	return m
@@ -4483,6 +5073,21 @@ type WSGProfileRestrictedApAccessProfile struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGProfileRestrictedApAccessProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileRestrictedApAccessProfile
+}
+
+func newWSGProfileRestrictedApAccessProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileRestrictedApAccessProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileRestrictedApAccessProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileRestrictedApAccessProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileRestrictedApAccessProfile() *WSGProfileRestrictedApAccessProfile {
 	m := new(WSGProfileRestrictedApAccessProfile)
 	return m
@@ -4501,6 +5106,21 @@ type WSGProfileRestrictedApAccessProfileArray struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileRestrictedApAccessProfileArrayAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileRestrictedApAccessProfileArray
+}
+
+func newWSGProfileRestrictedApAccessProfileArrayAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileRestrictedApAccessProfileArrayAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileRestrictedApAccessProfileArrayAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileRestrictedApAccessProfileArray)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileRestrictedApAccessProfileArray() *WSGProfileRestrictedApAccessProfileArray {
 	m := new(WSGProfileRestrictedApAccessProfileArray)
 	return m
@@ -4562,6 +5182,21 @@ type WSGProfileReturnZoneAffinityProfile struct {
 	ZoneAffinityListWithPriority []*WSGProfileReturnZoneAffinityProfileZoneAffinityListWithPriorityType `json:"zoneAffinityListWithPriority,omitempty"`
 }
 
+type WSGProfileReturnZoneAffinityProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileReturnZoneAffinityProfile
+}
+
+func newWSGProfileReturnZoneAffinityProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileReturnZoneAffinityProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileReturnZoneAffinityProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileReturnZoneAffinityProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileReturnZoneAffinityProfile() *WSGProfileReturnZoneAffinityProfile {
 	m := new(WSGProfileReturnZoneAffinityProfile)
 	return m
@@ -4612,6 +5247,21 @@ type WSGProfileRogueApPolicy struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGProfileRogueApPolicyAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileRogueApPolicy
+}
+
+func newWSGProfileRogueApPolicyAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileRogueApPolicyAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileRogueApPolicyAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileRogueApPolicy)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileRogueApPolicy() *WSGProfileRogueApPolicy {
 	m := new(WSGProfileRogueApPolicy)
 	return m
@@ -4630,6 +5280,21 @@ type WSGProfileRogueApPolicyList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileRogueApPolicyListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileRogueApPolicyList
+}
+
+func newWSGProfileRogueApPolicyListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileRogueApPolicyListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileRogueApPolicyListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileRogueApPolicyList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileRogueApPolicyList() *WSGProfileRogueApPolicyList {
 	m := new(WSGProfileRogueApPolicyList)
 	return m
@@ -4684,6 +5349,21 @@ type WSGProfileRtlsProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileRtlsProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileRtlsProfileList
+}
+
+func newWSGProfileRtlsProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileRtlsProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileRtlsProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileRtlsProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileRtlsProfileList() *WSGProfileRtlsProfileList {
 	m := new(WSGProfileRtlsProfileList)
 	return m
@@ -4752,6 +5432,21 @@ type WSGProfileRuckusGREProfile struct {
 	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty"`
 }
 
+type WSGProfileRuckusGREProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileRuckusGREProfile
+}
+
+func newWSGProfileRuckusGREProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileRuckusGREProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileRuckusGREProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileRuckusGREProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileRuckusGREProfile() *WSGProfileRuckusGREProfile {
 	m := new(WSGProfileRuckusGREProfile)
 	return m
@@ -4772,6 +5467,21 @@ type WSGProfileRuckusGREProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileRuckusGREProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileRuckusGREProfileList
+}
+
+func newWSGProfileRuckusGREProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileRuckusGREProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileRuckusGREProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileRuckusGREProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileRuckusGREProfileList() *WSGProfileRuckusGREProfileList {
 	m := new(WSGProfileRuckusGREProfileList)
 	return m
@@ -4850,6 +5560,21 @@ type WSGProfileSoftGREProfile struct {
 	TunnelMtuSize *int `json:"tunnelMtuSize,omitempty"`
 }
 
+type WSGProfileSoftGREProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileSoftGREProfile
+}
+
+func newWSGProfileSoftGREProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileSoftGREProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileSoftGREProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileSoftGREProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileSoftGREProfile() *WSGProfileSoftGREProfile {
 	m := new(WSGProfileSoftGREProfile)
 	return m
@@ -4870,6 +5595,21 @@ type WSGProfileSoftGREProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileSoftGREProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileSoftGREProfileList
+}
+
+func newWSGProfileSoftGREProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileSoftGREProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileSoftGREProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileSoftGREProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileSoftGREProfileList() *WSGProfileSoftGREProfileList {
 	m := new(WSGProfileSoftGREProfileList)
 	return m
@@ -4912,6 +5652,21 @@ type WSGProfileTrafficClassProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileTrafficClassProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileTrafficClassProfileList
+}
+
+func newWSGProfileTrafficClassProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileTrafficClassProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileTrafficClassProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileTrafficClassProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileTrafficClassProfileList() *WSGProfileTrafficClassProfileList {
 	m := new(WSGProfileTrafficClassProfileList)
 	return m
@@ -5062,6 +5817,21 @@ type WSGProfileTtgpdgProfile struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
+type WSGProfileTtgpdgProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileTtgpdgProfile
+}
+
+func newWSGProfileTtgpdgProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileTtgpdgProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileTtgpdgProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileTtgpdgProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileTtgpdgProfile() *WSGProfileTtgpdgProfile {
 	m := new(WSGProfileTtgpdgProfile)
 	return m
@@ -5120,6 +5890,21 @@ type WSGProfileTtgpdgProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileTtgpdgProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileTtgpdgProfileList
+}
+
+func newWSGProfileTtgpdgProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileTtgpdgProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileTtgpdgProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileTtgpdgProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileTtgpdgProfileList() *WSGProfileTtgpdgProfileList {
 	m := new(WSGProfileTtgpdgProfileList)
 	return m
@@ -5293,6 +6078,21 @@ type WSGProfileUserTrafficProfile struct {
 	UrlFilteringPolicyId *string `json:"urlFilteringPolicyId,omitempty"`
 }
 
+type WSGProfileUserTrafficProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileUserTrafficProfile
+}
+
+func newWSGProfileUserTrafficProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileUserTrafficProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileUserTrafficProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileUserTrafficProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileUserTrafficProfile() *WSGProfileUserTrafficProfile {
 	m := new(WSGProfileUserTrafficProfile)
 	return m
@@ -5313,6 +6113,21 @@ type WSGProfileUserTrafficProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGProfileUserTrafficProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileUserTrafficProfileList
+}
+
+func newWSGProfileUserTrafficProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileUserTrafficProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileUserTrafficProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileUserTrafficProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileUserTrafficProfileList() *WSGProfileUserTrafficProfileList {
 	m := new(WSGProfileUserTrafficProfileList)
 	return m
@@ -5419,6 +6234,21 @@ type WSGProfileVdpProfile struct {
 	Uptime *string `json:"uptime,omitempty"`
 }
 
+type WSGProfileVdpProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileVdpProfile
+}
+
+func newWSGProfileVdpProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileVdpProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileVdpProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileVdpProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileVdpProfile() *WSGProfileVdpProfile {
 	m := new(WSGProfileVdpProfile)
 	return m
@@ -5453,6 +6283,21 @@ type WSGProfileZoneAffinityProfileList struct {
 	List []*WSGProfileReturnZoneAffinityProfile `json:"list,omitempty"`
 }
 
+type WSGProfileZoneAffinityProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGProfileZoneAffinityProfileList
+}
+
+func newWSGProfileZoneAffinityProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGProfileZoneAffinityProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileZoneAffinityProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGProfileZoneAffinityProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGProfileZoneAffinityProfileList() *WSGProfileZoneAffinityProfileList {
 	m := new(WSGProfileZoneAffinityProfileList)
 	return m

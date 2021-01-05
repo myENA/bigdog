@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // SwitchMLAGConfigCreate
 //
 // Definition: lagConfig_create
@@ -45,6 +50,21 @@ type SwitchMLAGConfigCreateResult struct {
 	Id *string `json:"id,omitempty"`
 }
 
+type SwitchMLAGConfigCreateResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMLAGConfigCreateResult
+}
+
+func newSwitchMLAGConfigCreateResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMLAGConfigCreateResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMLAGConfigCreateResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMLAGConfigCreateResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMLAGConfigCreateResult() *SwitchMLAGConfigCreateResult {
 	m := new(SwitchMLAGConfigCreateResult)
 	return m
@@ -91,6 +111,21 @@ type SwitchMLAGConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+type SwitchMLAGConfigAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMLAGConfig
+}
+
+func newSwitchMLAGConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMLAGConfigAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMLAGConfigAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMLAGConfig)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMLAGConfig() *SwitchMLAGConfig {
 	m := new(SwitchMLAGConfig)
 	return m
@@ -117,6 +152,21 @@ type SwitchMLAGConfigList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMLAGConfigListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMLAGConfigList
+}
+
+func newSwitchMLAGConfigListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMLAGConfigListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMLAGConfigListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMLAGConfigList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMLAGConfigList() *SwitchMLAGConfigList {
 	m := new(SwitchMLAGConfigList)
 	return m

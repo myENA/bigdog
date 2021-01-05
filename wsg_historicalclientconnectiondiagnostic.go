@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -54,6 +55,21 @@ type WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList
+}
+
+func newWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse) Hydrate() error {
+	r.Data = new(WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList() *WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList {
 	m := new(WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList)
 	return m
@@ -93,7 +109,7 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdCount(ctx context.C
 	req.PathParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -129,6 +145,6 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdTypeCount(ctx conte
 	req.PathParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

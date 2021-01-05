@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGAccountSecurityProfileCreate
 //
 // Definition: accountSecurityProfile_create
@@ -185,6 +190,21 @@ type WSGAccountSecurityProfileGetByIdResult struct {
 	TwoFactorAuthEnabled *bool `json:"twoFactorAuthEnabled,omitempty"`
 }
 
+type WSGAccountSecurityProfileGetByIdResultAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAccountSecurityProfileGetByIdResult
+}
+
+func newWSGAccountSecurityProfileGetByIdResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAccountSecurityProfileGetByIdResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAccountSecurityProfileGetByIdResultAPIResponse) Hydrate() error {
+	r.Data = new(WSGAccountSecurityProfileGetByIdResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAccountSecurityProfileGetByIdResult() *WSGAccountSecurityProfileGetByIdResult {
 	m := new(WSGAccountSecurityProfileGetByIdResult)
 	return m
@@ -203,6 +223,21 @@ type WSGAccountSecurityProfileProfileListResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAccountSecurityProfileProfileListResultAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAccountSecurityProfileProfileListResult
+}
+
+func newWSGAccountSecurityProfileProfileListResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAccountSecurityProfileProfileListResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAccountSecurityProfileProfileListResultAPIResponse) Hydrate() error {
+	r.Data = new(WSGAccountSecurityProfileProfileListResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAccountSecurityProfileProfileListResult() *WSGAccountSecurityProfileProfileListResult {
 	m := new(WSGAccountSecurityProfileProfileListResult)
 	return m

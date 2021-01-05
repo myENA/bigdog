@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGWIFICallingCreateWifiCallingPolicy
 //
 // Definition: wifiCalling_createWifiCallingPolicy
@@ -143,6 +148,21 @@ type WSGWIFICallingPolicy struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
+type WSGWIFICallingPolicyAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGWIFICallingPolicy
+}
+
+func newWSGWIFICallingPolicyAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGWIFICallingPolicyAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGWIFICallingPolicyAPIResponse) Hydrate() error {
+	r.Data = new(WSGWIFICallingPolicy)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGWIFICallingPolicy() *WSGWIFICallingPolicy {
 	m := new(WSGWIFICallingPolicy)
 	return m
@@ -163,6 +183,21 @@ type WSGWIFICallingPolicyList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGWIFICallingPolicyListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGWIFICallingPolicyList
+}
+
+func newWSGWIFICallingPolicyListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGWIFICallingPolicyListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGWIFICallingPolicyListAPIResponse) Hydrate() error {
+	r.Data = new(WSGWIFICallingPolicyList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGWIFICallingPolicyList() *WSGWIFICallingPolicyList {
 	m := new(WSGWIFICallingPolicyList)
 	return m

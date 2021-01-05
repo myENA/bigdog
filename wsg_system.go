@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -54,6 +55,21 @@ type WSGSystemApMacOUIList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSystemApMacOUIListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemApMacOUIList
+}
+
+func newWSGSystemApMacOUIListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemApMacOUIListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemApMacOUIListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemApMacOUIList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemApMacOUIList() *WSGSystemApMacOUIList {
 	m := new(WSGSystemApMacOUIList)
 	return m
@@ -156,6 +172,21 @@ type WSGSystemControllerList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSystemControllerListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemControllerList
+}
+
+func newWSGSystemControllerListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemControllerListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemControllerListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemControllerList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemControllerList() *WSGSystemControllerList {
 	m := new(WSGSystemControllerList)
 	return m
@@ -270,6 +301,21 @@ type WSGSystemControlPlaneConfiguration struct {
 	Ipv6ManagementInterface *WSGSystemIpv6ManagementInterface `json:"ipv6ManagementInterface,omitempty"`
 }
 
+type WSGSystemControlPlaneConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemControlPlaneConfiguration
+}
+
+func newWSGSystemControlPlaneConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemControlPlaneConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemControlPlaneConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemControlPlaneConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemControlPlaneConfiguration() *WSGSystemControlPlaneConfiguration {
 	m := new(WSGSystemControlPlaneConfiguration)
 	return m
@@ -302,6 +348,21 @@ type WSGSystemControlPlaneInterfaceList struct {
 	ControlPlaneInterfaces []*WSGSystemControlPlaneInterface `json:"controlPlaneInterfaces,omitempty"`
 }
 
+type WSGSystemControlPlaneInterfaceListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemControlPlaneInterfaceList
+}
+
+func newWSGSystemControlPlaneInterfaceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemControlPlaneInterfaceListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemControlPlaneInterfaceListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemControlPlaneInterfaceList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemControlPlaneInterfaceList() *WSGSystemControlPlaneInterfaceList {
 	m := new(WSGSystemControlPlaneInterfaceList)
 	return m
@@ -320,6 +381,21 @@ type WSGSystemControlPlaneList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSystemControlPlaneListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemControlPlaneList
+}
+
+func newWSGSystemControlPlaneListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemControlPlaneListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemControlPlaneListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemControlPlaneList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemControlPlaneList() *WSGSystemControlPlaneList {
 	m := new(WSGSystemControlPlaneList)
 	return m
@@ -498,6 +574,21 @@ type WSGSystemDataPlaneConfiguration struct {
 	StaticRoute []*WSGSystemStaticRoute `json:"staticRoute,omitempty"`
 }
 
+type WSGSystemDataPlaneConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemDataPlaneConfiguration
+}
+
+func newWSGSystemDataPlaneConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemDataPlaneConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemDataPlaneConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemDataPlaneConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemDataPlaneConfiguration() *WSGSystemDataPlaneConfiguration {
 	m := new(WSGSystemDataPlaneConfiguration)
 	return m
@@ -516,6 +607,21 @@ type WSGSystemDataPlaneList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSystemDataPlaneListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemDataPlaneList
+}
+
+func newWSGSystemDataPlaneListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemDataPlaneListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemDataPlaneListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemDataPlaneList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemDataPlaneList() *WSGSystemDataPlaneList {
 	m := new(WSGSystemDataPlaneList)
 	return m
@@ -634,6 +740,21 @@ type WSGSystemFriendlyNameLangList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSystemFriendlyNameLangListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemFriendlyNameLangList
+}
+
+func newWSGSystemFriendlyNameLangListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemFriendlyNameLangListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemFriendlyNameLangListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemFriendlyNameLangList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemFriendlyNameLangList() *WSGSystemFriendlyNameLangList {
 	m := new(WSGSystemFriendlyNameLangList)
 	return m
@@ -705,6 +826,21 @@ type WSGSystemFtp struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
+type WSGSystemFtpAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemFtp
+}
+
+func newWSGSystemFtpAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemFtpAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemFtpAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemFtp)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemFtp() *WSGSystemFtp {
 	m := new(WSGSystemFtp)
 	return m
@@ -729,6 +865,21 @@ type WSGSystemFtpGlobalSetting struct {
 	FtpInterval *string `json:"ftpInterval,omitempty"`
 }
 
+type WSGSystemFtpGlobalSettingAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemFtpGlobalSetting
+}
+
+func newWSGSystemFtpGlobalSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemFtpGlobalSettingAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemFtpGlobalSettingAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemFtpGlobalSetting)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemFtpGlobalSetting() *WSGSystemFtpGlobalSetting {
 	m := new(WSGSystemFtpGlobalSetting)
 	return m
@@ -755,6 +906,21 @@ type WSGSystemFtpList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSystemFtpListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemFtpList
+}
+
+func newWSGSystemFtpListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemFtpListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemFtpListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemFtpList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemFtpList() *WSGSystemFtpList {
 	m := new(WSGSystemFtpList)
 	return m
@@ -781,6 +947,21 @@ type WSGSystemFtpTestResponse struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type WSGSystemFtpTestResponseAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemFtpTestResponse
+}
+
+func newWSGSystemFtpTestResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemFtpTestResponseAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemFtpTestResponseAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemFtpTestResponse)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemFtpTestResponse() *WSGSystemFtpTestResponse {
 	m := new(WSGSystemFtpTestResponse)
 	return m
@@ -828,6 +1009,21 @@ type WSGSystemGatewayAdvanced struct {
 	TaiInGtpV2 *bool `json:"taiInGtpV2,omitempty"`
 }
 
+type WSGSystemGatewayAdvancedAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemGatewayAdvanced
+}
+
+func newWSGSystemGatewayAdvancedAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemGatewayAdvancedAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemGatewayAdvancedAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemGatewayAdvanced)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemGatewayAdvanced() *WSGSystemGatewayAdvanced {
 	m := new(WSGSystemGatewayAdvanced)
 	return m
@@ -842,6 +1038,21 @@ type WSGSystemGetDataPlaneMeshTunnelSetting struct {
 	Encrypted *bool `json:"encrypted,omitempty"`
 }
 
+type WSGSystemGetDataPlaneMeshTunnelSettingAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemGetDataPlaneMeshTunnelSetting
+}
+
+func newWSGSystemGetDataPlaneMeshTunnelSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemGetDataPlaneMeshTunnelSettingAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemGetDataPlaneMeshTunnelSettingAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemGetDataPlaneMeshTunnelSetting)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemGetDataPlaneMeshTunnelSetting() *WSGSystemGetDataPlaneMeshTunnelSetting {
 	m := new(WSGSystemGetDataPlaneMeshTunnelSetting)
 	return m
@@ -860,6 +1071,21 @@ type WSGSystemInventoryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSystemInventoryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemInventoryList
+}
+
+func newWSGSystemInventoryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemInventoryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemInventoryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemInventoryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemInventoryList() *WSGSystemInventoryList {
 	m := new(WSGSystemInventoryList)
 	return m
@@ -1183,6 +1409,21 @@ type WSGSystemLwapp2scgConfiguration struct {
 	Policy *string `json:"policy,omitempty"`
 }
 
+type WSGSystemLwapp2scgConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemLwapp2scgConfiguration
+}
+
+func newWSGSystemLwapp2scgConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemLwapp2scgConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemLwapp2scgConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemLwapp2scgConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemLwapp2scgConfiguration() *WSGSystemLwapp2scgConfiguration {
 	m := new(WSGSystemLwapp2scgConfiguration)
 	return m
@@ -1468,6 +1709,21 @@ type WSGSystemNorthboundInterface struct {
 	UserName *WSGCommonApLoginName `json:"userName,omitempty"`
 }
 
+type WSGSystemNorthboundInterfaceAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemNorthboundInterface
+}
+
+func newWSGSystemNorthboundInterfaceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemNorthboundInterfaceAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemNorthboundInterfaceAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemNorthboundInterface)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemNorthboundInterface() *WSGSystemNorthboundInterface {
 	m := new(WSGSystemNorthboundInterface)
 	return m
@@ -1500,6 +1756,21 @@ type WSGSystemNtpServerValidationMessage struct {
 	Message *string `json:"message,omitempty"`
 }
 
+type WSGSystemNtpServerValidationMessageAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemNtpServerValidationMessage
+}
+
+func newWSGSystemNtpServerValidationMessageAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemNtpServerValidationMessageAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemNtpServerValidationMessageAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemNtpServerValidationMessage)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemNtpServerValidationMessage() *WSGSystemNtpServerValidationMessage {
 	m := new(WSGSystemNtpServerValidationMessage)
 	return m
@@ -1542,6 +1813,21 @@ type WSGSystemPortalLangList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSystemPortalLangListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemPortalLangList
+}
+
+func newWSGSystemPortalLangListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemPortalLangListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemPortalLangListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemPortalLangList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemPortalLangList() *WSGSystemPortalLangList {
 	m := new(WSGSystemPortalLangList)
 	return m
@@ -1750,6 +2036,21 @@ type WSGSystemSecuritySetting struct {
 	MaxPublicApiConcurrentSessions *int `json:"maxPublicApiConcurrentSessions,omitempty"`
 }
 
+type WSGSystemSecuritySettingAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemSecuritySetting
+}
+
+func newWSGSystemSecuritySettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemSecuritySettingAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemSecuritySettingAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemSecuritySetting)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemSecuritySetting() *WSGSystemSecuritySetting {
 	m := new(WSGSystemSecuritySetting)
 	return m
@@ -1798,6 +2099,21 @@ type WSGSystemSms struct {
 	ServerType *string `json:"serverType,omitempty"`
 }
 
+type WSGSystemSmsAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemSms
+}
+
+func newWSGSystemSmsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemSmsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemSmsAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemSms)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemSms() *WSGSystemSms {
 	m := new(WSGSystemSms)
 	return m
@@ -1824,6 +2140,21 @@ type WSGSystemSmsList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSystemSmsListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemSmsList
+}
+
+func newWSGSystemSmsListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemSmsListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemSmsListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemSmsList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemSmsList() *WSGSystemSmsList {
 	m := new(WSGSystemSmsList)
 	return m
@@ -1846,6 +2177,21 @@ type WSGSystemSnmpAgentConfiguration struct {
 	SnmpV3Agent []*WSGCommonSnmpUser `json:"snmpV3Agent,omitempty"`
 }
 
+type WSGSystemSnmpAgentConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemSnmpAgentConfiguration
+}
+
+func newWSGSystemSnmpAgentConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemSnmpAgentConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemSnmpAgentConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemSnmpAgentConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemSnmpAgentConfiguration() *WSGSystemSnmpAgentConfiguration {
 	m := new(WSGSystemSnmpAgentConfiguration)
 	return m
@@ -1888,6 +2234,21 @@ type WSGSystemStaticRouteList struct {
 	StaticRoutes []*WSGSystemCpStaticRoute `json:"staticRoutes,omitempty"`
 }
 
+type WSGSystemStaticRouteListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemStaticRouteList
+}
+
+func newWSGSystemStaticRouteListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemStaticRouteListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemStaticRouteListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemStaticRouteList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemStaticRouteList() *WSGSystemStaticRouteList {
 	m := new(WSGSystemStaticRouteList)
 	return m
@@ -2028,6 +2389,21 @@ type WSGSystemSettings struct {
 	ApNumberLimitSettingsOfZone []*WSGSystemApNumberLimitSettingOfZone `json:"apNumberLimitSettingsOfZone,omitempty"`
 }
 
+type WSGSystemSettingsAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemSettings
+}
+
+func newWSGSystemSettingsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemSettingsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemSettingsAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemSettings)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemSettings() *WSGSystemSettings {
 	m := new(WSGSystemSettings)
 	return m
@@ -2068,6 +2444,21 @@ type WSGSystemTimeSetting struct {
 	Timezone *string `json:"timezone,omitempty"`
 }
 
+type WSGSystemTimeSettingAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemTimeSetting
+}
+
+func newWSGSystemTimeSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemTimeSettingAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemTimeSettingAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemTimeSetting)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemTimeSetting() *WSGSystemTimeSetting {
 	m := new(WSGSystemTimeSetting)
 	return m
@@ -2108,6 +2499,21 @@ type WSGSystemUserDefinedInterfaceList struct {
 	UserDefinedInterface []*WSGSystemCpUserDefinedInterface `json:"userDefinedInterface,omitempty"`
 }
 
+type WSGSystemUserDefinedInterfaceListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemUserDefinedInterfaceList
+}
+
+func newWSGSystemUserDefinedInterfaceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemUserDefinedInterfaceListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemUserDefinedInterfaceListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemUserDefinedInterfaceList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemUserDefinedInterfaceList() *WSGSystemUserDefinedInterfaceList {
 	m := new(WSGSystemUserDefinedInterfaceList)
 	return m
@@ -2141,7 +2547,7 @@ func (s *WSGSystemService) AddGlobalSettingsSystemTimeValidate(ctx context.Conte
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemNtpServerValidationMessage()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2150,11 +2556,11 @@ func (s *WSGSystemService) AddGlobalSettingsSystemTimeValidate(ctx context.Conte
 // Operation ID: addSystemAp_balance
 //
 // Execute ap balance.
-func (s *WSGSystemService) AddSystemApBalance(ctx context.Context, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGSystemService) AddSystemApBalance(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -2166,8 +2572,8 @@ func (s *WSGSystemService) AddSystemApBalance(ctx context.Context, mutators ...R
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2197,7 +2603,7 @@ func (s *WSGSystemService) AddSystemApMacOUIs(ctx context.Context, body *WSGSyst
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -2227,7 +2633,7 @@ func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context,
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -2251,7 +2657,7 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -2275,7 +2681,7 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.C
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -2304,7 +2710,7 @@ func (s *WSGSystemService) DeleteSystemApMacOUIsByOUI(ctx context.Context, OUI s
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("OUI", OUI)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -2335,7 +2741,7 @@ func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams m
 		req.QueryParams.SetStrings("domainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -2360,7 +2766,7 @@ func (s *WSGSystemService) FindController(ctx context.Context, mutators ...Reque
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemControllerList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2402,7 +2808,7 @@ func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeWSGSystemStatisticList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, &resp, err)
 	return resp, rm, err
 }
 
@@ -2427,7 +2833,7 @@ func (s *WSGSystemService) FindSystem(ctx context.Context, mutators ...RequestMu
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemSettings()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2452,7 +2858,7 @@ func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context, mutators ...
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemApMacOUIList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2461,11 +2867,11 @@ func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context, mutators ...
 // Operation ID: findSystemApmodels
 //
 // Use this API command to retrieve support AP models for the current installed SZ version's default AP firmware.
-func (s *WSGSystemService) FindSystemApmodels(ctx context.Context, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemApmodels(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -2476,8 +2882,8 @@ func (s *WSGSystemService) FindSystemApmodels(ctx context.Context, mutators ...R
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2490,11 +2896,11 @@ func (s *WSGSystemService) FindSystemApmodels(ctx context.Context, mutators ...R
 // Required Parameters:
 // - firmwareVersion string
 //		- required
-func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Context, firmwareVersion string, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Context, firmwareVersion string, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -2506,8 +2912,8 @@ func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Conte
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	req.PathParams.Set("firmwareVersion", firmwareVersion)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2532,7 +2938,7 @@ func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAPRoutineConfigIntervalRsp()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2557,7 +2963,7 @@ func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAPRoutineStatusIntervalRsp()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2589,7 +2995,7 @@ func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemSettings()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2614,7 +3020,7 @@ func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context, mutator
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDeviceCapacityDevicesSummary()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2639,7 +3045,7 @@ func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context, mutato
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemGatewayAdvanced()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2676,7 +3082,7 @@ func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalPara
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemInventoryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2708,7 +3114,7 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemNorthboundInterface()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2733,7 +3139,7 @@ func (s *WSGSystemService) FindSystemSecuritySetting(ctx context.Context, mutato
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemSecuritySetting()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2758,7 +3164,7 @@ func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context, mutators ..
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemTimeSetting()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2788,7 +3194,7 @@ func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSys
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -2818,7 +3224,7 @@ func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Contex
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -2855,7 +3261,7 @@ func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSG
 		req.QueryParams.SetStrings("domainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -2885,7 +3291,7 @@ func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, bo
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -2920,7 +3326,7 @@ func (s *WSGSystemService) UpdateSystemApMacOUIsByOUI(ctx context.Context, body 
 	}
 	req.PathParams.Set("OUI", OUI)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -2932,11 +3338,11 @@ func (s *WSGSystemService) UpdateSystemApMacOUIsByOUI(ctx context.Context, body 
 //
 // Request Body:
 //	 - body *WSGSystemSecuritySetting
-func (s *WSGSystemService) UpdateSystemSecuritySetting(ctx context.Context, body *WSGSystemSecuritySetting, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGSystemService) UpdateSystemSecuritySetting(ctx context.Context, body *WSGSystemSecuritySetting, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -2951,7 +3357,7 @@ func (s *WSGSystemService) UpdateSystemSecuritySetting(ctx context.Context, body
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

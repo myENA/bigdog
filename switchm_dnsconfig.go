@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // SwitchMDNSConfigCreateDnsConfig
 //
 // Definition: dnsConfig_createDnsConfig
@@ -33,6 +38,21 @@ type SwitchMDNSConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+type SwitchMDNSConfigAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMDNSConfig
+}
+
+func newSwitchMDNSConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMDNSConfigAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMDNSConfigAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMDNSConfig)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMDNSConfig() *SwitchMDNSConfig {
 	m := new(SwitchMDNSConfig)
 	return m

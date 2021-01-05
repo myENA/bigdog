@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGWLANQueryApWlanBssid
 //
 // Definition: wlanQuery_apWlanBssid
@@ -39,6 +44,21 @@ type WSGWLANQueryApWlanBssidQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGWLANQueryApWlanBssidQueryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGWLANQueryApWlanBssidQueryList
+}
+
+func newWSGWLANQueryApWlanBssidQueryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGWLANQueryApWlanBssidQueryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGWLANQueryApWlanBssidQueryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGWLANQueryApWlanBssidQueryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGWLANQueryApWlanBssidQueryList() *WSGWLANQueryApWlanBssidQueryList {
 	m := new(WSGWLANQueryApWlanBssidQueryList)
 	return m
@@ -166,6 +186,21 @@ type WSGWLANQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGWLANQueryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGWLANQueryList
+}
+
+func newWSGWLANQueryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGWLANQueryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGWLANQueryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGWLANQueryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGWLANQueryList() *WSGWLANQueryList {
 	m := new(WSGWLANQueryList)
 	return m

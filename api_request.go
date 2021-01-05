@@ -16,19 +16,6 @@ import (
 	"sync/atomic"
 )
 
-const (
-	uriPathParameterSearchFormat  = "{%s}"
-	uriQueryParameterPrefixFormat = "%s?%s"
-
-	apiRequestURLFormat = "%s%s%s"
-
-	headerKeyContentType         = "Content-Type"
-	headerKeyContentDisposition  = "Content-Disposition"
-	headerKeyAccept              = "Accept"
-	headerValueApplicationJSON   = "application/json"
-	headerValueMultipartFormData = "multipart/form-data"
-)
-
 type RequestMutator func(*http.Request)
 
 func ToString(value interface{}) string {
@@ -213,7 +200,7 @@ func (r *APIRequest) AddMultipartFile(key, filename string, f io.Reader) error {
 	if _, err = io.Copy(w, f); err != nil {
 		return fmt.Errorf("error copying bytes from file %q to multipart writer: %w", filename, err)
 	}
-	addContentDispositionHeader(r, key, filename)
+	addContentDispositionFormDataHeader(r, key, filename)
 	return nil
 }
 
@@ -307,7 +294,7 @@ func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName
 	return httpRequest.WithContext(ctx), nil
 }
 
-func addContentDispositionHeader(req *APIRequest, key, filename string) {
+func addContentDispositionFormDataHeader(req *APIRequest, key, filename string) {
 	req.Header.Add(
 		headerKeyContentDisposition,
 		fmt.Sprintf(

@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGMeshNodeInfoHelperZoneInfo
 //
 // Definition: meshNodeInfo_helperZoneInfo
@@ -113,6 +118,21 @@ type WSGMeshNodeInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGMeshNodeInfoListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGMeshNodeInfoList
+}
+
+func newWSGMeshNodeInfoListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGMeshNodeInfoListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGMeshNodeInfoListAPIResponse) Hydrate() error {
+	r.Data = new(WSGMeshNodeInfoList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGMeshNodeInfoList() *WSGMeshNodeInfoList {
 	m := new(WSGMeshNodeInfoList)
 	return m

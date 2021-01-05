@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -68,6 +69,21 @@ type SwitchMRegistrationRulesCreateResult struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type SwitchMRegistrationRulesCreateResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMRegistrationRulesCreateResult
+}
+
+func newSwitchMRegistrationRulesCreateResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMRegistrationRulesCreateResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMRegistrationRulesCreateResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMRegistrationRulesCreateResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMRegistrationRulesCreateResult() *SwitchMRegistrationRulesCreateResult {
 	m := new(SwitchMRegistrationRulesCreateResult)
 	return m
@@ -94,6 +110,21 @@ type SwitchMRegistrationRulesDeleteMultipleResult struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type SwitchMRegistrationRulesDeleteMultipleResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMRegistrationRulesDeleteMultipleResult
+}
+
+func newSwitchMRegistrationRulesDeleteMultipleResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMRegistrationRulesDeleteMultipleResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMRegistrationRulesDeleteMultipleResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMRegistrationRulesDeleteMultipleResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMRegistrationRulesDeleteMultipleResult() *SwitchMRegistrationRulesDeleteMultipleResult {
 	m := new(SwitchMRegistrationRulesDeleteMultipleResult)
 	return m
@@ -120,6 +151,21 @@ type SwitchMRegistrationRulesDeleteResult struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type SwitchMRegistrationRulesDeleteResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMRegistrationRulesDeleteResult
+}
+
+func newSwitchMRegistrationRulesDeleteResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMRegistrationRulesDeleteResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMRegistrationRulesDeleteResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMRegistrationRulesDeleteResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMRegistrationRulesDeleteResult() *SwitchMRegistrationRulesDeleteResult {
 	m := new(SwitchMRegistrationRulesDeleteResult)
 	return m
@@ -194,6 +240,21 @@ type SwitchMRegistrationRulesModifyResult struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type SwitchMRegistrationRulesModifyResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMRegistrationRulesModifyResult
+}
+
+func newSwitchMRegistrationRulesModifyResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMRegistrationRulesModifyResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMRegistrationRulesModifyResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMRegistrationRulesModifyResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMRegistrationRulesModifyResult() *SwitchMRegistrationRulesModifyResult {
 	m := new(SwitchMRegistrationRulesModifyResult)
 	return m
@@ -296,6 +357,21 @@ type SwitchMRegistrationRulesRuleQueryResultList struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type SwitchMRegistrationRulesRuleQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMRegistrationRulesRuleQueryResultList
+}
+
+func newSwitchMRegistrationRulesRuleQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMRegistrationRulesRuleQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMRegistrationRulesRuleQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMRegistrationRulesRuleQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMRegistrationRulesRuleQueryResultList() *SwitchMRegistrationRulesRuleQueryResultList {
 	m := new(SwitchMRegistrationRulesRuleQueryResultList)
 	return m
@@ -339,7 +415,7 @@ func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Conte
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMRegistrationRulesCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -371,7 +447,7 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Co
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMRegistrationRulesDeleteMultipleResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -402,7 +478,7 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx contex
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMRegistrationRulesDeleteResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -427,7 +503,7 @@ func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Cont
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMRegistrationRulesRuleQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -464,6 +540,6 @@ func (s *SwitchMRegistrationRulesService) UpdateRegistrationRulesById(ctx contex
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMRegistrationRulesModifyResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

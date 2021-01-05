@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGDHCPPoolsDhcpClientInfo
 //
 // Definition: dhcppools_dhcpClientInfo
@@ -55,6 +60,21 @@ type WSGDHCPPoolsDhcpPoolInfo struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
+type WSGDHCPPoolsDhcpPoolInfoAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDHCPPoolsDhcpPoolInfo
+}
+
+func newWSGDHCPPoolsDhcpPoolInfoAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDHCPPoolsDhcpPoolInfoAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDHCPPoolsDhcpPoolInfoAPIResponse) Hydrate() error {
+	r.Data = new(WSGDHCPPoolsDhcpPoolInfo)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDHCPPoolsDhcpPoolInfo() *WSGDHCPPoolsDhcpPoolInfo {
 	m := new(WSGDHCPPoolsDhcpPoolInfo)
 	return m
@@ -109,6 +129,21 @@ type WSGDHCPPools struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
+type WSGDHCPPoolsAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDHCPPools
+}
+
+func newWSGDHCPPoolsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDHCPPoolsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDHCPPoolsAPIResponse) Hydrate() error {
+	r.Data = new(WSGDHCPPools)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDHCPPools() *WSGDHCPPools {
 	m := new(WSGDHCPPools)
 	return m

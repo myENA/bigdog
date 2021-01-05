@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGPerformanceAndHealthExtensionsGroupBarEntry
 //
 // Definition: perfHealthExtend_groupBarEntry
@@ -35,6 +40,21 @@ type WSGPerformanceAndHealthExtensionsGroupBarList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGPerformanceAndHealthExtensionsGroupBarList
+}
+
+func newWSGPerformanceAndHealthExtensionsGroupBarListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse) Hydrate() error {
+	r.Data = new(WSGPerformanceAndHealthExtensionsGroupBarList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGPerformanceAndHealthExtensionsGroupBarList() *WSGPerformanceAndHealthExtensionsGroupBarList {
 	m := new(WSGPerformanceAndHealthExtensionsGroupBarList)
 	return m
@@ -71,6 +91,21 @@ type WSGPerformanceAndHealthExtensionsLineList struct {
 	Median []*WSGPerformanceAndHealthExtensionsLineAvgEntry `json:"median,omitempty"`
 }
 
+type WSGPerformanceAndHealthExtensionsLineListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGPerformanceAndHealthExtensionsLineList
+}
+
+func newWSGPerformanceAndHealthExtensionsLineListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGPerformanceAndHealthExtensionsLineListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGPerformanceAndHealthExtensionsLineListAPIResponse) Hydrate() error {
+	r.Data = new(WSGPerformanceAndHealthExtensionsLineList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGPerformanceAndHealthExtensionsLineList() *WSGPerformanceAndHealthExtensionsLineList {
 	m := new(WSGPerformanceAndHealthExtensionsLineList)
 	return m

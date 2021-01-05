@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -116,6 +117,21 @@ type SwitchMGroupModelConfigQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMGroupModelConfigQueryResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMGroupModelConfigQueryResult
+}
+
+func newSwitchMGroupModelConfigQueryResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMGroupModelConfigQueryResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMGroupModelConfigQueryResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMGroupModelConfigQueryResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMGroupModelConfigQueryResult() *SwitchMGroupModelConfigQueryResult {
 	m := new(SwitchMGroupModelConfigQueryResult)
 	return m
@@ -160,6 +176,21 @@ type SwitchMGroupModelConfigUpdateGroupConfigResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMGroupModelConfigUpdateGroupConfigResultList
+}
+
+func newSwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMGroupModelConfigUpdateGroupConfigResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMGroupModelConfigUpdateGroupConfigResultList() *SwitchMGroupModelConfigUpdateGroupConfigResultList {
 	m := new(SwitchMGroupModelConfigUpdateGroupConfigResultList)
 	return m
@@ -193,7 +224,7 @@ func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ct
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMGroupModelConfigQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -230,6 +261,6 @@ func (s *SwitchMGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx co
 	req.PathParams.Set("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMGroupModelConfigUpdateGroupConfigResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

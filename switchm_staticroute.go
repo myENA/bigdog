@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -120,6 +121,21 @@ type SwitchMStaticRouteSettingStaticRoute struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+type SwitchMStaticRouteSettingStaticRouteAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMStaticRouteSettingStaticRoute
+}
+
+func newSwitchMStaticRouteSettingStaticRouteAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMStaticRouteSettingStaticRouteAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMStaticRouteSettingStaticRouteAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMStaticRouteSettingStaticRoute)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMStaticRouteSettingStaticRoute() *SwitchMStaticRouteSettingStaticRoute {
 	m := new(SwitchMStaticRouteSettingStaticRoute)
 	return m
@@ -152,6 +168,21 @@ type SwitchMStaticRouteSettingStaticRoutesQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMStaticRouteSettingStaticRoutesQueryResult
+}
+
+func newSwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMStaticRouteSettingStaticRoutesQueryResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMStaticRouteSettingStaticRoutesQueryResult() *SwitchMStaticRouteSettingStaticRoutesQueryResult {
 	m := new(SwitchMStaticRouteSettingStaticRoutesQueryResult)
 	return m
@@ -219,7 +250,7 @@ func (s *SwitchMStaticRouteSettingService) AddStaticRoutes(ctx context.Context, 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -249,7 +280,7 @@ func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutes(ctx context.Contex
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -278,7 +309,7 @@ func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutesById(ctx context.Co
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -308,7 +339,7 @@ func (s *SwitchMStaticRouteSettingService) FindStaticRoutesById(ctx context.Cont
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMStaticRouteSettingStaticRoute()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -340,7 +371,7 @@ func (s *SwitchMStaticRouteSettingService) FindStaticRoutesByQueryCriteria(ctx c
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMStaticRouteSettingStaticRoutesQueryResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -375,6 +406,6 @@ func (s *SwitchMStaticRouteSettingService) UpdateStaticRoutesById(ctx context.Co
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, err)
 	return rm, err
 }

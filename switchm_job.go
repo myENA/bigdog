@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // SwitchMJobErrorObject
 //
 // Definition: job_errorObject
@@ -81,6 +86,21 @@ type SwitchMJob struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type SwitchMJobAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMJob
+}
+
+func newSwitchMJobAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMJobAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMJobAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMJob)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMJob() *SwitchMJob {
 	m := new(SwitchMJob)
 	return m
@@ -129,6 +149,21 @@ type SwitchMJobScheduleResponse struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type SwitchMJobScheduleResponseAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMJobScheduleResponse
+}
+
+func newSwitchMJobScheduleResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMJobScheduleResponseAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMJobScheduleResponseAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMJobScheduleResponse)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMJobScheduleResponse() *SwitchMJobScheduleResponse {
 	m := new(SwitchMJobScheduleResponse)
 	return m
@@ -161,6 +196,21 @@ type SwitchMJobList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMJobListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMJobList
+}
+
+func newSwitchMJobListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMJobListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMJobListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMJobList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMJobList() *SwitchMJobList {
 	m := new(SwitchMJobList)
 	return m

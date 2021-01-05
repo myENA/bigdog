@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -98,6 +99,21 @@ type WSGDomainConfiguration struct {
 	ZoneCount *int `json:"zoneCount,omitempty"`
 }
 
+type WSGDomainConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDomainConfiguration
+}
+
+func newWSGDomainConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDomainConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDomainConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGDomainConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDomainConfiguration() *WSGDomainConfiguration {
 	m := new(WSGDomainConfiguration)
 	return m
@@ -116,6 +132,21 @@ type WSGDomainList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDomainListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDomainList
+}
+
+func newWSGDomainListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDomainListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDomainListAPIResponse) Hydrate() error {
+	r.Data = new(WSGDomainList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDomainList() *WSGDomainList {
 	m := new(WSGDomainList)
 	return m
@@ -178,7 +209,7 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -207,7 +238,7 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mut
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -259,7 +290,7 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDomainList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -296,7 +327,7 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDomainConfiguration()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -326,7 +357,7 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 	req.PathParams.Set("domainName", domainName)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDomainList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -383,7 +414,7 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDomainList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -418,6 +449,6 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

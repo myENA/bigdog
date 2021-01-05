@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -154,6 +155,21 @@ type SwitchMSpecificSettings struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+type SwitchMSpecificSettingsAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSpecificSettings
+}
+
+func newSwitchMSpecificSettingsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSpecificSettingsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSpecificSettingsAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSpecificSettings)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSpecificSettings() *SwitchMSpecificSettings {
 	m := new(SwitchMSpecificSettings)
 	return m
@@ -186,6 +202,21 @@ type SwitchMSpecificSettingsAllResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSpecificSettingsAllResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSpecificSettingsAllResult
+}
+
+func newSwitchMSpecificSettingsAllResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSpecificSettingsAllResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSpecificSettingsAllResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSpecificSettingsAllResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSpecificSettingsAllResult() *SwitchMSpecificSettingsAllResult {
 	m := new(SwitchMSpecificSettingsAllResult)
 	return m
@@ -258,7 +289,7 @@ func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -283,7 +314,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Contex
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSpecificSettingsAllResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -313,7 +344,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMSpecificSettings()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -348,6 +379,6 @@ func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

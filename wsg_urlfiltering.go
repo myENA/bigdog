@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGURLFilteringCreateUrlFilteringPolicy
 //
 // Definition: urlFiltering_createUrlFilteringPolicy
@@ -147,6 +152,21 @@ type WSGURLFilteringBlockCategoriesList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGURLFilteringBlockCategoriesListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGURLFilteringBlockCategoriesList
+}
+
+func newWSGURLFilteringBlockCategoriesListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGURLFilteringBlockCategoriesListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGURLFilteringBlockCategoriesListAPIResponse) Hydrate() error {
+	r.Data = new(WSGURLFilteringBlockCategoriesList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGURLFilteringBlockCategoriesList() *WSGURLFilteringBlockCategoriesList {
 	m := new(WSGURLFilteringBlockCategoriesList)
 	return m
@@ -257,6 +277,21 @@ type WSGURLFilteringPolicy struct {
 	Whitelist []string `json:"whitelist,omitempty"`
 }
 
+type WSGURLFilteringPolicyAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGURLFilteringPolicy
+}
+
+func newWSGURLFilteringPolicyAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGURLFilteringPolicyAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGURLFilteringPolicyAPIResponse) Hydrate() error {
+	r.Data = new(WSGURLFilteringPolicy)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGURLFilteringPolicy() *WSGURLFilteringPolicy {
 	m := new(WSGURLFilteringPolicy)
 	return m
@@ -277,6 +312,21 @@ type WSGURLFilteringPolicyList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGURLFilteringPolicyListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGURLFilteringPolicyList
+}
+
+func newWSGURLFilteringPolicyListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGURLFilteringPolicyListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGURLFilteringPolicyListAPIResponse) Hydrate() error {
+	r.Data = new(WSGURLFilteringPolicyList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGURLFilteringPolicyList() *WSGURLFilteringPolicyList {
 	m := new(WSGURLFilteringPolicyList)
 	return m

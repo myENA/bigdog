@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGEthernetPortCreateEthernetPortProfile
 //
 // Definition: ethernetPort_createEthernetPortProfile
@@ -204,6 +209,21 @@ type WSGEthernetPortProfile struct {
 	X8021X *WSGAPModelLanPort8021X `json:"_8021X,omitempty"`
 }
 
+type WSGEthernetPortProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGEthernetPortProfile
+}
+
+func newWSGEthernetPortProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGEthernetPortProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGEthernetPortProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGEthernetPortProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGEthernetPortProfile() *WSGEthernetPortProfile {
 	m := new(WSGEthernetPortProfile)
 	return m
@@ -314,6 +334,21 @@ type WSGEthernetPortProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGEthernetPortProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGEthernetPortProfileList
+}
+
+func newWSGEthernetPortProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGEthernetPortProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGEthernetPortProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGEthernetPortProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGEthernetPortProfileList() *WSGEthernetPortProfileList {
 	m := new(WSGEthernetPortProfileList)
 	return m

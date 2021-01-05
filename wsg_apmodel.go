@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGAPModel
 //
 // Definition: apmodel_apModel
@@ -271,6 +276,21 @@ type WSGAPModelCommonAttribute struct {
 	SupportResetCablemodem *bool `json:"supportResetCablemodem,omitempty"`
 }
 
+type WSGAPModelCommonAttributeAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAPModelCommonAttribute
+}
+
+func newWSGAPModelCommonAttributeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAPModelCommonAttributeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAPModelCommonAttributeAPIResponse) Hydrate() error {
+	r.Data = new(WSGAPModelCommonAttribute)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAPModelCommonAttribute() *WSGAPModelCommonAttribute {
 	m := new(WSGAPModelCommonAttribute)
 	return m

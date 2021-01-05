@@ -488,3 +488,88 @@ func NewSCISwitchDetailsReport138switchUptimeHistoryMetaData() *SCISwitchDetails
 	m := new(SCISwitchDetailsReport138switchUptimeHistoryMetaData)
 	return m
 }
+
+// SCISwitchDetailsReport152perSwitchErrorTrendData
+//
+// Definition: SwitchDetailsReport_SwitchDetailsReport_152_perSwitchErrorTrend_Data
+type SCISwitchDetailsReport152perSwitchErrorTrendData []*SCISwitchDetailsReport152perSwitchErrorTrendDataType
+
+func MakeSCISwitchDetailsReport152perSwitchErrorTrendData() SCISwitchDetailsReport152perSwitchErrorTrendData {
+	m := make(SCISwitchDetailsReport152perSwitchErrorTrendData, 0)
+	return m
+}
+
+// SCISwitchDetailsReport152perSwitchErrorTrendDataType
+//
+// Definition: SwitchDetailsReport_SwitchDetailsReport_152_perSwitchErrorTrend_DataType
+type SCISwitchDetailsReport152perSwitchErrorTrendDataType struct {
+	CrcErrors *float64 `json:"crcErrors,omitempty"`
+
+	End *string `json:"end,omitempty"`
+
+	InDiscards *float64 `json:"inDiscards,omitempty"`
+
+	InErrors *float64 `json:"inErrors,omitempty"`
+
+	OutErrors *float64 `json:"outErrors,omitempty"`
+
+	Start *string `json:"start,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCISwitchDetailsReport152perSwitchErrorTrendDataType) UnmarshalJSON(b []byte) error {
+	type _SCISwitchDetailsReport152perSwitchErrorTrendDataType SCISwitchDetailsReport152perSwitchErrorTrendDataType
+	tmpType := new(_SCISwitchDetailsReport152perSwitchErrorTrendDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "crcErrors")
+	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "inDiscards")
+	delete(tmpType.XAdditionalProperties, "inErrors")
+	delete(tmpType.XAdditionalProperties, "outErrors")
+	delete(tmpType.XAdditionalProperties, "start")
+	*t = SCISwitchDetailsReport152perSwitchErrorTrendDataType(*tmpType)
+	return nil
+}
+
+func (t *SCISwitchDetailsReport152perSwitchErrorTrendDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.CrcErrors != nil {
+		tmp["crcErrors"] = t.CrcErrors
+	}
+	if t.End != nil {
+		tmp["end"] = t.End
+	}
+	if t.InDiscards != nil {
+		tmp["inDiscards"] = t.InDiscards
+	}
+	if t.InErrors != nil {
+		tmp["inErrors"] = t.InErrors
+	}
+	if t.OutErrors != nil {
+		tmp["outErrors"] = t.OutErrors
+	}
+	if t.Start != nil {
+		tmp["start"] = t.Start
+	}
+	return json.Marshal(tmp)
+}
+
+func NewSCISwitchDetailsReport152perSwitchErrorTrendDataType() *SCISwitchDetailsReport152perSwitchErrorTrendDataType {
+	m := new(SCISwitchDetailsReport152perSwitchErrorTrendDataType)
+	return m
+}

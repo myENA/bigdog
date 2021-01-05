@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"io"
 	"net/http"
 )
@@ -53,6 +54,21 @@ type WSGCALEACommonSettingRsp struct {
 	Dcip *string `json:"dc_ip,omitempty"`
 }
 
+type WSGCALEACommonSettingRspAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGCALEACommonSettingRsp
+}
+
+func newWSGCALEACommonSettingRspAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGCALEACommonSettingRspAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGCALEACommonSettingRspAPIResponse) Hydrate() error {
+	r.Data = new(WSGCALEACommonSettingRsp)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGCALEACommonSettingRsp() *WSGCALEACommonSettingRsp {
 	m := new(WSGCALEACommonSettingRsp)
 	return m
@@ -83,6 +99,21 @@ type WSGCALEAMacListRsp struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGCALEAMacListRspAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGCALEAMacListRsp
+}
+
+func newWSGCALEAMacListRspAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGCALEAMacListRspAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGCALEAMacListRspAPIResponse) Hydrate() error {
+	r.Data = new(WSGCALEAMacListRsp)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGCALEAMacListRsp() *WSGCALEAMacListRsp {
 	m := new(WSGCALEAMacListRsp)
 	return m
@@ -114,7 +145,7 @@ func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body 
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -144,7 +175,7 @@ func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAM
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -157,11 +188,11 @@ func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAM
 // Form Data Parameters:
 // - uploadFile io.Reader
 //		- required
-func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -177,8 +208,8 @@ func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, filename st
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -208,7 +239,7 @@ func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCAL
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -232,7 +263,7 @@ func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context, mutators
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, err)
 	return rm, err
 }
 
@@ -257,7 +288,7 @@ func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context, muta
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCALEACommonSettingRsp()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -282,6 +313,6 @@ func (s *WSGCALEAService) FindSystemCaleaMacList(ctx context.Context, mutators .
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCALEAMacListRsp()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

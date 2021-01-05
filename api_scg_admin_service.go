@@ -243,7 +243,7 @@ func (s *SCGAdminService) FindAAAServers(ctx context.Context) (*SCGAdminFindAAAS
 	req = NewAPIRequest(http.MethodGet, RouteSCGAdminAAAServers, true)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSCGAdminFindAAAServersResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -269,7 +269,7 @@ func (s *SCGAdminService) CreateLDAPAAAServer(ctx context.Context, body *SCGAdmi
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSCGAdminCreateLDAPAAAServerResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -296,7 +296,7 @@ func (s *SCGAdminService) UpdateLDAPAAAServer(ctx context.Context, id string, bo
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSCGAdminGenericResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -315,6 +315,6 @@ func (s *SCGAdminService) DeleteAAAServer(ctx context.Context, id string) (*SCGA
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req)
 	resp = NewSCGAdminGenericResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

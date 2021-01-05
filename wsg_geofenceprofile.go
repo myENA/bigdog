@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -100,6 +101,21 @@ type WSGGeofenceProfileGetGeofenceProfile struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGGeofenceProfileGetGeofenceProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGGeofenceProfileGetGeofenceProfile
+}
+
+func newWSGGeofenceProfileGetGeofenceProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGGeofenceProfileGetGeofenceProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGGeofenceProfileGetGeofenceProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGGeofenceProfileGetGeofenceProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGGeofenceProfileGetGeofenceProfile() *WSGGeofenceProfileGetGeofenceProfile {
 	m := new(WSGGeofenceProfileGetGeofenceProfile)
 	return m
@@ -118,6 +134,21 @@ type WSGGeofenceProfileGetGeofenceProfileProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGGeofenceProfileGetGeofenceProfileProfileList
+}
+
+func newWSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGGeofenceProfileGetGeofenceProfileProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGGeofenceProfileGetGeofenceProfileProfileList() *WSGGeofenceProfileGetGeofenceProfileProfileList {
 	m := new(WSGGeofenceProfileGetGeofenceProfileProfileList)
 	return m
@@ -156,7 +187,7 @@ func (s *WSGGeofenceProfileService) AddRkszonesGeofenceProfilesByZoneId(ctx cont
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -188,7 +219,7 @@ func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesById(ctx conte
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -223,7 +254,7 @@ func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesByZoneId(ctx c
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -256,7 +287,7 @@ func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesById(ctx context
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGGeofenceProfileGetGeofenceProfile()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -286,7 +317,7 @@ func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesByZoneId(ctx con
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGGeofenceProfileGetGeofenceProfileProfileList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -324,6 +355,6 @@ func (s *WSGGeofenceProfileService) UpdateRkszonesGeofenceProfilesById(ctx conte
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, err)
 	return rm, err
 }

@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -54,6 +55,21 @@ type WSGServiceTicketLoginResponse struct {
 	ServiceTicket *string `json:"serviceTicket,omitempty"`
 }
 
+type WSGServiceTicketLoginResponseAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceTicketLoginResponse
+}
+
+func newWSGServiceTicketLoginResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceTicketLoginResponseAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceTicketLoginResponseAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceTicketLoginResponse)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceTicketLoginResponse() *WSGServiceTicketLoginResponse {
 	m := new(WSGServiceTicketLoginResponse)
 	return m
@@ -87,7 +103,7 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGServiceTicketLoginResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -100,11 +116,11 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 // Required Parameters:
 // - serviceTicket string
 //		- required
-func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, serviceTicket string, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, serviceTicket string, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -117,7 +133,7 @@ func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, servi
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	req.QueryParams.Set("serviceTicket", serviceTicket)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -22,109 +22,6 @@ func (ss *SCIService) SCIOverviewService() *SCIOverviewService {
 	return NewSCIOverviewService(ss.apiClient)
 }
 
-// SCIOverview62overviewData
-//
-// Definition: Overview_Overview_62_overview_Data
-type SCIOverview62overviewData []*SCIOverview62overviewDataType
-
-func MakeSCIOverview62overviewData() SCIOverview62overviewData {
-	m := make(SCIOverview62overviewData, 0)
-	return m
-}
-
-// SCIOverview62overviewDataType
-//
-// Definition: Overview_Overview_62_overview_DataType
-type SCIOverview62overviewDataType struct {
-	ApMac *string `json:"apMac,omitempty"`
-
-	ApName *string `json:"apName,omitempty"`
-
-	ClientCount interface{} `json:"clientCount,omitempty"`
-
-	RebootCount *float64 `json:"rebootCount,omitempty"`
-
-	SessionCount interface{} `json:"sessionCount,omitempty"`
-
-	ShortSessionRatio interface{} `json:"shortSessionRatio,omitempty"`
-
-	Total *float64 `json:"total,omitempty"`
-
-	TotalHistory *float64 `json:"totalHistory,omitempty"`
-
-	UserTraffic interface{} `json:"userTraffic,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIOverview62overviewDataType) UnmarshalJSON(b []byte) error {
-	type _SCIOverview62overviewDataType SCIOverview62overviewDataType
-	tmpType := new(_SCIOverview62overviewDataType)
-	if err := json.Unmarshal(b, tmpType); err != nil {
-		return err
-	}
-	tmpType.XAdditionalProperties = make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
-		return err
-	}
-	delete(tmpType.XAdditionalProperties, "apMac")
-	delete(tmpType.XAdditionalProperties, "apName")
-	delete(tmpType.XAdditionalProperties, "clientCount")
-	delete(tmpType.XAdditionalProperties, "rebootCount")
-	delete(tmpType.XAdditionalProperties, "sessionCount")
-	delete(tmpType.XAdditionalProperties, "shortSessionRatio")
-	delete(tmpType.XAdditionalProperties, "total")
-	delete(tmpType.XAdditionalProperties, "totalHistory")
-	delete(tmpType.XAdditionalProperties, "userTraffic")
-	*t = SCIOverview62overviewDataType(*tmpType)
-	return nil
-}
-
-func (t *SCIOverview62overviewDataType) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.ApMac != nil {
-		tmp["apMac"] = t.ApMac
-	}
-	if t.ApName != nil {
-		tmp["apName"] = t.ApName
-	}
-	if t.ClientCount != nil {
-		tmp["clientCount"] = t.ClientCount
-	}
-	if t.RebootCount != nil {
-		tmp["rebootCount"] = t.RebootCount
-	}
-	if t.SessionCount != nil {
-		tmp["sessionCount"] = t.SessionCount
-	}
-	if t.ShortSessionRatio != nil {
-		tmp["shortSessionRatio"] = t.ShortSessionRatio
-	}
-	if t.Total != nil {
-		tmp["total"] = t.Total
-	}
-	if t.TotalHistory != nil {
-		tmp["totalHistory"] = t.TotalHistory
-	}
-	if t.UserTraffic != nil {
-		tmp["userTraffic"] = t.UserTraffic
-	}
-	return json.Marshal(tmp)
-}
-
-func NewSCIOverview62overviewDataType() *SCIOverview62overviewDataType {
-	m := new(SCIOverview62overviewDataType)
-	return m
-}
-
 // SCIOverview62overviewMetaData
 //
 // Definition: Overview_Overview_62_overview_MetaData
@@ -1265,7 +1162,7 @@ func MakeSCIOverview97factOverviewData() SCIOverview97factOverviewData {
 type SCIOverview97factOverviewDataType struct {
 	Key *string `json:"key,omitempty"`
 
-	Label *string `json:"label,omitempty"`
+	Label interface{} `json:"label,omitempty"`
 
 	Value *float64 `json:"value,omitempty"`
 
@@ -2058,7 +1955,7 @@ func (s *SCIOverviewService) ReportOverview62Overview(ctx context.Context, body 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview62overview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2090,7 +1987,7 @@ func (s *SCIOverviewService) ReportOverview63Controller(ctx context.Context, bod
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview63controller200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2122,7 +2019,7 @@ func (s *SCIOverviewService) ReportOverview64ApOverview(ctx context.Context, bod
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview64apOverview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2154,7 +2051,7 @@ func (s *SCIOverviewService) ReportOverview66ApAlarmOverview(ctx context.Context
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview66apAlarmOverview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2186,7 +2083,7 @@ func (s *SCIOverviewService) ReportOverview67SwitchOverview(ctx context.Context,
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview67switchOverview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2218,7 +2115,7 @@ func (s *SCIOverviewService) ReportOverview68ApClientCountOverview(ctx context.C
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview68apClientCountOverview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2250,7 +2147,7 @@ func (s *SCIOverviewService) ReportOverview69TotalTrafficMinMaxRate(ctx context.
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview69totalTrafficMinMaxRate200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2282,7 +2179,7 @@ func (s *SCIOverviewService) ReportOverview70SessionsOverview(ctx context.Contex
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview70sessionsOverview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2314,7 +2211,7 @@ func (s *SCIOverviewService) ReportOverview71SsidOverview(ctx context.Context, b
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview71ssidOverview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2346,7 +2243,7 @@ func (s *SCIOverviewService) ReportOverview72RadioOverview(ctx context.Context, 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview72radioOverview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2378,7 +2275,7 @@ func (s *SCIOverviewService) ReportOverview73ApplicationsOverview(ctx context.Co
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview73applicationsOverview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2410,7 +2307,7 @@ func (s *SCIOverviewService) ReportOverview74ApEventOverview(ctx context.Context
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview74apEventOverview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2442,7 +2339,7 @@ func (s *SCIOverviewService) ReportOverview97FactOverview(ctx context.Context, b
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview97factOverview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -2474,6 +2371,6 @@ func (s *SCIOverviewService) ReportOverview115NetworkUsageOverview(ctx context.C
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportOverview115networkUsageOverview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

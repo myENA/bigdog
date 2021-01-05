@@ -368,7 +368,7 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport33TopTable(
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportSessionsSummaryReport33topTable200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -400,7 +400,7 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport34Overview(
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportSessionsSummaryReport34overview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -432,6 +432,6 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport42DurationP
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportSessionsSummaryReport42durationPercentile200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

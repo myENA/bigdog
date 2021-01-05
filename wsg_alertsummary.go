@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGAlertSummaryAlarmSummary
 //
 // Definition: alertSummary_alarmSummary
@@ -15,6 +20,21 @@ type WSGAlertSummaryAlarmSummary struct {
 	WarningCount *int `json:"warningCount,omitempty"`
 }
 
+type WSGAlertSummaryAlarmSummaryAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAlertSummaryAlarmSummary
+}
+
+func newWSGAlertSummaryAlarmSummaryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAlertSummaryAlarmSummaryAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAlertSummaryAlarmSummaryAPIResponse) Hydrate() error {
+	r.Data = new(WSGAlertSummaryAlarmSummary)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAlertSummaryAlarmSummary() *WSGAlertSummaryAlarmSummary {
 	m := new(WSGAlertSummaryAlarmSummary)
 	return m
@@ -37,6 +57,21 @@ type WSGAlertSummaryEventSummary struct {
 	WarningCount *int `json:"warningCount,omitempty"`
 }
 
+type WSGAlertSummaryEventSummaryAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAlertSummaryEventSummary
+}
+
+func newWSGAlertSummaryEventSummaryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAlertSummaryEventSummaryAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAlertSummaryEventSummaryAPIResponse) Hydrate() error {
+	r.Data = new(WSGAlertSummaryEventSummary)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAlertSummaryEventSummary() *WSGAlertSummaryEventSummary {
 	m := new(WSGAlertSummaryEventSummary)
 	return m

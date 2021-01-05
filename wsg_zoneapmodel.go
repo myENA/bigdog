@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGZoneAPModelApModel
 //
 // Definition: zoneApmodel_apModel
@@ -61,6 +66,21 @@ type WSGZoneAPModelApModel struct {
 	UsbPowerEnable *bool `json:"usbPowerEnable,omitempty"`
 }
 
+type WSGZoneAPModelApModelAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGZoneAPModelApModel
+}
+
+func newWSGZoneAPModelApModelAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGZoneAPModelApModelAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGZoneAPModelApModelAPIResponse) Hydrate() error {
+	r.Data = new(WSGZoneAPModelApModel)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGZoneAPModelApModel() *WSGZoneAPModelApModel {
 	m := new(WSGZoneAPModelApModel)
 	return m

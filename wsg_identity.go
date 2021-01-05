@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGIdentityAaaServer
 //
 // Definition: identity_aaaServer
@@ -33,6 +38,21 @@ type WSGIdentityAaaServerList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGIdentityAaaServerListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIdentityAaaServerList
+}
+
+func newWSGIdentityAaaServerListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIdentityAaaServerListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIdentityAaaServerListAPIResponse) Hydrate() error {
+	r.Data = new(WSGIdentityAaaServerList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIdentityAaaServerList() *WSGIdentityAaaServerList {
 	m := new(WSGIdentityAaaServerList)
 	return m
@@ -89,6 +109,21 @@ type WSGIdentityCountryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGIdentityCountryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIdentityCountryList
+}
+
+func newWSGIdentityCountryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIdentityCountryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIdentityCountryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGIdentityCountryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIdentityCountryList() *WSGIdentityCountryList {
 	m := new(WSGIdentityCountryList)
 	return m
@@ -447,6 +482,21 @@ type WSGIdentityGuestPassList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGIdentityGuestPassListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIdentityGuestPassList
+}
+
+func newWSGIdentityGuestPassListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIdentityGuestPassListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIdentityGuestPassListAPIResponse) Hydrate() error {
+	r.Data = new(WSGIdentityGuestPassList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIdentityGuestPassList() *WSGIdentityGuestPassList {
 	m := new(WSGIdentityGuestPassList)
 	return m
@@ -467,6 +517,21 @@ type WSGIdentityList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGIdentityListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIdentityList
+}
+
+func newWSGIdentityListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIdentityListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIdentityListAPIResponse) Hydrate() error {
+	r.Data = new(WSGIdentityList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIdentityList() *WSGIdentityList {
 	m := new(WSGIdentityList)
 	return m
@@ -579,6 +644,21 @@ type WSGIdentityUserRole struct {
 	VlanPooling *WSGCommonGenericRef `json:"vlanPooling,omitempty"`
 }
 
+type WSGIdentityUserRoleAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIdentityUserRole
+}
+
+func newWSGIdentityUserRoleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIdentityUserRoleAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIdentityUserRoleAPIResponse) Hydrate() error {
+	r.Data = new(WSGIdentityUserRole)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIdentityUserRole() *WSGIdentityUserRole {
 	m := new(WSGIdentityUserRole)
 	return m
@@ -883,6 +963,21 @@ type WSGIdentityPackageList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGIdentityPackageListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIdentityPackageList
+}
+
+func newWSGIdentityPackageListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIdentityPackageListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIdentityPackageListAPIResponse) Hydrate() error {
+	r.Data = new(WSGIdentityPackageList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIdentityPackageList() *WSGIdentityPackageList {
 	m := new(WSGIdentityPackageList)
 	return m
@@ -1190,6 +1285,21 @@ type WSGIdentitySubscriptionPackage struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
+type WSGIdentitySubscriptionPackageAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIdentitySubscriptionPackage
+}
+
+func newWSGIdentitySubscriptionPackageAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIdentitySubscriptionPackageAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIdentitySubscriptionPackageAPIResponse) Hydrate() error {
+	r.Data = new(WSGIdentitySubscriptionPackage)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIdentitySubscriptionPackage() *WSGIdentitySubscriptionPackage {
 	m := new(WSGIdentitySubscriptionPackage)
 	return m
@@ -1210,6 +1320,21 @@ type WSGIdentitySubscriptionPackageList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGIdentitySubscriptionPackageListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIdentitySubscriptionPackageList
+}
+
+func newWSGIdentitySubscriptionPackageListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIdentitySubscriptionPackageListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIdentitySubscriptionPackageListAPIResponse) Hydrate() error {
+	r.Data = new(WSGIdentitySubscriptionPackageList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIdentitySubscriptionPackageList() *WSGIdentitySubscriptionPackageList {
 	m := new(WSGIdentitySubscriptionPackageList)
 	return m
@@ -1383,6 +1508,21 @@ type WSGIdentityUserConfiguration struct {
 	ZipCode *string `json:"zipCode,omitempty"`
 }
 
+type WSGIdentityUserConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIdentityUserConfiguration
+}
+
+func newWSGIdentityUserConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIdentityUserConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIdentityUserConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGIdentityUserConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIdentityUserConfiguration() *WSGIdentityUserConfiguration {
 	m := new(WSGIdentityUserConfiguration)
 	return m
@@ -1499,6 +1639,21 @@ type WSGIdentityUserList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGIdentityUserListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIdentityUserList
+}
+
+func newWSGIdentityUserListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIdentityUserListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIdentityUserListAPIResponse) Hydrate() error {
+	r.Data = new(WSGIdentityUserList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIdentityUserList() *WSGIdentityUserList {
 	m := new(WSGIdentityUserList)
 	return m

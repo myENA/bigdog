@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -94,6 +95,21 @@ type WSGAdministrationApPatchHistoryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAdministrationApPatchHistoryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationApPatchHistoryList
+}
+
+func newWSGAdministrationApPatchHistoryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationApPatchHistoryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationApPatchHistoryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationApPatchHistoryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationApPatchHistoryList() *WSGAdministrationApPatchHistoryList {
 	m := new(WSGAdministrationApPatchHistoryList)
 	return m
@@ -120,6 +136,21 @@ type WSGAdministrationApPatchInfo struct {
 	FileSize *int `json:"fileSize,omitempty"`
 }
 
+type WSGAdministrationApPatchInfoAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationApPatchInfo
+}
+
+func newWSGAdministrationApPatchInfoAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationApPatchInfoAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationApPatchInfoAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationApPatchInfo)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationApPatchInfo() *WSGAdministrationApPatchInfo {
 	m := new(WSGAdministrationApPatchInfo)
 	return m
@@ -132,6 +163,21 @@ type WSGAdministrationApPatchStatus struct {
 	ClusterOperationProgress *WSGClusterBladeClusterOperationProgress `json:"clusterOperationProgress,omitempty"`
 }
 
+type WSGAdministrationApPatchStatusAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationApPatchStatus
+}
+
+func newWSGAdministrationApPatchStatusAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationApPatchStatusAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationApPatchStatusAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationApPatchStatus)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationApPatchStatus() *WSGAdministrationApPatchStatus {
 	m := new(WSGAdministrationApPatchStatus)
 	return m
@@ -180,6 +226,21 @@ type WSGAdministrationApplicationLogAndStatusList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAdministrationApplicationLogAndStatusListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationApplicationLogAndStatusList
+}
+
+func newWSGAdministrationApplicationLogAndStatusListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationApplicationLogAndStatusListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationApplicationLogAndStatusListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationApplicationLogAndStatusList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationApplicationLogAndStatusList() *WSGAdministrationApplicationLogAndStatusList {
 	m := new(WSGAdministrationApplicationLogAndStatusList)
 	return m
@@ -198,6 +259,21 @@ type WSGAdministrationAutoExportBackup struct {
 	FtpServer *string `json:"ftpServer,omitempty"`
 }
 
+type WSGAdministrationAutoExportBackupAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationAutoExportBackup
+}
+
+func newWSGAdministrationAutoExportBackupAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationAutoExportBackupAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationAutoExportBackupAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationAutoExportBackup)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationAutoExportBackup() *WSGAdministrationAutoExportBackup {
 	m := new(WSGAdministrationAutoExportBackup)
 	return m
@@ -266,6 +342,21 @@ type WSGAdministrationClusterBackupList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAdministrationClusterBackupListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationClusterBackupList
+}
+
+func newWSGAdministrationClusterBackupListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationClusterBackupListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationClusterBackupListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationClusterBackupList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationClusterBackupList() *WSGAdministrationClusterBackupList {
 	m := new(WSGAdministrationClusterBackupList)
 	return m
@@ -310,6 +401,21 @@ type WSGAdministrationConfigurationBackupList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAdministrationConfigurationBackupListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationConfigurationBackupList
+}
+
+func newWSGAdministrationConfigurationBackupListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationConfigurationBackupListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationConfigurationBackupListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationConfigurationBackupList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationConfigurationBackupList() *WSGAdministrationConfigurationBackupList {
 	m := new(WSGAdministrationConfigurationBackupList)
 	return m
@@ -493,6 +599,21 @@ type WSGAdministrationLicenseServer struct {
 	UseCloud *bool `json:"useCloud,omitempty"`
 }
 
+type WSGAdministrationLicenseServerAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationLicenseServer
+}
+
+func newWSGAdministrationLicenseServerAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationLicenseServerAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationLicenseServerAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationLicenseServer)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationLicenseServer() *WSGAdministrationLicenseServer {
 	m := new(WSGAdministrationLicenseServer)
 	return m
@@ -511,6 +632,21 @@ type WSGAdministrationLicensesList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAdministrationLicensesListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationLicensesList
+}
+
+func newWSGAdministrationLicensesListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationLicensesListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationLicensesListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationLicensesList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationLicensesList() *WSGAdministrationLicensesList {
 	m := new(WSGAdministrationLicensesList)
 	return m
@@ -563,6 +699,21 @@ type WSGAdministrationLicensesSummaryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAdministrationLicensesSummaryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationLicensesSummaryList
+}
+
+func newWSGAdministrationLicensesSummaryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationLicensesSummaryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationLicensesSummaryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationLicensesSummaryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationLicensesSummaryList() *WSGAdministrationLicensesSummaryList {
 	m := new(WSGAdministrationLicensesSummaryList)
 	return m
@@ -601,6 +752,21 @@ type WSGAdministrationLicensesSyncLogsList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAdministrationLicensesSyncLogsListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationLicensesSyncLogsList
+}
+
+func newWSGAdministrationLicensesSyncLogsListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationLicensesSyncLogsListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationLicensesSyncLogsListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationLicensesSyncLogsList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationLicensesSyncLogsList() *WSGAdministrationLicensesSyncLogsList {
 	m := new(WSGAdministrationLicensesSyncLogsList)
 	return m
@@ -806,6 +972,21 @@ type WSGAdministrationRetrieveAdminAAAServer struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type WSGAdministrationRetrieveAdminAAAServerAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationRetrieveAdminAAAServer
+}
+
+func newWSGAdministrationRetrieveAdminAAAServerAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationRetrieveAdminAAAServerAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationRetrieveAdminAAAServerAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationRetrieveAdminAAAServer)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationRetrieveAdminAAAServer() *WSGAdministrationRetrieveAdminAAAServer {
 	m := new(WSGAdministrationRetrieveAdminAAAServer)
 	return m
@@ -824,6 +1005,21 @@ type WSGAdministrationRetrieveAdminAAAServerList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAdministrationRetrieveAdminAAAServerListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationRetrieveAdminAAAServerList
+}
+
+func newWSGAdministrationRetrieveAdminAAAServerListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationRetrieveAdminAAAServerListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationRetrieveAdminAAAServerListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationRetrieveAdminAAAServerList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationRetrieveAdminAAAServerList() *WSGAdministrationRetrieveAdminAAAServerList {
 	m := new(WSGAdministrationRetrieveAdminAAAServerList)
 	return m
@@ -881,6 +1077,21 @@ type WSGAdministrationScheduleBackup struct {
 	Minute *int `json:"minute,omitempty"`
 }
 
+type WSGAdministrationScheduleBackupAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationScheduleBackup
+}
+
+func newWSGAdministrationScheduleBackupAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationScheduleBackupAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationScheduleBackupAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationScheduleBackup)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationScheduleBackup() *WSGAdministrationScheduleBackup {
 	m := new(WSGAdministrationScheduleBackup)
 	return m
@@ -995,6 +1206,21 @@ type WSGAdministrationUpgradeHistoryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAdministrationUpgradeHistoryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationUpgradeHistoryList
+}
+
+func newWSGAdministrationUpgradeHistoryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationUpgradeHistoryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationUpgradeHistoryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationUpgradeHistoryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationUpgradeHistoryList() *WSGAdministrationUpgradeHistoryList {
 	m := new(WSGAdministrationUpgradeHistoryList)
 	return m
@@ -1063,6 +1289,21 @@ type WSGAdministrationUpgradePatchInfo struct {
 	UploadPatchInfo *WSGClusterBladeUploadPatchInfo `json:"uploadPatchInfo,omitempty"`
 }
 
+type WSGAdministrationUpgradePatchInfoAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationUpgradePatchInfo
+}
+
+func newWSGAdministrationUpgradePatchInfoAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationUpgradePatchInfoAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationUpgradePatchInfoAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationUpgradePatchInfo)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationUpgradePatchInfo() *WSGAdministrationUpgradePatchInfo {
 	m := new(WSGAdministrationUpgradePatchInfo)
 	return m
@@ -1075,6 +1316,21 @@ type WSGAdministrationUpgradeStatus struct {
 	ClusterOperationProgress *WSGClusterBladeClusterUpgradeProgress `json:"clusterOperationProgress,omitempty"`
 }
 
+type WSGAdministrationUpgradeStatusAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationUpgradeStatus
+}
+
+func newWSGAdministrationUpgradeStatusAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationUpgradeStatusAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationUpgradeStatusAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationUpgradeStatus)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationUpgradeStatus() *WSGAdministrationUpgradeStatus {
 	m := new(WSGAdministrationUpgradeStatus)
 	return m
@@ -1113,6 +1369,21 @@ type WSGAdministrationZdAPList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAdministrationZdAPListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationZdAPList
+}
+
+func newWSGAdministrationZdAPListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationZdAPListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationZdAPListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationZdAPList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationZdAPList() *WSGAdministrationZdAPList {
 	m := new(WSGAdministrationZdAPList)
 	return m
@@ -1165,6 +1436,21 @@ type WSGAdministrationZdImportStatus struct {
 	State *string `json:"state,omitempty"`
 }
 
+type WSGAdministrationZdImportStatusAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdministrationZdImportStatus
+}
+
+func newWSGAdministrationZdImportStatusAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdministrationZdImportStatusAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdministrationZdImportStatusAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdministrationZdImportStatus)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdministrationZdImportStatus() *WSGAdministrationZdImportStatus {
 	m := new(WSGAdministrationZdImportStatus)
 	return m
@@ -1198,7 +1484,7 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1222,7 +1508,7 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...R
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -1246,7 +1532,7 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -1275,7 +1561,7 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -1305,7 +1591,7 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 	req.QueryParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationRetrieveAdminAAAServerList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1335,7 +1621,7 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationRetrieveAdminAAAServer()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1360,7 +1646,7 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ..
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicensesList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1385,7 +1671,7 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutato
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicenseServer()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1410,7 +1696,7 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, muta
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicensesSummaryList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1435,7 +1721,7 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mut
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationLicensesSyncLogsList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1470,7 +1756,7 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, err)
 	return rm, err
 }
 
@@ -1500,7 +1786,7 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -1524,6 +1810,6 @@ func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context, mutat
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

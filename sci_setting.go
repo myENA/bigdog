@@ -5,6 +5,7 @@ package bigdog
 import (
 	"bytes"
 	"context"
+	"encoding/json"
 	"net/http"
 	"net/url"
 )
@@ -21,6 +22,37 @@ func NewSCISettingService(c *SCIClient) *SCISettingService {
 
 func (ss *SCIService) SCISettingService() *SCISettingService {
 	return NewSCISettingService(ss.apiClient)
+}
+
+// SettingDeleteById
+//
+// Operation ID: setting_deleteById
+//
+// Delete a model instance by id from the data source.
+//
+// Required Parameters:
+// - id string
+//		- required
+func (s *SCISettingService) SettingDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+	var (
+		req      *APIRequest
+		rm       *APIResponseMeta
+		resp     *RawAPIResponse
+		httpResp *http.Response
+		err      error
+	)
+	if err = ctx.Err(); err != nil {
+		return resp, rm, err
+	}
+	req = apiRequestFromPool(http.MethodDelete, RouteSCISettingDeleteById, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyContentType, "*/*")
+	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.PathParams.Set("id", id)
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	return resp, rm, err
 }
 
 // SettingFindById
@@ -56,7 +88,7 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSetting()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -67,11 +99,11 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 // Form Data Parameters:
 // - recipients string
 //		- required
-func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -86,8 +118,8 @@ func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -119,6 +151,6 @@ func (s *SCISettingService) SettingUpsert(ctx context.Context, data *SCIModelsSe
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSetting()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

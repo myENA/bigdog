@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGDPSKBatchGenUnbound
 //
 // Definition: dpsk_batchGenUnbound
@@ -41,6 +46,21 @@ type WSGDPSKDeleteDpskResult struct {
 	ResultCount *int `json:"resultCount,omitempty"`
 }
 
+type WSGDPSKDeleteDpskResultAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPSKDeleteDpskResult
+}
+
+func newWSGDPSKDeleteDpskResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPSKDeleteDpskResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPSKDeleteDpskResultAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPSKDeleteDpskResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPSKDeleteDpskResult() *WSGDPSKDeleteDpskResult {
 	m := new(WSGDPSKDeleteDpskResult)
 	return m
@@ -69,6 +89,21 @@ type WSGDPSKDeleteExpiredDpskConfig struct {
 	DeleteExpiredDpsk *string `json:"deleteExpiredDpsk,omitempty"`
 }
 
+type WSGDPSKDeleteExpiredDpskConfigAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPSKDeleteExpiredDpskConfig
+}
+
+func newWSGDPSKDeleteExpiredDpskConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPSKDeleteExpiredDpskConfigAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPSKDeleteExpiredDpskConfigAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPSKDeleteExpiredDpskConfig)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPSKDeleteExpiredDpskConfig() *WSGDPSKDeleteExpiredDpskConfig {
 	m := new(WSGDPSKDeleteExpiredDpskConfig)
 	return m
@@ -153,6 +188,21 @@ type WSGDPSKQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDPSKQueryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPSKQueryList
+}
+
+func newWSGDPSKQueryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPSKQueryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPSKQueryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPSKQueryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPSKQueryList() *WSGDPSKQueryList {
 	m := new(WSGDPSKQueryList)
 	return m
@@ -247,6 +297,21 @@ type WSGDPSKGetDpskEnabledWlans struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDPSKGetDpskEnabledWlansAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPSKGetDpskEnabledWlans
+}
+
+func newWSGDPSKGetDpskEnabledWlansAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPSKGetDpskEnabledWlansAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPSKGetDpskEnabledWlansAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPSKGetDpskEnabledWlans)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPSKGetDpskEnabledWlans() *WSGDPSKGetDpskEnabledWlans {
 	m := new(WSGDPSKGetDpskEnabledWlans)
 	return m
@@ -287,6 +352,21 @@ type WSGDPSKGetDpskInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDPSKGetDpskInfoListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPSKGetDpskInfoList
+}
+
+func newWSGDPSKGetDpskInfoListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPSKGetDpskInfoListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPSKGetDpskInfoListAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPSKGetDpskInfoList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPSKGetDpskInfoList() *WSGDPSKGetDpskInfoList {
 	m := new(WSGDPSKGetDpskInfoList)
 	return m
@@ -301,6 +381,21 @@ type WSGDPSKGetDpskResult struct {
 	ResultCount *int `json:"resultCount,omitempty"`
 }
 
+type WSGDPSKGetDpskResultAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDPSKGetDpskResult
+}
+
+func newWSGDPSKGetDpskResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDPSKGetDpskResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDPSKGetDpskResultAPIResponse) Hydrate() error {
+	r.Data = new(WSGDPSKGetDpskResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDPSKGetDpskResult() *WSGDPSKGetDpskResult {
 	m := new(WSGDPSKGetDpskResult)
 	return m

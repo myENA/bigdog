@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // SwitchMConfigurationBackupBackupIds
 //
 // Definition: configBackup_backupIds
@@ -89,6 +94,21 @@ type SwitchMConfigurationBackupConfigBackupDiff struct {
 	ConfigBackup2 *SwitchMConfigurationBackupConfigBackupContent `json:"configBackup2,omitempty"`
 }
 
+type SwitchMConfigurationBackupConfigBackupDiffAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMConfigurationBackupConfigBackupDiff
+}
+
+func newSwitchMConfigurationBackupConfigBackupDiffAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMConfigurationBackupConfigBackupDiffAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMConfigurationBackupConfigBackupDiffAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMConfigurationBackupConfigBackupDiff)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMConfigurationBackupConfigBackupDiff() *SwitchMConfigurationBackupConfigBackupDiff {
 	m := new(SwitchMConfigurationBackupConfigBackupDiff)
 	return m
@@ -137,6 +157,21 @@ type SwitchMConfigurationBackupCreateBackupResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMConfigurationBackupCreateBackupResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMConfigurationBackupCreateBackupResultList
+}
+
+func newSwitchMConfigurationBackupCreateBackupResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMConfigurationBackupCreateBackupResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMConfigurationBackupCreateBackupResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMConfigurationBackupCreateBackupResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMConfigurationBackupCreateBackupResultList() *SwitchMConfigurationBackupCreateBackupResultList {
 	m := new(SwitchMConfigurationBackupCreateBackupResultList)
 	return m
@@ -189,6 +224,21 @@ type SwitchMConfigurationBackupList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMConfigurationBackupListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMConfigurationBackupList
+}
+
+func newSwitchMConfigurationBackupListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMConfigurationBackupListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMConfigurationBackupListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMConfigurationBackupList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMConfigurationBackupList() *SwitchMConfigurationBackupList {
 	m := new(SwitchMConfigurationBackupList)
 	return m

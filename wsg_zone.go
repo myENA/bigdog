@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGZoneApFirmware
 //
 // Definition: zone_apFirmware
@@ -37,6 +42,21 @@ type WSGZoneApFirmwareList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGZoneApFirmwareListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGZoneApFirmwareList
+}
+
+func newWSGZoneApFirmwareListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGZoneApFirmwareListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGZoneApFirmwareListAPIResponse) Hydrate() error {
+	r.Data = new(WSGZoneApFirmwareList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGZoneApFirmwareList() *WSGZoneApFirmwareList {
 	m := new(WSGZoneApFirmwareList)
 	return m
@@ -127,6 +147,21 @@ type WSGZoneAvailableTunnelProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGZoneAvailableTunnelProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGZoneAvailableTunnelProfileList
+}
+
+func newWSGZoneAvailableTunnelProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGZoneAvailableTunnelProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGZoneAvailableTunnelProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGZoneAvailableTunnelProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGZoneAvailableTunnelProfileList() *WSGZoneAvailableTunnelProfileList {
 	m := new(WSGZoneAvailableTunnelProfileList)
 	return m
@@ -181,6 +216,21 @@ type WSGZoneBonjourGatewayPolicyConfiguration struct {
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 }
 
+type WSGZoneBonjourGatewayPolicyConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGZoneBonjourGatewayPolicyConfiguration
+}
+
+func newWSGZoneBonjourGatewayPolicyConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGZoneBonjourGatewayPolicyConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGZoneBonjourGatewayPolicyConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGZoneBonjourGatewayPolicyConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGZoneBonjourGatewayPolicyConfiguration() *WSGZoneBonjourGatewayPolicyConfiguration {
 	m := new(WSGZoneBonjourGatewayPolicyConfiguration)
 	return m
@@ -199,6 +249,21 @@ type WSGZoneBonjourGatewayPolicyList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGZoneBonjourGatewayPolicyListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGZoneBonjourGatewayPolicyList
+}
+
+func newWSGZoneBonjourGatewayPolicyListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGZoneBonjourGatewayPolicyListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGZoneBonjourGatewayPolicyListAPIResponse) Hydrate() error {
+	r.Data = new(WSGZoneBonjourGatewayPolicyList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGZoneBonjourGatewayPolicyList() *WSGZoneBonjourGatewayPolicyList {
 	m := new(WSGZoneBonjourGatewayPolicyList)
 	return m
@@ -703,6 +768,21 @@ type WSGZoneDhcpSiteConfigList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGZoneDhcpSiteConfigListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGZoneDhcpSiteConfigList
+}
+
+func newWSGZoneDhcpSiteConfigListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGZoneDhcpSiteConfigListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGZoneDhcpSiteConfigListAPIResponse) Hydrate() error {
+	r.Data = new(WSGZoneDhcpSiteConfigList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGZoneDhcpSiteConfigList() *WSGZoneDhcpSiteConfigList {
 	m := new(WSGZoneDhcpSiteConfigList)
 	return m
@@ -729,6 +809,21 @@ type WSGZoneDiffServConfiguration struct {
 	UplinkDiffServ *WSGZoneUplinkDiffServ `json:"uplinkDiffServ,omitempty"`
 }
 
+type WSGZoneDiffServConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGZoneDiffServConfiguration
+}
+
+func newWSGZoneDiffServConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGZoneDiffServConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGZoneDiffServConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGZoneDiffServConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGZoneDiffServConfiguration() *WSGZoneDiffServConfiguration {
 	m := new(WSGZoneDiffServConfiguration)
 	return m
@@ -747,6 +842,21 @@ type WSGZoneDiffServList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGZoneDiffServListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGZoneDiffServList
+}
+
+func newWSGZoneDiffServListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGZoneDiffServListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGZoneDiffServListAPIResponse) Hydrate() error {
+	r.Data = new(WSGZoneDiffServList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGZoneDiffServList() *WSGZoneDiffServList {
 	m := new(WSGZoneDiffServList)
 	return m
@@ -839,6 +949,21 @@ type WSGZoneMeshConfiguration struct {
 	ZeroTouchStatus *bool `json:"zeroTouchStatus,omitempty"`
 }
 
+type WSGZoneMeshConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGZoneMeshConfiguration
+}
+
+func newWSGZoneMeshConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGZoneMeshConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGZoneMeshConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGZoneMeshConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGZoneMeshConfiguration() *WSGZoneMeshConfiguration {
 	m := new(WSGZoneMeshConfiguration)
 	return m
@@ -1787,6 +1912,21 @@ type WSGZoneConfiguration struct {
 	ZoneAffinityProfileId *string `json:"zoneAffinityProfileId,omitempty"`
 }
 
+type WSGZoneConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGZoneConfiguration
+}
+
+func newWSGZoneConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGZoneConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGZoneConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGZoneConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGZoneConfiguration() *WSGZoneConfiguration {
 	m := new(WSGZoneConfiguration)
 	return m
@@ -1805,6 +1945,21 @@ type WSGZoneList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGZoneListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGZoneList
+}
+
+func newWSGZoneListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGZoneListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGZoneListAPIResponse) Hydrate() error {
+	r.Data = new(WSGZoneList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGZoneList() *WSGZoneList {
 	m := new(WSGZoneList)
 	return m

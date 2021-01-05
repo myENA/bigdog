@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGEventManagementEventDataList
 //
 // Definition: eventManagement_eventDataList
@@ -39,6 +44,21 @@ type WSGEventManagementEventDataResponse struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type WSGEventManagementEventDataResponseAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGEventManagementEventDataResponse
+}
+
+func newWSGEventManagementEventDataResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGEventManagementEventDataResponseAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGEventManagementEventDataResponseAPIResponse) Hydrate() error {
+	r.Data = new(WSGEventManagementEventDataResponse)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGEventManagementEventDataResponse() *WSGEventManagementEventDataResponse {
 	m := new(WSGEventManagementEventDataResponse)
 	return m
@@ -57,6 +77,21 @@ type WSGEventManagementEventEmailSetting struct {
 	MailTo *string `json:"mailTo,omitempty"`
 }
 
+type WSGEventManagementEventEmailSettingAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGEventManagementEventEmailSetting
+}
+
+func newWSGEventManagementEventEmailSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGEventManagementEventEmailSettingAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGEventManagementEventEmailSettingAPIResponse) Hydrate() error {
+	r.Data = new(WSGEventManagementEventEmailSetting)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGEventManagementEventEmailSetting() *WSGEventManagementEventEmailSetting {
 	m := new(WSGEventManagementEventEmailSetting)
 	return m

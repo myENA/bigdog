@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // SwitchMVEConfigCreate
 //
 // Definition: veConfig_create
@@ -67,6 +72,21 @@ type SwitchMVEConfigCreateResult struct {
 	Id *string `json:"id,omitempty"`
 }
 
+type SwitchMVEConfigCreateResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMVEConfigCreateResult
+}
+
+func newSwitchMVEConfigCreateResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMVEConfigCreateResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMVEConfigCreateResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMVEConfigCreateResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMVEConfigCreateResult() *SwitchMVEConfigCreateResult {
 	m := new(SwitchMVEConfigCreateResult)
 	return m
@@ -93,6 +113,21 @@ type SwitchMVEConfigList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMVEConfigListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMVEConfigList
+}
+
+func newSwitchMVEConfigListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMVEConfigListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMVEConfigListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMVEConfigList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMVEConfigList() *SwitchMVEConfigList {
 	m := new(SwitchMVEConfigList)
 	return m
@@ -225,6 +260,21 @@ type SwitchMVEConfig struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
+type SwitchMVEConfigAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMVEConfig
+}
+
+func newSwitchMVEConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMVEConfigAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMVEConfigAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMVEConfig)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMVEConfig() *SwitchMVEConfig {
 	m := new(SwitchMVEConfig)
 	return m

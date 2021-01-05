@@ -47,7 +47,7 @@ func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSG
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, nil, err)
 	return rm, err
 }
 
@@ -77,7 +77,7 @@ func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAd
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, nil, err)
 	return rm, err
 }
 
@@ -107,7 +107,7 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string
 	req.QueryParams.Set("ip", ip)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationZdAPList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -139,6 +139,6 @@ func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalPar
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdministrationZdImportStatus()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

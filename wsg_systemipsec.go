@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -102,6 +103,21 @@ type WSGSystemIPsecGetResult struct {
 	TrustChainProfileId *string `json:"trustChainProfileId,omitempty"`
 }
 
+type WSGSystemIPsecGetResultAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSystemIPsecGetResult
+}
+
+func newWSGSystemIPsecGetResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSystemIPsecGetResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemIPsecGetResultAPIResponse) Hydrate() error {
+	r.Data = new(WSGSystemIPsecGetResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSystemIPsecGetResult() *WSGSystemIPsecGetResult {
 	m := new(WSGSystemIPsecGetResult)
 	return m
@@ -238,7 +254,7 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context, mutators ..
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSystemIPsecGetResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -250,11 +266,11 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context, mutators ..
 //
 // Request Body:
 //	 - body *WSGSystemIPsecUpdate
-func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSGSystemIPsecUpdate, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSGSystemIPsecUpdate, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -269,7 +285,7 @@ func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSG
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
+	"net/http"
 )
 
 // WSGAPAlarmSummary
@@ -172,6 +173,21 @@ type WSGAPConfiguration struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGAPConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAPConfiguration
+}
+
+func newWSGAPConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAPConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAPConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGAPConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAPConfiguration() *WSGAPConfiguration {
 	m := new(WSGAPConfiguration)
 	return m
@@ -196,6 +212,21 @@ type WSGAPLinemanSummary struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAPLinemanSummaryAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAPLinemanSummary
+}
+
+func newWSGAPLinemanSummaryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAPLinemanSummaryAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAPLinemanSummaryAPIResponse) Hydrate() error {
+	r.Data = new(WSGAPLinemanSummary)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAPLinemanSummary() *WSGAPLinemanSummary {
 	m := new(WSGAPLinemanSummary)
 	return m
@@ -250,6 +281,21 @@ type WSGAPListEntry struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAPListEntryAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAPListEntry
+}
+
+func newWSGAPListEntryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAPListEntryAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAPListEntryAPIResponse) Hydrate() error {
+	r.Data = new(WSGAPListEntry)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAPListEntry() *WSGAPListEntry {
 	m := new(WSGAPListEntry)
 	return m
@@ -448,6 +494,21 @@ type WSGAPOperationalSummary struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGAPOperationalSummaryAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAPOperationalSummary
+}
+
+func newWSGAPOperationalSummaryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAPOperationalSummaryAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAPOperationalSummaryAPIResponse) Hydrate() error {
+	r.Data = new(WSGAPOperationalSummary)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAPOperationalSummary() *WSGAPOperationalSummary {
 	m := new(WSGAPOperationalSummary)
 	return m
@@ -517,6 +578,21 @@ func (t *WSGAPRadioConfiguration) MarshalJSON() ([]byte, error) {
 	return json.Marshal(tmp)
 }
 
+type WSGAPRadioConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAPRadioConfiguration
+}
+
+func newWSGAPRadioConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAPRadioConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAPRadioConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGAPRadioConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAPRadioConfiguration() *WSGAPRadioConfiguration {
 	m := new(WSGAPRadioConfiguration)
 	return m
@@ -1191,6 +1267,21 @@ type WSGAPModifyRogueType struct {
 	RogueMacList []*WSGCommonMac `json:"rogueMacList,omitempty"`
 }
 
+type WSGAPModifyRogueTypeAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAPModifyRogueType
+}
+
+func newWSGAPModifyRogueTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAPModifyRogueTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAPModifyRogueTypeAPIResponse) Hydrate() error {
+	r.Data = new(WSGAPModifyRogueType)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAPModifyRogueType() *WSGAPModifyRogueType {
 	m := new(WSGAPModifyRogueType)
 	return m
@@ -1215,6 +1306,21 @@ type WSGAPNeighborAPList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAPNeighborAPListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAPNeighborAPList
+}
+
+func newWSGAPNeighborAPListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAPNeighborAPListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAPNeighborAPListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAPNeighborAPList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAPNeighborAPList() *WSGAPNeighborAPList {
 	m := new(WSGAPNeighborAPList)
 	return m

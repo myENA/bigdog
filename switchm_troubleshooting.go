@@ -143,6 +143,21 @@ func (t *SwitchMTroubleshootingRemoteClientConnectivityResponse) MarshalJSON() (
 	return json.Marshal(tmp)
 }
 
+type SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMTroubleshootingRemoteClientConnectivityResponse
+}
+
+func newSwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMTroubleshootingRemoteClientConnectivityResponse)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMTroubleshootingRemoteClientConnectivityResponse() *SwitchMTroubleshootingRemoteClientConnectivityResponse {
 	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponse)
 	return m
@@ -333,6 +348,21 @@ func (t *SwitchMTroubleshootingRemoteCommandResponse) MarshalJSON() ([]byte, err
 	return json.Marshal(tmp)
 }
 
+type SwitchMTroubleshootingRemoteCommandResponseAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMTroubleshootingRemoteCommandResponse
+}
+
+func newSwitchMTroubleshootingRemoteCommandResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMTroubleshootingRemoteCommandResponseAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMTroubleshootingRemoteCommandResponseAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMTroubleshootingRemoteCommandResponse)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMTroubleshootingRemoteCommandResponse() *SwitchMTroubleshootingRemoteCommandResponse {
 	m := new(SwitchMTroubleshootingRemoteCommandResponse)
 	return m
@@ -493,6 +523,21 @@ type SwitchMTroubleshootingSupportLogStatus struct {
 	SwitchId *string `json:"switchId,omitempty"`
 }
 
+type SwitchMTroubleshootingSupportLogStatusAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMTroubleshootingSupportLogStatus
+}
+
+func newSwitchMTroubleshootingSupportLogStatusAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMTroubleshootingSupportLogStatusAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMTroubleshootingSupportLogStatusAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMTroubleshootingSupportLogStatus)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMTroubleshootingSupportLogStatus() *SwitchMTroubleshootingSupportLogStatus {
 	m := new(SwitchMTroubleshootingSupportLogStatus)
 	return m
@@ -528,7 +573,7 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteClientConnectivity(ct
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTroubleshootingRemoteClientConnectivityResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -562,7 +607,7 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemotePing(ctx context.Cont
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTroubleshootingRemoteCommandResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -596,7 +641,7 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteTraceroute(ctx contex
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTroubleshootingRemoteCommandResponse()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -626,7 +671,7 @@ func (s *SwitchMTroubleshootingService) FindSupportLogBySwitchId(ctx context.Con
 	req.PathParams.Set("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -654,7 +699,7 @@ func (s *SwitchMTroubleshootingService) FindSupportLogDownloadBySwitchId(ctx con
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, err)
 	return rm, err
 }
 
@@ -684,6 +729,6 @@ func (s *SwitchMTroubleshootingService) FindSupportLogStatusBySwitchId(ctx conte
 	req.PathParams.Set("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMTroubleshootingSupportLogStatus()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

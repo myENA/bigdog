@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGAVCAppCategory
 //
 // Definition: avc_appCategory
@@ -15,6 +20,21 @@ type WSGAVCAppCategory struct {
 	Name *string `json:"name,omitempty"`
 }
 
+type WSGAVCAppCategoryAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAVCAppCategory
+}
+
+func newWSGAVCAppCategoryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAVCAppCategoryAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAVCAppCategoryAPIResponse) Hydrate() error {
+	r.Data = new(WSGAVCAppCategory)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAVCAppCategory() *WSGAVCAppCategory {
 	m := new(WSGAVCAppCategory)
 	return m
@@ -33,6 +53,21 @@ type WSGAVCAppCategoryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAVCAppCategoryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAVCAppCategoryList
+}
+
+func newWSGAVCAppCategoryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAVCAppCategoryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAVCAppCategoryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAVCAppCategoryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAVCAppCategoryList() *WSGAVCAppCategoryList {
 	m := new(WSGAVCAppCategoryList)
 	return m
@@ -55,6 +90,21 @@ type WSGAVCApplication struct {
 	Name *string `json:"name,omitempty"`
 }
 
+type WSGAVCApplicationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAVCApplication
+}
+
+func newWSGAVCApplicationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAVCApplicationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAVCApplicationAPIResponse) Hydrate() error {
+	r.Data = new(WSGAVCApplication)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAVCApplication() *WSGAVCApplication {
 	m := new(WSGAVCApplication)
 	return m
@@ -73,6 +123,21 @@ type WSGAVCApplicationList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAVCApplicationListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAVCApplicationList
+}
+
+func newWSGAVCApplicationListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAVCApplicationListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAVCApplicationListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAVCApplicationList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAVCApplicationList() *WSGAVCApplicationList {
 	m := new(WSGAVCApplicationList)
 	return m
@@ -133,6 +198,21 @@ type WSGAVCApplicationPolicyProfile struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
+type WSGAVCApplicationPolicyProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAVCApplicationPolicyProfile
+}
+
+func newWSGAVCApplicationPolicyProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAVCApplicationPolicyProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAVCApplicationPolicyProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGAVCApplicationPolicyProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAVCApplicationPolicyProfile() *WSGAVCApplicationPolicyProfile {
 	m := new(WSGAVCApplicationPolicyProfile)
 	return m
@@ -153,6 +233,21 @@ type WSGAVCApplicationPolicyProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAVCApplicationPolicyProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAVCApplicationPolicyProfileList
+}
+
+func newWSGAVCApplicationPolicyProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAVCApplicationPolicyProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAVCApplicationPolicyProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAVCApplicationPolicyProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAVCApplicationPolicyProfileList() *WSGAVCApplicationPolicyProfileList {
 	m := new(WSGAVCApplicationPolicyProfileList)
 	return m
@@ -395,6 +490,21 @@ type WSGAVCSignaturePackage struct {
 	Version *string `json:"version,omitempty"`
 }
 
+type WSGAVCSignaturePackageAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAVCSignaturePackage
+}
+
+func newWSGAVCSignaturePackageAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAVCSignaturePackageAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAVCSignaturePackageAPIResponse) Hydrate() error {
+	r.Data = new(WSGAVCSignaturePackage)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAVCSignaturePackage() *WSGAVCSignaturePackage {
 	m := new(WSGAVCSignaturePackage)
 	return m
@@ -470,6 +580,21 @@ type WSGAVCUserDefinedProfile struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type WSGAVCUserDefinedProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAVCUserDefinedProfile
+}
+
+func newWSGAVCUserDefinedProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAVCUserDefinedProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAVCUserDefinedProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGAVCUserDefinedProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAVCUserDefinedProfile() *WSGAVCUserDefinedProfile {
 	m := new(WSGAVCUserDefinedProfile)
 	return m
@@ -490,6 +615,21 @@ type WSGAVCUserDefinedProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAVCUserDefinedProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAVCUserDefinedProfileList
+}
+
+func newWSGAVCUserDefinedProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAVCUserDefinedProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAVCUserDefinedProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAVCUserDefinedProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAVCUserDefinedProfileList() *WSGAVCUserDefinedProfileList {
 	m := new(WSGAVCUserDefinedProfileList)
 	return m

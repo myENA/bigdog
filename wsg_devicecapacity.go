@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGDeviceCapacityDevicesSummary
 //
 // Definition: deviceCapacity_devicesSummary
@@ -55,6 +60,21 @@ type WSGDeviceCapacityDevicesSummary struct {
 	TotalSwitches *int `json:"totalSwitches,omitempty"`
 }
 
+type WSGDeviceCapacityDevicesSummaryAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDeviceCapacityDevicesSummary
+}
+
+func newWSGDeviceCapacityDevicesSummaryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDeviceCapacityDevicesSummaryAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDeviceCapacityDevicesSummaryAPIResponse) Hydrate() error {
+	r.Data = new(WSGDeviceCapacityDevicesSummary)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDeviceCapacityDevicesSummary() *WSGDeviceCapacityDevicesSummary {
 	m := new(WSGDeviceCapacityDevicesSummary)
 	return m

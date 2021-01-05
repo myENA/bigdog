@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGClientDeAuthClient
 //
 // Definition: client_deAuthClient
@@ -163,6 +168,21 @@ type WSGClientHistoricalClientList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGClientHistoricalClientListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGClientHistoricalClientList
+}
+
+func newWSGClientHistoricalClientListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGClientHistoricalClientListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGClientHistoricalClientListAPIResponse) Hydrate() error {
+	r.Data = new(WSGClientHistoricalClientList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGClientHistoricalClientList() *WSGClientHistoricalClientList {
 	m := new(WSGClientHistoricalClientList)
 	return m

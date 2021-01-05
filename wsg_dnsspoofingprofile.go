@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -85,6 +86,21 @@ type WSGDNSSpoofingProfileDetail struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGDNSSpoofingProfileDetailAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDNSSpoofingProfileDetail
+}
+
+func newWSGDNSSpoofingProfileDetailAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDNSSpoofingProfileDetailAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDNSSpoofingProfileDetailAPIResponse) Hydrate() error {
+	r.Data = new(WSGDNSSpoofingProfileDetail)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDNSSpoofingProfileDetail() *WSGDNSSpoofingProfileDetail {
 	m := new(WSGDNSSpoofingProfileDetail)
 	return m
@@ -143,6 +159,21 @@ type WSGDNSSpoofingProfileGetDnsSpoofingProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDNSSpoofingProfileGetDnsSpoofingProfileList
+}
+
+func newWSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGDNSSpoofingProfileGetDnsSpoofingProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDNSSpoofingProfileGetDnsSpoofingProfileList() *WSGDNSSpoofingProfileGetDnsSpoofingProfileList {
 	m := new(WSGDNSSpoofingProfileGetDnsSpoofingProfileList)
 	return m
@@ -181,7 +212,7 @@ func (s *WSGDNSSpoofingProfileService) AddRkszonesDnsSpoofingProfilesByZoneId(ct
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -211,7 +242,7 @@ func (s *WSGDNSSpoofingProfileService) DeleteRkszonesDnsSpoofingProfiles(ctx con
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -243,7 +274,7 @@ func (s *WSGDNSSpoofingProfileService) DeleteRkszonesDnsSpoofingProfilesById(ctx
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -276,7 +307,7 @@ func (s *WSGDNSSpoofingProfileService) FindRkszonesDnsSpoofingProfilesById(ctx c
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDNSSpoofingProfileDetail()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -306,7 +337,7 @@ func (s *WSGDNSSpoofingProfileService) FindRkszonesDnsSpoofingProfilesByZoneId(c
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGDNSSpoofingProfileGetDnsSpoofingProfileList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -344,6 +375,6 @@ func (s *WSGDNSSpoofingProfileService) UpdateRkszonesDnsSpoofingProfilesById(ctx
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

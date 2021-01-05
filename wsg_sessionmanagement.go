@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -72,6 +73,21 @@ type WSGSessionManagementRuckusSessions struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSessionManagementRuckusSessionsAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSessionManagementRuckusSessions
+}
+
+func newWSGSessionManagementRuckusSessionsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSessionManagementRuckusSessionsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSessionManagementRuckusSessionsAPIResponse) Hydrate() error {
+	r.Data = new(WSGSessionManagementRuckusSessions)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSessionManagementRuckusSessions() *WSGSessionManagementRuckusSessions {
 	m := new(WSGSessionManagementRuckusSessions)
 	return m
@@ -98,6 +114,6 @@ func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context,
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSessionManagementRuckusSessions()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

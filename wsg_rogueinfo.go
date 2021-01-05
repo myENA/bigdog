@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGRogueInfo
 //
 // Definition: rogueInfo_rogueInfo
@@ -79,6 +84,21 @@ type WSGRogueInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGRogueInfoListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGRogueInfoList
+}
+
+func newWSGRogueInfoListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGRogueInfoListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGRogueInfoListAPIResponse) Hydrate() error {
+	r.Data = new(WSGRogueInfoList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGRogueInfoList() *WSGRogueInfoList {
 	m := new(WSGRogueInfoList)
 	return m

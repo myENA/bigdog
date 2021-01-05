@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGPortalServiceConnectionCapability
 //
 // Definition: portalservice_connectionCapability
@@ -519,6 +524,21 @@ type WSGPortalServiceGuestAccess struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGPortalServiceGuestAccessAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGPortalServiceGuestAccess
+}
+
+func newWSGPortalServiceGuestAccessAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGPortalServiceGuestAccessAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGPortalServiceGuestAccessAPIResponse) Hydrate() error {
+	r.Data = new(WSGPortalServiceGuestAccess)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGPortalServiceGuestAccess() *WSGPortalServiceGuestAccess {
 	m := new(WSGPortalServiceGuestAccess)
 	return m
@@ -594,6 +614,21 @@ type WSGPortalServiceHotspot struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGPortalServiceHotspotAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGPortalServiceHotspot
+}
+
+func newWSGPortalServiceHotspotAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGPortalServiceHotspotAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGPortalServiceHotspotAPIResponse) Hydrate() error {
+	r.Data = new(WSGPortalServiceHotspot)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGPortalServiceHotspot() *WSGPortalServiceHotspot {
 	m := new(WSGPortalServiceHotspot)
 	return m
@@ -632,6 +667,21 @@ type WSGPortalServiceHotspot20VeuneProfile struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGPortalServiceHotspot20VeuneProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGPortalServiceHotspot20VeuneProfile
+}
+
+func newWSGPortalServiceHotspot20VeuneProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGPortalServiceHotspot20VeuneProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGPortalServiceHotspot20VeuneProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGPortalServiceHotspot20VeuneProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGPortalServiceHotspot20VeuneProfile() *WSGPortalServiceHotspot20VeuneProfile {
 	m := new(WSGPortalServiceHotspot20VeuneProfile)
 	return m
@@ -694,6 +744,21 @@ type WSGPortalServiceHotspot20WlanProfile struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGPortalServiceHotspot20WlanProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGPortalServiceHotspot20WlanProfile
+}
+
+func newWSGPortalServiceHotspot20WlanProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGPortalServiceHotspot20WlanProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGPortalServiceHotspot20WlanProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGPortalServiceHotspot20WlanProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGPortalServiceHotspot20WlanProfile() *WSGPortalServiceHotspot20WlanProfile {
 	m := new(WSGPortalServiceHotspot20WlanProfile)
 	return m
@@ -724,6 +789,21 @@ type WSGPortalServiceL2ACL struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGPortalServiceL2ACLAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGPortalServiceL2ACL
+}
+
+func newWSGPortalServiceL2ACLAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGPortalServiceL2ACLAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGPortalServiceL2ACLAPIResponse) Hydrate() error {
+	r.Data = new(WSGPortalServiceL2ACL)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGPortalServiceL2ACL() *WSGPortalServiceL2ACL {
 	m := new(WSGPortalServiceL2ACL)
 	return m
@@ -1056,6 +1136,21 @@ type WSGPortalServiceList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGPortalServiceListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGPortalServiceList
+}
+
+func newWSGPortalServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGPortalServiceListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGPortalServiceListAPIResponse) Hydrate() error {
+	r.Data = new(WSGPortalServiceList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGPortalServiceList() *WSGPortalServiceList {
 	m := new(WSGPortalServiceList)
 	return m
@@ -1149,6 +1244,21 @@ type WSGPortalServiceWebAuthentication struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGPortalServiceWebAuthenticationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGPortalServiceWebAuthentication
+}
+
+func newWSGPortalServiceWebAuthenticationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGPortalServiceWebAuthenticationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGPortalServiceWebAuthenticationAPIResponse) Hydrate() error {
+	r.Data = new(WSGPortalServiceWebAuthentication)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGPortalServiceWebAuthentication() *WSGPortalServiceWebAuthentication {
 	m := new(WSGPortalServiceWebAuthentication)
 	return m
@@ -1191,6 +1301,21 @@ type WSGPortalServiceWechatConfiguration struct {
 	WhiteList []string `json:"whiteList,omitempty"`
 }
 
+type WSGPortalServiceWechatConfigurationAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGPortalServiceWechatConfiguration
+}
+
+func newWSGPortalServiceWechatConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGPortalServiceWechatConfigurationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGPortalServiceWechatConfigurationAPIResponse) Hydrate() error {
+	r.Data = new(WSGPortalServiceWechatConfiguration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGPortalServiceWechatConfiguration() *WSGPortalServiceWechatConfiguration {
 	m := new(WSGPortalServiceWechatConfiguration)
 	return m

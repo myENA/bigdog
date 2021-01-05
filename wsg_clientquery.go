@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGClientQueryList
 //
 // Definition: clientQuery_clientQueryList
@@ -17,6 +22,21 @@ type WSGClientQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGClientQueryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGClientQueryList
+}
+
+func newWSGClientQueryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGClientQueryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGClientQueryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGClientQueryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGClientQueryList() *WSGClientQueryList {
 	m := new(WSGClientQueryList)
 	return m

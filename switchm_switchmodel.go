@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // SwitchMSwitchModelModelList
 //
 // Definition: switchModel_modelList
@@ -43,6 +48,21 @@ type SwitchMSwitchModelResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMSwitchModelResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMSwitchModelResult
+}
+
+func newSwitchMSwitchModelResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMSwitchModelResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMSwitchModelResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMSwitchModelResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMSwitchModelResult() *SwitchMSwitchModelResult {
 	m := new(SwitchMSwitchModelResult)
 	return m

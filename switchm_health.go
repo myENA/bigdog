@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -48,6 +49,21 @@ type SwitchMHealthAggMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMHealthAggMetricsAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMHealthAggMetrics
+}
+
+func newSwitchMHealthAggMetricsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMHealthAggMetricsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMHealthAggMetricsAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMHealthAggMetrics)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMHealthAggMetrics() *SwitchMHealthAggMetrics {
 	m := new(SwitchMHealthAggMetrics)
 	return m
@@ -126,6 +142,21 @@ type SwitchMHealthIcxMetrics struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMHealthIcxMetricsAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMHealthIcxMetrics
+}
+
+func newSwitchMHealthIcxMetricsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMHealthIcxMetricsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMHealthIcxMetricsAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMHealthIcxMetrics)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMHealthIcxMetrics() *SwitchMHealthIcxMetrics {
 	m := new(SwitchMHealthIcxMetrics)
 	return m
@@ -214,6 +245,21 @@ type SwitchMHealthStatus struct {
 	Temperature []*SwitchMHealthStatusTemperatureType `json:"temperature,omitempty"`
 }
 
+type SwitchMHealthStatusAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMHealthStatus
+}
+
+func newSwitchMHealthStatusAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMHealthStatusAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMHealthStatusAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMHealthStatus)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMHealthStatus() *SwitchMHealthStatus {
 	m := new(SwitchMHealthStatus)
 	return m
@@ -353,7 +399,7 @@ func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *Switch
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMHealthAggMetrics()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -385,7 +431,7 @@ func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *Switc
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMHealthIcxMetrics()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -417,7 +463,7 @@ func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *Switch
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMHealthAggMetrics()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -449,7 +495,7 @@ func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *Switc
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMHealthIcxMetrics()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -481,7 +527,7 @@ func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *Switch
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMHealthStatus()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -513,7 +559,7 @@ func (s *SwitchMHealthService) AddHealthStatusAll(ctx context.Context, body *Swi
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMHealthStatus()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -550,6 +596,6 @@ func (s *SwitchMHealthService) AddHealthStatusBySerialNumber(ctx context.Context
 	req.PathParams.Set("serialNumber", serialNumber)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMHealthStatus()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

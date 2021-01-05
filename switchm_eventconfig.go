@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // SwitchMEventConfig
 //
 // Definition: eventConfig_eventConfig
@@ -45,6 +50,21 @@ type SwitchMEventConfig struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type SwitchMEventConfigAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMEventConfig
+}
+
+func newSwitchMEventConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMEventConfigAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMEventConfigAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMEventConfig)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMEventConfig() *SwitchMEventConfig {
 	m := new(SwitchMEventConfig)
 	return m
@@ -77,6 +97,21 @@ type SwitchMEventConfigGetEventConfigList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMEventConfigGetEventConfigListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMEventConfigGetEventConfigList
+}
+
+func newSwitchMEventConfigGetEventConfigListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMEventConfigGetEventConfigListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMEventConfigGetEventConfigListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMEventConfigGetEventConfigList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMEventConfigGetEventConfigList() *SwitchMEventConfigGetEventConfigList {
 	m := new(SwitchMEventConfigGetEventConfigList)
 	return m
@@ -107,6 +142,21 @@ type SwitchMEventConfigQueryResponse struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type SwitchMEventConfigQueryResponseAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMEventConfigQueryResponse
+}
+
+func newSwitchMEventConfigQueryResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMEventConfigQueryResponseAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMEventConfigQueryResponseAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMEventConfigQueryResponse)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMEventConfigQueryResponse() *SwitchMEventConfigQueryResponse {
 	m := new(SwitchMEventConfigQueryResponse)
 	return m

@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -153,6 +154,21 @@ type WSGWLANSchedulerWlanSchedule struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGWLANSchedulerWlanScheduleAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGWLANSchedulerWlanSchedule
+}
+
+func newWSGWLANSchedulerWlanScheduleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGWLANSchedulerWlanScheduleAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGWLANSchedulerWlanScheduleAPIResponse) Hydrate() error {
+	r.Data = new(WSGWLANSchedulerWlanSchedule)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGWLANSchedulerWlanSchedule() *WSGWLANSchedulerWlanSchedule {
 	m := new(WSGWLANSchedulerWlanSchedule)
 	return m
@@ -171,6 +187,21 @@ type WSGWLANSchedulerWlanScheduleList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGWLANSchedulerWlanScheduleListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGWLANSchedulerWlanScheduleList
+}
+
+func newWSGWLANSchedulerWlanScheduleListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGWLANSchedulerWlanScheduleListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGWLANSchedulerWlanScheduleListAPIResponse) Hydrate() error {
+	r.Data = new(WSGWLANSchedulerWlanScheduleList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGWLANSchedulerWlanScheduleList() *WSGWLANSchedulerWlanScheduleList {
 	m := new(WSGWLANSchedulerWlanScheduleList)
 	return m
@@ -253,6 +284,21 @@ type WSGWLANSchedulerWlanScheduleQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGWLANSchedulerWlanScheduleQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGWLANSchedulerWlanScheduleQueryResultList
+}
+
+func newWSGWLANSchedulerWlanScheduleQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGWLANSchedulerWlanScheduleQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGWLANSchedulerWlanScheduleQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(WSGWLANSchedulerWlanScheduleQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGWLANSchedulerWlanScheduleQueryResultList() *WSGWLANSchedulerWlanScheduleQueryResultList {
 	m := new(WSGWLANSchedulerWlanScheduleQueryResultList)
 	return m
@@ -291,7 +337,7 @@ func (s *WSGWLANSchedulerService) AddRkszonesWlanSchedulersByZoneId(ctx context.
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -323,7 +369,7 @@ func (s *WSGWLANSchedulerService) DeleteRkszonesWlanSchedulersById(ctx context.C
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -356,7 +402,7 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById(ctx context.Con
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGWLANSchedulerWlanSchedule()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -398,7 +444,7 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId(ctx context
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGWLANSchedulerWlanScheduleList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -430,7 +476,7 @@ func (s *WSGWLANSchedulerService) FindServicesWlanSchedulerByQueryCriteria(ctx c
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGWLANSchedulerWlanScheduleQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -468,6 +514,6 @@ func (s *WSGWLANSchedulerService) PartialUpdateRkszonesWlanSchedulersById(ctx co
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

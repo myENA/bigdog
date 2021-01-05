@@ -430,7 +430,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport144ClientHealthSu
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportClientHealthReport144clientHealthSummary200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -462,7 +462,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport148ClientConnecti
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportClientHealthReport148clientConnectionHealth200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -494,7 +494,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport149ClientHealthMe
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportClientHealthReport149clientHealthMetricTrends200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -526,6 +526,6 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport150TopClientHealt
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -98,6 +99,21 @@ type WSGRogueClientRogueInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGRogueClientRogueInfoListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGRogueClientRogueInfoList
+}
+
+func newWSGRogueClientRogueInfoListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGRogueClientRogueInfoListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGRogueClientRogueInfoListAPIResponse) Hydrate() error {
+	r.Data = new(WSGRogueClientRogueInfoList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGRogueClientRogueInfoList() *WSGRogueClientRogueInfoList {
 	m := new(WSGRogueClientRogueInfoList)
 	return m
@@ -131,6 +147,6 @@ func (s *WSGRogueClientService) FindRogueclientsByQueryCriteria(ctx context.Cont
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGRogueClientRogueInfoList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

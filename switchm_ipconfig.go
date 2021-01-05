@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // SwitchMIPConfigCreate
 //
 // Definition: ipConfig_create
@@ -63,6 +68,21 @@ type SwitchMIPConfigCreateResult struct {
 	Id *string `json:"id,omitempty"`
 }
 
+type SwitchMIPConfigCreateResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMIPConfigCreateResult
+}
+
+func newSwitchMIPConfigCreateResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMIPConfigCreateResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMIPConfigCreateResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMIPConfigCreateResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMIPConfigCreateResult() *SwitchMIPConfigCreateResult {
 	m := new(SwitchMIPConfigCreateResult)
 	return m
@@ -143,6 +163,21 @@ type SwitchMIPConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+type SwitchMIPConfigAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMIPConfig
+}
+
+func newSwitchMIPConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMIPConfigAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMIPConfigAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMIPConfig)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMIPConfig() *SwitchMIPConfig {
 	m := new(SwitchMIPConfig)
 	return m
@@ -169,6 +204,21 @@ type SwitchMIPConfigList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMIPConfigListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMIPConfigList
+}
+
+func newSwitchMIPConfigListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMIPConfigListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMIPConfigListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMIPConfigList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMIPConfigList() *SwitchMIPConfigList {
 	m := new(SwitchMIPConfigList)
 	return m

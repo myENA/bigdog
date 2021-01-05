@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -34,6 +35,21 @@ type SwitchMGroupAuditId struct {
 	Name *string `json:"name,omitempty"`
 }
 
+type SwitchMGroupAuditIdAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMGroupAuditId
+}
+
+func newSwitchMGroupAuditIdAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMGroupAuditIdAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMGroupAuditIdAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMGroupAuditId)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMGroupAuditId() *SwitchMGroupAuditId {
 	m := new(SwitchMGroupAuditId)
 	return m
@@ -56,6 +72,21 @@ type SwitchMGroupAuditIdList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMGroupAuditIdListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMGroupAuditIdList
+}
+
+func newSwitchMGroupAuditIdListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMGroupAuditIdListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMGroupAuditIdListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMGroupAuditIdList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMGroupAuditIdList() *SwitchMGroupAuditIdList {
 	m := new(SwitchMGroupAuditIdList)
 	return m
@@ -178,6 +209,21 @@ type SwitchMGroupsByIdsQueryResultList struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type SwitchMGroupsByIdsQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMGroupsByIdsQueryResultList
+}
+
+func newSwitchMGroupsByIdsQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMGroupsByIdsQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMGroupsByIdsQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMGroupsByIdsQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMGroupsByIdsQueryResultList() *SwitchMGroupsByIdsQueryResultList {
 	m := new(SwitchMGroupsByIdsQueryResultList)
 	return m
@@ -276,6 +322,21 @@ type SwitchMGroupSwitchGroup struct {
 	TenantId *string `json:"tenantId,omitempty"`
 }
 
+type SwitchMGroupSwitchGroupAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMGroupSwitchGroup
+}
+
+func newSwitchMGroupSwitchGroupAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMGroupSwitchGroupAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMGroupSwitchGroupAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMGroupSwitchGroup)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMGroupSwitchGroup() *SwitchMGroupSwitchGroup {
 	m := new(SwitchMGroupSwitchGroup)
 	return m
@@ -391,7 +452,7 @@ func (s *SwitchMGroupService) AddGroup(ctx context.Context, body *SwitchMGroupSw
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMGroupAuditId()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -422,7 +483,7 @@ func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, sw
 	req.PathParams.Set("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMGroupAuditId()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -452,7 +513,7 @@ func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, swit
 	req.PathParams.Set("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMGroupSwitchGroup()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -489,7 +550,7 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMGroupsByIdsQueryResultList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -501,11 +562,11 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 //
 // Request Body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMGroupService) FindSwitchClientVisibilityByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawResponse, *APIResponseMeta, error) {
+func (s *SwitchMGroupService) FindSwitchClientVisibilityByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
-		resp     *RawResponse
+		resp     *RawAPIResponse
 		httpResp *http.Response
 		err      error
 	)
@@ -520,8 +581,8 @@ func (s *SwitchMGroupService) FindSwitchClientVisibilityByQueryCriteria(ctx cont
 		return resp, rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawResponse)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	resp = new(RawAPIResponse)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -558,7 +619,7 @@ func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Cont
 	req.PathParams.Set("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMGroupAuditId()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -595,7 +656,7 @@ func (s *SwitchMGroupService) UpdateGroupBySwitchGroupId(ctx context.Context, bo
 	req.PathParams.Set("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMGroupAuditId()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -627,6 +688,6 @@ func (s *SwitchMGroupService) UpdateGroupFirmwareByDomain(ctx context.Context, b
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMGroupAuditIdList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

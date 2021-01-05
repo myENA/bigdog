@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGCommonAltitude
 //
 // Definition: common_altitude
@@ -287,6 +292,21 @@ type WSGCommonCreateResult struct {
 	Id *string `json:"id,omitempty"`
 }
 
+type WSGCommonCreateResultAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGCommonCreateResult
+}
+
+func newWSGCommonCreateResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGCommonCreateResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGCommonCreateResultAPIResponse) Hydrate() error {
+	r.Data = new(WSGCommonCreateResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGCommonCreateResult() *WSGCommonCreateResult {
 	m := new(WSGCommonCreateResult)
 	return m
@@ -301,6 +321,21 @@ type WSGCommonCreateResultIdName struct {
 	Name *string `json:"name,omitempty"`
 }
 
+type WSGCommonCreateResultIdNameAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGCommonCreateResultIdName
+}
+
+func newWSGCommonCreateResultIdNameAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGCommonCreateResultIdNameAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGCommonCreateResultIdNameAPIResponse) Hydrate() error {
+	r.Data = new(WSGCommonCreateResultIdName)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGCommonCreateResultIdName() *WSGCommonCreateResultIdName {
 	m := new(WSGCommonCreateResultIdName)
 	return m
@@ -384,6 +419,21 @@ type WSGCommonDhcpProfileRef struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGCommonDhcpProfileRefAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGCommonDhcpProfileRef
+}
+
+func newWSGCommonDhcpProfileRefAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGCommonDhcpProfileRefAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGCommonDhcpProfileRefAPIResponse) Hydrate() error {
+	r.Data = new(WSGCommonDhcpProfileRef)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGCommonDhcpProfileRef() *WSGCommonDhcpProfileRef {
 	m := new(WSGCommonDhcpProfileRef)
 	return m
@@ -424,6 +474,21 @@ type WSGCommonDhcpSiteConfigListRef struct {
 	ZoneName *string `json:"zoneName,omitempty"`
 }
 
+type WSGCommonDhcpSiteConfigListRefAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGCommonDhcpSiteConfigListRef
+}
+
+func newWSGCommonDhcpSiteConfigListRefAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGCommonDhcpSiteConfigListRefAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGCommonDhcpSiteConfigListRefAPIResponse) Hydrate() error {
+	r.Data = new(WSGCommonDhcpSiteConfigListRef)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGCommonDhcpSiteConfigListRef() *WSGCommonDhcpSiteConfigListRef {
 	m := new(WSGCommonDhcpSiteConfigListRef)
 	return m
@@ -841,6 +906,21 @@ type WSGCommonMonitoringSummary struct {
 	OnlineCount *int `json:"onlineCount,omitempty"`
 }
 
+type WSGCommonMonitoringSummaryAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGCommonMonitoringSummary
+}
+
+func newWSGCommonMonitoringSummaryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGCommonMonitoringSummaryAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGCommonMonitoringSummaryAPIResponse) Hydrate() error {
+	r.Data = new(WSGCommonMonitoringSummary)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGCommonMonitoringSummary() *WSGCommonMonitoringSummary {
 	m := new(WSGCommonMonitoringSummary)
 	return m
@@ -1969,6 +2049,21 @@ type WSGCommonTrafficClassProfileRef struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGCommonTrafficClassProfileRefAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGCommonTrafficClassProfileRef
+}
+
+func newWSGCommonTrafficClassProfileRefAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGCommonTrafficClassProfileRefAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGCommonTrafficClassProfileRefAPIResponse) Hydrate() error {
+	r.Data = new(WSGCommonTrafficClassProfileRef)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGCommonTrafficClassProfileRef() *WSGCommonTrafficClassProfileRef {
 	m := new(WSGCommonTrafficClassProfileRef)
 	return m

@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGAAAServerQueryList
 //
 // Definition: aaaServerQuery_aaaServerQueryList
@@ -17,6 +22,21 @@ type WSGAAAServerQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAAAServerQueryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAAAServerQueryList
+}
+
+func newWSGAAAServerQueryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAAAServerQueryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAAAServerQueryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAAAServerQueryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAAAServerQueryList() *WSGAAAServerQueryList {
 	m := new(WSGAAAServerQueryList)
 	return m

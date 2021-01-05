@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGMeshNeighborInfo
 //
 // Definition: meshNeighborInfo_meshNeighborInfo
@@ -79,6 +84,21 @@ type WSGMeshNeighborInfoList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGMeshNeighborInfoListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGMeshNeighborInfoList
+}
+
+func newWSGMeshNeighborInfoListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGMeshNeighborInfoListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGMeshNeighborInfoListAPIResponse) Hydrate() error {
+	r.Data = new(WSGMeshNeighborInfoList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGMeshNeighborInfoList() *WSGMeshNeighborInfoList {
 	m := new(WSGMeshNeighborInfoList)
 	return m

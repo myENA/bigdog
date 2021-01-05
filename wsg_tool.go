@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGToolSpeedFlex
 //
 // Definition: tool_speedFlex
@@ -75,6 +80,21 @@ type WSGToolTestResult struct {
 	Wcid *string `json:"wcid,omitempty"`
 }
 
+type WSGToolTestResultAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGToolTestResult
+}
+
+func newWSGToolTestResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGToolTestResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGToolTestResultAPIResponse) Hydrate() error {
+	r.Data = new(WSGToolTestResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGToolTestResult() *WSGToolTestResult {
 	m := new(WSGToolTestResult)
 	return m

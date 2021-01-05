@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
+	"net/http"
 )
 
 // SCIModelsFilter
@@ -23,11 +24,28 @@ type SCIModelsFilter struct {
 
 	ReportId *float64 `json:"reportId,omitempty"`
 
+	TenantId *string `json:"tenantId,omitempty"`
+
 	UrlSegmentName *string `json:"urlSegmentName,omitempty"`
 
 	UserId *float64 `json:"userId,omitempty"`
 }
 
+type SCIModelsFilterAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIModelsFilter
+}
+
+func newSCIModelsFilterAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIModelsFilterAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIModelsFilterAPIResponse) Hydrate() error {
+	r.Data = new(SCIModelsFilter)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIModelsFilter() *SCIModelsFilter {
 	m := new(SCIModelsFilter)
 	return m
@@ -52,6 +70,21 @@ type SCIModelsMigration struct {
 	RunDtTm *string `json:"runDtTm"`
 }
 
+type SCIModelsMigrationAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIModelsMigration
+}
+
+func newSCIModelsMigrationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIModelsMigrationAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIModelsMigrationAPIResponse) Hydrate() error {
+	r.Data = new(SCIModelsMigration)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIModelsMigration() *SCIModelsMigration {
 	m := new(SCIModelsMigration)
 	return m
@@ -83,6 +116,21 @@ type SCIModelsMigrationMap struct {
 	Type *string `json:"type"`
 }
 
+type SCIModelsMigrationMapAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIModelsMigrationMap
+}
+
+func newSCIModelsMigrationMapAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIModelsMigrationMapAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIModelsMigrationMapAPIResponse) Hydrate() error {
+	r.Data = new(SCIModelsMigrationMap)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIModelsMigrationMap() *SCIModelsMigrationMap {
 	m := new(SCIModelsMigrationMap)
 	return m
@@ -138,6 +186,21 @@ type SCIModelsPciReport struct {
 	Statuses []interface{} `json:"statuses"`
 }
 
+type SCIModelsPciReportAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIModelsPciReport
+}
+
+func newSCIModelsPciReportAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIModelsPciReportAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIModelsPciReportAPIResponse) Hydrate() error {
+	r.Data = new(SCIModelsPciReport)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIModelsPciReport() *SCIModelsPciReport {
 	m := new(SCIModelsPciReport)
 	return m
@@ -174,6 +237,21 @@ type SCIModelsReport struct {
 	UrlSegmentName *string `json:"urlSegmentName"`
 }
 
+type SCIModelsReportAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIModelsReport
+}
+
+func newSCIModelsReportAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIModelsReportAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIModelsReportAPIResponse) Hydrate() error {
+	r.Data = new(SCIModelsReport)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIModelsReport() *SCIModelsReport {
 	m := new(SCIModelsReport)
 	return m
@@ -267,6 +345,21 @@ type SCIModelsResourceGroup struct {
 	Name *string `json:"name"`
 }
 
+type SCIModelsResourceGroupAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIModelsResourceGroup
+}
+
+func newSCIModelsResourceGroupAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIModelsResourceGroupAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIModelsResourceGroupAPIResponse) Hydrate() error {
+	r.Data = new(SCIModelsResourceGroup)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIModelsResourceGroup() *SCIModelsResourceGroup {
 	m := new(SCIModelsResourceGroup)
 	return m
@@ -329,6 +422,21 @@ type SCIModelsSchedule struct {
 	UserId *float64 `json:"userId,omitempty"`
 }
 
+type SCIModelsScheduleAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIModelsSchedule
+}
+
+func newSCIModelsScheduleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIModelsScheduleAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIModelsScheduleAPIResponse) Hydrate() error {
+	r.Data = new(SCIModelsSchedule)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIModelsSchedule() *SCIModelsSchedule {
 	m := new(SCIModelsSchedule)
 	return m
@@ -381,6 +489,21 @@ type SCIModelsSetting struct {
 	Values interface{} `json:"values"`
 }
 
+type SCIModelsSettingAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIModelsSetting
+}
+
+func newSCIModelsSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIModelsSettingAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIModelsSettingAPIResponse) Hydrate() error {
+	r.Data = new(SCIModelsSetting)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIModelsSetting() *SCIModelsSetting {
 	m := new(SCIModelsSetting)
 	return m
@@ -426,6 +549,21 @@ type SCIModelsSystem struct {
 	Version *string `json:"version,omitempty"`
 }
 
+type SCIModelsSystemAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIModelsSystem
+}
+
+func newSCIModelsSystemAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIModelsSystemAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIModelsSystemAPIResponse) Hydrate() error {
+	r.Data = new(SCIModelsSystem)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIModelsSystem() *SCIModelsSystem {
 	m := new(SCIModelsSystem)
 	return m
@@ -459,6 +597,21 @@ type SCIModelsUser struct {
 	Username *string `json:"username,omitempty"`
 }
 
+type SCIModelsUserAPIResponse struct {
+	*RawAPIResponse
+	Data *SCIModelsUser
+}
+
+func newSCIModelsUserAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SCIModelsUserAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIModelsUserAPIResponse) Hydrate() error {
+	r.Data = new(SCIModelsUser)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSCIModelsUser() *SCIModelsUser {
 	m := new(SCIModelsUser)
 	return m

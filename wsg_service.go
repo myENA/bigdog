@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGServiceActiveDirectoryService
 //
 // Definition: service_ActiveDirectoryService
@@ -121,6 +126,21 @@ type WSGServiceActiveDirectoryService struct {
 	WindowsDomainName *WSGCommonNormalName2to64 `json:"windowsDomainName,omitempty"`
 }
 
+type WSGServiceActiveDirectoryServiceAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceActiveDirectoryService
+}
+
+func newWSGServiceActiveDirectoryServiceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceActiveDirectoryServiceAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceActiveDirectoryServiceAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceActiveDirectoryService)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceActiveDirectoryService() *WSGServiceActiveDirectoryService {
 	m := new(WSGServiceActiveDirectoryService)
 	return m
@@ -141,6 +161,21 @@ type WSGServiceActiveDirectoryServiceList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGServiceActiveDirectoryServiceListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceActiveDirectoryServiceList
+}
+
+func newWSGServiceActiveDirectoryServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceActiveDirectoryServiceListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceActiveDirectoryServiceListAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceActiveDirectoryServiceList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceActiveDirectoryServiceList() *WSGServiceActiveDirectoryServiceList {
 	m := new(WSGServiceActiveDirectoryServiceList)
 	return m
@@ -223,6 +258,21 @@ type WSGServiceCommonAccountingServiceList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGServiceCommonAccountingServiceListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceCommonAccountingServiceList
+}
+
+func newWSGServiceCommonAccountingServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceCommonAccountingServiceListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceCommonAccountingServiceListAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceCommonAccountingServiceList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceCommonAccountingServiceList() *WSGServiceCommonAccountingServiceList {
 	m := new(WSGServiceCommonAccountingServiceList)
 	return m
@@ -291,6 +341,21 @@ type WSGServiceCommonAuthenticationService struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type WSGServiceCommonAuthenticationServiceAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceCommonAuthenticationService
+}
+
+func newWSGServiceCommonAuthenticationServiceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceCommonAuthenticationServiceAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceCommonAuthenticationServiceAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceCommonAuthenticationService)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceCommonAuthenticationService() *WSGServiceCommonAuthenticationService {
 	m := new(WSGServiceCommonAuthenticationService)
 	return m
@@ -311,6 +376,21 @@ type WSGServiceCommonAuthenticationServiceList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGServiceCommonAuthenticationServiceListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceCommonAuthenticationServiceList
+}
+
+func newWSGServiceCommonAuthenticationServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceCommonAuthenticationServiceListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceCommonAuthenticationServiceListAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceCommonAuthenticationServiceList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceCommonAuthenticationServiceList() *WSGServiceCommonAuthenticationServiceList {
 	m := new(WSGServiceCommonAuthenticationServiceList)
 	return m
@@ -864,6 +944,21 @@ type WSGServiceGgsnConfig struct {
 	GtpSettings *WSGServiceGtpSettings `json:"gtpSettings,omitempty"`
 }
 
+type WSGServiceGgsnConfigAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceGgsnConfig
+}
+
+func newWSGServiceGgsnConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceGgsnConfigAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceGgsnConfigAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceGgsnConfig)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceGgsnConfig() *WSGServiceGgsnConfig {
 	m := new(WSGServiceGgsnConfig)
 	return m
@@ -1209,6 +1304,21 @@ type WSGServiceHlrService struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type WSGServiceHlrServiceAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceHlrService
+}
+
+func newWSGServiceHlrServiceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceHlrServiceAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceHlrServiceAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceHlrService)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceHlrService() *WSGServiceHlrService {
 	m := new(WSGServiceHlrService)
 	return m
@@ -1229,6 +1339,21 @@ type WSGServiceHlrServiceList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGServiceHlrServiceListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceHlrServiceList
+}
+
+func newWSGServiceHlrServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceHlrServiceListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceHlrServiceListAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceHlrServiceList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceHlrServiceList() *WSGServiceHlrServiceList {
 	m := new(WSGServiceHlrServiceList)
 	return m
@@ -1353,6 +1478,21 @@ type WSGServiceLDAPService struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type WSGServiceLDAPServiceAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceLDAPService
+}
+
+func newWSGServiceLDAPServiceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceLDAPServiceAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceLDAPServiceAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceLDAPService)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceLDAPService() *WSGServiceLDAPService {
 	m := new(WSGServiceLDAPService)
 	return m
@@ -1373,6 +1513,21 @@ type WSGServiceLDAPServiceList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGServiceLDAPServiceListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceLDAPServiceList
+}
+
+func newWSGServiceLDAPServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceLDAPServiceListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceLDAPServiceListAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceLDAPServiceList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceLDAPServiceList() *WSGServiceLDAPServiceList {
 	m := new(WSGServiceLDAPServiceList)
 	return m
@@ -1987,6 +2142,21 @@ type WSGServiceRadiusAccountingService struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type WSGServiceRadiusAccountingServiceAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceRadiusAccountingService
+}
+
+func newWSGServiceRadiusAccountingServiceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceRadiusAccountingServiceAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceRadiusAccountingServiceAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceRadiusAccountingService)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceRadiusAccountingService() *WSGServiceRadiusAccountingService {
 	m := new(WSGServiceRadiusAccountingService)
 	return m
@@ -2007,6 +2177,21 @@ type WSGServiceRadiusAccountingServiceList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGServiceRadiusAccountingServiceListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceRadiusAccountingServiceList
+}
+
+func newWSGServiceRadiusAccountingServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceRadiusAccountingServiceListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceRadiusAccountingServiceListAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceRadiusAccountingServiceList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceRadiusAccountingServiceList() *WSGServiceRadiusAccountingServiceList {
 	m := new(WSGServiceRadiusAccountingServiceList)
 	return m
@@ -2093,6 +2278,21 @@ type WSGServiceRadiusAuthenticationService struct {
 	Type *string `json:"type,omitempty"`
 }
 
+type WSGServiceRadiusAuthenticationServiceAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceRadiusAuthenticationService
+}
+
+func newWSGServiceRadiusAuthenticationServiceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceRadiusAuthenticationServiceAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceRadiusAuthenticationServiceAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceRadiusAuthenticationService)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceRadiusAuthenticationService() *WSGServiceRadiusAuthenticationService {
 	m := new(WSGServiceRadiusAuthenticationService)
 	return m
@@ -2113,6 +2313,21 @@ type WSGServiceRadiusAuthenticationServiceList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGServiceRadiusAuthenticationServiceListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGServiceRadiusAuthenticationServiceList
+}
+
+func newWSGServiceRadiusAuthenticationServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGServiceRadiusAuthenticationServiceListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGServiceRadiusAuthenticationServiceListAPIResponse) Hydrate() error {
+	r.Data = new(WSGServiceRadiusAuthenticationServiceList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGServiceRadiusAuthenticationServiceList() *WSGServiceRadiusAuthenticationServiceList {
 	m := new(WSGServiceRadiusAuthenticationServiceList)
 	return m

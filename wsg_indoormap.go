@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -95,6 +96,21 @@ type WSGIndoorMapIndooMapAuditId struct {
 	Name *string `json:"name,omitempty"`
 }
 
+type WSGIndoorMapIndooMapAuditIdAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIndoorMapIndooMapAuditId
+}
+
+func newWSGIndoorMapIndooMapAuditIdAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIndoorMapIndooMapAuditIdAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIndoorMapIndooMapAuditIdAPIResponse) Hydrate() error {
+	r.Data = new(WSGIndoorMapIndooMapAuditId)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIndoorMapIndooMapAuditId() *WSGIndoorMapIndooMapAuditId {
 	m := new(WSGIndoorMapIndooMapAuditId)
 	return m
@@ -170,6 +186,21 @@ type WSGIndoorMap struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGIndoorMapAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIndoorMap
+}
+
+func newWSGIndoorMapAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIndoorMapAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIndoorMapAPIResponse) Hydrate() error {
+	r.Data = new(WSGIndoorMap)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIndoorMap() *WSGIndoorMap {
 	m := new(WSGIndoorMap)
 	return m
@@ -212,6 +243,21 @@ type WSGIndoorMapList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGIndoorMapListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIndoorMapList
+}
+
+func newWSGIndoorMapListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIndoorMapListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIndoorMapListAPIResponse) Hydrate() error {
+	r.Data = new(WSGIndoorMapList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIndoorMapList() *WSGIndoorMapList {
 	m := new(WSGIndoorMapList)
 	return m
@@ -311,6 +357,21 @@ type WSGIndoorMapSummaryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGIndoorMapSummaryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIndoorMapSummaryList
+}
+
+func newWSGIndoorMapSummaryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGIndoorMapSummaryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGIndoorMapSummaryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGIndoorMapSummaryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGIndoorMapSummaryList() *WSGIndoorMapSummaryList {
 	m := new(WSGIndoorMapSummaryList)
 	return m
@@ -386,7 +447,7 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap, m
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIndoorMapIndooMapAuditId()
-	rm, err = handleResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -415,7 +476,7 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoo
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -448,7 +509,7 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, grou
 	req.QueryParams.Set("groupType", groupType)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIndoorMapList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -478,7 +539,7 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorM
 	req.PathParams.Set("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIndoorMap()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -510,7 +571,7 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGIndoorMapList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -545,7 +606,7 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 	}
 	req.PathParams.Set("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -580,6 +641,6 @@ func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, bo
 	}
 	req.PathParams.Set("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }

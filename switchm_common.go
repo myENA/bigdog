@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // SwitchMCommonBulkDeleteRequest
 //
 // Definition: common_bulkDeleteRequest
@@ -21,6 +26,21 @@ type SwitchMCommonCreateResult struct {
 	Id *string `json:"id,omitempty"`
 }
 
+type SwitchMCommonCreateResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMCommonCreateResult
+}
+
+func newSwitchMCommonCreateResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMCommonCreateResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMCommonCreateResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMCommonCreateResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMCommonCreateResult() *SwitchMCommonCreateResult {
 	m := new(SwitchMCommonCreateResult)
 	return m

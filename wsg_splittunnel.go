@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGSplitTunnelCreateSplitTunnelProfile
 //
 // Definition: splitTunnel_createSplitTunnelProfile
@@ -86,6 +91,21 @@ type WSGSplitTunnelProfile struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGSplitTunnelProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSplitTunnelProfile
+}
+
+func newWSGSplitTunnelProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSplitTunnelProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSplitTunnelProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGSplitTunnelProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSplitTunnelProfile() *WSGSplitTunnelProfile {
 	m := new(WSGSplitTunnelProfile)
 	return m
@@ -104,6 +124,21 @@ type WSGSplitTunnelProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSplitTunnelProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSplitTunnelProfileList
+}
+
+func newWSGSplitTunnelProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSplitTunnelProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSplitTunnelProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSplitTunnelProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSplitTunnelProfileList() *WSGSplitTunnelProfileList {
 	m := new(WSGSplitTunnelProfileList)
 	return m
@@ -138,6 +173,21 @@ type WSGSplitTunnelProfileQuery struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSplitTunnelProfileQueryAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSplitTunnelProfileQuery
+}
+
+func newWSGSplitTunnelProfileQueryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSplitTunnelProfileQueryAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSplitTunnelProfileQueryAPIResponse) Hydrate() error {
+	r.Data = new(WSGSplitTunnelProfileQuery)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSplitTunnelProfileQuery() *WSGSplitTunnelProfileQuery {
 	m := new(WSGSplitTunnelProfileQuery)
 	return m

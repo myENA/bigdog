@@ -3,7 +3,6 @@ package bigdog
 // API Version: 1.0.0
 
 const (
-	RouteSCIAlertSendNotification                                                   = "/api/alerts/sendNotification"
 	RouteSCIFacetGetApmacFacet                                                      = "/api/facets/apmac"
 	RouteSCIFacetGetFacet                                                           = "/api/facets/{name}"
 	RouteSCIFacetGetSsidFacet                                                       = "/api/facets/ssid"
@@ -118,6 +117,7 @@ const (
 	RouteSCIReportInventoryControllersReport98ResourceUtilization                   = "/api/reports/15/sections/98/data"
 	RouteSCIReportInventoryControllersReport99LicenseUtilization                    = "/api/reports/15/sections/99/data"
 	RouteSCIReportInventoryControllersReport114ControllerInventoryOverview          = "/api/reports/15/sections/114/data"
+	RouteSCIReportInventoryControllersReport151LicenseUtilizationOverTimeChart      = "/api/reports/15/sections/151/data"
 	RouteSCIReportInventorySwitchesReport113Overview                                = "/api/reports/16/sections/113/data"
 	RouteSCIReportInventorySwitchesReport116SwitchCountTrend                        = "/api/reports/16/sections/116/data"
 	RouteSCIReportInventorySwitchesReport117Top10SwitchVersionChart                 = "/api/reports/16/sections/117/data"
@@ -125,6 +125,7 @@ const (
 	RouteSCIReportInventorySwitchesReport121TopSwitchModelsChart                    = "/api/reports/16/sections/121/data"
 	RouteSCIReportInventorySwitchesReport122TopSwitchModels                         = "/api/reports/16/sections/122/data"
 	RouteSCIReportInventorySwitchesReport132PortStatusTrend                         = "/api/reports/16/sections/132/data"
+	RouteSCIReportLatestIngestedTime                                                = "/api/reports/latestIngestedTime"
 	RouteSCIReportNetworkWiredReport123TopSwitchPOEUtilChart                        = "/api/reports/17/sections/123/data"
 	RouteSCIReportNetworkWiredReport124TopSwitchPOEUtils                            = "/api/reports/17/sections/124/data"
 	RouteSCIReportNetworkWiredReport127Top10SwitchesByTrafficVolume                 = "/api/reports/17/sections/127/data"
@@ -182,6 +183,7 @@ const (
 	RouteSCIReportSwitchDetailsReport137LldpNeighborTable                           = "/api/reports/18/sections/137/data"
 	RouteSCIReportSwitchDetailsReport138SwitchUptimeHistory                         = "/api/reports/18/sections/138/data"
 	RouteSCIReportSwitchDetailsReport139SwitchDetails                               = "/api/reports/18/sections/139/data"
+	RouteSCIReportSwitchDetailsReport152PerSwitchErrorTrend                         = "/api/reports/18/sections/152/data"
 	RouteSCIReportWirelessApplicationsReport7Top10ApplicationsByTrafficVolume       = "/api/reports/3/sections/7/data"
 	RouteSCIReportWirelessApplicationsReport8TopAppsByTrafficTable                  = "/api/reports/3/sections/8/data"
 	RouteSCIReportWirelessApplicationsReport9TopAppsByClientsTable                  = "/api/reports/3/sections/9/data"
@@ -213,6 +215,7 @@ const (
 	RouteSCIScheduleCreateWithRelations                                             = "/api/schedules/createWithRelations"
 	RouteSCIScheduleExecuteJob                                                      = "/api/schedules/executeJob"
 	RouteSCIScheduleUpdateWithRelations                                             = "/api/schedules/{id}/updateWithRelations"
+	RouteSCISettingDeleteById                                                       = "/api/settings/{id}"
 	RouteSCISettingFindById                                                         = "/api/settings/{id}"
 	RouteSCISettingSendTestEmail                                                    = "/api/settings/sendTestEmail"
 	RouteSCISettingUpsert                                                           = "/api/settings"

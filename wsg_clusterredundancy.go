@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGClusterRedundancyActiveCluster
 //
 // Definition: clusterRedundancy_activeCluster
@@ -77,6 +82,21 @@ type WSGClusterRedundancySettings struct {
 	StandbyAdminPassword *string `json:"standbyAdminPassword,omitempty"`
 }
 
+type WSGClusterRedundancySettingsAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGClusterRedundancySettings
+}
+
+func newWSGClusterRedundancySettingsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGClusterRedundancySettingsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGClusterRedundancySettingsAPIResponse) Hydrate() error {
+	r.Data = new(WSGClusterRedundancySettings)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGClusterRedundancySettings() *WSGClusterRedundancySettings {
 	m := new(WSGClusterRedundancySettings)
 	return m

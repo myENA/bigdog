@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGClusterBladeBladeProgress
 //
 // Definition: clusterblade_bladeProgress
@@ -83,6 +88,21 @@ type WSGClusterBladeClusterState struct {
 	NodeStateList []*WSGClusterBladeClusterStateNodeStateListType `json:"nodeStateList,omitempty"`
 }
 
+type WSGClusterBladeClusterStateAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGClusterBladeClusterState
+}
+
+func newWSGClusterBladeClusterStateAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGClusterBladeClusterStateAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGClusterBladeClusterStateAPIResponse) Hydrate() error {
+	r.Data = new(WSGClusterBladeClusterState)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGClusterBladeClusterState() *WSGClusterBladeClusterState {
 	m := new(WSGClusterBladeClusterState)
 	return m

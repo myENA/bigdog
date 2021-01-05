@@ -156,6 +156,21 @@ type WSGTrafficAnalysisResults struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGTrafficAnalysisResultsAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGTrafficAnalysisResults
+}
+
+func newWSGTrafficAnalysisResultsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGTrafficAnalysisResultsAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGTrafficAnalysisResultsAPIResponse) Hydrate() error {
+	r.Data = new(WSGTrafficAnalysisResults)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGTrafficAnalysisResults() *WSGTrafficAnalysisResults {
 	m := new(WSGTrafficAnalysisResults)
 	return m
@@ -199,7 +214,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesByQueryCriteria
 	req.PathParams.Set("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGTrafficAnalysisResults()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -241,7 +256,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesGroupedByQueryC
 	req.PathParams.Set("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGTrafficAnalysisResults()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -283,7 +298,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisClientResourceByQueryCrit
 	req.PathParams.Set("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGTrafficAnalysisResults()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -325,6 +340,6 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisLineRatesByQueryCriteria(
 	req.PathParams.Set("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGTrafficAnalysisResults()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

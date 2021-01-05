@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGAPQueryList
 //
 // Definition: apQuery_apQueryList
@@ -17,6 +22,21 @@ type WSGAPQueryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAPQueryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAPQueryList
+}
+
+func newWSGAPQueryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAPQueryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAPQueryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAPQueryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAPQueryList() *WSGAPQueryList {
 	m := new(WSGAPQueryList)
 	return m

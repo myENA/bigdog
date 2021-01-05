@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGRACStatsGgsnGtp
 //
 // Definition: racStats_ggsnGtp
@@ -205,6 +210,21 @@ type WSGRACStatsGgsnGtpcConList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGRACStatsGgsnGtpcConListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGRACStatsGgsnGtpcConList
+}
+
+func newWSGRACStatsGgsnGtpcConListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGRACStatsGgsnGtpcConListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGRACStatsGgsnGtpcConListAPIResponse) Hydrate() error {
+	r.Data = new(WSGRACStatsGgsnGtpcConList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGRACStatsGgsnGtpcConList() *WSGRACStatsGgsnGtpcConList {
 	m := new(WSGRACStatsGgsnGtpcConList)
 	return m
@@ -225,6 +245,21 @@ type WSGRACStatsGgsnGtpList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGRACStatsGgsnGtpListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGRACStatsGgsnGtpList
+}
+
+func newWSGRACStatsGgsnGtpListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGRACStatsGgsnGtpListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGRACStatsGgsnGtpListAPIResponse) Hydrate() error {
+	r.Data = new(WSGRACStatsGgsnGtpList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGRACStatsGgsnGtpList() *WSGRACStatsGgsnGtpList {
 	m := new(WSGRACStatsGgsnGtpList)
 	return m
@@ -443,6 +478,21 @@ type WSGRACStatsRadiusProxyList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGRACStatsRadiusProxyListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGRACStatsRadiusProxyList
+}
+
+func newWSGRACStatsRadiusProxyListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGRACStatsRadiusProxyListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGRACStatsRadiusProxyListAPIResponse) Hydrate() error {
+	r.Data = new(WSGRACStatsRadiusProxyList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGRACStatsRadiusProxyList() *WSGRACStatsRadiusProxyList {
 	m := new(WSGRACStatsRadiusProxyList)
 	return m

@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGSyslogModifySyslogSettings
 //
 // Definition: syslog_modifySyslogSettings
@@ -220,6 +225,21 @@ type WSGSyslogServerSetting struct {
 	SecondaryServer *WSGSyslogSecondaryServer `json:"secondaryServer,omitempty"`
 }
 
+type WSGSyslogServerSettingAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSyslogServerSetting
+}
+
+func newWSGSyslogServerSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSyslogServerSettingAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSyslogServerSettingAPIResponse) Hydrate() error {
+	r.Data = new(WSGSyslogServerSetting)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSyslogServerSetting() *WSGSyslogServerSetting {
 	m := new(WSGSyslogServerSetting)
 	return m

@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // SwitchMVLANConfigCreateVlanConfig
 //
 // Definition: vlanConfig_createVlanConfig
@@ -271,6 +276,21 @@ type SwitchMVLANConfig struct {
 	VlanId *int `json:"vlanId,omitempty"`
 }
 
+type SwitchMVLANConfigAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMVLANConfig
+}
+
+func newSwitchMVLANConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMVLANConfigAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMVLANConfigAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMVLANConfig)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMVLANConfig() *SwitchMVLANConfig {
 	m := new(SwitchMVLANConfig)
 	return m
@@ -303,6 +323,21 @@ type SwitchMVLANConfigQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMVLANConfigQueryResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMVLANConfigQueryResult
+}
+
+func newSwitchMVLANConfigQueryResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMVLANConfigQueryResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMVLANConfigQueryResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMVLANConfigQueryResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMVLANConfigQueryResult() *SwitchMVLANConfigQueryResult {
 	m := new(SwitchMVLANConfigQueryResult)
 	return m

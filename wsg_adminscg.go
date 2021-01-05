@@ -33,6 +33,21 @@ type WSGAdminSCGScgAaaServer struct {
 	Success *bool `json:"success,omitempty"`
 }
 
+type WSGAdminSCGScgAaaServerAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAdminSCGScgAaaServer
+}
+
+func newWSGAdminSCGScgAaaServerAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAdminSCGScgAaaServerAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAdminSCGScgAaaServerAPIResponse) Hydrate() error {
+	r.Data = new(WSGAdminSCGScgAaaServer)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAdminSCGScgAaaServer() *WSGAdminSCGScgAaaServer {
 	m := new(WSGAdminSCGScgAaaServer)
 	return m
@@ -620,6 +635,6 @@ func (s *WSGAdminSCGService) FindScgAdminAaaServers(ctx context.Context, mutator
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGAdminSCGScgAaaServer()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

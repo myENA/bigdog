@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
 //
 // Definition: deployLogItem_ConfigurationHistoryDetailQueryResult
@@ -23,6 +28,21 @@ type SwitchMDeployLogItemConfigurationHistoryDetailQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
+}
+
+func newSwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMDeployLogItemConfigurationHistoryDetailQueryResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult() *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult {
 	m := new(SwitchMDeployLogItemConfigurationHistoryDetailQueryResult)
 	return m

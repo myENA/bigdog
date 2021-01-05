@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -62,6 +63,21 @@ type SwitchMPortCapacityResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMPortCapacityResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMPortCapacityResult
+}
+
+func newSwitchMPortCapacityResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMPortCapacityResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMPortCapacityResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMPortCapacityResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
 	m := new(SwitchMPortCapacityResult)
 	return m
@@ -96,6 +112,6 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model
 	req.QueryParams.Set("portIdentifier", portIdentifier)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMPortCapacityResult()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

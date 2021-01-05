@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // SwitchMACLConfig
 //
 // Definition: aclConfig_ACLConfig
@@ -55,6 +60,21 @@ type SwitchMACLConfig struct {
 	UpdatedTime *int `json:"updatedTime,omitempty"`
 }
 
+type SwitchMACLConfigAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMACLConfig
+}
+
+func newSwitchMACLConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMACLConfigAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMACLConfigAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMACLConfig)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMACLConfig() *SwitchMACLConfig {
 	m := new(SwitchMACLConfig)
 	return m
@@ -87,6 +107,21 @@ type SwitchMACLConfigsQueryResult struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type SwitchMACLConfigsQueryResultAPIResponse struct {
+	*RawAPIResponse
+	Data *SwitchMACLConfigsQueryResult
+}
+
+func newSwitchMACLConfigsQueryResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(SwitchMACLConfigsQueryResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *SwitchMACLConfigsQueryResultAPIResponse) Hydrate() error {
+	r.Data = new(SwitchMACLConfigsQueryResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewSwitchMACLConfigsQueryResult() *SwitchMACLConfigsQueryResult {
 	m := new(SwitchMACLConfigsQueryResult)
 	return m

@@ -96,7 +96,7 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Current() (VSZServiceTicke
 		return stp.cas, stp.serviceTicket, nil
 	}
 
-	return stp.cas, "", NewVSZServiceTicketProviderError(newErrAPIResponseMeta(), ErrServiceTicketRequiresRefresh)
+	return stp.cas, "", NewVSZServiceTicketProviderError(NewErrAPIResponseMeta(), ErrServiceTicketRequiresRefresh)
 }
 
 // Refresh will attempt to fetch a new serviceTicket from the VSZ for use in subsequent requests
@@ -115,12 +115,12 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Contex
 	)
 
 	if client == nil {
-		return stp.cas, NewVSZServiceTicketProviderError(newErrAPIResponseMeta(), ErrServiceTicketClientNil)
+		return stp.cas, NewVSZServiceTicketProviderError(NewErrAPIResponseMeta(), ErrServiceTicketClientNil)
 	}
 
 	// if the passed cas value is greater than the internal CAS, assume weirdness and return current CAS and an error
 	if stp.cas < cas {
-		return stp.cas, NewVSZServiceTicketProviderError(newErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value is greater than possible", ErrServiceTicketCASInvalid))
+		return stp.cas, NewVSZServiceTicketProviderError(NewErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value is greater than possible", ErrServiceTicketCASInvalid))
 	}
 	// if the passed in CAS value is less than the currently stored one, assume another routine called either Refresh
 	// or Invalidate and just return current cas
@@ -176,7 +176,7 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Invalidate(ctx context.Con
 
 	// if current cas is less than provided, assume insanity.
 	if stp.cas < cas {
-		return stp.cas, NewVSZServiceTicketProviderError(newErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value greater than possible", ErrServiceTicketCASInvalid))
+		return stp.cas, NewVSZServiceTicketProviderError(NewErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value greater than possible", ErrServiceTicketCASInvalid))
 	}
 
 	// if current cas is greater than provided, assume Refresh or Invalidate has already been called.

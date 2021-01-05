@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGAlarmListAlarmQueryResultList
 //
 // Definition: alarmList_alarmQueryResultList
@@ -17,6 +22,21 @@ type WSGAlarmListAlarmQueryResultList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAlarmListAlarmQueryResultListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAlarmListAlarmQueryResultList
+}
+
+func newWSGAlarmListAlarmQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAlarmListAlarmQueryResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAlarmListAlarmQueryResultListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAlarmListAlarmQueryResultList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAlarmListAlarmQueryResultList() *WSGAlarmListAlarmQueryResultList {
 	m := new(WSGAlarmListAlarmQueryResultList)
 	return m

@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGAAAActiveDirectory
 //
 // Definition: aaa_activeDirectory
@@ -69,6 +74,21 @@ type WSGAAAActiveDirectory struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGAAAActiveDirectoryAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAAAActiveDirectory
+}
+
+func newWSGAAAActiveDirectoryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAAAActiveDirectoryAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAAAActiveDirectoryAPIResponse) Hydrate() error {
+	r.Data = new(WSGAAAActiveDirectory)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAAAActiveDirectory() *WSGAAAActiveDirectory {
 	m := new(WSGAAAActiveDirectory)
 	return m
@@ -87,6 +107,21 @@ type WSGAAAActiveDirectoryList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAAAActiveDirectoryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAAAActiveDirectoryList
+}
+
+func newWSGAAAActiveDirectoryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAAAActiveDirectoryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAAAActiveDirectoryListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAAAActiveDirectoryList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAAAActiveDirectoryList() *WSGAAAActiveDirectoryList {
 	m := new(WSGAAAActiveDirectoryList)
 	return m
@@ -139,6 +174,21 @@ type WSGAAAAuthenticationServer struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGAAAAuthenticationServerAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAAAAuthenticationServer
+}
+
+func newWSGAAAAuthenticationServerAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAAAAuthenticationServerAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAAAAuthenticationServerAPIResponse) Hydrate() error {
+	r.Data = new(WSGAAAAuthenticationServer)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAAAAuthenticationServer() *WSGAAAAuthenticationServer {
 	m := new(WSGAAAAuthenticationServer)
 	return m
@@ -157,6 +207,21 @@ type WSGAAAAuthenticationServerList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAAAAuthenticationServerListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAAAAuthenticationServerList
+}
+
+func newWSGAAAAuthenticationServerListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAAAAuthenticationServerListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAAAAuthenticationServerListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAAAAuthenticationServerList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAAAAuthenticationServerList() *WSGAAAAuthenticationServerList {
 	m := new(WSGAAAAuthenticationServerList)
 	return m
@@ -479,6 +544,21 @@ type WSGAAALDAPServer struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGAAALDAPServerAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAAALDAPServer
+}
+
+func newWSGAAALDAPServerAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAAALDAPServerAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAAALDAPServerAPIResponse) Hydrate() error {
+	r.Data = new(WSGAAALDAPServer)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAAALDAPServer() *WSGAAALDAPServer {
 	m := new(WSGAAALDAPServer)
 	return m
@@ -497,6 +577,21 @@ type WSGAAALDAPServerList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGAAALDAPServerListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAAALDAPServerList
+}
+
+func newWSGAAALDAPServerListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAAALDAPServerListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAAALDAPServerListAPIResponse) Hydrate() error {
+	r.Data = new(WSGAAALDAPServerList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAAALDAPServerList() *WSGAAALDAPServerList {
 	m := new(WSGAAALDAPServerList)
 	return m
@@ -693,6 +788,21 @@ type WSGAAATestAAAServerResult struct {
 	SecondaryServer *string `json:"secondaryServer,omitempty"`
 }
 
+type WSGAAATestAAAServerResultAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAAATestAAAServerResult
+}
+
+func newWSGAAATestAAAServerResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAAATestAAAServerResultAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAAATestAAAServerResultAPIResponse) Hydrate() error {
+	r.Data = new(WSGAAATestAAAServerResult)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAAATestAAAServerResult() *WSGAAATestAAAServerResult {
 	m := new(WSGAAATestAAAServerResult)
 	return m

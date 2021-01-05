@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
 	"net/http"
 )
 
@@ -270,6 +271,21 @@ type WSGSCGUserGetScgUser struct {
 	UserName *string `json:"userName,omitempty"`
 }
 
+type WSGSCGUserGetScgUserAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSCGUserGetScgUser
+}
+
+func newWSGSCGUserGetScgUserAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSCGUserGetScgUserAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSCGUserGetScgUserAPIResponse) Hydrate() error {
+	r.Data = new(WSGSCGUserGetScgUser)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSCGUserGetScgUser() *WSGSCGUserGetScgUser {
 	m := new(WSGSCGUserGetScgUser)
 	return m
@@ -553,6 +569,21 @@ type WSGSCGUserAuditId struct {
 	Id *string `json:"id,omitempty"`
 }
 
+type WSGSCGUserAuditIdAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSCGUserAuditId
+}
+
+func newWSGSCGUserAuditIdAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSCGUserAuditIdAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSCGUserAuditIdAPIResponse) Hydrate() error {
+	r.Data = new(WSGSCGUserAuditId)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSCGUserAuditId() *WSGSCGUserAuditId {
 	m := new(WSGSCGUserAuditId)
 	return m
@@ -649,6 +680,21 @@ type WSGSCGUserGroup struct {
 	Users []*WSGSCGUserGetScgUser `json:"users,omitempty"`
 }
 
+type WSGSCGUserGroupAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSCGUserGroup
+}
+
+func newWSGSCGUserGroupAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSCGUserGroupAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSCGUserGroupAPIResponse) Hydrate() error {
+	r.Data = new(WSGSCGUserGroup)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSCGUserGroup() *WSGSCGUserGroup {
 	m := new(WSGSCGUserGroup)
 	return m
@@ -663,6 +709,21 @@ type WSGSCGUserGroupAuditId struct {
 	Id *string `json:"id,omitempty"`
 }
 
+type WSGSCGUserGroupAuditIdAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSCGUserGroupAuditId
+}
+
+func newWSGSCGUserGroupAuditIdAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSCGUserGroupAuditIdAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSCGUserGroupAuditIdAPIResponse) Hydrate() error {
+	r.Data = new(WSGSCGUserGroupAuditId)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSCGUserGroupAuditId() *WSGSCGUserGroupAuditId {
 	m := new(WSGSCGUserGroupAuditId)
 	return m
@@ -683,6 +744,21 @@ type WSGSCGUserGroupList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSCGUserGroupListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSCGUserGroupList
+}
+
+func newWSGSCGUserGroupListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSCGUserGroupListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSCGUserGroupListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSCGUserGroupList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSCGUserGroupList() *WSGSCGUserGroupList {
 	m := new(WSGSCGUserGroupList)
 	return m
@@ -766,6 +842,21 @@ type WSGSCGUserGroupPermissionList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSCGUserGroupPermissionListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSCGUserGroupPermissionList
+}
+
+func newWSGSCGUserGroupPermissionListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSCGUserGroupPermissionListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSCGUserGroupPermissionListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSCGUserGroupPermissionList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSCGUserGroupPermissionList() *WSGSCGUserGroupPermissionList {
 	m := new(WSGSCGUserGroupPermissionList)
 	return m
@@ -876,6 +967,21 @@ type WSGSCGUserGroupRoleLabelValueList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSCGUserGroupRoleLabelValueListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSCGUserGroupRoleLabelValueList
+}
+
+func newWSGSCGUserGroupRoleLabelValueListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSCGUserGroupRoleLabelValueListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSCGUserGroupRoleLabelValueListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSCGUserGroupRoleLabelValueList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSCGUserGroupRoleLabelValueList() *WSGSCGUserGroupRoleLabelValueList {
 	m := new(WSGSCGUserGroupRoleLabelValueList)
 	return m
@@ -896,6 +1002,21 @@ type WSGSCGUserList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGSCGUserListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGSCGUserList
+}
+
+func newWSGSCGUserListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGSCGUserListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSCGUserListAPIResponse) Hydrate() error {
+	r.Data = new(WSGSCGUserList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGSCGUserList() *WSGSCGUserList {
 	m := new(WSGSCGUserList)
 	return m
@@ -929,7 +1050,7 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCGUserAuditId()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -959,7 +1080,7 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusOK, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, err)
 	return rm, err
 }
 
@@ -988,7 +1109,7 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
 	return rm, err
 }
 
@@ -1020,7 +1141,7 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCGUserList()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1050,7 +1171,7 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 	req.PathParams.Set("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCGUserGetScgUser()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -1087,6 +1208,6 @@ func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body
 	req.PathParams.Set("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCGUserAuditId()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

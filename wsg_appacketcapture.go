@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGAPPackCaptureApPacketCaptureReq
 //
 // Definition: apPacketCapture_apPacketCaptureReq
@@ -68,6 +73,21 @@ type WSGAPPackCaptureApPacketCaptureRes struct {
 	IncludedMac *string `json:"includedMac,omitempty"`
 }
 
+type WSGAPPackCaptureApPacketCaptureResAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGAPPackCaptureApPacketCaptureRes
+}
+
+func newWSGAPPackCaptureApPacketCaptureResAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGAPPackCaptureApPacketCaptureResAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGAPPackCaptureApPacketCaptureResAPIResponse) Hydrate() error {
+	r.Data = new(WSGAPPackCaptureApPacketCaptureRes)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGAPPackCaptureApPacketCaptureRes() *WSGAPPackCaptureApPacketCaptureRes {
 	m := new(WSGAPPackCaptureApPacketCaptureRes)
 	return m

@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
+	"net/http"
 )
 
 // WSGDomainDevicePolicyCreateDomainDevicePolicy
@@ -63,6 +64,21 @@ type WSGDomainDevicePolicyProfile struct {
 	Rule []*WSGDomainDevicePolicyRule `json:"rule,omitempty"`
 }
 
+type WSGDomainDevicePolicyProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDomainDevicePolicyProfile
+}
+
+func newWSGDomainDevicePolicyProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDomainDevicePolicyProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDomainDevicePolicyProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGDomainDevicePolicyProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDomainDevicePolicyProfile() *WSGDomainDevicePolicyProfile {
 	m := new(WSGDomainDevicePolicyProfile)
 	return m
@@ -146,6 +162,21 @@ func (t *WSGDomainDevicePolicyProfileByQueryCriteria) MarshalJSON() ([]byte, err
 	return json.Marshal(tmp)
 }
 
+type WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDomainDevicePolicyProfileByQueryCriteria
+}
+
+func newWSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse) Hydrate() error {
+	r.Data = new(WSGDomainDevicePolicyProfileByQueryCriteria)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDomainDevicePolicyProfileByQueryCriteria() *WSGDomainDevicePolicyProfileByQueryCriteria {
 	m := new(WSGDomainDevicePolicyProfileByQueryCriteria)
 	return m
@@ -236,6 +267,21 @@ type WSGDomainDevicePolicyProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGDomainDevicePolicyProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDomainDevicePolicyProfileList
+}
+
+func newWSGDomainDevicePolicyProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGDomainDevicePolicyProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDomainDevicePolicyProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGDomainDevicePolicyProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGDomainDevicePolicyProfileList() *WSGDomainDevicePolicyProfileList {
 	m := new(WSGDomainDevicePolicyProfileList)
 	return m

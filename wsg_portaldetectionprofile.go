@@ -2,6 +2,11 @@ package bigdog
 
 // API Version: v9_1
 
+import (
+	"encoding/json"
+	"net/http"
+)
+
 // WSGPortalDetectionProfileCreatePortalDetectionProfile
 //
 // Definition: portalDetectionProfile_createPortalDetectionProfile
@@ -112,6 +117,21 @@ type WSGPortalDetectionProfile struct {
 	ZoneId *string `json:"zoneId,omitempty"`
 }
 
+type WSGPortalDetectionProfileAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGPortalDetectionProfile
+}
+
+func newWSGPortalDetectionProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGPortalDetectionProfileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGPortalDetectionProfileAPIResponse) Hydrate() error {
+	r.Data = new(WSGPortalDetectionProfile)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGPortalDetectionProfile() *WSGPortalDetectionProfile {
 	m := new(WSGPortalDetectionProfile)
 	return m
@@ -132,6 +152,21 @@ type WSGPortalDetectionProfileList struct {
 	TotalCount *int `json:"totalCount,omitempty"`
 }
 
+type WSGPortalDetectionProfileListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGPortalDetectionProfileList
+}
+
+func newWSGPortalDetectionProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+	r := new(WSGPortalDetectionProfileListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGPortalDetectionProfileListAPIResponse) Hydrate() error {
+	r.Data = new(WSGPortalDetectionProfileList)
+	return json.NewDecoder(r).Decode(r.Data)
+}
 func NewWSGPortalDetectionProfileList() *WSGPortalDetectionProfileList {
 	m := new(WSGPortalDetectionProfileList)
 	return m

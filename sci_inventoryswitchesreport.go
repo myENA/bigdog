@@ -798,7 +798,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport113Over
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportInventorySwitchesReport113overview200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -830,7 +830,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport116Swit
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportInventorySwitchesReport116switchCountTrend200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -862,7 +862,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport117Top1
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -894,7 +894,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport118TopS
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportInventorySwitchesReport118topSwitchVersions200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -926,7 +926,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport121TopS
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -958,7 +958,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport122TopS
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportInventorySwitchesReport122topSwitchModels200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }
 
@@ -990,6 +990,6 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport132Port
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportInventorySwitchesReport132portStatusTrend200ResponseType()
-	rm, err = handleResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
 	return resp, rm, err
 }

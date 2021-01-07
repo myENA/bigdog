@@ -32,7 +32,7 @@ func (ss *WSGService) WSGSyslogServerService() *WSGSyslogServerService {
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSyslogServerSetting, *APIResponseMeta, error) {
+func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSyslogServerSettingAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -66,7 +66,7 @@ func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalP
 //
 // Request Body:
 //	 - body *WSGSyslogModifySyslogSettings
-func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, body *WSGSyslogModifySyslogSettings, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, body *WSGSyslogModifySyslogSettings, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -96,7 +96,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, 
 //
 // Request Body:
 //	 - body *WSGSyslogPrimaryServer
-func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx context.Context, body *WSGSyslogPrimaryServer, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx context.Context, body *WSGSyslogPrimaryServer, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -126,7 +126,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx cont
 //
 // Request Body:
 //	 - body *WSGSyslogPriority
-func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.Context, body *WSGSyslogPriority, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.Context, body *WSGSyslogPriority, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -156,7 +156,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.C
 //
 // Request Body:
 //	 - body *WSGSyslogSecondaryServer
-func (s *WSGSyslogServerService) PartialUpdateSystemSyslogSecondaryServer(ctx context.Context, body *WSGSyslogSecondaryServer, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSyslogServerService) PartialUpdateSystemSyslogSecondaryServer(ctx context.Context, body *WSGSyslogSecondaryServer, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

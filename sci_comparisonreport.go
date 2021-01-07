@@ -29,7 +29,7 @@ func (ss *SCIService) SCIComparisonReportService() *SCIComparisonReportService {
 //
 // Request Body:
 //	 - body *SCICommonReportQueryBody
-func (s *SCIComparisonReportService) ReportComparisonReport140ComparisionOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportComparisonReport140comparisionOverview200ResponseType, *APIResponseMeta, error) {
+func (s *SCIComparisonReportService) ReportComparisonReport140ComparisionOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -61,7 +61,7 @@ func (s *SCIComparisonReportService) ReportComparisonReport140ComparisionOvervie
 //
 // Request Body:
 //	 - body *SCICommonReportQueryBody
-func (s *SCIComparisonReportService) ReportComparisonReport145ComparisionMetric1(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportComparisonReport145comparisionMetric1200ResponseType, *APIResponseMeta, error) {
+func (s *SCIComparisonReportService) ReportComparisonReport145ComparisionMetric1(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -93,7 +93,7 @@ func (s *SCIComparisonReportService) ReportComparisonReport145ComparisionMetric1
 //
 // Request Body:
 //	 - body *SCICommonReportQueryBody
-func (s *SCIComparisonReportService) ReportComparisonReport146ComparisionMetric2(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportComparisonReport146comparisionMetric2200ResponseType, *APIResponseMeta, error) {
+func (s *SCIComparisonReportService) ReportComparisonReport146ComparisionMetric2(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -125,7 +125,7 @@ func (s *SCIComparisonReportService) ReportComparisonReport146ComparisionMetric2
 //
 // Request Body:
 //	 - body *SCICommonReportQueryBody
-func (s *SCIComparisonReportService) ReportComparisonReport147ComparisionTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportComparisonReport147comparisionTable200ResponseType, *APIResponseMeta, error) {
+func (s *SCIComparisonReportService) ReportComparisonReport147ComparisionTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -163,7 +163,7 @@ func NewSCIUserLoginResponse() *SCIUserLoginResponse {
 // Form Data Parameters:
 // - ids string
 //		- required
-func (s *SCIUserService) UserBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIUserBatchDelete200ResponseType, *APIResponseMeta, error) {
+func (s *SCIUserService) UserBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIUserBatchDelete200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -211,7 +211,7 @@ func (s *SCIUserService) UserBatchDelete(ctx context.Context, formValues url.Val
 //		- required
 // - username string
 //		- required
-func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIModelsUser, *APIResponseMeta, error) {
+func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIModelsUserAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -248,7 +248,7 @@ func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, formValues
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsUser, *APIResponseMeta, error) {
+func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsUserAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -277,7 +277,7 @@ func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalPa
 // Operation ID: user_getResourceGroupsForUpsert
 //
 // Get resource groups that current user can manage.
-func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mutators ...RequestMutator) (SCIUserGetResourceGroupsForUpsert200ResponseType, *APIResponseMeta, error) {
+func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mutators ...RequestMutator) (SCIUserGetResourceGroupsForUpsert200ResponseType, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -306,7 +306,7 @@ func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mut
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCIUserGetUsers200ResponseType, *APIResponseMeta, error) {
+func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCIUserGetUsers200ResponseType, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -341,7 +341,7 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 // Optional Parameters:
 // - include string
 //		- nullable
-func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLoginRequest, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIUserLoginResponse, *APIResponseMeta, error) {
+func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLoginRequest, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIUserLoginResponseAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -377,7 +377,7 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLogi
 // Required Parameters:
 // - accesstoken string
 //		- required
-func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -409,7 +409,7 @@ func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mut
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *SCIModelsFilter, id string, mutators ...RequestMutator) (*SCIModelsFilter, *APIResponseMeta, error) {
+func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *SCIModelsFilter, id string, mutators ...RequestMutator) (*SCIModelsFilterAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -445,7 +445,7 @@ func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *S
 //		- required
 // - id string
 //		- required
-func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk string, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk string, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -477,7 +477,7 @@ func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk
 //		- required
 // - id string
 //		- required
-func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk string, id string, mutators ...RequestMutator) (*SCIModelsFilter, *APIResponseMeta, error) {
+func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk string, id string, mutators ...RequestMutator) (*SCIModelsFilterAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -512,7 +512,7 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIUserPrototypegetfilters200ResponseType, *APIResponseMeta, error) {
+func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIUserPrototypegetfilters200ResponseType, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -549,7 +549,7 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIUserPrototypegetschedules200ResponseType, *APIResponseMeta, error) {
+func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIUserPrototypegetschedules200ResponseType, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -585,7 +585,7 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsUser, id string, mutators ...RequestMutator) (*SCIModelsUser, *APIResponseMeta, error) {
+func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsUser, id string, mutators ...RequestMutator) (*SCIModelsUserAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -624,7 +624,7 @@ func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data
 //		- required
 // - id string
 //		- required
-func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, data *SCIModelsFilter, fk string, id string, mutators ...RequestMutator) (*SCIModelsFilter, *APIResponseMeta, error) {
+func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, data *SCIModelsFilter, fk string, id string, mutators ...RequestMutator) (*SCIModelsFilterAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -675,7 +675,7 @@ func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, dat
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (*SCIModelsUser, *APIResponseMeta, error) {
+func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (*SCIModelsUserAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -709,7 +709,7 @@ func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, formValues
 // Form Data Parameters:
 // - currentPassword string
 //		- required
-func (s *SCIUserService) UserValidateCurrentPassword(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIModelsUser, *APIResponseMeta, error) {
+func (s *SCIUserService) UserValidateCurrentPassword(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIModelsUserAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

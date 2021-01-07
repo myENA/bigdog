@@ -1464,7 +1464,7 @@ func NewWSGAdministrationZdImportStatus() *WSGAdministrationZdImportStatus {
 //
 // Request Body:
 //	 - body *WSGAdministrationCreateAdminAAAServer
-func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdministrationCreateAdminAAAServer, mutators ...RequestMutator) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdministrationCreateAdminAAAServer, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1493,7 +1493,7 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 // Operation ID: addRestart
 //
 // Use this API command to restart the controller.
-func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1517,7 +1517,7 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...R
 // Operation ID: addShutdown
 //
 // Use this API command to shut down the controller.
-func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1545,7 +1545,7 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1574,7 +1574,7 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 // Required Parameters:
 // - type_ string
 //		- required
-func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ string, mutators ...RequestMutator) (*WSGAdministrationRetrieveAdminAAAServerList, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ string, mutators ...RequestMutator) (*WSGAdministrationRetrieveAdminAAAServerListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1604,7 +1604,7 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGAdministrationRetrieveAdminAAAServer, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGAdministrationRetrieveAdminAAAServerAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1630,7 +1630,7 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 // Operation ID: findLicenses
 //
 // Use this API command to get all licenses currently assign in SCG.
-func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesList, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1655,7 +1655,7 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ..
 // Operation ID: findLicenseServer
 //
 // Use this API command to get license server configuration.
-func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicenseServer, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicenseServerAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1680,7 +1680,7 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutato
 // Operation ID: findLicensesSummary
 //
 // Use this API command to get licenses summary information.
-func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesSummaryList, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesSummaryListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1705,7 +1705,7 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, muta
 // Operation ID: findLicensesSyncLogs
 //
 // Use this API command to get licenses synchronize logs.
-func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesSyncLogsList, *APIResponseMeta, error) {
+func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesSyncLogsListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1737,7 +1737,7 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mut
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1768,7 +1768,7 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 //
 // Request Body:
 //	 - body *WSGAdministrationModfiyLicenseServer
-func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body *WSGAdministrationModfiyLicenseServer, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body *WSGAdministrationModfiyLicenseServer, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1795,7 +1795,7 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 // Operation ID: updateLicensesSync
 //
 // Use this API command to ask all SCG in cluster to sync licenses from license server.
-func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

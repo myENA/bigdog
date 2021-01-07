@@ -29,7 +29,7 @@ func (ss *WSGService) WSGTestAAAServerService() *WSGTestAAAServerService {
 //
 // Request Body:
 //	 - body *WSGAAATestAuthenticationServer
-func (s *WSGTestAAAServerService) AddSystemAaaTest(ctx context.Context, body *WSGAAATestAuthenticationServer, mutators ...RequestMutator) (*WSGAAATestAAAServerResult, *APIResponseMeta, error) {
+func (s *WSGTestAAAServerService) AddSystemAaaTest(ctx context.Context, body *WSGAAATestAuthenticationServer, mutators ...RequestMutator) (*WSGAAATestAAAServerResultAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

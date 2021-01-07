@@ -98,7 +98,7 @@ func NewWSGSessionManagementRuckusSessions() *WSGSessionManagementRuckusSessions
 // Operation ID: findSessionManagement
 //
 // Use this API command to retrieve information about the current logon sessions.
-func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context, mutators ...RequestMutator) (*WSGSessionManagementRuckusSessions, *APIResponseMeta, error) {
+func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context, mutators ...RequestMutator) (*WSGSessionManagementRuckusSessionsAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

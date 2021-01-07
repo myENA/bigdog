@@ -94,7 +94,7 @@ func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
 //		- required
 // - portIdentifier string
 //		- required
-func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model string, portIdentifier string, mutators ...RequestMutator) (*SwitchMPortCapacityResult, *APIResponseMeta, error) {
+func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model string, portIdentifier string, mutators ...RequestMutator) (*SwitchMPortCapacityResultAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

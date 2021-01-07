@@ -395,7 +395,7 @@ func MakeSwitchMRegistrationRulesRuleUUIDs() SwitchMRegistrationRulesRuleUUIDs {
 //
 // Request Body:
 //	 - body *SwitchMRegistrationRulesRegistrationRule
-func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Context, body *SwitchMRegistrationRulesRegistrationRule, mutators ...RequestMutator) (*SwitchMRegistrationRulesCreateResult, *APIResponseMeta, error) {
+func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Context, body *SwitchMRegistrationRulesRegistrationRule, mutators ...RequestMutator) (*SwitchMRegistrationRulesCreateResultAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -427,7 +427,7 @@ func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Conte
 //
 // Request Body:
 //	 - body SwitchMRegistrationRulesRuleUUIDs
-func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Context, body SwitchMRegistrationRulesRuleUUIDs, mutators ...RequestMutator) (*SwitchMRegistrationRulesDeleteMultipleResult, *APIResponseMeta, error) {
+func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Context, body SwitchMRegistrationRulesRuleUUIDs, mutators ...RequestMutator) (*SwitchMRegistrationRulesDeleteMultipleResultAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -460,7 +460,7 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Co
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMRegistrationRulesDeleteResult, *APIResponseMeta, error) {
+func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMRegistrationRulesDeleteResultAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -487,7 +487,7 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx contex
 // Operation ID: findRegistrationRules
 //
 // Use this API command to retrieves all the registration rules configured in SmartZone.
-func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Context, mutators ...RequestMutator) (*SwitchMRegistrationRulesRuleQueryResultList, *APIResponseMeta, error) {
+func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Context, mutators ...RequestMutator) (*SwitchMRegistrationRulesRuleQueryResultListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -519,7 +519,7 @@ func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Cont
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMRegistrationRulesService) UpdateRegistrationRulesById(ctx context.Context, body *SwitchMRegistrationRulesRegistrationRule, id string, mutators ...RequestMutator) (*SwitchMRegistrationRulesModifyResult, *APIResponseMeta, error) {
+func (s *SwitchMRegistrationRulesService) UpdateRegistrationRulesById(ctx context.Context, body *SwitchMRegistrationRulesRegistrationRule, id string, mutators ...RequestMutator) (*SwitchMRegistrationRulesModifyResultAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -2527,7 +2527,7 @@ func NewWSGSystemUserDefinedInterfaceList() *WSGSystemUserDefinedInterfaceList {
 //
 // Request Body:
 //	 - body *WSGSystemNtpServerValidation
-func (s *WSGSystemService) AddGlobalSettingsSystemTimeValidate(ctx context.Context, body *WSGSystemNtpServerValidation, mutators ...RequestMutator) (*WSGSystemNtpServerValidationMessage, *APIResponseMeta, error) {
+func (s *WSGSystemService) AddGlobalSettingsSystemTimeValidate(ctx context.Context, body *WSGSystemNtpServerValidation, mutators ...RequestMutator) (*WSGSystemNtpServerValidationMessageAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2556,7 +2556,7 @@ func (s *WSGSystemService) AddGlobalSettingsSystemTimeValidate(ctx context.Conte
 // Operation ID: addSystemAp_balance
 //
 // Execute ap balance.
-func (s *WSGSystemService) AddSystemApBalance(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+func (s *WSGSystemService) AddSystemApBalance(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2585,7 +2585,7 @@ func (s *WSGSystemService) AddSystemApBalance(ctx context.Context, mutators ...R
 //
 // Request Body:
 //	 - body *WSGSystemCreateApMacOUI
-func (s *WSGSystemService) AddSystemApMacOUIs(ctx context.Context, body *WSGSystemCreateApMacOUI, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSystemService) AddSystemApMacOUIs(ctx context.Context, body *WSGSystemCreateApMacOUI, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2615,7 +2615,7 @@ func (s *WSGSystemService) AddSystemApMacOUIs(ctx context.Context, body *WSGSyst
 //
 // Request Body:
 //	 - body *WSGAPRoutineConfigIntervalReq
-func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context, body *WSGAPRoutineConfigIntervalReq, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context, body *WSGAPRoutineConfigIntervalReq, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2642,7 +2642,7 @@ func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context,
 // Operation ID: addSystemApRoutineStatusIntervalSlowdown
 //
 // Use this API command to set AP routine status interval setting to 900 seconds.
-func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2666,7 +2666,7 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.
 // Operation ID: addSystemApRoutineStatusIntervalSpeedup
 //
 // Use this API command to set AP routine status interval setting to 180 seconds.
-func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.Context, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2694,7 +2694,7 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.C
 // Required Parameters:
 // - OUI string
 //		- required
-func (s *WSGSystemService) DeleteSystemApMacOUIsByOUI(ctx context.Context, OUI string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSystemService) DeleteSystemApMacOUIsByOUI(ctx context.Context, OUI string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2723,7 +2723,7 @@ func (s *WSGSystemService) DeleteSystemApMacOUIsByOUI(ctx context.Context, OUI s
 // Optional Parameters:
 // - domainId string
 //		- nullable
-func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2750,7 +2750,7 @@ func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams m
 // Operation ID: findController
 //
 // Use this API command to retrieve the system summary.
-func (s *WSGSystemService) FindController(ctx context.Context, mutators ...RequestMutator) (*WSGSystemControllerList, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindController(ctx context.Context, mutators ...RequestMutator) (*WSGSystemControllerListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2785,7 +2785,7 @@ func (s *WSGSystemService) FindController(ctx context.Context, mutators ...Reque
 //		- nullable
 // - size float64
 //		- nullable
-func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (WSGSystemStatisticList, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (WSGSystemStatisticList, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2817,7 +2817,7 @@ func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id 
 // Operation ID: findSystem
 //
 // Use this API command to get settings of system. Currently, Only can get settings about AP number limit.
-func (s *WSGSystemService) FindSystem(ctx context.Context, mutators ...RequestMutator) (*WSGSystemSettings, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystem(ctx context.Context, mutators ...RequestMutator) (*WSGSystemSettingsAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2842,7 +2842,7 @@ func (s *WSGSystemService) FindSystem(ctx context.Context, mutators ...RequestMu
 // Operation ID: findSystemApMacOUIs
 //
 // Use this API command to retrieve a list of AP Mac OUIs.
-func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context, mutators ...RequestMutator) (*WSGSystemApMacOUIList, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context, mutators ...RequestMutator) (*WSGSystemApMacOUIListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2867,7 +2867,7 @@ func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context, mutators ...
 // Operation ID: findSystemApmodels
 //
 // Use this API command to retrieve support AP models for the current installed SZ version's default AP firmware.
-func (s *WSGSystemService) FindSystemApmodels(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemApmodels(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2896,7 +2896,7 @@ func (s *WSGSystemService) FindSystemApmodels(ctx context.Context, mutators ...R
 // Required Parameters:
 // - firmwareVersion string
 //		- required
-func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Context, firmwareVersion string, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Context, firmwareVersion string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2922,7 +2922,7 @@ func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Conte
 // Operation ID: findSystemApRoutineConfigInterval
 //
 // Use this API command to get AP routine configuration interval setting.
-func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context, mutators ...RequestMutator) (*WSGAPRoutineConfigIntervalRsp, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context, mutators ...RequestMutator) (*WSGAPRoutineConfigIntervalRspAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2947,7 +2947,7 @@ func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context
 // Operation ID: findSystemApRoutineStatusInterval
 //
 // Use this API command to get AP routine status interval setting.
-func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context, mutators ...RequestMutator) (*WSGAPRoutineStatusIntervalRsp, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context, mutators ...RequestMutator) (*WSGAPRoutineStatusIntervalRspAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -2975,7 +2975,7 @@ func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGSystemSettings, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGSystemSettingsAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -3004,7 +3004,7 @@ func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *
 // Operation ID: findSystemDevicesSummary
 //
 // Use this API command to retrieve devices summary.
-func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context, mutators ...RequestMutator) (*WSGDeviceCapacityDevicesSummary, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context, mutators ...RequestMutator) (*WSGDeviceCapacityDevicesSummaryAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -3029,7 +3029,7 @@ func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context, mutator
 // Operation ID: findSystemGatewayAdvanced
 //
 // Use this API command to retrieve gateway advanced setting.
-func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context, mutators ...RequestMutator) (*WSGSystemGatewayAdvanced, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context, mutators ...RequestMutator) (*WSGSystemGatewayAdvancedAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -3060,7 +3060,7 @@ func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context, mutato
 //		- nullable
 // - listSize string
 //		- nullable
-func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSystemInventoryList, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSystemInventoryListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -3095,7 +3095,7 @@ func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalPara
 // Optional Parameters:
 // - domainId string
 //		- nullable
-func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSystemNorthboundInterface, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSystemNorthboundInterfaceAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -3123,7 +3123,7 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map
 // Operation ID: findSystemSecuritySetting
 //
 // Use this API command to retrieve the security setting.
-func (s *WSGSystemService) FindSystemSecuritySetting(ctx context.Context, mutators ...RequestMutator) (*WSGSystemSecuritySetting, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemSecuritySetting(ctx context.Context, mutators ...RequestMutator) (*WSGSystemSecuritySettingAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -3148,7 +3148,7 @@ func (s *WSGSystemService) FindSystemSecuritySetting(ctx context.Context, mutato
 // Operation ID: findSystemSystemTime
 //
 // Retrieve System Time Setting.
-func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context, mutators ...RequestMutator) (*WSGSystemTimeSetting, *APIResponseMeta, error) {
+func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context, mutators ...RequestMutator) (*WSGSystemTimeSettingAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -3176,7 +3176,7 @@ func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context, mutators ..
 //
 // Request Body:
 //	 - body *WSGSystemSettings
-func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSystemSettings, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSystemSettings, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -3206,7 +3206,7 @@ func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSys
 //
 // Request Body:
 //	 - body *WSGSystemModifyGatewayAdvanced
-func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Context, body *WSGSystemModifyGatewayAdvanced, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Context, body *WSGSystemModifyGatewayAdvanced, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -3240,7 +3240,7 @@ func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Contex
 // Optional Parameters:
 // - domainId string
 //		- nullable
-func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSGSystemNorthboundInterface, optionalParams map[string][]string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSGSystemNorthboundInterface, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -3273,7 +3273,7 @@ func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSG
 //
 // Request Body:
 //	 - body *WSGSystemModifySystemTimeSetting
-func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, body *WSGSystemModifySystemTimeSetting, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, body *WSGSystemModifySystemTimeSetting, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -3307,7 +3307,7 @@ func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, bo
 // Required Parameters:
 // - OUI string
 //		- required
-func (s *WSGSystemService) UpdateSystemApMacOUIsByOUI(ctx context.Context, body *WSGSystemUpdateApMacOUI, OUI string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSystemService) UpdateSystemApMacOUIsByOUI(ctx context.Context, body *WSGSystemUpdateApMacOUI, OUI string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -3338,7 +3338,7 @@ func (s *WSGSystemService) UpdateSystemApMacOUIsByOUI(ctx context.Context, body 
 //
 // Request Body:
 //	 - body *WSGSystemSecuritySetting
-func (s *WSGSystemService) UpdateSystemSecuritySetting(ctx context.Context, body *WSGSystemSecuritySetting, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+func (s *WSGSystemService) UpdateSystemSecuritySetting(ctx context.Context, body *WSGSystemSecuritySetting, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

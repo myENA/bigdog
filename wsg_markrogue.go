@@ -29,7 +29,7 @@ func (ss *WSGService) WSGMarkRogueService() *WSGMarkRogueService {
 //
 // Request Body:
 //	 - body *WSGAPModifyRogueType
-func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -59,7 +59,7 @@ func (s *WSGMarkRogueService) AddRogueMarkIgnore(ctx context.Context, body *WSGA
 //
 // Request Body:
 //	 - body *WSGAPModifyRogueType
-func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -89,7 +89,7 @@ func (s *WSGMarkRogueService) AddRogueMarkKnown(ctx context.Context, body *WSGAP
 //
 // Request Body:
 //	 - body *WSGAPModifyRogueType
-func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -119,7 +119,7 @@ func (s *WSGMarkRogueService) AddRogueMarkMalicious(ctx context.Context, body *W
 //
 // Request Body:
 //	 - body *WSGAPModifyRogueType
-func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -149,7 +149,7 @@ func (s *WSGMarkRogueService) AddRogueMarkRogue(ctx context.Context, body *WSGAP
 //
 // Request Body:
 //	 - body *WSGAPModifyRogueType
-func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPModifyRogueType, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -176,7 +176,7 @@ func (s *WSGMarkRogueService) AddRogueUnMark(ctx context.Context, body *WSGAPMod
 // Operation ID: findRogueMarkKnown
 //
 // Get Known Rogue AP list.
-func (s *WSGMarkRogueService) FindRogueMarkKnown(ctx context.Context, mutators ...RequestMutator) (*WSGAPModifyRogueType, *APIResponseMeta, error) {
+func (s *WSGMarkRogueService) FindRogueMarkKnown(ctx context.Context, mutators ...RequestMutator) (*WSGAPModifyRogueTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

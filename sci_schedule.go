@@ -60,7 +60,7 @@ func NewSCIScheduleBatchDelete200ResponseType() *SCIScheduleBatchDelete200Respon
 // Form Data Parameters:
 // - ids string
 //		- required
-func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIScheduleBatchDelete200ResponseType, *APIResponseMeta, error) {
+func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIScheduleBatchDelete200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -97,7 +97,7 @@ func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, formValues
 //		- required
 // - scheduleData string
 //		- required
-func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIModelsSchedule, *APIResponseMeta, error) {
+func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIModelsScheduleAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -126,7 +126,7 @@ func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, fo
 // Operation ID: schedule_executeJob
 //
 // Run schedule job
-func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -162,7 +162,7 @@ func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ..
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIScheduleService) ScheduleUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (*SCIModelsSchedule, *APIResponseMeta, error) {
+func (s *SCIScheduleService) ScheduleUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (*SCIModelsScheduleAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

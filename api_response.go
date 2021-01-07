@@ -3,6 +3,7 @@ package bigdog
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -17,6 +18,79 @@ var (
 	ErrResponseHydrated  = errors.New("response bytes have been read via Hydrate call")
 )
 
+type APIResponseMeta struct {
+	RequestMethod string
+	RequestURI    string
+
+	SuccessCode int
+
+	ResponseCode   int
+	ResponseStatus string
+	ResponseHeader http.Header
+}
+
+func newAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Response) APIResponseMeta {
+	rm := APIResponseMeta{
+		RequestMethod: req.Method,
+		RequestURI:    req.CompiledURI(),
+		SuccessCode:   successCode,
+	}
+	if httpResp != nil {
+		rm.ResponseCode = httpResp.StatusCode
+		rm.ResponseStatus = http.StatusText(httpResp.StatusCode)
+		// make copy of response headers so gc can clean up response after body has been read
+		// todo: always read the body, dingus.
+		rm.ResponseHeader = make(http.Header, len(httpResp.Header))
+		for k, vs := range httpResp.Header {
+			l := len(vs)
+			rm.ResponseHeader[k] = make([]string, l, l)
+			copy(rm.ResponseHeader[k], vs)
+		}
+	}
+	return rm
+}
+
+func newErrAPIResponseMeta(req *APIRequest, successCode int) APIResponseMeta {
+	rm := newAPIResponseMeta(req, successCode, nil)
+	rm.ResponseCode = http.StatusInternalServerError
+	rm.ResponseStatus = http.StatusText(http.StatusInternalServerError)
+	return rm
+}
+
+func (rm APIResponseMeta) ContentType() string {
+	return rm.ResponseHeader.Get(headerKeyContentType)
+}
+
+func (rm APIResponseMeta) ContentEncoding() string {
+	return rm.ResponseHeader.Get(headerKeyContentEncoding)
+}
+
+func (rm APIResponseMeta) ContentLength() int {
+	if v := rm.ResponseHeader.Get(headerKeyContentLength); v != "" {
+		l, _ := strconv.Atoi(v)
+		return l
+	}
+	return 0
+}
+
+func (rm APIResponseMeta) ContentDisposition() string {
+	return rm.ResponseHeader.Get(headerKeyContentDisposition)
+}
+
+func (rm APIResponseMeta) String() string {
+	var msg string
+	if rm.SuccessCode == rm.ResponseCode {
+		msg = "Success"
+	} else {
+		msg = "Error"
+	}
+	return fmt.Sprintf("%s response from request %s %s", msg, rm.RequestMethod, rm.RequestURI)
+}
+
+type APIResponseMetaContainer interface {
+	ResponseMeta() APIResponseMeta
+}
+
 // APIResponse is implemented by each response model, allowing you to either unmarshal the resulting bytes into a model
 // or receive the raw bytes themselves.
 //
@@ -26,21 +100,7 @@ var (
 // NOTE: No concurrency guarantee is made.  It is expected that will either immediately call Raw() or Hydrate() after
 // receiving a model.
 type APIResponse interface {
-	// RequestMethod must return the HTTP method used.
-	RequestMethod() string
-	// RequestURI must return the fully qualified URL used.
-	RequestURI() string
-	// SuccessCode must return the expected HTTP response code.
-	SuccessCode() int
-	// ResponseCode must return the actual HTTP response code, if there is one.  If no response was received, this may
-	// be zero.
-	ResponseCode() int
-	// ResponseStatus must return the actual HTTP response status, if there is one.  If no response was received, this
-	// may be empty.
-	ResponseStatus() string
-	// ResponseHeader must return the actual HTTP header present in the response, if any.  If no response was received,
-	// this may be empty
-	ResponseHeader() http.Header
+	APIResponseMetaContainer
 
 	// Read returns the raw bytes from the HTTP response body.  Once called
 	//
@@ -67,47 +127,17 @@ type RawAPIResponse struct {
 	body io.ReadCloser
 	err  error
 
-	reqMethod   string
-	reqURI      string
-	successCode int
-	respCode    int
-	respHeader  http.Header
+	meta APIResponseMeta
 }
 
 func newRawAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
 	b := new(RawAPIResponse)
-	b.reqMethod = req.Method
-	b.reqURI = req.CompiledURI()
-	b.successCode = successCode
+	b.meta = newAPIResponseMeta(req, successCode, httpResp)
 	if httpResp != nil {
-		b.respCode = httpResp.StatusCode
 		b.body = httpResp.Body
-		// make copy of response headers so gc can clean up response after body has been read
-		// todo: always read the body, dingus.
-		b.respHeader = make(http.Header, len(httpResp.Header))
-		for k, vs := range httpResp.Header {
-			l := len(vs)
-			b.respHeader[k] = make([]string, l, l)
-			copy(b.respHeader[k], vs)
-		}
+
 	}
 	return b
-}
-
-func (b *RawAPIResponse) ContentType() string {
-	return b.respHeader.Get(headerKeyContentType)
-}
-
-func (b *RawAPIResponse) ContentLength() int {
-	if v := b.respHeader.Get(headerKeyContentLength); v != "" {
-		l, _ := strconv.Atoi(v)
-		return l
-	}
-	return 0
-}
-
-func (b *RawAPIResponse) ContentDisposition() string {
-	return b.respHeader.Get(headerKeyContentDisposition)
 }
 
 func (b *RawAPIResponse) cleanupBody() error {
@@ -120,34 +150,9 @@ func (b *RawAPIResponse) cleanupBody() error {
 	return err
 }
 
-// RequestMethod returns name of HTTP request method used
-func (b *RawAPIResponse) RequestMethod() string {
-	return b.reqMethod
-}
-
-// RequestURI returns fully qualified URL
-func (b *RawAPIResponse) RequestURI() string {
-	return b.reqURI
-}
-
-// SuccessCode returns the expected "success" response code
-func (b *RawAPIResponse) SuccessCode() int {
-	return b.successCode
-}
-
-// ResponseCode returns the actual response code, if there was one
-func (b *RawAPIResponse) ResponseCode() int {
-	return b.respCode
-}
-
-// ResponseStatus returns the actual status response, if there was one
-func (b *RawAPIResponse) ResponseStatus() string {
-	return http.StatusText(b.respCode)
-}
-
-// ResponseHeader returns the raw header present in the response, if there was one.
-func (b *RawAPIResponse) ResponseHeader() http.Header {
-	return b.respHeader
+// Meta returns a portal meta type
+func (b *RawAPIResponse) ResponseMeta() APIResponseMeta {
+	return b.meta
 }
 
 // Read performs a read from the response body. Once this has been called, any Hydrate implementation will fail with an

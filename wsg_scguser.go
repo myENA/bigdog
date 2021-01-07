@@ -1030,7 +1030,7 @@ func NewWSGSCGUserList() *WSGSCGUserList {
 //
 // Request Body:
 //	 - body *WSGSCGUserCreateScgUser
-func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreateScgUser, mutators ...RequestMutator) (*WSGSCGUserAuditId, *APIResponseMeta, error) {
+func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreateScgUser, mutators ...RequestMutator) (*WSGSCGUserAuditIdAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1062,7 +1062,7 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 //
 // Request Body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1093,7 +1093,7 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 // Required Parameters:
 // - userId string
 //		- required
-func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1121,7 +1121,7 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 //
 // Request Body:
 //	 - body *WSGSCGUserQueryCriteria
-func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *WSGSCGUserQueryCriteria, mutators ...RequestMutator) (*WSGSCGUserList, *APIResponseMeta, error) {
+func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *WSGSCGUserQueryCriteria, mutators ...RequestMutator) (*WSGSCGUserListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1154,7 +1154,7 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 // Required Parameters:
 // - userId string
 //		- required
-func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string, mutators ...RequestMutator) (*WSGSCGUserGetScgUser, *APIResponseMeta, error) {
+func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string, mutators ...RequestMutator) (*WSGSCGUserGetScgUserAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -1187,7 +1187,7 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 // Required Parameters:
 // - userId string
 //		- required
-func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body *WSGSCGUserModifyScgUser, userId string, mutators ...RequestMutator) (*WSGSCGUserAuditId, *APIResponseMeta, error) {
+func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body *WSGSCGUserModifyScgUser, userId string, mutators ...RequestMutator) (*WSGSCGUserAuditIdAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -29,7 +29,7 @@ func (ss *SwitchMService) SwitchMEventService() *SwitchMEventService {
 //
 // Request Body:
 //	 - body *SwitchMEventConfig
-func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchMEventConfig, mutators ...RequestMutator) (*SwitchMEventConfigQueryResponse, *APIResponseMeta, error) {
+func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchMEventConfig, mutators ...RequestMutator) (*SwitchMEventConfigQueryResponseAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -62,7 +62,7 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMEventConfigQueryResponse, *APIResponseMeta, error) {
+func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMEventConfigQueryResponseAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -89,7 +89,7 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 // Operation ID: findCustomEvent
 //
 // Use this API command to retrieve switch event config list
-func (s *SwitchMEventService) FindCustomEvent(ctx context.Context, mutators ...RequestMutator) (*SwitchMEventConfigGetEventConfigList, *APIResponseMeta, error) {
+func (s *SwitchMEventService) FindCustomEvent(ctx context.Context, mutators ...RequestMutator) (*SwitchMEventConfigGetEventConfigListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -118,7 +118,7 @@ func (s *SwitchMEventService) FindCustomEvent(ctx context.Context, mutators ...R
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMEventConfig, *APIResponseMeta, error) {
+func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMEventConfigAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -151,7 +151,7 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 // Required Parameters:
 // - id string
 //		- required
-func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *SwitchMEventConfig, id string, mutators ...RequestMutator) (*SwitchMEventConfigQueryResponse, *APIResponseMeta, error) {
+func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *SwitchMEventConfig, id string, mutators ...RequestMutator) (*SwitchMEventConfigQueryResponseAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

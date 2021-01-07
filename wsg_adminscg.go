@@ -619,7 +619,7 @@ func NewWSGAdminSCGScgAaaServerEntry() *WSGAdminSCGScgAaaServerEntry {
 // Operation ID: findScgAdminAaaServers
 //
 // Use this API command to retrieve a list of registered AAA servers
-func (s *WSGAdminSCGService) FindScgAdminAaaServers(ctx context.Context, mutators ...RequestMutator) (*WSGAdminSCGScgAaaServer, *APIResponseMeta, error) {
+func (s *WSGAdminSCGService) FindScgAdminAaaServers(ctx context.Context, mutators ...RequestMutator) (*WSGAdminSCGScgAaaServerAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -61,7 +61,7 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Current() (SCIAccessTokenCAS,
 		return atp.cas, atp.accessToken, nil
 	}
 
-	return atp.cas, "", NewSCIAccessTokenProviderError(NewErrAPIResponseMeta(), ErrAccessTokenRequiresRefresh)
+	return atp.cas, "", NewSCIAccessTokenProviderError(newErrAPIResponseMeta(), ErrAccessTokenRequiresRefresh)
 }
 
 func (atp *UsernamePasswordSCIAccessTokenProvider) Refresh(ctx context.Context, client *SCIClient, cas SCIAccessTokenCAS) (SCIAccessTokenCAS, error) {
@@ -79,11 +79,11 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Refresh(ctx context.Context, 
 	)
 
 	if client == nil {
-		return atp.cas, NewSCIAccessTokenProviderError(NewErrAPIResponseMeta(), ErrAccessTokenClientNil)
+		return atp.cas, NewSCIAccessTokenProviderError(newErrAPIResponseMeta(), ErrAccessTokenClientNil)
 	}
 
 	if atp.cas < cas {
-		return atp.cas, NewSCIAccessTokenProviderError(NewErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value is greater than possible", ErrAccessTokenCASInvalid))
+		return atp.cas, NewSCIAccessTokenProviderError(newErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value is greater than possible", ErrAccessTokenCASInvalid))
 	}
 
 	if atp.cas > cas {
@@ -128,7 +128,7 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Invalidate(ctx context.Contex
 	)
 
 	if atp.cas < cas {
-		return atp.cas, NewSCIAccessTokenProviderError(NewErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value is greater than possible", ErrAccessTokenCASInvalid))
+		return atp.cas, NewSCIAccessTokenProviderError(newErrAPIResponseMeta(), fmt.Errorf("%w: provided cas value is greater than possible", ErrAccessTokenCASInvalid))
 	}
 
 	if atp.cas > cas {

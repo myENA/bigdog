@@ -244,7 +244,7 @@ func NewSwitchMAAAServersCreateAdminAAAServer() *SwitchMAAAServersCreateAdminAAA
 // Required Parameters:
 // - groupId string
 //		- required
-func (s *SwitchMAAAServersService) AddGroupAaaServersByGroupId(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, groupId string, mutators ...RequestMutator) (*SwitchMCommonCreateResult, *APIResponseMeta, error) {
+func (s *SwitchMAAAServersService) AddGroupAaaServersByGroupId(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, groupId string, mutators ...RequestMutator) (*SwitchMCommonCreateResultAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -281,7 +281,7 @@ func (s *SwitchMAAAServersService) AddGroupAaaServersByGroupId(ctx context.Conte
 // Required Parameters:
 // - groupId string
 //		- required
-func (s *SwitchMAAAServersService) DeleteGroupAaaServersByGroupId(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, groupId string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *SwitchMAAAServersService) DeleteGroupAaaServersByGroupId(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, groupId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -315,7 +315,7 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersByGroupId(ctx context.Co
 //		- required
 // - id string
 //		- required
-func (s *SwitchMAAAServersService) DeleteGroupAaaServersById(ctx context.Context, groupId string, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *SwitchMAAAServersService) DeleteGroupAaaServersById(ctx context.Context, groupId string, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -345,7 +345,7 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersById(ctx context.Context
 // Required Parameters:
 // - groupId string
 //		- required
-func (s *SwitchMAAAServersService) FindGroupAaaServersByGroupId(ctx context.Context, groupId string, mutators ...RequestMutator) (*SwitchMAAAServersQueryResult, *APIResponseMeta, error) {
+func (s *SwitchMAAAServersService) FindGroupAaaServersByGroupId(ctx context.Context, groupId string, mutators ...RequestMutator) (*SwitchMAAAServersQueryResultAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -377,7 +377,7 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersByGroupId(ctx context.Cont
 //		- required
 // - id string
 //		- required
-func (s *SwitchMAAAServersService) FindGroupAaaServersById(ctx context.Context, groupId string, id string, mutators ...RequestMutator) (*SwitchMAAAServersAAAServer, *APIResponseMeta, error) {
+func (s *SwitchMAAAServersService) FindGroupAaaServersById(ctx context.Context, groupId string, id string, mutators ...RequestMutator) (*SwitchMAAAServersAAAServerAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -413,7 +413,7 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersById(ctx context.Context, 
 //		- required
 // - id string
 //		- required
-func (s *SwitchMAAAServersService) UpdateGroupAaaServersById(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, groupId string, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *SwitchMAAAServersService) UpdateGroupAaaServersById(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, groupId string, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

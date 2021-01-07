@@ -5415,7 +5415,7 @@ func NewSCIReportWLANsReport41topSsidsByClientsTable200ResponseType() *SCIReport
 //		- required
 // - id string
 //		- required
-func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues url.Values, format string, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues url.Values, format string, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -5448,7 +5448,7 @@ func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues 
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCIReportFind200ResponseType, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCIReportFind200ResponseType, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -5484,7 +5484,7 @@ func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[st
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIReportService) ReportFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsReport, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsReportAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -5537,7 +5537,7 @@ func (s *SCIReportService) ReportFindById(ctx context.Context, id string, option
 //		- required
 // - sectionId string
 //		- required
-func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Values, id string, sectionId string, mutators ...RequestMutator) (*SCIReportGetData200ResponseType, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Values, id string, sectionId string, mutators ...RequestMutator) (*SCIReportGetData200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -5566,7 +5566,7 @@ func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Val
 // ReportLatestIngestedTime
 //
 // Operation ID: report_latestIngestedTime
-func (s *SCIReportService) ReportLatestIngestedTime(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportLatestIngestedTime(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -5599,7 +5599,7 @@ func (s *SCIReportService) ReportLatestIngestedTime(ctx context.Context, mutator
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIReportPrototypegetsections200ResponseType, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (SCIReportPrototypegetsections200ResponseType, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -5633,7 +5633,7 @@ func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id st
 // - urlSegmentName string
 //		- required
 //		- oneof:[ap,client,switch,wlans,airtime,applications,network,aps,overview,comparison,health]
-func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentName string, mutators ...RequestMutator) (*SCIReportWithRelations, *APIResponseMeta, error) {
+func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentName string, mutators ...RequestMutator) (*SCIReportWithRelationsAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

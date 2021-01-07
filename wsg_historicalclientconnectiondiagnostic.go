@@ -88,7 +88,7 @@ func NewWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountL
 // - type_ string
 //		- required
 //		- oneof:[failureType]
-func (s *WSGHistoricalClientConnectionDiagnosticService) HccdCount(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, type_ string, mutators ...RequestMutator) (*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList, *APIResponseMeta, error) {
+func (s *WSGHistoricalClientConnectionDiagnosticService) HccdCount(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, type_ string, mutators ...RequestMutator) (*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -124,7 +124,7 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdCount(ctx context.C
 // - type_ string
 //		- required
 //		- oneof:[association,authentication,eap,radius,dhcp,userAuthentication]
-func (s *WSGHistoricalClientConnectionDiagnosticService) HccdTypeCount(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, type_ string, mutators ...RequestMutator) (*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList, *APIResponseMeta, error) {
+func (s *WSGHistoricalClientConnectionDiagnosticService) HccdTypeCount(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, type_ string, mutators ...RequestMutator) (*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

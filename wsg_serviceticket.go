@@ -83,7 +83,7 @@ func NewWSGServiceTicketLoginResponse() *WSGServiceTicketLoginResponse {
 //
 // Request Body:
 //	 - body *WSGServiceTicketLoginRequest
-func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WSGServiceTicketLoginRequest, mutators ...RequestMutator) (*WSGServiceTicketLoginResponse, *APIResponseMeta, error) {
+func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WSGServiceTicketLoginRequest, mutators ...RequestMutator) (*WSGServiceTicketLoginResponseAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -116,7 +116,7 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 // Required Parameters:
 // - serviceTicket string
 //		- required
-func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, serviceTicket string, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, serviceTicket string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

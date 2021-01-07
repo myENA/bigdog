@@ -33,7 +33,7 @@ func (ss *SCIService) SCISettingService() *SCISettingService {
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCISettingService) SettingDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+func (s *SCISettingService) SettingDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -68,7 +68,7 @@ func (s *SCISettingService) SettingDeleteById(ctx context.Context, id string, mu
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCISettingService) SettingFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsSetting, *APIResponseMeta, error) {
+func (s *SCISettingService) SettingFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsSettingAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -99,7 +99,7 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 // Form Data Parameters:
 // - recipients string
 //		- required
-func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -131,7 +131,7 @@ func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues
 //
 // Request Body:
 //	 - body *SCIModelsSetting
-func (s *SCISettingService) SettingUpsert(ctx context.Context, data *SCIModelsSetting, mutators ...RequestMutator) (*SCIModelsSetting, *APIResponseMeta, error) {
+func (s *SCISettingService) SettingUpsert(ctx context.Context, data *SCIModelsSetting, mutators ...RequestMutator) (*SCIModelsSettingAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

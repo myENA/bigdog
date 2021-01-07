@@ -50,7 +50,7 @@ func MakeSCISystemGetSsids200ResponseType() SCISystemGetSsids200ResponseType {
 //
 // Request Body:
 //	 - body *SCIModelsSystem
-func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSystem, mutators ...RequestMutator) (*SCIModelsSystem, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSystem, mutators ...RequestMutator) (*SCIModelsSystemAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -83,7 +83,7 @@ func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSyst
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -114,7 +114,7 @@ func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, muta
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCISystemFind200ResponseType, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCISystemFind200ResponseType, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -150,7 +150,7 @@ func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[st
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCISystemService) SystemFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsSystem, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsSystemAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -179,7 +179,7 @@ func (s *SCISystemService) SystemFindById(ctx context.Context, id string, option
 // Operation ID: system_getSsids
 //
 // authenticate user with specific role
-func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...RequestMutator) (SCISystemGetSsids200ResponseType, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...RequestMutator) (SCISystemGetSsids200ResponseType, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -212,7 +212,7 @@ func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...Reque
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCISystemService) SystemPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsSystem, id string, mutators ...RequestMutator) (*SCIModelsSystem, *APIResponseMeta, error) {
+func (s *SCISystemService) SystemPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsSystem, id string, mutators ...RequestMutator) (*SCIModelsSystemAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

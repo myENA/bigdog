@@ -186,7 +186,7 @@ func NewWSGDomainModifyDomain() *WSGDomainModifyDomain {
 // Optional Parameters:
 // - parentDomainId string
 //		- nullable
-func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGCommonCreateResult, *APIResponseMeta, error) {
+func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -222,7 +222,7 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -259,7 +259,7 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mut
 //		- nullable
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGDomainList, *APIResponseMeta, error) {
+func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGDomainListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -307,7 +307,7 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 // Optional Parameters:
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGDomainConfiguration, *APIResponseMeta, error) {
+func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGDomainConfigurationAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -340,7 +340,7 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 // Required Parameters:
 // - domainName string
 //		- required
-func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, domainName string, mutators ...RequestMutator) (*WSGDomainList, *APIResponseMeta, error) {
+func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, domainName string, mutators ...RequestMutator) (*WSGDomainListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -382,7 +382,7 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 //		- nullable
 // - recursively string
 //		- nullable
-func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGDomainList, *APIResponseMeta, error) {
+func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGDomainListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -430,7 +430,7 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 // Required Parameters:
 // - id string
 //		- required
-func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

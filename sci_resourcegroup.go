@@ -70,7 +70,7 @@ func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseTy
 // Form Data Parameters:
 // - ids string
 //		- required
-func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIResourceGroupBatchDelete200ResponseType, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIResourceGroupBatchDelete200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -102,7 +102,7 @@ func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, 
 //
 // Request Body:
 //	 - body *SCIModelsResourceGroup
-func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data *SCIModelsResourceGroup, mutators ...RequestMutator) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data *SCIModelsResourceGroup, mutators ...RequestMutator) (*SCIModelsResourceGroupAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -135,7 +135,7 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data 
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCIResourceGroupFind200ResponseType, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCIResourceGroupFind200ResponseType, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -171,7 +171,7 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsResourceGroupAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -207,7 +207,7 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 // Required Parameters:
 // - id string
 //		- required
-func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsResourceGroup, id string, mutators ...RequestMutator) (*SCIModelsResourceGroup, *APIResponseMeta, error) {
+func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsResourceGroup, id string, mutators ...RequestMutator) (*SCIModelsResourceGroupAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

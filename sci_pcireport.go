@@ -32,7 +32,7 @@ func (ss *SCIService) SCIPCIReportService() *SCIPCIReportService {
 //		- required
 // - timezone string
 //		- required
-func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

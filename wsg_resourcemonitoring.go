@@ -34,7 +34,7 @@ func (ss *WSGService) WSGResourceMonitoringService() *WSGResourceMonitoringServi
 // - resource string
 //		- required
 //		- oneof:[client,ap]
-func (s *WSGResourceMonitoringService) FindResourceMonitoringSummaryByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, resource string, mutators ...RequestMutator) (*WSGCommonMonitoringSummary, *APIResponseMeta, error) {
+func (s *WSGResourceMonitoringService) FindResourceMonitoringSummaryByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, resource string, mutators ...RequestMutator) (*WSGCommonMonitoringSummaryAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

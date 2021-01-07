@@ -84,6 +84,7 @@ const (
 	apiRequestURLFormat = "%s%s%s"
 
 	headerKeyContentType         = "Content-Type"
+	headerKeyContentEncoding     = "Content-Encoding"
 	headerKeyContentDisposition  = "Content-Disposition"
 	headerKeyContentLength       = "Content-Length"
 	headerKeyAccept              = "Accept"
@@ -186,228 +187,6 @@ func (c *baseClient) do(ctx context.Context, request *APIRequest, authParamName,
 	return httpResponse, err
 }
 
-type VSZClientConfig struct {
-	// Address [required]
-	//
-	// Full address of VSZ, including scheme and port
-	Address string
-
-	// PathPrefix [optional]
-	//
-	// Custom path prefix to prepend to all api calls.  Default is to leave this blank.
-	PathPrefix string
-
-	// Debug [optional]
-	//
-	// Set to true to enable debug logging
-	Debug bool
-
-	// ServiceTicketProvider [required]
-	//
-	// ServiceTicketProvider to use to handle request auth session
-	ServiceTicketProvider VSZServiceTicketProvider
-
-	// DisableAutoHydrate [bool]
-	//
-	// If true, response bodies will no longer automatically hydrated into the returned response models.  This enables
-	// you to instead use the response models as Readers to receive the raw bytes of the response in favor of having
-	// then unmarshalled if you don't need it.
-	DisableAutoHydrate bool
-
-	// Logger [optional]
-	//
-	// Logger to use.  Leave blank for no logging
-	Logger *log.Logger
-
-	// HTTPClient [optional]
-	HTTPClient *http.Client
-}
-
-type VSZClient struct {
-	*baseClient
-	stp VSZServiceTicketProvider
-}
-
-func NewVSZClient(config *VSZClientConfig) *VSZClient {
-	c := new(VSZClient)
-	c.baseClient = newBaseClient(config.Logger, config.Debug, config.Address, config.PathPrefix, config.HTTPClient)
-	c.stp = config.ServiceTicketProvider
-
-	return c
-}
-
-// VSZServiceTicketProvider returns the provider used by this client
-func (c *VSZClient) ServiceTicketProvider() VSZServiceTicketProvider {
-	return c.stp
-}
-
-func (c *VSZClient) WSG() *WSGService {
-	return NewWSGService(c)
-}
-
-func (c *VSZClient) SwitchM() *SwitchMService {
-	return NewSwitchMService(c)
-}
-
-func (c *VSZClient) SCGAdmin() *SCGAdminService {
-	return NewSCGAdminService(c)
-}
-
-func (c *VSZClient) Do(ctx context.Context, request *APIRequest, mutators ...RequestMutator) (*http.Response, error) {
-	var (
-		cas           VSZServiceTicketCAS
-		serviceTicket string
-		err           error
-	)
-	if request.Authenticated {
-		if cas, serviceTicket, err = c.stp.Current(); err != nil {
-			if c.debug {
-				c.log.Printf("Error fetching current service ticket: %v", err)
-			}
-			// always call invalidate prior to refresh, just in case...
-			if cas, err = c.stp.Invalidate(ctx, c, cas); err != nil {
-				if c.debug {
-					c.log.Printf("Error invalidating existing service ticket before refresh: %v", err)
-				}
-			}
-			if cas, err = c.stp.Refresh(ctx, c, cas); err != nil {
-				if c.debug {
-					c.log.Printf("Error refreshing service ticket: %v", err)
-				}
-				return nil, err
-			} else if cas, serviceTicket, err = c.stp.Current(); err != nil {
-				if c.debug {
-					c.log.Printf("Error fetching current service ticket after refresh: %v", err)
-				}
-				return nil, err
-			}
-		}
-	}
-	return c.do(ctx, request, VSZServiceTicketQueryParameter, serviceTicket, mutators...)
-}
-
-type SCIClientConfig struct {
-	// Address [required]
-	//
-	// Full address of SCI, including scheme and port
-	Address string
-
-	// PathPrefix [optional]
-	//
-	// Custom path prefix to prepend to all api calls.  Default is to leave this blank.
-	PathPrefix string
-
-	// Debug [optional]
-	//
-	// Set to true to enable debug logging
-	Debug bool
-
-	// ServiceTicketProvider [required]
-	//
-	// ServiceTicketProvider to use to handle request auth session
-	AccessTokenProvider SCIAccessTokenProvider
-
-	// Logger [optional]
-	//
-	// Logger to use.  Leave blank for no logging
-	Logger *log.Logger
-
-	// HTTPClient [optional]
-	HTTPClient *http.Client
-}
-
-type SCIClient struct {
-	*baseClient
-	atp SCIAccessTokenProvider
-}
-
-func NewSCIClient(config *SCIClientConfig) *SCIClient {
-	c := new(SCIClient)
-	c.baseClient = newBaseClient(config.Logger, config.Debug, config.Address, config.PathPrefix, config.HTTPClient)
-	c.atp = config.AccessTokenProvider
-	return c
-}
-
-func (c *SCIClient) AccessTokenProvider() SCIAccessTokenProvider {
-	return c.atp
-}
-
-func (c *SCIClient) SCI() *SCIService {
-	return NewSCIService(c)
-}
-
-func (c *SCIClient) Do(ctx context.Context, request *APIRequest, mutators ...RequestMutator) (*http.Response, error) {
-	var (
-		cas         SCIAccessTokenCAS
-		accessToken string
-		err         error
-	)
-	if request.Authenticated {
-		if cas, accessToken, err = c.atp.Current(); err != nil {
-			if c.debug {
-				c.log.Printf("Error fetching current access token: %v", err)
-			}
-			// always invalidate, just in case...
-			if cas, err = c.atp.Invalidate(ctx, c, cas); err != nil {
-				if c.debug {
-					c.log.Printf("Error invalidating existing access token: %v", err)
-				}
-			}
-			if cas, err = c.atp.Refresh(ctx, c, cas); err != nil {
-				if c.debug {
-					c.log.Printf("Error refreshing access token: %v", err)
-				}
-				return nil, err
-			} else if cas, accessToken, err = c.atp.Current(); err != nil {
-				if c.debug {
-					c.log.Printf("Error fetching current access token after refresh: %v", err)
-				}
-				return nil, err
-			}
-		}
-	}
-	return c.do(ctx, request, SCIAccessTokenQueryParameter, accessToken, mutators...)
-}
-
-type APIResponseMeta struct {
-	RequestMethod string `json:"requestMethod"`
-	RequestURI    string `json:"requestURI"`
-
-	SuccessCode int `json:"successCode"`
-
-	ResponseCode   int    `json:"responseCode"`
-	ResponseStatus string `json:"responseStatus"`
-}
-
-func NewAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Response) *APIResponseMeta {
-	rm := new(APIResponseMeta)
-	rm.RequestMethod = req.Method
-	rm.RequestURI = req.CompiledURI()
-	rm.SuccessCode = successCode
-	if httpResp != nil {
-		rm.ResponseCode = httpResp.StatusCode
-		rm.ResponseStatus = http.StatusText(httpResp.StatusCode)
-	}
-	return rm
-}
-
-func NewErrAPIResponseMeta() *APIResponseMeta {
-	rm := new(APIResponseMeta)
-	rm.ResponseCode = http.StatusInternalServerError
-	rm.ResponseStatus = http.StatusText(http.StatusInternalServerError)
-	return rm
-}
-
-func (rm *APIResponseMeta) String() string {
-	var msg string
-	if rm.SuccessCode == rm.ResponseCode {
-		msg = "Success"
-	} else {
-		msg = "Error"
-	}
-	return fmt.Sprintf("%s response from request %s %s", msg, rm.RequestMethod, rm.RequestURI)
-}
-
 func CleanupHTTPResponseBody(hp *http.Response) {
 	if hp == nil {
 		return
@@ -418,14 +197,14 @@ func CleanupHTTPResponseBody(hp *http.Response) {
 
 func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response, respFunc ResponseFactoryFunc, sourceErr error) (APIResponse, error) {
 	var (
-		finalErr error
+		finalErr    error
+		cleanupBody bool
 
-		apiResp         = respFunc(req, successCode, httpResp)
-		requiresCleanup = true
+		apiResp = respFunc(req, successCode, httpResp)
 	)
 
 	defer func() {
-		if requiresCleanup {
+		if cleanupBody {
 			CleanupHTTPResponseBody(httpResp)
 		}
 	}()
@@ -433,22 +212,24 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 	if sourceErr != nil {
 		// if the incoming error is from a service ticket provider, return as-is
 		if sterr, ok := sourceErr.(*VSZServiceTicketProviderError); ok {
+			cleanupBody = true
 			return sterr.ResponseMeta(), sterr
 		}
 
 		if aterr, ok := sourceErr.(*SCIAccessTokenProviderError); ok {
+			cleanupBody = true
 
 		}
 
 		if httpResp != nil {
 			// otherwise, build response meta and return source error
-			return NewAPIResponseMeta(req, successCode, httpResp), sourceErr
+			return newAPIResponseMeta(req, successCode, httpResp), sourceErr
 		}
-		return NewErrAPIResponseMeta(), sourceErr
+		return newErrAPIResponseMeta(), sourceErr
 	}
 
 	if httpResp == nil {
-		panic(fmt.Sprintf("severe problem: nil *http.Response seen with nil error. meta: %v", NewAPIResponseMeta(req, successCode, httpResp)))
+		panic(fmt.Sprintf("severe problem: nil *http.Response seen with nil error. meta: %v", newAPIResponseMeta(req, successCode, httpResp)))
 	}
 
 	// if the response code matches the expected "success" code...
@@ -465,7 +246,7 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 					*b = tmp
 				}
 			} else if rr, ok := modelPtr.(*RawAPIResponse); ok {
-				requiresCleanup = false
+				cleanupBody = false
 				rr.Body = httpResp.Body
 				rr.Header = httpResp.Header
 			} else if err := json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil && err != io.EOF {
@@ -489,7 +270,7 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 	}
 
 	// build response.
-	return NewAPIResponseMeta(req, successCode, httpResp), finalErr
+	return newAPIResponseMeta(req, successCode, httpResp), finalErr
 }
 
 type WSGService struct {

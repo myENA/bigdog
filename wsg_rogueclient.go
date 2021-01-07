@@ -127,7 +127,7 @@ func NewWSGRogueClientRogueInfoList() *WSGRogueClientRogueInfoList {
 //
 // Request Body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
-func (s *WSGRogueClientService) FindRogueclientsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRogueClientRogueInfoList, *APIResponseMeta, error) {
+func (s *WSGRogueClientService) FindRogueclientsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRogueClientRogueInfoListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

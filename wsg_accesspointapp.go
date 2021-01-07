@@ -39,7 +39,7 @@ func (ss *WSGService) WSGAccessPointAppService() *WSGAccessPointAppService {
 //		- nullable
 // - zoneId string
 //		- nullable
-func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGAPLinemanSummary, *APIResponseMeta, error) {
+func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGAPLinemanSummaryAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -85,7 +85,7 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 //		- nullable
 // - zoneId string
 //		- nullable
-func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -116,7 +116,7 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 // Operation ID: findLinemanWorkflow
 //
 // Use this API command to download the workflow file used by the Ruckus Wireless AP mobile app.
-func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, *APIResponseMeta, error) {
+func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta
@@ -145,7 +145,7 @@ func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, muta
 // Form Data Parameters:
 // - uploadFile io.Reader
 //		- required
-func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*APIResponseMeta, error) {
+func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
 		rm       *APIResponseMeta

@@ -226,7 +226,7 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Contex
 	}
 
 	if loginResponse != nil {
-		defer CleanupReadCloser(loginResponse)
+		defer cleanupReadCloser(loginResponse)
 		loginMeta = loginResponse.ResponseMeta()
 	}
 
@@ -296,7 +296,7 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Invalidate(ctx context.Con
 	if stp.serviceTicket != "" {
 		logoutResp, err = client.WSG().WSGServiceTicketService().DeleteServiceTicket(ctx, stp.serviceTicket)
 		if logoutResp != nil {
-			CleanupReadCloser(logoutResp)
+			cleanupReadCloser(logoutResp)
 			logoutMeta = logoutResp.ResponseMeta()
 		}
 		if err != nil {

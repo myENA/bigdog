@@ -261,7 +261,7 @@ func (c *baseClient) do(ctx context.Context, request *APIRequest, authParamName,
 	return httpResponse, err
 }
 
-func CleanupReadCloser(rc io.ReadCloser) {
+func cleanupReadCloser(rc io.ReadCloser) {
 	if rc == nil {
 		return
 	}
@@ -277,7 +277,7 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 		// if the incoming error is from an auth provider, return as-is
 		if aerr, ok := sourceErr.(*APIAuthProviderError); ok && aerr != nil {
 			if httpResp != nil {
-				CleanupReadCloser(httpResp.Body)
+				cleanupReadCloser(httpResp.Body)
 			}
 			return newErrRawAPIResponse(aerr.ResponseMeta()), aerr
 		}

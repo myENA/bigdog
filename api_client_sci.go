@@ -245,7 +245,7 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Refresh(ctx context.Context, 
 	}
 
 	if loginResponse != nil {
-		defer CleanupReadCloser(loginResponse)
+		defer cleanupReadCloser(loginResponse)
 		loginMeta = loginResponse.ResponseMeta()
 	}
 
@@ -308,7 +308,7 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Invalidate(ctx context.Contex
 	if atp.accessToken != "" {
 		logoutResp, err = client.SCI().SCIUserService().UserLogout(ctx, atp.accessToken)
 		if logoutResp != nil {
-			CleanupReadCloser(logoutResp)
+			cleanupReadCloser(logoutResp)
 			logoutMeta = logoutResp.ResponseMeta()
 		}
 		if err != nil {

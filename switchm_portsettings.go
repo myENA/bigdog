@@ -443,23 +443,25 @@ func NewSwitchMPortSettingsUpdatePortSettings() *SwitchMPortSettingsUpdatePortSe
 func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, body *SwitchMPortSettingsCreateBulk, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddPortSettingsBulk, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // FindPortSettings
@@ -470,21 +472,21 @@ func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, bo
 func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context, mutators ...RequestMutator) (*SwitchMPortSettingsQueryResultAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SwitchMPortSettingsQueryResult
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSwitchMPortSettingsQueryResultAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMPortSettingsQueryResultAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindPortSettings, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSwitchMPortSettingsQueryResult()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SwitchMPortSettingsQueryResultAPIResponse), err
 }
 
 // FindPortSettingsById
@@ -499,22 +501,22 @@ func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context, mutat
 func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMPortSettingsAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SwitchMPortSettings
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSwitchMPortSettingsAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMPortSettingsAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindPortSettingsById, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSwitchMPortSettings()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SwitchMPortSettingsAPIResponse), err
 }
 
 // FindPortSettingsByQueryCriteria
@@ -528,25 +530,25 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, i
 func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMPortSettingsQueryResultAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SwitchMPortSettingsQueryResult
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSwitchMPortSettingsQueryResultAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMPortSettingsQueryResultAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSwitchMFindPortSettingsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMPortSettingsQueryResultAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSwitchMPortSettingsQueryResult()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SwitchMPortSettingsQueryResultAPIResponse), err
 }
 
 // UpdatePortSettingsById
@@ -564,22 +566,24 @@ func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context
 func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context, body *SwitchMPortSettingsUpdatePortSettings, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdatePortSettingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }

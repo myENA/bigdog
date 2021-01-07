@@ -33,12 +33,14 @@ func (ss *WSGService) WSGControlPlanesService() *WSGControlPlanesService {
 func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteControlPlanesStaticRoutesByBladeUUID, true)
 	defer recycleAPIRequest(req)
@@ -46,8 +48,8 @@ func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // DeleteControlPlanesUserDefinedInterfaceByBladeUUID
@@ -62,12 +64,14 @@ func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx
 func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteControlPlanesUserDefinedInterfaceByBladeUUID, true)
 	defer recycleAPIRequest(req)
@@ -75,8 +79,8 @@ func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBlade
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // FindControlPlanes
@@ -87,21 +91,21 @@ func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBlade
 func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context, mutators ...RequestMutator) (*WSGSystemControlPlaneListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGSystemControlPlaneList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGSystemControlPlaneListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGSystemControlPlaneListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindControlPlanes, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGSystemControlPlaneList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGSystemControlPlaneListAPIResponse), err
 }
 
 // FindControlPlanesByBladeUUID
@@ -116,22 +120,22 @@ func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context, mutator
 func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*WSGSystemControlPlaneConfigurationAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGSystemControlPlaneConfiguration
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGSystemControlPlaneConfigurationAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGSystemControlPlaneConfigurationAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindControlPlanesByBladeUUID, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGSystemControlPlaneConfiguration()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGSystemControlPlaneConfigurationAPIResponse), err
 }
 
 // FindControlPlanesInterfaces
@@ -146,24 +150,24 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 func (s *WSGControlPlanesService) FindControlPlanesInterfaces(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSystemControlPlaneInterfaceListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGSystemControlPlaneInterfaceList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGSystemControlPlaneInterfaceListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGSystemControlPlaneInterfaceListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindControlPlanesInterfaces, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["bladeUUID"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("bladeUUID", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGSystemControlPlaneInterfaceList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGSystemControlPlaneInterfaceListAPIResponse), err
 }
 
 // FindControlPlanesStaticRoutesByBladeUUID
@@ -178,22 +182,22 @@ func (s *WSGControlPlanesService) FindControlPlanesInterfaces(ctx context.Contex
 func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*WSGSystemStaticRouteListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGSystemStaticRouteList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGSystemStaticRouteListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGSystemStaticRouteListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindControlPlanesStaticRoutesByBladeUUID, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGSystemStaticRouteList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGSystemStaticRouteListAPIResponse), err
 }
 
 // FindControlPlanesUserDefinedInterfaceByBladeUUID
@@ -208,22 +212,22 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*WSGSystemUserDefinedInterfaceListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGSystemUserDefinedInterfaceList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGSystemUserDefinedInterfaceListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGSystemUserDefinedInterfaceListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindControlPlanesUserDefinedInterfaceByBladeUUID, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGSystemUserDefinedInterfaceList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGSystemUserDefinedInterfaceListAPIResponse), err
 }
 
 // PartialUpdateControlPlanesByBladeUUID
@@ -241,24 +245,26 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx context.Context, body *WSGSystemModifyControlPlane, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateControlPlanesByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // PartialUpdateControlPlanesIpSupport
@@ -272,23 +278,25 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx cont
 func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx context.Context, body *WSGSystemModifyIpSupportType, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateControlPlanesIpSupport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // PartialUpdateControlPlanesStaticRoutesByBladeUUID
@@ -306,24 +314,26 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx contex
 func (s *WSGControlPlanesService) PartialUpdateControlPlanesStaticRoutesByBladeUUID(ctx context.Context, body *WSGSystemModifyCPStaticRoute, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateControlPlanesStaticRoutesByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // PartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID
@@ -341,22 +351,24 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesStaticRoutesByBladeU
 func (s *WSGControlPlanesService) PartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, body *WSGSystemModifyCPUserDefinedInterface, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }

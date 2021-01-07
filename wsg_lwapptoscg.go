@@ -29,21 +29,21 @@ func (ss *WSGService) WSGLWAPPTOSCGService() *WSGLWAPPTOSCGService {
 func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context, mutators ...RequestMutator) (*WSGSystemLwapp2scgConfigurationAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGSystemLwapp2scgConfiguration
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGSystemLwapp2scgConfigurationAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGSystemLwapp2scgConfigurationAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindLwapp2scg, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGSystemLwapp2scgConfiguration()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGSystemLwapp2scgConfigurationAPIResponse), err
 }
 
 // PartialUpdateLwapp2scg
@@ -57,23 +57,25 @@ func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context, mutators ...Re
 func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scg(ctx context.Context, body *WSGSystemModifyLwapp2scg, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateLwapp2scg, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // PartialUpdateLwapp2scgApList
@@ -87,21 +89,23 @@ func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scg(ctx context.Context, body 
 func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scgApList(ctx context.Context, body *WSGSystemModifyLwapp2scg, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateLwapp2scgApList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }

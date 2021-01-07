@@ -32,25 +32,25 @@ func (ss *WSGService) WSGEventAndAlarmService() *WSGEventAndAlarmService {
 func (s *WSGEventAndAlarmService) AddAlertAlarmList(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGAlarmListAlarmQueryResultListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAlarmListAlarmQueryResultList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAlarmListAlarmQueryResultListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAlarmListAlarmQueryResultListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAlertAlarmList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAlarmListAlarmQueryResultListAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAlarmListAlarmQueryResultList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAlarmListAlarmQueryResultListAPIResponse), err
 }
 
 // AddAlertAlarmSummary
@@ -64,25 +64,25 @@ func (s *WSGEventAndAlarmService) AddAlertAlarmList(ctx context.Context, body *W
 func (s *WSGEventAndAlarmService) AddAlertAlarmSummary(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGAlertSummaryAlarmSummaryAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAlertSummaryAlarmSummary
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAlertSummaryAlarmSummaryAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAlertSummaryAlarmSummaryAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAlertAlarmSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAlertSummaryAlarmSummaryAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAlertSummaryAlarmSummary()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAlertSummaryAlarmSummaryAPIResponse), err
 }
 
 // AddAlertEventList
@@ -96,25 +96,25 @@ func (s *WSGEventAndAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 func (s *WSGEventAndAlarmService) AddAlertEventList(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGEventListEventQueryResultListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGEventListEventQueryResultList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGEventListEventQueryResultListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGEventListEventQueryResultListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAlertEventList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGEventListEventQueryResultListAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGEventListEventQueryResultList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGEventListEventQueryResultListAPIResponse), err
 }
 
 // AddAlertEventSummary
@@ -128,25 +128,25 @@ func (s *WSGEventAndAlarmService) AddAlertEventList(ctx context.Context, body *W
 func (s *WSGEventAndAlarmService) AddAlertEventSummary(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGAlertSummaryEventSummaryAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAlertSummaryEventSummary
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAlertSummaryEventSummaryAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAlertSummaryEventSummaryAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAlertEventSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAlertSummaryEventSummaryAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAlertSummaryEventSummary()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAlertSummaryEventSummaryAPIResponse), err
 }
 
 // UpdateAlertAlarmAck
@@ -160,23 +160,25 @@ func (s *WSGEventAndAlarmService) AddAlertEventSummary(ctx context.Context, body
 func (s *WSGEventAndAlarmService) UpdateAlertAlarmAck(ctx context.Context, body *WSGAlertAckBulkAlarms, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateAlertAlarmAck, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // UpdateAlertAlarmAckByAlarmID
@@ -191,23 +193,23 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmAck(ctx context.Context, body 
 func (s *WSGEventAndAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Context, alarmID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *RawAPIResponse
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateAlertAlarmAckByAlarmID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("alarmID", alarmID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawAPIResponse)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // UpdateAlertAlarmClear
@@ -221,23 +223,25 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Conte
 func (s *WSGEventAndAlarmService) UpdateAlertAlarmClear(ctx context.Context, body *WSGAlertClearBulkAlarms, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateAlertAlarmClear, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // UpdateAlertAlarmClearByAlarmID
@@ -252,21 +256,21 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmClear(ctx context.Context, bod
 func (s *WSGEventAndAlarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Context, alarmID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *RawAPIResponse
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateAlertAlarmClearByAlarmID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("alarmID", alarmID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawAPIResponse)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }

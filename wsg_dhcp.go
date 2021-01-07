@@ -36,26 +36,26 @@ func (ss *WSGService) WSGDHCPService() *WSGDHCPService {
 func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *WSGProfileCreateDhcpProfile, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGCommonCreateResult
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGCommonCreateResultAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesDhcpSiteDhcpProfileByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGCommonCreateResult()
-	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGCommonCreateResultAPIResponse), err
 }
 
 // AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId
@@ -73,26 +73,26 @@ func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Cont
 func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId(ctx context.Context, body *WSGCommonDoAssignIp, zoneId string, mutators ...RequestMutator) (*WSGCommonDhcpSiteConfigListRefAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGCommonDhcpSiteConfigListRef
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGCommonDhcpSiteConfigListRefAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGCommonDhcpSiteConfigListRefAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGCommonDhcpSiteConfigListRefAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGCommonDhcpSiteConfigListRef()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGCommonDhcpSiteConfigListRefAPIResponse), err
 }
 
 // DeleteRkszonesDhcpSiteDhcpProfileById
@@ -109,12 +109,14 @@ func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId(ctx
 func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesDhcpSiteDhcpProfileById, true)
 	defer recycleAPIRequest(req)
@@ -123,8 +125,8 @@ func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Conte
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // DeleteRkszonesDhcpSiteDhcpProfileByZoneId
@@ -142,24 +144,26 @@ func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Conte
 func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesDhcpSiteDhcpProfileByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // FindDhcpDataDhcpMsgStatsByApMac
@@ -174,22 +178,22 @@ func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.C
 func (s *WSGDHCPService) FindDhcpDataDhcpMsgStatsByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGDHCPMessageStatsDhcpMsgStatsAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGDHCPMessageStatsDhcpMsgStats
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGDHCPMessageStatsDhcpMsgStatsAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGDHCPMessageStatsDhcpMsgStatsAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDhcpDataDhcpMsgStatsByApMac, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGDHCPMessageStatsDhcpMsgStats()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGDHCPMessageStatsDhcpMsgStatsAPIResponse), err
 }
 
 // FindDhcpDataDhcpPoolsByApMac
@@ -204,22 +208,22 @@ func (s *WSGDHCPService) FindDhcpDataDhcpMsgStatsByApMac(ctx context.Context, ap
 func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGDHCPPoolsAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGDHCPPools
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGDHCPPoolsAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGDHCPPoolsAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDhcpDataDhcpPoolsByApMac, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGDHCPPools()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGDHCPPoolsAPIResponse), err
 }
 
 // FindDhcpDataDhcpPoolsByPoolIndex
@@ -236,23 +240,23 @@ func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByApMac(ctx context.Context, apMac
 func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByPoolIndex(ctx context.Context, apMac string, poolIndex string, mutators ...RequestMutator) (*WSGDHCPPoolsDhcpPoolInfoAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGDHCPPoolsDhcpPoolInfo
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGDHCPPoolsDhcpPoolInfoAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGDHCPPoolsDhcpPoolInfoAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDhcpDataDhcpPoolsByPoolIndex, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)
 	req.PathParams.Set("poolIndex", poolIndex)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGDHCPPoolsDhcpPoolInfo()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGDHCPPoolsDhcpPoolInfoAPIResponse), err
 }
 
 // FindRkszonesDhcpSiteDhcpProfileById
@@ -269,23 +273,23 @@ func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByPoolIndex(ctx context.Context, a
 func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*WSGCommonDhcpProfileRefAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGCommonDhcpProfileRef
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGCommonDhcpProfileRefAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGCommonDhcpProfileRefAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesDhcpSiteDhcpProfileById, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGCommonDhcpProfileRef()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGCommonDhcpProfileRefAPIResponse), err
 }
 
 // FindRkszonesDhcpSiteDhcpProfileByZoneId
@@ -300,22 +304,22 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileById(ctx context.Context
 func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGProfileDhcpProfileListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGProfileDhcpProfileList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGProfileDhcpProfileListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGProfileDhcpProfileListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesDhcpSiteDhcpProfileByZoneId, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGProfileDhcpProfileList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGProfileDhcpProfileListAPIResponse), err
 }
 
 // FindRkszonesDhcpSiteDhcpSiteConfigByZoneId
@@ -330,22 +334,22 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Con
 func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGCommonDhcpSiteConfigListRefAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGCommonDhcpSiteConfigListRef
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGCommonDhcpSiteConfigListRefAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGCommonDhcpSiteConfigListRefAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesDhcpSiteDhcpSiteConfigByZoneId, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGCommonDhcpSiteConfigListRef()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGCommonDhcpSiteConfigListRefAPIResponse), err
 }
 
 // FindRkszonesServicesDhcpSiteConfigByQueryCriteria
@@ -359,25 +363,25 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.
 func (s *WSGDHCPService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria(ctx context.Context, body *WSGZoneQueryCriteria, mutators ...RequestMutator) (*WSGZoneDhcpSiteConfigListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGZoneDhcpSiteConfigList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGZoneDhcpSiteConfigListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGZoneDhcpSiteConfigListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGFindRkszonesServicesDhcpSiteConfigByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGZoneDhcpSiteConfigListAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGZoneDhcpSiteConfigList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGZoneDhcpSiteConfigListAPIResponse), err
 }
 
 // FindServicesDhcpProfileByQueryCriteria
@@ -391,25 +395,25 @@ func (s *WSGDHCPService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria(ctx c
 func (s *WSGDHCPService) FindServicesDhcpProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileDhcpProfileListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGProfileDhcpProfileList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGProfileDhcpProfileListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGProfileDhcpProfileListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesDhcpProfileByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGProfileDhcpProfileListAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGProfileDhcpProfileList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGProfileDhcpProfileListAPIResponse), err
 }
 
 // PartialUpdateRkszonesDhcpSiteDhcpProfileById
@@ -429,23 +433,25 @@ func (s *WSGDHCPService) FindServicesDhcpProfileByQueryCriteria(ctx context.Cont
 func (s *WSGDHCPService) PartialUpdateRkszonesDhcpSiteDhcpProfileById(ctx context.Context, body *WSGProfileCreateDhcpProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesDhcpSiteDhcpProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }

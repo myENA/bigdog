@@ -32,25 +32,25 @@ func (ss *WSGService) WSGQueryWithFilterService() *WSGQueryWithFilterService {
 func (s *WSGQueryWithFilterService) FindGgsnGtpcConStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRACStatsGgsnGtpcConListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGRACStatsGgsnGtpcConList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGRACStatsGgsnGtpcConListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGRACStatsGgsnGtpcConListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGFindGgsnGtpcConStatsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGRACStatsGgsnGtpcConListAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGRACStatsGgsnGtpcConList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGRACStatsGgsnGtpcConListAPIResponse), err
 }
 
 // FindGgsnGtpStatsByQueryCriteria
@@ -64,25 +64,25 @@ func (s *WSGQueryWithFilterService) FindGgsnGtpcConStatsByQueryCriteria(ctx cont
 func (s *WSGQueryWithFilterService) FindGgsnGtpStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRACStatsGgsnGtpListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGRACStatsGgsnGtpList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGRACStatsGgsnGtpListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGRACStatsGgsnGtpListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGFindGgsnGtpStatsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGRACStatsGgsnGtpListAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGRACStatsGgsnGtpList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGRACStatsGgsnGtpListAPIResponse), err
 }
 
 // FindRadiusProxyStatsByQueryCriteria
@@ -96,23 +96,23 @@ func (s *WSGQueryWithFilterService) FindGgsnGtpStatsByQueryCriteria(ctx context.
 func (s *WSGQueryWithFilterService) FindRadiusProxyStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRACStatsRadiusProxyListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGRACStatsRadiusProxyList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGRACStatsRadiusProxyListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGRACStatsRadiusProxyListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGFindRadiusProxyStatsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGRACStatsRadiusProxyListAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGRACStatsRadiusProxyList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGRACStatsRadiusProxyListAPIResponse), err
 }

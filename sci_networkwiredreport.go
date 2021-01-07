@@ -1117,25 +1117,25 @@ func NewSCINetworkWiredReport143topSwitchesByErrorsTableDataType() *SCINetworkWi
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport123TopSwitchPOEUtilChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport123TopSwitchPOEUtilChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse), err
 }
 
 // ReportNetworkWiredReport124TopSwitchPOEUtils
@@ -1149,25 +1149,25 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport123TopSwitchPOEUt
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport124TopSwitchPOEUtils(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport124TopSwitchPOEUtils, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse), err
 }
 
 // ReportNetworkWiredReport127Top10SwitchesByTrafficVolume
@@ -1181,25 +1181,25 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport124TopSwitchPOEUt
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport127Top10SwitchesByTrafficVolume(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport127Top10SwitchesByTrafficVolume, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse), err
 }
 
 // ReportNetworkWiredReport128TopSwitchesByTrafficTable
@@ -1213,25 +1213,25 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport127Top10SwitchesB
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport128TopSwitchesByTrafficTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport128TopSwitchesByTrafficTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse), err
 }
 
 // ReportNetworkWiredReport134WiredOverview
@@ -1245,25 +1245,25 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport128TopSwitchesByT
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport134WiredOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportNetworkWiredReport134wiredOverview200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport134WiredOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportNetworkWiredReport134wiredOverview200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse), err
 }
 
 // ReportNetworkWiredReport135WiredTrafficDistribution
@@ -1277,25 +1277,25 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport134WiredOverview(
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport135WiredTrafficDistribution(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport135WiredTrafficDistribution, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse), err
 }
 
 // ReportNetworkWiredReport136SwitchTrafficTrend
@@ -1309,25 +1309,25 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport135WiredTrafficDi
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport136SwitchTrafficTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport136SwitchTrafficTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportNetworkWiredReport136switchTrafficTrend200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse), err
 }
 
 // ReportNetworkWiredReport141SwitchErrorTrend
@@ -1341,25 +1341,25 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport136SwitchTrafficT
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport141SwitchErrorTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportNetworkWiredReport141switchErrorTrend200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport141SwitchErrorTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportNetworkWiredReport141switchErrorTrend200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse), err
 }
 
 // ReportNetworkWiredReport142TopSwitchesByErrorsChart
@@ -1373,25 +1373,25 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport141SwitchErrorTre
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport142TopSwitchesByErrorsChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport142TopSwitchesByErrorsChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse), err
 }
 
 // ReportNetworkWiredReport143TopSwitchesByErrorsTable
@@ -1405,23 +1405,23 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport142TopSwitchesByE
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport143TopSwitchesByErrorsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport143TopSwitchesByErrorsTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse), err
 }

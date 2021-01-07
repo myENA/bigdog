@@ -32,23 +32,25 @@ func (ss *WSGService) WSGZDImportService() *WSGZDImportService {
 func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSGAdministrationConnectZD, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddZdImportConnectZD, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // AddZdImportMigrate
@@ -62,23 +64,25 @@ func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSG
 func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAdministrationZdImport, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddZdImportMigrate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // FindZdImportGetZDAPs
@@ -93,22 +97,22 @@ func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAd
 func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string, mutators ...RequestMutator) (*WSGAdministrationZdAPListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAdministrationZdAPList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAdministrationZdAPListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAdministrationZdAPListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindZdImportGetZDAPs, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("ip", ip)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAdministrationZdAPList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAdministrationZdAPListAPIResponse), err
 }
 
 // FindZdImportStatus
@@ -123,22 +127,22 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string
 func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGAdministrationZdImportStatusAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAdministrationZdImportStatus
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAdministrationZdImportStatusAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAdministrationZdImportStatusAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindZdImportStatus, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["details"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("details", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAdministrationZdImportStatus()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAdministrationZdImportStatusAPIResponse), err
 }

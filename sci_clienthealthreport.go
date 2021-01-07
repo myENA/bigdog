@@ -413,25 +413,25 @@ func NewSCIClientHealthReport149clientHealthMetricTrendsDataTypeType() *SCIClien
 func (s *SCIClientHealthReportService) ReportClientHealthReport144ClientHealthSummary(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportClientHealthReport144clientHealthSummary200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportClientHealthReport144ClientHealthSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportClientHealthReport144clientHealthSummary200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse), err
 }
 
 // ReportClientHealthReport148ClientConnectionHealth
@@ -445,25 +445,25 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport144ClientHealthSu
 func (s *SCIClientHealthReportService) ReportClientHealthReport148ClientConnectionHealth(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportClientHealthReport148clientConnectionHealth200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportClientHealthReport148ClientConnectionHealth, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportClientHealthReport148clientConnectionHealth200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse), err
 }
 
 // ReportClientHealthReport149ClientHealthMetricTrends
@@ -477,25 +477,25 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport148ClientConnecti
 func (s *SCIClientHealthReportService) ReportClientHealthReport149ClientHealthMetricTrends(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportClientHealthReport149ClientHealthMetricTrends, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportClientHealthReport149clientHealthMetricTrends200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse), err
 }
 
 // ReportClientHealthReport150TopClientHealthScoreByGroup
@@ -509,23 +509,23 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport149ClientHealthMe
 func (s *SCIClientHealthReportService) ReportClientHealthReport150TopClientHealthScoreByGroup(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportClientHealthReport150TopClientHealthScoreByGroup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse), err
 }

@@ -195,27 +195,27 @@ func NewWSGTrafficAnalysisResults() *WSGTrafficAnalysisResults {
 func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, resource string, source string, mutators ...RequestMutator) (*WSGTrafficAnalysisResultsAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGTrafficAnalysisResults
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGTrafficAnalysisResultsAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGFindTrafficAnalysisAggregatesByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 	}
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGTrafficAnalysisResults()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 }
 
 // FindTrafficAnalysisAggregatesGroupedByQueryCriteria
@@ -237,27 +237,27 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesByQueryCriteria
 func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesGroupedByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, resource string, source string, mutators ...RequestMutator) (*WSGTrafficAnalysisResultsAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGTrafficAnalysisResults
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGTrafficAnalysisResultsAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGFindTrafficAnalysisAggregatesGroupedByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 	}
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGTrafficAnalysisResults()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 }
 
 // FindTrafficAnalysisClientResourceByQueryCriteria
@@ -279,27 +279,27 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesGroupedByQueryC
 func (s *WSGTrafficAnalysisService) FindTrafficAnalysisClientResourceByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, resource string, source string, mutators ...RequestMutator) (*WSGTrafficAnalysisResultsAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGTrafficAnalysisResults
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGTrafficAnalysisResultsAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGFindTrafficAnalysisClientResourceByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 	}
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGTrafficAnalysisResults()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 }
 
 // FindTrafficAnalysisLineRatesByQueryCriteria
@@ -321,25 +321,25 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisClientResourceByQueryCrit
 func (s *WSGTrafficAnalysisService) FindTrafficAnalysisLineRatesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, resource string, source string, mutators ...RequestMutator) (*WSGTrafficAnalysisResultsAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGTrafficAnalysisResults
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGTrafficAnalysisResultsAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGFindTrafficAnalysisLineRatesByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 	}
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGTrafficAnalysisResults()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 }

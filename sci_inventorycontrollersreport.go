@@ -576,25 +576,25 @@ func NewSCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData(
 func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport96Krack(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportInventoryControllersReport96krack200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryControllersReport96Krack, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportInventoryControllersReport96krack200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse), err
 }
 
 // ReportInventoryControllersReport98ResourceUtilization
@@ -608,25 +608,25 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport98ResourceUtilization(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportInventoryControllersReport98resourceUtilization200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryControllersReport98ResourceUtilization, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportInventoryControllersReport98resourceUtilization200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse), err
 }
 
 // ReportInventoryControllersReport99LicenseUtilization
@@ -640,25 +640,25 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport99LicenseUtilization(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportInventoryControllersReport99licenseUtilization200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryControllersReport99LicenseUtilization, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportInventoryControllersReport99licenseUtilization200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse), err
 }
 
 // ReportInventoryControllersReport114ControllerInventoryOverview
@@ -672,25 +672,25 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport114ControllerInventoryOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryControllersReport114ControllerInventoryOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse), err
 }
 
 // ReportInventoryControllersReport151LicenseUtilizationOverTimeChart
@@ -704,23 +704,23 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport1
 func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport151LicenseUtilizationOverTimeChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryControllersReport151LicenseUtilizationOverTimeChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse), err
 }

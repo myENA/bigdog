@@ -42,17 +42,18 @@ func (ss *WSGService) WSGAccessPointAppService() *WSGAccessPointAppService {
 func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGAPLinemanSummaryAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAPLinemanSummary
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAPLinemanSummaryAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAPLinemanSummaryAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApsLineman, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("domainId", v)
 	}
@@ -69,9 +70,8 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 		req.QueryParams.SetStrings("zoneId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAPLinemanSummary()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAPLinemanSummaryAPIResponse), err
 }
 
 // FindApsTotalCount
@@ -88,17 +88,18 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *RawAPIResponse
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApsTotalCount, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("domainId", v)
 	}
@@ -106,9 +107,8 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 		req.QueryParams.SetStrings("zoneId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawAPIResponse)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // FindLinemanWorkflow
@@ -119,21 +119,21 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *RawAPIResponse
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindLinemanWorkflow, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, "application/octet-stream")
+	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = new(RawAPIResponse)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // UpdateLinemanWorkflow
@@ -148,12 +148,14 @@ func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, muta
 func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateLinemanWorkflow, true)
 	defer recycleAPIRequest(req)
@@ -161,9 +163,9 @@ func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, fi
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.MultipartForm()
 	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }

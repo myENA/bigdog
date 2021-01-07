@@ -1467,25 +1467,25 @@ func NewWSGAdministrationZdImportStatus() *WSGAdministrationZdImportStatus {
 func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdministrationCreateAdminAAAServer, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGCommonCreateResult
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGCommonCreateResultAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAdminaaa, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGCommonCreateResult()
-	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGCommonCreateResultAPIResponse), err
 }
 
 // AddRestart
@@ -1496,20 +1496,22 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRestart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // AddShutdown
@@ -1520,20 +1522,22 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...R
 func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddShutdown, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // DeleteAdminaaaById
@@ -1548,12 +1552,14 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...
 func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAdminaaaById, true)
 	defer recycleAPIRequest(req)
@@ -1561,8 +1567,8 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // FindAdminaaa
@@ -1577,22 +1583,22 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ string, mutators ...RequestMutator) (*WSGAdministrationRetrieveAdminAAAServerListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAdministrationRetrieveAdminAAAServerList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAdministrationRetrieveAdminAAAServerListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAdministrationRetrieveAdminAAAServerListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAdminaaa, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAdministrationRetrieveAdminAAAServerList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAdministrationRetrieveAdminAAAServerListAPIResponse), err
 }
 
 // FindAdminaaaById
@@ -1607,22 +1613,22 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGAdministrationRetrieveAdminAAAServerAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAdministrationRetrieveAdminAAAServer
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAdministrationRetrieveAdminAAAServerAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAdministrationRetrieveAdminAAAServerAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAdminaaaById, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAdministrationRetrieveAdminAAAServer()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAdministrationRetrieveAdminAAAServerAPIResponse), err
 }
 
 // FindLicenses
@@ -1633,21 +1639,21 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAdministrationLicensesList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAdministrationLicensesListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAdministrationLicensesListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindLicenses, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAdministrationLicensesList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAdministrationLicensesListAPIResponse), err
 }
 
 // FindLicenseServer
@@ -1658,21 +1664,21 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ..
 func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicenseServerAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAdministrationLicenseServer
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAdministrationLicenseServerAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAdministrationLicenseServerAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindLicenseServer, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAdministrationLicenseServer()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAdministrationLicenseServerAPIResponse), err
 }
 
 // FindLicensesSummary
@@ -1683,21 +1689,21 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutato
 func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesSummaryListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAdministrationLicensesSummaryList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAdministrationLicensesSummaryListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAdministrationLicensesSummaryListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindLicensesSummary, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAdministrationLicensesSummaryList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAdministrationLicensesSummaryListAPIResponse), err
 }
 
 // FindLicensesSyncLogs
@@ -1708,21 +1714,21 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, muta
 func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesSyncLogsListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAdministrationLicensesSyncLogsList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAdministrationLicensesSyncLogsListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAdministrationLicensesSyncLogsListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindLicensesSyncLogs, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAdministrationLicensesSyncLogsList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAdministrationLicensesSyncLogsListAPIResponse), err
 }
 
 // UpdateAdminaaaById
@@ -1740,24 +1746,26 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mut
 func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateAdminaaaById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // UpdateLicenseServer
@@ -1771,23 +1779,25 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body *WSGAdministrationModfiyLicenseServer, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateLicenseServer, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // UpdateLicensesSync
@@ -1798,18 +1808,20 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateLicensesSync, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
-	return rm, err
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }

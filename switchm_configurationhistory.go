@@ -29,21 +29,21 @@ func (ss *SwitchMService) SwitchMConfigurationHistoryService() *SwitchMConfigura
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx context.Context, mutators ...RequestMutator) (*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SwitchMDeployLogConfigurationHistoryQueryResult
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSwitchMDeployLogConfigurationHistoryQueryResultAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindConfigurationHistory, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSwitchMDeployLogConfigurationHistoryQueryResult()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse), err
 }
 
 // FindConfigurationHistoryByQueryCriteria
@@ -57,25 +57,25 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx contex
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SwitchMDeployLogConfigurationHistoryQueryResult
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSwitchMDeployLogConfigurationHistoryQueryResultAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSwitchMFindConfigurationHistoryByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSwitchMDeployLogConfigurationHistoryQueryResult()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse), err
 }
 
 // FindConfigurationHistoryDetail
@@ -86,21 +86,21 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx context.Context, mutators ...RequestMutator) (*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindConfigurationHistoryDetail, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse), err
 }
 
 // FindConfigurationHistoryDetailByQueryCriteria
@@ -114,23 +114,23 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx 
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSwitchMFindConfigurationHistoryDetailByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSwitchMDeployLogItemConfigurationHistoryDetailQueryResult()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse), err
 }

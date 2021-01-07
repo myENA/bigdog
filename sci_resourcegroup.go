@@ -73,25 +73,25 @@ func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseTy
 func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIResourceGroupBatchDelete200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIResourceGroupBatchDelete200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIResourceGroupBatchDelete200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIResourceGroupBatchDelete200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIResourceGroupBatchDelete, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp, rm, err
+		return resp.(*SCIResourceGroupBatchDelete200ResponseTypeAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIResourceGroupBatchDelete200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIResourceGroupBatchDelete200ResponseTypeAPIResponse), err
 }
 
 // ResourceGroupCreate
@@ -105,25 +105,25 @@ func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, 
 func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data *SCIModelsResourceGroup, mutators ...RequestMutator) (*SCIModelsResourceGroupAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIModelsResourceGroup
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIModelsResourceGroupAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIModelsResourceGroupAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIResourceGroupCreate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(data); err != nil {
-		return resp, rm, err
+		return resp.(*SCIModelsResourceGroupAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIModelsResourceGroup()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIModelsResourceGroupAPIResponse), err
 }
 
 // ResourceGroupFind
@@ -135,27 +135,27 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data 
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (SCIResourceGroupFind200ResponseType, error) {
+func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     SCIResourceGroupFind200ResponseType
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newRawAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*RawAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSCIResourceGroupFind, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = MakeSCIResourceGroupFind200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, &resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*RawAPIResponse), err
 }
 
 // ResourceGroupFindById
@@ -174,25 +174,25 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsResourceGroupAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIModelsResourceGroup
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIModelsResourceGroupAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIModelsResourceGroupAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSCIResourceGroupFindById, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIModelsResourceGroup()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIModelsResourceGroupAPIResponse), err
 }
 
 // ResourceGroupPrototypeUpdateAttributes
@@ -210,24 +210,24 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsResourceGroup, id string, mutators ...RequestMutator) (*SCIModelsResourceGroupAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SCIModelsResourceGroup
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSCIModelsResourceGroupAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SCIModelsResourceGroupAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSCIResourceGroupPrototypeUpdateAttributes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(data); err != nil {
-		return resp, rm, err
+		return resp.(*SCIModelsResourceGroupAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSCIModelsResourceGroup()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SCIModelsResourceGroupAPIResponse), err
 }

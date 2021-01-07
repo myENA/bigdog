@@ -280,25 +280,25 @@ func MakeSwitchMSwitchStackConfigStackConfigList() SwitchMSwitchStackConfigStack
 func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body SwitchMSwitchStackConfigStackConfigList, mutators ...RequestMutator) (*SwitchMSwitchStackConfigAuditIdListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SwitchMSwitchStackConfigAuditIdList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSwitchMSwitchStackConfigAuditIdListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMSwitchStackConfigAuditIdListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddStack, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMSwitchStackConfigAuditIdListAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSwitchMSwitchStackConfigAuditIdList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SwitchMSwitchStackConfigAuditIdListAPIResponse), err
 }
 
 // FindStackBySwitchId
@@ -313,22 +313,22 @@ func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body Swi
 func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Context, switchId string, mutators ...RequestMutator) (*SwitchMSwitchStackConfigStackConfigAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SwitchMSwitchStackConfigStackConfig
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSwitchMSwitchStackConfigStackConfigAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMSwitchStackConfigStackConfigAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindStackBySwitchId, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSwitchMSwitchStackConfigStackConfig()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SwitchMSwitchStackConfigStackConfigAPIResponse), err
 }
 
 // FindStackMemberBySerialNumber
@@ -343,20 +343,20 @@ func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Contex
 func (s *SwitchMSwitchStackConfigService) FindStackMemberBySerialNumber(ctx context.Context, serialNumber string, mutators ...RequestMutator) (*SwitchMSwitchStackConfigListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *SwitchMSwitchStackConfigList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newSwitchMSwitchStackConfigListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*SwitchMSwitchStackConfigListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindStackMemberBySerialNumber, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("serialNumber", serialNumber)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewSwitchMSwitchStackConfigList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*SwitchMSwitchStackConfigListAPIResponse), err
 }

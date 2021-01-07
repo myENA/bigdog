@@ -37,26 +37,26 @@ func (ss *WSGService) WSGDeviceHealthAndPerformanceService() *WSGDeviceHealthAnd
 func (s *WSGDeviceHealthAndPerformanceService) HealthExtendGroupBarByType(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, type_ string, mutators ...RequestMutator) (*WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGPerformanceAndHealthExtensionsGroupBarList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGPerformanceAndHealthExtensionsGroupBarListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGHealthExtendGroupBarByType, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse), err
 	}
 	req.PathParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGPerformanceAndHealthExtensionsGroupBarList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse), err
 }
 
 // HealthExtendLineByType
@@ -75,26 +75,26 @@ func (s *WSGDeviceHealthAndPerformanceService) HealthExtendGroupBarByType(ctx co
 func (s *WSGDeviceHealthAndPerformanceService) HealthExtendLineByType(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, type_ string, mutators ...RequestMutator) (*WSGPerformanceAndHealthExtensionsLineListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGPerformanceAndHealthExtensionsLineList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGPerformanceAndHealthExtensionsLineListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGPerformanceAndHealthExtensionsLineListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGHealthExtendLineByType, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGPerformanceAndHealthExtensionsLineListAPIResponse), err
 	}
 	req.PathParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGPerformanceAndHealthExtensionsLineList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGPerformanceAndHealthExtensionsLineListAPIResponse), err
 }
 
 // PerfGroupBarByType
@@ -113,26 +113,26 @@ func (s *WSGDeviceHealthAndPerformanceService) HealthExtendLineByType(ctx contex
 func (s *WSGDeviceHealthAndPerformanceService) PerfGroupBarByType(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, type_ string, mutators ...RequestMutator) (*WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGPerformanceAndHealthExtensionsGroupBarList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGPerformanceAndHealthExtensionsGroupBarListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGPerfGroupBarByType, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse), err
 	}
 	req.PathParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGPerformanceAndHealthExtensionsGroupBarList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse), err
 }
 
 // PerfLineByType
@@ -151,24 +151,24 @@ func (s *WSGDeviceHealthAndPerformanceService) PerfGroupBarByType(ctx context.Co
 func (s *WSGDeviceHealthAndPerformanceService) PerfLineByType(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, type_ string, mutators ...RequestMutator) (*WSGPerformanceAndHealthExtensionsLineListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGPerformanceAndHealthExtensionsLineList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGPerformanceAndHealthExtensionsLineListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGPerformanceAndHealthExtensionsLineListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGPerfLineByType, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGPerformanceAndHealthExtensionsLineListAPIResponse), err
 	}
 	req.PathParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGPerformanceAndHealthExtensionsLineList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGPerformanceAndHealthExtensionsLineListAPIResponse), err
 }

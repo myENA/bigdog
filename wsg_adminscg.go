@@ -622,19 +622,19 @@ func NewWSGAdminSCGScgAaaServerEntry() *WSGAdminSCGScgAaaServerEntry {
 func (s *WSGAdminSCGService) FindScgAdminAaaServers(ctx context.Context, mutators ...RequestMutator) (*WSGAdminSCGScgAaaServerAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGAdminSCGScgAaaServer
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGAdminSCGScgAaaServerAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGAdminSCGScgAaaServerAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindScgAdminAaaServers, true)
 	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGAdminSCGScgAaaServer()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGAdminSCGScgAaaServerAPIResponse), err
 }

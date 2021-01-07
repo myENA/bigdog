@@ -91,26 +91,26 @@ func NewWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountL
 func (s *WSGHistoricalClientConnectionDiagnosticService) HccdCount(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, type_ string, mutators ...RequestMutator) (*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGHccdCount, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse), err
 	}
 	req.PathParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse), err
 }
 
 // HccdTypeCount
@@ -127,24 +127,24 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdCount(ctx context.C
 func (s *WSGHistoricalClientConnectionDiagnosticService) HccdTypeCount(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, type_ string, mutators ...RequestMutator) (*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse, error) {
 	var (
 		req      *APIRequest
-		rm       *APIResponseMeta
-		resp     *WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList
 		httpResp *http.Response
+		resp     APIResponse
 		err      error
+
+		respFn = newWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp, rm, err
+		return resp.(*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGHccdTypeCount, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
-	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
+	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp, rm, err
+		return resp.(*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse), err
 	}
 	req.PathParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp = NewWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
-	return resp, rm, err
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse), err
 }

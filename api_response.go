@@ -96,9 +96,6 @@ type APIResponseMetaContainer interface {
 //
 // This can be useful for middlewares that perform proxy duties, where there is nothing to be gained by unmarshalling
 // and marshalling the returned data and it is fine to simply ship the bytes on along to the receiver.
-//
-// NOTE: No concurrency guarantee is made.  It is expected that will either immediately call Raw() or Hydrate() after
-// receiving a model.
 type APIResponse interface {
 	APIResponseMetaContainer
 
@@ -157,7 +154,7 @@ func (b *RawAPIResponse) cleanupBody() error {
 	return err
 }
 
-// Meta returns a portal meta type
+// ResponseMeta returns a portable meta type
 func (b *RawAPIResponse) ResponseMeta() APIResponseMeta {
 	return b.meta
 }

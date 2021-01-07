@@ -270,76 +270,54 @@ func CleanupReadCloser(rc io.ReadCloser) {
 }
 
 func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response, respFunc ResponseFactoryFunc, autoHydrate bool, sourceErr error) (APIResponse, error) {
-	var (
-		finalErr    error
-		cleanupBody bool
-
-		apiResp = respFunc(req, successCode, httpResp)
-	)
-
-	defer func() {
-		if cleanupBody {
-			CleanupReadCloser(httpResp.Body)
-		}
-	}()
+	// construct response type
+	apiResp := respFunc(req, successCode, httpResp)
 
 	if sourceErr != nil {
-		// if the incoming error is from a service ticket provider, return as-is
+		// if the incoming error is from an auth provider, return as-is
 		if aerr, ok := sourceErr.(*APIAuthProviderError); ok && aerr != nil {
-			cleanupBody = true
+			if httpResp != nil {
+				CleanupReadCloser(httpResp.Body)
+			}
 			return newErrRawAPIResponse(aerr.ResponseMeta()), aerr
 		}
 
-		if httpResp != nil {
-			// otherwise, build response meta and return source error
-			return apiResp, sourceErr
-		}
+		// otherwise, pass on constructed response and incoming error
 		return apiResp, sourceErr
 	}
 
+	// this _should_ never happen, but check for it anyway.
 	if httpResp == nil {
 		panic(fmt.Sprintf("severe problem: nil *http.Response seen with nil error. meta: %v", newAPIResponseMeta(req, successCode, httpResp)))
 	}
 
 	// if the response code matches the expected "success" code...
 	if httpResp.StatusCode == successCode {
-		if modelPtr != nil {
-			if w, ok := modelPtr.(io.Writer); ok {
-				if _, err := io.Copy(w, httpResp.Body); err != nil {
-					finalErr = fmt.Errorf("error copying bytes from response to provided writer: %w", err)
-				}
-			} else if b, ok := modelPtr.(*[]byte); ok {
-				if tmp, err := ioutil.ReadAll(httpResp.Body); err != nil && err != io.EOF {
-					finalErr = fmt.Errorf("error reading bytes from response: %w", err)
-				} else {
-					*b = tmp
-				}
-			} else if rr, ok := modelPtr.(*RawAPIResponse); ok {
-				cleanupBody = false
-				rr.Body = httpResp.Body
-				rr.Header = httpResp.Header
-			} else if err := json.NewDecoder(httpResp.Body).Decode(modelPtr); err != nil && err != io.EOF {
-				// ... and this query has a modeled response, attempt to unmarshal into that type
-				finalErr = fmt.Errorf("error unmarshalling response body into %T: %w", modelPtr, err)
+		// test for a modeled response and whether it needs to be automatically handled
+		if hdr, ok := apiResp.(ModeledAPIResponse); ok && autoHydrate {
+			if err := hdr.Hydrate(); err != nil {
+				return apiResp, fmt.Errorf("error hydrating response: %w", err)
 			}
 		}
-	} else {
-		var apiErr error
-		// todo: do something better here.
-		if strings.HasPrefix(req.URI, "/wsg/") || strings.HasPrefix(req.URI, "/switchm/") {
-			apiErr = new(VSZAPIError)
-		} else {
-			apiErr = new(SCIAPIError)
-		}
-		if err := json.NewDecoder(httpResp.Body).Decode(apiErr); err != nil {
-			finalErr = fmt.Errorf("error unmarshalling error body into %T: %w", finalErr, err)
-		} else {
-			finalErr = apiErr
-		}
+		// if not, simply return response as-is
+		return apiResp, nil
 	}
 
-	// build response.
-	return newAPIResponseMeta(req, successCode, httpResp), finalErr
+	// otherwise, handle api error response
+	var apiErr error
+
+	// todo: do something better here.
+	if strings.HasPrefix(req.URI, "/wsg/") || strings.HasPrefix(req.URI, "/switchm/") {
+		apiErr = new(VSZAPIError)
+	} else {
+		apiErr = new(SCIAPIError)
+	}
+
+	if err := json.NewDecoder(httpResp.Body).Decode(apiErr); err != nil {
+		return apiResp, fmt.Errorf("error unmarshalling error body into %T: %w", apiErr, err)
+	}
+
+	return apiResp, apiErr
 }
 
 type WSGService struct {

@@ -399,7 +399,7 @@ func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModi
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawAPIResponse)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -431,7 +431,7 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -463,7 +463,7 @@ func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDel
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawAPIResponse)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -492,7 +492,7 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string, 
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, s.apiClient.autoHydrate, err)
 	return rm, err
 }
 
@@ -517,7 +517,7 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context, mutators ...Req
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCIEventCode()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -542,7 +542,7 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context, mutators ...Reque
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCIProfileList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -572,7 +572,7 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string, mu
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGSCIProfile()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -604,7 +604,7 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawAPIResponse)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -641,6 +641,6 @@ func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawAPIResponse)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }

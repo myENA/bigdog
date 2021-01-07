@@ -754,7 +754,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport7
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -786,7 +786,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport8
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -818,7 +818,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport9
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -850,7 +850,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport1
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessApplicationsReport10overview200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -882,6 +882,6 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport1
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }

@@ -49,7 +49,7 @@ func (s *WSGRuckusGRETunnelProfileService) AddProfilesTunnelRuckusgre(ctx contex
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonCreateResult()
-	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -79,7 +79,7 @@ func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgre(ctx con
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
 	return rm, err
 }
 
@@ -108,7 +108,7 @@ func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgreById(ctx
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
 	return rm, err
 }
 
@@ -133,7 +133,7 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgre(ctx conte
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -163,7 +163,7 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById(ctx c
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileRuckusGREProfile()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -195,7 +195,7 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCri
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGProfileRuckusGREProfileList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -230,6 +230,6 @@ func (s *WSGRuckusGRETunnelProfileService) PartialUpdateProfilesTunnelRuckusgreB
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
 	return rm, err
 }

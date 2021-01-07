@@ -49,7 +49,7 @@ func (s *SwitchMJobAndScheduleService) AddJob(ctx context.Context, body *SwitchM
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMJobList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -75,7 +75,7 @@ func (s *SwitchMJobAndScheduleService) DeleteJobSchedule(ctx context.Context, mu
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawAPIResponse)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -111,7 +111,7 @@ func (s *SwitchMJobAndScheduleService) FindJobByJobId(ctx context.Context, body 
 	req.PathParams.Set("jobId", jobId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMJob()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -141,6 +141,6 @@ func (s *SwitchMJobAndScheduleService) FindJobScheduleByScheduleId(ctx context.C
 	req.PathParams.Set("scheduleId", scheduleId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMJobScheduleResponse()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }

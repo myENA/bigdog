@@ -49,7 +49,7 @@ func (s *SwitchMVESettingsService) AddVeConfigs(ctx context.Context, body *Switc
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMVEConfigCreateResult()
-	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusCreated, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -79,7 +79,7 @@ func (s *SwitchMVESettingsService) DeleteVeConfigs(ctx context.Context, body *Sw
 		return rm, err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
 	return rm, err
 }
 
@@ -108,7 +108,7 @@ func (s *SwitchMVESettingsService) DeleteVeConfigsById(ctx context.Context, id s
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusNoContent, httpResp, nil, s.apiClient.autoHydrate, err)
 	return rm, err
 }
 
@@ -133,7 +133,7 @@ func (s *SwitchMVESettingsService) FindVeConfigs(ctx context.Context, mutators .
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMVEConfigList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -163,7 +163,7 @@ func (s *SwitchMVESettingsService) FindVeConfigsById(ctx context.Context, id str
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMVEConfig()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -195,7 +195,7 @@ func (s *SwitchMVESettingsService) FindVeConfigsByQueryCriteria(ctx context.Cont
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSwitchMVEConfigList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -230,6 +230,6 @@ func (s *SwitchMVESettingsService) UpdateVeConfigsById(ctx context.Context, body
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, nil, s.apiClient.autoHydrate, err)
 	return rm, err
 }

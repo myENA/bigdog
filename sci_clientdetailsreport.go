@@ -849,7 +849,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport7Top10Applicati
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -881,7 +881,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport8TopAppsByTraff
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -913,7 +913,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport82RssTrend(ctx 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportClientDetailsReport82rssTrend200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -945,7 +945,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport83SnrTrend(ctx 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportClientDetailsReport83snrTrend200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -977,7 +977,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport86Summary(ctx c
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportClientDetailsReport86summary200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -1009,7 +1009,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport87ClientStats(c
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportClientDetailsReport87clientStats200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -1041,7 +1041,7 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport89TrafficTrend(
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportClientDetailsReport89trafficTrend200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -1073,6 +1073,6 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport92SessionsTable
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportClientDetailsReport92sessionsTable200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }

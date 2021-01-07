@@ -70,7 +70,7 @@ func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSyst
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSystem()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -101,7 +101,7 @@ func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, muta
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawAPIResponse)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -133,7 +133,7 @@ func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[st
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCISystemFind200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, &resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -170,7 +170,7 @@ func (s *SCISystemService) SystemFindById(ctx context.Context, id string, option
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSystem()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -196,7 +196,7 @@ func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...Reque
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = MakeSCISystemGetSsids200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, &resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, &resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -233,6 +233,6 @@ func (s *SCISystemService) SystemPrototypeUpdateAttributes(ctx context.Context, 
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIModelsSystem()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }

@@ -3,6 +3,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -92,6 +93,76 @@ const (
 	headerValueMultipartFormData = "multipart/form-data"
 )
 
+// todo: export this?
+type APIAuthProviderError struct {
+	meta APIResponseMeta
+	err  error
+}
+
+func NewAPIAuthProviderError(meta APIResponseMeta, err error) *APIAuthProviderError {
+	ape := new(APIAuthProviderError)
+	ape.meta = meta
+	ape.err = err
+	return ape
+}
+
+func (ape *APIAuthProviderError) ResponseMeta() APIResponseMeta {
+	if ape == nil {
+		return APIResponseMeta{}
+	}
+	return ape.meta
+}
+
+func (ape *APIAuthProviderError) Is(err error) bool {
+	return ape != nil && ape.err != nil && errors.Is(err, ape.err)
+}
+
+func (ape *APIAuthProviderError) Unwrap() error {
+	if ape == nil || ape.err == nil {
+		return nil
+	}
+	return ape.err
+}
+
+func (ape *APIAuthProviderError) Error() string {
+	if ape == nil || ape.err == nil {
+		return ""
+	}
+	return ape.err.Error()
+}
+
+type baseClientConfig struct {
+	// Address [required]
+	//
+	// Full address of service, including scheme and port
+	Address string
+
+	// PathPrefix [optional]
+	//
+	// Custom path prefix to prepend to all api calls.  Default is to leave this blank.
+	PathPrefix string
+
+	// Debug [optional]
+	//
+	// Set to true to enable debug logging
+	Debug bool
+
+	// DisableAutoHydrate [bool]
+	//
+	// If true, response bodies will no longer automatically hydrated into the returned response models.  This enables
+	// you to instead use the response models as Readers to receive the raw bytes of the response in favor of having
+	// then unmarshalled if you don't need it.
+	DisableAutoHydrate bool
+
+	// Logger [optional]
+	//
+	// Logger to use.  Leave blank for no logging
+	Logger *log.Logger
+
+	// HTTPClient [optional]
+	HTTPClient *http.Client
+}
+
 type baseClient struct {
 	log   *log.Logger
 	debug bool
@@ -100,23 +171,26 @@ type baseClient struct {
 	pathPrefix string
 
 	client *http.Client
+
+	autoHydrate bool
 }
 
-func newBaseClient(l *log.Logger, debug bool, addr, pathPrefix string, client *http.Client) *baseClient {
+func newBaseClient(cfg baseClientConfig) *baseClient {
 	c := new(baseClient)
 
-	if l == nil {
+	if cfg.Logger == nil {
 		c.log = log.New(ioutil.Discard, "", 0)
 	} else {
-		c.log = l
+		c.log = cfg.Logger
 	}
 
-	c.debug = debug
-	c.addr = addr
-	c.pathPrefix = pathPrefix
+	c.debug = cfg.Debug
+	c.addr = cfg.Address
+	c.pathPrefix = cfg.PathPrefix
+	c.autoHydrate = !cfg.DisableAutoHydrate
 
-	if client != nil {
-		c.client = client
+	if cfg.HTTPClient != nil {
+		c.client = cfg.HTTPClient
 	} else {
 		// pooled transport config shamelessly borrowed from
 		// https://github.com/hashicorp/go-cleanhttp/blob/v0.5.1/cleanhttp.go
@@ -187,15 +261,15 @@ func (c *baseClient) do(ctx context.Context, request *APIRequest, authParamName,
 	return httpResponse, err
 }
 
-func CleanupHTTPResponseBody(hp *http.Response) {
-	if hp == nil {
+func CleanupReadCloser(rc io.ReadCloser) {
+	if rc == nil {
 		return
 	}
-	_, _ = io.Copy(ioutil.Discard, hp.Body)
-	_ = hp.Body.Close()
+	_, _ = io.Copy(ioutil.Discard, rc)
+	_ = rc.Close()
 }
 
-func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response, respFunc ResponseFactoryFunc, sourceErr error) (APIResponse, error) {
+func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response, respFunc ResponseFactoryFunc, autoHydrate bool, sourceErr error) (APIResponse, error) {
 	var (
 		finalErr    error
 		cleanupBody bool
@@ -205,27 +279,22 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 
 	defer func() {
 		if cleanupBody {
-			CleanupHTTPResponseBody(httpResp)
+			CleanupReadCloser(httpResp.Body)
 		}
 	}()
 
 	if sourceErr != nil {
 		// if the incoming error is from a service ticket provider, return as-is
-		if sterr, ok := sourceErr.(*VSZServiceTicketProviderError); ok {
+		if aerr, ok := sourceErr.(*APIAuthProviderError); ok && aerr != nil {
 			cleanupBody = true
-			return sterr.ResponseMeta(), sterr
-		}
-
-		if aterr, ok := sourceErr.(*SCIAccessTokenProviderError); ok {
-			cleanupBody = true
-
+			return newErrRawAPIResponse(aerr.ResponseMeta()), aerr
 		}
 
 		if httpResp != nil {
 			// otherwise, build response meta and return source error
-			return newAPIResponseMeta(req, successCode, httpResp), sourceErr
+			return apiResp, sourceErr
 		}
-		return newErrAPIResponseMeta(), sourceErr
+		return apiResp, sourceErr
 	}
 
 	if httpResp == nil {

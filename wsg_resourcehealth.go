@@ -55,6 +55,6 @@ func (s *WSGResourceHealthService) FindResourceHealthSummaryByQueryCriteria(ctx 
 	req.PathParams.Set("resource", resource)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGCommonMonitoringSummary()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }

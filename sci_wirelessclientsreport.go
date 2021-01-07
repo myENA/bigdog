@@ -1097,7 +1097,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport12Overview(
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessClientsReport12overview200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -1129,7 +1129,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport13TopChart(
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessClientsReport13topChart200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -1161,7 +1161,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport14TopTable(
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessClientsReport14topTable200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -1193,7 +1193,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport15TrendChar
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessClientsReport15trendChart200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -1225,7 +1225,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport16TrendTabl
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessClientsReport16trendTable200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -1257,7 +1257,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport17TopPercen
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessClientsReport17topPercentile200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -1289,7 +1289,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport18TopNOSByC
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessClientsReport18topNOSByClientCount200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -1321,7 +1321,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport19Top10Manu
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -1353,6 +1353,6 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport112Top10Aut
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewSCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }

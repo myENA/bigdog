@@ -103,7 +103,7 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGServiceTicketLoginResponse()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -134,6 +134,6 @@ func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, servi
 	req.QueryParams.Set("serviceTicket", serviceTicket)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawAPIResponse)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }

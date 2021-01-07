@@ -140,6 +140,13 @@ func newRawAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 	return b
 }
 
+func newErrRawAPIResponse(meta APIResponseMeta) APIResponse {
+	b := new(RawAPIResponse)
+	b.err = ErrResponseClosed
+	b.meta = meta
+	return b
+}
+
 func (b *RawAPIResponse) cleanupBody() error {
 	if b.body == nil {
 		return nil

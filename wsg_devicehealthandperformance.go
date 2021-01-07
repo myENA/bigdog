@@ -55,7 +55,7 @@ func (s *WSGDeviceHealthAndPerformanceService) HealthExtendGroupBarByType(ctx co
 	req.PathParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGPerformanceAndHealthExtensionsGroupBarList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -93,7 +93,7 @@ func (s *WSGDeviceHealthAndPerformanceService) HealthExtendLineByType(ctx contex
 	req.PathParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGPerformanceAndHealthExtensionsLineList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -131,7 +131,7 @@ func (s *WSGDeviceHealthAndPerformanceService) PerfGroupBarByType(ctx context.Co
 	req.PathParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGPerformanceAndHealthExtensionsGroupBarList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }
 
@@ -169,6 +169,6 @@ func (s *WSGDeviceHealthAndPerformanceService) PerfLineByType(ctx context.Contex
 	req.PathParams.Set("type", type_)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = NewWSGPerformanceAndHealthExtensionsLineList()
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }

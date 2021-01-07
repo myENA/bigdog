@@ -55,6 +55,6 @@ func (s *WSGCSVExportService) ExportCSVByQuery(ctx context.Context, body *WSGCom
 	req.PathParams.Set("resource", resource)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp = new(RawAPIResponse)
-	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, err)
+	rm, err = handleAPIResponse(req, http.StatusOK, httpResp, resp, s.apiClient.autoHydrate, err)
 	return resp, rm, err
 }

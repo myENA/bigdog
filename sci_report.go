@@ -2707,7 +2707,7 @@ func NewSCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType() *S
 //
 // Definition: report_Overview_62_overview200ResponseType
 type SCIReportOverview62overview200ResponseType struct {
-	Data SCIOverview62overviewData `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
 	Metadata *SCIOverview62overviewMetaData `json:"metadata,omitempty"`
 }

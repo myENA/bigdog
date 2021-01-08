@@ -50,13 +50,6 @@ func newAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Respons
 	return rm
 }
 
-func newErrAPIResponseMeta(req *APIRequest, successCode int) APIResponseMeta {
-	rm := newAPIResponseMeta(req, successCode, nil)
-	rm.ResponseCode = http.StatusInternalServerError
-	rm.ResponseStatus = http.StatusText(http.StatusInternalServerError)
-	return rm
-}
-
 func (rm APIResponseMeta) ContentType() string {
 	return rm.ResponseHeader.Get(headerKeyContentType)
 }
@@ -87,6 +80,7 @@ func (rm APIResponseMeta) String() string {
 	return fmt.Sprintf("%s response from request %s %s", msg, rm.RequestMethod, rm.RequestURI)
 }
 
+// APIResponseMetaContainer describes any type containing metadata about an API call
 type APIResponseMetaContainer interface {
 	ResponseMeta() APIResponseMeta
 }
@@ -117,8 +111,11 @@ type ModeledAPIResponse interface {
 	Hydrate() error
 }
 
+// APIResponseFactory is used by the internal response handling mechanism to construct each response type
 type APIResponseFactory func(meta APIResponseMeta, body io.ReadCloser) APIResponse
 
+// RawAPIResponse is the base implementation of APIResponse. Each api either returns this or returns a type that embeds
+// this type.
 type RawAPIResponse struct {
 	mu   sync.Mutex
 	body io.ReadCloser

@@ -4,6 +4,8 @@ package bigdog
 
 import (
 	"context"
+	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -113,17 +115,17 @@ func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, muta
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCISystemFind200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newSCISystemFind200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*SCISystemFind200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSCISystemFind, true)
 	defer recycleAPIRequest(req)
@@ -133,7 +135,7 @@ func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[st
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*SCISystemFind200ResponseTypeAPIResponse), err
 }
 
 // SystemFindById
@@ -178,17 +180,17 @@ func (s *SCISystemService) SystemFindById(ctx context.Context, id string, option
 // Operation ID: system_getSsids
 //
 // authenticate user with specific role
-func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...RequestMutator) (*SCISystemGetSsids200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newSCISystemGetSsids200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*SCISystemGetSsids200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCISystemGetSsids, true)
 	defer recycleAPIRequest(req)
@@ -196,7 +198,7 @@ func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...Reque
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*SCISystemGetSsids200ResponseTypeAPIResponse), err
 }
 
 // SystemPrototypeUpdateAttributes

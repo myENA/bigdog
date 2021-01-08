@@ -5451,17 +5451,17 @@ func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues 
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIReportFind200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newSCIReportFind200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*SCIReportFind200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSCIReportFind, true)
 	defer recycleAPIRequest(req)
@@ -5471,7 +5471,7 @@ func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[st
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*SCIReportFind200ResponseTypeAPIResponse), err
 }
 
 // ReportFindById
@@ -5602,17 +5602,17 @@ func (s *SCIReportService) ReportLatestIngestedTime(ctx context.Context, mutator
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIReportPrototypegetsections200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newSCIReportPrototypegetsections200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*SCIReportPrototypegetsections200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSCIReportPrototypeGetSections, true)
 	defer recycleAPIRequest(req)
@@ -5623,7 +5623,7 @@ func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id st
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*SCIReportPrototypegetsections200ResponseTypeAPIResponse), err
 }
 
 // ReportWithRelations

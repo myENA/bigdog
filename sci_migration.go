@@ -300,17 +300,17 @@ func (s *SCIMigrationService) MigrationExistsGetMigrationsIdExists(ctx context.C
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIMigrationService) MigrationFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIMigrationService) MigrationFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIMigrationFind200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newSCIMigrationFind200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*SCIMigrationFind200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSCIMigrationFind, true)
 	defer recycleAPIRequest(req)
@@ -320,7 +320,7 @@ func (s *SCIMigrationService) MigrationFind(ctx context.Context, optionalParams 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*SCIMigrationFind200ResponseTypeAPIResponse), err
 }
 
 // MigrationFindById

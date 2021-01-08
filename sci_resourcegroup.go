@@ -136,17 +136,17 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data 
 // Optional Parameters:
 // - filter string
 //		- nullable
-func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIResourceGroupFind200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newSCIResourceGroupFind200ResponseTypeAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*SCIResourceGroupFind200ResponseTypeAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSCIResourceGroupFind, true)
 	defer recycleAPIRequest(req)
@@ -156,7 +156,7 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*SCIResourceGroupFind200ResponseTypeAPIResponse), err
 }
 
 // ResourceGroupFindById

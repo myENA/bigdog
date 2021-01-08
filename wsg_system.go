@@ -2798,17 +2798,17 @@ func (s *WSGSystemService) FindController(ctx context.Context, mutators ...Reque
 //		- nullable
 // - size float64
 //		- nullable
-func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSystemStatisticListAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newWSGSystemStatisticListAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*WSGSystemStatisticListAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindControllerStatisticsById, true)
 	defer recycleAPIRequest(req)
@@ -2822,7 +2822,7 @@ func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id 
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*WSGSystemStatisticListAPIResponse), err
 }
 
 // FindSystem

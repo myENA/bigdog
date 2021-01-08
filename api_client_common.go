@@ -269,18 +269,18 @@ func cleanupReadCloser(rc io.ReadCloser) {
 	_ = rc.Close()
 }
 
-func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response, respFunc ResponseFactoryFunc, autoHydrate bool, sourceErr error) (APIResponse, error) {
+func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response, respFact APIResponseFactory, autoHydrate bool, sourceErr error) (APIResponse, error) {
 	if sourceErr != nil {
 		// if the incoming error is from an auth provider, return as-is
 		if aerr, ok := sourceErr.(*APIAuthProviderError); ok && aerr != nil {
 			if httpResp != nil {
 				cleanupReadCloser(httpResp.Body)
 			}
-			return respFunc(aerr.ResponseMeta(), nil), aerr
+			return respFact(aerr.ResponseMeta(), nil), aerr
 		}
 
 		// otherwise, pass on constructed response and incoming error
-		return respFunc(newAPIResponseMeta(req, successCode, httpResp), nil), sourceErr
+		return respFact(newAPIResponseMeta(req, successCode, httpResp), nil), sourceErr
 	}
 
 	// this _should_ never happen, but check for it anyway.
@@ -289,7 +289,7 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 	}
 
 	// construct response
-	apiResp := respFunc(newAPIResponseMeta(req, successCode, httpResp), httpResp.Body)
+	apiResp := respFact(newAPIResponseMeta(req, successCode, httpResp), httpResp.Body)
 
 	// if the response code matches the expected "success" code...
 	if httpResp.StatusCode == successCode {

@@ -117,7 +117,7 @@ type ModeledAPIResponse interface {
 	Hydrate() error
 }
 
-type ResponseFactoryFunc func(meta APIResponseMeta, body io.ReadCloser) APIResponse
+type APIResponseFactory func(meta APIResponseMeta, body io.ReadCloser) APIResponse
 
 type RawAPIResponse struct {
 	mu   sync.Mutex

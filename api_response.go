@@ -70,6 +70,11 @@ func (rm APIResponseMeta) ContentDisposition() string {
 	return rm.ResponseHeader.Get(headerKeyContentDisposition)
 }
 
+// Completed indicates whether the request described by this meta type completed, but does not indicate success
+func (rm APIResponseMeta) Completed() bool {
+	return rm.ResponseCode != 0
+}
+
 func (rm APIResponseMeta) String() string {
 	var msg string
 	if rm.SuccessCode == rm.ResponseCode {

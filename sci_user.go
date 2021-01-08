@@ -57,6 +57,21 @@ func NewSCIUserBatchDelete200ResponseType() *SCIUserBatchDelete200ResponseType {
 // Definition: user_getResourceGroupsForUpsert200ResponseType
 type SCIUserGetResourceGroupsForUpsert200ResponseType []interface{}
 
+type SCIUserGetResourceGroupsForUpsert200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data SCIUserGetResourceGroupsForUpsert200ResponseType
+}
+
+func newSCIUserGetResourceGroupsForUpsert200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(SCIUserGetResourceGroupsForUpsert200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIUserGetResourceGroupsForUpsert200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = make(SCIUserGetResourceGroupsForUpsert200ResponseType, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeSCIUserGetResourceGroupsForUpsert200ResponseType() SCIUserGetResourceGroupsForUpsert200ResponseType {
 	m := make(SCIUserGetResourceGroupsForUpsert200ResponseType, 0)
 	return m
@@ -67,6 +82,21 @@ func MakeSCIUserGetResourceGroupsForUpsert200ResponseType() SCIUserGetResourceGr
 // Definition: user_getUsers200ResponseType
 type SCIUserGetUsers200ResponseType []*SCIModelsUser
 
+type SCIUserGetUsers200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data SCIUserGetUsers200ResponseType
+}
+
+func newSCIUserGetUsers200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(SCIUserGetUsers200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIUserGetUsers200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = make(SCIUserGetUsers200ResponseType, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeSCIUserGetUsers200ResponseType() SCIUserGetUsers200ResponseType {
 	m := make(SCIUserGetUsers200ResponseType, 0)
 	return m
@@ -77,6 +107,21 @@ func MakeSCIUserGetUsers200ResponseType() SCIUserGetUsers200ResponseType {
 // Definition: user_prototype_get_filters200ResponseType
 type SCIUserPrototypegetfilters200ResponseType []*SCIModelsFilter
 
+type SCIUserPrototypegetfilters200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data SCIUserPrototypegetfilters200ResponseType
+}
+
+func newSCIUserPrototypegetfilters200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(SCIUserPrototypegetfilters200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIUserPrototypegetfilters200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = make(SCIUserPrototypegetfilters200ResponseType, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeSCIUserPrototypegetfilters200ResponseType() SCIUserPrototypegetfilters200ResponseType {
 	m := make(SCIUserPrototypegetfilters200ResponseType, 0)
 	return m
@@ -87,6 +132,21 @@ func MakeSCIUserPrototypegetfilters200ResponseType() SCIUserPrototypegetfilters2
 // Definition: user_prototype_get_schedules200ResponseType
 type SCIUserPrototypegetschedules200ResponseType []*SCIModelsSchedule
 
+type SCIUserPrototypegetschedules200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data SCIUserPrototypegetschedules200ResponseType
+}
+
+func newSCIUserPrototypegetschedules200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(SCIUserPrototypegetschedules200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIUserPrototypegetschedules200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = make(SCIUserPrototypegetschedules200ResponseType, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeSCIUserPrototypegetschedules200ResponseType() SCIUserPrototypegetschedules200ResponseType {
 	m := make(SCIUserPrototypegetschedules200ResponseType, 0)
 	return m

@@ -57,6 +57,21 @@ func NewSCIResourceGroupBatchDelete200ResponseType() *SCIResourceGroupBatchDelet
 // Definition: resourceGroup_find200ResponseType
 type SCIResourceGroupFind200ResponseType []*SCIModelsResourceGroup
 
+type SCIResourceGroupFind200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data SCIResourceGroupFind200ResponseType
+}
+
+func newSCIResourceGroupFind200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(SCIResourceGroupFind200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIResourceGroupFind200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = make(SCIResourceGroupFind200ResponseType, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseType {
 	m := make(SCIResourceGroupFind200ResponseType, 0)
 	return m

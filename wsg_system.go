@@ -2260,6 +2260,21 @@ func NewWSGSystemStaticRouteList() *WSGSystemStaticRouteList {
 // Definition: system_statisticList
 type WSGSystemStatisticList []*WSGSystemStatisticListType
 
+type WSGSystemStatisticListAPIResponse struct {
+	*RawAPIResponse
+	Data WSGSystemStatisticList
+}
+
+func newWSGSystemStatisticListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(WSGSystemStatisticListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGSystemStatisticListAPIResponse) Hydrate() error {
+	r.Data = make(WSGSystemStatisticList, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeWSGSystemStatisticList() WSGSystemStatisticList {
 	m := make(WSGSystemStatisticList, 0)
 	return m

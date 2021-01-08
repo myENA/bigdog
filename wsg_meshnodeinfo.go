@@ -86,6 +86,21 @@ func NewWSGMeshNodeInfo() *WSGMeshNodeInfo {
 // Definition: meshNodeInfo_meshNodeInfoArray
 type WSGMeshNodeInfoArray []*WSGMeshNodeInfo
 
+type WSGMeshNodeInfoArrayAPIResponse struct {
+	*RawAPIResponse
+	Data WSGMeshNodeInfoArray
+}
+
+func newWSGMeshNodeInfoArrayAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(WSGMeshNodeInfoArrayAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGMeshNodeInfoArrayAPIResponse) Hydrate() error {
+	r.Data = make(WSGMeshNodeInfoArray, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeWSGMeshNodeInfoArray() WSGMeshNodeInfoArray {
 	m := make(WSGMeshNodeInfoArray, 0)
 	return m

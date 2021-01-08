@@ -96,6 +96,21 @@ func NewSCIMigrationMapExistsheadMigrationMapsid200ResponseType() *SCIMigrationM
 // Definition: MigrationMap_find200ResponseType
 type SCIMigrationMapFind200ResponseType []*SCIModelsMigrationMap
 
+type SCIMigrationMapFind200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data SCIMigrationMapFind200ResponseType
+}
+
+func newSCIMigrationMapFind200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(SCIMigrationMapFind200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIMigrationMapFind200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = make(SCIMigrationMapFind200ResponseType, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeSCIMigrationMapFind200ResponseType() SCIMigrationMapFind200ResponseType {
 	m := make(SCIMigrationMapFind200ResponseType, 0)
 	return m

@@ -28,6 +28,21 @@ func (ss *SCIService) SCISystemService() *SCISystemService {
 // Definition: system_find200ResponseType
 type SCISystemFind200ResponseType []*SCIModelsSystem
 
+type SCISystemFind200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data SCISystemFind200ResponseType
+}
+
+func newSCISystemFind200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(SCISystemFind200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCISystemFind200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = make(SCISystemFind200ResponseType, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeSCISystemFind200ResponseType() SCISystemFind200ResponseType {
 	m := make(SCISystemFind200ResponseType, 0)
 	return m
@@ -38,6 +53,21 @@ func MakeSCISystemFind200ResponseType() SCISystemFind200ResponseType {
 // Definition: system_getSsids200ResponseType
 type SCISystemGetSsids200ResponseType []interface{}
 
+type SCISystemGetSsids200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data SCISystemGetSsids200ResponseType
+}
+
+func newSCISystemGetSsids200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(SCISystemGetSsids200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCISystemGetSsids200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = make(SCISystemGetSsids200ResponseType, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeSCISystemGetSsids200ResponseType() SCISystemGetSsids200ResponseType {
 	m := make(SCISystemGetSsids200ResponseType, 0)
 	return m

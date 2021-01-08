@@ -1660,6 +1660,21 @@ func NewWSGProfileCreateRestrictedApAccessProfile() *WSGProfileCreateRestrictedA
 // Definition: profile_createResultList
 type WSGProfileCreateResultList []*WSGCommonCreateResult
 
+type WSGProfileCreateResultListAPIResponse struct {
+	*RawAPIResponse
+	Data WSGProfileCreateResultList
+}
+
+func newWSGProfileCreateResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(WSGProfileCreateResultListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGProfileCreateResultListAPIResponse) Hydrate() error {
+	r.Data = make(WSGProfileCreateResultList, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeWSGProfileCreateResultList() WSGProfileCreateResultList {
 	m := make(WSGProfileCreateResultList, 0)
 	return m

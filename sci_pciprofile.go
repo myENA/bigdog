@@ -57,6 +57,21 @@ func NewSCIPCIProfileBatchDelete200ResponseType() *SCIPCIProfileBatchDelete200Re
 // Definition: pciProfile_find200ResponseType
 type SCIPCIProfileFind200ResponseType []*SCIModelsPciProfile
 
+type SCIPCIProfileFind200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data SCIPCIProfileFind200ResponseType
+}
+
+func newSCIPCIProfileFind200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(SCIPCIProfileFind200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIPCIProfileFind200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = make(SCIPCIProfileFind200ResponseType, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeSCIPCIProfileFind200ResponseType() SCIPCIProfileFind200ResponseType {
 	m := make(SCIPCIProfileFind200ResponseType, 0)
 	return m
@@ -94,6 +109,21 @@ func NewSCIPCIProfilePrototypecountreports200ResponseType() *SCIPCIProfileProtot
 // Definition: pciProfile_prototype_get_reports200ResponseType
 type SCIPCIProfilePrototypegetreports200ResponseType []*SCIModelsPciReport
 
+type SCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data SCIPCIProfilePrototypegetreports200ResponseType
+}
+
+func newSCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(SCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = make(SCIPCIProfilePrototypegetreports200ResponseType, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeSCIPCIProfilePrototypegetreports200ResponseType() SCIPCIProfilePrototypegetreports200ResponseType {
 	m := make(SCIPCIProfilePrototypegetreports200ResponseType, 0)
 	return m

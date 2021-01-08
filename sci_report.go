@@ -1335,6 +1335,21 @@ func NewSCIReportComparisonReport147comparisionTable200ResponseType() *SCIReport
 // Definition: report_find200ResponseType
 type SCIReportFind200ResponseType []*SCIModelsReport
 
+type SCIReportFind200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data SCIReportFind200ResponseType
+}
+
+func newSCIReportFind200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(SCIReportFind200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportFind200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = make(SCIReportFind200ResponseType, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeSCIReportFind200ResponseType() SCIReportFind200ResponseType {
 	m := make(SCIReportFind200ResponseType, 0)
 	return m
@@ -3114,6 +3129,21 @@ func NewSCIReportOverview115networkUsageOverview200ResponseType() *SCIReportOver
 // Definition: report_prototype_get_sections200ResponseType
 type SCIReportPrototypegetsections200ResponseType []*SCIModelsSection
 
+type SCIReportPrototypegetsections200ResponseTypeAPIResponse struct {
+	*RawAPIResponse
+	Data SCIReportPrototypegetsections200ResponseType
+}
+
+func newSCIReportPrototypegetsections200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(SCIReportPrototypegetsections200ResponseTypeAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *SCIReportPrototypegetsections200ResponseTypeAPIResponse) Hydrate() error {
+	r.Data = make(SCIReportPrototypegetsections200ResponseType, 0)
+	return json.NewDecoder(r).Decode(&r.Data)
+}
 func MakeSCIReportPrototypegetsections200ResponseType() SCIReportPrototypegetsections200ResponseType {
 	m := make(SCIReportPrototypegetsections200ResponseType, 0)
 	return m

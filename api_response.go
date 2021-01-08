@@ -117,7 +117,7 @@ type ModeledAPIResponse interface {
 	Hydrate() error
 }
 
-type ResponseFactoryFunc func(req *APIRequest, successCode int, httpResp *http.Response) APIResponse
+type ResponseFactoryFunc func(meta APIResponseMeta, body io.ReadCloser) APIResponse
 
 type RawAPIResponse struct {
 	mu   sync.Mutex
@@ -127,20 +127,12 @@ type RawAPIResponse struct {
 	meta APIResponseMeta
 }
 
-func newRawAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newRawAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	b := new(RawAPIResponse)
-	b.meta = newAPIResponseMeta(req, successCode, httpResp)
-	if httpResp != nil {
-		b.body = httpResp.Body
-
-	}
-	return b
-}
-
-func newErrRawAPIResponse(meta APIResponseMeta) APIResponse {
-	b := new(RawAPIResponse)
-	b.err = ErrResponseClosed
 	b.meta = meta
+	if body != nil {
+		b.body = body
+	}
 	return b
 }
 

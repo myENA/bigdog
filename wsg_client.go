@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGClientDeAuthClient
@@ -173,9 +173,9 @@ type WSGClientHistoricalClientListAPIResponse struct {
 	Data *WSGClientHistoricalClientList
 }
 
-func newWSGClientHistoricalClientListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGClientHistoricalClientListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGClientHistoricalClientListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

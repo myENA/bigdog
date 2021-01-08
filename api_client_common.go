@@ -270,26 +270,26 @@ func cleanupReadCloser(rc io.ReadCloser) {
 }
 
 func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response, respFunc ResponseFactoryFunc, autoHydrate bool, sourceErr error) (APIResponse, error) {
-	// construct response type
-	apiResp := respFunc(req, successCode, httpResp)
-
 	if sourceErr != nil {
 		// if the incoming error is from an auth provider, return as-is
 		if aerr, ok := sourceErr.(*APIAuthProviderError); ok && aerr != nil {
 			if httpResp != nil {
 				cleanupReadCloser(httpResp.Body)
 			}
-			return newErrRawAPIResponse(aerr.ResponseMeta()), aerr
+			return respFunc(aerr.ResponseMeta(), nil), aerr
 		}
 
 		// otherwise, pass on constructed response and incoming error
-		return apiResp, sourceErr
+		return respFunc(newAPIResponseMeta(req, successCode, httpResp), nil), sourceErr
 	}
 
 	// this _should_ never happen, but check for it anyway.
 	if httpResp == nil {
 		panic(fmt.Sprintf("severe problem: nil *http.Response seen with nil error. meta: %v", newAPIResponseMeta(req, successCode, httpResp)))
 	}
+
+	// construct response
+	apiResp := respFunc(newAPIResponseMeta(req, successCode, httpResp), httpResp.Body)
 
 	// if the response code matches the expected "success" code...
 	if httpResp.StatusCode == successCode {

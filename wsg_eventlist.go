@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGEventListEventQueryResultList
@@ -27,9 +27,9 @@ type WSGEventListEventQueryResultListAPIResponse struct {
 	Data *WSGEventListEventQueryResultList
 }
 
-func newWSGEventListEventQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGEventListEventQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGEventListEventQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // SwitchMEventConfig
@@ -55,9 +55,9 @@ type SwitchMEventConfigAPIResponse struct {
 	Data *SwitchMEventConfig
 }
 
-func newSwitchMEventConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMEventConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMEventConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -102,9 +102,9 @@ type SwitchMEventConfigGetEventConfigListAPIResponse struct {
 	Data *SwitchMEventConfigGetEventConfigList
 }
 
-func newSwitchMEventConfigGetEventConfigListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMEventConfigGetEventConfigListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMEventConfigGetEventConfigListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -147,9 +147,9 @@ type SwitchMEventConfigQueryResponseAPIResponse struct {
 	Data *SwitchMEventConfigQueryResponse
 }
 
-func newSwitchMEventConfigQueryResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMEventConfigQueryResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMEventConfigQueryResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

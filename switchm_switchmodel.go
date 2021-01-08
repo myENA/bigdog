@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // SwitchMSwitchModelModelList
@@ -53,9 +53,9 @@ type SwitchMSwitchModelResultAPIResponse struct {
 	Data *SwitchMSwitchModelResult
 }
 
-func newSwitchMSwitchModelResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMSwitchModelResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchModelResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

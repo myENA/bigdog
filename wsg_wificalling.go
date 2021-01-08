@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGWIFICallingCreateWifiCallingPolicy
@@ -153,9 +153,9 @@ type WSGWIFICallingPolicyAPIResponse struct {
 	Data *WSGWIFICallingPolicy
 }
 
-func newWSGWIFICallingPolicyAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGWIFICallingPolicyAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWIFICallingPolicyAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -188,9 +188,9 @@ type WSGWIFICallingPolicyListAPIResponse struct {
 	Data *WSGWIFICallingPolicyList
 }
 
-func newWSGWIFICallingPolicyListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGWIFICallingPolicyListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWIFICallingPolicyListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

@@ -6,6 +6,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 	"net/url"
 )
@@ -38,9 +39,9 @@ type SCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse struct
 	Data *SCIReportAirtimeUtilizationReport1overview200ResponseType
 }
 
-func newSCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -67,9 +68,9 @@ type SCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse struct
 	Data *SCIReportAirtimeUtilizationReport2topChart200ResponseType
 }
 
-func newSCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -96,9 +97,9 @@ type SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIR
 	Data *SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType
 }
 
-func newSCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -125,9 +126,9 @@ type SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIRe
 	Data *SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType
 }
 
-func newSCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -154,9 +155,9 @@ type SCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse stru
 	Data *SCIReportAirtimeUtilizationReport5trendChart200ResponseType
 }
 
-func newSCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -183,9 +184,9 @@ type SCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse stru
 	Data *SCIReportAirtimeUtilizationReport6trendTable200ResponseType
 }
 
-func newSCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -212,9 +213,9 @@ type SCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport5trendChart200ResponseType
 }
 
-func newSCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -241,9 +242,9 @@ type SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPI
 	Data *SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType
 }
 
-func newSCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -270,9 +271,9 @@ type SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse st
 	Data *SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType
 }
 
-func newSCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -299,9 +300,9 @@ type SCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport14topTable200ResponseType
 }
 
-func newSCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -328,9 +329,9 @@ type SCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport15trendChart200ResponseType
 }
 
-func newSCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -357,9 +358,9 @@ type SCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport22trafficTrend200ResponseType
 }
 
-func newSCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -386,9 +387,9 @@ type SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse 
 	Data *SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType
 }
 
-func newSCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -415,9 +416,9 @@ type SCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport75apSummary200ResponseType
 }
 
-func newSCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -444,9 +445,9 @@ type SCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport76apPerformance200ResponseType
 }
 
-func newSCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -473,9 +474,9 @@ type SCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport77apDetails200ResponseType
 }
 
-func newSCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -502,9 +503,9 @@ type SCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse struct 
 	Data *SCIReportAPDetailsReport78apStatsOverview200ResponseType
 }
 
-func newSCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -531,9 +532,9 @@ type SCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse struct 
 	Data *SCIReportAPDetailsReport79apUptimeHistory200ResponseType
 }
 
-func newSCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -560,9 +561,9 @@ type SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResp
 	Data *SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType
 }
 
-func newSCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -589,9 +590,9 @@ type SCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport81sessionsTable200ResponseType
 }
 
-func newSCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -618,9 +619,9 @@ type SCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport82rssTrend200ResponseType
 }
 
-func newSCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -647,9 +648,9 @@ type SCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport83snrTrend200ResponseType
 }
 
-func newSCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -676,9 +677,9 @@ type SCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport84alarmsTable200ResponseType
 }
 
-func newSCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -705,9 +706,9 @@ type SCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport85eventsTable200ResponseType
 }
 
-func newSCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -734,9 +735,9 @@ type SCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport95anomalies200ResponseType
 }
 
-func newSCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -763,9 +764,9 @@ type SCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPDetailsReport110apAnomaly200ResponseType
 }
 
-func newSCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -792,9 +793,9 @@ type SCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse struct {
 	Data *SCIReportAPsRebootReport43totalReboots200ResponseType
 }
 
-func newSCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -821,9 +822,9 @@ type SCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse struc
 	Data *SCIReportAPsRebootReport44topApRebootsTable200ResponseType
 }
 
-func newSCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -850,9 +851,9 @@ type SCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse st
 	Data *SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType
 }
 
-func newSCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -879,9 +880,9 @@ type SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseTyp
 	Data *SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType
 }
 
-func newSCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -908,9 +909,9 @@ type SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseTypeAPIRespons
 	Data *SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType
 }
 
-func newSCIReportClientDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportClientDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -937,9 +938,9 @@ type SCIReportClientDetailsReport82rssTrend200ResponseTypeAPIResponse struct {
 	Data *SCIReportClientDetailsReport82rssTrend200ResponseType
 }
 
-func newSCIReportClientDetailsReport82rssTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportClientDetailsReport82rssTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportClientDetailsReport82rssTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -966,9 +967,9 @@ type SCIReportClientDetailsReport83snrTrend200ResponseTypeAPIResponse struct {
 	Data *SCIReportClientDetailsReport83snrTrend200ResponseType
 }
 
-func newSCIReportClientDetailsReport83snrTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportClientDetailsReport83snrTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportClientDetailsReport83snrTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -995,9 +996,9 @@ type SCIReportClientDetailsReport86summary200ResponseTypeAPIResponse struct {
 	Data *SCIReportClientDetailsReport86summary200ResponseType
 }
 
-func newSCIReportClientDetailsReport86summary200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportClientDetailsReport86summary200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportClientDetailsReport86summary200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1024,9 +1025,9 @@ type SCIReportClientDetailsReport87clientStats200ResponseTypeAPIResponse struct 
 	Data *SCIReportClientDetailsReport87clientStats200ResponseType
 }
 
-func newSCIReportClientDetailsReport87clientStats200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportClientDetailsReport87clientStats200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportClientDetailsReport87clientStats200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1053,9 +1054,9 @@ type SCIReportClientDetailsReport89trafficTrend200ResponseTypeAPIResponse struct
 	Data *SCIReportClientDetailsReport89trafficTrend200ResponseType
 }
 
-func newSCIReportClientDetailsReport89trafficTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportClientDetailsReport89trafficTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportClientDetailsReport89trafficTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1082,9 +1083,9 @@ type SCIReportClientDetailsReport92sessionsTable200ResponseTypeAPIResponse struc
 	Data *SCIReportClientDetailsReport92sessionsTable200ResponseType
 }
 
-func newSCIReportClientDetailsReport92sessionsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportClientDetailsReport92sessionsTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportClientDetailsReport92sessionsTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1111,9 +1112,9 @@ type SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse
 	Data *SCIReportClientHealthReport144clientHealthSummary200ResponseType
 }
 
-func newSCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1140,9 +1141,9 @@ type SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIRespo
 	Data *SCIReportClientHealthReport148clientConnectionHealth200ResponseType
 }
 
-func newSCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1169,9 +1170,9 @@ type SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIRes
 	Data *SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType
 }
 
-func newSCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1198,9 +1199,9 @@ type SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPI
 	Data *SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType
 }
 
-func newSCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1227,9 +1228,9 @@ type SCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse s
 	Data *SCIReportComparisonReport140comparisionOverview200ResponseType
 }
 
-func newSCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1256,9 +1257,9 @@ type SCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse st
 	Data *SCIReportComparisonReport145comparisionMetric1200ResponseType
 }
 
-func newSCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1285,9 +1286,9 @@ type SCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse st
 	Data *SCIReportComparisonReport146comparisionMetric2200ResponseType
 }
 
-func newSCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1314,9 +1315,9 @@ type SCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse stru
 	Data *SCIReportComparisonReport147comparisionTable200ResponseType
 }
 
-func newSCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1353,9 +1354,9 @@ type SCIReportGetData200ResponseTypeAPIResponse struct {
 	Data *SCIReportGetData200ResponseType
 }
 
-func newSCIReportGetData200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportGetData200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportGetData200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1382,9 +1383,9 @@ type SCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse 
 	Data *SCIReportInventoryAPsReport46apInventoryOverview200ResponseType
 }
 
-func newSCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1411,9 +1412,9 @@ type SCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse 
 	Data *SCIReportInventoryAPsReport47topApsDisconnection200ResponseType
 }
 
-func newSCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1440,9 +1441,9 @@ type SCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse struct 
 	Data *SCIReportInventoryAPsReport48apCountTrend200ResponseType
 }
 
-func newSCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1469,9 +1470,9 @@ type SCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse struct
 	Data *SCIReportInventoryAPsReport49apStatusTrend200ResponseType
 }
 
-func newSCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1498,9 +1499,9 @@ type SCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse st
 	Data *SCIReportInventoryAPsReport50topApsModelsChart200ResponseType
 }
 
-func newSCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1527,9 +1528,9 @@ type SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse
 	Data *SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType
 }
 
-func newSCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1556,9 +1557,9 @@ type SCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse 
 	Data *SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType
 }
 
-func newSCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1585,9 +1586,9 @@ type SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse
 	Data *SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType
 }
 
-func newSCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1614,9 +1615,9 @@ type SCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse stru
 	Data *SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType
 }
 
-func newSCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1643,9 +1644,9 @@ type SCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse struct {
 	Data *SCIReportInventoryAPsReport55topAPModels200ResponseType
 }
 
-func newSCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1672,9 +1673,9 @@ type SCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse struct
 	Data *SCIReportInventoryAPsReport56topAPVersions200ResponseType
 }
 
-func newSCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1701,9 +1702,9 @@ type SCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse struct
 	Data *SCIReportInventoryAPsReport57topAPsOffline200ResponseType
 }
 
-func newSCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1730,9 +1731,9 @@ type SCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse stru
 	Data *SCIReportInventoryAPsReport58topAPsByReboots200ResponseType
 }
 
-func newSCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1759,9 +1760,9 @@ type SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResp
 	Data *SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType
 }
 
-func newSCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1788,9 +1789,9 @@ type SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResp
 	Data *SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType
 }
 
-func newSCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1817,9 +1818,9 @@ type SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse
 	Data *SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType
 }
 
-func newSCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1846,9 +1847,9 @@ type SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse struct
 	Data *SCIReportInventoryControllersReport96krack200ResponseType
 }
 
-func newSCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1875,9 +1876,9 @@ type SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIR
 	Data *SCIReportInventoryControllersReport98resourceUtilization200ResponseType
 }
 
-func newSCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1904,9 +1905,9 @@ type SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIRe
 	Data *SCIReportInventoryControllersReport99licenseUtilization200ResponseType
 }
 
-func newSCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1933,9 +1934,9 @@ type SCIReportInventoryControllersReport114controllerInventoryOverview200Respons
 	Data *SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType
 }
 
-func newSCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1962,9 +1963,9 @@ type SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200Res
 	Data *SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType
 }
 
-func newSCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1991,9 +1992,9 @@ type SCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse struc
 	Data *SCIReportInventorySwitchesReport113overview200ResponseType
 }
 
-func newSCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2020,9 +2021,9 @@ type SCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIRespon
 	Data *SCIReportInventorySwitchesReport116switchCountTrend200ResponseType
 }
 
-func newSCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2049,9 +2050,9 @@ type SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAP
 	Data *SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType
 }
 
-func newSCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2078,9 +2079,9 @@ type SCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIRespo
 	Data *SCIReportInventorySwitchesReport118topSwitchVersions200ResponseType
 }
 
-func newSCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2107,9 +2108,9 @@ type SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIRe
 	Data *SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType
 }
 
-func newSCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2136,9 +2137,9 @@ type SCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIRespons
 	Data *SCIReportInventorySwitchesReport122topSwitchModels200ResponseType
 }
 
-func newSCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2165,9 +2166,9 @@ type SCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIRespons
 	Data *SCIReportInventorySwitchesReport132portStatusTrend200ResponseType
 }
 
-func newSCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2194,9 +2195,9 @@ type SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIRespon
 	Data *SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType
 }
 
-func newSCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2223,9 +2224,9 @@ type SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse s
 	Data *SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType
 }
 
-func newSCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2252,9 +2253,9 @@ type SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAP
 	Data *SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType
 }
 
-func newSCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2281,9 +2282,9 @@ type SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIRe
 	Data *SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType
 }
 
-func newSCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2310,9 +2311,9 @@ type SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse struc
 	Data *SCIReportNetworkWiredReport134wiredOverview200ResponseType
 }
 
-func newSCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2339,9 +2340,9 @@ type SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIRes
 	Data *SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType
 }
 
-func newSCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2368,9 +2369,9 @@ type SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse 
 	Data *SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType
 }
 
-func newSCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2397,9 +2398,9 @@ type SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse st
 	Data *SCIReportNetworkWiredReport141switchErrorTrend200ResponseType
 }
 
-func newSCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2426,9 +2427,9 @@ type SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIRes
 	Data *SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType
 }
 
-func newSCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2455,9 +2456,9 @@ type SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIRes
 	Data *SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType
 }
 
-func newSCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2484,9 +2485,9 @@ type SCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse struct {
 	Data *SCIReportNetworkWirelessReport20overview200ResponseType
 }
 
-func newSCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2513,9 +2514,9 @@ type SCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIRespon
 	Data *SCIReportNetworkWirelessReport21trafficDistribution200ResponseType
 }
 
-func newSCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2542,9 +2543,9 @@ type SCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse stru
 	Data *SCIReportNetworkWirelessReport22trafficTrend200ResponseType
 }
 
-func newSCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2571,9 +2572,9 @@ type SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIRespo
 	Data *SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType
 }
 
-func newSCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2600,9 +2601,9 @@ type SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIRespo
 	Data *SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType
 }
 
-func newSCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2629,9 +2630,9 @@ type SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIRespo
 	Data *SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType
 }
 
-func newSCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2658,9 +2659,9 @@ type SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIRe
 	Data *SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType
 }
 
-func newSCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2687,9 +2688,9 @@ type SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIRespo
 	Data *SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType
 }
 
-func newSCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2716,9 +2717,9 @@ type SCIReportOverview62overview200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview62overview200ResponseType
 }
 
-func newSCIReportOverview62overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview62overview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview62overview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2745,9 +2746,9 @@ type SCIReportOverview63controller200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview63controller200ResponseType
 }
 
-func newSCIReportOverview63controller200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview63controller200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview63controller200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2774,9 +2775,9 @@ type SCIReportOverview64apOverview200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview64apOverview200ResponseType
 }
 
-func newSCIReportOverview64apOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview64apOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview64apOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2803,9 +2804,9 @@ type SCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview66apAlarmOverview200ResponseType
 }
 
-func newSCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2832,9 +2833,9 @@ type SCIReportOverview67switchOverview200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview67switchOverview200ResponseType
 }
 
-func newSCIReportOverview67switchOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview67switchOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview67switchOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2861,9 +2862,9 @@ type SCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview68apClientCountOverview200ResponseType
 }
 
-func newSCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2890,9 +2891,9 @@ type SCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse struct 
 	Data *SCIReportOverview69totalTrafficMinMaxRate200ResponseType
 }
 
-func newSCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2919,9 +2920,9 @@ type SCIReportOverview70sessionsOverview200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview70sessionsOverview200ResponseType
 }
 
-func newSCIReportOverview70sessionsOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview70sessionsOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview70sessionsOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2948,9 +2949,9 @@ type SCIReportOverview71ssidOverview200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview71ssidOverview200ResponseType
 }
 
-func newSCIReportOverview71ssidOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview71ssidOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview71ssidOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2977,9 +2978,9 @@ type SCIReportOverview72radioOverview200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview72radioOverview200ResponseType
 }
 
-func newSCIReportOverview72radioOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview72radioOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview72radioOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3006,9 +3007,9 @@ type SCIReportOverview73applicationsOverview200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview73applicationsOverview200ResponseType
 }
 
-func newSCIReportOverview73applicationsOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview73applicationsOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview73applicationsOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3035,9 +3036,9 @@ type SCIReportOverview74apEventOverview200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview74apEventOverview200ResponseType
 }
 
-func newSCIReportOverview74apEventOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview74apEventOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview74apEventOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3064,9 +3065,9 @@ type SCIReportOverview97factOverview200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview97factOverview200ResponseType
 }
 
-func newSCIReportOverview97factOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview97factOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview97factOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3093,9 +3094,9 @@ type SCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse struct {
 	Data *SCIReportOverview115networkUsageOverview200ResponseType
 }
 
-func newSCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3132,9 +3133,9 @@ type SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse
 	Data *SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3161,9 +3162,9 @@ type SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse s
 	Data *SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3190,9 +3191,9 @@ type SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse
 	Data *SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3219,9 +3220,9 @@ type SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType
 	Data *SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3248,9 +3249,9 @@ type SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResp
 	Data *SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3277,9 +3278,9 @@ type SCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse s
 	Data *SCIReportSCNetworkTrafficReport103avgThroughput200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3306,9 +3307,9 @@ type SCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse 
 	Data *SCIReportSCNetworkTrafficReport104scAvailability200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3335,9 +3336,9 @@ type SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIRespo
 	Data *SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3364,9 +3365,9 @@ type SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse str
 	Data *SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3393,9 +3394,9 @@ type SCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse s
 	Data *SCIReportSCNetworkTrafficReport107trafficVolume200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3422,9 +3423,9 @@ type SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse s
 	Data *SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3451,9 +3452,9 @@ type SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIRespon
 	Data *SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3480,9 +3481,9 @@ type SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse
 	Data *SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType
 }
 
-func newSCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3532,9 +3533,9 @@ type SCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse struct {
 	Data *SCIReportSessionsSummaryReport33topTable200ResponseType
 }
 
-func newSCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3561,9 +3562,9 @@ type SCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse struct {
 	Data *SCIReportSessionsSummaryReport34overview200ResponseType
 }
 
-func newSCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3590,9 +3591,9 @@ type SCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIRespons
 	Data *SCIReportSessionsSummaryReport42durationPercentile200ResponseType
 }
 
-func newSCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3619,9 +3620,9 @@ type SCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse stru
 	Data *SCIReportSwitchDetailsReport125switchSummary200ResponseType
 }
 
-func newSCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3648,9 +3649,9 @@ type SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIR
 	Data *SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType
 }
 
-func newSCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3677,9 +3678,9 @@ type SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeA
 	Data *SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType
 }
 
-func newSCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3706,9 +3707,9 @@ type SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeA
 	Data *SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType
 }
 
-func newSCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3735,9 +3736,9 @@ type SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse
 	Data *SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType
 }
 
-func newSCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3764,9 +3765,9 @@ type SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse 
 	Data *SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType
 }
 
-func newSCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3793,9 +3794,9 @@ type SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIRespons
 	Data *SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType
 }
 
-func newSCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3822,9 +3823,9 @@ type SCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse stru
 	Data *SCIReportSwitchDetailsReport139switchDetails200ResponseType
 }
 
-func newSCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3851,9 +3852,9 @@ type SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIRespons
 	Data *SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType
 }
 
-func newSCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3880,9 +3881,9 @@ type SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200Resp
 	Data *SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType
 }
 
-func newSCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3909,9 +3910,9 @@ type SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPI
 	Data *SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType
 }
 
-func newSCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3938,9 +3939,9 @@ type SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPI
 	Data *SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType
 }
 
-func newSCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3967,9 +3968,9 @@ type SCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse str
 	Data *SCIReportWirelessApplicationsReport10overview200ResponseType
 }
 
-func newSCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3996,9 +3997,9 @@ type SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200Respo
 	Data *SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType
 }
 
-func newSCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4025,9 +4026,9 @@ type SCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse struct {
 	Data *SCIReportWirelessClientsReport12overview200ResponseType
 }
 
-func newSCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4054,9 +4055,9 @@ type SCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse struct {
 	Data *SCIReportWirelessClientsReport13topChart200ResponseType
 }
 
-func newSCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4083,9 +4084,9 @@ type SCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse struct {
 	Data *SCIReportWirelessClientsReport14topTable200ResponseType
 }
 
-func newSCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4112,9 +4113,9 @@ type SCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse struct
 	Data *SCIReportWirelessClientsReport15trendChart200ResponseType
 }
 
-func newSCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4141,9 +4142,9 @@ type SCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse struct
 	Data *SCIReportWirelessClientsReport16trendTable200ResponseType
 }
 
-func newSCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4170,9 +4171,9 @@ type SCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse str
 	Data *SCIReportWirelessClientsReport17topPercentile200ResponseType
 }
 
-func newSCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4199,9 +4200,9 @@ type SCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIRespon
 	Data *SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType
 }
 
-func newSCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4228,9 +4229,9 @@ type SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseT
 	Data *SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType
 }
 
-func newSCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4257,9 +4258,9 @@ type SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount2
 	Data *SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType
 }
 
-func newSCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4389,9 +4390,9 @@ type SCIReportWithRelationsAPIResponse struct {
 	Data *SCIReportWithRelations
 }
 
-func newSCIReportWithRelationsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWithRelationsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWithRelationsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5211,9 +5212,9 @@ type SCIReportWLANsReport35overview200ResponseTypeAPIResponse struct {
 	Data *SCIReportWLANsReport35overview200ResponseType
 }
 
-func newSCIReportWLANsReport35overview200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWLANsReport35overview200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWLANsReport35overview200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5240,9 +5241,9 @@ type SCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse struct 
 	Data *SCIReportWLANsReport36top10SsidsByTraffic200ResponseType
 }
 
-func newSCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5269,9 +5270,9 @@ type SCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse struct {
 	Data *SCIReportWLANsReport37activeSsidsTrend200ResponseType
 }
 
-func newSCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5298,9 +5299,9 @@ type SCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse str
 	Data *SCIReportWLANsReport38top10SsidsByClientCount200ResponseType
 }
 
-func newSCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5327,9 +5328,9 @@ type SCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse struct 
 	Data *SCIReportWLANsReport39ssidChangesOverTime200ResponseType
 }
 
-func newSCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5356,9 +5357,9 @@ type SCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse stru
 	Data *SCIReportWLANsReport40topSsidsByTrafficTable200ResponseType
 }
 
-func newSCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5385,9 +5386,9 @@ type SCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse stru
 	Data *SCIReportWLANsReport41topSsidsByClientsTable200ResponseType
 }
 
-func newSCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

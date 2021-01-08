@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGWLANQueryApWlanBssid
@@ -49,9 +49,9 @@ type WSGWLANQueryApWlanBssidQueryListAPIResponse struct {
 	Data *WSGWLANQueryApWlanBssidQueryList
 }
 
-func newWSGWLANQueryApWlanBssidQueryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGWLANQueryApWlanBssidQueryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWLANQueryApWlanBssidQueryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -191,9 +191,9 @@ type WSGWLANQueryListAPIResponse struct {
 	Data *WSGWLANQueryList
 }
 
-func newWSGWLANQueryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGWLANQueryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWLANQueryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

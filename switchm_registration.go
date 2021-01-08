@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -74,9 +75,9 @@ type SwitchMRegistrationRulesCreateResultAPIResponse struct {
 	Data *SwitchMRegistrationRulesCreateResult
 }
 
-func newSwitchMRegistrationRulesCreateResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMRegistrationRulesCreateResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMRegistrationRulesCreateResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -115,9 +116,9 @@ type SwitchMRegistrationRulesDeleteMultipleResultAPIResponse struct {
 	Data *SwitchMRegistrationRulesDeleteMultipleResult
 }
 
-func newSwitchMRegistrationRulesDeleteMultipleResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMRegistrationRulesDeleteMultipleResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMRegistrationRulesDeleteMultipleResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -156,9 +157,9 @@ type SwitchMRegistrationRulesDeleteResultAPIResponse struct {
 	Data *SwitchMRegistrationRulesDeleteResult
 }
 
-func newSwitchMRegistrationRulesDeleteResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMRegistrationRulesDeleteResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMRegistrationRulesDeleteResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -245,9 +246,9 @@ type SwitchMRegistrationRulesModifyResultAPIResponse struct {
 	Data *SwitchMRegistrationRulesModifyResult
 }
 
-func newSwitchMRegistrationRulesModifyResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMRegistrationRulesModifyResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMRegistrationRulesModifyResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -362,9 +363,9 @@ type SwitchMRegistrationRulesRuleQueryResultListAPIResponse struct {
 	Data *SwitchMRegistrationRulesRuleQueryResultList
 }
 
-func newSwitchMRegistrationRulesRuleQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMRegistrationRulesRuleQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMRegistrationRulesRuleQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

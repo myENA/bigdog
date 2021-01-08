@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // SwitchMVEConfigCreate
@@ -77,9 +77,9 @@ type SwitchMVEConfigCreateResultAPIResponse struct {
 	Data *SwitchMVEConfigCreateResult
 }
 
-func newSwitchMVEConfigCreateResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMVEConfigCreateResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMVEConfigCreateResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -118,9 +118,9 @@ type SwitchMVEConfigListAPIResponse struct {
 	Data *SwitchMVEConfigList
 }
 
-func newSwitchMVEConfigListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMVEConfigListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMVEConfigListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -265,9 +265,9 @@ type SwitchMVEConfigAPIResponse struct {
 	Data *SwitchMVEConfig
 }
 
-func newSwitchMVEConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMVEConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMVEConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

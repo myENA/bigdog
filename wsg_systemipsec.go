@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -108,9 +109,9 @@ type WSGSystemIPsecGetResultAPIResponse struct {
 	Data *WSGSystemIPsecGetResult
 }
 
-func newWSGSystemIPsecGetResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemIPsecGetResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemIPsecGetResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

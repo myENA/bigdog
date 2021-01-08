@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -60,9 +61,9 @@ type WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList
 	Data *WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList
 }
 
-func newWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

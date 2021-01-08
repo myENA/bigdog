@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGPortalDetectionProfileCreatePortalDetectionProfile
@@ -122,9 +122,9 @@ type WSGPortalDetectionProfileAPIResponse struct {
 	Data *WSGPortalDetectionProfile
 }
 
-func newWSGPortalDetectionProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGPortalDetectionProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalDetectionProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -157,9 +157,9 @@ type WSGPortalDetectionProfileListAPIResponse struct {
 	Data *WSGPortalDetectionProfileList
 }
 
-func newWSGPortalDetectionProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGPortalDetectionProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalDetectionProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGZoneApFirmware
@@ -47,9 +47,9 @@ type WSGZoneApFirmwareListAPIResponse struct {
 	Data *WSGZoneApFirmwareList
 }
 
-func newWSGZoneApFirmwareListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGZoneApFirmwareListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGZoneApFirmwareListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -152,9 +152,9 @@ type WSGZoneAvailableTunnelProfileListAPIResponse struct {
 	Data *WSGZoneAvailableTunnelProfileList
 }
 
-func newWSGZoneAvailableTunnelProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGZoneAvailableTunnelProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGZoneAvailableTunnelProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -221,9 +221,9 @@ type WSGZoneBonjourGatewayPolicyConfigurationAPIResponse struct {
 	Data *WSGZoneBonjourGatewayPolicyConfiguration
 }
 
-func newWSGZoneBonjourGatewayPolicyConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGZoneBonjourGatewayPolicyConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGZoneBonjourGatewayPolicyConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -254,9 +254,9 @@ type WSGZoneBonjourGatewayPolicyListAPIResponse struct {
 	Data *WSGZoneBonjourGatewayPolicyList
 }
 
-func newWSGZoneBonjourGatewayPolicyListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGZoneBonjourGatewayPolicyListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGZoneBonjourGatewayPolicyListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -773,9 +773,9 @@ type WSGZoneDhcpSiteConfigListAPIResponse struct {
 	Data *WSGZoneDhcpSiteConfigList
 }
 
-func newWSGZoneDhcpSiteConfigListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGZoneDhcpSiteConfigListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGZoneDhcpSiteConfigListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -814,9 +814,9 @@ type WSGZoneDiffServConfigurationAPIResponse struct {
 	Data *WSGZoneDiffServConfiguration
 }
 
-func newWSGZoneDiffServConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGZoneDiffServConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGZoneDiffServConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -847,9 +847,9 @@ type WSGZoneDiffServListAPIResponse struct {
 	Data *WSGZoneDiffServList
 }
 
-func newWSGZoneDiffServListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGZoneDiffServListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGZoneDiffServListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -954,9 +954,9 @@ type WSGZoneMeshConfigurationAPIResponse struct {
 	Data *WSGZoneMeshConfiguration
 }
 
-func newWSGZoneMeshConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGZoneMeshConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGZoneMeshConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1917,9 +1917,9 @@ type WSGZoneConfigurationAPIResponse struct {
 	Data *WSGZoneConfiguration
 }
 
-func newWSGZoneConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGZoneConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGZoneConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1950,9 +1950,9 @@ type WSGZoneListAPIResponse struct {
 	Data *WSGZoneList
 }
 
-func newWSGZoneListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGZoneListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGZoneListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

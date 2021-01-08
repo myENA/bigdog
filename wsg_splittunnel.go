@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGSplitTunnelCreateSplitTunnelProfile
@@ -96,9 +96,9 @@ type WSGSplitTunnelProfileAPIResponse struct {
 	Data *WSGSplitTunnelProfile
 }
 
-func newWSGSplitTunnelProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSplitTunnelProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSplitTunnelProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -129,9 +129,9 @@ type WSGSplitTunnelProfileListAPIResponse struct {
 	Data *WSGSplitTunnelProfileList
 }
 
-func newWSGSplitTunnelProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSplitTunnelProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSplitTunnelProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -178,9 +178,9 @@ type WSGSplitTunnelProfileQueryAPIResponse struct {
 	Data *WSGSplitTunnelProfileQuery
 }
 
-func newWSGSplitTunnelProfileQueryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSplitTunnelProfileQueryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSplitTunnelProfileQueryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

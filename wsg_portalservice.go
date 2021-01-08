@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGPortalServiceConnectionCapability
@@ -529,9 +529,9 @@ type WSGPortalServiceGuestAccessAPIResponse struct {
 	Data *WSGPortalServiceGuestAccess
 }
 
-func newWSGPortalServiceGuestAccessAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGPortalServiceGuestAccessAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceGuestAccessAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -619,9 +619,9 @@ type WSGPortalServiceHotspotAPIResponse struct {
 	Data *WSGPortalServiceHotspot
 }
 
-func newWSGPortalServiceHotspotAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGPortalServiceHotspotAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceHotspotAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -672,9 +672,9 @@ type WSGPortalServiceHotspot20VeuneProfileAPIResponse struct {
 	Data *WSGPortalServiceHotspot20VeuneProfile
 }
 
-func newWSGPortalServiceHotspot20VeuneProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGPortalServiceHotspot20VeuneProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceHotspot20VeuneProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -749,9 +749,9 @@ type WSGPortalServiceHotspot20WlanProfileAPIResponse struct {
 	Data *WSGPortalServiceHotspot20WlanProfile
 }
 
-func newWSGPortalServiceHotspot20WlanProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGPortalServiceHotspot20WlanProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceHotspot20WlanProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -794,9 +794,9 @@ type WSGPortalServiceL2ACLAPIResponse struct {
 	Data *WSGPortalServiceL2ACL
 }
 
-func newWSGPortalServiceL2ACLAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGPortalServiceL2ACLAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceL2ACLAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1141,9 +1141,9 @@ type WSGPortalServiceListAPIResponse struct {
 	Data *WSGPortalServiceList
 }
 
-func newWSGPortalServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGPortalServiceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1249,9 +1249,9 @@ type WSGPortalServiceWebAuthenticationAPIResponse struct {
 	Data *WSGPortalServiceWebAuthentication
 }
 
-func newWSGPortalServiceWebAuthenticationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGPortalServiceWebAuthenticationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceWebAuthenticationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1306,9 +1306,9 @@ type WSGPortalServiceWechatConfigurationAPIResponse struct {
 	Data *WSGPortalServiceWechatConfiguration
 }
 
-func newWSGPortalServiceWechatConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGPortalServiceWechatConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceWechatConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGCommonAltitude
@@ -297,9 +297,9 @@ type WSGCommonCreateResultAPIResponse struct {
 	Data *WSGCommonCreateResult
 }
 
-func newWSGCommonCreateResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCommonCreateResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCommonCreateResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -326,9 +326,9 @@ type WSGCommonCreateResultIdNameAPIResponse struct {
 	Data *WSGCommonCreateResultIdName
 }
 
-func newWSGCommonCreateResultIdNameAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCommonCreateResultIdNameAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCommonCreateResultIdNameAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -424,9 +424,9 @@ type WSGCommonDhcpProfileRefAPIResponse struct {
 	Data *WSGCommonDhcpProfileRef
 }
 
-func newWSGCommonDhcpProfileRefAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCommonDhcpProfileRefAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCommonDhcpProfileRefAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -479,9 +479,9 @@ type WSGCommonDhcpSiteConfigListRefAPIResponse struct {
 	Data *WSGCommonDhcpSiteConfigListRef
 }
 
-func newWSGCommonDhcpSiteConfigListRefAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCommonDhcpSiteConfigListRefAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCommonDhcpSiteConfigListRefAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -911,9 +911,9 @@ type WSGCommonMonitoringSummaryAPIResponse struct {
 	Data *WSGCommonMonitoringSummary
 }
 
-func newWSGCommonMonitoringSummaryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCommonMonitoringSummaryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCommonMonitoringSummaryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2054,9 +2054,9 @@ type WSGCommonTrafficClassProfileRefAPIResponse struct {
 	Data *WSGCommonTrafficClassProfileRef
 }
 
-func newWSGCommonTrafficClassProfileRefAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCommonTrafficClassProfileRefAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCommonTrafficClassProfileRefAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

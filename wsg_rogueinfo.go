@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGRogueInfo
@@ -89,9 +89,9 @@ type WSGRogueInfoListAPIResponse struct {
 	Data *WSGRogueInfoList
 }
 
-func newWSGRogueInfoListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGRogueInfoListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGRogueInfoListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

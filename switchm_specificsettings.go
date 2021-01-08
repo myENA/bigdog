@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -160,9 +161,9 @@ type SwitchMSpecificSettingsAPIResponse struct {
 	Data *SwitchMSpecificSettings
 }
 
-func newSwitchMSpecificSettingsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMSpecificSettingsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSpecificSettingsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -207,9 +208,9 @@ type SwitchMSpecificSettingsAllResultAPIResponse struct {
 	Data *SwitchMSpecificSettingsAllResult
 }
 
-func newSwitchMSpecificSettingsAllResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMSpecificSettingsAllResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSpecificSettingsAllResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

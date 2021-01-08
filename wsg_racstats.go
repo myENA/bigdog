@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGRACStatsGgsnGtp
@@ -215,9 +215,9 @@ type WSGRACStatsGgsnGtpcConListAPIResponse struct {
 	Data *WSGRACStatsGgsnGtpcConList
 }
 
-func newWSGRACStatsGgsnGtpcConListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGRACStatsGgsnGtpcConListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGRACStatsGgsnGtpcConListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -250,9 +250,9 @@ type WSGRACStatsGgsnGtpListAPIResponse struct {
 	Data *WSGRACStatsGgsnGtpList
 }
 
-func newWSGRACStatsGgsnGtpListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGRACStatsGgsnGtpListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGRACStatsGgsnGtpListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -483,9 +483,9 @@ type WSGRACStatsRadiusProxyListAPIResponse struct {
 	Data *WSGRACStatsRadiusProxyList
 }
 
-func newWSGRACStatsRadiusProxyListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGRACStatsRadiusProxyListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGRACStatsRadiusProxyListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

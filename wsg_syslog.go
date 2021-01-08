@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGSyslogModifySyslogSettings
@@ -230,9 +230,9 @@ type WSGSyslogServerSettingAPIResponse struct {
 	Data *WSGSyslogServerSetting
 }
 
-func newWSGSyslogServerSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSyslogServerSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSyslogServerSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

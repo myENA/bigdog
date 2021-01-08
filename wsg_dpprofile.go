@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGDPProfileBulkDelete
@@ -57,9 +57,9 @@ type WSGDPProfileDpDhcpProfileBasicBOAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfileBasicBO
 }
 
-func newWSGDPProfileDpDhcpProfileBasicBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileDpDhcpProfileBasicBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfileBasicBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -90,9 +90,9 @@ type WSGDPProfileDpDhcpProfileBasicBOListAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfileBasicBOList
 }
 
-func newWSGDPProfileDpDhcpProfileBasicBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileDpDhcpProfileBasicBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfileBasicBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -163,9 +163,9 @@ type WSGDPProfileDpDhcpProfileHostBOAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfileHostBO
 }
 
-func newWSGDPProfileDpDhcpProfileHostBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileDpDhcpProfileHostBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfileHostBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -196,9 +196,9 @@ type WSGDPProfileDpDhcpProfileHostBOListAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfileHostBOList
 }
 
-func newWSGDPProfileDpDhcpProfileHostBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileDpDhcpProfileHostBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfileHostBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -279,9 +279,9 @@ type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO
 }
 
-func newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -312,9 +312,9 @@ type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList
 }
 
-func newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -457,9 +457,9 @@ type WSGDPProfileDpDhcpProfilePoolBOAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfilePoolBO
 }
 
-func newWSGDPProfileDpDhcpProfilePoolBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileDpDhcpProfilePoolBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfilePoolBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -490,9 +490,9 @@ type WSGDPProfileDpDhcpProfilePoolBOListAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfilePoolBOList
 }
 
-func newWSGDPProfileDpDhcpProfilePoolBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileDpDhcpProfilePoolBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfilePoolBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -563,9 +563,9 @@ type WSGDPProfileDpNatProfileBasicBOAPIResponse struct {
 	Data *WSGDPProfileDpNatProfileBasicBO
 }
 
-func newWSGDPProfileDpNatProfileBasicBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileDpNatProfileBasicBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpNatProfileBasicBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -596,9 +596,9 @@ type WSGDPProfileDpNatProfileBasicBOListAPIResponse struct {
 	Data *WSGDPProfileDpNatProfileBasicBOList
 }
 
-func newWSGDPProfileDpNatProfileBasicBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileDpNatProfileBasicBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpNatProfileBasicBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -661,9 +661,9 @@ type WSGDPProfileDpNatProfilePoolBOAPIResponse struct {
 	Data *WSGDPProfileDpNatProfilePoolBO
 }
 
-func newWSGDPProfileDpNatProfilePoolBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileDpNatProfilePoolBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpNatProfilePoolBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -694,9 +694,9 @@ type WSGDPProfileDpNatProfilePoolBOListAPIResponse struct {
 	Data *WSGDPProfileDpNatProfilePoolBOList
 }
 
-func newWSGDPProfileDpNatProfilePoolBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileDpNatProfilePoolBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpNatProfilePoolBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -787,9 +787,9 @@ type WSGDPProfileSettingBOAPIResponse struct {
 	Data *WSGDPProfileSettingBO
 }
 
-func newWSGDPProfileSettingBOAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileSettingBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileSettingBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -820,9 +820,9 @@ type WSGDPProfileSettingBOListAPIResponse struct {
 	Data *WSGDPProfileSettingBOList
 }
 
-func newWSGDPProfileSettingBOListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDPProfileSettingBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileSettingBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

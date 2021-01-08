@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -122,9 +123,9 @@ type SwitchMGroupModelConfigQueryResultAPIResponse struct {
 	Data *SwitchMGroupModelConfigQueryResult
 }
 
-func newSwitchMGroupModelConfigQueryResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMGroupModelConfigQueryResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMGroupModelConfigQueryResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -181,9 +182,9 @@ type SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse struct {
 	Data *SwitchMGroupModelConfigUpdateGroupConfigResultList
 }
 
-func newSwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

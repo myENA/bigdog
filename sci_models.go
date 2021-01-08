@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // SCIModelsFilter
@@ -36,9 +36,9 @@ type SCIModelsFilterAPIResponse struct {
 	Data *SCIModelsFilter
 }
 
-func newSCIModelsFilterAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIModelsFilterAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIModelsFilterAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -75,9 +75,9 @@ type SCIModelsMigrationAPIResponse struct {
 	Data *SCIModelsMigration
 }
 
-func newSCIModelsMigrationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIModelsMigrationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIModelsMigrationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -121,9 +121,9 @@ type SCIModelsMigrationMapAPIResponse struct {
 	Data *SCIModelsMigrationMap
 }
 
-func newSCIModelsMigrationMapAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIModelsMigrationMapAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIModelsMigrationMapAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -191,9 +191,9 @@ type SCIModelsPciReportAPIResponse struct {
 	Data *SCIModelsPciReport
 }
 
-func newSCIModelsPciReportAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIModelsPciReportAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIModelsPciReportAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -242,9 +242,9 @@ type SCIModelsReportAPIResponse struct {
 	Data *SCIModelsReport
 }
 
-func newSCIModelsReportAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIModelsReportAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIModelsReportAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -350,9 +350,9 @@ type SCIModelsResourceGroupAPIResponse struct {
 	Data *SCIModelsResourceGroup
 }
 
-func newSCIModelsResourceGroupAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIModelsResourceGroupAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIModelsResourceGroupAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -427,9 +427,9 @@ type SCIModelsScheduleAPIResponse struct {
 	Data *SCIModelsSchedule
 }
 
-func newSCIModelsScheduleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIModelsScheduleAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIModelsScheduleAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -494,9 +494,9 @@ type SCIModelsSettingAPIResponse struct {
 	Data *SCIModelsSetting
 }
 
-func newSCIModelsSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIModelsSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIModelsSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -554,9 +554,9 @@ type SCIModelsSystemAPIResponse struct {
 	Data *SCIModelsSystem
 }
 
-func newSCIModelsSystemAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIModelsSystemAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIModelsSystemAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -602,9 +602,9 @@ type SCIModelsUserAPIResponse struct {
 	Data *SCIModelsUser
 }
 
-func newSCIModelsUserAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIModelsUserAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIModelsUserAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

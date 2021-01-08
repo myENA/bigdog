@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGDomainDevicePolicyCreateDomainDevicePolicy
@@ -69,9 +69,9 @@ type WSGDomainDevicePolicyProfileAPIResponse struct {
 	Data *WSGDomainDevicePolicyProfile
 }
 
-func newWSGDomainDevicePolicyProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDomainDevicePolicyProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDomainDevicePolicyProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -167,9 +167,9 @@ type WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse struct {
 	Data *WSGDomainDevicePolicyProfileByQueryCriteria
 }
 
-func newWSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -272,9 +272,9 @@ type WSGDomainDevicePolicyProfileListAPIResponse struct {
 	Data *WSGDomainDevicePolicyProfileList
 }
 
-func newWSGDomainDevicePolicyProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDomainDevicePolicyProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDomainDevicePolicyProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

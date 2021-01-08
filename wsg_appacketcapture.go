@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGAPPackCaptureApPacketCaptureReq
@@ -78,9 +78,9 @@ type WSGAPPackCaptureApPacketCaptureResAPIResponse struct {
 	Data *WSGAPPackCaptureApPacketCaptureRes
 }
 
-func newWSGAPPackCaptureApPacketCaptureResAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAPPackCaptureApPacketCaptureResAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPPackCaptureApPacketCaptureResAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

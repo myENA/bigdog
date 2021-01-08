@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -72,9 +73,9 @@ type WSGCertificateAPIResponse struct {
 	Data *WSGCertificate
 }
 
-func newWSGCertificateAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCertificateAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -105,9 +106,9 @@ type WSGCertificateListAPIResponse struct {
 	Data *WSGCertificateList
 }
 
-func newWSGCertificateListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCertificateListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -184,9 +185,9 @@ type WSGCertificatesSigningRequestAPIResponse struct {
 	Data *WSGCertificatesSigningRequest
 }
 
-func newWSGCertificatesSigningRequestAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCertificatesSigningRequestAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificatesSigningRequestAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -213,9 +214,9 @@ type WSGCertificateCertSettingAPIResponse struct {
 	Data *WSGCertificateCertSetting
 }
 
-func newWSGCertificateCertSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCertificateCertSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateCertSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -272,9 +273,9 @@ type WSGCertificateClientCertAPIResponse struct {
 	Data *WSGCertificateClientCert
 }
 
-func newWSGCertificateClientCertAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCertificateClientCertAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateClientCertAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -305,9 +306,9 @@ type WSGCertificateClientCertListAPIResponse struct {
 	Data *WSGCertificateClientCertList
 }
 
-func newWSGCertificateClientCertListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCertificateClientCertListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateClientCertListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -528,9 +529,9 @@ type WSGCertificateCsrListAPIResponse struct {
 	Data *WSGCertificateCsrList
 }
 
-func newWSGCertificateCsrListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCertificateCsrListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateCsrListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -658,9 +659,9 @@ type WSGCertificateTrustedCAChainAPIResponse struct {
 	Data *WSGCertificateTrustedCAChain
 }
 
-func newWSGCertificateTrustedCAChainAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCertificateTrustedCAChainAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateTrustedCAChainAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -691,9 +692,9 @@ type WSGCertificateTrustedCAChainCertListAPIResponse struct {
 	Data *WSGCertificateTrustedCAChainCertList
 }
 
-func newWSGCertificateTrustedCAChainCertListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCertificateTrustedCAChainCertListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateTrustedCAChainCertListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

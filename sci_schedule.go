@@ -6,6 +6,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 	"net/url"
 )
@@ -36,9 +37,9 @@ type SCIScheduleBatchDelete200ResponseTypeAPIResponse struct {
 	Data *SCIScheduleBatchDelete200ResponseType
 }
 
-func newSCIScheduleBatchDelete200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIScheduleBatchDelete200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIScheduleBatchDelete200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

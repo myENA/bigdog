@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -135,9 +136,9 @@ type WSGL2AccessControlAPIResponse struct {
 	Data *WSGL2AccessControl
 }
 
-func newWSGL2AccessControlAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGL2AccessControlAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGL2AccessControlAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -170,9 +171,9 @@ type WSGL2AccessControlListAPIResponse struct {
 	Data *WSGL2AccessControlList
 }
 
-func newWSGL2AccessControlListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGL2AccessControlListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGL2AccessControlListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

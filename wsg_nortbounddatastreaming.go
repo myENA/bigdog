@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -165,9 +166,9 @@ type WSGNorthboundDataStreamingEventCodesAPIResponse struct {
 	Data *WSGNorthboundDataStreamingEventCodes
 }
 
-func newWSGNorthboundDataStreamingEventCodesAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGNorthboundDataStreamingEventCodesAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGNorthboundDataStreamingEventCodesAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -246,9 +247,9 @@ type WSGNorthboundDataStreamingProfileAPIResponse struct {
 	Data *WSGNorthboundDataStreamingProfile
 }
 
-func newWSGNorthboundDataStreamingProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGNorthboundDataStreamingProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGNorthboundDataStreamingProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -312,9 +313,9 @@ type WSGNorthboundDataStreamingProfileListAPIResponse struct {
 	Data *WSGNorthboundDataStreamingProfileList
 }
 
-func newWSGNorthboundDataStreamingProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGNorthboundDataStreamingProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGNorthboundDataStreamingProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

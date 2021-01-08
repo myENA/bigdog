@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -129,9 +130,9 @@ type WSGVLANPoolingAPIResponse struct {
 	Data *WSGVLANPooling
 }
 
-func newWSGVLANPoolingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGVLANPoolingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGVLANPoolingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -164,9 +165,9 @@ type WSGVLANPoolingListAPIResponse struct {
 	Data *WSGVLANPoolingList
 }
 
-func newWSGVLANPoolingListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGVLANPoolingListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGVLANPoolingListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

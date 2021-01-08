@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -201,9 +202,9 @@ type WSGSCIEventCodeAPIResponse struct {
 	Data *WSGSCIEventCode
 }
 
-func newWSGSCIEventCodeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSCIEventCodeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCIEventCodeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -276,9 +277,9 @@ type WSGSCIProfileAPIResponse struct {
 	Data *WSGSCIProfile
 }
 
-func newWSGSCIProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSCIProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCIProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -342,9 +343,9 @@ type WSGSCIProfileListAPIResponse struct {
 	Data *WSGSCIProfileList
 }
 
-func newWSGSCIProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSCIProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCIProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

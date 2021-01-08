@@ -6,6 +6,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 	"net/url"
 )
@@ -36,9 +37,9 @@ type SCIPCIProfileBatchDelete200ResponseTypeAPIResponse struct {
 	Data *SCIPCIProfileBatchDelete200ResponseType
 }
 
-func newSCIPCIProfileBatchDelete200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIPCIProfileBatchDelete200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIPCIProfileBatchDelete200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -73,9 +74,9 @@ type SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse struct {
 	Data *SCIPCIProfilePrototypecountreports200ResponseType
 }
 
-func newSCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

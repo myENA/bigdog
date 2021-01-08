@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGPerformanceAndHealthExtensionsGroupBarEntry
@@ -45,9 +45,9 @@ type WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse struct {
 	Data *WSGPerformanceAndHealthExtensionsGroupBarList
 }
 
-func newWSGPerformanceAndHealthExtensionsGroupBarListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGPerformanceAndHealthExtensionsGroupBarListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -96,9 +96,9 @@ type WSGPerformanceAndHealthExtensionsLineListAPIResponse struct {
 	Data *WSGPerformanceAndHealthExtensionsLineList
 }
 
-func newWSGPerformanceAndHealthExtensionsLineListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGPerformanceAndHealthExtensionsLineListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPerformanceAndHealthExtensionsLineListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

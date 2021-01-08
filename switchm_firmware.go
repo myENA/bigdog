@@ -55,9 +55,9 @@ type SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse struct {
 	Data *SwitchMFirmwareConfigFirmwaresQueryResultList
 }
 
-func newSwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -102,9 +102,9 @@ type SwitchMFirmwareConfigScheduleIdsAPIResponse struct {
 	Data *SwitchMFirmwareConfigScheduleIds
 }
 
-func newSwitchMFirmwareConfigScheduleIdsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMFirmwareConfigScheduleIdsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMFirmwareConfigScheduleIdsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

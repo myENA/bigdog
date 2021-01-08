@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGAPRoutineConfigIntervalReq
@@ -35,9 +35,9 @@ type WSGAPRoutineConfigIntervalRspAPIResponse struct {
 	Data *WSGAPRoutineConfigIntervalRsp
 }
 
-func newWSGAPRoutineConfigIntervalRspAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAPRoutineConfigIntervalRspAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPRoutineConfigIntervalRspAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // SwitchMConfigurationBackupBackupIds
@@ -99,9 +99,9 @@ type SwitchMConfigurationBackupConfigBackupDiffAPIResponse struct {
 	Data *SwitchMConfigurationBackupConfigBackupDiff
 }
 
-func newSwitchMConfigurationBackupConfigBackupDiffAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMConfigurationBackupConfigBackupDiffAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMConfigurationBackupConfigBackupDiffAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -162,9 +162,9 @@ type SwitchMConfigurationBackupCreateBackupResultListAPIResponse struct {
 	Data *SwitchMConfigurationBackupCreateBackupResultList
 }
 
-func newSwitchMConfigurationBackupCreateBackupResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMConfigurationBackupCreateBackupResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMConfigurationBackupCreateBackupResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -229,9 +229,9 @@ type SwitchMConfigurationBackupListAPIResponse struct {
 	Data *SwitchMConfigurationBackupList
 }
 
-func newSwitchMConfigurationBackupListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMConfigurationBackupListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMConfigurationBackupListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

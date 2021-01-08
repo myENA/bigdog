@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -276,9 +277,9 @@ type WSGSCGUserGetScgUserAPIResponse struct {
 	Data *WSGSCGUserGetScgUser
 }
 
-func newWSGSCGUserGetScgUserAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSCGUserGetScgUserAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserGetScgUserAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -574,9 +575,9 @@ type WSGSCGUserAuditIdAPIResponse struct {
 	Data *WSGSCGUserAuditId
 }
 
-func newWSGSCGUserAuditIdAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSCGUserAuditIdAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserAuditIdAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -685,9 +686,9 @@ type WSGSCGUserGroupAPIResponse struct {
 	Data *WSGSCGUserGroup
 }
 
-func newWSGSCGUserGroupAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSCGUserGroupAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserGroupAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -714,9 +715,9 @@ type WSGSCGUserGroupAuditIdAPIResponse struct {
 	Data *WSGSCGUserGroupAuditId
 }
 
-func newWSGSCGUserGroupAuditIdAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSCGUserGroupAuditIdAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserGroupAuditIdAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -749,9 +750,9 @@ type WSGSCGUserGroupListAPIResponse struct {
 	Data *WSGSCGUserGroupList
 }
 
-func newWSGSCGUserGroupListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSCGUserGroupListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserGroupListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -847,9 +848,9 @@ type WSGSCGUserGroupPermissionListAPIResponse struct {
 	Data *WSGSCGUserGroupPermissionList
 }
 
-func newWSGSCGUserGroupPermissionListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSCGUserGroupPermissionListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserGroupPermissionListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -972,9 +973,9 @@ type WSGSCGUserGroupRoleLabelValueListAPIResponse struct {
 	Data *WSGSCGUserGroupRoleLabelValueList
 }
 
-func newWSGSCGUserGroupRoleLabelValueListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSCGUserGroupRoleLabelValueListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserGroupRoleLabelValueListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1007,9 +1008,9 @@ type WSGSCGUserListAPIResponse struct {
 	Data *WSGSCGUserList
 }
 
-func newWSGSCGUserListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSCGUserListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

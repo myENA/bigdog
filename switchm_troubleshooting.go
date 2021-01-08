@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -148,9 +149,9 @@ type SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse struct {
 	Data *SwitchMTroubleshootingRemoteClientConnectivityResponse
 }
 
-func newSwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -353,9 +354,9 @@ type SwitchMTroubleshootingRemoteCommandResponseAPIResponse struct {
 	Data *SwitchMTroubleshootingRemoteCommandResponse
 }
 
-func newSwitchMTroubleshootingRemoteCommandResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMTroubleshootingRemoteCommandResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTroubleshootingRemoteCommandResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -528,9 +529,9 @@ type SwitchMTroubleshootingSupportLogStatusAPIResponse struct {
 	Data *SwitchMTroubleshootingSupportLogStatus
 }
 
-func newSwitchMTroubleshootingSupportLogStatusAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMTroubleshootingSupportLogStatusAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTroubleshootingSupportLogStatusAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

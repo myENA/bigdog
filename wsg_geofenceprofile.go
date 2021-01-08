@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -106,9 +107,9 @@ type WSGGeofenceProfileGetGeofenceProfileAPIResponse struct {
 	Data *WSGGeofenceProfileGetGeofenceProfile
 }
 
-func newWSGGeofenceProfileGetGeofenceProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGGeofenceProfileGetGeofenceProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGGeofenceProfileGetGeofenceProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -139,9 +140,9 @@ type WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse struct {
 	Data *WSGGeofenceProfileGetGeofenceProfileProfileList
 }
 
-func newWSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

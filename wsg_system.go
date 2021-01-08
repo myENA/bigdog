@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -60,9 +61,9 @@ type WSGSystemApMacOUIListAPIResponse struct {
 	Data *WSGSystemApMacOUIList
 }
 
-func newWSGSystemApMacOUIListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemApMacOUIListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemApMacOUIListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -177,9 +178,9 @@ type WSGSystemControllerListAPIResponse struct {
 	Data *WSGSystemControllerList
 }
 
-func newWSGSystemControllerListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemControllerListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemControllerListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -306,9 +307,9 @@ type WSGSystemControlPlaneConfigurationAPIResponse struct {
 	Data *WSGSystemControlPlaneConfiguration
 }
 
-func newWSGSystemControlPlaneConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemControlPlaneConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemControlPlaneConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -353,9 +354,9 @@ type WSGSystemControlPlaneInterfaceListAPIResponse struct {
 	Data *WSGSystemControlPlaneInterfaceList
 }
 
-func newWSGSystemControlPlaneInterfaceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemControlPlaneInterfaceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemControlPlaneInterfaceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -386,9 +387,9 @@ type WSGSystemControlPlaneListAPIResponse struct {
 	Data *WSGSystemControlPlaneList
 }
 
-func newWSGSystemControlPlaneListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemControlPlaneListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemControlPlaneListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -579,9 +580,9 @@ type WSGSystemDataPlaneConfigurationAPIResponse struct {
 	Data *WSGSystemDataPlaneConfiguration
 }
 
-func newWSGSystemDataPlaneConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemDataPlaneConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemDataPlaneConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -612,9 +613,9 @@ type WSGSystemDataPlaneListAPIResponse struct {
 	Data *WSGSystemDataPlaneList
 }
 
-func newWSGSystemDataPlaneListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemDataPlaneListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemDataPlaneListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -745,9 +746,9 @@ type WSGSystemFriendlyNameLangListAPIResponse struct {
 	Data *WSGSystemFriendlyNameLangList
 }
 
-func newWSGSystemFriendlyNameLangListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemFriendlyNameLangListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemFriendlyNameLangListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -831,9 +832,9 @@ type WSGSystemFtpAPIResponse struct {
 	Data *WSGSystemFtp
 }
 
-func newWSGSystemFtpAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemFtpAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemFtpAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -870,9 +871,9 @@ type WSGSystemFtpGlobalSettingAPIResponse struct {
 	Data *WSGSystemFtpGlobalSetting
 }
 
-func newWSGSystemFtpGlobalSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemFtpGlobalSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemFtpGlobalSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -911,9 +912,9 @@ type WSGSystemFtpListAPIResponse struct {
 	Data *WSGSystemFtpList
 }
 
-func newWSGSystemFtpListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemFtpListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemFtpListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -952,9 +953,9 @@ type WSGSystemFtpTestResponseAPIResponse struct {
 	Data *WSGSystemFtpTestResponse
 }
 
-func newWSGSystemFtpTestResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemFtpTestResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemFtpTestResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1014,9 +1015,9 @@ type WSGSystemGatewayAdvancedAPIResponse struct {
 	Data *WSGSystemGatewayAdvanced
 }
 
-func newWSGSystemGatewayAdvancedAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemGatewayAdvancedAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemGatewayAdvancedAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1043,9 +1044,9 @@ type WSGSystemGetDataPlaneMeshTunnelSettingAPIResponse struct {
 	Data *WSGSystemGetDataPlaneMeshTunnelSetting
 }
 
-func newWSGSystemGetDataPlaneMeshTunnelSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemGetDataPlaneMeshTunnelSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemGetDataPlaneMeshTunnelSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1076,9 +1077,9 @@ type WSGSystemInventoryListAPIResponse struct {
 	Data *WSGSystemInventoryList
 }
 
-func newWSGSystemInventoryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemInventoryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemInventoryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1414,9 +1415,9 @@ type WSGSystemLwapp2scgConfigurationAPIResponse struct {
 	Data *WSGSystemLwapp2scgConfiguration
 }
 
-func newWSGSystemLwapp2scgConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemLwapp2scgConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemLwapp2scgConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1714,9 +1715,9 @@ type WSGSystemNorthboundInterfaceAPIResponse struct {
 	Data *WSGSystemNorthboundInterface
 }
 
-func newWSGSystemNorthboundInterfaceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemNorthboundInterfaceAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemNorthboundInterfaceAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1761,9 +1762,9 @@ type WSGSystemNtpServerValidationMessageAPIResponse struct {
 	Data *WSGSystemNtpServerValidationMessage
 }
 
-func newWSGSystemNtpServerValidationMessageAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemNtpServerValidationMessageAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemNtpServerValidationMessageAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1818,9 +1819,9 @@ type WSGSystemPortalLangListAPIResponse struct {
 	Data *WSGSystemPortalLangList
 }
 
-func newWSGSystemPortalLangListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemPortalLangListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemPortalLangListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2041,9 +2042,9 @@ type WSGSystemSecuritySettingAPIResponse struct {
 	Data *WSGSystemSecuritySetting
 }
 
-func newWSGSystemSecuritySettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemSecuritySettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemSecuritySettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2104,9 +2105,9 @@ type WSGSystemSmsAPIResponse struct {
 	Data *WSGSystemSms
 }
 
-func newWSGSystemSmsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemSmsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemSmsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2145,9 +2146,9 @@ type WSGSystemSmsListAPIResponse struct {
 	Data *WSGSystemSmsList
 }
 
-func newWSGSystemSmsListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemSmsListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemSmsListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2182,9 +2183,9 @@ type WSGSystemSnmpAgentConfigurationAPIResponse struct {
 	Data *WSGSystemSnmpAgentConfiguration
 }
 
-func newWSGSystemSnmpAgentConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemSnmpAgentConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemSnmpAgentConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2239,9 +2240,9 @@ type WSGSystemStaticRouteListAPIResponse struct {
 	Data *WSGSystemStaticRouteList
 }
 
-func newWSGSystemStaticRouteListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemStaticRouteListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemStaticRouteListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2394,9 +2395,9 @@ type WSGSystemSettingsAPIResponse struct {
 	Data *WSGSystemSettings
 }
 
-func newWSGSystemSettingsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemSettingsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemSettingsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2449,9 +2450,9 @@ type WSGSystemTimeSettingAPIResponse struct {
 	Data *WSGSystemTimeSetting
 }
 
-func newWSGSystemTimeSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemTimeSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemTimeSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2504,9 +2505,9 @@ type WSGSystemUserDefinedInterfaceListAPIResponse struct {
 	Data *WSGSystemUserDefinedInterfaceList
 }
 
-func newWSGSystemUserDefinedInterfaceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGSystemUserDefinedInterfaceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemUserDefinedInterfaceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

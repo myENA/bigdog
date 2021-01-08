@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
@@ -33,9 +33,9 @@ type SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse struct
 	Data *SwitchMDeployLogItemConfigurationHistoryDetailQueryResult
 }
 
-func newSwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

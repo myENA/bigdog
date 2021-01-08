@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -38,9 +39,9 @@ type WSGAdminSCGScgAaaServerAPIResponse struct {
 	Data *WSGAdminSCGScgAaaServer
 }
 
-func newWSGAdminSCGScgAaaServerAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAdminSCGScgAaaServerAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdminSCGScgAaaServerAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

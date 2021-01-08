@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -101,9 +102,9 @@ type WSGIndoorMapIndooMapAuditIdAPIResponse struct {
 	Data *WSGIndoorMapIndooMapAuditId
 }
 
-func newWSGIndoorMapIndooMapAuditIdAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIndoorMapIndooMapAuditIdAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIndoorMapIndooMapAuditIdAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -191,9 +192,9 @@ type WSGIndoorMapAPIResponse struct {
 	Data *WSGIndoorMap
 }
 
-func newWSGIndoorMapAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIndoorMapAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIndoorMapAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -248,9 +249,9 @@ type WSGIndoorMapListAPIResponse struct {
 	Data *WSGIndoorMapList
 }
 
-func newWSGIndoorMapListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIndoorMapListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIndoorMapListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -362,9 +363,9 @@ type WSGIndoorMapSummaryListAPIResponse struct {
 	Data *WSGIndoorMapSummaryList
 }
 
-func newWSGIndoorMapSummaryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIndoorMapSummaryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIndoorMapSummaryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -131,9 +132,9 @@ type WSGWLANGroupAPIResponse struct {
 	Data *WSGWLANGroup
 }
 
-func newWSGWLANGroupAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGWLANGroupAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWLANGroupAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -164,9 +165,9 @@ type WSGWLANGroupListAPIResponse struct {
 	Data *WSGWLANGroupList
 }
 
-func newWSGWLANGroupListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGWLANGroupListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWLANGroupListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

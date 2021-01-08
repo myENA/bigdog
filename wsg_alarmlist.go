@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGAlarmListAlarmQueryResultList
@@ -27,9 +27,9 @@ type WSGAlarmListAlarmQueryResultListAPIResponse struct {
 	Data *WSGAlarmListAlarmQueryResultList
 }
 
-func newWSGAlarmListAlarmQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAlarmListAlarmQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAlarmListAlarmQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

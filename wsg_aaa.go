@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGAAAActiveDirectory
@@ -79,9 +79,9 @@ type WSGAAAActiveDirectoryAPIResponse struct {
 	Data *WSGAAAActiveDirectory
 }
 
-func newWSGAAAActiveDirectoryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAAAActiveDirectoryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAAActiveDirectoryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -112,9 +112,9 @@ type WSGAAAActiveDirectoryListAPIResponse struct {
 	Data *WSGAAAActiveDirectoryList
 }
 
-func newWSGAAAActiveDirectoryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAAAActiveDirectoryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAAActiveDirectoryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -179,9 +179,9 @@ type WSGAAAAuthenticationServerAPIResponse struct {
 	Data *WSGAAAAuthenticationServer
 }
 
-func newWSGAAAAuthenticationServerAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAAAAuthenticationServerAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAAAuthenticationServerAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -212,9 +212,9 @@ type WSGAAAAuthenticationServerListAPIResponse struct {
 	Data *WSGAAAAuthenticationServerList
 }
 
-func newWSGAAAAuthenticationServerListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAAAAuthenticationServerListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAAAuthenticationServerListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -549,9 +549,9 @@ type WSGAAALDAPServerAPIResponse struct {
 	Data *WSGAAALDAPServer
 }
 
-func newWSGAAALDAPServerAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAAALDAPServerAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAALDAPServerAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -582,9 +582,9 @@ type WSGAAALDAPServerListAPIResponse struct {
 	Data *WSGAAALDAPServerList
 }
 
-func newWSGAAALDAPServerListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAAALDAPServerListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAALDAPServerListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -793,9 +793,9 @@ type WSGAAATestAAAServerResultAPIResponse struct {
 	Data *WSGAAATestAAAServerResult
 }
 
-func newWSGAAATestAAAServerResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAAATestAAAServerResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAATestAAAServerResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

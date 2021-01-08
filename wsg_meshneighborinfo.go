@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGMeshNeighborInfo
@@ -89,9 +89,9 @@ type WSGMeshNeighborInfoListAPIResponse struct {
 	Data *WSGMeshNeighborInfoList
 }
 
-func newWSGMeshNeighborInfoListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGMeshNeighborInfoListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGMeshNeighborInfoListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

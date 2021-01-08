@@ -6,6 +6,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 	"net/url"
 )
@@ -36,9 +37,9 @@ type SCIMigrationCount200ResponseTypeAPIResponse struct {
 	Data *SCIMigrationCount200ResponseType
 }
 
-func newSCIMigrationCount200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIMigrationCount200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIMigrationCount200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -63,9 +64,9 @@ type SCIMigrationExistsgetMigrationsidexists200ResponseTypeAPIResponse struct {
 	Data *SCIMigrationExistsgetMigrationsidexists200ResponseType
 }
 
-func newSCIMigrationExistsgetMigrationsidexists200ResponseTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSCIMigrationExistsgetMigrationsidexists200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIMigrationExistsgetMigrationsidexists200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

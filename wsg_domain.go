@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -104,9 +105,9 @@ type WSGDomainConfigurationAPIResponse struct {
 	Data *WSGDomainConfiguration
 }
 
-func newWSGDomainConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDomainConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDomainConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -137,9 +138,9 @@ type WSGDomainListAPIResponse struct {
 	Data *WSGDomainList
 }
 
-func newWSGDomainListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDomainListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDomainListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

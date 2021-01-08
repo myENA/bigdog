@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGServiceActiveDirectoryService
@@ -131,9 +131,9 @@ type WSGServiceActiveDirectoryServiceAPIResponse struct {
 	Data *WSGServiceActiveDirectoryService
 }
 
-func newWSGServiceActiveDirectoryServiceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceActiveDirectoryServiceAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceActiveDirectoryServiceAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -166,9 +166,9 @@ type WSGServiceActiveDirectoryServiceListAPIResponse struct {
 	Data *WSGServiceActiveDirectoryServiceList
 }
 
-func newWSGServiceActiveDirectoryServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceActiveDirectoryServiceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceActiveDirectoryServiceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -263,9 +263,9 @@ type WSGServiceCommonAccountingServiceListAPIResponse struct {
 	Data *WSGServiceCommonAccountingServiceList
 }
 
-func newWSGServiceCommonAccountingServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceCommonAccountingServiceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceCommonAccountingServiceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -346,9 +346,9 @@ type WSGServiceCommonAuthenticationServiceAPIResponse struct {
 	Data *WSGServiceCommonAuthenticationService
 }
 
-func newWSGServiceCommonAuthenticationServiceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceCommonAuthenticationServiceAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceCommonAuthenticationServiceAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -381,9 +381,9 @@ type WSGServiceCommonAuthenticationServiceListAPIResponse struct {
 	Data *WSGServiceCommonAuthenticationServiceList
 }
 
-func newWSGServiceCommonAuthenticationServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceCommonAuthenticationServiceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceCommonAuthenticationServiceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -949,9 +949,9 @@ type WSGServiceGgsnConfigAPIResponse struct {
 	Data *WSGServiceGgsnConfig
 }
 
-func newWSGServiceGgsnConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceGgsnConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceGgsnConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1309,9 +1309,9 @@ type WSGServiceHlrServiceAPIResponse struct {
 	Data *WSGServiceHlrService
 }
 
-func newWSGServiceHlrServiceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceHlrServiceAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceHlrServiceAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1344,9 +1344,9 @@ type WSGServiceHlrServiceListAPIResponse struct {
 	Data *WSGServiceHlrServiceList
 }
 
-func newWSGServiceHlrServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceHlrServiceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceHlrServiceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1483,9 +1483,9 @@ type WSGServiceLDAPServiceAPIResponse struct {
 	Data *WSGServiceLDAPService
 }
 
-func newWSGServiceLDAPServiceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceLDAPServiceAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceLDAPServiceAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1518,9 +1518,9 @@ type WSGServiceLDAPServiceListAPIResponse struct {
 	Data *WSGServiceLDAPServiceList
 }
 
-func newWSGServiceLDAPServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceLDAPServiceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceLDAPServiceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2147,9 +2147,9 @@ type WSGServiceRadiusAccountingServiceAPIResponse struct {
 	Data *WSGServiceRadiusAccountingService
 }
 
-func newWSGServiceRadiusAccountingServiceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceRadiusAccountingServiceAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceRadiusAccountingServiceAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2182,9 +2182,9 @@ type WSGServiceRadiusAccountingServiceListAPIResponse struct {
 	Data *WSGServiceRadiusAccountingServiceList
 }
 
-func newWSGServiceRadiusAccountingServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceRadiusAccountingServiceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceRadiusAccountingServiceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2283,9 +2283,9 @@ type WSGServiceRadiusAuthenticationServiceAPIResponse struct {
 	Data *WSGServiceRadiusAuthenticationService
 }
 
-func newWSGServiceRadiusAuthenticationServiceAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceRadiusAuthenticationServiceAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceRadiusAuthenticationServiceAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2318,9 +2318,9 @@ type WSGServiceRadiusAuthenticationServiceListAPIResponse struct {
 	Data *WSGServiceRadiusAuthenticationServiceList
 }
 
-func newWSGServiceRadiusAuthenticationServiceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGServiceRadiusAuthenticationServiceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceRadiusAuthenticationServiceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

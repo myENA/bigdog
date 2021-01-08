@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGAPAlarmSummary
@@ -178,9 +178,9 @@ type WSGAPConfigurationAPIResponse struct {
 	Data *WSGAPConfiguration
 }
 
-func newWSGAPConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAPConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -217,9 +217,9 @@ type WSGAPLinemanSummaryAPIResponse struct {
 	Data *WSGAPLinemanSummary
 }
 
-func newWSGAPLinemanSummaryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAPLinemanSummaryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPLinemanSummaryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -286,9 +286,9 @@ type WSGAPListEntryAPIResponse struct {
 	Data *WSGAPListEntry
 }
 
-func newWSGAPListEntryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAPListEntryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPListEntryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -499,9 +499,9 @@ type WSGAPOperationalSummaryAPIResponse struct {
 	Data *WSGAPOperationalSummary
 }
 
-func newWSGAPOperationalSummaryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAPOperationalSummaryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPOperationalSummaryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -583,9 +583,9 @@ type WSGAPRadioConfigurationAPIResponse struct {
 	Data *WSGAPRadioConfiguration
 }
 
-func newWSGAPRadioConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAPRadioConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPRadioConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1272,9 +1272,9 @@ type WSGAPModifyRogueTypeAPIResponse struct {
 	Data *WSGAPModifyRogueType
 }
 
-func newWSGAPModifyRogueTypeAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAPModifyRogueTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPModifyRogueTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1311,9 +1311,9 @@ type WSGAPNeighborAPListAPIResponse struct {
 	Data *WSGAPNeighborAPList
 }
 
-func newWSGAPNeighborAPListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAPNeighborAPListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPNeighborAPListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

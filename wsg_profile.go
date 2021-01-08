@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGProfileAccountingProfile
@@ -61,9 +61,9 @@ type WSGProfileAccountingProfileAPIResponse struct {
 	Data *WSGProfileAccountingProfile
 }
 
-func newWSGProfileAccountingProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileAccountingProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileAccountingProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -96,9 +96,9 @@ type WSGProfileAccountingProfileListAPIResponse struct {
 	Data *WSGProfileAccountingProfileList
 }
 
-func newWSGProfileAccountingProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileAccountingProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileAccountingProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -295,9 +295,9 @@ type WSGProfileAuthenticationProfileAPIResponse struct {
 	Data *WSGProfileAuthenticationProfile
 }
 
-func newWSGProfileAuthenticationProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileAuthenticationProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileAuthenticationProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -330,9 +330,9 @@ type WSGProfileAuthenticationProfileListAPIResponse struct {
 	Data *WSGProfileAuthenticationProfileList
 }
 
-func newWSGProfileAuthenticationProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileAuthenticationProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileAuthenticationProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -363,9 +363,9 @@ type WSGProfileBaseServiceInfoListAPIResponse struct {
 	Data *WSGProfileBaseServiceInfoList
 }
 
-func newWSGProfileBaseServiceInfoListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileBaseServiceInfoListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileBaseServiceInfoListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -423,9 +423,9 @@ type WSGProfileBlockClientAPIResponse struct {
 	Data *WSGProfileBlockClient
 }
 
-func newWSGProfileBlockClientAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileBlockClientAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileBlockClientAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -456,9 +456,9 @@ type WSGProfileBlockClientListAPIResponse struct {
 	Data *WSGProfileBlockClientList
 }
 
-func newWSGProfileBlockClientListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileBlockClientListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileBlockClientListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -580,9 +580,9 @@ type WSGProfileBonjourFencingPolicyAPIResponse struct {
 	Data *WSGProfileBonjourFencingPolicy
 }
 
-func newWSGProfileBonjourFencingPolicyAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileBonjourFencingPolicyAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileBonjourFencingPolicyAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -613,9 +613,9 @@ type WSGProfileBonjourFencingPolicyListAPIResponse struct {
 	Data *WSGProfileBonjourFencingPolicyList
 }
 
-func newWSGProfileBonjourFencingPolicyListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileBonjourFencingPolicyListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileBonjourFencingPolicyListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -738,9 +738,9 @@ type WSGProfileBonjourFencingStatisticAPIResponse struct {
 	Data *WSGProfileBonjourFencingStatistic
 }
 
-func newWSGProfileBonjourFencingStatisticAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileBonjourFencingStatisticAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileBonjourFencingStatisticAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -801,9 +801,9 @@ type WSGProfileBridgeProfileAPIResponse struct {
 	Data *WSGProfileBridgeProfile
 }
 
-func newWSGProfileBridgeProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileBridgeProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileBridgeProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -836,9 +836,9 @@ type WSGProfileBridgeProfileListAPIResponse struct {
 	Data *WSGProfileBridgeProfileList
 }
 
-func newWSGProfileBridgeProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileBridgeProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileBridgeProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -987,9 +987,9 @@ type WSGProfileClientIsolationWhitelistAPIResponse struct {
 	Data *WSGProfileClientIsolationWhitelist
 }
 
-func newWSGProfileClientIsolationWhitelistAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileClientIsolationWhitelistAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileClientIsolationWhitelistAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1044,9 +1044,9 @@ type WSGProfileClientIsolationWhitelistArrayAPIResponse struct {
 	Data *WSGProfileClientIsolationWhitelistArray
 }
 
-func newWSGProfileClientIsolationWhitelistArrayAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileClientIsolationWhitelistArrayAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileClientIsolationWhitelistArrayAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1611,9 +1611,9 @@ type WSGProfileCreatePrecedenceProfileAPIResponse struct {
 	Data *WSGProfileCreatePrecedenceProfile
 }
 
-func newWSGProfileCreatePrecedenceProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileCreatePrecedenceProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileCreatePrecedenceProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1717,9 +1717,9 @@ type WSGProfileCreateRtlsProfileAPIResponse struct {
 	Data *WSGProfileCreateRtlsProfile
 }
 
-func newWSGProfileCreateRtlsProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileCreateRtlsProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileCreateRtlsProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2197,9 +2197,9 @@ type WSGProfileDhcpProfileListAPIResponse struct {
 	Data *WSGProfileDhcpProfileList
 }
 
-func newWSGProfileDhcpProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileDhcpProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileDhcpProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2302,9 +2302,9 @@ type WSGProfileDnsServerProfileAPIResponse struct {
 	Data *WSGProfileDnsServerProfile
 }
 
-func newWSGProfileDnsServerProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileDnsServerProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileDnsServerProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2337,9 +2337,9 @@ type WSGProfileDnsServerProfileListAPIResponse struct {
 	Data *WSGProfileDnsServerProfileList
 }
 
-func newWSGProfileDnsServerProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileDnsServerProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileDnsServerProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2495,9 +2495,9 @@ type WSGProfileFirewallProfileAPIResponse struct {
 	Data *WSGProfileFirewallProfile
 }
 
-func newWSGProfileFirewallProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileFirewallProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileFirewallProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2530,9 +2530,9 @@ type WSGProfileFirewallProfileArrayAPIResponse struct {
 	Data *WSGProfileFirewallProfileArray
 }
 
-func newWSGProfileFirewallProfileArrayAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileFirewallProfileArrayAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileFirewallProfileArrayAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2633,9 +2633,9 @@ type WSGProfileFlexiVpnProfileListAPIResponse struct {
 	Data *WSGProfileFlexiVpnProfileList
 }
 
-func newWSGProfileFlexiVpnProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileFlexiVpnProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileFlexiVpnProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2662,9 +2662,9 @@ type WSGProfileGetL3RoamingConfigAPIResponse struct {
 	Data *WSGProfileGetL3RoamingConfig
 }
 
-func newWSGProfileGetL3RoamingConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileGetL3RoamingConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileGetL3RoamingConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2763,9 +2763,9 @@ type WSGProfileHs20OperatorAPIResponse struct {
 	Data *WSGProfileHs20Operator
 }
 
-func newWSGProfileHs20OperatorAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileHs20OperatorAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileHs20OperatorAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2798,9 +2798,9 @@ type WSGProfileHs20OperatorListAPIResponse struct {
 	Data *WSGProfileHs20OperatorList
 }
 
-func newWSGProfileHs20OperatorListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileHs20OperatorListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileHs20OperatorListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2881,9 +2881,9 @@ type WSGProfileHs20ProviderAPIResponse struct {
 	Data *WSGProfileHs20Provider
 }
 
-func newWSGProfileHs20ProviderAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileHs20ProviderAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileHs20ProviderAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2916,9 +2916,9 @@ type WSGProfileHs20ProviderListAPIResponse struct {
 	Data *WSGProfileHs20ProviderList
 }
 
-func newWSGProfileHs20ProviderListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileHs20ProviderListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileHs20ProviderListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3223,9 +3223,9 @@ type WSGProfileIpsecProfileAPIResponse struct {
 	Data *WSGProfileIpsecProfile
 }
 
-func newWSGProfileIpsecProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileIpsecProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileIpsecProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3258,9 +3258,9 @@ type WSGProfileIpsecProfileListAPIResponse struct {
 	Data *WSGProfileIpsecProfileList
 }
 
-func newWSGProfileIpsecProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileIpsecProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileIpsecProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3323,9 +3323,9 @@ type WSGProfileL2oGREProfileAPIResponse struct {
 	Data *WSGProfileL2oGREProfile
 }
 
-func newWSGProfileL2oGREProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileL2oGREProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileL2oGREProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3358,9 +3358,9 @@ type WSGProfileL2oGREProfileListAPIResponse struct {
 	Data *WSGProfileL2oGREProfileList
 }
 
-func newWSGProfileL2oGREProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileL2oGREProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileL2oGREProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3410,9 +3410,9 @@ type WSGProfileL3AccessControlPolicyAPIResponse struct {
 	Data *WSGProfileL3AccessControlPolicy
 }
 
-func newWSGProfileL3AccessControlPolicyAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileL3AccessControlPolicyAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileL3AccessControlPolicyAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3445,9 +3445,9 @@ type WSGProfileL3AccessControlPolicyArrayAPIResponse struct {
 	Data *WSGProfileL3AccessControlPolicyArray
 }
 
-func newWSGProfileL3AccessControlPolicyArrayAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileL3AccessControlPolicyArrayAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileL3AccessControlPolicyArrayAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3636,9 +3636,9 @@ type WSGProfileLbsProfileAPIResponse struct {
 	Data *WSGProfileLbsProfile
 }
 
-func newWSGProfileLbsProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileLbsProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileLbsProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -3671,9 +3671,9 @@ type WSGProfileLbsProfileListAPIResponse struct {
 	Data *WSGProfileLbsProfileList
 }
 
-func newWSGProfileLbsProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileLbsProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileLbsProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4444,9 +4444,9 @@ type WSGProfilePrecedenceListAPIResponse struct {
 	Data *WSGProfilePrecedenceList
 }
 
-func newWSGProfilePrecedenceListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfilePrecedenceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfilePrecedenceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4513,9 +4513,9 @@ type WSGProfileCloneAPIResponse struct {
 	Data *WSGProfileClone
 }
 
-func newWSGProfileCloneAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileCloneAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileCloneAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4546,9 +4546,9 @@ type WSGProfileIdListAPIResponse struct {
 	Data *WSGProfileIdList
 }
 
-func newWSGProfileIdListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileIdListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileIdListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -4605,9 +4605,9 @@ type WSGProfileListAPIResponse struct {
 	Data *WSGProfileList
 }
 
-func newWSGProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5078,9 +5078,9 @@ type WSGProfileRestrictedApAccessProfileAPIResponse struct {
 	Data *WSGProfileRestrictedApAccessProfile
 }
 
-func newWSGProfileRestrictedApAccessProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileRestrictedApAccessProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileRestrictedApAccessProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5111,9 +5111,9 @@ type WSGProfileRestrictedApAccessProfileArrayAPIResponse struct {
 	Data *WSGProfileRestrictedApAccessProfileArray
 }
 
-func newWSGProfileRestrictedApAccessProfileArrayAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileRestrictedApAccessProfileArrayAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileRestrictedApAccessProfileArrayAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5187,9 +5187,9 @@ type WSGProfileReturnZoneAffinityProfileAPIResponse struct {
 	Data *WSGProfileReturnZoneAffinityProfile
 }
 
-func newWSGProfileReturnZoneAffinityProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileReturnZoneAffinityProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileReturnZoneAffinityProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5252,9 +5252,9 @@ type WSGProfileRogueApPolicyAPIResponse struct {
 	Data *WSGProfileRogueApPolicy
 }
 
-func newWSGProfileRogueApPolicyAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileRogueApPolicyAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileRogueApPolicyAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5285,9 +5285,9 @@ type WSGProfileRogueApPolicyListAPIResponse struct {
 	Data *WSGProfileRogueApPolicyList
 }
 
-func newWSGProfileRogueApPolicyListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileRogueApPolicyListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileRogueApPolicyListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5354,9 +5354,9 @@ type WSGProfileRtlsProfileListAPIResponse struct {
 	Data *WSGProfileRtlsProfileList
 }
 
-func newWSGProfileRtlsProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileRtlsProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileRtlsProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5437,9 +5437,9 @@ type WSGProfileRuckusGREProfileAPIResponse struct {
 	Data *WSGProfileRuckusGREProfile
 }
 
-func newWSGProfileRuckusGREProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileRuckusGREProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileRuckusGREProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5472,9 +5472,9 @@ type WSGProfileRuckusGREProfileListAPIResponse struct {
 	Data *WSGProfileRuckusGREProfileList
 }
 
-func newWSGProfileRuckusGREProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileRuckusGREProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileRuckusGREProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5565,9 +5565,9 @@ type WSGProfileSoftGREProfileAPIResponse struct {
 	Data *WSGProfileSoftGREProfile
 }
 
-func newWSGProfileSoftGREProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileSoftGREProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileSoftGREProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5600,9 +5600,9 @@ type WSGProfileSoftGREProfileListAPIResponse struct {
 	Data *WSGProfileSoftGREProfileList
 }
 
-func newWSGProfileSoftGREProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileSoftGREProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileSoftGREProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5657,9 +5657,9 @@ type WSGProfileTrafficClassProfileListAPIResponse struct {
 	Data *WSGProfileTrafficClassProfileList
 }
 
-func newWSGProfileTrafficClassProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileTrafficClassProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileTrafficClassProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5822,9 +5822,9 @@ type WSGProfileTtgpdgProfileAPIResponse struct {
 	Data *WSGProfileTtgpdgProfile
 }
 
-func newWSGProfileTtgpdgProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileTtgpdgProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileTtgpdgProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -5895,9 +5895,9 @@ type WSGProfileTtgpdgProfileListAPIResponse struct {
 	Data *WSGProfileTtgpdgProfileList
 }
 
-func newWSGProfileTtgpdgProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileTtgpdgProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileTtgpdgProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -6083,9 +6083,9 @@ type WSGProfileUserTrafficProfileAPIResponse struct {
 	Data *WSGProfileUserTrafficProfile
 }
 
-func newWSGProfileUserTrafficProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileUserTrafficProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileUserTrafficProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -6118,9 +6118,9 @@ type WSGProfileUserTrafficProfileListAPIResponse struct {
 	Data *WSGProfileUserTrafficProfileList
 }
 
-func newWSGProfileUserTrafficProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileUserTrafficProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileUserTrafficProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -6239,9 +6239,9 @@ type WSGProfileVdpProfileAPIResponse struct {
 	Data *WSGProfileVdpProfile
 }
 
-func newWSGProfileVdpProfileAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileVdpProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileVdpProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -6288,9 +6288,9 @@ type WSGProfileZoneAffinityProfileListAPIResponse struct {
 	Data *WSGProfileZoneAffinityProfileList
 }
 
-func newWSGProfileZoneAffinityProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGProfileZoneAffinityProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGProfileZoneAffinityProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

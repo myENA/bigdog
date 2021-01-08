@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGDHCPMessageStatsDhcpMsgStats
@@ -44,9 +44,9 @@ type WSGDHCPMessageStatsDhcpMsgStatsAPIResponse struct {
 	Data *WSGDHCPMessageStatsDhcpMsgStats
 }
 
-func newWSGDHCPMessageStatsDhcpMsgStatsAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDHCPMessageStatsDhcpMsgStatsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDHCPMessageStatsDhcpMsgStatsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

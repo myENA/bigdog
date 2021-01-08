@@ -59,9 +59,9 @@ type WSGCALEACommonSettingRspAPIResponse struct {
 	Data *WSGCALEACommonSettingRsp
 }
 
-func newWSGCALEACommonSettingRspAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCALEACommonSettingRspAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCALEACommonSettingRspAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -104,9 +104,9 @@ type WSGCALEAMacListRspAPIResponse struct {
 	Data *WSGCALEAMacListRsp
 }
 
-func newWSGCALEAMacListRspAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGCALEAMacListRspAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCALEAMacListRspAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

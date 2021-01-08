@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -91,9 +92,9 @@ type WSGDNSSpoofingProfileDetailAPIResponse struct {
 	Data *WSGDNSSpoofingProfileDetail
 }
 
-func newWSGDNSSpoofingProfileDetailAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDNSSpoofingProfileDetailAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDNSSpoofingProfileDetailAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -164,9 +165,9 @@ type WSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse struct {
 	Data *WSGDNSSpoofingProfileGetDnsSpoofingProfileList
 }
 
-func newWSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

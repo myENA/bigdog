@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGAPRulesApRuleConfiguration
@@ -45,9 +45,9 @@ type WSGAPRulesApRuleConfigurationAPIResponse struct {
 	Data *WSGAPRulesApRuleConfiguration
 }
 
-func newWSGAPRulesApRuleConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAPRulesApRuleConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPRulesApRuleConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -78,9 +78,9 @@ type WSGAPRulesApRuleListAPIResponse struct {
 	Data *WSGAPRulesApRuleList
 }
 
-func newWSGAPRulesApRuleListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAPRulesApRuleListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPRulesApRuleListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

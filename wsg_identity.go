@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGIdentityAaaServer
@@ -43,9 +43,9 @@ type WSGIdentityAaaServerListAPIResponse struct {
 	Data *WSGIdentityAaaServerList
 }
 
-func newWSGIdentityAaaServerListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIdentityAaaServerListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityAaaServerListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -114,9 +114,9 @@ type WSGIdentityCountryListAPIResponse struct {
 	Data *WSGIdentityCountryList
 }
 
-func newWSGIdentityCountryListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIdentityCountryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityCountryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -487,9 +487,9 @@ type WSGIdentityGuestPassListAPIResponse struct {
 	Data *WSGIdentityGuestPassList
 }
 
-func newWSGIdentityGuestPassListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIdentityGuestPassListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityGuestPassListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -522,9 +522,9 @@ type WSGIdentityListAPIResponse struct {
 	Data *WSGIdentityList
 }
 
-func newWSGIdentityListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIdentityListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -649,9 +649,9 @@ type WSGIdentityUserRoleAPIResponse struct {
 	Data *WSGIdentityUserRole
 }
 
-func newWSGIdentityUserRoleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIdentityUserRoleAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityUserRoleAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -968,9 +968,9 @@ type WSGIdentityPackageListAPIResponse struct {
 	Data *WSGIdentityPackageList
 }
 
-func newWSGIdentityPackageListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIdentityPackageListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityPackageListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1290,9 +1290,9 @@ type WSGIdentitySubscriptionPackageAPIResponse struct {
 	Data *WSGIdentitySubscriptionPackage
 }
 
-func newWSGIdentitySubscriptionPackageAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIdentitySubscriptionPackageAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentitySubscriptionPackageAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1325,9 +1325,9 @@ type WSGIdentitySubscriptionPackageListAPIResponse struct {
 	Data *WSGIdentitySubscriptionPackageList
 }
 
-func newWSGIdentitySubscriptionPackageListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIdentitySubscriptionPackageListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentitySubscriptionPackageListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1513,9 +1513,9 @@ type WSGIdentityUserConfigurationAPIResponse struct {
 	Data *WSGIdentityUserConfiguration
 }
 
-func newWSGIdentityUserConfigurationAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIdentityUserConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityUserConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1644,9 +1644,9 @@ type WSGIdentityUserListAPIResponse struct {
 	Data *WSGIdentityUserList
 }
 
-func newWSGIdentityUserListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGIdentityUserListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityUserListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

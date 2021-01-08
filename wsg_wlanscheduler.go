@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -159,9 +160,9 @@ type WSGWLANSchedulerWlanScheduleAPIResponse struct {
 	Data *WSGWLANSchedulerWlanSchedule
 }
 
-func newWSGWLANSchedulerWlanScheduleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGWLANSchedulerWlanScheduleAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWLANSchedulerWlanScheduleAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -192,9 +193,9 @@ type WSGWLANSchedulerWlanScheduleListAPIResponse struct {
 	Data *WSGWLANSchedulerWlanScheduleList
 }
 
-func newWSGWLANSchedulerWlanScheduleListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGWLANSchedulerWlanScheduleListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWLANSchedulerWlanScheduleListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -289,9 +290,9 @@ type WSGWLANSchedulerWlanScheduleQueryResultListAPIResponse struct {
 	Data *WSGWLANSchedulerWlanScheduleQueryResultList
 }
 
-func newWSGWLANSchedulerWlanScheduleQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGWLANSchedulerWlanScheduleQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWLANSchedulerWlanScheduleQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -40,9 +41,9 @@ type SwitchMGroupAuditIdAPIResponse struct {
 	Data *SwitchMGroupAuditId
 }
 
-func newSwitchMGroupAuditIdAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMGroupAuditIdAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMGroupAuditIdAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -77,9 +78,9 @@ type SwitchMGroupAuditIdListAPIResponse struct {
 	Data *SwitchMGroupAuditIdList
 }
 
-func newSwitchMGroupAuditIdListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMGroupAuditIdListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMGroupAuditIdListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -214,9 +215,9 @@ type SwitchMGroupsByIdsQueryResultListAPIResponse struct {
 	Data *SwitchMGroupsByIdsQueryResultList
 }
 
-func newSwitchMGroupsByIdsQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMGroupsByIdsQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMGroupsByIdsQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -327,9 +328,9 @@ type SwitchMGroupSwitchGroupAPIResponse struct {
 	Data *SwitchMGroupSwitchGroup
 }
 
-func newSwitchMGroupSwitchGroupAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMGroupSwitchGroupAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMGroupSwitchGroupAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

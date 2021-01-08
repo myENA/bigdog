@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -44,9 +45,9 @@ type SwitchMSwitchStackConfigAuditIdListAPIResponse struct {
 	Data *SwitchMSwitchStackConfigAuditIdList
 }
 
-func newSwitchMSwitchStackConfigAuditIdListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMSwitchStackConfigAuditIdListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchStackConfigAuditIdListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -89,9 +90,9 @@ type SwitchMSwitchStackConfigListAPIResponse struct {
 	Data *SwitchMSwitchStackConfigList
 }
 
-func newSwitchMSwitchStackConfigListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMSwitchStackConfigListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchStackConfigListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -244,9 +245,9 @@ type SwitchMSwitchStackConfigStackConfigAPIResponse struct {
 	Data *SwitchMSwitchStackConfigStackConfig
 }
 
-func newSwitchMSwitchStackConfigStackConfigAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMSwitchStackConfigStackConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchStackConfigStackConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

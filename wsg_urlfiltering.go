@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGURLFilteringCreateUrlFilteringPolicy
@@ -157,9 +157,9 @@ type WSGURLFilteringBlockCategoriesListAPIResponse struct {
 	Data *WSGURLFilteringBlockCategoriesList
 }
 
-func newWSGURLFilteringBlockCategoriesListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGURLFilteringBlockCategoriesListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGURLFilteringBlockCategoriesListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -282,9 +282,9 @@ type WSGURLFilteringPolicyAPIResponse struct {
 	Data *WSGURLFilteringPolicy
 }
 
-func newWSGURLFilteringPolicyAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGURLFilteringPolicyAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGURLFilteringPolicyAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -317,9 +317,9 @@ type WSGURLFilteringPolicyListAPIResponse struct {
 	Data *WSGURLFilteringPolicyList
 }
 
-func newWSGURLFilteringPolicyListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGURLFilteringPolicyListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGURLFilteringPolicyListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

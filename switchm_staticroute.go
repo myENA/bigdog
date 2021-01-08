@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -126,9 +127,9 @@ type SwitchMStaticRouteSettingStaticRouteAPIResponse struct {
 	Data *SwitchMStaticRouteSettingStaticRoute
 }
 
-func newSwitchMStaticRouteSettingStaticRouteAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMStaticRouteSettingStaticRouteAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMStaticRouteSettingStaticRouteAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -173,9 +174,9 @@ type SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse struct {
 	Data *SwitchMStaticRouteSettingStaticRoutesQueryResult
 }
 
-func newSwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

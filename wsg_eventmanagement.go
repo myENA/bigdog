@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGEventManagementEventDataList
@@ -49,9 +49,9 @@ type WSGEventManagementEventDataResponseAPIResponse struct {
 	Data *WSGEventManagementEventDataResponse
 }
 
-func newWSGEventManagementEventDataResponseAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGEventManagementEventDataResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGEventManagementEventDataResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -82,9 +82,9 @@ type WSGEventManagementEventEmailSettingAPIResponse struct {
 	Data *WSGEventManagementEventEmailSetting
 }
 
-func newWSGEventManagementEventEmailSettingAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGEventManagementEventEmailSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGEventManagementEventEmailSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

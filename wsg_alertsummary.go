@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGAlertSummaryAlarmSummary
@@ -25,9 +25,9 @@ type WSGAlertSummaryAlarmSummaryAPIResponse struct {
 	Data *WSGAlertSummaryAlarmSummary
 }
 
-func newWSGAlertSummaryAlarmSummaryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAlertSummaryAlarmSummaryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAlertSummaryAlarmSummaryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -62,9 +62,9 @@ type WSGAlertSummaryEventSummaryAPIResponse struct {
 	Data *WSGAlertSummaryEventSummary
 }
 
-func newWSGAlertSummaryEventSummaryAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAlertSummaryEventSummaryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAlertSummaryEventSummaryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

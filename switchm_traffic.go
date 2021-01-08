@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -62,9 +63,9 @@ type SwitchMTrafficBroadcastQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficBroadcastQueryResultList
 }
 
-func newSwitchMTrafficBroadcastQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMTrafficBroadcastQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficBroadcastQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -117,9 +118,9 @@ type SwitchMTrafficMulticastQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficMulticastQueryResultList
 }
 
-func newSwitchMTrafficMulticastQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMTrafficMulticastQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficMulticastQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -174,9 +175,9 @@ type SwitchMTrafficPortErrorQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficPortErrorQueryResultList
 }
 
-func newSwitchMTrafficPortErrorQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMTrafficPortErrorQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficPortErrorQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -221,9 +222,9 @@ type SwitchMTrafficTopPortErrorQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficTopPortErrorQueryResultList
 }
 
-func newSwitchMTrafficTopPortErrorQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMTrafficTopPortErrorQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficTopPortErrorQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -268,9 +269,9 @@ type SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficTopPortTrafficUsageQueryResultList
 }
 
-func newSwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -315,9 +316,9 @@ type SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficTopSwitchPoEUtilizationQueryResultList
 }
 
-func newSwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -362,9 +363,9 @@ type SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficTopTrafficUsageQueryResultList
 }
 
-func newSwitchMTrafficTopTrafficUsageQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMTrafficTopTrafficUsageQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -435,9 +436,9 @@ type SwitchMTrafficQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficQueryResultList
 }
 
-func newSwitchMTrafficQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMTrafficQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -512,9 +513,9 @@ type SwitchMTrafficUnicastQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficUnicastQueryResultList
 }
 
-func newSwitchMTrafficUnicastQueryResultListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newSwitchMTrafficUnicastQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficUnicastQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

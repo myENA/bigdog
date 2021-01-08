@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"io"
 	"net/http"
 )
 
@@ -36,9 +37,9 @@ type WSGVendorSpecificAttributeProfileCreateResultAPIResponse struct {
 	Data *WSGVendorSpecificAttributeProfileCreateResult
 }
 
-func newWSGVendorSpecificAttributeProfileCreateResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGVendorSpecificAttributeProfileCreateResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGVendorSpecificAttributeProfileCreateResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -93,9 +94,9 @@ type WSGVendorSpecificAttributeProfileGetAPIResponse struct {
 	Data *WSGVendorSpecificAttributeProfileGet
 }
 
-func newWSGVendorSpecificAttributeProfileGetAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGVendorSpecificAttributeProfileGetAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGVendorSpecificAttributeProfileGetAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -134,9 +135,9 @@ type WSGVendorSpecificAttributeProfileListAPIResponse struct {
 	Data *WSGVendorSpecificAttributeProfileList
 }
 
-func newWSGVendorSpecificAttributeProfileListAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGVendorSpecificAttributeProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGVendorSpecificAttributeProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -208,9 +209,9 @@ type WSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse struct {
 	Data *WSGVendorSpecificAttributeProfileQueryCriteriaResult
 }
 
-func newWSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

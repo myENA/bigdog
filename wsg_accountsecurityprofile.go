@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
-	"net/http"
+	"io"
 )
 
 // WSGAccountSecurityProfileCreate
@@ -195,9 +195,9 @@ type WSGAccountSecurityProfileGetByIdResultAPIResponse struct {
 	Data *WSGAccountSecurityProfileGetByIdResult
 }
 
-func newWSGAccountSecurityProfileGetByIdResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAccountSecurityProfileGetByIdResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAccountSecurityProfileGetByIdResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -228,9 +228,9 @@ type WSGAccountSecurityProfileProfileListResultAPIResponse struct {
 	Data *WSGAccountSecurityProfileProfileListResult
 }
 
-func newWSGAccountSecurityProfileProfileListResultAPIResponse(req *APIRequest, successCode int, httpResp *http.Response) APIResponse {
+func newWSGAccountSecurityProfileProfileListResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAccountSecurityProfileProfileListResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(req, successCode, httpResp).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
 	return r
 }
 

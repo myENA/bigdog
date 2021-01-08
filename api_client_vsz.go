@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
 	"net/http"
 	"sync"
 	"time"
@@ -321,7 +322,36 @@ func (*UsernamePasswordVSZSServiceTicketProvider) iterateCAS() VSZServiceTicketC
 }
 
 type VSZClientConfig struct {
-	baseClientConfig
+	// Address [required]
+	//
+	// Full address of service, including scheme and port
+	Address string
+
+	// PathPrefix [optional]
+	//
+	// Custom path prefix to prepend to all api calls.  Default is to leave this blank.
+	PathPrefix string
+
+	// Debug [optional]
+	//
+	// Set to true to enable debug logging
+	Debug bool
+
+	// DisableAutoHydrate [bool]
+	//
+	// If true, response bodies will no longer automatically hydrated into the returned response models.  This enables
+	// you to instead use the response models as Readers to receive the raw bytes of the response in favor of having
+	// then unmarshalled if you don't need it.
+	DisableAutoHydrate bool
+
+	// Logger [optional]
+	//
+	// Logger to use.  Leave blank for no logging
+	Logger *log.Logger
+
+	// HTTPClient [optional]
+	HTTPClient *http.Client
+
 	// ServiceTicketProvider [required]
 	//
 	// ServiceTicketProvider to use to handle request auth session
@@ -335,7 +365,7 @@ type VSZClient struct {
 
 func NewVSZClient(config *VSZClientConfig) *VSZClient {
 	c := new(VSZClient)
-	c.baseClient = newBaseClient(config.baseClientConfig)
+	c.baseClient = newBaseClient(config.Address, config.PathPrefix, config.Debug, config.DisableAutoHydrate, config.Logger, config.HTTPClient)
 	c.stp = config.ServiceTicketProvider
 	return c
 }

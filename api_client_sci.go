@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
 	"net/http"
 	"sync"
 	"time"
@@ -331,7 +332,35 @@ func (*UsernamePasswordSCIAccessTokenProvider) iterateCAS() SCIAccessTokenCAS {
 }
 
 type SCIClientConfig struct {
-	baseClientConfig
+	// Address [required]
+	//
+	// Full address of service, including scheme and port
+	Address string
+
+	// PathPrefix [optional]
+	//
+	// Custom path prefix to prepend to all api calls.  Default is to leave this blank.
+	PathPrefix string
+
+	// Debug [optional]
+	//
+	// Set to true to enable debug logging
+	Debug bool
+
+	// DisableAutoHydrate [bool]
+	//
+	// If true, response bodies will no longer automatically hydrated into the returned response models.  This enables
+	// you to instead use the response models as Readers to receive the raw bytes of the response in favor of having
+	// then unmarshalled if you don't need it.
+	DisableAutoHydrate bool
+
+	// Logger [optional]
+	//
+	// Logger to use.  Leave blank for no logging
+	Logger *log.Logger
+
+	// HTTPClient [optional]
+	HTTPClient *http.Client
 
 	// ServiceTicketProvider [required]
 	//
@@ -346,7 +375,7 @@ type SCIClient struct {
 
 func NewSCIClient(config *SCIClientConfig) *SCIClient {
 	c := new(SCIClient)
-	c.baseClient = newBaseClient(config.baseClientConfig)
+	c.baseClient = newBaseClient(config.Address, config.PathPrefix, config.Debug, config.DisableAutoHydrate, config.Logger, config.HTTPClient)
 	c.atp = config.AccessTokenProvider
 	return c
 }

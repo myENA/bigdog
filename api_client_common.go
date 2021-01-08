@@ -131,38 +131,6 @@ func (ape *APIAuthProviderError) Error() string {
 	return ape.err.Error()
 }
 
-type baseClientConfig struct {
-	// Address [required]
-	//
-	// Full address of service, including scheme and port
-	Address string
-
-	// PathPrefix [optional]
-	//
-	// Custom path prefix to prepend to all api calls.  Default is to leave this blank.
-	PathPrefix string
-
-	// Debug [optional]
-	//
-	// Set to true to enable debug logging
-	Debug bool
-
-	// DisableAutoHydrate [bool]
-	//
-	// If true, response bodies will no longer automatically hydrated into the returned response models.  This enables
-	// you to instead use the response models as Readers to receive the raw bytes of the response in favor of having
-	// then unmarshalled if you don't need it.
-	DisableAutoHydrate bool
-
-	// Logger [optional]
-	//
-	// Logger to use.  Leave blank for no logging
-	Logger *log.Logger
-
-	// HTTPClient [optional]
-	HTTPClient *http.Client
-}
-
 type baseClient struct {
 	log   *log.Logger
 	debug bool
@@ -175,22 +143,22 @@ type baseClient struct {
 	autoHydrate bool
 }
 
-func newBaseClient(cfg baseClientConfig) *baseClient {
+func newBaseClient(addr, pathPrefix string, dbg bool, disableAutoHydrate bool, logger *log.Logger, hclient *http.Client) *baseClient {
 	c := new(baseClient)
 
-	if cfg.Logger == nil {
+	if logger == nil {
 		c.log = log.New(ioutil.Discard, "", 0)
 	} else {
-		c.log = cfg.Logger
+		c.log = logger
 	}
 
-	c.debug = cfg.Debug
-	c.addr = cfg.Address
-	c.pathPrefix = cfg.PathPrefix
-	c.autoHydrate = !cfg.DisableAutoHydrate
+	c.debug = dbg
+	c.addr = addr
+	c.pathPrefix = pathPrefix
+	c.autoHydrate = !disableAutoHydrate
 
-	if cfg.HTTPClient != nil {
-		c.client = cfg.HTTPClient
+	if hclient != nil {
+		c.client = hclient
 	} else {
 		// pooled transport config shamelessly borrowed from
 		// https://github.com/hashicorp/go-cleanhttp/blob/v0.5.1/cleanhttp.go

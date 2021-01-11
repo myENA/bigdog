@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -85,9 +85,21 @@ func newWSGSessionManagementRuckusSessionsAPIResponse(meta APIResponseMeta, body
 	return r
 }
 
-func (r *WSGSessionManagementRuckusSessionsAPIResponse) Hydrate() error {
-	r.Data = new(WSGSessionManagementRuckusSessions)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSessionManagementRuckusSessionsAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSessionManagementRuckusSessions)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSessionManagementRuckusSessions() *WSGSessionManagementRuckusSessions {
 	m := new(WSGSessionManagementRuckusSessions)

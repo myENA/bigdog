@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -95,9 +95,21 @@ func newWSGMeshNeighborInfoListAPIResponse(meta APIResponseMeta, body io.ReadClo
 	return r
 }
 
-func (r *WSGMeshNeighborInfoListAPIResponse) Hydrate() error {
-	r.Data = new(WSGMeshNeighborInfoList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGMeshNeighborInfoListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGMeshNeighborInfoList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGMeshNeighborInfoList() *WSGMeshNeighborInfoList {
 	m := new(WSGMeshNeighborInfoList)

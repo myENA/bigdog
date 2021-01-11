@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -102,9 +102,21 @@ func newWSGSplitTunnelProfileAPIResponse(meta APIResponseMeta, body io.ReadClose
 	return r
 }
 
-func (r *WSGSplitTunnelProfileAPIResponse) Hydrate() error {
-	r.Data = new(WSGSplitTunnelProfile)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSplitTunnelProfileAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSplitTunnelProfile)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSplitTunnelProfile() *WSGSplitTunnelProfile {
 	m := new(WSGSplitTunnelProfile)
@@ -135,9 +147,21 @@ func newWSGSplitTunnelProfileListAPIResponse(meta APIResponseMeta, body io.ReadC
 	return r
 }
 
-func (r *WSGSplitTunnelProfileListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSplitTunnelProfileList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSplitTunnelProfileListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSplitTunnelProfileList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSplitTunnelProfileList() *WSGSplitTunnelProfileList {
 	m := new(WSGSplitTunnelProfileList)
@@ -184,9 +208,21 @@ func newWSGSplitTunnelProfileQueryAPIResponse(meta APIResponseMeta, body io.Read
 	return r
 }
 
-func (r *WSGSplitTunnelProfileQueryAPIResponse) Hydrate() error {
-	r.Data = new(WSGSplitTunnelProfileQuery)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSplitTunnelProfileQueryAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSplitTunnelProfileQuery)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSplitTunnelProfileQuery() *WSGSplitTunnelProfileQuery {
 	m := new(WSGSplitTunnelProfileQuery)

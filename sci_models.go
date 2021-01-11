@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -42,9 +43,21 @@ func newSCIModelsFilterAPIResponse(meta APIResponseMeta, body io.ReadCloser) API
 	return r
 }
 
-func (r *SCIModelsFilterAPIResponse) Hydrate() error {
-	r.Data = new(SCIModelsFilter)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIModelsFilterAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIModelsFilter)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIModelsFilter() *SCIModelsFilter {
 	m := new(SCIModelsFilter)
@@ -81,9 +94,21 @@ func newSCIModelsMigrationAPIResponse(meta APIResponseMeta, body io.ReadCloser) 
 	return r
 }
 
-func (r *SCIModelsMigrationAPIResponse) Hydrate() error {
-	r.Data = new(SCIModelsMigration)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIModelsMigrationAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIModelsMigration)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIModelsMigration() *SCIModelsMigration {
 	m := new(SCIModelsMigration)
@@ -127,9 +152,21 @@ func newSCIModelsMigrationMapAPIResponse(meta APIResponseMeta, body io.ReadClose
 	return r
 }
 
-func (r *SCIModelsMigrationMapAPIResponse) Hydrate() error {
-	r.Data = new(SCIModelsMigrationMap)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIModelsMigrationMapAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIModelsMigrationMap)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIModelsMigrationMap() *SCIModelsMigrationMap {
 	m := new(SCIModelsMigrationMap)
@@ -197,9 +234,21 @@ func newSCIModelsPciReportAPIResponse(meta APIResponseMeta, body io.ReadCloser) 
 	return r
 }
 
-func (r *SCIModelsPciReportAPIResponse) Hydrate() error {
-	r.Data = new(SCIModelsPciReport)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIModelsPciReportAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIModelsPciReport)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIModelsPciReport() *SCIModelsPciReport {
 	m := new(SCIModelsPciReport)
@@ -248,9 +297,21 @@ func newSCIModelsReportAPIResponse(meta APIResponseMeta, body io.ReadCloser) API
 	return r
 }
 
-func (r *SCIModelsReportAPIResponse) Hydrate() error {
-	r.Data = new(SCIModelsReport)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIModelsReportAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIModelsReport)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIModelsReport() *SCIModelsReport {
 	m := new(SCIModelsReport)
@@ -356,9 +417,21 @@ func newSCIModelsResourceGroupAPIResponse(meta APIResponseMeta, body io.ReadClos
 	return r
 }
 
-func (r *SCIModelsResourceGroupAPIResponse) Hydrate() error {
-	r.Data = new(SCIModelsResourceGroup)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIModelsResourceGroupAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIModelsResourceGroup)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIModelsResourceGroup() *SCIModelsResourceGroup {
 	m := new(SCIModelsResourceGroup)
@@ -433,9 +506,21 @@ func newSCIModelsScheduleAPIResponse(meta APIResponseMeta, body io.ReadCloser) A
 	return r
 }
 
-func (r *SCIModelsScheduleAPIResponse) Hydrate() error {
-	r.Data = new(SCIModelsSchedule)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIModelsScheduleAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIModelsSchedule)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIModelsSchedule() *SCIModelsSchedule {
 	m := new(SCIModelsSchedule)
@@ -500,9 +585,21 @@ func newSCIModelsSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) AP
 	return r
 }
 
-func (r *SCIModelsSettingAPIResponse) Hydrate() error {
-	r.Data = new(SCIModelsSetting)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIModelsSettingAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIModelsSetting)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIModelsSetting() *SCIModelsSetting {
 	m := new(SCIModelsSetting)
@@ -560,9 +657,21 @@ func newSCIModelsSystemAPIResponse(meta APIResponseMeta, body io.ReadCloser) API
 	return r
 }
 
-func (r *SCIModelsSystemAPIResponse) Hydrate() error {
-	r.Data = new(SCIModelsSystem)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIModelsSystemAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIModelsSystem)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIModelsSystem() *SCIModelsSystem {
 	m := new(SCIModelsSystem)
@@ -608,9 +717,21 @@ func newSCIModelsUserAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIRe
 	return r
 }
 
-func (r *SCIModelsUserAPIResponse) Hydrate() error {
-	r.Data = new(SCIModelsUser)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIModelsUserAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIModelsUser)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIModelsUser() *SCIModelsUser {
 	m := new(SCIModelsUser)

@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -69,9 +69,21 @@ func newSwitchMTrafficBroadcastQueryResultListAPIResponse(meta APIResponseMeta, 
 	return r
 }
 
-func (r *SwitchMTrafficBroadcastQueryResultListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMTrafficBroadcastQueryResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMTrafficBroadcastQueryResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMTrafficBroadcastQueryResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMTrafficBroadcastQueryResultList() *SwitchMTrafficBroadcastQueryResultList {
 	m := new(SwitchMTrafficBroadcastQueryResultList)
@@ -124,9 +136,21 @@ func newSwitchMTrafficMulticastQueryResultListAPIResponse(meta APIResponseMeta, 
 	return r
 }
 
-func (r *SwitchMTrafficMulticastQueryResultListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMTrafficMulticastQueryResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMTrafficMulticastQueryResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMTrafficMulticastQueryResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMTrafficMulticastQueryResultList() *SwitchMTrafficMulticastQueryResultList {
 	m := new(SwitchMTrafficMulticastQueryResultList)
@@ -181,9 +205,21 @@ func newSwitchMTrafficPortErrorQueryResultListAPIResponse(meta APIResponseMeta, 
 	return r
 }
 
-func (r *SwitchMTrafficPortErrorQueryResultListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMTrafficPortErrorQueryResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMTrafficPortErrorQueryResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMTrafficPortErrorQueryResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMTrafficPortErrorQueryResultList() *SwitchMTrafficPortErrorQueryResultList {
 	m := new(SwitchMTrafficPortErrorQueryResultList)
@@ -228,9 +264,21 @@ func newSwitchMTrafficTopPortErrorQueryResultListAPIResponse(meta APIResponseMet
 	return r
 }
 
-func (r *SwitchMTrafficTopPortErrorQueryResultListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMTrafficTopPortErrorQueryResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMTrafficTopPortErrorQueryResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMTrafficTopPortErrorQueryResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMTrafficTopPortErrorQueryResultList() *SwitchMTrafficTopPortErrorQueryResultList {
 	m := new(SwitchMTrafficTopPortErrorQueryResultList)
@@ -275,9 +323,21 @@ func newSwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse(meta APIResp
 	return r
 }
 
-func (r *SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMTrafficTopPortTrafficUsageQueryResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMTrafficTopPortTrafficUsageQueryResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMTrafficTopPortTrafficUsageQueryResultList() *SwitchMTrafficTopPortTrafficUsageQueryResultList {
 	m := new(SwitchMTrafficTopPortTrafficUsageQueryResultList)
@@ -322,9 +382,21 @@ func newSwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse(meta API
 	return r
 }
 
-func (r *SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMTrafficTopSwitchPoEUtilizationQueryResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMTrafficTopSwitchPoEUtilizationQueryResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMTrafficTopSwitchPoEUtilizationQueryResultList() *SwitchMTrafficTopSwitchPoEUtilizationQueryResultList {
 	m := new(SwitchMTrafficTopSwitchPoEUtilizationQueryResultList)
@@ -369,9 +441,21 @@ func newSwitchMTrafficTopTrafficUsageQueryResultListAPIResponse(meta APIResponse
 	return r
 }
 
-func (r *SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMTrafficTopTrafficUsageQueryResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMTrafficTopTrafficUsageQueryResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMTrafficTopTrafficUsageQueryResultList() *SwitchMTrafficTopTrafficUsageQueryResultList {
 	m := new(SwitchMTrafficTopTrafficUsageQueryResultList)
@@ -442,9 +526,21 @@ func newSwitchMTrafficQueryResultListAPIResponse(meta APIResponseMeta, body io.R
 	return r
 }
 
-func (r *SwitchMTrafficQueryResultListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMTrafficQueryResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMTrafficQueryResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMTrafficQueryResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMTrafficQueryResultList() *SwitchMTrafficQueryResultList {
 	m := new(SwitchMTrafficQueryResultList)
@@ -519,9 +615,21 @@ func newSwitchMTrafficUnicastQueryResultListAPIResponse(meta APIResponseMeta, bo
 	return r
 }
 
-func (r *SwitchMTrafficUnicastQueryResultListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMTrafficUnicastQueryResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMTrafficUnicastQueryResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMTrafficUnicastQueryResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMTrafficUnicastQueryResultList() *SwitchMTrafficUnicastQueryResultList {
 	m := new(SwitchMTrafficUnicastQueryResultList)

@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -111,9 +111,21 @@ func newWSGDomainConfigurationAPIResponse(meta APIResponseMeta, body io.ReadClos
 	return r
 }
 
-func (r *WSGDomainConfigurationAPIResponse) Hydrate() error {
-	r.Data = new(WSGDomainConfiguration)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGDomainConfigurationAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGDomainConfiguration)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGDomainConfiguration() *WSGDomainConfiguration {
 	m := new(WSGDomainConfiguration)
@@ -144,9 +156,21 @@ func newWSGDomainListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIRe
 	return r
 }
 
-func (r *WSGDomainListAPIResponse) Hydrate() error {
-	r.Data = new(WSGDomainList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGDomainListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGDomainList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGDomainList() *WSGDomainList {
 	m := new(WSGDomainList)

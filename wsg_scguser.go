@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -283,9 +283,21 @@ func newWSGSCGUserGetScgUserAPIResponse(meta APIResponseMeta, body io.ReadCloser
 	return r
 }
 
-func (r *WSGSCGUserGetScgUserAPIResponse) Hydrate() error {
-	r.Data = new(WSGSCGUserGetScgUser)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSCGUserGetScgUserAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSCGUserGetScgUser)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSCGUserGetScgUser() *WSGSCGUserGetScgUser {
 	m := new(WSGSCGUserGetScgUser)
@@ -581,9 +593,21 @@ func newWSGSCGUserAuditIdAPIResponse(meta APIResponseMeta, body io.ReadCloser) A
 	return r
 }
 
-func (r *WSGSCGUserAuditIdAPIResponse) Hydrate() error {
-	r.Data = new(WSGSCGUserAuditId)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSCGUserAuditIdAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSCGUserAuditId)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSCGUserAuditId() *WSGSCGUserAuditId {
 	m := new(WSGSCGUserAuditId)
@@ -692,9 +716,21 @@ func newWSGSCGUserGroupAPIResponse(meta APIResponseMeta, body io.ReadCloser) API
 	return r
 }
 
-func (r *WSGSCGUserGroupAPIResponse) Hydrate() error {
-	r.Data = new(WSGSCGUserGroup)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSCGUserGroupAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSCGUserGroup)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSCGUserGroup() *WSGSCGUserGroup {
 	m := new(WSGSCGUserGroup)
@@ -721,9 +757,21 @@ func newWSGSCGUserGroupAuditIdAPIResponse(meta APIResponseMeta, body io.ReadClos
 	return r
 }
 
-func (r *WSGSCGUserGroupAuditIdAPIResponse) Hydrate() error {
-	r.Data = new(WSGSCGUserGroupAuditId)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSCGUserGroupAuditIdAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSCGUserGroupAuditId)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSCGUserGroupAuditId() *WSGSCGUserGroupAuditId {
 	m := new(WSGSCGUserGroupAuditId)
@@ -756,9 +804,21 @@ func newWSGSCGUserGroupListAPIResponse(meta APIResponseMeta, body io.ReadCloser)
 	return r
 }
 
-func (r *WSGSCGUserGroupListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSCGUserGroupList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSCGUserGroupListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSCGUserGroupList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSCGUserGroupList() *WSGSCGUserGroupList {
 	m := new(WSGSCGUserGroupList)
@@ -854,9 +914,21 @@ func newWSGSCGUserGroupPermissionListAPIResponse(meta APIResponseMeta, body io.R
 	return r
 }
 
-func (r *WSGSCGUserGroupPermissionListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSCGUserGroupPermissionList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSCGUserGroupPermissionListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSCGUserGroupPermissionList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSCGUserGroupPermissionList() *WSGSCGUserGroupPermissionList {
 	m := new(WSGSCGUserGroupPermissionList)
@@ -979,9 +1051,21 @@ func newWSGSCGUserGroupRoleLabelValueListAPIResponse(meta APIResponseMeta, body 
 	return r
 }
 
-func (r *WSGSCGUserGroupRoleLabelValueListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSCGUserGroupRoleLabelValueList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSCGUserGroupRoleLabelValueListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSCGUserGroupRoleLabelValueList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSCGUserGroupRoleLabelValueList() *WSGSCGUserGroupRoleLabelValueList {
 	m := new(WSGSCGUserGroupRoleLabelValueList)
@@ -1014,9 +1098,21 @@ func newWSGSCGUserListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIR
 	return r
 }
 
-func (r *WSGSCGUserListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSCGUserList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSCGUserListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSCGUserList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSCGUserList() *WSGSCGUserList {
 	m := new(WSGSCGUserList)

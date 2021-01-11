@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -111,9 +111,21 @@ func newWSGRogueClientRogueInfoListAPIResponse(meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *WSGRogueClientRogueInfoListAPIResponse) Hydrate() error {
-	r.Data = new(WSGRogueClientRogueInfoList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGRogueClientRogueInfoListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGRogueClientRogueInfoList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGRogueClientRogueInfoList() *WSGRogueClientRogueInfoList {
 	m := new(WSGRogueClientRogueInfoList)

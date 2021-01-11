@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -287,9 +287,21 @@ func newWSGAPModelCommonAttributeAPIResponse(meta APIResponseMeta, body io.ReadC
 	return r
 }
 
-func (r *WSGAPModelCommonAttributeAPIResponse) Hydrate() error {
-	r.Data = new(WSGAPModelCommonAttribute)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAPModelCommonAttributeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAPModelCommonAttribute)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAPModelCommonAttribute() *WSGAPModelCommonAttribute {
 	m := new(WSGAPModelCommonAttribute)

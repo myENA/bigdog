@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -208,9 +209,21 @@ func newWSGSCIEventCodeAPIResponse(meta APIResponseMeta, body io.ReadCloser) API
 	return r
 }
 
-func (r *WSGSCIEventCodeAPIResponse) Hydrate() error {
-	r.Data = new(WSGSCIEventCode)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSCIEventCodeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSCIEventCode)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSCIEventCode() *WSGSCIEventCode {
 	m := new(WSGSCIEventCode)
@@ -283,9 +296,21 @@ func newWSGSCIProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIRe
 	return r
 }
 
-func (r *WSGSCIProfileAPIResponse) Hydrate() error {
-	r.Data = new(WSGSCIProfile)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSCIProfileAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSCIProfile)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSCIProfile() *WSGSCIProfile {
 	m := new(WSGSCIProfile)
@@ -349,9 +374,21 @@ func newWSGSCIProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) A
 	return r
 }
 
-func (r *WSGSCIProfileListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSCIProfileList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSCIProfileListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSCIProfileList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSCIProfileList() *WSGSCIProfileList {
 	m := new(WSGSCIProfileList)

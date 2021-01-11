@@ -5,7 +5,7 @@ package bigdog
 import (
 	"bytes"
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 	"net/url"
@@ -43,9 +43,21 @@ func newSCIMigrationCount200ResponseTypeAPIResponse(meta APIResponseMeta, body i
 	return r
 }
 
-func (r *SCIMigrationCount200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIMigrationCount200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIMigrationCount200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIMigrationCount200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIMigrationCount200ResponseType() *SCIMigrationCount200ResponseType {
 	m := new(SCIMigrationCount200ResponseType)
@@ -70,9 +82,21 @@ func newSCIMigrationExistsgetMigrationsidexists200ResponseTypeAPIResponse(meta A
 	return r
 }
 
-func (r *SCIMigrationExistsgetMigrationsidexists200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIMigrationExistsgetMigrationsidexists200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIMigrationExistsgetMigrationsidexists200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIMigrationExistsgetMigrationsidexists200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIMigrationExistsgetMigrationsidexists200ResponseType() *SCIMigrationExistsgetMigrationsidexists200ResponseType {
 	m := new(SCIMigrationExistsgetMigrationsidexists200ResponseType)
@@ -107,9 +131,21 @@ func newSCIMigrationFind200ResponseTypeAPIResponse(meta APIResponseMeta, body io
 	return r
 }
 
-func (r *SCIMigrationFind200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = make(SCIMigrationFind200ResponseType, 0)
-	return json.NewDecoder(r).Decode(&r.Data)
+func (r *SCIMigrationFind200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := make(SCIMigrationFind200ResponseType, 0)
+	if err := r.doHydrate(&data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func MakeSCIMigrationFind200ResponseType() SCIMigrationFind200ResponseType {
 	m := make(SCIMigrationFind200ResponseType, 0)

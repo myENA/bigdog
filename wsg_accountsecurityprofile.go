@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -201,9 +201,21 @@ func newWSGAccountSecurityProfileGetByIdResultAPIResponse(meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGAccountSecurityProfileGetByIdResultAPIResponse) Hydrate() error {
-	r.Data = new(WSGAccountSecurityProfileGetByIdResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAccountSecurityProfileGetByIdResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAccountSecurityProfileGetByIdResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAccountSecurityProfileGetByIdResult() *WSGAccountSecurityProfileGetByIdResult {
 	m := new(WSGAccountSecurityProfileGetByIdResult)
@@ -234,9 +246,21 @@ func newWSGAccountSecurityProfileProfileListResultAPIResponse(meta APIResponseMe
 	return r
 }
 
-func (r *WSGAccountSecurityProfileProfileListResultAPIResponse) Hydrate() error {
-	r.Data = new(WSGAccountSecurityProfileProfileListResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAccountSecurityProfileProfileListResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAccountSecurityProfileProfileListResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAccountSecurityProfileProfileListResult() *WSGAccountSecurityProfileProfileListResult {
 	m := new(WSGAccountSecurityProfileProfileListResult)

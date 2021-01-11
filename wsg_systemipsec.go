@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -115,9 +115,21 @@ func newWSGSystemIPsecGetResultAPIResponse(meta APIResponseMeta, body io.ReadClo
 	return r
 }
 
-func (r *WSGSystemIPsecGetResultAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemIPsecGetResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemIPsecGetResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemIPsecGetResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemIPsecGetResult() *WSGSystemIPsecGetResult {
 	m := new(WSGSystemIPsecGetResult)

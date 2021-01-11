@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -535,9 +535,21 @@ func newWSGPortalServiceGuestAccessAPIResponse(meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *WSGPortalServiceGuestAccessAPIResponse) Hydrate() error {
-	r.Data = new(WSGPortalServiceGuestAccess)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGPortalServiceGuestAccessAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGPortalServiceGuestAccess)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGPortalServiceGuestAccess() *WSGPortalServiceGuestAccess {
 	m := new(WSGPortalServiceGuestAccess)
@@ -625,9 +637,21 @@ func newWSGPortalServiceHotspotAPIResponse(meta APIResponseMeta, body io.ReadClo
 	return r
 }
 
-func (r *WSGPortalServiceHotspotAPIResponse) Hydrate() error {
-	r.Data = new(WSGPortalServiceHotspot)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGPortalServiceHotspotAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGPortalServiceHotspot)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGPortalServiceHotspot() *WSGPortalServiceHotspot {
 	m := new(WSGPortalServiceHotspot)
@@ -678,9 +702,21 @@ func newWSGPortalServiceHotspot20VeuneProfileAPIResponse(meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGPortalServiceHotspot20VeuneProfileAPIResponse) Hydrate() error {
-	r.Data = new(WSGPortalServiceHotspot20VeuneProfile)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGPortalServiceHotspot20VeuneProfileAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGPortalServiceHotspot20VeuneProfile)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGPortalServiceHotspot20VeuneProfile() *WSGPortalServiceHotspot20VeuneProfile {
 	m := new(WSGPortalServiceHotspot20VeuneProfile)
@@ -755,9 +791,21 @@ func newWSGPortalServiceHotspot20WlanProfileAPIResponse(meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGPortalServiceHotspot20WlanProfileAPIResponse) Hydrate() error {
-	r.Data = new(WSGPortalServiceHotspot20WlanProfile)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGPortalServiceHotspot20WlanProfileAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGPortalServiceHotspot20WlanProfile)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGPortalServiceHotspot20WlanProfile() *WSGPortalServiceHotspot20WlanProfile {
 	m := new(WSGPortalServiceHotspot20WlanProfile)
@@ -800,9 +848,21 @@ func newWSGPortalServiceL2ACLAPIResponse(meta APIResponseMeta, body io.ReadClose
 	return r
 }
 
-func (r *WSGPortalServiceL2ACLAPIResponse) Hydrate() error {
-	r.Data = new(WSGPortalServiceL2ACL)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGPortalServiceL2ACLAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGPortalServiceL2ACL)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGPortalServiceL2ACL() *WSGPortalServiceL2ACL {
 	m := new(WSGPortalServiceL2ACL)
@@ -1147,9 +1207,21 @@ func newWSGPortalServiceListAPIResponse(meta APIResponseMeta, body io.ReadCloser
 	return r
 }
 
-func (r *WSGPortalServiceListAPIResponse) Hydrate() error {
-	r.Data = new(WSGPortalServiceList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGPortalServiceListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGPortalServiceList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGPortalServiceList() *WSGPortalServiceList {
 	m := new(WSGPortalServiceList)
@@ -1255,9 +1327,21 @@ func newWSGPortalServiceWebAuthenticationAPIResponse(meta APIResponseMeta, body 
 	return r
 }
 
-func (r *WSGPortalServiceWebAuthenticationAPIResponse) Hydrate() error {
-	r.Data = new(WSGPortalServiceWebAuthentication)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGPortalServiceWebAuthenticationAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGPortalServiceWebAuthentication)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGPortalServiceWebAuthentication() *WSGPortalServiceWebAuthentication {
 	m := new(WSGPortalServiceWebAuthentication)
@@ -1312,9 +1396,21 @@ func newWSGPortalServiceWechatConfigurationAPIResponse(meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGPortalServiceWechatConfigurationAPIResponse) Hydrate() error {
-	r.Data = new(WSGPortalServiceWechatConfiguration)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGPortalServiceWechatConfigurationAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGPortalServiceWechatConfiguration)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGPortalServiceWechatConfiguration() *WSGPortalServiceWechatConfiguration {
 	m := new(WSGPortalServiceWechatConfiguration)

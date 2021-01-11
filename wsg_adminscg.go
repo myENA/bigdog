@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -45,9 +46,21 @@ func newWSGAdminSCGScgAaaServerAPIResponse(meta APIResponseMeta, body io.ReadClo
 	return r
 }
 
-func (r *WSGAdminSCGScgAaaServerAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdminSCGScgAaaServer)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdminSCGScgAaaServerAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdminSCGScgAaaServer)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdminSCGScgAaaServer() *WSGAdminSCGScgAaaServer {
 	m := new(WSGAdminSCGScgAaaServer)

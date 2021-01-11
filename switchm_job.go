@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -97,9 +97,21 @@ func newSwitchMJobAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIRespo
 	return r
 }
 
-func (r *SwitchMJobAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMJob)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMJobAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMJob)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMJob() *SwitchMJob {
 	m := new(SwitchMJob)
@@ -160,9 +172,21 @@ func newSwitchMJobScheduleResponseAPIResponse(meta APIResponseMeta, body io.Read
 	return r
 }
 
-func (r *SwitchMJobScheduleResponseAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMJobScheduleResponse)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMJobScheduleResponseAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMJobScheduleResponse)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMJobScheduleResponse() *SwitchMJobScheduleResponse {
 	m := new(SwitchMJobScheduleResponse)
@@ -207,9 +231,21 @@ func newSwitchMJobListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIR
 	return r
 }
 
-func (r *SwitchMJobListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMJobList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMJobListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMJobList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMJobList() *SwitchMJobList {
 	m := new(SwitchMJobList)

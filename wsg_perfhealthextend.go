@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -51,9 +51,21 @@ func newWSGPerformanceAndHealthExtensionsGroupBarListAPIResponse(meta APIRespons
 	return r
 }
 
-func (r *WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse) Hydrate() error {
-	r.Data = new(WSGPerformanceAndHealthExtensionsGroupBarList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGPerformanceAndHealthExtensionsGroupBarList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGPerformanceAndHealthExtensionsGroupBarList() *WSGPerformanceAndHealthExtensionsGroupBarList {
 	m := new(WSGPerformanceAndHealthExtensionsGroupBarList)
@@ -102,9 +114,21 @@ func newWSGPerformanceAndHealthExtensionsLineListAPIResponse(meta APIResponseMet
 	return r
 }
 
-func (r *WSGPerformanceAndHealthExtensionsLineListAPIResponse) Hydrate() error {
-	r.Data = new(WSGPerformanceAndHealthExtensionsLineList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGPerformanceAndHealthExtensionsLineListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGPerformanceAndHealthExtensionsLineList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGPerformanceAndHealthExtensionsLineList() *WSGPerformanceAndHealthExtensionsLineList {
 	m := new(WSGPerformanceAndHealthExtensionsLineList)

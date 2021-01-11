@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -61,9 +61,21 @@ func newSwitchMEventConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) 
 	return r
 }
 
-func (r *SwitchMEventConfigAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMEventConfig)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMEventConfigAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMEventConfig)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMEventConfig() *SwitchMEventConfig {
 	m := new(SwitchMEventConfig)
@@ -108,9 +120,21 @@ func newSwitchMEventConfigGetEventConfigListAPIResponse(meta APIResponseMeta, bo
 	return r
 }
 
-func (r *SwitchMEventConfigGetEventConfigListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMEventConfigGetEventConfigList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMEventConfigGetEventConfigListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMEventConfigGetEventConfigList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMEventConfigGetEventConfigList() *SwitchMEventConfigGetEventConfigList {
 	m := new(SwitchMEventConfigGetEventConfigList)
@@ -153,9 +177,21 @@ func newSwitchMEventConfigQueryResponseAPIResponse(meta APIResponseMeta, body io
 	return r
 }
 
-func (r *SwitchMEventConfigQueryResponseAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMEventConfigQueryResponse)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMEventConfigQueryResponseAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMEventConfigQueryResponse)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMEventConfigQueryResponse() *SwitchMEventConfigQueryResponse {
 	m := new(SwitchMEventConfigQueryResponse)

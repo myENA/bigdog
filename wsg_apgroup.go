@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -165,9 +165,21 @@ func newWSGAPGroupConfigurationAPIResponse(meta APIResponseMeta, body io.ReadClo
 	return r
 }
 
-func (r *WSGAPGroupConfigurationAPIResponse) Hydrate() error {
-	r.Data = new(WSGAPGroupConfiguration)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAPGroupConfigurationAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAPGroupConfiguration)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAPGroupConfiguration() *WSGAPGroupConfiguration {
 	m := new(WSGAPGroupConfiguration)
@@ -198,9 +210,21 @@ func newWSGAPGroupListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIR
 	return r
 }
 
-func (r *WSGAPGroupListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAPGroupList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAPGroupListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAPGroupList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAPGroupList() *WSGAPGroupList {
 	m := new(WSGAPGroupList)

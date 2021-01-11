@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -172,9 +173,21 @@ func newWSGNorthboundDataStreamingEventCodesAPIResponse(meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGNorthboundDataStreamingEventCodesAPIResponse) Hydrate() error {
-	r.Data = new(WSGNorthboundDataStreamingEventCodes)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGNorthboundDataStreamingEventCodesAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGNorthboundDataStreamingEventCodes)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGNorthboundDataStreamingEventCodes() *WSGNorthboundDataStreamingEventCodes {
 	m := new(WSGNorthboundDataStreamingEventCodes)
@@ -253,9 +266,21 @@ func newWSGNorthboundDataStreamingProfileAPIResponse(meta APIResponseMeta, body 
 	return r
 }
 
-func (r *WSGNorthboundDataStreamingProfileAPIResponse) Hydrate() error {
-	r.Data = new(WSGNorthboundDataStreamingProfile)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGNorthboundDataStreamingProfileAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGNorthboundDataStreamingProfile)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGNorthboundDataStreamingProfile() *WSGNorthboundDataStreamingProfile {
 	m := new(WSGNorthboundDataStreamingProfile)
@@ -319,9 +344,21 @@ func newWSGNorthboundDataStreamingProfileListAPIResponse(meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGNorthboundDataStreamingProfileListAPIResponse) Hydrate() error {
-	r.Data = new(WSGNorthboundDataStreamingProfileList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGNorthboundDataStreamingProfileListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGNorthboundDataStreamingProfileList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGNorthboundDataStreamingProfileList() *WSGNorthboundDataStreamingProfileList {
 	m := new(WSGNorthboundDataStreamingProfileList)

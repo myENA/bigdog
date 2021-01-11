@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -79,9 +79,21 @@ func newSwitchMIPConfigCreateResultAPIResponse(meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *SwitchMIPConfigCreateResultAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMIPConfigCreateResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMIPConfigCreateResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMIPConfigCreateResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMIPConfigCreateResult() *SwitchMIPConfigCreateResult {
 	m := new(SwitchMIPConfigCreateResult)
@@ -174,9 +186,21 @@ func newSwitchMIPConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) API
 	return r
 }
 
-func (r *SwitchMIPConfigAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMIPConfig)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMIPConfigAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMIPConfig)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMIPConfig() *SwitchMIPConfig {
 	m := new(SwitchMIPConfig)
@@ -215,9 +239,21 @@ func newSwitchMIPConfigListAPIResponse(meta APIResponseMeta, body io.ReadCloser)
 	return r
 }
 
-func (r *SwitchMIPConfigListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMIPConfigList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMIPConfigListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMIPConfigList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMIPConfigList() *SwitchMIPConfigList {
 	m := new(SwitchMIPConfigList)

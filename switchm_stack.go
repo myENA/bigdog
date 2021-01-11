@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -51,9 +51,21 @@ func newSwitchMSwitchStackConfigAuditIdListAPIResponse(meta APIResponseMeta, bod
 	return r
 }
 
-func (r *SwitchMSwitchStackConfigAuditIdListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMSwitchStackConfigAuditIdList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMSwitchStackConfigAuditIdListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMSwitchStackConfigAuditIdList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMSwitchStackConfigAuditIdList() *SwitchMSwitchStackConfigAuditIdList {
 	m := new(SwitchMSwitchStackConfigAuditIdList)
@@ -96,9 +108,21 @@ func newSwitchMSwitchStackConfigListAPIResponse(meta APIResponseMeta, body io.Re
 	return r
 }
 
-func (r *SwitchMSwitchStackConfigListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMSwitchStackConfigList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMSwitchStackConfigListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMSwitchStackConfigList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMSwitchStackConfigList() *SwitchMSwitchStackConfigList {
 	m := new(SwitchMSwitchStackConfigList)
@@ -251,9 +275,21 @@ func newSwitchMSwitchStackConfigStackConfigAPIResponse(meta APIResponseMeta, bod
 	return r
 }
 
-func (r *SwitchMSwitchStackConfigStackConfigAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMSwitchStackConfigStackConfig)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMSwitchStackConfigStackConfigAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMSwitchStackConfigStackConfig)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMSwitchStackConfigStackConfig() *SwitchMSwitchStackConfigStackConfig {
 	m := new(SwitchMSwitchStackConfigStackConfig)

@@ -4,6 +4,7 @@ package bigdog
 
 import (
 	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -75,9 +76,21 @@ func newWSGDomainDevicePolicyProfileAPIResponse(meta APIResponseMeta, body io.Re
 	return r
 }
 
-func (r *WSGDomainDevicePolicyProfileAPIResponse) Hydrate() error {
-	r.Data = new(WSGDomainDevicePolicyProfile)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGDomainDevicePolicyProfileAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGDomainDevicePolicyProfile)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGDomainDevicePolicyProfile() *WSGDomainDevicePolicyProfile {
 	m := new(WSGDomainDevicePolicyProfile)
@@ -173,9 +186,21 @@ func newWSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse(meta APIResponseM
 	return r
 }
 
-func (r *WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse) Hydrate() error {
-	r.Data = new(WSGDomainDevicePolicyProfileByQueryCriteria)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGDomainDevicePolicyProfileByQueryCriteria)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGDomainDevicePolicyProfileByQueryCriteria() *WSGDomainDevicePolicyProfileByQueryCriteria {
 	m := new(WSGDomainDevicePolicyProfileByQueryCriteria)
@@ -278,9 +303,21 @@ func newWSGDomainDevicePolicyProfileListAPIResponse(meta APIResponseMeta, body i
 	return r
 }
 
-func (r *WSGDomainDevicePolicyProfileListAPIResponse) Hydrate() error {
-	r.Data = new(WSGDomainDevicePolicyProfileList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGDomainDevicePolicyProfileListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGDomainDevicePolicyProfileList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGDomainDevicePolicyProfileList() *WSGDomainDevicePolicyProfileList {
 	m := new(WSGDomainDevicePolicyProfileList)

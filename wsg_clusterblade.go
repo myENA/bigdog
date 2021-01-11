@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -99,9 +99,21 @@ func newWSGClusterBladeClusterStateAPIResponse(meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *WSGClusterBladeClusterStateAPIResponse) Hydrate() error {
-	r.Data = new(WSGClusterBladeClusterState)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGClusterBladeClusterStateAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGClusterBladeClusterState)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGClusterBladeClusterState() *WSGClusterBladeClusterState {
 	m := new(WSGClusterBladeClusterState)

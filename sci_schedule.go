@@ -5,7 +5,7 @@ package bigdog
 import (
 	"bytes"
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 	"net/url"
@@ -43,9 +43,21 @@ func newSCIScheduleBatchDelete200ResponseTypeAPIResponse(meta APIResponseMeta, b
 	return r
 }
 
-func (r *SCIScheduleBatchDelete200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIScheduleBatchDelete200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIScheduleBatchDelete200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIScheduleBatchDelete200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIScheduleBatchDelete200ResponseType() *SCIScheduleBatchDelete200ResponseType {
 	m := new(SCIScheduleBatchDelete200ResponseType)

@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -81,9 +81,21 @@ func newWSGDevicePolicyPorfileAPIResponse(meta APIResponseMeta, body io.ReadClos
 	return r
 }
 
-func (r *WSGDevicePolicyPorfileAPIResponse) Hydrate() error {
-	r.Data = new(WSGDevicePolicyPorfile)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGDevicePolicyPorfileAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGDevicePolicyPorfile)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGDevicePolicyPorfile() *WSGDevicePolicyPorfile {
 	m := new(WSGDevicePolicyPorfile)
@@ -184,9 +196,21 @@ func newWSGDevicePolicyPorfileListAPIResponse(meta APIResponseMeta, body io.Read
 	return r
 }
 
-func (r *WSGDevicePolicyPorfileListAPIResponse) Hydrate() error {
-	r.Data = new(WSGDevicePolicyPorfileList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGDevicePolicyPorfileListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGDevicePolicyPorfileList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGDevicePolicyPorfileList() *WSGDevicePolicyPorfileList {
 	m := new(WSGDevicePolicyPorfileList)

@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -61,9 +61,21 @@ func newSwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse(meta APIRespons
 	return r
 }
 
-func (r *SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMFirmwareConfigFirmwaresQueryResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMFirmwareConfigFirmwaresQueryResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMFirmwareConfigFirmwaresQueryResultList() *SwitchMFirmwareConfigFirmwaresQueryResultList {
 	m := new(SwitchMFirmwareConfigFirmwaresQueryResultList)
@@ -108,9 +120,21 @@ func newSwitchMFirmwareConfigScheduleIdsAPIResponse(meta APIResponseMeta, body i
 	return r
 }
 
-func (r *SwitchMFirmwareConfigScheduleIdsAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMFirmwareConfigScheduleIds)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMFirmwareConfigScheduleIdsAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMFirmwareConfigScheduleIds)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMFirmwareConfigScheduleIds() *SwitchMFirmwareConfigScheduleIds {
 	m := new(SwitchMFirmwareConfigScheduleIds)

@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -129,9 +129,21 @@ func newSwitchMGroupModelConfigQueryResultAPIResponse(meta APIResponseMeta, body
 	return r
 }
 
-func (r *SwitchMGroupModelConfigQueryResultAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMGroupModelConfigQueryResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMGroupModelConfigQueryResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMGroupModelConfigQueryResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMGroupModelConfigQueryResult() *SwitchMGroupModelConfigQueryResult {
 	m := new(SwitchMGroupModelConfigQueryResult)
@@ -188,9 +200,21 @@ func newSwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse(meta APIRe
 	return r
 }
 
-func (r *SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMGroupModelConfigUpdateGroupConfigResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMGroupModelConfigUpdateGroupConfigResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMGroupModelConfigUpdateGroupConfigResultList() *SwitchMGroupModelConfigUpdateGroupConfigResultList {
 	m := new(SwitchMGroupModelConfigUpdateGroupConfigResultList)

@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -133,9 +133,21 @@ func newSwitchMStaticRouteSettingStaticRouteAPIResponse(meta APIResponseMeta, bo
 	return r
 }
 
-func (r *SwitchMStaticRouteSettingStaticRouteAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMStaticRouteSettingStaticRoute)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMStaticRouteSettingStaticRouteAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMStaticRouteSettingStaticRoute)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMStaticRouteSettingStaticRoute() *SwitchMStaticRouteSettingStaticRoute {
 	m := new(SwitchMStaticRouteSettingStaticRoute)
@@ -180,9 +192,21 @@ func newSwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse(meta APIResp
 	return r
 }
 
-func (r *SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMStaticRouteSettingStaticRoutesQueryResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMStaticRouteSettingStaticRoutesQueryResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMStaticRouteSettingStaticRoutesQueryResult() *SwitchMStaticRouteSettingStaticRoutesQueryResult {
 	m := new(SwitchMStaticRouteSettingStaticRoutesQueryResult)

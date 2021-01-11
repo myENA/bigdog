@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -39,9 +39,21 @@ func newSCISystemFind200ResponseTypeAPIResponse(meta APIResponseMeta, body io.Re
 	return r
 }
 
-func (r *SCISystemFind200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = make(SCISystemFind200ResponseType, 0)
-	return json.NewDecoder(r).Decode(&r.Data)
+func (r *SCISystemFind200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := make(SCISystemFind200ResponseType, 0)
+	if err := r.doHydrate(&data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func MakeSCISystemFind200ResponseType() SCISystemFind200ResponseType {
 	m := make(SCISystemFind200ResponseType, 0)
@@ -64,9 +76,21 @@ func newSCISystemGetSsids200ResponseTypeAPIResponse(meta APIResponseMeta, body i
 	return r
 }
 
-func (r *SCISystemGetSsids200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = make(SCISystemGetSsids200ResponseType, 0)
-	return json.NewDecoder(r).Decode(&r.Data)
+func (r *SCISystemGetSsids200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := make(SCISystemGetSsids200ResponseType, 0)
+	if err := r.doHydrate(&data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func MakeSCISystemGetSsids200ResponseType() SCISystemGetSsids200ResponseType {
 	m := make(SCISystemGetSsids200ResponseType, 0)

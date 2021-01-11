@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -221,9 +221,21 @@ func newWSGRACStatsGgsnGtpcConListAPIResponse(meta APIResponseMeta, body io.Read
 	return r
 }
 
-func (r *WSGRACStatsGgsnGtpcConListAPIResponse) Hydrate() error {
-	r.Data = new(WSGRACStatsGgsnGtpcConList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGRACStatsGgsnGtpcConListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGRACStatsGgsnGtpcConList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGRACStatsGgsnGtpcConList() *WSGRACStatsGgsnGtpcConList {
 	m := new(WSGRACStatsGgsnGtpcConList)
@@ -256,9 +268,21 @@ func newWSGRACStatsGgsnGtpListAPIResponse(meta APIResponseMeta, body io.ReadClos
 	return r
 }
 
-func (r *WSGRACStatsGgsnGtpListAPIResponse) Hydrate() error {
-	r.Data = new(WSGRACStatsGgsnGtpList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGRACStatsGgsnGtpListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGRACStatsGgsnGtpList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGRACStatsGgsnGtpList() *WSGRACStatsGgsnGtpList {
 	m := new(WSGRACStatsGgsnGtpList)
@@ -489,9 +513,21 @@ func newWSGRACStatsRadiusProxyListAPIResponse(meta APIResponseMeta, body io.Read
 	return r
 }
 
-func (r *WSGRACStatsRadiusProxyListAPIResponse) Hydrate() error {
-	r.Data = new(WSGRACStatsRadiusProxyList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGRACStatsRadiusProxyListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGRACStatsRadiusProxyList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGRACStatsRadiusProxyList() *WSGRACStatsRadiusProxyList {
 	m := new(WSGRACStatsRadiusProxyList)

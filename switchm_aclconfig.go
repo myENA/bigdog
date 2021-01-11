@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -71,9 +71,21 @@ func newSwitchMACLConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) AP
 	return r
 }
 
-func (r *SwitchMACLConfigAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMACLConfig)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMACLConfigAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMACLConfig)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMACLConfig() *SwitchMACLConfig {
 	m := new(SwitchMACLConfig)
@@ -118,9 +130,21 @@ func newSwitchMACLConfigsQueryResultAPIResponse(meta APIResponseMeta, body io.Re
 	return r
 }
 
-func (r *SwitchMACLConfigsQueryResultAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMACLConfigsQueryResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMACLConfigsQueryResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMACLConfigsQueryResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMACLConfigsQueryResult() *SwitchMACLConfigsQueryResult {
 	m := new(SwitchMACLConfigsQueryResult)

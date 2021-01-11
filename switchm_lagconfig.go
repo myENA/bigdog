@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -61,9 +61,21 @@ func newSwitchMLAGConfigCreateResultAPIResponse(meta APIResponseMeta, body io.Re
 	return r
 }
 
-func (r *SwitchMLAGConfigCreateResultAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMLAGConfigCreateResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMLAGConfigCreateResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMLAGConfigCreateResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMLAGConfigCreateResult() *SwitchMLAGConfigCreateResult {
 	m := new(SwitchMLAGConfigCreateResult)
@@ -122,9 +134,21 @@ func newSwitchMLAGConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) AP
 	return r
 }
 
-func (r *SwitchMLAGConfigAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMLAGConfig)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMLAGConfigAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMLAGConfig)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMLAGConfig() *SwitchMLAGConfig {
 	m := new(SwitchMLAGConfig)
@@ -163,9 +187,21 @@ func newSwitchMLAGConfigListAPIResponse(meta APIResponseMeta, body io.ReadCloser
 	return r
 }
 
-func (r *SwitchMLAGConfigListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMLAGConfigList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMLAGConfigListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMLAGConfigList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMLAGConfigList() *SwitchMLAGConfigList {
 	m := new(SwitchMLAGConfigList)

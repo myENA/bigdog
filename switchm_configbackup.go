@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -105,9 +105,21 @@ func newSwitchMConfigurationBackupConfigBackupDiffAPIResponse(meta APIResponseMe
 	return r
 }
 
-func (r *SwitchMConfigurationBackupConfigBackupDiffAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMConfigurationBackupConfigBackupDiff)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMConfigurationBackupConfigBackupDiffAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMConfigurationBackupConfigBackupDiff)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMConfigurationBackupConfigBackupDiff() *SwitchMConfigurationBackupConfigBackupDiff {
 	m := new(SwitchMConfigurationBackupConfigBackupDiff)
@@ -168,9 +180,21 @@ func newSwitchMConfigurationBackupCreateBackupResultListAPIResponse(meta APIResp
 	return r
 }
 
-func (r *SwitchMConfigurationBackupCreateBackupResultListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMConfigurationBackupCreateBackupResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMConfigurationBackupCreateBackupResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMConfigurationBackupCreateBackupResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMConfigurationBackupCreateBackupResultList() *SwitchMConfigurationBackupCreateBackupResultList {
 	m := new(SwitchMConfigurationBackupCreateBackupResultList)
@@ -235,9 +259,21 @@ func newSwitchMConfigurationBackupListAPIResponse(meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *SwitchMConfigurationBackupListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMConfigurationBackupList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMConfigurationBackupListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMConfigurationBackupList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMConfigurationBackupList() *SwitchMConfigurationBackupList {
 	m := new(SwitchMConfigurationBackupList)

@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -85,9 +85,21 @@ func newWSGAAAActiveDirectoryAPIResponse(meta APIResponseMeta, body io.ReadClose
 	return r
 }
 
-func (r *WSGAAAActiveDirectoryAPIResponse) Hydrate() error {
-	r.Data = new(WSGAAAActiveDirectory)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAAAActiveDirectoryAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAAAActiveDirectory)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAAAActiveDirectory() *WSGAAAActiveDirectory {
 	m := new(WSGAAAActiveDirectory)
@@ -118,9 +130,21 @@ func newWSGAAAActiveDirectoryListAPIResponse(meta APIResponseMeta, body io.ReadC
 	return r
 }
 
-func (r *WSGAAAActiveDirectoryListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAAAActiveDirectoryList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAAAActiveDirectoryListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAAAActiveDirectoryList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAAAActiveDirectoryList() *WSGAAAActiveDirectoryList {
 	m := new(WSGAAAActiveDirectoryList)
@@ -185,9 +209,21 @@ func newWSGAAAAuthenticationServerAPIResponse(meta APIResponseMeta, body io.Read
 	return r
 }
 
-func (r *WSGAAAAuthenticationServerAPIResponse) Hydrate() error {
-	r.Data = new(WSGAAAAuthenticationServer)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAAAAuthenticationServerAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAAAAuthenticationServer)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAAAAuthenticationServer() *WSGAAAAuthenticationServer {
 	m := new(WSGAAAAuthenticationServer)
@@ -218,9 +254,21 @@ func newWSGAAAAuthenticationServerListAPIResponse(meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *WSGAAAAuthenticationServerListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAAAAuthenticationServerList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAAAAuthenticationServerListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAAAAuthenticationServerList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAAAAuthenticationServerList() *WSGAAAAuthenticationServerList {
 	m := new(WSGAAAAuthenticationServerList)
@@ -555,9 +603,21 @@ func newWSGAAALDAPServerAPIResponse(meta APIResponseMeta, body io.ReadCloser) AP
 	return r
 }
 
-func (r *WSGAAALDAPServerAPIResponse) Hydrate() error {
-	r.Data = new(WSGAAALDAPServer)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAAALDAPServerAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAAALDAPServer)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAAALDAPServer() *WSGAAALDAPServer {
 	m := new(WSGAAALDAPServer)
@@ -588,9 +648,21 @@ func newWSGAAALDAPServerListAPIResponse(meta APIResponseMeta, body io.ReadCloser
 	return r
 }
 
-func (r *WSGAAALDAPServerListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAAALDAPServerList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAAALDAPServerListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAAALDAPServerList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAAALDAPServerList() *WSGAAALDAPServerList {
 	m := new(WSGAAALDAPServerList)
@@ -799,9 +871,21 @@ func newWSGAAATestAAAServerResultAPIResponse(meta APIResponseMeta, body io.ReadC
 	return r
 }
 
-func (r *WSGAAATestAAAServerResultAPIResponse) Hydrate() error {
-	r.Data = new(WSGAAATestAAAServerResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAAATestAAAServerResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAAATestAAAServerResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAAATestAAAServerResult() *WSGAAATestAAAServerResult {
 	m := new(WSGAAATestAAAServerResult)

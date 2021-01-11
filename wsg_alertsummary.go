@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -31,9 +31,21 @@ func newWSGAlertSummaryAlarmSummaryAPIResponse(meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *WSGAlertSummaryAlarmSummaryAPIResponse) Hydrate() error {
-	r.Data = new(WSGAlertSummaryAlarmSummary)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAlertSummaryAlarmSummaryAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAlertSummaryAlarmSummary)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAlertSummaryAlarmSummary() *WSGAlertSummaryAlarmSummary {
 	m := new(WSGAlertSummaryAlarmSummary)
@@ -68,9 +80,21 @@ func newWSGAlertSummaryEventSummaryAPIResponse(meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *WSGAlertSummaryEventSummaryAPIResponse) Hydrate() error {
-	r.Data = new(WSGAlertSummaryEventSummary)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAlertSummaryEventSummaryAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAlertSummaryEventSummary)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAlertSummaryEventSummary() *WSGAlertSummaryEventSummary {
 	m := new(WSGAlertSummaryEventSummary)

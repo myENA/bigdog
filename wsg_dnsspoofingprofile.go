@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -98,9 +98,21 @@ func newWSGDNSSpoofingProfileDetailAPIResponse(meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *WSGDNSSpoofingProfileDetailAPIResponse) Hydrate() error {
-	r.Data = new(WSGDNSSpoofingProfileDetail)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGDNSSpoofingProfileDetailAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGDNSSpoofingProfileDetail)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGDNSSpoofingProfileDetail() *WSGDNSSpoofingProfileDetail {
 	m := new(WSGDNSSpoofingProfileDetail)
@@ -171,9 +183,21 @@ func newWSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse(meta APIRespon
 	return r
 }
 
-func (r *WSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse) Hydrate() error {
-	r.Data = new(WSGDNSSpoofingProfileGetDnsSpoofingProfileList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGDNSSpoofingProfileGetDnsSpoofingProfileList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGDNSSpoofingProfileGetDnsSpoofingProfileList() *WSGDNSSpoofingProfileGetDnsSpoofingProfileList {
 	m := new(WSGDNSSpoofingProfileGetDnsSpoofingProfileList)

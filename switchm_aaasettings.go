@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -53,9 +53,21 @@ func newSwitchMAAASettingsAAASettingAPIResponse(meta APIResponseMeta, body io.Re
 	return r
 }
 
-func (r *SwitchMAAASettingsAAASettingAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMAAASettingsAAASetting)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMAAASettingsAAASettingAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMAAASettingsAAASetting)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMAAASettingsAAASetting() *SwitchMAAASettingsAAASetting {
 	m := new(SwitchMAAASettingsAAASetting)

@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -55,9 +55,21 @@ func newWSGWLANQueryApWlanBssidQueryListAPIResponse(meta APIResponseMeta, body i
 	return r
 }
 
-func (r *WSGWLANQueryApWlanBssidQueryListAPIResponse) Hydrate() error {
-	r.Data = new(WSGWLANQueryApWlanBssidQueryList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGWLANQueryApWlanBssidQueryListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGWLANQueryApWlanBssidQueryList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGWLANQueryApWlanBssidQueryList() *WSGWLANQueryApWlanBssidQueryList {
 	m := new(WSGWLANQueryApWlanBssidQueryList)
@@ -197,9 +209,21 @@ func newWSGWLANQueryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) AP
 	return r
 }
 
-func (r *WSGWLANQueryListAPIResponse) Hydrate() error {
-	r.Data = new(WSGWLANQueryList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGWLANQueryListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGWLANQueryList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGWLANQueryList() *WSGWLANQueryList {
 	m := new(WSGWLANQueryList)

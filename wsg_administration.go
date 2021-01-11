@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -107,9 +107,21 @@ func newWSGAdministrationApPatchHistoryListAPIResponse(meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGAdministrationApPatchHistoryListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationApPatchHistoryList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationApPatchHistoryListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationApPatchHistoryList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationApPatchHistoryList() *WSGAdministrationApPatchHistoryList {
 	m := new(WSGAdministrationApPatchHistoryList)
@@ -148,9 +160,21 @@ func newWSGAdministrationApPatchInfoAPIResponse(meta APIResponseMeta, body io.Re
 	return r
 }
 
-func (r *WSGAdministrationApPatchInfoAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationApPatchInfo)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationApPatchInfoAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationApPatchInfo)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationApPatchInfo() *WSGAdministrationApPatchInfo {
 	m := new(WSGAdministrationApPatchInfo)
@@ -175,9 +199,21 @@ func newWSGAdministrationApPatchStatusAPIResponse(meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *WSGAdministrationApPatchStatusAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationApPatchStatus)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationApPatchStatusAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationApPatchStatus)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationApPatchStatus() *WSGAdministrationApPatchStatus {
 	m := new(WSGAdministrationApPatchStatus)
@@ -238,9 +274,21 @@ func newWSGAdministrationApplicationLogAndStatusListAPIResponse(meta APIResponse
 	return r
 }
 
-func (r *WSGAdministrationApplicationLogAndStatusListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationApplicationLogAndStatusList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationApplicationLogAndStatusListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationApplicationLogAndStatusList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationApplicationLogAndStatusList() *WSGAdministrationApplicationLogAndStatusList {
 	m := new(WSGAdministrationApplicationLogAndStatusList)
@@ -271,9 +319,21 @@ func newWSGAdministrationAutoExportBackupAPIResponse(meta APIResponseMeta, body 
 	return r
 }
 
-func (r *WSGAdministrationAutoExportBackupAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationAutoExportBackup)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationAutoExportBackupAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationAutoExportBackup)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationAutoExportBackup() *WSGAdministrationAutoExportBackup {
 	m := new(WSGAdministrationAutoExportBackup)
@@ -354,9 +414,21 @@ func newWSGAdministrationClusterBackupListAPIResponse(meta APIResponseMeta, body
 	return r
 }
 
-func (r *WSGAdministrationClusterBackupListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationClusterBackupList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationClusterBackupListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationClusterBackupList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationClusterBackupList() *WSGAdministrationClusterBackupList {
 	m := new(WSGAdministrationClusterBackupList)
@@ -413,9 +485,21 @@ func newWSGAdministrationConfigurationBackupListAPIResponse(meta APIResponseMeta
 	return r
 }
 
-func (r *WSGAdministrationConfigurationBackupListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationConfigurationBackupList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationConfigurationBackupListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationConfigurationBackupList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationConfigurationBackupList() *WSGAdministrationConfigurationBackupList {
 	m := new(WSGAdministrationConfigurationBackupList)
@@ -611,9 +695,21 @@ func newWSGAdministrationLicenseServerAPIResponse(meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *WSGAdministrationLicenseServerAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationLicenseServer)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationLicenseServerAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationLicenseServer)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationLicenseServer() *WSGAdministrationLicenseServer {
 	m := new(WSGAdministrationLicenseServer)
@@ -644,9 +740,21 @@ func newWSGAdministrationLicensesListAPIResponse(meta APIResponseMeta, body io.R
 	return r
 }
 
-func (r *WSGAdministrationLicensesListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationLicensesList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationLicensesListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationLicensesList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationLicensesList() *WSGAdministrationLicensesList {
 	m := new(WSGAdministrationLicensesList)
@@ -711,9 +819,21 @@ func newWSGAdministrationLicensesSummaryListAPIResponse(meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGAdministrationLicensesSummaryListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationLicensesSummaryList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationLicensesSummaryListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationLicensesSummaryList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationLicensesSummaryList() *WSGAdministrationLicensesSummaryList {
 	m := new(WSGAdministrationLicensesSummaryList)
@@ -764,9 +884,21 @@ func newWSGAdministrationLicensesSyncLogsListAPIResponse(meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGAdministrationLicensesSyncLogsListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationLicensesSyncLogsList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationLicensesSyncLogsListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationLicensesSyncLogsList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationLicensesSyncLogsList() *WSGAdministrationLicensesSyncLogsList {
 	m := new(WSGAdministrationLicensesSyncLogsList)
@@ -984,9 +1116,21 @@ func newWSGAdministrationRetrieveAdminAAAServerAPIResponse(meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGAdministrationRetrieveAdminAAAServerAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationRetrieveAdminAAAServer)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationRetrieveAdminAAAServerAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationRetrieveAdminAAAServer)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationRetrieveAdminAAAServer() *WSGAdministrationRetrieveAdminAAAServer {
 	m := new(WSGAdministrationRetrieveAdminAAAServer)
@@ -1017,9 +1161,21 @@ func newWSGAdministrationRetrieveAdminAAAServerListAPIResponse(meta APIResponseM
 	return r
 }
 
-func (r *WSGAdministrationRetrieveAdminAAAServerListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationRetrieveAdminAAAServerList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationRetrieveAdminAAAServerListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationRetrieveAdminAAAServerList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationRetrieveAdminAAAServerList() *WSGAdministrationRetrieveAdminAAAServerList {
 	m := new(WSGAdministrationRetrieveAdminAAAServerList)
@@ -1089,9 +1245,21 @@ func newWSGAdministrationScheduleBackupAPIResponse(meta APIResponseMeta, body io
 	return r
 }
 
-func (r *WSGAdministrationScheduleBackupAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationScheduleBackup)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationScheduleBackupAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationScheduleBackup)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationScheduleBackup() *WSGAdministrationScheduleBackup {
 	m := new(WSGAdministrationScheduleBackup)
@@ -1218,9 +1386,21 @@ func newWSGAdministrationUpgradeHistoryListAPIResponse(meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGAdministrationUpgradeHistoryListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationUpgradeHistoryList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationUpgradeHistoryListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationUpgradeHistoryList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationUpgradeHistoryList() *WSGAdministrationUpgradeHistoryList {
 	m := new(WSGAdministrationUpgradeHistoryList)
@@ -1301,9 +1481,21 @@ func newWSGAdministrationUpgradePatchInfoAPIResponse(meta APIResponseMeta, body 
 	return r
 }
 
-func (r *WSGAdministrationUpgradePatchInfoAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationUpgradePatchInfo)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationUpgradePatchInfoAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationUpgradePatchInfo)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationUpgradePatchInfo() *WSGAdministrationUpgradePatchInfo {
 	m := new(WSGAdministrationUpgradePatchInfo)
@@ -1328,9 +1520,21 @@ func newWSGAdministrationUpgradeStatusAPIResponse(meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *WSGAdministrationUpgradeStatusAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationUpgradeStatus)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationUpgradeStatusAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationUpgradeStatus)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationUpgradeStatus() *WSGAdministrationUpgradeStatus {
 	m := new(WSGAdministrationUpgradeStatus)
@@ -1381,9 +1585,21 @@ func newWSGAdministrationZdAPListAPIResponse(meta APIResponseMeta, body io.ReadC
 	return r
 }
 
-func (r *WSGAdministrationZdAPListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationZdAPList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationZdAPListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationZdAPList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationZdAPList() *WSGAdministrationZdAPList {
 	m := new(WSGAdministrationZdAPList)
@@ -1448,9 +1664,21 @@ func newWSGAdministrationZdImportStatusAPIResponse(meta APIResponseMeta, body io
 	return r
 }
 
-func (r *WSGAdministrationZdImportStatusAPIResponse) Hydrate() error {
-	r.Data = new(WSGAdministrationZdImportStatus)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAdministrationZdImportStatusAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAdministrationZdImportStatus)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAdministrationZdImportStatus() *WSGAdministrationZdImportStatus {
 	m := new(WSGAdministrationZdImportStatus)

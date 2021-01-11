@@ -5,7 +5,7 @@ package bigdog
 import (
 	"bytes"
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 	"net/url"
@@ -43,9 +43,21 @@ func newSCIPCIProfileBatchDelete200ResponseTypeAPIResponse(meta APIResponseMeta,
 	return r
 }
 
-func (r *SCIPCIProfileBatchDelete200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIPCIProfileBatchDelete200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIPCIProfileBatchDelete200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIPCIProfileBatchDelete200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIPCIProfileBatchDelete200ResponseType() *SCIPCIProfileBatchDelete200ResponseType {
 	m := new(SCIPCIProfileBatchDelete200ResponseType)
@@ -68,9 +80,21 @@ func newSCIPCIProfileFind200ResponseTypeAPIResponse(meta APIResponseMeta, body i
 	return r
 }
 
-func (r *SCIPCIProfileFind200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = make(SCIPCIProfileFind200ResponseType, 0)
-	return json.NewDecoder(r).Decode(&r.Data)
+func (r *SCIPCIProfileFind200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := make(SCIPCIProfileFind200ResponseType, 0)
+	if err := r.doHydrate(&data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func MakeSCIPCIProfileFind200ResponseType() SCIPCIProfileFind200ResponseType {
 	m := make(SCIPCIProfileFind200ResponseType, 0)
@@ -95,9 +119,21 @@ func newSCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse(meta APIRes
 	return r
 }
 
-func (r *SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIPCIProfilePrototypecountreports200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIPCIProfilePrototypecountreports200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIPCIProfilePrototypecountreports200ResponseType() *SCIPCIProfilePrototypecountreports200ResponseType {
 	m := new(SCIPCIProfilePrototypecountreports200ResponseType)
@@ -120,9 +156,21 @@ func newSCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse(meta APIRespo
 	return r
 }
 
-func (r *SCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = make(SCIPCIProfilePrototypegetreports200ResponseType, 0)
-	return json.NewDecoder(r).Decode(&r.Data)
+func (r *SCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := make(SCIPCIProfilePrototypegetreports200ResponseType, 0)
+	if err := r.doHydrate(&data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func MakeSCIPCIProfilePrototypegetreports200ResponseType() SCIPCIProfilePrototypegetreports200ResponseType {
 	m := make(SCIPCIProfilePrototypegetreports200ResponseType, 0)

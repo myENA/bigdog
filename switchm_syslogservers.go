@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -101,9 +101,21 @@ func newSwitchMSyslogServersQueryResultAPIResponse(meta APIResponseMeta, body io
 	return r
 }
 
-func (r *SwitchMSyslogServersQueryResultAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMSyslogServersQueryResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMSyslogServersQueryResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMSyslogServersQueryResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMSyslogServersQueryResult() *SwitchMSyslogServersQueryResult {
 	m := new(SwitchMSyslogServersQueryResult)

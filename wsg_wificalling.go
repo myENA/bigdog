@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -159,9 +159,21 @@ func newWSGWIFICallingPolicyAPIResponse(meta APIResponseMeta, body io.ReadCloser
 	return r
 }
 
-func (r *WSGWIFICallingPolicyAPIResponse) Hydrate() error {
-	r.Data = new(WSGWIFICallingPolicy)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGWIFICallingPolicyAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGWIFICallingPolicy)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGWIFICallingPolicy() *WSGWIFICallingPolicy {
 	m := new(WSGWIFICallingPolicy)
@@ -194,9 +206,21 @@ func newWSGWIFICallingPolicyListAPIResponse(meta APIResponseMeta, body io.ReadCl
 	return r
 }
 
-func (r *WSGWIFICallingPolicyListAPIResponse) Hydrate() error {
-	r.Data = new(WSGWIFICallingPolicyList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGWIFICallingPolicyListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGWIFICallingPolicyList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGWIFICallingPolicyList() *WSGWIFICallingPolicyList {
 	m := new(WSGWIFICallingPolicyList)

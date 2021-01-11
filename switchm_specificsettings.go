@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -167,9 +167,21 @@ func newSwitchMSpecificSettingsAPIResponse(meta APIResponseMeta, body io.ReadClo
 	return r
 }
 
-func (r *SwitchMSpecificSettingsAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMSpecificSettings)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMSpecificSettingsAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMSpecificSettings)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMSpecificSettings() *SwitchMSpecificSettings {
 	m := new(SwitchMSpecificSettings)
@@ -214,9 +226,21 @@ func newSwitchMSpecificSettingsAllResultAPIResponse(meta APIResponseMeta, body i
 	return r
 }
 
-func (r *SwitchMSpecificSettingsAllResultAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMSpecificSettingsAllResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMSpecificSettingsAllResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMSpecificSettingsAllResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMSpecificSettingsAllResult() *SwitchMSpecificSettingsAllResult {
 	m := new(SwitchMSpecificSettingsAllResult)

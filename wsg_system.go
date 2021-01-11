@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -67,9 +67,21 @@ func newWSGSystemApMacOUIListAPIResponse(meta APIResponseMeta, body io.ReadClose
 	return r
 }
 
-func (r *WSGSystemApMacOUIListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemApMacOUIList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemApMacOUIListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemApMacOUIList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemApMacOUIList() *WSGSystemApMacOUIList {
 	m := new(WSGSystemApMacOUIList)
@@ -184,9 +196,21 @@ func newWSGSystemControllerListAPIResponse(meta APIResponseMeta, body io.ReadClo
 	return r
 }
 
-func (r *WSGSystemControllerListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemControllerList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemControllerListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemControllerList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemControllerList() *WSGSystemControllerList {
 	m := new(WSGSystemControllerList)
@@ -313,9 +337,21 @@ func newWSGSystemControlPlaneConfigurationAPIResponse(meta APIResponseMeta, body
 	return r
 }
 
-func (r *WSGSystemControlPlaneConfigurationAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemControlPlaneConfiguration)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemControlPlaneConfigurationAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemControlPlaneConfiguration)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemControlPlaneConfiguration() *WSGSystemControlPlaneConfiguration {
 	m := new(WSGSystemControlPlaneConfiguration)
@@ -360,9 +396,21 @@ func newWSGSystemControlPlaneInterfaceListAPIResponse(meta APIResponseMeta, body
 	return r
 }
 
-func (r *WSGSystemControlPlaneInterfaceListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemControlPlaneInterfaceList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemControlPlaneInterfaceListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemControlPlaneInterfaceList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemControlPlaneInterfaceList() *WSGSystemControlPlaneInterfaceList {
 	m := new(WSGSystemControlPlaneInterfaceList)
@@ -393,9 +441,21 @@ func newWSGSystemControlPlaneListAPIResponse(meta APIResponseMeta, body io.ReadC
 	return r
 }
 
-func (r *WSGSystemControlPlaneListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemControlPlaneList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemControlPlaneListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemControlPlaneList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemControlPlaneList() *WSGSystemControlPlaneList {
 	m := new(WSGSystemControlPlaneList)
@@ -586,9 +646,21 @@ func newWSGSystemDataPlaneConfigurationAPIResponse(meta APIResponseMeta, body io
 	return r
 }
 
-func (r *WSGSystemDataPlaneConfigurationAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemDataPlaneConfiguration)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemDataPlaneConfigurationAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemDataPlaneConfiguration)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemDataPlaneConfiguration() *WSGSystemDataPlaneConfiguration {
 	m := new(WSGSystemDataPlaneConfiguration)
@@ -619,9 +691,21 @@ func newWSGSystemDataPlaneListAPIResponse(meta APIResponseMeta, body io.ReadClos
 	return r
 }
 
-func (r *WSGSystemDataPlaneListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemDataPlaneList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemDataPlaneListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemDataPlaneList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemDataPlaneList() *WSGSystemDataPlaneList {
 	m := new(WSGSystemDataPlaneList)
@@ -752,9 +836,21 @@ func newWSGSystemFriendlyNameLangListAPIResponse(meta APIResponseMeta, body io.R
 	return r
 }
 
-func (r *WSGSystemFriendlyNameLangListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemFriendlyNameLangList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemFriendlyNameLangListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemFriendlyNameLangList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemFriendlyNameLangList() *WSGSystemFriendlyNameLangList {
 	m := new(WSGSystemFriendlyNameLangList)
@@ -838,9 +934,21 @@ func newWSGSystemFtpAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIRes
 	return r
 }
 
-func (r *WSGSystemFtpAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemFtp)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemFtpAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemFtp)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemFtp() *WSGSystemFtp {
 	m := new(WSGSystemFtp)
@@ -877,9 +985,21 @@ func newWSGSystemFtpGlobalSettingAPIResponse(meta APIResponseMeta, body io.ReadC
 	return r
 }
 
-func (r *WSGSystemFtpGlobalSettingAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemFtpGlobalSetting)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemFtpGlobalSettingAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemFtpGlobalSetting)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemFtpGlobalSetting() *WSGSystemFtpGlobalSetting {
 	m := new(WSGSystemFtpGlobalSetting)
@@ -918,9 +1038,21 @@ func newWSGSystemFtpListAPIResponse(meta APIResponseMeta, body io.ReadCloser) AP
 	return r
 }
 
-func (r *WSGSystemFtpListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemFtpList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemFtpListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemFtpList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemFtpList() *WSGSystemFtpList {
 	m := new(WSGSystemFtpList)
@@ -959,9 +1091,21 @@ func newWSGSystemFtpTestResponseAPIResponse(meta APIResponseMeta, body io.ReadCl
 	return r
 }
 
-func (r *WSGSystemFtpTestResponseAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemFtpTestResponse)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemFtpTestResponseAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemFtpTestResponse)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemFtpTestResponse() *WSGSystemFtpTestResponse {
 	m := new(WSGSystemFtpTestResponse)
@@ -1021,9 +1165,21 @@ func newWSGSystemGatewayAdvancedAPIResponse(meta APIResponseMeta, body io.ReadCl
 	return r
 }
 
-func (r *WSGSystemGatewayAdvancedAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemGatewayAdvanced)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemGatewayAdvancedAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemGatewayAdvanced)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemGatewayAdvanced() *WSGSystemGatewayAdvanced {
 	m := new(WSGSystemGatewayAdvanced)
@@ -1050,9 +1206,21 @@ func newWSGSystemGetDataPlaneMeshTunnelSettingAPIResponse(meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGSystemGetDataPlaneMeshTunnelSettingAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemGetDataPlaneMeshTunnelSetting)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemGetDataPlaneMeshTunnelSettingAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemGetDataPlaneMeshTunnelSetting)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemGetDataPlaneMeshTunnelSetting() *WSGSystemGetDataPlaneMeshTunnelSetting {
 	m := new(WSGSystemGetDataPlaneMeshTunnelSetting)
@@ -1083,9 +1251,21 @@ func newWSGSystemInventoryListAPIResponse(meta APIResponseMeta, body io.ReadClos
 	return r
 }
 
-func (r *WSGSystemInventoryListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemInventoryList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemInventoryListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemInventoryList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemInventoryList() *WSGSystemInventoryList {
 	m := new(WSGSystemInventoryList)
@@ -1421,9 +1601,21 @@ func newWSGSystemLwapp2scgConfigurationAPIResponse(meta APIResponseMeta, body io
 	return r
 }
 
-func (r *WSGSystemLwapp2scgConfigurationAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemLwapp2scgConfiguration)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemLwapp2scgConfigurationAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemLwapp2scgConfiguration)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemLwapp2scgConfiguration() *WSGSystemLwapp2scgConfiguration {
 	m := new(WSGSystemLwapp2scgConfiguration)
@@ -1721,9 +1913,21 @@ func newWSGSystemNorthboundInterfaceAPIResponse(meta APIResponseMeta, body io.Re
 	return r
 }
 
-func (r *WSGSystemNorthboundInterfaceAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemNorthboundInterface)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemNorthboundInterfaceAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemNorthboundInterface)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemNorthboundInterface() *WSGSystemNorthboundInterface {
 	m := new(WSGSystemNorthboundInterface)
@@ -1768,9 +1972,21 @@ func newWSGSystemNtpServerValidationMessageAPIResponse(meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGSystemNtpServerValidationMessageAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemNtpServerValidationMessage)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemNtpServerValidationMessageAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemNtpServerValidationMessage)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemNtpServerValidationMessage() *WSGSystemNtpServerValidationMessage {
 	m := new(WSGSystemNtpServerValidationMessage)
@@ -1825,9 +2041,21 @@ func newWSGSystemPortalLangListAPIResponse(meta APIResponseMeta, body io.ReadClo
 	return r
 }
 
-func (r *WSGSystemPortalLangListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemPortalLangList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemPortalLangListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemPortalLangList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemPortalLangList() *WSGSystemPortalLangList {
 	m := new(WSGSystemPortalLangList)
@@ -2048,9 +2276,21 @@ func newWSGSystemSecuritySettingAPIResponse(meta APIResponseMeta, body io.ReadCl
 	return r
 }
 
-func (r *WSGSystemSecuritySettingAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemSecuritySetting)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemSecuritySettingAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemSecuritySetting)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemSecuritySetting() *WSGSystemSecuritySetting {
 	m := new(WSGSystemSecuritySetting)
@@ -2111,9 +2351,21 @@ func newWSGSystemSmsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIRes
 	return r
 }
 
-func (r *WSGSystemSmsAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemSms)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemSmsAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemSms)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemSms() *WSGSystemSms {
 	m := new(WSGSystemSms)
@@ -2152,9 +2404,21 @@ func newWSGSystemSmsListAPIResponse(meta APIResponseMeta, body io.ReadCloser) AP
 	return r
 }
 
-func (r *WSGSystemSmsListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemSmsList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemSmsListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemSmsList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemSmsList() *WSGSystemSmsList {
 	m := new(WSGSystemSmsList)
@@ -2189,9 +2453,21 @@ func newWSGSystemSnmpAgentConfigurationAPIResponse(meta APIResponseMeta, body io
 	return r
 }
 
-func (r *WSGSystemSnmpAgentConfigurationAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemSnmpAgentConfiguration)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemSnmpAgentConfigurationAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemSnmpAgentConfiguration)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemSnmpAgentConfiguration() *WSGSystemSnmpAgentConfiguration {
 	m := new(WSGSystemSnmpAgentConfiguration)
@@ -2246,9 +2522,21 @@ func newWSGSystemStaticRouteListAPIResponse(meta APIResponseMeta, body io.ReadCl
 	return r
 }
 
-func (r *WSGSystemStaticRouteListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemStaticRouteList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemStaticRouteListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemStaticRouteList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemStaticRouteList() *WSGSystemStaticRouteList {
 	m := new(WSGSystemStaticRouteList)
@@ -2271,9 +2559,21 @@ func newWSGSystemStatisticListAPIResponse(meta APIResponseMeta, body io.ReadClos
 	return r
 }
 
-func (r *WSGSystemStatisticListAPIResponse) Hydrate() error {
-	r.Data = make(WSGSystemStatisticList, 0)
-	return json.NewDecoder(r).Decode(&r.Data)
+func (r *WSGSystemStatisticListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := make(WSGSystemStatisticList, 0)
+	if err := r.doHydrate(&data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func MakeWSGSystemStatisticList() WSGSystemStatisticList {
 	m := make(WSGSystemStatisticList, 0)
@@ -2416,9 +2716,21 @@ func newWSGSystemSettingsAPIResponse(meta APIResponseMeta, body io.ReadCloser) A
 	return r
 }
 
-func (r *WSGSystemSettingsAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemSettings)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemSettingsAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemSettings)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemSettings() *WSGSystemSettings {
 	m := new(WSGSystemSettings)
@@ -2471,9 +2783,21 @@ func newWSGSystemTimeSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser
 	return r
 }
 
-func (r *WSGSystemTimeSettingAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemTimeSetting)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemTimeSettingAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemTimeSetting)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemTimeSetting() *WSGSystemTimeSetting {
 	m := new(WSGSystemTimeSetting)
@@ -2526,9 +2850,21 @@ func newWSGSystemUserDefinedInterfaceListAPIResponse(meta APIResponseMeta, body 
 	return r
 }
 
-func (r *WSGSystemUserDefinedInterfaceListAPIResponse) Hydrate() error {
-	r.Data = new(WSGSystemUserDefinedInterfaceList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGSystemUserDefinedInterfaceListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGSystemUserDefinedInterfaceList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGSystemUserDefinedInterfaceList() *WSGSystemUserDefinedInterfaceList {
 	m := new(WSGSystemUserDefinedInterfaceList)

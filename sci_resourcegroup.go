@@ -5,7 +5,7 @@ package bigdog
 import (
 	"bytes"
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 	"net/url"
@@ -43,9 +43,21 @@ func newSCIResourceGroupBatchDelete200ResponseTypeAPIResponse(meta APIResponseMe
 	return r
 }
 
-func (r *SCIResourceGroupBatchDelete200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIResourceGroupBatchDelete200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIResourceGroupBatchDelete200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIResourceGroupBatchDelete200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIResourceGroupBatchDelete200ResponseType() *SCIResourceGroupBatchDelete200ResponseType {
 	m := new(SCIResourceGroupBatchDelete200ResponseType)
@@ -68,9 +80,21 @@ func newSCIResourceGroupFind200ResponseTypeAPIResponse(meta APIResponseMeta, bod
 	return r
 }
 
-func (r *SCIResourceGroupFind200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = make(SCIResourceGroupFind200ResponseType, 0)
-	return json.NewDecoder(r).Decode(&r.Data)
+func (r *SCIResourceGroupFind200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := make(SCIResourceGroupFind200ResponseType, 0)
+	if err := r.doHydrate(&data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseType {
 	m := make(SCIResourceGroupFind200ResponseType, 0)

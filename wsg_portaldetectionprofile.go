@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -128,9 +128,21 @@ func newWSGPortalDetectionProfileAPIResponse(meta APIResponseMeta, body io.ReadC
 	return r
 }
 
-func (r *WSGPortalDetectionProfileAPIResponse) Hydrate() error {
-	r.Data = new(WSGPortalDetectionProfile)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGPortalDetectionProfileAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGPortalDetectionProfile)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGPortalDetectionProfile() *WSGPortalDetectionProfile {
 	m := new(WSGPortalDetectionProfile)
@@ -163,9 +175,21 @@ func newWSGPortalDetectionProfileListAPIResponse(meta APIResponseMeta, body io.R
 	return r
 }
 
-func (r *WSGPortalDetectionProfileListAPIResponse) Hydrate() error {
-	r.Data = new(WSGPortalDetectionProfileList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGPortalDetectionProfileListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGPortalDetectionProfileList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGPortalDetectionProfileList() *WSGPortalDetectionProfileList {
 	m := new(WSGPortalDetectionProfileList)

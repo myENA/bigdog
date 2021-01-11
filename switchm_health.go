@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -61,9 +61,21 @@ func newSwitchMHealthAggMetricsAPIResponse(meta APIResponseMeta, body io.ReadClo
 	return r
 }
 
-func (r *SwitchMHealthAggMetricsAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMHealthAggMetrics)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMHealthAggMetricsAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMHealthAggMetrics)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMHealthAggMetrics() *SwitchMHealthAggMetrics {
 	m := new(SwitchMHealthAggMetrics)
@@ -154,9 +166,21 @@ func newSwitchMHealthIcxMetricsAPIResponse(meta APIResponseMeta, body io.ReadClo
 	return r
 }
 
-func (r *SwitchMHealthIcxMetricsAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMHealthIcxMetrics)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMHealthIcxMetricsAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMHealthIcxMetrics)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMHealthIcxMetrics() *SwitchMHealthIcxMetrics {
 	m := new(SwitchMHealthIcxMetrics)
@@ -257,9 +281,21 @@ func newSwitchMHealthStatusAPIResponse(meta APIResponseMeta, body io.ReadCloser)
 	return r
 }
 
-func (r *SwitchMHealthStatusAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMHealthStatus)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMHealthStatusAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMHealthStatus)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMHealthStatus() *SwitchMHealthStatus {
 	m := new(SwitchMHealthStatus)

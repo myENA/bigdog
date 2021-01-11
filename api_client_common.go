@@ -263,7 +263,7 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 	if httpResp.StatusCode == successCode {
 		// test for a modeled response and whether it needs to be automatically handled
 		if hdr, ok := apiResp.(ModeledAPIResponse); ok && autoHydrate {
-			if err := hdr.Hydrate(); err != nil {
+			if _, err := hdr.Hydrate(); err != nil {
 				return apiResp, fmt.Errorf("error hydrating response: %w", err)
 			}
 		}

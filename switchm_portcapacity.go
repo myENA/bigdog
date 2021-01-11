@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -75,9 +75,21 @@ func newSwitchMPortCapacityResultAPIResponse(meta APIResponseMeta, body io.ReadC
 	return r
 }
 
-func (r *SwitchMPortCapacityResultAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMPortCapacityResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMPortCapacityResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMPortCapacityResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
 	m := new(SwitchMPortCapacityResult)

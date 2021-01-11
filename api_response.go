@@ -113,7 +113,7 @@ type ModeledAPIResponse interface {
 	// Hydrate must attempt to perform whatever action is necessary to ingest any returned bytes into a specific model
 	// This action is mutually exclusive with Hydrate, and any attempt to use this as a reader after having called
 	// Hydrate will result in an error
-	Hydrate() error
+	Hydrate() (interface{}, error)
 }
 
 // APIResponseFactory is used by the internal response handling mechanism to construct each response type
@@ -202,9 +202,6 @@ func (b *RawAPIResponse) Close() error {
 }
 
 func (b *RawAPIResponse) doHydrate(ptr interface{}) error {
-	b.mu.Lock()
-	defer b.mu.Unlock()
-
 	// test for an action already having been taken
 	if b.err != nil {
 		// test for a prior Hydrate action

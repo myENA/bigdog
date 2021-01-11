@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -138,9 +138,21 @@ func newWSGWLANGroupAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIRes
 	return r
 }
 
-func (r *WSGWLANGroupAPIResponse) Hydrate() error {
-	r.Data = new(WSGWLANGroup)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGWLANGroupAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGWLANGroup)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGWLANGroup() *WSGWLANGroup {
 	m := new(WSGWLANGroup)
@@ -171,9 +183,21 @@ func newWSGWLANGroupListAPIResponse(meta APIResponseMeta, body io.ReadCloser) AP
 	return r
 }
 
-func (r *WSGWLANGroupListAPIResponse) Hydrate() error {
-	r.Data = new(WSGWLANGroupList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGWLANGroupListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGWLANGroupList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGWLANGroupList() *WSGWLANGroupList {
 	m := new(WSGWLANGroupList)

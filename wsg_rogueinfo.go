@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -95,9 +95,21 @@ func newWSGRogueInfoListAPIResponse(meta APIResponseMeta, body io.ReadCloser) AP
 	return r
 }
 
-func (r *WSGRogueInfoListAPIResponse) Hydrate() error {
-	r.Data = new(WSGRogueInfoList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGRogueInfoListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGRogueInfoList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGRogueInfoList() *WSGRogueInfoList {
 	m := new(WSGRogueInfoList)

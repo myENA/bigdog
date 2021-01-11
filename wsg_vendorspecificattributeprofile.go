@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -43,9 +43,21 @@ func newWSGVendorSpecificAttributeProfileCreateResultAPIResponse(meta APIRespons
 	return r
 }
 
-func (r *WSGVendorSpecificAttributeProfileCreateResultAPIResponse) Hydrate() error {
-	r.Data = new(WSGVendorSpecificAttributeProfileCreateResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGVendorSpecificAttributeProfileCreateResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGVendorSpecificAttributeProfileCreateResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGVendorSpecificAttributeProfileCreateResult() *WSGVendorSpecificAttributeProfileCreateResult {
 	m := new(WSGVendorSpecificAttributeProfileCreateResult)
@@ -100,9 +112,21 @@ func newWSGVendorSpecificAttributeProfileGetAPIResponse(meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGVendorSpecificAttributeProfileGetAPIResponse) Hydrate() error {
-	r.Data = new(WSGVendorSpecificAttributeProfileGet)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGVendorSpecificAttributeProfileGetAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGVendorSpecificAttributeProfileGet)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGVendorSpecificAttributeProfileGet() *WSGVendorSpecificAttributeProfileGet {
 	m := new(WSGVendorSpecificAttributeProfileGet)
@@ -141,9 +165,21 @@ func newWSGVendorSpecificAttributeProfileListAPIResponse(meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGVendorSpecificAttributeProfileListAPIResponse) Hydrate() error {
-	r.Data = new(WSGVendorSpecificAttributeProfileList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGVendorSpecificAttributeProfileListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGVendorSpecificAttributeProfileList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGVendorSpecificAttributeProfileList() *WSGVendorSpecificAttributeProfileList {
 	m := new(WSGVendorSpecificAttributeProfileList)
@@ -215,9 +251,21 @@ func newWSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse(meta API
 	return r
 }
 
-func (r *WSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse) Hydrate() error {
-	r.Data = new(WSGVendorSpecificAttributeProfileQueryCriteriaResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGVendorSpecificAttributeProfileQueryCriteriaResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGVendorSpecificAttributeProfileQueryCriteriaResult() *WSGVendorSpecificAttributeProfileQueryCriteriaResult {
 	m := new(WSGVendorSpecificAttributeProfileQueryCriteriaResult)

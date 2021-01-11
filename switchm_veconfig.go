@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -83,9 +83,21 @@ func newSwitchMVEConfigCreateResultAPIResponse(meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *SwitchMVEConfigCreateResultAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMVEConfigCreateResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMVEConfigCreateResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMVEConfigCreateResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMVEConfigCreateResult() *SwitchMVEConfigCreateResult {
 	m := new(SwitchMVEConfigCreateResult)
@@ -124,9 +136,21 @@ func newSwitchMVEConfigListAPIResponse(meta APIResponseMeta, body io.ReadCloser)
 	return r
 }
 
-func (r *SwitchMVEConfigListAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMVEConfigList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMVEConfigListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMVEConfigList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMVEConfigList() *SwitchMVEConfigList {
 	m := new(SwitchMVEConfigList)
@@ -271,9 +295,21 @@ func newSwitchMVEConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) API
 	return r
 }
 
-func (r *SwitchMVEConfigAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMVEConfig)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMVEConfigAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMVEConfig)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMVEConfig() *SwitchMVEConfig {
 	m := new(SwitchMVEConfig)

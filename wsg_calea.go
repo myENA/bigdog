@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -65,9 +65,21 @@ func newWSGCALEACommonSettingRspAPIResponse(meta APIResponseMeta, body io.ReadCl
 	return r
 }
 
-func (r *WSGCALEACommonSettingRspAPIResponse) Hydrate() error {
-	r.Data = new(WSGCALEACommonSettingRsp)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGCALEACommonSettingRspAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGCALEACommonSettingRsp)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGCALEACommonSettingRsp() *WSGCALEACommonSettingRsp {
 	m := new(WSGCALEACommonSettingRsp)
@@ -110,9 +122,21 @@ func newWSGCALEAMacListRspAPIResponse(meta APIResponseMeta, body io.ReadCloser) 
 	return r
 }
 
-func (r *WSGCALEAMacListRspAPIResponse) Hydrate() error {
-	r.Data = new(WSGCALEAMacListRsp)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGCALEAMacListRspAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGCALEAMacListRsp)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGCALEAMacListRsp() *WSGCALEAMacListRsp {
 	m := new(WSGCALEAMacListRsp)

@@ -6,6 +6,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 	"net/url"
@@ -45,9 +46,21 @@ func newSCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse(met
 	return r
 }
 
-func (r *SCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAirtimeUtilizationReport1overview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAirtimeUtilizationReport1overview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAirtimeUtilizationReport1overview200ResponseType() *SCIReportAirtimeUtilizationReport1overview200ResponseType {
 	m := new(SCIReportAirtimeUtilizationReport1overview200ResponseType)
@@ -74,9 +87,21 @@ func newSCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse(met
 	return r
 }
 
-func (r *SCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAirtimeUtilizationReport2topChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAirtimeUtilizationReport2topChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAirtimeUtilizationReport2topChart200ResponseType() *SCIReportAirtimeUtilizationReport2topChart200ResponseType {
 	m := new(SCIReportAirtimeUtilizationReport2topChart200ResponseType)
@@ -103,9 +128,21 @@ func newSCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeA
 	return r
 }
 
-func (r *SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType() *SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType {
 	m := new(SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseType)
@@ -132,9 +169,21 @@ func newSCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAP
 	return r
 }
 
-func (r *SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType() *SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType {
 	m := new(SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseType)
@@ -161,9 +210,21 @@ func newSCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse(m
 	return r
 }
 
-func (r *SCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAirtimeUtilizationReport5trendChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAirtimeUtilizationReport5trendChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAirtimeUtilizationReport5trendChart200ResponseType() *SCIReportAirtimeUtilizationReport5trendChart200ResponseType {
 	m := new(SCIReportAirtimeUtilizationReport5trendChart200ResponseType)
@@ -190,9 +251,21 @@ func newSCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse(m
 	return r
 }
 
-func (r *SCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAirtimeUtilizationReport6trendTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAirtimeUtilizationReport6trendTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAirtimeUtilizationReport6trendTable200ResponseType() *SCIReportAirtimeUtilizationReport6trendTable200ResponseType {
 	m := new(SCIReportAirtimeUtilizationReport6trendTable200ResponseType)
@@ -219,9 +292,21 @@ func newSCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse(meta APIRe
 	return r
 }
 
-func (r *SCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport5trendChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport5trendChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport5trendChart200ResponseType() *SCIReportAPDetailsReport5trendChart200ResponseType {
 	m := new(SCIReportAPDetailsReport5trendChart200ResponseType)
@@ -248,9 +333,21 @@ func newSCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType
 	return r
 }
 
-func (r *SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType() *SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType {
 	m := new(SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseType)
@@ -277,9 +374,21 @@ func newSCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse
 	return r
 }
 
-func (r *SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType() *SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType {
 	m := new(SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseType)
@@ -306,9 +415,21 @@ func newSCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse(meta APIRes
 	return r
 }
 
-func (r *SCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport14topTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport14topTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport14topTable200ResponseType() *SCIReportAPDetailsReport14topTable200ResponseType {
 	m := new(SCIReportAPDetailsReport14topTable200ResponseType)
@@ -335,9 +456,21 @@ func newSCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse(meta APIR
 	return r
 }
 
-func (r *SCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport15trendChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport15trendChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport15trendChart200ResponseType() *SCIReportAPDetailsReport15trendChart200ResponseType {
 	m := new(SCIReportAPDetailsReport15trendChart200ResponseType)
@@ -364,9 +497,21 @@ func newSCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse(meta AP
 	return r
 }
 
-func (r *SCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport22trafficTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport22trafficTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport22trafficTrend200ResponseType() *SCIReportAPDetailsReport22trafficTrend200ResponseType {
 	m := new(SCIReportAPDetailsReport22trafficTrend200ResponseType)
@@ -393,9 +538,21 @@ func newSCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIRespon
 	return r
 }
 
-func (r *SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType() *SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType {
 	m := new(SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseType)
@@ -422,9 +579,21 @@ func newSCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse(meta APIRe
 	return r
 }
 
-func (r *SCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport75apSummary200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport75apSummary200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport75apSummary200ResponseType() *SCIReportAPDetailsReport75apSummary200ResponseType {
 	m := new(SCIReportAPDetailsReport75apSummary200ResponseType)
@@ -451,9 +620,21 @@ func newSCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse(meta A
 	return r
 }
 
-func (r *SCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport76apPerformance200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport76apPerformance200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport76apPerformance200ResponseType() *SCIReportAPDetailsReport76apPerformance200ResponseType {
 	m := new(SCIReportAPDetailsReport76apPerformance200ResponseType)
@@ -480,9 +661,21 @@ func newSCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse(meta APIRe
 	return r
 }
 
-func (r *SCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport77apDetails200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport77apDetails200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport77apDetails200ResponseType() *SCIReportAPDetailsReport77apDetails200ResponseType {
 	m := new(SCIReportAPDetailsReport77apDetails200ResponseType)
@@ -509,9 +702,21 @@ func newSCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse(meta
 	return r
 }
 
-func (r *SCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport78apStatsOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport78apStatsOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport78apStatsOverview200ResponseType() *SCIReportAPDetailsReport78apStatsOverview200ResponseType {
 	m := new(SCIReportAPDetailsReport78apStatsOverview200ResponseType)
@@ -538,9 +743,21 @@ func newSCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse(meta
 	return r
 }
 
-func (r *SCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport79apUptimeHistory200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport79apUptimeHistory200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport79apUptimeHistory200ResponseType() *SCIReportAPDetailsReport79apUptimeHistory200ResponseType {
 	m := new(SCIReportAPDetailsReport79apUptimeHistory200ResponseType)
@@ -567,9 +784,21 @@ func newSCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIR
 	return r
 }
 
-func (r *SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType() *SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType {
 	m := new(SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseType)
@@ -596,9 +825,21 @@ func newSCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse(meta A
 	return r
 }
 
-func (r *SCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport81sessionsTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport81sessionsTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport81sessionsTable200ResponseType() *SCIReportAPDetailsReport81sessionsTable200ResponseType {
 	m := new(SCIReportAPDetailsReport81sessionsTable200ResponseType)
@@ -625,9 +866,21 @@ func newSCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse(meta APIRes
 	return r
 }
 
-func (r *SCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport82rssTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport82rssTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport82rssTrend200ResponseType() *SCIReportAPDetailsReport82rssTrend200ResponseType {
 	m := new(SCIReportAPDetailsReport82rssTrend200ResponseType)
@@ -654,9 +907,21 @@ func newSCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse(meta APIRes
 	return r
 }
 
-func (r *SCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport83snrTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport83snrTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport83snrTrend200ResponseType() *SCIReportAPDetailsReport83snrTrend200ResponseType {
 	m := new(SCIReportAPDetailsReport83snrTrend200ResponseType)
@@ -683,9 +948,21 @@ func newSCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse(meta API
 	return r
 }
 
-func (r *SCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport84alarmsTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport84alarmsTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport84alarmsTable200ResponseType() *SCIReportAPDetailsReport84alarmsTable200ResponseType {
 	m := new(SCIReportAPDetailsReport84alarmsTable200ResponseType)
@@ -712,9 +989,21 @@ func newSCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse(meta API
 	return r
 }
 
-func (r *SCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport85eventsTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport85eventsTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport85eventsTable200ResponseType() *SCIReportAPDetailsReport85eventsTable200ResponseType {
 	m := new(SCIReportAPDetailsReport85eventsTable200ResponseType)
@@ -741,9 +1030,21 @@ func newSCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse(meta APIRe
 	return r
 }
 
-func (r *SCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport95anomalies200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport95anomalies200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport95anomalies200ResponseType() *SCIReportAPDetailsReport95anomalies200ResponseType {
 	m := new(SCIReportAPDetailsReport95anomalies200ResponseType)
@@ -770,9 +1071,21 @@ func newSCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse(meta APIR
 	return r
 }
 
-func (r *SCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPDetailsReport110apAnomaly200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPDetailsReport110apAnomaly200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPDetailsReport110apAnomaly200ResponseType() *SCIReportAPDetailsReport110apAnomaly200ResponseType {
 	m := new(SCIReportAPDetailsReport110apAnomaly200ResponseType)
@@ -799,9 +1112,21 @@ func newSCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse(meta AP
 	return r
 }
 
-func (r *SCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPsRebootReport43totalReboots200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPsRebootReport43totalReboots200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPsRebootReport43totalReboots200ResponseType() *SCIReportAPsRebootReport43totalReboots200ResponseType {
 	m := new(SCIReportAPsRebootReport43totalReboots200ResponseType)
@@ -828,9 +1153,21 @@ func newSCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse(me
 	return r
 }
 
-func (r *SCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPsRebootReport44topApRebootsTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPsRebootReport44topApRebootsTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPsRebootReport44topApRebootsTable200ResponseType() *SCIReportAPsRebootReport44topApRebootsTable200ResponseType {
 	m := new(SCIReportAPsRebootReport44topApRebootsTable200ResponseType)
@@ -857,9 +1194,21 @@ func newSCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse
 	return r
 }
 
-func (r *SCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportAPsRebootReport45topApRebootsOverTime200ResponseType() *SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType {
 	m := new(SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType)
@@ -886,9 +1235,21 @@ func newSCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200Response
 	return r
 }
 
-func (r *SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType() *SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType {
 	m := new(SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseType)
@@ -915,9 +1276,21 @@ func newSCIReportClientDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResp
 	return r
 }
 
-func (r *SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType() *SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType {
 	m := new(SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseType)
@@ -944,9 +1317,21 @@ func newSCIReportClientDetailsReport82rssTrend200ResponseTypeAPIResponse(meta AP
 	return r
 }
 
-func (r *SCIReportClientDetailsReport82rssTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportClientDetailsReport82rssTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportClientDetailsReport82rssTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportClientDetailsReport82rssTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportClientDetailsReport82rssTrend200ResponseType() *SCIReportClientDetailsReport82rssTrend200ResponseType {
 	m := new(SCIReportClientDetailsReport82rssTrend200ResponseType)
@@ -973,9 +1358,21 @@ func newSCIReportClientDetailsReport83snrTrend200ResponseTypeAPIResponse(meta AP
 	return r
 }
 
-func (r *SCIReportClientDetailsReport83snrTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportClientDetailsReport83snrTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportClientDetailsReport83snrTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportClientDetailsReport83snrTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportClientDetailsReport83snrTrend200ResponseType() *SCIReportClientDetailsReport83snrTrend200ResponseType {
 	m := new(SCIReportClientDetailsReport83snrTrend200ResponseType)
@@ -1002,9 +1399,21 @@ func newSCIReportClientDetailsReport86summary200ResponseTypeAPIResponse(meta API
 	return r
 }
 
-func (r *SCIReportClientDetailsReport86summary200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportClientDetailsReport86summary200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportClientDetailsReport86summary200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportClientDetailsReport86summary200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportClientDetailsReport86summary200ResponseType() *SCIReportClientDetailsReport86summary200ResponseType {
 	m := new(SCIReportClientDetailsReport86summary200ResponseType)
@@ -1031,9 +1440,21 @@ func newSCIReportClientDetailsReport87clientStats200ResponseTypeAPIResponse(meta
 	return r
 }
 
-func (r *SCIReportClientDetailsReport87clientStats200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportClientDetailsReport87clientStats200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportClientDetailsReport87clientStats200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportClientDetailsReport87clientStats200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportClientDetailsReport87clientStats200ResponseType() *SCIReportClientDetailsReport87clientStats200ResponseType {
 	m := new(SCIReportClientDetailsReport87clientStats200ResponseType)
@@ -1060,9 +1481,21 @@ func newSCIReportClientDetailsReport89trafficTrend200ResponseTypeAPIResponse(met
 	return r
 }
 
-func (r *SCIReportClientDetailsReport89trafficTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportClientDetailsReport89trafficTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportClientDetailsReport89trafficTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportClientDetailsReport89trafficTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportClientDetailsReport89trafficTrend200ResponseType() *SCIReportClientDetailsReport89trafficTrend200ResponseType {
 	m := new(SCIReportClientDetailsReport89trafficTrend200ResponseType)
@@ -1089,9 +1522,21 @@ func newSCIReportClientDetailsReport92sessionsTable200ResponseTypeAPIResponse(me
 	return r
 }
 
-func (r *SCIReportClientDetailsReport92sessionsTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportClientDetailsReport92sessionsTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportClientDetailsReport92sessionsTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportClientDetailsReport92sessionsTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportClientDetailsReport92sessionsTable200ResponseType() *SCIReportClientDetailsReport92sessionsTable200ResponseType {
 	m := new(SCIReportClientDetailsReport92sessionsTable200ResponseType)
@@ -1118,9 +1563,21 @@ func newSCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIRespo
 	return r
 }
 
-func (r *SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportClientHealthReport144clientHealthSummary200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportClientHealthReport144clientHealthSummary200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportClientHealthReport144clientHealthSummary200ResponseType() *SCIReportClientHealthReport144clientHealthSummary200ResponseType {
 	m := new(SCIReportClientHealthReport144clientHealthSummary200ResponseType)
@@ -1147,9 +1604,21 @@ func newSCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIRe
 	return r
 }
 
-func (r *SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportClientHealthReport148clientConnectionHealth200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportClientHealthReport148clientConnectionHealth200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportClientHealthReport148clientConnectionHealth200ResponseType() *SCIReportClientHealthReport148clientConnectionHealth200ResponseType {
 	m := new(SCIReportClientHealthReport148clientConnectionHealth200ResponseType)
@@ -1176,9 +1645,21 @@ func newSCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPI
 	return r
 }
 
-func (r *SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportClientHealthReport149clientHealthMetricTrends200ResponseType() *SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType {
 	m := new(SCIReportClientHealthReport149clientHealthMetricTrends200ResponseType)
@@ -1205,9 +1686,21 @@ func newSCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType
 	return r
 }
 
-func (r *SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType() *SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType {
 	m := new(SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseType)
@@ -1234,9 +1727,21 @@ func newSCIReportComparisonReport140comparisionOverview200ResponseTypeAPIRespons
 	return r
 }
 
-func (r *SCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportComparisonReport140comparisionOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportComparisonReport140comparisionOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportComparisonReport140comparisionOverview200ResponseType() *SCIReportComparisonReport140comparisionOverview200ResponseType {
 	m := new(SCIReportComparisonReport140comparisionOverview200ResponseType)
@@ -1263,9 +1768,21 @@ func newSCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse
 	return r
 }
 
-func (r *SCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportComparisonReport145comparisionMetric1200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportComparisonReport145comparisionMetric1200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportComparisonReport145comparisionMetric1200ResponseType() *SCIReportComparisonReport145comparisionMetric1200ResponseType {
 	m := new(SCIReportComparisonReport145comparisionMetric1200ResponseType)
@@ -1292,9 +1809,21 @@ func newSCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse
 	return r
 }
 
-func (r *SCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportComparisonReport146comparisionMetric2200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportComparisonReport146comparisionMetric2200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportComparisonReport146comparisionMetric2200ResponseType() *SCIReportComparisonReport146comparisionMetric2200ResponseType {
 	m := new(SCIReportComparisonReport146comparisionMetric2200ResponseType)
@@ -1321,9 +1850,21 @@ func newSCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse(m
 	return r
 }
 
-func (r *SCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportComparisonReport147comparisionTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportComparisonReport147comparisionTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportComparisonReport147comparisionTable200ResponseType() *SCIReportComparisonReport147comparisionTable200ResponseType {
 	m := new(SCIReportComparisonReport147comparisionTable200ResponseType)
@@ -1346,9 +1887,21 @@ func newSCIReportFind200ResponseTypeAPIResponse(meta APIResponseMeta, body io.Re
 	return r
 }
 
-func (r *SCIReportFind200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = make(SCIReportFind200ResponseType, 0)
-	return json.NewDecoder(r).Decode(&r.Data)
+func (r *SCIReportFind200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := make(SCIReportFind200ResponseType, 0)
+	if err := r.doHydrate(&data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func MakeSCIReportFind200ResponseType() SCIReportFind200ResponseType {
 	m := make(SCIReportFind200ResponseType, 0)
@@ -1375,9 +1928,21 @@ func newSCIReportGetData200ResponseTypeAPIResponse(meta APIResponseMeta, body io
 	return r
 }
 
-func (r *SCIReportGetData200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportGetData200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportGetData200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportGetData200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportGetData200ResponseType() *SCIReportGetData200ResponseType {
 	m := new(SCIReportGetData200ResponseType)
@@ -1404,9 +1969,21 @@ func newSCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIRespon
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport46apInventoryOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport46apInventoryOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport46apInventoryOverview200ResponseType() *SCIReportInventoryAPsReport46apInventoryOverview200ResponseType {
 	m := new(SCIReportInventoryAPsReport46apInventoryOverview200ResponseType)
@@ -1433,9 +2010,21 @@ func newSCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIRespon
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport47topApsDisconnection200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport47topApsDisconnection200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport47topApsDisconnection200ResponseType() *SCIReportInventoryAPsReport47topApsDisconnection200ResponseType {
 	m := new(SCIReportInventoryAPsReport47topApsDisconnection200ResponseType)
@@ -1462,9 +2051,21 @@ func newSCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse(meta
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport48apCountTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport48apCountTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport48apCountTrend200ResponseType() *SCIReportInventoryAPsReport48apCountTrend200ResponseType {
 	m := new(SCIReportInventoryAPsReport48apCountTrend200ResponseType)
@@ -1491,9 +2092,21 @@ func newSCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse(met
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport49apStatusTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport49apStatusTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport49apStatusTrend200ResponseType() *SCIReportInventoryAPsReport49apStatusTrend200ResponseType {
 	m := new(SCIReportInventoryAPsReport49apStatusTrend200ResponseType)
@@ -1520,9 +2133,21 @@ func newSCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport50topApsModelsChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport50topApsModelsChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport50topApsModelsChart200ResponseType() *SCIReportInventoryAPsReport50topApsModelsChart200ResponseType {
 	m := new(SCIReportInventoryAPsReport50topApsModelsChart200ResponseType)
@@ -1549,9 +2174,21 @@ func newSCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIRespo
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType() *SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType {
 	m := new(SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType)
@@ -1578,9 +2215,21 @@ func newSCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIRespon
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport52topApsRebootReasons200ResponseType() *SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType {
 	m := new(SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType)
@@ -1607,9 +2256,21 @@ func newSCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIRespo
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType() *SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType {
 	m := new(SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType)
@@ -1636,9 +2297,21 @@ func newSCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse(m
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport54topApAlarmTypes200ResponseType() *SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType {
 	m := new(SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType)
@@ -1665,9 +2338,21 @@ func newSCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse(meta 
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport55topAPModels200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport55topAPModels200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport55topAPModels200ResponseType() *SCIReportInventoryAPsReport55topAPModels200ResponseType {
 	m := new(SCIReportInventoryAPsReport55topAPModels200ResponseType)
@@ -1694,9 +2379,21 @@ func newSCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse(met
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport56topAPVersions200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport56topAPVersions200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport56topAPVersions200ResponseType() *SCIReportInventoryAPsReport56topAPVersions200ResponseType {
 	m := new(SCIReportInventoryAPsReport56topAPVersions200ResponseType)
@@ -1723,9 +2420,21 @@ func newSCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse(met
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport57topAPsOffline200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport57topAPsOffline200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport57topAPsOffline200ResponseType() *SCIReportInventoryAPsReport57topAPsOffline200ResponseType {
 	m := new(SCIReportInventoryAPsReport57topAPsOffline200ResponseType)
@@ -1752,9 +2461,21 @@ func newSCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse(m
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport58topAPsByReboots200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport58topAPsByReboots200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport58topAPsByReboots200ResponseType() *SCIReportInventoryAPsReport58topAPsByReboots200ResponseType {
 	m := new(SCIReportInventoryAPsReport58topAPsByReboots200ResponseType)
@@ -1781,9 +2502,21 @@ func newSCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIR
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType() *SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType {
 	m := new(SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseType)
@@ -1810,9 +2543,21 @@ func newSCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIR
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType() *SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType {
 	m := new(SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseType)
@@ -1839,9 +2584,21 @@ func newSCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIRespo
 	return r
 }
 
-func (r *SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType() *SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType {
 	m := new(SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseType)
@@ -1868,9 +2625,21 @@ func newSCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse(met
 	return r
 }
 
-func (r *SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryControllersReport96krack200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryControllersReport96krack200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryControllersReport96krack200ResponseType() *SCIReportInventoryControllersReport96krack200ResponseType {
 	m := new(SCIReportInventoryControllersReport96krack200ResponseType)
@@ -1897,9 +2666,21 @@ func newSCIReportInventoryControllersReport98resourceUtilization200ResponseTypeA
 	return r
 }
 
-func (r *SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryControllersReport98resourceUtilization200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryControllersReport98resourceUtilization200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryControllersReport98resourceUtilization200ResponseType() *SCIReportInventoryControllersReport98resourceUtilization200ResponseType {
 	m := new(SCIReportInventoryControllersReport98resourceUtilization200ResponseType)
@@ -1926,9 +2707,21 @@ func newSCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAP
 	return r
 }
 
-func (r *SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryControllersReport99licenseUtilization200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryControllersReport99licenseUtilization200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryControllersReport99licenseUtilization200ResponseType() *SCIReportInventoryControllersReport99licenseUtilization200ResponseType {
 	m := new(SCIReportInventoryControllersReport99licenseUtilization200ResponseType)
@@ -1955,9 +2748,21 @@ func newSCIReportInventoryControllersReport114controllerInventoryOverview200Resp
 	return r
 }
 
-func (r *SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType() *SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType {
 	m := new(SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseType)
@@ -1984,9 +2789,21 @@ func newSCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200
 	return r
 }
 
-func (r *SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType() *SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType {
 	m := new(SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseType)
@@ -2013,9 +2830,21 @@ func newSCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse(me
 	return r
 }
 
-func (r *SCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventorySwitchesReport113overview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventorySwitchesReport113overview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventorySwitchesReport113overview200ResponseType() *SCIReportInventorySwitchesReport113overview200ResponseType {
 	m := new(SCIReportInventorySwitchesReport113overview200ResponseType)
@@ -2042,9 +2871,21 @@ func newSCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIRes
 	return r
 }
 
-func (r *SCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventorySwitchesReport116switchCountTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventorySwitchesReport116switchCountTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventorySwitchesReport116switchCountTrend200ResponseType() *SCIReportInventorySwitchesReport116switchCountTrend200ResponseType {
 	m := new(SCIReportInventorySwitchesReport116switchCountTrend200ResponseType)
@@ -2071,9 +2912,21 @@ func newSCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTyp
 	return r
 }
 
-func (r *SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType() *SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType {
 	m := new(SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseType)
@@ -2100,9 +2953,21 @@ func newSCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIRe
 	return r
 }
 
-func (r *SCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventorySwitchesReport118topSwitchVersions200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventorySwitchesReport118topSwitchVersions200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventorySwitchesReport118topSwitchVersions200ResponseType() *SCIReportInventorySwitchesReport118topSwitchVersions200ResponseType {
 	m := new(SCIReportInventorySwitchesReport118topSwitchVersions200ResponseType)
@@ -2129,9 +2994,21 @@ func newSCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAP
 	return r
 }
 
-func (r *SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType() *SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType {
 	m := new(SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseType)
@@ -2158,9 +3035,21 @@ func newSCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResp
 	return r
 }
 
-func (r *SCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventorySwitchesReport122topSwitchModels200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventorySwitchesReport122topSwitchModels200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventorySwitchesReport122topSwitchModels200ResponseType() *SCIReportInventorySwitchesReport122topSwitchModels200ResponseType {
 	m := new(SCIReportInventorySwitchesReport122topSwitchModels200ResponseType)
@@ -2187,9 +3076,21 @@ func newSCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResp
 	return r
 }
 
-func (r *SCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportInventorySwitchesReport132portStatusTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportInventorySwitchesReport132portStatusTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportInventorySwitchesReport132portStatusTrend200ResponseType() *SCIReportInventorySwitchesReport132portStatusTrend200ResponseType {
 	m := new(SCIReportInventorySwitchesReport132portStatusTrend200ResponseType)
@@ -2216,9 +3117,21 @@ func newSCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIRes
 	return r
 }
 
-func (r *SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType() *SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType {
 	m := new(SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseType)
@@ -2245,9 +3158,21 @@ func newSCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIRespons
 	return r
 }
 
-func (r *SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType() *SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType {
 	m := new(SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseType)
@@ -2274,9 +3199,21 @@ func newSCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTyp
 	return r
 }
 
-func (r *SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType() *SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType {
 	m := new(SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseType)
@@ -2303,9 +3240,21 @@ func newSCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAP
 	return r
 }
 
-func (r *SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType() *SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType {
 	m := new(SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseType)
@@ -2332,9 +3281,21 @@ func newSCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse(me
 	return r
 }
 
-func (r *SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWiredReport134wiredOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWiredReport134wiredOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWiredReport134wiredOverview200ResponseType() *SCIReportNetworkWiredReport134wiredOverview200ResponseType {
 	m := new(SCIReportNetworkWiredReport134wiredOverview200ResponseType)
@@ -2361,9 +3322,21 @@ func newSCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPI
 	return r
 }
 
-func (r *SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType() *SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType {
 	m := new(SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseType)
@@ -2390,9 +3363,21 @@ func newSCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIRespon
 	return r
 }
 
-func (r *SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWiredReport136switchTrafficTrend200ResponseType() *SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType {
 	m := new(SCIReportNetworkWiredReport136switchTrafficTrend200ResponseType)
@@ -2419,9 +3404,21 @@ func newSCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse
 	return r
 }
 
-func (r *SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWiredReport141switchErrorTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWiredReport141switchErrorTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWiredReport141switchErrorTrend200ResponseType() *SCIReportNetworkWiredReport141switchErrorTrend200ResponseType {
 	m := new(SCIReportNetworkWiredReport141switchErrorTrend200ResponseType)
@@ -2448,9 +3445,21 @@ func newSCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPI
 	return r
 }
 
-func (r *SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType() *SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType {
 	m := new(SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseType)
@@ -2477,9 +3486,21 @@ func newSCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPI
 	return r
 }
 
-func (r *SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType() *SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType {
 	m := new(SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseType)
@@ -2506,9 +3527,21 @@ func newSCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse(meta 
 	return r
 }
 
-func (r *SCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWirelessReport20overview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWirelessReport20overview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWirelessReport20overview200ResponseType() *SCIReportNetworkWirelessReport20overview200ResponseType {
 	m := new(SCIReportNetworkWirelessReport20overview200ResponseType)
@@ -2535,9 +3568,21 @@ func newSCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIRes
 	return r
 }
 
-func (r *SCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWirelessReport21trafficDistribution200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWirelessReport21trafficDistribution200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWirelessReport21trafficDistribution200ResponseType() *SCIReportNetworkWirelessReport21trafficDistribution200ResponseType {
 	m := new(SCIReportNetworkWirelessReport21trafficDistribution200ResponseType)
@@ -2564,9 +3609,21 @@ func newSCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse(m
 	return r
 }
 
-func (r *SCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWirelessReport22trafficTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWirelessReport22trafficTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWirelessReport22trafficTrend200ResponseType() *SCIReportNetworkWirelessReport22trafficTrend200ResponseType {
 	m := new(SCIReportNetworkWirelessReport22trafficTrend200ResponseType)
@@ -2593,9 +3650,21 @@ func newSCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIRe
 	return r
 }
 
-func (r *SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType() *SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType {
 	m := new(SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseType)
@@ -2622,9 +3691,21 @@ func newSCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIRe
 	return r
 }
 
-func (r *SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType() *SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType {
 	m := new(SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseType)
@@ -2651,9 +3732,21 @@ func newSCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIRe
 	return r
 }
 
-func (r *SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType() *SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType {
 	m := new(SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseType)
@@ -2680,9 +3773,21 @@ func newSCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAP
 	return r
 }
 
-func (r *SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType() *SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType {
 	m := new(SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseType)
@@ -2709,9 +3814,21 @@ func newSCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIRe
 	return r
 }
 
-func (r *SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType() *SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType {
 	m := new(SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseType)
@@ -2738,9 +3855,21 @@ func newSCIReportOverview62overview200ResponseTypeAPIResponse(meta APIResponseMe
 	return r
 }
 
-func (r *SCIReportOverview62overview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview62overview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview62overview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview62overview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview62overview200ResponseType() *SCIReportOverview62overview200ResponseType {
 	m := new(SCIReportOverview62overview200ResponseType)
@@ -2767,9 +3896,21 @@ func newSCIReportOverview63controller200ResponseTypeAPIResponse(meta APIResponse
 	return r
 }
 
-func (r *SCIReportOverview63controller200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview63controller200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview63controller200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview63controller200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview63controller200ResponseType() *SCIReportOverview63controller200ResponseType {
 	m := new(SCIReportOverview63controller200ResponseType)
@@ -2796,9 +3937,21 @@ func newSCIReportOverview64apOverview200ResponseTypeAPIResponse(meta APIResponse
 	return r
 }
 
-func (r *SCIReportOverview64apOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview64apOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview64apOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview64apOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview64apOverview200ResponseType() *SCIReportOverview64apOverview200ResponseType {
 	m := new(SCIReportOverview64apOverview200ResponseType)
@@ -2825,9 +3978,21 @@ func newSCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse(meta APIRes
 	return r
 }
 
-func (r *SCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview66apAlarmOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview66apAlarmOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview66apAlarmOverview200ResponseType() *SCIReportOverview66apAlarmOverview200ResponseType {
 	m := new(SCIReportOverview66apAlarmOverview200ResponseType)
@@ -2854,9 +4019,21 @@ func newSCIReportOverview67switchOverview200ResponseTypeAPIResponse(meta APIResp
 	return r
 }
 
-func (r *SCIReportOverview67switchOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview67switchOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview67switchOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview67switchOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview67switchOverview200ResponseType() *SCIReportOverview67switchOverview200ResponseType {
 	m := new(SCIReportOverview67switchOverview200ResponseType)
@@ -2883,9 +4060,21 @@ func newSCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse(meta 
 	return r
 }
 
-func (r *SCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview68apClientCountOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview68apClientCountOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview68apClientCountOverview200ResponseType() *SCIReportOverview68apClientCountOverview200ResponseType {
 	m := new(SCIReportOverview68apClientCountOverview200ResponseType)
@@ -2912,9 +4101,21 @@ func newSCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse(meta
 	return r
 }
 
-func (r *SCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview69totalTrafficMinMaxRate200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview69totalTrafficMinMaxRate200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview69totalTrafficMinMaxRate200ResponseType() *SCIReportOverview69totalTrafficMinMaxRate200ResponseType {
 	m := new(SCIReportOverview69totalTrafficMinMaxRate200ResponseType)
@@ -2941,9 +4142,21 @@ func newSCIReportOverview70sessionsOverview200ResponseTypeAPIResponse(meta APIRe
 	return r
 }
 
-func (r *SCIReportOverview70sessionsOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview70sessionsOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview70sessionsOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview70sessionsOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview70sessionsOverview200ResponseType() *SCIReportOverview70sessionsOverview200ResponseType {
 	m := new(SCIReportOverview70sessionsOverview200ResponseType)
@@ -2970,9 +4183,21 @@ func newSCIReportOverview71ssidOverview200ResponseTypeAPIResponse(meta APIRespon
 	return r
 }
 
-func (r *SCIReportOverview71ssidOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview71ssidOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview71ssidOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview71ssidOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview71ssidOverview200ResponseType() *SCIReportOverview71ssidOverview200ResponseType {
 	m := new(SCIReportOverview71ssidOverview200ResponseType)
@@ -2999,9 +4224,21 @@ func newSCIReportOverview72radioOverview200ResponseTypeAPIResponse(meta APIRespo
 	return r
 }
 
-func (r *SCIReportOverview72radioOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview72radioOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview72radioOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview72radioOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview72radioOverview200ResponseType() *SCIReportOverview72radioOverview200ResponseType {
 	m := new(SCIReportOverview72radioOverview200ResponseType)
@@ -3028,9 +4265,21 @@ func newSCIReportOverview73applicationsOverview200ResponseTypeAPIResponse(meta A
 	return r
 }
 
-func (r *SCIReportOverview73applicationsOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview73applicationsOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview73applicationsOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview73applicationsOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview73applicationsOverview200ResponseType() *SCIReportOverview73applicationsOverview200ResponseType {
 	m := new(SCIReportOverview73applicationsOverview200ResponseType)
@@ -3057,9 +4306,21 @@ func newSCIReportOverview74apEventOverview200ResponseTypeAPIResponse(meta APIRes
 	return r
 }
 
-func (r *SCIReportOverview74apEventOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview74apEventOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview74apEventOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview74apEventOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview74apEventOverview200ResponseType() *SCIReportOverview74apEventOverview200ResponseType {
 	m := new(SCIReportOverview74apEventOverview200ResponseType)
@@ -3086,9 +4347,21 @@ func newSCIReportOverview97factOverview200ResponseTypeAPIResponse(meta APIRespon
 	return r
 }
 
-func (r *SCIReportOverview97factOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview97factOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview97factOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview97factOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview97factOverview200ResponseType() *SCIReportOverview97factOverview200ResponseType {
 	m := new(SCIReportOverview97factOverview200ResponseType)
@@ -3115,9 +4388,21 @@ func newSCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse(meta 
 	return r
 }
 
-func (r *SCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportOverview115networkUsageOverview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportOverview115networkUsageOverview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportOverview115networkUsageOverview200ResponseType() *SCIReportOverview115networkUsageOverview200ResponseType {
 	m := new(SCIReportOverview115networkUsageOverview200ResponseType)
@@ -3140,9 +4425,21 @@ func newSCIReportPrototypegetsections200ResponseTypeAPIResponse(meta APIResponse
 	return r
 }
 
-func (r *SCIReportPrototypegetsections200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = make(SCIReportPrototypegetsections200ResponseType, 0)
-	return json.NewDecoder(r).Decode(&r.Data)
+func (r *SCIReportPrototypegetsections200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := make(SCIReportPrototypegetsections200ResponseType, 0)
+	if err := r.doHydrate(&data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func MakeSCIReportPrototypegetsections200ResponseType() SCIReportPrototypegetsections200ResponseType {
 	m := make(SCIReportPrototypegetsections200ResponseType, 0)
@@ -3169,9 +4466,21 @@ func newSCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIRespo
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType() *SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseType)
@@ -3198,9 +4507,21 @@ func newSCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIRespons
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType() *SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseType)
@@ -3227,9 +4548,21 @@ func newSCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIRespo
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType() *SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseType)
@@ -3256,9 +4589,21 @@ func newSCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseT
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType() *SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseType)
@@ -3285,9 +4630,21 @@ func newSCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIR
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType() *SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseType)
@@ -3314,9 +4671,21 @@ func newSCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIRespons
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport103avgThroughput200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport103avgThroughput200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport103avgThroughput200ResponseType() *SCIReportSCNetworkTrafficReport103avgThroughput200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport103avgThroughput200ResponseType)
@@ -3343,9 +4712,21 @@ func newSCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIRespon
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport104scAvailability200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport104scAvailability200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport104scAvailability200ResponseType() *SCIReportSCNetworkTrafficReport104scAvailability200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport104scAvailability200ResponseType)
@@ -3372,9 +4753,21 @@ func newSCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIRe
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType() *SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseType)
@@ -3401,9 +4794,21 @@ func newSCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse(
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType() *SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseType)
@@ -3430,9 +4835,21 @@ func newSCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIRespons
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport107trafficVolume200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport107trafficVolume200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport107trafficVolume200ResponseType() *SCIReportSCNetworkTrafficReport107trafficVolume200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport107trafficVolume200ResponseType)
@@ -3459,9 +4876,21 @@ func newSCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIRespons
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType() *SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseType)
@@ -3488,9 +4917,21 @@ func newSCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIRes
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType() *SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseType)
@@ -3517,9 +4958,21 @@ func newSCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIRespo
 	return r
 }
 
-func (r *SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType() *SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType {
 	m := new(SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseType)
@@ -3569,9 +5022,21 @@ func newSCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse(meta 
 	return r
 }
 
-func (r *SCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSessionsSummaryReport33topTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSessionsSummaryReport33topTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSessionsSummaryReport33topTable200ResponseType() *SCIReportSessionsSummaryReport33topTable200ResponseType {
 	m := new(SCIReportSessionsSummaryReport33topTable200ResponseType)
@@ -3598,9 +5063,21 @@ func newSCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse(meta 
 	return r
 }
 
-func (r *SCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSessionsSummaryReport34overview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSessionsSummaryReport34overview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSessionsSummaryReport34overview200ResponseType() *SCIReportSessionsSummaryReport34overview200ResponseType {
 	m := new(SCIReportSessionsSummaryReport34overview200ResponseType)
@@ -3627,9 +5104,21 @@ func newSCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResp
 	return r
 }
 
-func (r *SCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSessionsSummaryReport42durationPercentile200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSessionsSummaryReport42durationPercentile200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSessionsSummaryReport42durationPercentile200ResponseType() *SCIReportSessionsSummaryReport42durationPercentile200ResponseType {
 	m := new(SCIReportSessionsSummaryReport42durationPercentile200ResponseType)
@@ -3656,9 +5145,21 @@ func newSCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse(m
 	return r
 }
 
-func (r *SCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSwitchDetailsReport125switchSummary200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSwitchDetailsReport125switchSummary200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSwitchDetailsReport125switchSummary200ResponseType() *SCIReportSwitchDetailsReport125switchSummary200ResponseType {
 	m := new(SCIReportSwitchDetailsReport125switchSummary200ResponseType)
@@ -3685,9 +5186,21 @@ func newSCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeA
 	return r
 }
 
-func (r *SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType() *SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType {
 	m := new(SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseType)
@@ -3714,9 +5227,21 @@ func newSCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTy
 	return r
 }
 
-func (r *SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType() *SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType {
 	m := new(SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseType)
@@ -3743,9 +5268,21 @@ func newSCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTy
 	return r
 }
 
-func (r *SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType() *SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType {
 	m := new(SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseType)
@@ -3772,9 +5309,21 @@ func newSCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIRespo
 	return r
 }
 
-func (r *SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType() *SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType {
 	m := new(SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseType)
@@ -3801,9 +5350,21 @@ func newSCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIRespon
 	return r
 }
 
-func (r *SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType() *SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType {
 	m := new(SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseType)
@@ -3830,9 +5391,21 @@ func newSCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResp
 	return r
 }
 
-func (r *SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType() *SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType {
 	m := new(SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseType)
@@ -3859,9 +5432,21 @@ func newSCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse(m
 	return r
 }
 
-func (r *SCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSwitchDetailsReport139switchDetails200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSwitchDetailsReport139switchDetails200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSwitchDetailsReport139switchDetails200ResponseType() *SCIReportSwitchDetailsReport139switchDetails200ResponseType {
 	m := new(SCIReportSwitchDetailsReport139switchDetails200ResponseType)
@@ -3888,9 +5473,21 @@ func newSCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResp
 	return r
 }
 
-func (r *SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType() *SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType {
 	m := new(SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseType)
@@ -3917,9 +5514,21 @@ func newSCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200R
 	return r
 }
 
-func (r *SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType() *SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType {
 	m := new(SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseType)
@@ -3946,9 +5555,21 @@ func newSCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType
 	return r
 }
 
-func (r *SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType() *SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType {
 	m := new(SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseType)
@@ -3975,9 +5596,21 @@ func newSCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType
 	return r
 }
 
-func (r *SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType() *SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType {
 	m := new(SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseType)
@@ -4004,9 +5637,21 @@ func newSCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse(
 	return r
 }
 
-func (r *SCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessApplicationsReport10overview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessApplicationsReport10overview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessApplicationsReport10overview200ResponseType() *SCIReportWirelessApplicationsReport10overview200ResponseType {
 	m := new(SCIReportWirelessApplicationsReport10overview200ResponseType)
@@ -4033,9 +5678,21 @@ func newSCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200Re
 	return r
 }
 
-func (r *SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType() *SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType {
 	m := new(SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseType)
@@ -4062,9 +5719,21 @@ func newSCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse(meta 
 	return r
 }
 
-func (r *SCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessClientsReport12overview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessClientsReport12overview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessClientsReport12overview200ResponseType() *SCIReportWirelessClientsReport12overview200ResponseType {
 	m := new(SCIReportWirelessClientsReport12overview200ResponseType)
@@ -4091,9 +5760,21 @@ func newSCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse(meta 
 	return r
 }
 
-func (r *SCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessClientsReport13topChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessClientsReport13topChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessClientsReport13topChart200ResponseType() *SCIReportWirelessClientsReport13topChart200ResponseType {
 	m := new(SCIReportWirelessClientsReport13topChart200ResponseType)
@@ -4120,9 +5801,21 @@ func newSCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse(meta 
 	return r
 }
 
-func (r *SCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessClientsReport14topTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessClientsReport14topTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessClientsReport14topTable200ResponseType() *SCIReportWirelessClientsReport14topTable200ResponseType {
 	m := new(SCIReportWirelessClientsReport14topTable200ResponseType)
@@ -4149,9 +5842,21 @@ func newSCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse(met
 	return r
 }
 
-func (r *SCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessClientsReport15trendChart200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessClientsReport15trendChart200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessClientsReport15trendChart200ResponseType() *SCIReportWirelessClientsReport15trendChart200ResponseType {
 	m := new(SCIReportWirelessClientsReport15trendChart200ResponseType)
@@ -4178,9 +5883,21 @@ func newSCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse(met
 	return r
 }
 
-func (r *SCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessClientsReport16trendTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessClientsReport16trendTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessClientsReport16trendTable200ResponseType() *SCIReportWirelessClientsReport16trendTable200ResponseType {
 	m := new(SCIReportWirelessClientsReport16trendTable200ResponseType)
@@ -4207,9 +5924,21 @@ func newSCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse(
 	return r
 }
 
-func (r *SCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessClientsReport17topPercentile200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessClientsReport17topPercentile200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessClientsReport17topPercentile200ResponseType() *SCIReportWirelessClientsReport17topPercentile200ResponseType {
 	m := new(SCIReportWirelessClientsReport17topPercentile200ResponseType)
@@ -4236,9 +5965,21 @@ func newSCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIRes
 	return r
 }
 
-func (r *SCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessClientsReport18topNOSByClientCount200ResponseType() *SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType {
 	m := new(SCIReportWirelessClientsReport18topNOSByClientCount200ResponseType)
@@ -4265,9 +6006,21 @@ func newSCIReportWirelessClientsReport19top10ManufacturersByClientCount200Respon
 	return r
 }
 
-func (r *SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType() *SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType {
 	m := new(SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseType)
@@ -4294,9 +6047,21 @@ func newSCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCou
 	return r
 }
 
-func (r *SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType() *SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType {
 	m := new(SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseType)
@@ -4426,9 +6191,21 @@ func newSCIReportWithRelationsAPIResponse(meta APIResponseMeta, body io.ReadClos
 	return r
 }
 
-func (r *SCIReportWithRelationsAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWithRelations)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWithRelationsAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWithRelations)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWithRelations() *SCIReportWithRelations {
 	m := new(SCIReportWithRelations)
@@ -5248,9 +7025,21 @@ func newSCIReportWLANsReport35overview200ResponseTypeAPIResponse(meta APIRespons
 	return r
 }
 
-func (r *SCIReportWLANsReport35overview200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWLANsReport35overview200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWLANsReport35overview200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWLANsReport35overview200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWLANsReport35overview200ResponseType() *SCIReportWLANsReport35overview200ResponseType {
 	m := new(SCIReportWLANsReport35overview200ResponseType)
@@ -5277,9 +7066,21 @@ func newSCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse(meta
 	return r
 }
 
-func (r *SCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWLANsReport36top10SsidsByTraffic200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWLANsReport36top10SsidsByTraffic200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWLANsReport36top10SsidsByTraffic200ResponseType() *SCIReportWLANsReport36top10SsidsByTraffic200ResponseType {
 	m := new(SCIReportWLANsReport36top10SsidsByTraffic200ResponseType)
@@ -5306,9 +7107,21 @@ func newSCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse(meta AP
 	return r
 }
 
-func (r *SCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWLANsReport37activeSsidsTrend200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWLANsReport37activeSsidsTrend200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWLANsReport37activeSsidsTrend200ResponseType() *SCIReportWLANsReport37activeSsidsTrend200ResponseType {
 	m := new(SCIReportWLANsReport37activeSsidsTrend200ResponseType)
@@ -5335,9 +7148,21 @@ func newSCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse(
 	return r
 }
 
-func (r *SCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWLANsReport38top10SsidsByClientCount200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWLANsReport38top10SsidsByClientCount200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWLANsReport38top10SsidsByClientCount200ResponseType() *SCIReportWLANsReport38top10SsidsByClientCount200ResponseType {
 	m := new(SCIReportWLANsReport38top10SsidsByClientCount200ResponseType)
@@ -5364,9 +7189,21 @@ func newSCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse(meta
 	return r
 }
 
-func (r *SCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWLANsReport39ssidChangesOverTime200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWLANsReport39ssidChangesOverTime200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWLANsReport39ssidChangesOverTime200ResponseType() *SCIReportWLANsReport39ssidChangesOverTime200ResponseType {
 	m := new(SCIReportWLANsReport39ssidChangesOverTime200ResponseType)
@@ -5393,9 +7230,21 @@ func newSCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse(m
 	return r
 }
 
-func (r *SCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWLANsReport40topSsidsByTrafficTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWLANsReport40topSsidsByTrafficTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWLANsReport40topSsidsByTrafficTable200ResponseType() *SCIReportWLANsReport40topSsidsByTrafficTable200ResponseType {
 	m := new(SCIReportWLANsReport40topSsidsByTrafficTable200ResponseType)
@@ -5422,9 +7271,21 @@ func newSCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse(m
 	return r
 }
 
-func (r *SCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse) Hydrate() error {
-	r.Data = new(SCIReportWLANsReport41topSsidsByClientsTable200ResponseType)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SCIReportWLANsReport41topSsidsByClientsTable200ResponseType)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSCIReportWLANsReport41topSsidsByClientsTable200ResponseType() *SCIReportWLANsReport41topSsidsByClientsTable200ResponseType {
 	m := new(SCIReportWLANsReport41topSsidsByClientsTable200ResponseType)

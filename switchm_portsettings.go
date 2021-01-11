@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -285,9 +285,21 @@ func newSwitchMPortSettingsAPIResponse(meta APIResponseMeta, body io.ReadCloser)
 	return r
 }
 
-func (r *SwitchMPortSettingsAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMPortSettings)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMPortSettingsAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMPortSettings)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMPortSettings() *SwitchMPortSettings {
 	m := new(SwitchMPortSettings)
@@ -332,9 +344,21 @@ func newSwitchMPortSettingsQueryResultAPIResponse(meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *SwitchMPortSettingsQueryResultAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMPortSettingsQueryResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMPortSettingsQueryResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMPortSettingsQueryResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMPortSettingsQueryResult() *SwitchMPortSettingsQueryResult {
 	m := new(SwitchMPortSettingsQueryResult)

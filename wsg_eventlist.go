@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -33,9 +33,21 @@ func newWSGEventListEventQueryResultListAPIResponse(meta APIResponseMeta, body i
 	return r
 }
 
-func (r *WSGEventListEventQueryResultListAPIResponse) Hydrate() error {
-	r.Data = new(WSGEventListEventQueryResultList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGEventListEventQueryResultListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGEventListEventQueryResultList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGEventListEventQueryResultList() *WSGEventListEventQueryResultList {
 	m := new(WSGEventListEventQueryResultList)

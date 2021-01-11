@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -108,9 +108,21 @@ func newWSGIndoorMapIndooMapAuditIdAPIResponse(meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *WSGIndoorMapIndooMapAuditIdAPIResponse) Hydrate() error {
-	r.Data = new(WSGIndoorMapIndooMapAuditId)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGIndoorMapIndooMapAuditIdAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGIndoorMapIndooMapAuditId)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGIndoorMapIndooMapAuditId() *WSGIndoorMapIndooMapAuditId {
 	m := new(WSGIndoorMapIndooMapAuditId)
@@ -198,9 +210,21 @@ func newWSGIndoorMapAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIRes
 	return r
 }
 
-func (r *WSGIndoorMapAPIResponse) Hydrate() error {
-	r.Data = new(WSGIndoorMap)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGIndoorMapAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGIndoorMap)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGIndoorMap() *WSGIndoorMap {
 	m := new(WSGIndoorMap)
@@ -255,9 +279,21 @@ func newWSGIndoorMapListAPIResponse(meta APIResponseMeta, body io.ReadCloser) AP
 	return r
 }
 
-func (r *WSGIndoorMapListAPIResponse) Hydrate() error {
-	r.Data = new(WSGIndoorMapList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGIndoorMapListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGIndoorMapList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGIndoorMapList() *WSGIndoorMapList {
 	m := new(WSGIndoorMapList)
@@ -369,9 +405,21 @@ func newWSGIndoorMapSummaryListAPIResponse(meta APIResponseMeta, body io.ReadClo
 	return r
 }
 
-func (r *WSGIndoorMapSummaryListAPIResponse) Hydrate() error {
-	r.Data = new(WSGIndoorMapSummaryList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGIndoorMapSummaryListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGIndoorMapSummaryList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGIndoorMapSummaryList() *WSGIndoorMapSummaryList {
 	m := new(WSGIndoorMapSummaryList)

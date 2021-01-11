@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -113,9 +113,21 @@ func newWSGGeofenceProfileGetGeofenceProfileAPIResponse(meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGGeofenceProfileGetGeofenceProfileAPIResponse) Hydrate() error {
-	r.Data = new(WSGGeofenceProfileGetGeofenceProfile)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGGeofenceProfileGetGeofenceProfileAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGGeofenceProfileGetGeofenceProfile)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGGeofenceProfileGetGeofenceProfile() *WSGGeofenceProfileGetGeofenceProfile {
 	m := new(WSGGeofenceProfileGetGeofenceProfile)
@@ -146,9 +158,21 @@ func newWSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse(meta APIRespo
 	return r
 }
 
-func (r *WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse) Hydrate() error {
-	r.Data = new(WSGGeofenceProfileGetGeofenceProfileProfileList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGGeofenceProfileGetGeofenceProfileProfileList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGGeofenceProfileGetGeofenceProfileProfileList() *WSGGeofenceProfileGetGeofenceProfileProfileList {
 	m := new(WSGGeofenceProfileGetGeofenceProfileProfileList)

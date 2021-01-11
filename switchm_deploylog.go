@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -39,9 +39,21 @@ func newSwitchMDeployLogConfigurationHistoryQueryResultAPIResponse(meta APIRespo
 	return r
 }
 
-func (r *SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMDeployLogConfigurationHistoryQueryResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMDeployLogConfigurationHistoryQueryResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMDeployLogConfigurationHistoryQueryResult() *SwitchMDeployLogConfigurationHistoryQueryResult {
 	m := new(SwitchMDeployLogConfigurationHistoryQueryResult)

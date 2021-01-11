@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -71,9 +71,21 @@ func newWSGDHCPPoolsDhcpPoolInfoAPIResponse(meta APIResponseMeta, body io.ReadCl
 	return r
 }
 
-func (r *WSGDHCPPoolsDhcpPoolInfoAPIResponse) Hydrate() error {
-	r.Data = new(WSGDHCPPoolsDhcpPoolInfo)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGDHCPPoolsDhcpPoolInfoAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGDHCPPoolsDhcpPoolInfo)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGDHCPPoolsDhcpPoolInfo() *WSGDHCPPoolsDhcpPoolInfo {
 	m := new(WSGDHCPPoolsDhcpPoolInfo)
@@ -140,9 +152,21 @@ func newWSGDHCPPoolsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIRes
 	return r
 }
 
-func (r *WSGDHCPPoolsAPIResponse) Hydrate() error {
-	r.Data = new(WSGDHCPPools)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGDHCPPoolsAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGDHCPPools)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGDHCPPools() *WSGDHCPPools {
 	m := new(WSGDHCPPools)

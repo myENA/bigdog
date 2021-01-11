@@ -4,7 +4,7 @@ package bigdog
 
 import (
 	"context"
-	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -136,9 +136,21 @@ func newWSGVLANPoolingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIR
 	return r
 }
 
-func (r *WSGVLANPoolingAPIResponse) Hydrate() error {
-	r.Data = new(WSGVLANPooling)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGVLANPoolingAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGVLANPooling)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGVLANPooling() *WSGVLANPooling {
 	m := new(WSGVLANPooling)
@@ -171,9 +183,21 @@ func newWSGVLANPoolingListAPIResponse(meta APIResponseMeta, body io.ReadCloser) 
 	return r
 }
 
-func (r *WSGVLANPoolingListAPIResponse) Hydrate() error {
-	r.Data = new(WSGVLANPoolingList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGVLANPoolingListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGVLANPoolingList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGVLANPoolingList() *WSGVLANPoolingList {
 	m := new(WSGVLANPoolingList)

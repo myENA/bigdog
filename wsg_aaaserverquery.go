@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -33,9 +33,21 @@ func newWSGAAAServerQueryListAPIResponse(meta APIResponseMeta, body io.ReadClose
 	return r
 }
 
-func (r *WSGAAAServerQueryListAPIResponse) Hydrate() error {
-	r.Data = new(WSGAAAServerQueryList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGAAAServerQueryListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGAAAServerQueryList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGAAAServerQueryList() *WSGAAAServerQueryList {
 	m := new(WSGAAAServerQueryList)

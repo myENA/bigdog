@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -163,9 +163,21 @@ func newWSGURLFilteringBlockCategoriesListAPIResponse(meta APIResponseMeta, body
 	return r
 }
 
-func (r *WSGURLFilteringBlockCategoriesListAPIResponse) Hydrate() error {
-	r.Data = new(WSGURLFilteringBlockCategoriesList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGURLFilteringBlockCategoriesListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGURLFilteringBlockCategoriesList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGURLFilteringBlockCategoriesList() *WSGURLFilteringBlockCategoriesList {
 	m := new(WSGURLFilteringBlockCategoriesList)
@@ -288,9 +300,21 @@ func newWSGURLFilteringPolicyAPIResponse(meta APIResponseMeta, body io.ReadClose
 	return r
 }
 
-func (r *WSGURLFilteringPolicyAPIResponse) Hydrate() error {
-	r.Data = new(WSGURLFilteringPolicy)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGURLFilteringPolicyAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGURLFilteringPolicy)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGURLFilteringPolicy() *WSGURLFilteringPolicy {
 	m := new(WSGURLFilteringPolicy)
@@ -323,9 +347,21 @@ func newWSGURLFilteringPolicyListAPIResponse(meta APIResponseMeta, body io.ReadC
 	return r
 }
 
-func (r *WSGURLFilteringPolicyListAPIResponse) Hydrate() error {
-	r.Data = new(WSGURLFilteringPolicyList)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGURLFilteringPolicyListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGURLFilteringPolicyList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGURLFilteringPolicyList() *WSGURLFilteringPolicyList {
 	m := new(WSGURLFilteringPolicyList)

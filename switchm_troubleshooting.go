@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 )
@@ -155,9 +156,21 @@ func newSwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse(meta A
 	return r
 }
 
-func (r *SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMTroubleshootingRemoteClientConnectivityResponse)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMTroubleshootingRemoteClientConnectivityResponse)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMTroubleshootingRemoteClientConnectivityResponse() *SwitchMTroubleshootingRemoteClientConnectivityResponse {
 	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponse)
@@ -360,9 +373,21 @@ func newSwitchMTroubleshootingRemoteCommandResponseAPIResponse(meta APIResponseM
 	return r
 }
 
-func (r *SwitchMTroubleshootingRemoteCommandResponseAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMTroubleshootingRemoteCommandResponse)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMTroubleshootingRemoteCommandResponseAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMTroubleshootingRemoteCommandResponse)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMTroubleshootingRemoteCommandResponse() *SwitchMTroubleshootingRemoteCommandResponse {
 	m := new(SwitchMTroubleshootingRemoteCommandResponse)
@@ -535,9 +560,21 @@ func newSwitchMTroubleshootingSupportLogStatusAPIResponse(meta APIResponseMeta, 
 	return r
 }
 
-func (r *SwitchMTroubleshootingSupportLogStatusAPIResponse) Hydrate() error {
-	r.Data = new(SwitchMTroubleshootingSupportLogStatus)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *SwitchMTroubleshootingSupportLogStatusAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(SwitchMTroubleshootingSupportLogStatus)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewSwitchMTroubleshootingSupportLogStatus() *SwitchMTroubleshootingSupportLogStatus {
 	m := new(SwitchMTroubleshootingSupportLogStatus)

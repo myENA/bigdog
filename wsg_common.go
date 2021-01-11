@@ -3,7 +3,7 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"encoding/json"
+	"errors"
 	"io"
 )
 
@@ -303,9 +303,21 @@ func newWSGCommonCreateResultAPIResponse(meta APIResponseMeta, body io.ReadClose
 	return r
 }
 
-func (r *WSGCommonCreateResultAPIResponse) Hydrate() error {
-	r.Data = new(WSGCommonCreateResult)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGCommonCreateResultAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGCommonCreateResult)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGCommonCreateResult() *WSGCommonCreateResult {
 	m := new(WSGCommonCreateResult)
@@ -332,9 +344,21 @@ func newWSGCommonCreateResultIdNameAPIResponse(meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *WSGCommonCreateResultIdNameAPIResponse) Hydrate() error {
-	r.Data = new(WSGCommonCreateResultIdName)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGCommonCreateResultIdNameAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGCommonCreateResultIdName)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGCommonCreateResultIdName() *WSGCommonCreateResultIdName {
 	m := new(WSGCommonCreateResultIdName)
@@ -430,9 +454,21 @@ func newWSGCommonDhcpProfileRefAPIResponse(meta APIResponseMeta, body io.ReadClo
 	return r
 }
 
-func (r *WSGCommonDhcpProfileRefAPIResponse) Hydrate() error {
-	r.Data = new(WSGCommonDhcpProfileRef)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGCommonDhcpProfileRefAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGCommonDhcpProfileRef)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGCommonDhcpProfileRef() *WSGCommonDhcpProfileRef {
 	m := new(WSGCommonDhcpProfileRef)
@@ -485,9 +521,21 @@ func newWSGCommonDhcpSiteConfigListRefAPIResponse(meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *WSGCommonDhcpSiteConfigListRefAPIResponse) Hydrate() error {
-	r.Data = new(WSGCommonDhcpSiteConfigListRef)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGCommonDhcpSiteConfigListRefAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGCommonDhcpSiteConfigListRef)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGCommonDhcpSiteConfigListRef() *WSGCommonDhcpSiteConfigListRef {
 	m := new(WSGCommonDhcpSiteConfigListRef)
@@ -917,9 +965,21 @@ func newWSGCommonMonitoringSummaryAPIResponse(meta APIResponseMeta, body io.Read
 	return r
 }
 
-func (r *WSGCommonMonitoringSummaryAPIResponse) Hydrate() error {
-	r.Data = new(WSGCommonMonitoringSummary)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGCommonMonitoringSummaryAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGCommonMonitoringSummary)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGCommonMonitoringSummary() *WSGCommonMonitoringSummary {
 	m := new(WSGCommonMonitoringSummary)
@@ -2060,9 +2120,21 @@ func newWSGCommonTrafficClassProfileRefAPIResponse(meta APIResponseMeta, body io
 	return r
 }
 
-func (r *WSGCommonTrafficClassProfileRefAPIResponse) Hydrate() error {
-	r.Data = new(WSGCommonTrafficClassProfileRef)
-	return json.NewDecoder(r).Decode(r.Data)
+func (r *WSGCommonTrafficClassProfileRefAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGCommonTrafficClassProfileRef)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
 }
 func NewWSGCommonTrafficClassProfileRef() *WSGCommonTrafficClassProfileRef {
 	m := new(WSGCommonTrafficClassProfileRef)

@@ -49,9 +49,9 @@ type WSGEventManagementEventDataResponseAPIResponse struct {
 	Data *WSGEventManagementEventDataResponse
 }
 
-func newWSGEventManagementEventDataResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGEventManagementEventDataResponseAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGEventManagementEventDataResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -94,9 +94,9 @@ type WSGEventManagementEventEmailSettingAPIResponse struct {
 	Data *WSGEventManagementEventEmailSetting
 }
 
-func newWSGEventManagementEventEmailSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGEventManagementEventEmailSettingAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGEventManagementEventEmailSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

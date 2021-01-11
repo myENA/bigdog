@@ -45,9 +45,9 @@ type SwitchMSwitchStackConfigAuditIdListAPIResponse struct {
 	Data *SwitchMSwitchStackConfigAuditIdList
 }
 
-func newSwitchMSwitchStackConfigAuditIdListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchStackConfigAuditIdListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchStackConfigAuditIdListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -102,9 +102,9 @@ type SwitchMSwitchStackConfigListAPIResponse struct {
 	Data *SwitchMSwitchStackConfigList
 }
 
-func newSwitchMSwitchStackConfigListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchStackConfigListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchStackConfigListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -269,9 +269,9 @@ type SwitchMSwitchStackConfigStackConfigAPIResponse struct {
 	Data *SwitchMSwitchStackConfigStackConfig
 }
 
-func newSwitchMSwitchStackConfigStackConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchStackConfigStackConfigAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchStackConfigStackConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -328,7 +328,7 @@ func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body Swi
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchStackConfigAuditIdListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddStack, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddStack, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -363,7 +363,7 @@ func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchStackConfigStackConfigAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindStackBySwitchId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindStackBySwitchId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchId", switchId)
@@ -395,7 +395,7 @@ func (s *SwitchMSwitchStackConfigService) FindStackMemberBySerialNumber(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchStackConfigListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindStackMemberBySerialNumber, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindStackMemberBySerialNumber, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("serialNumber", serialNumber)

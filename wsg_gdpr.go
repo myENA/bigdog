@@ -110,7 +110,7 @@ func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport,
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddGdprReport, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddGdprReport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

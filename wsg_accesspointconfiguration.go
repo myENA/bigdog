@@ -44,7 +44,7 @@ func (s *WSGAccessPointConfigurationService) AddAps(ctx context.Context, body *W
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAps, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAps, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -83,7 +83,7 @@ func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddApsPictureByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddApsPictureByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueMultipartFormData)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -119,7 +119,7 @@ func (s *WSGAccessPointConfigurationService) AddSwapAps(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSwapAps, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddSwapAps, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -154,7 +154,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAltitudeByApMac(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsAltitudeByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsAltitudeByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -187,7 +187,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsApMgmtVlanByApMac(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsApMgmtVlanByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsApMgmtVlanByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -220,7 +220,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection24ByAp
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsAutoChannelSelection24ByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsAutoChannelSelection24ByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -253,7 +253,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection50ByAp
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsAutoChannelSelection50ByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsAutoChannelSelection50ByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -286,7 +286,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsBonjourGatewayByApMac(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsBonjourGatewayByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsBonjourGatewayByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -319,7 +319,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsByApMac(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -352,7 +352,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsChannelEvaluationIntervalB
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsChannelEvaluationIntervalByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsChannelEvaluationIntervalByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -385,7 +385,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl24By
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsClientAdmissionControl24ByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsClientAdmissionControl24ByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -418,7 +418,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl50By
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsClientAdmissionControl50ByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsClientAdmissionControl50ByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -451,7 +451,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromNetwo
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsDirectedMulticastFromNetworkEnabledByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsDirectedMulticastFromNetworkEnabledByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -484,7 +484,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWired
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsDirectedMulticastFromWiredClientEnabledByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsDirectedMulticastFromWiredClientEnabledByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -517,7 +517,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWirel
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsDirectedMulticastFromWirelessClientEnabledByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsDirectedMulticastFromWirelessClientEnabledByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -550,7 +550,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsGpsCoordinatesByApMac(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsGpsCoordinatesByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsGpsCoordinatesByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -583,7 +583,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLocationAdditionalInfoByAp
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsLocationAdditionalInfoByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsLocationAdditionalInfoByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -616,7 +616,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLocationByApMac(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsLocationByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsLocationByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -649,7 +649,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLoginByApMac(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsLoginByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsLoginByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -682,7 +682,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLteBandLockChannelsByApMac
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsLteBandLockChannelsByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsLteBandLockChannelsByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -715,7 +715,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsMeshOptionsByApMac(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsMeshOptionsByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsMeshOptionsByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -748,7 +748,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsPictureByApMac(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsPictureByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsPictureByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -781,7 +781,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsProtectionMode24ByApMac(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsProtectionMode24ByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsProtectionMode24ByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -814,7 +814,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRecoverySsidByApMac(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsRecoverySsidByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsRecoverySsidByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -847,7 +847,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRksGreForwardBroadcastByAp
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsRksGreForwardBroadcastByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsRksGreForwardBroadcastByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -880,7 +880,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApAggressivenessModeB
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsRogueApAggressivenessModeByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsRogueApAggressivenessModeByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -913,7 +913,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApJammingThresholdByA
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsRogueApJammingThresholdByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsRogueApJammingThresholdByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -946,7 +946,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApReportThresholdByAp
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsRogueApReportThresholdByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsRogueApReportThresholdByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -979,7 +979,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSmartMonitorByApMac(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsSmartMonitorByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsSmartMonitorByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1012,7 +1012,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSpecificByApMac(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsSpecificByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsSpecificByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1045,7 +1045,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSyslogByApMac(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsSyslogByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsSyslogByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1078,7 +1078,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsVenueProfileByApMac(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsVenueProfileByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsVenueProfileByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1111,7 +1111,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ByApMac(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi24ByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsWifi24ByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1144,7 +1144,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelByApMac(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi24ChannelByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsWifi24ChannelByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1177,7 +1177,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelRangeByApMac(
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi24ChannelRangeByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsWifi24ChannelRangeByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1210,7 +1210,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelWidthByApMac(
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi24ChannelWidthByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsWifi24ChannelWidthByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1243,7 +1243,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24TxPowerByApMac(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi24TxPowerByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsWifi24TxPowerByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1276,7 +1276,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ByApMac(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi50ByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsWifi50ByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1309,7 +1309,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelByApMac(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi50ChannelByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsWifi50ChannelByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1342,7 +1342,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelRangeByApMac(
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi50ChannelRangeByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsWifi50ChannelRangeByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1375,7 +1375,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelWidthByApMac(
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi50ChannelWidthByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsWifi50ChannelWidthByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1408,7 +1408,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50TxPowerByApMac(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi50TxPowerByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsWifi50TxPowerByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1441,7 +1441,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup24ByApMac(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWlanGroup24ByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsWlanGroup24ByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1474,7 +1474,7 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup50ByApMac(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWlanGroup50ByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApsWlanGroup50ByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1507,7 +1507,7 @@ func (s *WSGAccessPointConfigurationService) FindApRadiosByApMac(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPRadioConfigurationAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApRadiosByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApRadiosByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)
@@ -1545,7 +1545,7 @@ func (s *WSGAccessPointConfigurationService) FindAps(ctx context.Context, option
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPListEntryAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAps, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAps, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
@@ -1588,7 +1588,7 @@ func (s *WSGAccessPointConfigurationService) FindApsByApMac(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPConfigurationAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApsByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApsByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)
@@ -1620,7 +1620,7 @@ func (s *WSGAccessPointConfigurationService) FindApsPictureByApMac(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*FileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApsPictureByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApsPictureByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)
@@ -1652,7 +1652,7 @@ func (s *WSGAccessPointConfigurationService) FindApsSupportLogByApMac(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*FileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApsSupportLogByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApsSupportLogByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)
@@ -1680,7 +1680,7 @@ func (s *WSGAccessPointConfigurationService) FindMeshZeroTouch(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGMeshNodeInfoListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindMeshZeroTouch, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindMeshZeroTouch, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -1714,7 +1714,7 @@ func (s *WSGAccessPointConfigurationService) PartialUpdateApsByApMac(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateApsByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateApsByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1753,7 +1753,7 @@ func (s *WSGAccessPointConfigurationService) UpdateApsByApMac(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateApsByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateApsByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1789,7 +1789,7 @@ func (s *WSGAccessPointConfigurationService) UpdateApsRebootByApMac(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateApsRebootByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateApsRebootByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1825,7 +1825,7 @@ func (s *WSGAccessPointConfigurationService) UpdateApsSpecificByApMac(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateApsSpecificByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateApsSpecificByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1860,7 +1860,7 @@ func (s *WSGAccessPointConfigurationService) UpdateMeshZeroTouch(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateMeshZeroTouch, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateMeshZeroTouch, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

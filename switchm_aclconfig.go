@@ -65,9 +65,9 @@ type SwitchMACLConfigAPIResponse struct {
 	Data *SwitchMACLConfig
 }
 
-func newSwitchMACLConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMACLConfigAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMACLConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -124,9 +124,9 @@ type SwitchMACLConfigsQueryResultAPIResponse struct {
 	Data *SwitchMACLConfigsQueryResult
 }
 
-func newSwitchMACLConfigsQueryResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMACLConfigsQueryResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMACLConfigsQueryResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

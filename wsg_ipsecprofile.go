@@ -43,7 +43,7 @@ func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddProfilesTunnelIpsec, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddProfilesTunnelIpsec, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsec, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsec, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsecById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsecById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -147,7 +147,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, op
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesTunnelIpsec, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesTunnelIpsec, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
@@ -184,7 +184,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileIpsecProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesTunnelIpsecById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesTunnelIpsecById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -215,7 +215,7 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileIpsecProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindProfilesTunnelIpsecByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindProfilesTunnelIpsecByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -253,7 +253,7 @@ func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelIpsecById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelIpsecById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -1091,7 +1091,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport12Overview(
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessClientsReport12Overview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessClientsReport12Overview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1125,7 +1125,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport13TopChart(
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessClientsReport13TopChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessClientsReport13TopChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1159,7 +1159,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport14TopTable(
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessClientsReport14TopTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessClientsReport14TopTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1193,7 +1193,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport15TrendChar
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessClientsReport15TrendChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessClientsReport15TrendChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1227,7 +1227,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport16TrendTabl
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessClientsReport16TrendTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessClientsReport16TrendTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1261,7 +1261,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport17TopPercen
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessClientsReport17TopPercentile, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessClientsReport17TopPercentile, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1295,7 +1295,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport18TopNOSByC
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessClientsReport18TopNOSByClientCount, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessClientsReport18TopNOSByClientCount, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1329,7 +1329,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport19Top10Manu
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessClientsReport19Top10ManufacturersByClientCount, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessClientsReport19Top10ManufacturersByClientCount, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1363,7 +1363,7 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport112Top10Aut
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessClientsReport112Top10AuthenticationMechanismByClientCount, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessClientsReport112Top10AuthenticationMechanismByClientCount, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

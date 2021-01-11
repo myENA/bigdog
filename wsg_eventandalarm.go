@@ -43,7 +43,7 @@ func (s *WSGEventAndAlarmService) AddAlertAlarmList(ctx context.Context, body *W
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAlarmListAlarmQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAlertAlarmList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAlertAlarmList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGEventAndAlarmService) AddAlertAlarmSummary(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAlertSummaryAlarmSummaryAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAlertAlarmSummary, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAlertAlarmSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -111,7 +111,7 @@ func (s *WSGEventAndAlarmService) AddAlertEventList(ctx context.Context, body *W
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGEventListEventQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAlertEventList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAlertEventList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -145,7 +145,7 @@ func (s *WSGEventAndAlarmService) AddAlertEventSummary(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAlertSummaryEventSummaryAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAlertEventSummary, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAlertEventSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -179,7 +179,7 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmAck(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateAlertAlarmAck, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateAlertAlarmAck, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -214,7 +214,7 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmAckByAlarmID(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateAlertAlarmAckByAlarmID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateAlertAlarmAckByAlarmID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -246,7 +246,7 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmClear(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateAlertAlarmClear, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateAlertAlarmClear, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -281,7 +281,7 @@ func (s *WSGEventAndAlarmService) UpdateAlertAlarmClearByAlarmID(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateAlertAlarmClearByAlarmID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateAlertAlarmClearByAlarmID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")

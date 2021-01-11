@@ -62,7 +62,7 @@ func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlansFlexiVpnProfileById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesWlansFlexiVpnProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -95,7 +95,7 @@ func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileFlexiVpnProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesFlexiVpnProfileByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesFlexiVpnProfileByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

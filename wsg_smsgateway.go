@@ -44,7 +44,7 @@ func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParam
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemSmsAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSmsGateway, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSmsGateway, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
@@ -77,7 +77,7 @@ func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemSmsListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindSmsGatewayByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindSmsGatewayByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -111,7 +111,7 @@ func (s *WSGSMSGatewayService) PartialUpdateSmsGateway(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSmsGateway, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateSmsGateway, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

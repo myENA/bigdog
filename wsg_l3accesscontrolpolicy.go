@@ -43,7 +43,7 @@ func (s *WSGL3AccessControlPolicyService) AddL3AccessControlPolicies(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddL3AccessControlPolicies, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddL3AccessControlPolicies, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGL3AccessControlPolicyService) DeleteL3AccessControlPolicies(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteL3AccessControlPolicies, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteL3AccessControlPolicies, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGL3AccessControlPolicyService) DeleteL3AccessControlPoliciesById(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteL3AccessControlPoliciesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteL3AccessControlPoliciesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -149,7 +149,7 @@ func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPolicies(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileIdListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindL3AccessControlPolicies, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindL3AccessControlPolicies, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
@@ -189,7 +189,7 @@ func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPoliciesById(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileL3AccessControlPolicyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindL3AccessControlPoliciesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindL3AccessControlPoliciesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -220,7 +220,7 @@ func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPoliciesByQueryCrit
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileL3AccessControlPolicyArrayAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindL3AccessControlPoliciesByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindL3AccessControlPoliciesByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -258,7 +258,7 @@ func (s *WSGL3AccessControlPolicyService) UpdateL3AccessControlPoliciesById(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateL3AccessControlPoliciesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateL3AccessControlPoliciesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -150,9 +150,9 @@ type SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse struct {
 	Data *SwitchMTroubleshootingRemoteClientConnectivityResponse
 }
 
-func newSwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -367,9 +367,9 @@ type SwitchMTroubleshootingRemoteCommandResponseAPIResponse struct {
 	Data *SwitchMTroubleshootingRemoteCommandResponse
 }
 
-func newSwitchMTroubleshootingRemoteCommandResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMTroubleshootingRemoteCommandResponseAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTroubleshootingRemoteCommandResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -554,9 +554,9 @@ type SwitchMTroubleshootingSupportLogStatusAPIResponse struct {
 	Data *SwitchMTroubleshootingSupportLogStatus
 }
 
-func newSwitchMTroubleshootingSupportLogStatusAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMTroubleshootingSupportLogStatusAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTroubleshootingSupportLogStatusAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -605,7 +605,7 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteClientConnectivity(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMExecuteSwitchRemoteClientConnectivity, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMExecuteSwitchRemoteClientConnectivity, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "text/plain;charset=UTF-8")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -641,7 +641,7 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemotePing(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTroubleshootingRemoteCommandResponseAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMExecuteSwitchRemotePing, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMExecuteSwitchRemotePing, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "text/plain;charset=UTF-8")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -677,7 +677,7 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteTraceroute(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTroubleshootingRemoteCommandResponseAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMExecuteSwitchRemoteTraceroute, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMExecuteSwitchRemoteTraceroute, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "text/plain;charset=UTF-8")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -712,7 +712,7 @@ func (s *SwitchMTroubleshootingService) FindSupportLogBySwitchId(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindSupportLogBySwitchId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindSupportLogBySwitchId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchId", switchId)
@@ -744,7 +744,7 @@ func (s *SwitchMTroubleshootingService) FindSupportLogDownloadBySwitchId(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindSupportLogDownloadBySwitchId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindSupportLogDownloadBySwitchId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchId", switchId)
@@ -776,7 +776,7 @@ func (s *SwitchMTroubleshootingService) FindSupportLogStatusBySwitchId(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTroubleshootingSupportLogStatusAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindSupportLogStatusBySwitchId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindSupportLogStatusBySwitchId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchId", switchId)

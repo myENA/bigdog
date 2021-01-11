@@ -43,7 +43,7 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentitySubscriptionPackageListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityPackageList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddIdentityPackageList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackages(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityPackages, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddIdentityPackages, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -111,7 +111,7 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackages(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityPackages, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteIdentityPackages, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -146,7 +146,7 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityPackagesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteIdentityPackagesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -175,7 +175,7 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentitySubscriptionPackageListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityPackages, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindIdentityPackages, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -206,7 +206,7 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentitySubscriptionPackageAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityPackagesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindIdentityPackagesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -241,7 +241,7 @@ func (s *WSGIdentitySubscriptionPackageService) PartialUpdateIdentityPackagesByI
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateIdentityPackagesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateIdentityPackagesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

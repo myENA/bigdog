@@ -214,9 +214,9 @@ type WSGEthernetPortProfileAPIResponse struct {
 	Data *WSGEthernetPortProfile
 }
 
-func newWSGEthernetPortProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGEthernetPortProfileAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGEthernetPortProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -351,9 +351,9 @@ type WSGEthernetPortProfileListAPIResponse struct {
 	Data *WSGEthernetPortProfileList
 }
 
-func newWSGEthernetPortProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGEthernetPortProfileListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGEthernetPortProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

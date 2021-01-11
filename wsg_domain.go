@@ -105,9 +105,9 @@ type WSGDomainConfigurationAPIResponse struct {
 	Data *WSGDomainConfiguration
 }
 
-func newWSGDomainConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDomainConfigurationAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDomainConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -150,9 +150,9 @@ type WSGDomainListAPIResponse struct {
 	Data *WSGDomainList
 }
 
-func newWSGDomainListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDomainListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDomainListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -225,7 +225,7 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddDomains, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddDomains, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -263,7 +263,7 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mut
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDomainsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDomainsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -304,7 +304,7 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDomainListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDomains, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDomains, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["excludeRegularDomain"]; ok && len(v) > 0 {
@@ -354,7 +354,7 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDomainConfigurationAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDomainsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDomainsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -389,7 +389,7 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDomainListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDomainsByNameByDomainName, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDomainsByNameByDomainName, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("domainName", domainName)
@@ -433,7 +433,7 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDomainListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDomainsSubdomainById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDomainsSubdomainById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -483,7 +483,7 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateDomainsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateDomainsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

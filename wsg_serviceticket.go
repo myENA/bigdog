@@ -61,9 +61,9 @@ type WSGServiceTicketLoginResponseAPIResponse struct {
 	Data *WSGServiceTicketLoginResponse
 }
 
-func newWSGServiceTicketLoginResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGServiceTicketLoginResponseAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGServiceTicketLoginResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -110,7 +110,7 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceTicketLoginResponseAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddServiceTicket, false)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddServiceTicket, false)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -145,7 +145,7 @@ func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, servi
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServiceTicket, false)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServiceTicket, false)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")

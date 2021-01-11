@@ -277,9 +277,9 @@ type WSGSCGUserGetScgUserAPIResponse struct {
 	Data *WSGSCGUserGetScgUser
 }
 
-func newWSGSCGUserGetScgUserAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSCGUserGetScgUserAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserGetScgUserAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -587,9 +587,9 @@ type WSGSCGUserAuditIdAPIResponse struct {
 	Data *WSGSCGUserAuditId
 }
 
-func newWSGSCGUserAuditIdAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSCGUserAuditIdAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserAuditIdAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -710,9 +710,9 @@ type WSGSCGUserGroupAPIResponse struct {
 	Data *WSGSCGUserGroup
 }
 
-func newWSGSCGUserGroupAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSCGUserGroupAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserGroupAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -751,9 +751,9 @@ type WSGSCGUserGroupAuditIdAPIResponse struct {
 	Data *WSGSCGUserGroupAuditId
 }
 
-func newWSGSCGUserGroupAuditIdAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSCGUserGroupAuditIdAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserGroupAuditIdAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -798,9 +798,9 @@ type WSGSCGUserGroupListAPIResponse struct {
 	Data *WSGSCGUserGroupList
 }
 
-func newWSGSCGUserGroupListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSCGUserGroupListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserGroupListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -908,9 +908,9 @@ type WSGSCGUserGroupPermissionListAPIResponse struct {
 	Data *WSGSCGUserGroupPermissionList
 }
 
-func newWSGSCGUserGroupPermissionListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSCGUserGroupPermissionListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserGroupPermissionListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1045,9 +1045,9 @@ type WSGSCGUserGroupRoleLabelValueListAPIResponse struct {
 	Data *WSGSCGUserGroupRoleLabelValueList
 }
 
-func newWSGSCGUserGroupRoleLabelValueListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSCGUserGroupRoleLabelValueListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserGroupRoleLabelValueListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1092,9 +1092,9 @@ type WSGSCGUserListAPIResponse struct {
 	Data *WSGSCGUserList
 }
 
-func newWSGSCGUserListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSCGUserListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCGUserListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1141,7 +1141,7 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSCGUserAuditIdAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddUsers, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddUsers, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1175,7 +1175,7 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteUsers, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteUsers, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1210,7 +1210,7 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSCGUserAuditIdAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteUsersByUserId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteUsersByUserId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
@@ -1242,7 +1242,7 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSCGUserListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindUsersByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindUsersByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1277,7 +1277,7 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSCGUserGetScgUserAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindUsersByUserId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUsersByUserId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("userId", userId)
@@ -1312,7 +1312,7 @@ func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSCGUserAuditIdAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateUsersByUserId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateUsersByUserId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

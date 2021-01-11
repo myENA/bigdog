@@ -78,9 +78,9 @@ type WSGAPPackCaptureApPacketCaptureResAPIResponse struct {
 	Data *WSGAPPackCaptureApPacketCaptureRes
 }
 
-func newWSGAPPackCaptureApPacketCaptureResAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPPackCaptureApPacketCaptureResAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPPackCaptureApPacketCaptureResAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

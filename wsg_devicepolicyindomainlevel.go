@@ -43,7 +43,7 @@ func (s *WSGDevicePolicyInDomainLevelService) AddDevicePolicy(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddDevicePolicy, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddDevicePolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGDevicePolicyInDomainLevelService) DeleteDevicePolicy(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDevicePolicy, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDevicePolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGDevicePolicyInDomainLevelService) DeleteDevicePolicyById(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDevicePolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDevicePolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -149,7 +149,7 @@ func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicy(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDomainDevicePolicyProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDevicePolicy, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDevicePolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
@@ -189,7 +189,7 @@ func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicyById(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDomainDevicePolicyProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDevicePolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDevicePolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -220,7 +220,7 @@ func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicyByQueryCriteria(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindDevicePolicyByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindDevicePolicyByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -258,7 +258,7 @@ func (s *WSGDevicePolicyInDomainLevelService) UpdateDevicePolicyById(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateDevicePolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateDevicePolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

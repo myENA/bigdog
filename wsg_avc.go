@@ -25,9 +25,9 @@ type WSGAVCAppCategoryAPIResponse struct {
 	Data *WSGAVCAppCategory
 }
 
-func newWSGAVCAppCategoryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAVCAppCategoryAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAVCAppCategoryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -70,9 +70,9 @@ type WSGAVCAppCategoryListAPIResponse struct {
 	Data *WSGAVCAppCategoryList
 }
 
-func newWSGAVCAppCategoryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAVCAppCategoryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAVCAppCategoryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -119,9 +119,9 @@ type WSGAVCApplicationAPIResponse struct {
 	Data *WSGAVCApplication
 }
 
-func newWSGAVCApplicationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAVCApplicationAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAVCApplicationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -164,9 +164,9 @@ type WSGAVCApplicationListAPIResponse struct {
 	Data *WSGAVCApplicationList
 }
 
-func newWSGAVCApplicationListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAVCApplicationListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAVCApplicationListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -251,9 +251,9 @@ type WSGAVCApplicationPolicyProfileAPIResponse struct {
 	Data *WSGAVCApplicationPolicyProfile
 }
 
-func newWSGAVCApplicationPolicyProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAVCApplicationPolicyProfileAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAVCApplicationPolicyProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -298,9 +298,9 @@ type WSGAVCApplicationPolicyProfileListAPIResponse struct {
 	Data *WSGAVCApplicationPolicyProfileList
 }
 
-func newWSGAVCApplicationPolicyProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAVCApplicationPolicyProfileListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAVCApplicationPolicyProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -567,9 +567,9 @@ type WSGAVCSignaturePackageAPIResponse struct {
 	Data *WSGAVCSignaturePackage
 }
 
-func newWSGAVCSignaturePackageAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAVCSignaturePackageAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAVCSignaturePackageAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -669,9 +669,9 @@ type WSGAVCUserDefinedProfileAPIResponse struct {
 	Data *WSGAVCUserDefinedProfile
 }
 
-func newWSGAVCUserDefinedProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAVCUserDefinedProfileAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAVCUserDefinedProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -716,9 +716,9 @@ type WSGAVCUserDefinedProfileListAPIResponse struct {
 	Data *WSGAVCUserDefinedProfileList
 }
 
-func newWSGAVCUserDefinedProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAVCUserDefinedProfileListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAVCUserDefinedProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

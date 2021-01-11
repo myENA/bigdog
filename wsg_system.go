@@ -61,9 +61,9 @@ type WSGSystemApMacOUIListAPIResponse struct {
 	Data *WSGSystemApMacOUIList
 }
 
-func newWSGSystemApMacOUIListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemApMacOUIListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemApMacOUIListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -190,9 +190,9 @@ type WSGSystemControllerListAPIResponse struct {
 	Data *WSGSystemControllerList
 }
 
-func newWSGSystemControllerListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemControllerListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemControllerListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -331,9 +331,9 @@ type WSGSystemControlPlaneConfigurationAPIResponse struct {
 	Data *WSGSystemControlPlaneConfiguration
 }
 
-func newWSGSystemControlPlaneConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemControlPlaneConfigurationAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemControlPlaneConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -390,9 +390,9 @@ type WSGSystemControlPlaneInterfaceListAPIResponse struct {
 	Data *WSGSystemControlPlaneInterfaceList
 }
 
-func newWSGSystemControlPlaneInterfaceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemControlPlaneInterfaceListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemControlPlaneInterfaceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -435,9 +435,9 @@ type WSGSystemControlPlaneListAPIResponse struct {
 	Data *WSGSystemControlPlaneList
 }
 
-func newWSGSystemControlPlaneListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemControlPlaneListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemControlPlaneListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -640,9 +640,9 @@ type WSGSystemDataPlaneConfigurationAPIResponse struct {
 	Data *WSGSystemDataPlaneConfiguration
 }
 
-func newWSGSystemDataPlaneConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemDataPlaneConfigurationAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemDataPlaneConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -685,9 +685,9 @@ type WSGSystemDataPlaneListAPIResponse struct {
 	Data *WSGSystemDataPlaneList
 }
 
-func newWSGSystemDataPlaneListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemDataPlaneListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemDataPlaneListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -830,9 +830,9 @@ type WSGSystemFriendlyNameLangListAPIResponse struct {
 	Data *WSGSystemFriendlyNameLangList
 }
 
-func newWSGSystemFriendlyNameLangListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemFriendlyNameLangListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemFriendlyNameLangListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -928,9 +928,9 @@ type WSGSystemFtpAPIResponse struct {
 	Data *WSGSystemFtp
 }
 
-func newWSGSystemFtpAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemFtpAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemFtpAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -979,9 +979,9 @@ type WSGSystemFtpGlobalSettingAPIResponse struct {
 	Data *WSGSystemFtpGlobalSetting
 }
 
-func newWSGSystemFtpGlobalSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemFtpGlobalSettingAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemFtpGlobalSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1032,9 +1032,9 @@ type WSGSystemFtpListAPIResponse struct {
 	Data *WSGSystemFtpList
 }
 
-func newWSGSystemFtpListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemFtpListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemFtpListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1085,9 +1085,9 @@ type WSGSystemFtpTestResponseAPIResponse struct {
 	Data *WSGSystemFtpTestResponse
 }
 
-func newWSGSystemFtpTestResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemFtpTestResponseAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemFtpTestResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1159,9 +1159,9 @@ type WSGSystemGatewayAdvancedAPIResponse struct {
 	Data *WSGSystemGatewayAdvanced
 }
 
-func newWSGSystemGatewayAdvancedAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemGatewayAdvancedAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemGatewayAdvancedAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1200,9 +1200,9 @@ type WSGSystemGetDataPlaneMeshTunnelSettingAPIResponse struct {
 	Data *WSGSystemGetDataPlaneMeshTunnelSetting
 }
 
-func newWSGSystemGetDataPlaneMeshTunnelSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemGetDataPlaneMeshTunnelSettingAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemGetDataPlaneMeshTunnelSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1245,9 +1245,9 @@ type WSGSystemInventoryListAPIResponse struct {
 	Data *WSGSystemInventoryList
 }
 
-func newWSGSystemInventoryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemInventoryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemInventoryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1595,9 +1595,9 @@ type WSGSystemLwapp2scgConfigurationAPIResponse struct {
 	Data *WSGSystemLwapp2scgConfiguration
 }
 
-func newWSGSystemLwapp2scgConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemLwapp2scgConfigurationAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemLwapp2scgConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1907,9 +1907,9 @@ type WSGSystemNorthboundInterfaceAPIResponse struct {
 	Data *WSGSystemNorthboundInterface
 }
 
-func newWSGSystemNorthboundInterfaceAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemNorthboundInterfaceAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemNorthboundInterfaceAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1966,9 +1966,9 @@ type WSGSystemNtpServerValidationMessageAPIResponse struct {
 	Data *WSGSystemNtpServerValidationMessage
 }
 
-func newWSGSystemNtpServerValidationMessageAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemNtpServerValidationMessageAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemNtpServerValidationMessageAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2035,9 +2035,9 @@ type WSGSystemPortalLangListAPIResponse struct {
 	Data *WSGSystemPortalLangList
 }
 
-func newWSGSystemPortalLangListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemPortalLangListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemPortalLangListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2270,9 +2270,9 @@ type WSGSystemSecuritySettingAPIResponse struct {
 	Data *WSGSystemSecuritySetting
 }
 
-func newWSGSystemSecuritySettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemSecuritySettingAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemSecuritySettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2345,9 +2345,9 @@ type WSGSystemSmsAPIResponse struct {
 	Data *WSGSystemSms
 }
 
-func newWSGSystemSmsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemSmsAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemSmsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2398,9 +2398,9 @@ type WSGSystemSmsListAPIResponse struct {
 	Data *WSGSystemSmsList
 }
 
-func newWSGSystemSmsListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemSmsListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemSmsListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2447,9 +2447,9 @@ type WSGSystemSnmpAgentConfigurationAPIResponse struct {
 	Data *WSGSystemSnmpAgentConfiguration
 }
 
-func newWSGSystemSnmpAgentConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemSnmpAgentConfigurationAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemSnmpAgentConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2516,9 +2516,9 @@ type WSGSystemStaticRouteListAPIResponse struct {
 	Data *WSGSystemStaticRouteList
 }
 
-func newWSGSystemStaticRouteListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemStaticRouteListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemStaticRouteListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2553,9 +2553,9 @@ type WSGSystemStatisticListAPIResponse struct {
 	Data WSGSystemStatisticList
 }
 
-func newWSGSystemStatisticListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemStatisticListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemStatisticListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2710,9 +2710,9 @@ type WSGSystemSettingsAPIResponse struct {
 	Data *WSGSystemSettings
 }
 
-func newWSGSystemSettingsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemSettingsAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemSettingsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2777,9 +2777,9 @@ type WSGSystemTimeSettingAPIResponse struct {
 	Data *WSGSystemTimeSetting
 }
 
-func newWSGSystemTimeSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemTimeSettingAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemTimeSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2844,9 +2844,9 @@ type WSGSystemUserDefinedInterfaceListAPIResponse struct {
 	Data *WSGSystemUserDefinedInterfaceList
 }
 
-func newWSGSystemUserDefinedInterfaceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemUserDefinedInterfaceListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemUserDefinedInterfaceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2893,7 +2893,7 @@ func (s *WSGSystemService) AddGlobalSettingsSystemTimeValidate(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemNtpServerValidationMessageAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddGlobalSettingsSystemTimeValidate, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddGlobalSettingsSystemTimeValidate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2924,7 +2924,7 @@ func (s *WSGSystemService) AddSystemApBalance(ctx context.Context, mutators ...R
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemApBalance, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddSystemApBalance, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2955,7 +2955,7 @@ func (s *WSGSystemService) AddSystemApMacOUIs(ctx context.Context, body *WSGSyst
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemApMacOUIs, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddSystemApMacOUIs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2989,7 +2989,7 @@ func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemApRoutineConfigInterval, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddSystemApRoutineConfigInterval, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -3020,7 +3020,7 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemApRoutineStatusIntervalSlowdown, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddSystemApRoutineStatusIntervalSlowdown, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -3048,7 +3048,7 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemApRoutineStatusIntervalSpeedup, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddSystemApRoutineStatusIntervalSpeedup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -3080,7 +3080,7 @@ func (s *WSGSystemService) DeleteSystemApMacOUIsByOUI(ctx context.Context, OUI s
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteSystemApMacOUIsByOUI, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteSystemApMacOUIsByOUI, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -3113,7 +3113,7 @@ func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams m
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteSystemNbi, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteSystemNbi, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -3144,7 +3144,7 @@ func (s *WSGSystemService) FindController(ctx context.Context, mutators ...Reque
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemControllerListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindController, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindController, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -3181,7 +3181,7 @@ func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemStatisticListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindControllerStatisticsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindControllerStatisticsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -3215,7 +3215,7 @@ func (s *WSGSystemService) FindSystem(ctx context.Context, mutators ...RequestMu
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemSettingsAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystem, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystem, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -3242,7 +3242,7 @@ func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context, mutators ...
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemApMacOUIListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemApMacOUIs, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemApMacOUIs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -3269,7 +3269,7 @@ func (s *WSGSystemService) FindSystemApmodels(ctx context.Context, mutators ...R
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemApmodels, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemApmodels, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -3300,7 +3300,7 @@ func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemApmodelsByFirmwareVersion, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemApmodelsByFirmwareVersion, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("firmwareVersion", firmwareVersion)
@@ -3328,7 +3328,7 @@ func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPRoutineConfigIntervalRspAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemApRoutineConfigInterval, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemApRoutineConfigInterval, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -3355,7 +3355,7 @@ func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPRoutineStatusIntervalRspAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemApRoutineStatusInterval, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemApRoutineStatusInterval, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -3385,7 +3385,7 @@ func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemSettingsAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindSystemByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindSystemByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -3416,7 +3416,7 @@ func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context, mutator
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDeviceCapacityDevicesSummaryAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemDevicesSummary, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemDevicesSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -3443,7 +3443,7 @@ func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context, mutato
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemGatewayAdvancedAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemGatewayAdvanced, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemGatewayAdvanced, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -3476,7 +3476,7 @@ func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalPara
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemInventoryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemInventory, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemInventory, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
@@ -3513,7 +3513,7 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemNorthboundInterfaceAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemNbi, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemNbi, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
@@ -3543,7 +3543,7 @@ func (s *WSGSystemService) FindSystemSecuritySetting(ctx context.Context, mutato
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemSecuritySettingAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemSecuritySetting, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemSecuritySetting, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -3570,7 +3570,7 @@ func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context, mutators ..
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemTimeSettingAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemSystemTime, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemSystemTime, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -3600,7 +3600,7 @@ func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSys
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSystem, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateSystem, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -3634,7 +3634,7 @@ func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSystemGatewayAdvanced, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateSystemGatewayAdvanced, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -3672,7 +3672,7 @@ func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSG
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSystemNbi, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateSystemNbi, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -3709,7 +3709,7 @@ func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSystemSystemTime, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateSystemSystemTime, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -3747,7 +3747,7 @@ func (s *WSGSystemService) UpdateSystemApMacOUIsByOUI(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateSystemApMacOUIsByOUI, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateSystemApMacOUIsByOUI, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -3782,7 +3782,7 @@ func (s *WSGSystemService) UpdateSystemSecuritySetting(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateSystemSecuritySetting, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateSystemSecuritySetting, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -113,9 +113,9 @@ type SwitchMAAAServersAAAServerAPIResponse struct {
 	Data *SwitchMAAAServersAAAServer
 }
 
-func newSwitchMAAAServersAAAServerAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMAAAServersAAAServerAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMAAAServersAAAServerAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -172,9 +172,9 @@ type SwitchMAAAServersQueryResultAPIResponse struct {
 	Data *SwitchMAAAServersQueryResult
 }
 
-func newSwitchMAAAServersQueryResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMAAAServersQueryResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMAAAServersQueryResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -283,7 +283,7 @@ func (s *SwitchMAAAServersService) AddGroupAaaServersByGroupId(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddGroupAaaServersByGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddGroupAaaServersByGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -322,7 +322,7 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersByGroupId(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteGroupAaaServersByGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteGroupAaaServersByGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -360,7 +360,7 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersById(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteGroupAaaServersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteGroupAaaServersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -394,7 +394,7 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersByGroupId(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMAAAServersQueryResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindGroupAaaServersByGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindGroupAaaServersByGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("groupId", groupId)
@@ -428,7 +428,7 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersById(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMAAAServersAAAServerAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindGroupAaaServersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindGroupAaaServersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("groupId", groupId)
@@ -466,7 +466,7 @@ func (s *SwitchMAAAServersService) UpdateGroupAaaServersById(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateGroupAaaServersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateGroupAaaServersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

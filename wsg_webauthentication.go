@@ -47,7 +47,7 @@ func (s *WSGWebAuthenticationService) AddRkszonesPortalsWebauthByZoneId(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesPortalsWebauthByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesPortalsWebauthByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -85,7 +85,7 @@ func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthById(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesPortalsWebauthById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesPortalsWebauthById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -121,7 +121,7 @@ func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById(c
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesPortalsWebauthRedirectById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesPortalsWebauthRedirectById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -157,7 +157,7 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGPortalServiceWebAuthenticationAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesPortalsWebauthById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesPortalsWebauthById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -190,7 +190,7 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGPortalServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesPortalsWebauthByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesPortalsWebauthByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -221,7 +221,7 @@ func (s *WSGWebAuthenticationService) FindServicesWebAuthenticationByQueryCriter
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesWebAuthenticationByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesWebAuthenticationByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -261,7 +261,7 @@ func (s *WSGWebAuthenticationService) PartialUpdateRkszonesPortalsWebauthById(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesPortalsWebauthById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateRkszonesPortalsWebauthById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

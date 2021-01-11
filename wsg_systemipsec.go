@@ -109,9 +109,9 @@ type WSGSystemIPsecGetResultAPIResponse struct {
 	Data *WSGSystemIPsecGetResult
 }
 
-func newWSGSystemIPsecGetResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSystemIPsecGetResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSystemIPsecGetResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -265,7 +265,7 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context, mutators ..
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemIPsecGetResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemIpsec, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemIpsec, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -295,7 +295,7 @@ func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSG
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateSystemIpsec, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateSystemIpsec, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

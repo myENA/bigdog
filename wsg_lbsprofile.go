@@ -43,7 +43,7 @@ func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProf
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddProfilesLbs, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddProfilesLbs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGC
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesLbs, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesLbs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id str
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesLbsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesLbsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -145,7 +145,7 @@ func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id strin
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileLbsProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesLbsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesLbsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -176,7 +176,7 @@ func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileLbsProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindProfilesLbsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindProfilesLbsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -214,7 +214,7 @@ func (s *WSGLBSprofileService) PartialUpdateProfilesLbsById(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesLbsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateProfilesLbsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

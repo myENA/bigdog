@@ -43,7 +43,7 @@ func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddServicesAcctRadius, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddServicesAcctRadius, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -81,7 +81,7 @@ func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddServicesAcctTestById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddServicesAcctTestById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -116,7 +116,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAcct, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAcct, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -151,7 +151,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAcctById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAcctById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -184,7 +184,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAcctRadiusById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -217,7 +217,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusSecondaryById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAcctRadiusSecondaryById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -250,7 +250,7 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusStandbyPrimaryById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAcctRadiusStandbyPrimaryById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -282,7 +282,7 @@ func (s *WSGAccountingServiceService) FindServicesAaaServerAcctByQueryCriteria(c
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAAAServerQueryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesAaaServerAcctByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesAaaServerAcctByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -316,7 +316,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctByQueryCriteria(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceCommonAccountingServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesAcctByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesAcctByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -347,7 +347,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceRadiusAccountingServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesAcctRadius, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAcctRadius, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -378,7 +378,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceRadiusAccountingServiceAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesAcctRadiusById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAcctRadiusById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -409,7 +409,7 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceRadiusAccountingServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesAcctRadiusByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesAcctRadiusByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -447,7 +447,7 @@ func (s *WSGAccountingServiceService) PartialUpdateServicesAcctRadiusById(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesAcctRadiusById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateServicesAcctRadiusById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

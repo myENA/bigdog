@@ -362,7 +362,7 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport33TopTable(
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSessionsSummaryReport33TopTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSessionsSummaryReport33TopTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -396,7 +396,7 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport34Overview(
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSessionsSummaryReport34Overview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSessionsSummaryReport34Overview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -430,7 +430,7 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport42DurationP
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSessionsSummaryReport42DurationPercentile, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSessionsSummaryReport42DurationPercentile, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

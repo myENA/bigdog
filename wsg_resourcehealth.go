@@ -48,7 +48,7 @@ func (s *WSGResourceHealthService) FindResourceHealthSummaryByQueryCriteria(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonMonitoringSummaryAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindResourceHealthSummaryByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindResourceHealthSummaryByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

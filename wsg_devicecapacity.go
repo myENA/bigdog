@@ -65,9 +65,9 @@ type WSGDeviceCapacityDevicesSummaryAPIResponse struct {
 	Data *WSGDeviceCapacityDevicesSummary
 }
 
-func newWSGDeviceCapacityDevicesSummaryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDeviceCapacityDevicesSummaryAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDeviceCapacityDevicesSummaryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

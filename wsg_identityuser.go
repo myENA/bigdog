@@ -43,7 +43,7 @@ func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentityUserListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityUserList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddIdentityUserList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSG
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityUsers, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddIdentityUsers, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -111,7 +111,7 @@ func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityUsers, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteIdentityUsers, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -146,7 +146,7 @@ func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityUsersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteIdentityUsersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -205,7 +205,7 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentityUserListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityUsers, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindIdentityUsers, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["createdOnFrom"]; ok && len(v) > 0 {
@@ -274,7 +274,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentityAaaServerListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityUsersAaaserver, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindIdentityUsersAaaserver, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -305,7 +305,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id s
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentityUserConfigurationAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityUsersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindIdentityUsersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -333,7 +333,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentityCountryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityUsersCountries, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindIdentityUsersCountries, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -360,7 +360,7 @@ func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentityPackageListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityUsersPackages, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindIdentityUsersPackages, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -394,7 +394,7 @@ func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateIdentityUsersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateIdentityUsersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

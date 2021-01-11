@@ -43,7 +43,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport93ScNetwo
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport93ScNetworkTraffic, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport93ScNetworkTraffic, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport94ScNetwo
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport94ScNetworkTrend, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport94ScNetworkTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -111,7 +111,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport100Droppe
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport100DroppedCallRate, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport100DroppedCallRate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -145,7 +145,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport101Connec
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport101ConnectionSetupSuccessRate, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport101ConnectionSetupSuccessRate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -179,7 +179,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport102Handov
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport102HandoverSuccessRate, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport102HandoverSuccessRate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -213,7 +213,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport103AvgThr
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport103AvgThroughput, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport103AvgThroughput, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -247,7 +247,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport104ScAvai
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport104ScAvailability, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport104ScAvailability, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -281,7 +281,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport105RscCon
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport105RscConnectionStats, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport105RscConnectionStats, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -315,7 +315,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport106RscGps
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport106RscGpsStats, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport106RscGpsStats, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -349,7 +349,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport107Traffi
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport107TrafficVolume, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport107TrafficVolume, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -383,7 +383,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport108PhaseS
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport108PhaseSyncLoss, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport108PhaseSyncLoss, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -417,7 +417,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport109Freque
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport109FrequencySyncLoss, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport109FrequencySyncLoss, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -451,7 +451,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport111RscTra
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportSCNetworkTrafficReport111RscTrafficStats, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSCNetworkTrafficReport111RscTrafficStats, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

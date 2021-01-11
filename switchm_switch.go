@@ -42,9 +42,9 @@ type SwitchMSwitchAuditIdAPIResponse struct {
 	Data *SwitchMSwitchAuditId
 }
 
-func newSwitchMSwitchAuditIdAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchAuditIdAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchAuditIdAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -123,9 +123,9 @@ type SwitchMSwitchConnectedAPsQueryListAPIResponse struct {
 	Data *SwitchMSwitchConnectedAPsQueryList
 }
 
-func newSwitchMSwitchConnectedAPsQueryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchConnectedAPsQueryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchConnectedAPsQueryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -270,9 +270,9 @@ type SwitchMSwitchConnectedDevicesQueryListAPIResponse struct {
 	Data *SwitchMSwitchConnectedDevicesQueryList
 }
 
-func newSwitchMSwitchConnectedDevicesQueryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchConnectedDevicesQueryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchConnectedDevicesQueryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -329,9 +329,9 @@ type SwitchMSwitchDeleteSwitchesResultListAPIResponse struct {
 	Data *SwitchMSwitchDeleteSwitchesResultList
 }
 
-func newSwitchMSwitchDeleteSwitchesResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchDeleteSwitchesResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchDeleteSwitchesResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -410,9 +410,9 @@ type SwitchMSwitchFirmwareHistoryQueryResultListAPIResponse struct {
 	Data *SwitchMSwitchFirmwareHistoryQueryResultList
 }
 
-func newSwitchMSwitchFirmwareHistoryQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchFirmwareHistoryQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchFirmwareHistoryQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -573,9 +573,9 @@ type SwitchMSwitchNetworkSwitchAPIResponse struct {
 	Data *SwitchMSwitchNetworkSwitch
 }
 
-func newSwitchMSwitchNetworkSwitchAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchNetworkSwitchAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchNetworkSwitchAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -932,9 +932,9 @@ type SwitchMSwitchPortDetailsQueryResultListAPIResponse struct {
 	Data *SwitchMSwitchPortDetailsQueryResultList
 }
 
-func newSwitchMSwitchPortDetailsQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchPortDetailsQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchPortDetailsQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1093,9 +1093,9 @@ type SwitchMSwitchStackMemberQueryResultAPIResponse struct {
 	Data *SwitchMSwitchStackMemberQueryResult
 }
 
-func newSwitchMSwitchStackMemberQueryResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchStackMemberQueryResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchStackMemberQueryResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1164,9 +1164,9 @@ type SwitchMSwitchPortsSummaryQueryResultListAPIResponse struct {
 	Data *SwitchMSwitchPortsSummaryQueryResultList
 }
 
-func newSwitchMSwitchPortsSummaryQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchPortsSummaryQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchPortsSummaryQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1221,9 +1221,9 @@ type SwitchMSwitchQueryResultListAPIResponse struct {
 	Data *SwitchMSwitchQueryResultList
 }
 
-func newSwitchMSwitchQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1293,9 +1293,9 @@ type SwitchMSwitchRebootResponseAPIResponse struct {
 	Data *SwitchMSwitchRebootResponse
 }
 
-func newSwitchMSwitchRebootResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchRebootResponseAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchRebootResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1352,9 +1352,9 @@ type SwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse struct {
 	Data *SwitchMSwitchTopSwitchesByFirmwareQueryResultList
 }
 
-func newSwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1411,9 +1411,9 @@ type SwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse struct {
 	Data *SwitchMSwitchTopSwitchesByModelQueryResultList
 }
 
-func newSwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1460,7 +1460,7 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommo
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitch, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitch, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1495,7 +1495,7 @@ func (s *SwitchMSwitchService) AddSwitchReboot(ctx context.Context, switchId str
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchRebootResponseAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMAddSwitchReboot, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMAddSwitchReboot, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1527,7 +1527,7 @@ func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchSnmpSyncedSwitch, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchSnmpSyncedSwitch, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1561,7 +1561,7 @@ func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *S
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchStackMemberQueryResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchViewDetails, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchViewDetails, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1595,7 +1595,7 @@ func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwi
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchDeleteSwitchesResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteSwitch, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteSwitch, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1630,7 +1630,7 @@ func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchAuditIdAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteSwitchById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteSwitchById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1663,7 +1663,7 @@ func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string, mu
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchNetworkSwitchAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindSwitchById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindSwitchById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -1695,7 +1695,7 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchFirmwareHistoryQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindSwitchFirmwareBySwitchId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindSwitchFirmwareBySwitchId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchId", switchId)
@@ -1723,7 +1723,7 @@ func (s *SwitchMSwitchService) FindSwitchModelList(ctx context.Context, mutators
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchModelResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindSwitchModelList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindSwitchModelList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -1757,7 +1757,7 @@ func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateSwitchMoveByDestinationSwitchGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateSwitchMoveByDestinationSwitchGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

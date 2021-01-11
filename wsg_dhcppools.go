@@ -65,9 +65,9 @@ type WSGDHCPPoolsDhcpPoolInfoAPIResponse struct {
 	Data *WSGDHCPPoolsDhcpPoolInfo
 }
 
-func newWSGDHCPPoolsDhcpPoolInfoAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDHCPPoolsDhcpPoolInfoAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDHCPPoolsDhcpPoolInfoAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -146,9 +146,9 @@ type WSGDHCPPoolsAPIResponse struct {
 	Data *WSGDHCPPools
 }
 
-func newWSGDHCPPoolsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDHCPPoolsAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDHCPPoolsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

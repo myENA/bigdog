@@ -43,7 +43,7 @@ func (s *SwitchMVESettingsService) AddVeConfigs(ctx context.Context, body *Switc
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMVEConfigCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddVeConfigs, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddVeConfigs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *SwitchMVESettingsService) DeleteVeConfigs(ctx context.Context, body *Sw
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteVeConfigs, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteVeConfigs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *SwitchMVESettingsService) DeleteVeConfigsById(ctx context.Context, id s
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteVeConfigsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteVeConfigsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -141,7 +141,7 @@ func (s *SwitchMVESettingsService) FindVeConfigs(ctx context.Context, mutators .
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMVEConfigListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindVeConfigs, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindVeConfigs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -172,7 +172,7 @@ func (s *SwitchMVESettingsService) FindVeConfigsById(ctx context.Context, id str
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMVEConfigAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindVeConfigsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindVeConfigsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -203,7 +203,7 @@ func (s *SwitchMVESettingsService) FindVeConfigsByQueryCriteria(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMVEConfigListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMFindVeConfigsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMFindVeConfigsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -241,7 +241,7 @@ func (s *SwitchMVESettingsService) UpdateVeConfigsById(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateVeConfigsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateVeConfigsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

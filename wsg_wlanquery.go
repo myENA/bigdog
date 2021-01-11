@@ -49,9 +49,9 @@ type WSGWLANQueryApWlanBssidQueryListAPIResponse struct {
 	Data *WSGWLANQueryApWlanBssidQueryList
 }
 
-func newWSGWLANQueryApWlanBssidQueryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGWLANQueryApWlanBssidQueryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWLANQueryApWlanBssidQueryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -203,9 +203,9 @@ type WSGWLANQueryListAPIResponse struct {
 	Data *WSGWLANQueryList
 }
 
-func newWSGWLANQueryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGWLANQueryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWLANQueryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

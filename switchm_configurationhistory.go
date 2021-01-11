@@ -40,7 +40,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindConfigurationHistory, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindConfigurationHistory, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -70,7 +70,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMFindConfigurationHistoryByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMFindConfigurationHistoryByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -101,7 +101,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindConfigurationHistoryDetail, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindConfigurationHistoryDetail, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -131,7 +131,7 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQue
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMFindConfigurationHistoryDetailByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMFindConfigurationHistoryDetailByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

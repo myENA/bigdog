@@ -43,7 +43,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMConfigurationBackupListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchconfig, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchconfig, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMConfigurationBackupCreateBackupResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchconfigBackup, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchconfigBackup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -111,7 +111,7 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMConfigurationBackupConfigBackupDiffAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchconfigBackupDiff, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchconfigBackupDiff, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -145,7 +145,7 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteSwitchconfig, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteSwitchconfig, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -180,7 +180,7 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteSwitchconfigByConfigId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteSwitchconfigByConfigId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -213,7 +213,7 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindSwitchconfigByConfigId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindSwitchconfigByConfigId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("configId", configId)
@@ -245,7 +245,7 @@ func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindSwitchconfigDownloadByConfigId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindSwitchconfigDownloadByConfigId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("configId", configId)
@@ -279,7 +279,7 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupByGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupByGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -313,7 +313,7 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupRestoreByBackupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupRestoreByBackupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")

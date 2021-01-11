@@ -215,9 +215,9 @@ type WSGRACStatsGgsnGtpcConListAPIResponse struct {
 	Data *WSGRACStatsGgsnGtpcConList
 }
 
-func newWSGRACStatsGgsnGtpcConListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGRACStatsGgsnGtpcConListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGRACStatsGgsnGtpcConListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -262,9 +262,9 @@ type WSGRACStatsGgsnGtpListAPIResponse struct {
 	Data *WSGRACStatsGgsnGtpList
 }
 
-func newWSGRACStatsGgsnGtpListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGRACStatsGgsnGtpListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGRACStatsGgsnGtpListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -507,9 +507,9 @@ type WSGRACStatsRadiusProxyListAPIResponse struct {
 	Data *WSGRACStatsRadiusProxyList
 }
 
-func newWSGRACStatsRadiusProxyListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGRACStatsRadiusProxyListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGRACStatsRadiusProxyListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

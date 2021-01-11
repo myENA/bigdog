@@ -55,9 +55,9 @@ type SwitchMLAGConfigCreateResultAPIResponse struct {
 	Data *SwitchMLAGConfigCreateResult
 }
 
-func newSwitchMLAGConfigCreateResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMLAGConfigCreateResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMLAGConfigCreateResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -128,9 +128,9 @@ type SwitchMLAGConfigAPIResponse struct {
 	Data *SwitchMLAGConfig
 }
 
-func newSwitchMLAGConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMLAGConfigAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMLAGConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -181,9 +181,9 @@ type SwitchMLAGConfigListAPIResponse struct {
 	Data *SwitchMLAGConfigList
 }
 
-func newSwitchMLAGConfigListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMLAGConfigListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMLAGConfigListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

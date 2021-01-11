@@ -173,9 +173,9 @@ type WSGClientHistoricalClientListAPIResponse struct {
 	Data *WSGClientHistoricalClientList
 }
 
-func newWSGClientHistoricalClientListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGClientHistoricalClientListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGClientHistoricalClientListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

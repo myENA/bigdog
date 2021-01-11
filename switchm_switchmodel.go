@@ -53,9 +53,9 @@ type SwitchMSwitchModelResultAPIResponse struct {
 	Data *SwitchMSwitchModelResult
 }
 
-func newSwitchMSwitchModelResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSwitchModelResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSwitchModelResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

@@ -47,9 +47,9 @@ type SwitchMAAASettingsAAASettingAPIResponse struct {
 	Data *SwitchMAAASettingsAAASetting
 }
 
-func newSwitchMAAASettingsAAASettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMAAASettingsAAASettingAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMAAASettingsAAASettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -299,7 +299,7 @@ func (s *SwitchMAAASettingsService) FindGroupAaaSettingsByGroupId(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMAAASettingsAAASettingAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindGroupAaaSettingsByGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindGroupAaaSettingsByGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("groupId", groupId)
@@ -334,7 +334,7 @@ func (s *SwitchMAAASettingsService) UpdateGroupAaaSettingsByGroupId(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateGroupAaaSettingsByGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateGroupAaaSettingsByGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

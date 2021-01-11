@@ -281,9 +281,9 @@ type SwitchMVLANConfigAPIResponse struct {
 	Data *SwitchMVLANConfig
 }
 
-func newSwitchMVLANConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMVLANConfigAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMVLANConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -340,9 +340,9 @@ type SwitchMVLANConfigQueryResultAPIResponse struct {
 	Data *SwitchMVLANConfigQueryResult
 }
 
-func newSwitchMVLANConfigQueryResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMVLANConfigQueryResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMVLANConfigQueryResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

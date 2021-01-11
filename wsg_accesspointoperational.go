@@ -77,9 +77,9 @@ type WSGAccessPointOperationalAccessPointWlansListAPIResponse struct {
 	Data *WSGAccessPointOperationalAccessPointWlansList
 }
 
-func newWSGAccessPointOperationalAccessPointWlansListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAccessPointOperationalAccessPointWlansListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAccessPointOperationalAccessPointWlansListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -145,7 +145,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(
 	if err = ctx.Err(); err != nil {
 		return resp.(*FileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddApsApPacketCaptureDownloadByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddApsApPacketCaptureDownloadByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -181,7 +181,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartFileCapture
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPPackCaptureApPacketCaptureResAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddApsApPacketCaptureStartFileCaptureByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddApsApPacketCaptureStartFileCaptureByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -220,7 +220,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartStreamingBy
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPPackCaptureApPacketCaptureResAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddApsApPacketCaptureStartStreamingByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddApsApPacketCaptureStartStreamingByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -256,7 +256,7 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddApsApPacketCaptureStopByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddApsApPacketCaptureStopByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -289,7 +289,7 @@ func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddApsOperationalBlinkLedByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddApsOperationalBlinkLedByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -321,7 +321,7 @@ func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddApsSwitchoverCluster, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddApsSwitchoverCluster, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -355,7 +355,7 @@ func (s *WSGAccessPointOperationalService) FindApByQueryCriteria(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPQueryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindApByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindApByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -390,7 +390,7 @@ func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPPackCaptureApPacketCaptureResAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApsApPacketCaptureByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApsApPacketCaptureByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)
@@ -428,7 +428,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalNeighborByApMac(ctx
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPNeighborAPListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApsOperationalNeighborByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApsOperationalNeighborByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)
@@ -466,7 +466,7 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalSummaryByApMac(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPOperationalSummaryAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApsOperationalSummaryByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApsOperationalSummaryByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)
@@ -497,7 +497,7 @@ func (s *WSGAccessPointOperationalService) FindApWlanByQueryCriteria(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGWLANQueryApWlanBssidQueryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindApWlanByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindApWlanByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -531,7 +531,7 @@ func (s *WSGAccessPointOperationalService) FindIndoorMapByQueryCriteria(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIndoorMapSummaryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindIndoorMapByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindIndoorMapByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -569,7 +569,7 @@ func (s *WSGAccessPointOperationalService) FindMeshNeighborByApMacByQueryCriteri
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGMeshNeighborInfoListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindMeshNeighborByApMacByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindMeshNeighborByApMacByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -608,7 +608,7 @@ func (s *WSGAccessPointOperationalService) FindMeshTopologyByApMacByQueryCriteri
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGMeshNodeInfoArrayAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindMeshTopologyByApMacByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindMeshTopologyByApMacByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -643,7 +643,7 @@ func (s *WSGAccessPointOperationalService) FindMeshTopologyByQueryCriteria(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGMeshNodeInfoListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindMeshTopologyByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindMeshTopologyByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -677,7 +677,7 @@ func (s *WSGAccessPointOperationalService) FindRoguesInfoListByQueryCriteria(ctx
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGRogueInfoListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindRoguesInfoListByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindRoguesInfoListByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -712,7 +712,7 @@ func (s *WSGAccessPointOperationalService) FindSpecificApWlanDetails(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAccessPointOperationalAccessPointWlansListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSpecificApWlanDetails, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSpecificApWlanDetails, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)

@@ -43,7 +43,7 @@ func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WS
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddApRules, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddApRules, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -78,7 +78,7 @@ func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, i
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApRulesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteApRulesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -107,7 +107,7 @@ func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context, mutator
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPRulesApRuleListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApRules, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApRules, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -138,7 +138,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAPRulesApRuleConfigurationAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApRulesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApRulesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -170,7 +170,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApRulesPriorityDownById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApRulesPriorityDownById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -202,7 +202,7 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApRulesPriorityUpById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApRulesPriorityUpById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -237,7 +237,7 @@ func (s *WSGAPRegistrationRulesService) PartialUpdateApRulesById(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateApRulesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateApRulesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

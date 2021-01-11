@@ -43,7 +43,7 @@ func (s *WSGAccountSecurityService) AddAccountSecurity(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultIdNameAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAccountSecurity, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAccountSecurity, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurity(ctx context.Context, b
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAccountSecurity, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteAccountSecurity, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -115,7 +115,7 @@ func (s *WSGAccountSecurityService) DeleteAccountSecurityById(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultIdNameAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAccountSecurityById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteAccountSecurityById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -147,7 +147,7 @@ func (s *WSGAccountSecurityService) FindAccountSecurity(ctx context.Context, mut
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAccountSecurityProfileProfileListResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAccountSecurity, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAccountSecurity, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -181,7 +181,7 @@ func (s *WSGAccountSecurityService) FindAccountSecurityById(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAccountSecurityProfileGetByIdResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAccountSecurityById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAccountSecurityById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
@@ -219,7 +219,7 @@ func (s *WSGAccountSecurityService) PartialUpdateAccountSecurityById(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultIdNameAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateAccountSecurityById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateAccountSecurityById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -258,7 +258,7 @@ func (s *WSGAccountSecurityService) UpdateAccountSecurityById(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultIdNameAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateAccountSecurityById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateAccountSecurityById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

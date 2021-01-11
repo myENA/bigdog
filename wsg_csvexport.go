@@ -48,7 +48,7 @@ func (s *WSGCSVExportService) ExportCSVByQuery(ctx context.Context, body *WSGCom
 	if err = ctx.Err(); err != nil {
 		return resp.(*FileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGExportCSVByQuery, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGExportCSVByQuery, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

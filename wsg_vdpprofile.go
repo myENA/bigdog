@@ -44,7 +44,7 @@ func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id str
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesVdpById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesVdpById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -79,7 +79,7 @@ func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalPara
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesVdp, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesVdp, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
@@ -116,7 +116,7 @@ func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id strin
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileVdpProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesVdpById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesVdpById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -148,7 +148,7 @@ func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateProfilesVdpApproveById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateProfilesVdpApproveById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")

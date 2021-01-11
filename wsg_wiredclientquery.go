@@ -27,9 +27,9 @@ type WSGWiredClientQueryClientQueryListAPIResponse struct {
 	Data *WSGWiredClientQueryClientQueryList
 }
 
-func newWSGWiredClientQueryClientQueryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGWiredClientQueryClientQueryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWiredClientQueryClientQueryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

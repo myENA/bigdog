@@ -73,9 +73,9 @@ type SwitchMIPConfigCreateResultAPIResponse struct {
 	Data *SwitchMIPConfigCreateResult
 }
 
-func newSwitchMIPConfigCreateResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMIPConfigCreateResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMIPConfigCreateResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -180,9 +180,9 @@ type SwitchMIPConfigAPIResponse struct {
 	Data *SwitchMIPConfig
 }
 
-func newSwitchMIPConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMIPConfigAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMIPConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -233,9 +233,9 @@ type SwitchMIPConfigListAPIResponse struct {
 	Data *SwitchMIPConfigList
 }
 
-func newSwitchMIPConfigListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMIPConfigListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMIPConfigListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

@@ -1053,7 +1053,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport1Over
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAirtimeUtilizationReport1Overview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAirtimeUtilizationReport1Overview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1087,7 +1087,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport2TopC
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAirtimeUtilizationReport2TopChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAirtimeUtilizationReport2TopChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1121,7 +1121,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport3TopA
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAirtimeUtilizationReport3TopAPsByAirtime24Table, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAirtimeUtilizationReport3TopAPsByAirtime24Table, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1155,7 +1155,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport4TopA
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAirtimeUtilizationReport4TopAPsByAirtime5Table, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAirtimeUtilizationReport4TopAPsByAirtime5Table, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1189,7 +1189,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport5Tren
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAirtimeUtilizationReport5TrendChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAirtimeUtilizationReport5TrendChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1223,7 +1223,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport6Tren
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAirtimeUtilizationReport6TrendTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAirtimeUtilizationReport6TrendTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

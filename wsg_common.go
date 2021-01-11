@@ -297,9 +297,9 @@ type WSGCommonCreateResultAPIResponse struct {
 	Data *WSGCommonCreateResult
 }
 
-func newWSGCommonCreateResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCommonCreateResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCommonCreateResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -338,9 +338,9 @@ type WSGCommonCreateResultIdNameAPIResponse struct {
 	Data *WSGCommonCreateResultIdName
 }
 
-func newWSGCommonCreateResultIdNameAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCommonCreateResultIdNameAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCommonCreateResultIdNameAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -448,9 +448,9 @@ type WSGCommonDhcpProfileRefAPIResponse struct {
 	Data *WSGCommonDhcpProfileRef
 }
 
-func newWSGCommonDhcpProfileRefAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCommonDhcpProfileRefAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCommonDhcpProfileRefAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -515,9 +515,9 @@ type WSGCommonDhcpSiteConfigListRefAPIResponse struct {
 	Data *WSGCommonDhcpSiteConfigListRef
 }
 
-func newWSGCommonDhcpSiteConfigListRefAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCommonDhcpSiteConfigListRefAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCommonDhcpSiteConfigListRefAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -959,9 +959,9 @@ type WSGCommonMonitoringSummaryAPIResponse struct {
 	Data *WSGCommonMonitoringSummary
 }
 
-func newWSGCommonMonitoringSummaryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCommonMonitoringSummaryAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCommonMonitoringSummaryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -2114,9 +2114,9 @@ type WSGCommonTrafficClassProfileRefAPIResponse struct {
 	Data *WSGCommonTrafficClassProfileRef
 }
 
-func newWSGCommonTrafficClassProfileRefAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCommonTrafficClassProfileRefAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCommonTrafficClassProfileRefAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

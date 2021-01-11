@@ -87,9 +87,9 @@ type WSGClusterRedundancySettingsAPIResponse struct {
 	Data *WSGClusterRedundancySettings
 }
 
-func newWSGClusterRedundancySettingsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGClusterRedundancySettingsAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGClusterRedundancySettingsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

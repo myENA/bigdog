@@ -1128,7 +1128,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport123TopSwitchPOEUt
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport123TopSwitchPOEUtilChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportNetworkWiredReport123TopSwitchPOEUtilChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1162,7 +1162,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport124TopSwitchPOEUt
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport124TopSwitchPOEUtils, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportNetworkWiredReport124TopSwitchPOEUtils, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1196,7 +1196,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport127Top10SwitchesB
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport127Top10SwitchesByTrafficVolume, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportNetworkWiredReport127Top10SwitchesByTrafficVolume, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1230,7 +1230,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport128TopSwitchesByT
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport128TopSwitchesByTrafficTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportNetworkWiredReport128TopSwitchesByTrafficTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1264,7 +1264,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport134WiredOverview(
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport134WiredOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportNetworkWiredReport134WiredOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1298,7 +1298,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport135WiredTrafficDi
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport135WiredTrafficDistribution, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportNetworkWiredReport135WiredTrafficDistribution, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1332,7 +1332,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport136SwitchTrafficT
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport136SwitchTrafficTrend, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportNetworkWiredReport136SwitchTrafficTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1366,7 +1366,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport141SwitchErrorTre
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport141SwitchErrorTrend, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportNetworkWiredReport141SwitchErrorTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1400,7 +1400,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport142TopSwitchesByE
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport142TopSwitchesByErrorsChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportNetworkWiredReport142TopSwitchesByErrorsChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1434,7 +1434,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport143TopSwitchesByE
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportNetworkWiredReport143TopSwitchesByErrorsTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportNetworkWiredReport143TopSwitchesByErrorsTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -73,9 +73,9 @@ type WSGCertificateAPIResponse struct {
 	Data *WSGCertificate
 }
 
-func newWSGCertificateAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCertificateAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -118,9 +118,9 @@ type WSGCertificateListAPIResponse struct {
 	Data *WSGCertificateList
 }
 
-func newWSGCertificateListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCertificateListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -209,9 +209,9 @@ type WSGCertificatesSigningRequestAPIResponse struct {
 	Data *WSGCertificatesSigningRequest
 }
 
-func newWSGCertificatesSigningRequestAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCertificatesSigningRequestAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificatesSigningRequestAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -250,9 +250,9 @@ type WSGCertificateCertSettingAPIResponse struct {
 	Data *WSGCertificateCertSetting
 }
 
-func newWSGCertificateCertSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCertificateCertSettingAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateCertSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -321,9 +321,9 @@ type WSGCertificateClientCertAPIResponse struct {
 	Data *WSGCertificateClientCert
 }
 
-func newWSGCertificateClientCertAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCertificateClientCertAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateClientCertAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -366,9 +366,9 @@ type WSGCertificateClientCertListAPIResponse struct {
 	Data *WSGCertificateClientCertList
 }
 
-func newWSGCertificateClientCertListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCertificateClientCertListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateClientCertListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -601,9 +601,9 @@ type WSGCertificateCsrListAPIResponse struct {
 	Data *WSGCertificateCsrList
 }
 
-func newWSGCertificateCsrListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCertificateCsrListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateCsrListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -743,9 +743,9 @@ type WSGCertificateTrustedCAChainAPIResponse struct {
 	Data *WSGCertificateTrustedCAChain
 }
 
-func newWSGCertificateTrustedCAChainAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCertificateTrustedCAChainAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateTrustedCAChainAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -788,9 +788,9 @@ type WSGCertificateTrustedCAChainCertListAPIResponse struct {
 	Data *WSGCertificateTrustedCAChainCertList
 }
 
-func newWSGCertificateTrustedCAChainCertListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCertificateTrustedCAChainCertListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCertificateTrustedCAChainCertListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -873,7 +873,7 @@ func (s *WSGCertificateService) AddCertstoreCertificate(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddCertstoreCertificate, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddCertstoreCertificate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -907,7 +907,7 @@ func (s *WSGCertificateService) AddCertstoreClientCert(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddCertstoreClientCert, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddCertstoreClientCert, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -941,7 +941,7 @@ func (s *WSGCertificateService) AddCertstoreCsr(ctx context.Context, body *WSGCe
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddCertstoreCsr, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddCertstoreCsr, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -975,7 +975,7 @@ func (s *WSGCertificateService) AddCertstoreTrustedCAChainCert(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddCertstoreTrustedCAChainCert, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddCertstoreTrustedCAChainCert, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1010,7 +1010,7 @@ func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteCertstoreCertificateById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteCertstoreCertificateById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1043,7 +1043,7 @@ func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteCertstoreClientCertById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteCertstoreClientCertById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1076,7 +1076,7 @@ func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, id s
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteCertstoreCsrById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteCertstoreCsrById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1108,7 +1108,7 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCert(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteCertstoreTrustedCAChainCert, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteCertstoreTrustedCAChainCert, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1143,7 +1143,7 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteCertstoreTrustedCAChainCertById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteCertstoreTrustedCAChainCertById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1178,7 +1178,7 @@ func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, op
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCertificateListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindCertstoreCertificate, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindCertstoreCertificate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
@@ -1215,7 +1215,7 @@ func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCertificateAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindCertstoreCertificateById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindCertstoreCertificateById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -1249,7 +1249,7 @@ func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, opt
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCertificateClientCertListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindCertstoreClientCert, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindCertstoreClientCert, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
@@ -1286,7 +1286,7 @@ func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCertificateClientCertAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindCertstoreClientCertById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindCertstoreClientCertById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -1320,7 +1320,7 @@ func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, optionalPa
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCertificateCsrListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindCertstoreCsr, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindCertstoreCsr, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
@@ -1357,7 +1357,7 @@ func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, id str
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCertificatesSigningRequestAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindCertstoreCsrById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindCertstoreCsrById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -1385,7 +1385,7 @@ func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context, mutato
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCertificateCertSettingAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindCertstoreSetting, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindCertstoreSetting, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -1418,7 +1418,7 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCertificateTrustedCAChainCertListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindCertstoreTrustedCAChainCert, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindCertstoreTrustedCAChainCert, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
@@ -1455,7 +1455,7 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCertificateTrustedCAChainAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindCertstoreTrustedCAChainCertById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindCertstoreTrustedCAChainCertById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -1486,7 +1486,7 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSetting(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateCertstoreSetting, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateCertstoreSetting, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1520,7 +1520,7 @@ func (s *WSGCertificateService) PartialUpdateCertstoreSettingServiceCertificates
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateCertstoreSettingServiceCertificates, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateCertstoreSettingServiceCertificates, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1558,7 +1558,7 @@ func (s *WSGCertificateService) PartialUpdateCertstoreTrustedCAChainCertById(ctx
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateCertstoreTrustedCAChainCertById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateCertstoreTrustedCAChainCertById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

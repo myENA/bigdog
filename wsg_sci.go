@@ -203,9 +203,9 @@ type WSGSCIEventCodeAPIResponse struct {
 	Data *WSGSCIEventCode
 }
 
-func newWSGSCIEventCodeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSCIEventCodeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCIEventCodeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -290,9 +290,9 @@ type WSGSCIProfileAPIResponse struct {
 	Data *WSGSCIProfile
 }
 
-func newWSGSCIProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSCIProfileAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCIProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -368,9 +368,9 @@ type WSGSCIProfileListAPIResponse struct {
 	Data *WSGSCIProfileList
 }
 
-func newWSGSCIProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSCIProfileListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSCIProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -431,7 +431,7 @@ func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModi
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSciSciEventCode, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddSciSciEventCode, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -465,7 +465,7 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSciSciProfile, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddSciSciProfile, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -499,7 +499,7 @@ func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDel
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteSciSciProfile, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteSciSciProfile, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -534,7 +534,7 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteSciSciProfileById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteSciSciProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -563,7 +563,7 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context, mutators ...Req
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSCIEventCodeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSciSciEventCode, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSciSciEventCode, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -590,7 +590,7 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context, mutators ...Reque
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSCIProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSciSciProfile, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSciSciProfile, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -621,7 +621,7 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string, mu
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSCIProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSciSciProfileById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSciSciProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -652,7 +652,7 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSciSciEnabled, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateSciSciEnabled, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -690,7 +690,7 @@ func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSciSciProfileById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateSciSciProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

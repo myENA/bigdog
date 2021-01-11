@@ -879,7 +879,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport35Overview(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWLANsReport35overview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWLANsReport35Overview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWLANsReport35Overview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -913,7 +913,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport36Top10SsidsByTraffic(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWLANsReport36Top10SsidsByTraffic, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWLANsReport36Top10SsidsByTraffic, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -947,7 +947,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport37ActiveSsidsTrend(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWLANsReport37ActiveSsidsTrend, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWLANsReport37ActiveSsidsTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -981,7 +981,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport38Top10SsidsByClientCount(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWLANsReport38Top10SsidsByClientCount, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWLANsReport38Top10SsidsByClientCount, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1015,7 +1015,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport39SsidChangesOverTime(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWLANsReport39SsidChangesOverTime, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWLANsReport39SsidChangesOverTime, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1049,7 +1049,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport40TopSsidsByTrafficTable(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWLANsReport40TopSsidsByTrafficTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWLANsReport40TopSsidsByTrafficTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1083,7 +1083,7 @@ func (s *SCIWLANsReportService) ReportWLANsReport41TopSsidsByClientsTable(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWLANsReport41TopSsidsByClientsTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWLANsReport41TopSsidsByClientsTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

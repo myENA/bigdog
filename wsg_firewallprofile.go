@@ -43,7 +43,7 @@ func (s *WSGFirewallProfileService) AddFirewallProfiles(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddFirewallProfiles, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddFirewallProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGFirewallProfileService) DeleteFirewallProfiles(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteFirewallProfiles, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteFirewallProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGFirewallProfileService) DeleteFirewallProfilesById(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteFirewallProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteFirewallProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -149,7 +149,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfiles(ctx context.Context, op
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileIdListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindFirewallProfiles, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindFirewallProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
@@ -189,7 +189,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesById(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileFirewallProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindFirewallProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindFirewallProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -220,7 +220,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesByQueryCriteria(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileFirewallProfileArrayAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindFirewallProfilesByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindFirewallProfilesByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -255,7 +255,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesEthernetPortProfilesById
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGEthernetPortProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindFirewallProfilesEthernetPortProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindFirewallProfilesEthernetPortProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -287,7 +287,7 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesWlansById(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGWLANQueryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindFirewallProfilesWlansById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindFirewallProfilesWlansById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -322,7 +322,7 @@ func (s *WSGFirewallProfileService) UpdateFirewallProfilesById(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateFirewallProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateFirewallProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

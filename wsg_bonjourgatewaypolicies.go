@@ -47,7 +47,7 @@ func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayEnableByZone
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesBonjourGatewayEnableByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesBonjourGatewayEnableByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -86,7 +86,7 @@ func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayPoliciesByZo
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesBonjourGatewayPoliciesByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesBonjourGatewayPoliciesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -124,7 +124,7 @@ func (s *WSGBonjourGatewayPoliciesService) DeleteRkszonesBonjourGatewayPoliciesB
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesBonjourGatewayPoliciesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesBonjourGatewayPoliciesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -160,7 +160,7 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByI
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGZoneBonjourGatewayPolicyConfigurationAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesBonjourGatewayPoliciesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesBonjourGatewayPoliciesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -193,7 +193,7 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZ
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGZoneBonjourGatewayPolicyListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesBonjourGatewayPoliciesByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesBonjourGatewayPoliciesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -224,7 +224,7 @@ func (s *WSGBonjourGatewayPoliciesService) FindServicesBonjourPolicyByQueryCrite
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesBonjourPolicyByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesBonjourPolicyByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -264,7 +264,7 @@ func (s *WSGBonjourGatewayPoliciesService) PartialUpdateRkszonesBonjourGatewayPo
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesBonjourGatewayPoliciesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateRkszonesBonjourGatewayPoliciesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

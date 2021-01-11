@@ -51,9 +51,9 @@ type WSGDPSKDeleteDpskResultAPIResponse struct {
 	Data *WSGDPSKDeleteDpskResult
 }
 
-func newWSGDPSKDeleteDpskResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPSKDeleteDpskResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPSKDeleteDpskResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -106,9 +106,9 @@ type WSGDPSKDeleteExpiredDpskConfigAPIResponse struct {
 	Data *WSGDPSKDeleteExpiredDpskConfig
 }
 
-func newWSGDPSKDeleteExpiredDpskConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPSKDeleteExpiredDpskConfigAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPSKDeleteExpiredDpskConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -217,9 +217,9 @@ type WSGDPSKQueryListAPIResponse struct {
 	Data *WSGDPSKQueryList
 }
 
-func newWSGDPSKQueryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPSKQueryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPSKQueryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -338,9 +338,9 @@ type WSGDPSKGetDpskEnabledWlansAPIResponse struct {
 	Data *WSGDPSKGetDpskEnabledWlans
 }
 
-func newWSGDPSKGetDpskEnabledWlansAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPSKGetDpskEnabledWlansAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPSKGetDpskEnabledWlansAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -405,9 +405,9 @@ type WSGDPSKGetDpskInfoListAPIResponse struct {
 	Data *WSGDPSKGetDpskInfoList
 }
 
-func newWSGDPSKGetDpskInfoListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPSKGetDpskInfoListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPSKGetDpskInfoListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -446,9 +446,9 @@ type WSGDPSKGetDpskResultAPIResponse struct {
 	Data *WSGDPSKGetDpskResult
 }
 
-func newWSGDPSKGetDpskResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPSKGetDpskResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPSKGetDpskResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

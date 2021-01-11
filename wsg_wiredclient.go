@@ -43,7 +43,7 @@ func (s *WSGWiredClientService) AddWiredClientsBulkDeauth(ctx context.Context, b
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddWiredClientsBulkDeauth, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddWiredClientsBulkDeauth, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGWiredClientService) AddWiredClientsDeauth(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddWiredClientsDeauth, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddWiredClientsDeauth, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -111,7 +111,7 @@ func (s *WSGWiredClientService) FindWiredclientByQueryCriteria(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGWiredClientQueryClientQueryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindWiredclientByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindWiredclientByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -43,7 +43,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddServicesAuthAd, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddServicesAuthAd, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddServicesAuthHlr, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddServicesAuthHlr, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -111,7 +111,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddServicesAuthLdap, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddServicesAuthLdap, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -145,7 +145,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddServicesAuthRadius, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddServicesAuthRadius, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -183,7 +183,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddServicesAuthTestById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddServicesAuthTestById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -218,7 +218,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuth, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAuth, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -253,7 +253,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthAdById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAuthAdById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -286,7 +286,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAuthById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -319,7 +319,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthHlrById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAuthHlrById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -352,7 +352,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthLdapById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAuthLdapById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -385,7 +385,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAuthRadiusById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -418,7 +418,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusSecondaryById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAuthRadiusSecondaryById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -451,7 +451,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimary
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusStandbyPrimaryById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesAuthRadiusStandbyPrimaryById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -483,7 +483,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAaaServerAuthByQueryCriter
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAAAServerQueryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesAaaServerAuthByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesAaaServerAuthByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -514,7 +514,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceActiveDirectoryServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesAuthAd, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthAd, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -545,7 +545,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceActiveDirectoryServiceAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesAuthAdById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthAdById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -576,7 +576,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdByQueryCriteria(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceActiveDirectoryServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesAuthAdByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesAuthAdByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -610,7 +610,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceCommonAuthenticationServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesAuthByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesAuthByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -645,7 +645,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceCommonAuthenticationServiceAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesAuthGuestById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthGuestById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -673,7 +673,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceHlrServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesAuthHlr, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthHlr, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -704,7 +704,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceHlrServiceAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesAuthHlrById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthHlrById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -735,7 +735,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrByQueryCriteria(ctx
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceHlrServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesAuthHlrByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesAuthHlrByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -766,7 +766,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceLDAPServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesAuthLdap, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthLdap, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -797,7 +797,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceLDAPServiceAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesAuthLdapById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthLdapById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -828,7 +828,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceLDAPServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesAuthLdapByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesAuthLdapByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -863,7 +863,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLocalDbById(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceCommonAuthenticationServiceAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesAuthLocalDbById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthLocalDbById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -891,7 +891,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceRadiusAuthenticationServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesAuthRadius, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthRadius, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -922,7 +922,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceRadiusAuthenticationServiceAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesAuthRadiusById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthRadiusById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -953,7 +953,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceRadiusAuthenticationServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesAuthRadiusByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesAuthRadiusByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -991,7 +991,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesAuthAdById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateServicesAuthAdById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1030,7 +1030,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesAuthHlrById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateServicesAuthHlrById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1069,7 +1069,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesAuthLdapById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateServicesAuthLdapById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1108,7 +1108,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocalDbById(c
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesAuthLocalDbById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateServicesAuthLocalDbById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1147,7 +1147,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthRadiusById(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesAuthRadiusById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateServicesAuthRadiusById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

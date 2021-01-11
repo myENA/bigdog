@@ -37,9 +37,9 @@ type WSGVendorSpecificAttributeProfileCreateResultAPIResponse struct {
 	Data *WSGVendorSpecificAttributeProfileCreateResult
 }
 
-func newWSGVendorSpecificAttributeProfileCreateResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGVendorSpecificAttributeProfileCreateResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGVendorSpecificAttributeProfileCreateResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -106,9 +106,9 @@ type WSGVendorSpecificAttributeProfileGetAPIResponse struct {
 	Data *WSGVendorSpecificAttributeProfileGet
 }
 
-func newWSGVendorSpecificAttributeProfileGetAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGVendorSpecificAttributeProfileGetAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGVendorSpecificAttributeProfileGetAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -159,9 +159,9 @@ type WSGVendorSpecificAttributeProfileListAPIResponse struct {
 	Data *WSGVendorSpecificAttributeProfileList
 }
 
-func newWSGVendorSpecificAttributeProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGVendorSpecificAttributeProfileListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGVendorSpecificAttributeProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -245,9 +245,9 @@ type WSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse struct {
 	Data *WSGVendorSpecificAttributeProfileQueryCriteriaResult
 }
 
-func newWSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -340,7 +340,7 @@ func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttr
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGVendorSpecificAttributeProfileCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesVendorSpecificAttributeProfilesByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesVendorSpecificAttributeProfilesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -378,7 +378,7 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesVendorSpecificAttributeProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesVendorSpecificAttributeProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -415,7 +415,7 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesVendorSpecificAttributeProfilesByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesVendorSpecificAttributeProfilesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -453,7 +453,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGVendorSpecificAttributeProfileGetAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesVendorSpecificAttributeProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesVendorSpecificAttributeProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -485,7 +485,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindRkszonesVendorSpecificAttributeProfilesByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindRkszonesVendorSpecificAttributeProfilesByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -520,7 +520,7 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGVendorSpecificAttributeProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesVendorSpecificAttributeProfilesByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesVendorSpecificAttributeProfilesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -557,7 +557,7 @@ func (s *WSGVendorSpecificAttributeProfileService) UpdateRkszonesVendorSpecificA
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesVendorSpecificAttributeProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateRkszonesVendorSpecificAttributeProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -424,7 +424,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport144ClientHealthSu
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportClientHealthReport144ClientHealthSummary, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportClientHealthReport144ClientHealthSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -458,7 +458,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport148ClientConnecti
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportClientHealthReport148ClientConnectionHealth, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportClientHealthReport148ClientConnectionHealth, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -492,7 +492,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport149ClientHealthMe
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportClientHealthReport149ClientHealthMetricTrends, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportClientHealthReport149ClientHealthMetricTrends, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -526,7 +526,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport150TopClientHealt
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportClientHealthReport150TopClientHealthScoreByGroup, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportClientHealthReport150TopClientHealthScoreByGroup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

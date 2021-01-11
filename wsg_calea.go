@@ -59,9 +59,9 @@ type WSGCALEACommonSettingRspAPIResponse struct {
 	Data *WSGCALEACommonSettingRsp
 }
 
-func newWSGCALEACommonSettingRspAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCALEACommonSettingRspAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCALEACommonSettingRspAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -116,9 +116,9 @@ type WSGCALEAMacListRspAPIResponse struct {
 	Data *WSGCALEAMacListRsp
 }
 
-func newWSGCALEAMacListRspAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGCALEAMacListRspAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGCALEAMacListRspAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -165,7 +165,7 @@ func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemCaleaCommonSetting, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddSystemCaleaCommonSetting, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -199,7 +199,7 @@ func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAM
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemCaleaMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddSystemCaleaMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -234,7 +234,7 @@ func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, filename st
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemCaleaMacList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddSystemCaleaMacList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueMultipartFormData)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -269,7 +269,7 @@ func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCAL
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteSystemCaleaMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteSystemCaleaMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -300,7 +300,7 @@ func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context, mutators
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteSystemCaleaMacList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteSystemCaleaMacList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -328,7 +328,7 @@ func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context, muta
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCALEACommonSettingRspAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemCaleaCommonSetting, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemCaleaCommonSetting, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -355,7 +355,7 @@ func (s *WSGCALEAService) FindSystemCaleaMacList(ctx context.Context, mutators .
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCALEAMacListRspAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemCaleaMacList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemCaleaMacList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

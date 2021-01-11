@@ -43,7 +43,7 @@ func (s *WSGWirelessClientService) AddClientsBulkDeauth(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddClientsBulkDeauth, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddClientsBulkDeauth, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGWirelessClientService) AddClientsBulkDisconnect(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddClientsBulkDisconnect, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddClientsBulkDisconnect, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -115,7 +115,7 @@ func (s *WSGWirelessClientService) AddClientsByWlanNameByWlanname(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGClientQueryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddClientsByWlanNameByWlanname, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddClientsByWlanNameByWlanname, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -150,7 +150,7 @@ func (s *WSGWirelessClientService) AddClientsDeauth(ctx context.Context, body *W
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddClientsDeauth, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddClientsDeauth, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -184,7 +184,7 @@ func (s *WSGWirelessClientService) AddClientsDisconnect(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddClientsDisconnect, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddClientsDisconnect, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -219,7 +219,7 @@ func (s *WSGWirelessClientService) FindApsOperationalClientTotalCountByApMac(ctx
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApsOperationalClientTotalCountByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApsOperationalClientTotalCountByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)
@@ -250,7 +250,7 @@ func (s *WSGWirelessClientService) FindClientByQueryCriteria(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGClientQueryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindClientByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindClientByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -284,7 +284,7 @@ func (s *WSGWirelessClientService) FindHistoricalclientByQueryCriteria(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGClientHistoricalClientListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindHistoricalclientByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindHistoricalclientByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

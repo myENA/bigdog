@@ -43,7 +43,7 @@ func (s *WSGFTPServerSettingsService) AddFtps(ctx context.Context, body *WSGSyst
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddFtps, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddFtps, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGFTPServerSettingsService) DeleteFtps(ctx context.Context, body *WSGS
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteFtps, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteFtps, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGFTPServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, ftp
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteFtpsByFtpId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteFtpsByFtpId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -145,7 +145,7 @@ func (s *WSGFTPServerSettingsService) FindFtpsByFtpId(ctx context.Context, ftpId
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemFtpAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindFtpsByFtpId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindFtpsByFtpId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("ftpId", ftpId)
@@ -176,7 +176,7 @@ func (s *WSGFTPServerSettingsService) FindFtpsByQueryCriteria(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemFtpListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindFtpsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindFtpsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -210,7 +210,7 @@ func (s *WSGFTPServerSettingsService) FindFtpsTest(ctx context.Context, body *WS
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemFtpTestResponseAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindFtpsTest, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindFtpsTest, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
@@ -244,7 +244,7 @@ func (s *WSGFTPServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, f
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemFtpTestResponseAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindFtpsTestByFtpId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindFtpsTestByFtpId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("ftpId", ftpId)
@@ -279,7 +279,7 @@ func (s *WSGFTPServerSettingsService) PartialUpdateFtpsByFtpId(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateFtpsByFtpId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateFtpsByFtpId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

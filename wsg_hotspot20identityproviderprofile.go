@@ -43,7 +43,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) AddProfilesHs20Identityprov
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddProfilesHs20Identityproviders, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddProfilesHs20Identityproviders, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesHs20Identityproviders, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesHs20Identityproviders, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersAccountingsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersAccountingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -145,7 +145,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -178,7 +178,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersOsuById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersOsuById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -213,7 +213,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileHs20ProviderListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesHs20Identityproviders, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesHs20Identityproviders, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
@@ -250,7 +250,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileHs20ProviderAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesHs20IdentityprovidersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesHs20IdentityprovidersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -281,7 +281,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileHs20ProviderListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindProfilesHs20IdentityprovidersByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindProfilesHs20IdentityprovidersByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -319,7 +319,7 @@ func (s *WSGHotspot20IdentityProviderProfileService) PartialUpdateProfilesHs20Id
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesHs20IdentityprovidersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateProfilesHs20IdentityprovidersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

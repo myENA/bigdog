@@ -37,9 +37,9 @@ type SCIMigrationMapCount200ResponseTypeAPIResponse struct {
 	Data *SCIMigrationMapCount200ResponseType
 }
 
-func newSCIMigrationMapCount200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIMigrationMapCount200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIMigrationMapCount200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -76,9 +76,9 @@ type SCIMigrationMapExistsgetMigrationMapsidexists200ResponseTypeAPIResponse str
 	Data *SCIMigrationMapExistsgetMigrationMapsidexists200ResponseType
 }
 
-func newSCIMigrationMapExistsgetMigrationMapsidexists200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIMigrationMapExistsgetMigrationMapsidexists200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIMigrationMapExistsgetMigrationMapsidexists200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -125,9 +125,9 @@ type SCIMigrationMapFind200ResponseTypeAPIResponse struct {
 	Data SCIMigrationMapFind200ResponseType
 }
 
-func newSCIMigrationMapFind200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIMigrationMapFind200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIMigrationMapFind200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -175,7 +175,7 @@ func (s *SCIMigrationMapService) MigrationMapCount(ctx context.Context, optional
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIMigrationMapCount200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIMigrationMapCount, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIMigrationMapCount, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
@@ -208,7 +208,7 @@ func (s *SCIMigrationMapService) MigrationMapCreate(ctx context.Context, data *S
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsMigrationMapAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIMigrationMapCreate, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIMigrationMapCreate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -243,7 +243,7 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 	if err = ctx.Err(); err != nil {
 		return resp.(*FileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIMigrationMapCreateChangeStreamGetMigrationMapsChangeStream, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIMigrationMapCreateChangeStreamGetMigrationMapsChangeStream, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["options"]; ok && len(v) > 0 {
@@ -277,7 +277,7 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMaps
 	if err = ctx.Err(); err != nil {
 		return resp.(*FileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIMigrationMapCreateChangeStreamPostMigrationMapsChangeStream, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIMigrationMapCreateChangeStreamPostMigrationMapsChangeStream, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -312,7 +312,7 @@ func (s *SCIMigrationMapService) MigrationMapDeleteById(ctx context.Context, id 
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSCIMigrationMapDeleteById, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodDelete, RouteSCIMigrationMapDeleteById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -345,7 +345,7 @@ func (s *SCIMigrationMapService) MigrationMapExistsGetMigrationMapsIdExists(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIMigrationMapExistsgetMigrationMapsidexists200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIMigrationMapExistsGetMigrationMapsIdExists, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIMigrationMapExistsGetMigrationMapsIdExists, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -377,7 +377,7 @@ func (s *SCIMigrationMapService) MigrationMapFind(ctx context.Context, optionalP
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIMigrationMapFind200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIMigrationMapFind, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIMigrationMapFind, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
@@ -415,7 +415,7 @@ func (s *SCIMigrationMapService) MigrationMapFindById(ctx context.Context, id st
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsMigrationMapAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIMigrationMapFindById, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIMigrationMapFindById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -450,7 +450,7 @@ func (s *SCIMigrationMapService) MigrationMapFindOne(ctx context.Context, option
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsMigrationMapAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIMigrationMapFindOne, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIMigrationMapFindOne, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
@@ -487,7 +487,7 @@ func (s *SCIMigrationMapService) MigrationMapPrototypeUpdateAttributes(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsMigrationMapAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSCIMigrationMapPrototypeUpdateAttributes, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCIMigrationMapPrototypeUpdateAttributes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -526,7 +526,7 @@ func (s *SCIMigrationMapService) MigrationMapUpdateAll(ctx context.Context, data
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIMigrationMapUpdateAll, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIMigrationMapUpdateAll, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -563,7 +563,7 @@ func (s *SCIMigrationMapService) MigrationMapUpsert(ctx context.Context, data *S
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsMigrationMapAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSCIMigrationMapUpsert, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCIMigrationMapUpsert, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

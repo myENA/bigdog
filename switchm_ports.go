@@ -46,7 +46,7 @@ func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *S
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchPortDetailsQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchPortsDetails, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchPortsDetails, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -80,7 +80,7 @@ func (s *SwitchMPortsService) AddSwitchPortsDetailsExport(ctx context.Context, b
 	if err = ctx.Err(); err != nil {
 		return resp.(*FileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchPortsDetailsExport, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchPortsDetailsExport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "application/x-www-form-urlencoded")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -116,7 +116,7 @@ func (s *SwitchMPortsService) AddSwitchPortsSummary(ctx context.Context, body *S
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchPortsSummaryQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchPortsSummary, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchPortsSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

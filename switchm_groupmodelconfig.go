@@ -123,9 +123,9 @@ type SwitchMGroupModelConfigQueryResultAPIResponse struct {
 	Data *SwitchMGroupModelConfigQueryResult
 }
 
-func newSwitchMGroupModelConfigQueryResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMGroupModelConfigQueryResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMGroupModelConfigQueryResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -194,9 +194,9 @@ type SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse struct {
 	Data *SwitchMGroupModelConfigUpdateGroupConfigResultList
 }
 
-func newSwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -243,7 +243,7 @@ func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMGroupModelConfigQueryResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMFindGroupModelConfigsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMFindGroupModelConfigsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -281,7 +281,7 @@ func (s *SwitchMGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateGroupModelConfigsByGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateGroupModelConfigsByGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

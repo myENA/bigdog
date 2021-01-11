@@ -157,9 +157,9 @@ type WSGURLFilteringBlockCategoriesListAPIResponse struct {
 	Data *WSGURLFilteringBlockCategoriesList
 }
 
-func newWSGURLFilteringBlockCategoriesListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGURLFilteringBlockCategoriesListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGURLFilteringBlockCategoriesListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -294,9 +294,9 @@ type WSGURLFilteringPolicyAPIResponse struct {
 	Data *WSGURLFilteringPolicy
 }
 
-func newWSGURLFilteringPolicyAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGURLFilteringPolicyAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGURLFilteringPolicyAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -341,9 +341,9 @@ type WSGURLFilteringPolicyListAPIResponse struct {
 	Data *WSGURLFilteringPolicyList
 }
 
-func newWSGURLFilteringPolicyListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGURLFilteringPolicyListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGURLFilteringPolicyListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

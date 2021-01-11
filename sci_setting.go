@@ -46,7 +46,7 @@ func (s *SCISettingService) SettingDeleteById(ctx context.Context, id string, mu
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSCISettingDeleteById, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodDelete, RouteSCISettingDeleteById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -83,7 +83,7 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsSettingAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCISettingFindById, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCISettingFindById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -116,7 +116,7 @@ func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCISettingSendTestEmail, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCISettingSendTestEmail, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -150,7 +150,7 @@ func (s *SCISettingService) SettingUpsert(ctx context.Context, data *SCIModelsSe
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsSettingAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSCISettingUpsert, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCISettingUpsert, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

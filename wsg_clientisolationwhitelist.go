@@ -47,7 +47,7 @@ func (s *WSGClientIsolationWhitelistService) AddRkszonesClientIsolationWhitelist
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesClientIsolationWhitelistByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesClientIsolationWhitelistByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -82,7 +82,7 @@ func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitel
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesClientIsolationWhitelist, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesClientIsolationWhitelist, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -117,7 +117,7 @@ func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitel
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesClientIsolationWhitelistById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesClientIsolationWhitelistById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -152,7 +152,7 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileClientIsolationWhitelistAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesClientIsolationWhitelistById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesClientIsolationWhitelistById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -185,7 +185,7 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileClientIsolationWhitelistArrayAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesClientIsolationWhitelistByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesClientIsolationWhitelistByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -216,7 +216,7 @@ func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelis
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileClientIsolationWhitelistArrayAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesClientIsolationWhitelistByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesClientIsolationWhitelistByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -256,7 +256,7 @@ func (s *WSGClientIsolationWhitelistService) PartialUpdateRkszonesClientIsolatio
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesClientIsolationWhitelistById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateRkszonesClientIsolationWhitelistById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

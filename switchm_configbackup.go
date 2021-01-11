@@ -99,9 +99,9 @@ type SwitchMConfigurationBackupConfigBackupDiffAPIResponse struct {
 	Data *SwitchMConfigurationBackupConfigBackupDiff
 }
 
-func newSwitchMConfigurationBackupConfigBackupDiffAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMConfigurationBackupConfigBackupDiffAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMConfigurationBackupConfigBackupDiffAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -174,9 +174,9 @@ type SwitchMConfigurationBackupCreateBackupResultListAPIResponse struct {
 	Data *SwitchMConfigurationBackupCreateBackupResultList
 }
 
-func newSwitchMConfigurationBackupCreateBackupResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMConfigurationBackupCreateBackupResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMConfigurationBackupCreateBackupResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -253,9 +253,9 @@ type SwitchMConfigurationBackupListAPIResponse struct {
 	Data *SwitchMConfigurationBackupList
 }
 
-func newSwitchMConfigurationBackupListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMConfigurationBackupListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMConfigurationBackupListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

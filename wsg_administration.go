@@ -101,9 +101,9 @@ type WSGAdministrationApPatchHistoryListAPIResponse struct {
 	Data *WSGAdministrationApPatchHistoryList
 }
 
-func newWSGAdministrationApPatchHistoryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationApPatchHistoryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationApPatchHistoryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -154,9 +154,9 @@ type WSGAdministrationApPatchInfoAPIResponse struct {
 	Data *WSGAdministrationApPatchInfo
 }
 
-func newWSGAdministrationApPatchInfoAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationApPatchInfoAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationApPatchInfoAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -193,9 +193,9 @@ type WSGAdministrationApPatchStatusAPIResponse struct {
 	Data *WSGAdministrationApPatchStatus
 }
 
-func newWSGAdministrationApPatchStatusAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationApPatchStatusAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationApPatchStatusAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -268,9 +268,9 @@ type WSGAdministrationApplicationLogAndStatusListAPIResponse struct {
 	Data *WSGAdministrationApplicationLogAndStatusList
 }
 
-func newWSGAdministrationApplicationLogAndStatusListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationApplicationLogAndStatusListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationApplicationLogAndStatusListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -313,9 +313,9 @@ type WSGAdministrationAutoExportBackupAPIResponse struct {
 	Data *WSGAdministrationAutoExportBackup
 }
 
-func newWSGAdministrationAutoExportBackupAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationAutoExportBackupAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationAutoExportBackupAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -408,9 +408,9 @@ type WSGAdministrationClusterBackupListAPIResponse struct {
 	Data *WSGAdministrationClusterBackupList
 }
 
-func newWSGAdministrationClusterBackupListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationClusterBackupListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationClusterBackupListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -479,9 +479,9 @@ type WSGAdministrationConfigurationBackupListAPIResponse struct {
 	Data *WSGAdministrationConfigurationBackupList
 }
 
-func newWSGAdministrationConfigurationBackupListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationConfigurationBackupListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationConfigurationBackupListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -689,9 +689,9 @@ type WSGAdministrationLicenseServerAPIResponse struct {
 	Data *WSGAdministrationLicenseServer
 }
 
-func newWSGAdministrationLicenseServerAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationLicenseServerAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationLicenseServerAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -734,9 +734,9 @@ type WSGAdministrationLicensesListAPIResponse struct {
 	Data *WSGAdministrationLicensesList
 }
 
-func newWSGAdministrationLicensesListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationLicensesListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationLicensesListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -813,9 +813,9 @@ type WSGAdministrationLicensesSummaryListAPIResponse struct {
 	Data *WSGAdministrationLicensesSummaryList
 }
 
-func newWSGAdministrationLicensesSummaryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationLicensesSummaryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationLicensesSummaryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -878,9 +878,9 @@ type WSGAdministrationLicensesSyncLogsListAPIResponse struct {
 	Data *WSGAdministrationLicensesSyncLogsList
 }
 
-func newWSGAdministrationLicensesSyncLogsListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationLicensesSyncLogsListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationLicensesSyncLogsListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1110,9 +1110,9 @@ type WSGAdministrationRetrieveAdminAAAServerAPIResponse struct {
 	Data *WSGAdministrationRetrieveAdminAAAServer
 }
 
-func newWSGAdministrationRetrieveAdminAAAServerAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationRetrieveAdminAAAServerAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationRetrieveAdminAAAServerAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1155,9 +1155,9 @@ type WSGAdministrationRetrieveAdminAAAServerListAPIResponse struct {
 	Data *WSGAdministrationRetrieveAdminAAAServerList
 }
 
-func newWSGAdministrationRetrieveAdminAAAServerListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationRetrieveAdminAAAServerListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationRetrieveAdminAAAServerListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1239,9 +1239,9 @@ type WSGAdministrationScheduleBackupAPIResponse struct {
 	Data *WSGAdministrationScheduleBackup
 }
 
-func newWSGAdministrationScheduleBackupAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationScheduleBackupAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationScheduleBackupAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1380,9 +1380,9 @@ type WSGAdministrationUpgradeHistoryListAPIResponse struct {
 	Data *WSGAdministrationUpgradeHistoryList
 }
 
-func newWSGAdministrationUpgradeHistoryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationUpgradeHistoryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationUpgradeHistoryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1475,9 +1475,9 @@ type WSGAdministrationUpgradePatchInfoAPIResponse struct {
 	Data *WSGAdministrationUpgradePatchInfo
 }
 
-func newWSGAdministrationUpgradePatchInfoAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationUpgradePatchInfoAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationUpgradePatchInfoAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1514,9 +1514,9 @@ type WSGAdministrationUpgradeStatusAPIResponse struct {
 	Data *WSGAdministrationUpgradeStatus
 }
 
-func newWSGAdministrationUpgradeStatusAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationUpgradeStatusAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationUpgradeStatusAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1579,9 +1579,9 @@ type WSGAdministrationZdAPListAPIResponse struct {
 	Data *WSGAdministrationZdAPList
 }
 
-func newWSGAdministrationZdAPListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationZdAPListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationZdAPListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1658,9 +1658,9 @@ type WSGAdministrationZdImportStatusAPIResponse struct {
 	Data *WSGAdministrationZdImportStatus
 }
 
-func newWSGAdministrationZdImportStatusAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAdministrationZdImportStatusAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAdministrationZdImportStatusAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1707,7 +1707,7 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAdminaaa, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAdminaaa, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1738,7 +1738,7 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...R
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRestart, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRestart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1766,7 +1766,7 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddShutdown, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddShutdown, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1798,7 +1798,7 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAdminaaaById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteAdminaaaById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1831,7 +1831,7 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAdministrationRetrieveAdminAAAServerListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAdminaaa, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAdminaaa, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("type", type_)
@@ -1863,7 +1863,7 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAdministrationRetrieveAdminAAAServerAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAdminaaaById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAdminaaaById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -1891,7 +1891,7 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ..
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAdministrationLicensesListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindLicenses, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindLicenses, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -1918,7 +1918,7 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutato
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAdministrationLicenseServerAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindLicenseServer, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindLicenseServer, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -1945,7 +1945,7 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, muta
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAdministrationLicensesSummaryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindLicensesSummary, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindLicensesSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -1972,7 +1972,7 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mut
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAdministrationLicensesSyncLogsListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindLicensesSyncLogs, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindLicensesSyncLogs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -2006,7 +2006,7 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateAdminaaaById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateAdminaaaById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2041,7 +2041,7 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateLicenseServer, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateLicenseServer, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2072,7 +2072,7 @@ func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context, mutat
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateLicensesSync, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateLicensesSync, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")

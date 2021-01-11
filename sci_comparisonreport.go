@@ -43,7 +43,7 @@ func (s *SCIComparisonReportService) ReportComparisonReport140ComparisionOvervie
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportComparisonReport140ComparisionOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportComparisonReport140ComparisionOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *SCIComparisonReportService) ReportComparisonReport145ComparisionMetric1
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportComparisonReport145ComparisionMetric1, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportComparisonReport145ComparisionMetric1, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -111,7 +111,7 @@ func (s *SCIComparisonReportService) ReportComparisonReport146ComparisionMetric2
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportComparisonReport146ComparisionMetric2, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportComparisonReport146ComparisionMetric2, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -145,7 +145,7 @@ func (s *SCIComparisonReportService) ReportComparisonReport147ComparisionTable(c
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportComparisonReport147ComparisionTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportComparisonReport147ComparisionTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

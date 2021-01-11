@@ -44,7 +44,7 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneI
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGEventManagementEventEmailSettingAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesEventEmailSettingsByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesEventEmailSettingsByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -76,7 +76,7 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettings
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGEventManagementEventDataResponseAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesEventNotificationSettingsByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesEventNotificationSettingsByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -111,7 +111,7 @@ func (s *WSGEventManagementSettingService) UpdateRkszonesEventEmailSettingsByZon
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesEventEmailSettingsByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateRkszonesEventEmailSettingsByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -150,7 +150,7 @@ func (s *WSGEventManagementSettingService) UpdateRkszonesEventNotificationSettin
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesEventNotificationSettingsByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateRkszonesEventNotificationSettingsByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

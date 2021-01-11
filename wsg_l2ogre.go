@@ -43,7 +43,7 @@ func (s *WSGL2oGREService) AddProfilesL2ogre(ctx context.Context, body *WSGProfi
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddProfilesL2ogre, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddProfilesL2ogre, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGL2oGREService) DeleteProfilesL2ogre(ctx context.Context, body *WSGCo
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesL2ogre, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesL2ogre, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGL2oGREService) DeleteProfilesL2ogreById(ctx context.Context, id stri
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesL2ogreById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesL2ogreById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -141,7 +141,7 @@ func (s *WSGL2oGREService) FindProfilesL2ogre(ctx context.Context, mutators ...R
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesL2ogre, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesL2ogre, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -172,7 +172,7 @@ func (s *WSGL2oGREService) FindProfilesL2ogreById(ctx context.Context, id string
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileL2oGREProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesL2ogreById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesL2ogreById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -203,7 +203,7 @@ func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileL2oGREProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindProfilesL2ogreByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindProfilesL2ogreByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -241,7 +241,7 @@ func (s *WSGL2oGREService) PartialUpdateProfilesL2ogreById(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesL2ogreById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateProfilesL2ogreById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

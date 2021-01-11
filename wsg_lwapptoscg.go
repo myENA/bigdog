@@ -40,7 +40,7 @@ func (s *WSGLWAPPTOSCGService) FindLwapp2scg(ctx context.Context, mutators ...Re
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemLwapp2scgConfigurationAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindLwapp2scg, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindLwapp2scg, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -70,7 +70,7 @@ func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scg(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateLwapp2scg, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateLwapp2scg, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -104,7 +104,7 @@ func (s *WSGLWAPPTOSCGService) PartialUpdateLwapp2scgApList(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateLwapp2scgApList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateLwapp2scgApList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -96,9 +96,9 @@ type WSGSplitTunnelProfileAPIResponse struct {
 	Data *WSGSplitTunnelProfile
 }
 
-func newWSGSplitTunnelProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSplitTunnelProfileAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSplitTunnelProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -141,9 +141,9 @@ type WSGSplitTunnelProfileListAPIResponse struct {
 	Data *WSGSplitTunnelProfileList
 }
 
-func newWSGSplitTunnelProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSplitTunnelProfileListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSplitTunnelProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -202,9 +202,9 @@ type WSGSplitTunnelProfileQueryAPIResponse struct {
 	Data *WSGSplitTunnelProfileQuery
 }
 
-func newWSGSplitTunnelProfileQueryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSplitTunnelProfileQueryAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSplitTunnelProfileQueryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

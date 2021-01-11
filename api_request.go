@@ -16,6 +16,25 @@ import (
 	"sync/atomic"
 )
 
+type APISource int
+
+const (
+	APISourceUnknown APISource = iota
+	APISourceVSZ
+	APISourceSCI
+)
+
+func (s APISource) String() string {
+	switch s {
+	case APISourceVSZ:
+		return "vsz"
+	case APISourceSCI:
+		return "sci"
+	default:
+		return "UNKNOWN"
+	}
+}
+
 type RequestMutator func(*http.Request)
 
 func ToString(value interface{}) string {
@@ -99,6 +118,7 @@ func (qv QueryValues) Encode() string {
 var apiRequestID uint64
 
 type APIRequest struct {
+	Source        APISource
 	Method        string
 	URI           string
 	Authenticated bool
@@ -113,7 +133,8 @@ type APIRequest struct {
 
 var apiRequestPool = sync.Pool{New: func() interface{} { return new(APIRequest) }}
 
-func bootstrapRequest(req *APIRequest, method, uri string, authenticated bool) {
+func bootstrapRequest(src APISource, req *APIRequest, method, uri string, authenticated bool) {
+	req.Source = src
 	req.Method = method
 	req.URI = uri
 	req.Authenticated = authenticated
@@ -124,13 +145,14 @@ func bootstrapRequest(req *APIRequest, method, uri string, authenticated bool) {
 	req.id = atomic.AddUint64(&apiRequestID, 1)
 }
 
-func apiRequestFromPool(method, uri string, authenticated bool) *APIRequest {
+func apiRequestFromPool(src APISource, method, uri string, authenticated bool) *APIRequest {
 	req := apiRequestPool.Get().(*APIRequest)
-	bootstrapRequest(req, method, uri, authenticated)
+	bootstrapRequest(src, req, method, uri, authenticated)
 	return req
 }
 
 func recycleAPIRequest(req *APIRequest) {
+	req.Source = APISourceUnknown
 	req.Method = ""
 	req.URI = ""
 	req.Authenticated = false
@@ -145,9 +167,9 @@ func recycleAPIRequest(req *APIRequest) {
 	apiRequestPool.Put(req)
 }
 
-func NewAPIRequest(method, uri string, authenticated bool) *APIRequest {
+func NewAPIRequest(src APISource, method, uri string, authenticated bool) *APIRequest {
 	req := new(APIRequest)
-	bootstrapRequest(req, method, uri, authenticated)
+	bootstrapRequest(src, req, method, uri, authenticated)
 	return req
 }
 

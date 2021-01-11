@@ -102,9 +102,9 @@ type WSGIndoorMapIndooMapAuditIdAPIResponse struct {
 	Data *WSGIndoorMapIndooMapAuditId
 }
 
-func newWSGIndoorMapIndooMapAuditIdAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIndoorMapIndooMapAuditIdAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIndoorMapIndooMapAuditIdAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -204,9 +204,9 @@ type WSGIndoorMapAPIResponse struct {
 	Data *WSGIndoorMap
 }
 
-func newWSGIndoorMapAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIndoorMapAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIndoorMapAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -273,9 +273,9 @@ type WSGIndoorMapListAPIResponse struct {
 	Data *WSGIndoorMapList
 }
 
-func newWSGIndoorMapListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIndoorMapListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIndoorMapListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -399,9 +399,9 @@ type WSGIndoorMapSummaryListAPIResponse struct {
 	Data *WSGIndoorMapSummaryList
 }
 
-func newWSGIndoorMapSummaryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIndoorMapSummaryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIndoorMapSummaryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -490,7 +490,7 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap, m
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIndoorMapIndooMapAuditIdAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddMaps, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddMaps, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -525,7 +525,7 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoo
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIndoorMapIndooMapAuditIdAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteMapsByIndoorMapId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteMapsByIndoorMapId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
@@ -560,7 +560,7 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, grou
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIndoorMapListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindMaps, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindMaps, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("groupId", groupId)
@@ -593,7 +593,7 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorM
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIndoorMapAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindMapsByIndoorMapId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindMapsByIndoorMapId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("indoorMapId", indoorMapId)
@@ -624,7 +624,7 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIndoorMapListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindMapsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindMapsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -662,7 +662,7 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIndoorMapIndooMapAuditIdAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateMapsByIndoorMapId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateMapsByIndoorMapId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
@@ -701,7 +701,7 @@ func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIndoorMapIndooMapAuditIdAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateMapsApsByIndoorMapId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateMapsApsByIndoorMapId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)

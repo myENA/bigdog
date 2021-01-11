@@ -230,9 +230,9 @@ type WSGSyslogServerSettingAPIResponse struct {
 	Data *WSGSyslogServerSetting
 }
 
-func newWSGSyslogServerSettingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSyslogServerSettingAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSyslogServerSettingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

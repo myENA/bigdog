@@ -43,7 +43,7 @@ func (s *SwitchMCommonSettingsService) AddDnsConfig(ctx context.Context, body *S
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddDnsConfig, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddDnsConfig, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -78,7 +78,7 @@ func (s *SwitchMCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteDnsConfigBySwitchGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteDnsConfigBySwitchGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -111,7 +111,7 @@ func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMDNSConfigAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindDnsConfigBySwitchGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindDnsConfigBySwitchGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchGroupId", switchGroupId)
@@ -146,7 +146,7 @@ func (s *SwitchMCommonSettingsService) UpdateDnsConfigBySwitchGroupId(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateDnsConfigBySwitchGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateDnsConfigBySwitchGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -22,6 +22,109 @@ func (ss *SCIService) SCIOverviewService() *SCIOverviewService {
 	return NewSCIOverviewService(ss.apiClient)
 }
 
+// SCIOverview62overviewData
+//
+// Definition: Overview_Overview_62_overview_Data
+type SCIOverview62overviewData []*SCIOverview62overviewDataType
+
+func MakeSCIOverview62overviewData() SCIOverview62overviewData {
+	m := make(SCIOverview62overviewData, 0)
+	return m
+}
+
+// SCIOverview62overviewDataType
+//
+// Definition: Overview_Overview_62_overview_DataType
+type SCIOverview62overviewDataType struct {
+	ApMac *string `json:"apMac,omitempty"`
+
+	ApName *string `json:"apName,omitempty"`
+
+	ClientCount interface{} `json:"clientCount,omitempty"`
+
+	RebootCount interface{} `json:"rebootCount,omitempty"`
+
+	SessionCount interface{} `json:"sessionCount,omitempty"`
+
+	ShortSessionRatio interface{} `json:"shortSessionRatio,omitempty"`
+
+	Total *float64 `json:"total,omitempty"`
+
+	TotalHistory *float64 `json:"totalHistory,omitempty"`
+
+	UserTraffic *float64 `json:"userTraffic,omitempty"`
+
+	XAdditionalProperties map[string]interface{} `json:"-"`
+}
+
+func (t *SCIOverview62overviewDataType) UnmarshalJSON(b []byte) error {
+	type _SCIOverview62overviewDataType SCIOverview62overviewDataType
+	tmpType := new(_SCIOverview62overviewDataType)
+	if err := json.Unmarshal(b, tmpType); err != nil {
+		return err
+	}
+	tmpType.XAdditionalProperties = make(map[string]interface{})
+	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
+		return err
+	}
+	delete(tmpType.XAdditionalProperties, "apMac")
+	delete(tmpType.XAdditionalProperties, "apName")
+	delete(tmpType.XAdditionalProperties, "clientCount")
+	delete(tmpType.XAdditionalProperties, "rebootCount")
+	delete(tmpType.XAdditionalProperties, "sessionCount")
+	delete(tmpType.XAdditionalProperties, "shortSessionRatio")
+	delete(tmpType.XAdditionalProperties, "total")
+	delete(tmpType.XAdditionalProperties, "totalHistory")
+	delete(tmpType.XAdditionalProperties, "userTraffic")
+	*t = SCIOverview62overviewDataType(*tmpType)
+	return nil
+}
+
+func (t *SCIOverview62overviewDataType) MarshalJSON() ([]byte, error) {
+	if t == nil {
+		return nil, nil
+	}
+	var tmp map[string]interface{}
+	if t.XAdditionalProperties == nil {
+		tmp = make(map[string]interface{})
+	} else {
+		tmp = t.XAdditionalProperties
+	}
+	if t.ApMac != nil {
+		tmp["apMac"] = t.ApMac
+	}
+	if t.ApName != nil {
+		tmp["apName"] = t.ApName
+	}
+	if t.ClientCount != nil {
+		tmp["clientCount"] = t.ClientCount
+	}
+	if t.RebootCount != nil {
+		tmp["rebootCount"] = t.RebootCount
+	}
+	if t.SessionCount != nil {
+		tmp["sessionCount"] = t.SessionCount
+	}
+	if t.ShortSessionRatio != nil {
+		tmp["shortSessionRatio"] = t.ShortSessionRatio
+	}
+	if t.Total != nil {
+		tmp["total"] = t.Total
+	}
+	if t.TotalHistory != nil {
+		tmp["totalHistory"] = t.TotalHistory
+	}
+	if t.UserTraffic != nil {
+		tmp["userTraffic"] = t.UserTraffic
+	}
+	return json.Marshal(tmp)
+}
+
+func NewSCIOverview62overviewDataType() *SCIOverview62overviewDataType {
+	m := new(SCIOverview62overviewDataType)
+	return m
+}
+
 // SCIOverview62overviewMetaData
 //
 // Definition: Overview_Overview_62_overview_MetaData
@@ -1949,7 +2052,7 @@ func (s *SCIOverviewService) ReportOverview62Overview(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview62overview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview62Overview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview62Overview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1983,7 +2086,7 @@ func (s *SCIOverviewService) ReportOverview63Controller(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview63controller200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview63Controller, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview63Controller, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2017,7 +2120,7 @@ func (s *SCIOverviewService) ReportOverview64ApOverview(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview64apOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview64ApOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview64ApOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2051,7 +2154,7 @@ func (s *SCIOverviewService) ReportOverview66ApAlarmOverview(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview66ApAlarmOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview66ApAlarmOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2085,7 +2188,7 @@ func (s *SCIOverviewService) ReportOverview67SwitchOverview(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview67switchOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview67SwitchOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview67SwitchOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2119,7 +2222,7 @@ func (s *SCIOverviewService) ReportOverview68ApClientCountOverview(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview68ApClientCountOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview68ApClientCountOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2153,7 +2256,7 @@ func (s *SCIOverviewService) ReportOverview69TotalTrafficMinMaxRate(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview69TotalTrafficMinMaxRate, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview69TotalTrafficMinMaxRate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2187,7 +2290,7 @@ func (s *SCIOverviewService) ReportOverview70SessionsOverview(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview70sessionsOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview70SessionsOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview70SessionsOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2221,7 +2324,7 @@ func (s *SCIOverviewService) ReportOverview71SsidOverview(ctx context.Context, b
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview71ssidOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview71SsidOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview71SsidOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2255,7 +2358,7 @@ func (s *SCIOverviewService) ReportOverview72RadioOverview(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview72radioOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview72RadioOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview72RadioOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2289,7 +2392,7 @@ func (s *SCIOverviewService) ReportOverview73ApplicationsOverview(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview73applicationsOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview73ApplicationsOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview73ApplicationsOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2323,7 +2426,7 @@ func (s *SCIOverviewService) ReportOverview74ApEventOverview(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview74apEventOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview74ApEventOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview74ApEventOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2357,7 +2460,7 @@ func (s *SCIOverviewService) ReportOverview97FactOverview(ctx context.Context, b
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview97factOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview97FactOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview97FactOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2391,7 +2494,7 @@ func (s *SCIOverviewService) ReportOverview115NetworkUsageOverview(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportOverview115NetworkUsageOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportOverview115NetworkUsageOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

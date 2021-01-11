@@ -43,7 +43,7 @@ func (s *WSGQueryWithFilterService) FindGgsnGtpcConStatsByQueryCriteria(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGRACStatsGgsnGtpcConListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindGgsnGtpcConStatsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindGgsnGtpcConStatsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGQueryWithFilterService) FindGgsnGtpStatsByQueryCriteria(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGRACStatsGgsnGtpListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindGgsnGtpStatsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindGgsnGtpStatsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -111,7 +111,7 @@ func (s *WSGQueryWithFilterService) FindRadiusProxyStatsByQueryCriteria(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGRACStatsRadiusProxyListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindRadiusProxyStatsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindRadiusProxyStatsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

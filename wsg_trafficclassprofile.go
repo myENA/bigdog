@@ -47,7 +47,7 @@ func (s *WSGTrafficClassProfileService) AddRkszonesTrafficClassProfileByZoneId(c
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesTrafficClassProfileByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesTrafficClassProfileByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -85,7 +85,7 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesTrafficClassProfileById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesTrafficClassProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -122,7 +122,7 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileByZoneI
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesTrafficClassProfileByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesTrafficClassProfileByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -160,7 +160,7 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonTrafficClassProfileRefAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesTrafficClassProfileById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesTrafficClassProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -193,7 +193,7 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileTrafficClassProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesTrafficClassProfileByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesTrafficClassProfileByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -224,7 +224,7 @@ func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCr
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileTrafficClassProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesTrafficClassProfileByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesTrafficClassProfileByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -264,7 +264,7 @@ func (s *WSGTrafficClassProfileService) PartialUpdateRkszonesTrafficClassProfile
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesTrafficClassProfileById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateRkszonesTrafficClassProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

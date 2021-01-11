@@ -127,9 +127,9 @@ type SwitchMStaticRouteSettingStaticRouteAPIResponse struct {
 	Data *SwitchMStaticRouteSettingStaticRoute
 }
 
-func newSwitchMStaticRouteSettingStaticRouteAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMStaticRouteSettingStaticRouteAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMStaticRouteSettingStaticRouteAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -186,9 +186,9 @@ type SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse struct {
 	Data *SwitchMStaticRouteSettingStaticRoutesQueryResult
 }
 
-func newSwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -269,7 +269,7 @@ func (s *SwitchMStaticRouteSettingService) AddStaticRoutes(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddStaticRoutes, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddStaticRoutes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -303,7 +303,7 @@ func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutes(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteStaticRoutes, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteStaticRoutes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -338,7 +338,7 @@ func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutesById(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteStaticRoutesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteStaticRoutesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -371,7 +371,7 @@ func (s *SwitchMStaticRouteSettingService) FindStaticRoutesById(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMStaticRouteSettingStaticRouteAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindStaticRoutesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindStaticRoutesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -402,7 +402,7 @@ func (s *SwitchMStaticRouteSettingService) FindStaticRoutesByQueryCriteria(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMFindStaticRoutesByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMFindStaticRoutesByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -440,7 +440,7 @@ func (s *SwitchMStaticRouteSettingService) UpdateStaticRoutesById(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateStaticRoutesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateStaticRoutesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

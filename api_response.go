@@ -98,6 +98,9 @@ type APIResponseMetaContainer interface {
 type APIResponse interface {
 	APIResponseMetaContainer
 
+	// Source must return the source of this API response
+	Source() APISource
+
 	// Err must return the current state error, or nil if beginning state.
 	Err() error
 
@@ -120,20 +123,22 @@ type ModeledAPIResponse interface {
 }
 
 // APIResponseFactory is used by the internal response handling mechanism to construct each response type
-type APIResponseFactory func(meta APIResponseMeta, body io.ReadCloser) APIResponse
+type APIResponseFactory func(source APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse
 
 // RawAPIResponse is the base implementation of APIResponse. Each api either returns this or returns a type that embeds
 // this type.
 type RawAPIResponse struct {
 	mu   sync.Mutex
+	src  APISource
 	body io.ReadCloser
 	err  error
 
 	meta APIResponseMeta
 }
 
-func newRawAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newRawAPIResponse(source APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	b := new(RawAPIResponse)
+	b.src = source
 	b.meta = meta
 	if body != nil {
 		b.body = body
@@ -154,6 +159,11 @@ func (b *RawAPIResponse) cleanupBody() error {
 // ResponseMeta returns a portable meta type
 func (b *RawAPIResponse) ResponseMeta() APIResponseMeta {
 	return b.meta
+}
+
+// Source returns the upstream source of this response (VSZ or SCI)
+func (b *RawAPIResponse) Source() APISource {
+	return b.src
 }
 
 // Err returns the current state error, if there is one.
@@ -252,10 +262,10 @@ type EmptyAPIResponse struct {
 	*RawAPIResponse
 }
 
-func newEmptyAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newEmptyAPIResponse(source APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(EmptyAPIResponse)
 	cleanupReadCloser(body)
-	r.RawAPIResponse = newRawAPIResponse(meta, nil).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(source, meta, nil).(*RawAPIResponse)
 	return r
 }
 
@@ -267,8 +277,8 @@ type FileAPIResponse struct {
 	*RawAPIResponse
 }
 
-func newFileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newFileAPIResponse(source APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(FileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(source, meta, body).(*RawAPIResponse)
 	return r
 }

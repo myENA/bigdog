@@ -43,7 +43,7 @@ func (s *SwitchMJobAndScheduleService) AddJob(ctx context.Context, body *SwitchM
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMJobListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddJob, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddJob, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -74,7 +74,7 @@ func (s *SwitchMJobAndScheduleService) DeleteJobSchedule(ctx context.Context, mu
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteJobSchedule, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteJobSchedule, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -109,7 +109,7 @@ func (s *SwitchMJobAndScheduleService) FindJobByJobId(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMJobAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindJobByJobId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindJobByJobId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
@@ -144,7 +144,7 @@ func (s *SwitchMJobAndScheduleService) FindJobScheduleByScheduleId(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMJobScheduleResponseAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindJobScheduleByScheduleId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindJobScheduleByScheduleId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("scheduleId", scheduleId)

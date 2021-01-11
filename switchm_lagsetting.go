@@ -43,7 +43,7 @@ func (s *SwitchMLAGSettingService) AddLagConfigs(ctx context.Context, body *Swit
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMLAGConfigCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddLagConfigs, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddLagConfigs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigs(ctx context.Context, body *S
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteLagConfigs, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteLagConfigs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigsById(ctx context.Context, id 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteLagConfigsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteLagConfigsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -141,7 +141,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigs(ctx context.Context, mutators 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMLAGConfigListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindLagConfigs, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindLagConfigs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -172,7 +172,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id st
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMLAGConfigAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindLagConfigsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindLagConfigsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -203,7 +203,7 @@ func (s *SwitchMLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMLAGConfigListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMFindLagConfigsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMFindLagConfigsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -241,7 +241,7 @@ func (s *SwitchMLAGSettingService) UpdateLagConfigsById(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateLagConfigsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateLagConfigsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

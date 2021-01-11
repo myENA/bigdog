@@ -89,9 +89,9 @@ type WSGMeshNeighborInfoListAPIResponse struct {
 	Data *WSGMeshNeighborInfoList
 }
 
-func newWSGMeshNeighborInfoListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGMeshNeighborInfoListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGMeshNeighborInfoListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

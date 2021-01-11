@@ -43,7 +43,7 @@ func (s *WSGURLFilteringPolicyService) AddUrlFilteringUrlFilteringPolicy(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddUrlFilteringUrlFilteringPolicy, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddUrlFilteringUrlFilteringPolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicy(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteUrlFilteringUrlFilteringPolicy, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteUrlFilteringUrlFilteringPolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicyById(
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteUrlFilteringUrlFilteringPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteUrlFilteringUrlFilteringPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -141,7 +141,7 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringBlockCategories(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGURLFilteringBlockCategoriesListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindUrlFilteringBlockCategories, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUrlFilteringBlockCategories, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -171,7 +171,7 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGURLFilteringPolicyListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindUrlFilteringByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindUrlFilteringByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -210,7 +210,7 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicy(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGURLFilteringPolicyListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindUrlFilteringUrlFilteringPolicy, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUrlFilteringUrlFilteringPolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
@@ -250,7 +250,7 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGURLFilteringPolicyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindUrlFilteringUrlFilteringPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUrlFilteringUrlFilteringPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -285,7 +285,7 @@ func (s *WSGURLFilteringPolicyService) PartialUpdateUrlFilteringUrlFilteringPoli
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateUrlFilteringUrlFilteringPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateUrlFilteringUrlFilteringPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

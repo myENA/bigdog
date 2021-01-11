@@ -279,9 +279,9 @@ type SwitchMPortSettingsAPIResponse struct {
 	Data *SwitchMPortSettings
 }
 
-func newSwitchMPortSettingsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMPortSettingsAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMPortSettingsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -338,9 +338,9 @@ type SwitchMPortSettingsQueryResultAPIResponse struct {
 	Data *SwitchMPortSettingsQueryResult
 }
 
-func newSwitchMPortSettingsQueryResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMPortSettingsQueryResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMPortSettingsQueryResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -479,7 +479,7 @@ func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddPortSettingsBulk, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddPortSettingsBulk, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -510,7 +510,7 @@ func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context, mutat
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMPortSettingsQueryResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindPortSettings, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindPortSettings, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -541,7 +541,7 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, i
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMPortSettingsAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindPortSettingsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindPortSettingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -572,7 +572,7 @@ func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMPortSettingsQueryResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMFindPortSettingsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMFindPortSettingsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -610,7 +610,7 @@ func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdatePortSettingsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdatePortSettingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

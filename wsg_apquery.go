@@ -27,9 +27,9 @@ type WSGAPQueryListAPIResponse struct {
 	Data *WSGAPQueryList
 }
 
-func newWSGAPQueryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPQueryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPQueryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

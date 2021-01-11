@@ -44,7 +44,7 @@ func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteControlPlanesStaticRoutesByBladeUUID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteControlPlanesStaticRoutesByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBlade
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteControlPlanesUserDefinedInterfaceByBladeUUID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteControlPlanesUserDefinedInterfaceByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -106,7 +106,7 @@ func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context, mutator
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemControlPlaneListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindControlPlanes, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindControlPlanes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -137,7 +137,7 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemControlPlaneConfigurationAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindControlPlanesByBladeUUID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindControlPlanesByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("bladeUUID", bladeUUID)
@@ -169,7 +169,7 @@ func (s *WSGControlPlanesService) FindControlPlanesInterfaces(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemControlPlaneInterfaceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindControlPlanesInterfaces, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindControlPlanesInterfaces, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["bladeUUID"]; ok && len(v) > 0 {
@@ -203,7 +203,7 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemStaticRouteListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindControlPlanesStaticRoutesByBladeUUID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindControlPlanesStaticRoutesByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("bladeUUID", bladeUUID)
@@ -235,7 +235,7 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemUserDefinedInterfaceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindControlPlanesUserDefinedInterfaceByBladeUUID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindControlPlanesUserDefinedInterfaceByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("bladeUUID", bladeUUID)
@@ -270,7 +270,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateControlPlanesByBladeUUID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateControlPlanesByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -305,7 +305,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateControlPlanesIpSupport, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateControlPlanesIpSupport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -343,7 +343,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesStaticRoutesByBladeU
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateControlPlanesStaticRoutesByBladeUUID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateControlPlanesStaticRoutesByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -382,7 +382,7 @@ func (s *WSGControlPlanesService) PartialUpdateControlPlanesUserDefinedInterface
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

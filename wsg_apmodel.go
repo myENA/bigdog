@@ -281,9 +281,9 @@ type WSGAPModelCommonAttributeAPIResponse struct {
 	Data *WSGAPModelCommonAttribute
 }
 
-func newWSGAPModelCommonAttributeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPModelCommonAttributeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPModelCommonAttributeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

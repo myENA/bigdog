@@ -95,9 +95,9 @@ type SwitchMSyslogServersQueryResultAPIResponse struct {
 	Data *SwitchMSyslogServersQueryResult
 }
 
-func newSwitchMSyslogServersQueryResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSyslogServersQueryResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSyslogServersQueryResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -148,7 +148,7 @@ func (s *SwitchMSyslogServersService) AddGroupSyslogServersByGroupId(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddGroupSyslogServersByGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddGroupSyslogServersByGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -186,7 +186,7 @@ func (s *SwitchMSyslogServersService) DeleteGroupSyslogServersById(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteGroupSyslogServersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteGroupSyslogServersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -220,7 +220,7 @@ func (s *SwitchMSyslogServersService) FindGroupSyslogServersByGroupId(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSyslogServersQueryResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindGroupSyslogServersByGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindGroupSyslogServersByGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("groupId", groupId)
@@ -257,7 +257,7 @@ func (s *SwitchMSyslogServersService) UpdateGroupSyslogServersById(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateGroupSyslogServersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateGroupSyslogServersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

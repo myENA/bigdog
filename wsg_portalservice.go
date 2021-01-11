@@ -529,9 +529,9 @@ type WSGPortalServiceGuestAccessAPIResponse struct {
 	Data *WSGPortalServiceGuestAccess
 }
 
-func newWSGPortalServiceGuestAccessAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGPortalServiceGuestAccessAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceGuestAccessAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -631,9 +631,9 @@ type WSGPortalServiceHotspotAPIResponse struct {
 	Data *WSGPortalServiceHotspot
 }
 
-func newWSGPortalServiceHotspotAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGPortalServiceHotspotAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceHotspotAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -696,9 +696,9 @@ type WSGPortalServiceHotspot20VeuneProfileAPIResponse struct {
 	Data *WSGPortalServiceHotspot20VeuneProfile
 }
 
-func newWSGPortalServiceHotspot20VeuneProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGPortalServiceHotspot20VeuneProfileAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceHotspot20VeuneProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -785,9 +785,9 @@ type WSGPortalServiceHotspot20WlanProfileAPIResponse struct {
 	Data *WSGPortalServiceHotspot20WlanProfile
 }
 
-func newWSGPortalServiceHotspot20WlanProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGPortalServiceHotspot20WlanProfileAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceHotspot20WlanProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -842,9 +842,9 @@ type WSGPortalServiceL2ACLAPIResponse struct {
 	Data *WSGPortalServiceL2ACL
 }
 
-func newWSGPortalServiceL2ACLAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGPortalServiceL2ACLAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceL2ACLAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1201,9 +1201,9 @@ type WSGPortalServiceListAPIResponse struct {
 	Data *WSGPortalServiceList
 }
 
-func newWSGPortalServiceListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGPortalServiceListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1321,9 +1321,9 @@ type WSGPortalServiceWebAuthenticationAPIResponse struct {
 	Data *WSGPortalServiceWebAuthentication
 }
 
-func newWSGPortalServiceWebAuthenticationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGPortalServiceWebAuthenticationAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceWebAuthenticationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1390,9 +1390,9 @@ type WSGPortalServiceWechatConfigurationAPIResponse struct {
 	Data *WSGPortalServiceWechatConfiguration
 }
 
-func newWSGPortalServiceWechatConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGPortalServiceWechatConfigurationAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalServiceWechatConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

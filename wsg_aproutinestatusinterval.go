@@ -19,9 +19,9 @@ type WSGAPRoutineStatusIntervalRspAPIResponse struct {
 	Data *WSGAPRoutineStatusIntervalRsp
 }
 
-func newWSGAPRoutineStatusIntervalRspAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPRoutineStatusIntervalRspAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPRoutineStatusIntervalRspAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

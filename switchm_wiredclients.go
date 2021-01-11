@@ -46,7 +46,7 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchConnectedDevicesQueryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchClients, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchClients, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -80,7 +80,7 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, bod
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchConnectedAPsQueryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchClientsAp, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchClientsAp, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -114,7 +114,7 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAPExport(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*FileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchClientsAPExport, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchClientsAPExport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "application/x-www-form-urlencoded")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -150,7 +150,7 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsExport(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*FileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchClientsExport, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchClientsExport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "application/x-www-form-urlencoded")
 	req.Header.Set(headerKeyAccept, "*/*")

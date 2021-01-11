@@ -43,7 +43,7 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, b
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddProfilesAuth, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddProfilesAuth, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -81,7 +81,7 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileCloneAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddProfilesAuthCloneById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddProfilesAuthCloneById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -116,7 +116,7 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesAuth, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesAuth, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -151,7 +151,7 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesAuthById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteProfilesAuthById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -180,7 +180,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileAuthenticationProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesAuth, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesAuth, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -211,7 +211,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileBaseServiceInfoListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesAuthAuthorizationList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesAuthAuthorizationList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("type", type_)
@@ -242,7 +242,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQuery
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileBaseServiceInfoListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindProfilesAuthAuthServiceListByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindProfilesAuthAuthServiceListByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -277,7 +277,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileAuthenticationProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesAuthById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesAuthById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -308,7 +308,7 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileAuthenticationProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindProfilesAuthByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindProfilesAuthByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -346,7 +346,7 @@ func (s *WSGAuthenticationProfileService) PartialUpdateProfilesAuthById(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesAuthById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateProfilesAuthById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

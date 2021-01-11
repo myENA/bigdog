@@ -42,7 +42,7 @@ func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, sys
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIZdXmlGetAjaxRequest, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIZdXmlGetAjaxRequest, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("system_id", systemid)
@@ -72,7 +72,7 @@ func (s *SCIZoneDirectorXMLService) ZdXmlUpload(ctx context.Context, container s
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIZdXmlUpload, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIZdXmlUpload, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -105,9 +105,9 @@ type WSGRogueClientRogueInfoListAPIResponse struct {
 	Data *WSGRogueClientRogueInfoList
 }
 
-func newWSGRogueClientRogueInfoListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGRogueClientRogueInfoListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGRogueClientRogueInfoListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -154,7 +154,7 @@ func (s *WSGRogueClientService) FindRogueclientsByQueryCriteria(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGRogueClientRogueInfoListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindRogueclientsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindRogueclientsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

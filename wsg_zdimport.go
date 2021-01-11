@@ -43,7 +43,7 @@ func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSG
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddZdImportConnectZD, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddZdImportConnectZD, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAd
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddZdImportMigrate, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddZdImportMigrate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAdministrationZdAPListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindZdImportGetZDAPs, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindZdImportGetZDAPs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("ip", ip)
@@ -144,7 +144,7 @@ func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalPar
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAdministrationZdImportStatusAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindZdImportStatus, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindZdImportStatus, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["details"]; ok && len(v) > 0 {

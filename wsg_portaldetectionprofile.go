@@ -122,9 +122,9 @@ type WSGPortalDetectionProfileAPIResponse struct {
 	Data *WSGPortalDetectionProfile
 }
 
-func newWSGPortalDetectionProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGPortalDetectionProfileAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalDetectionProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -169,9 +169,9 @@ type WSGPortalDetectionProfileListAPIResponse struct {
 	Data *WSGPortalDetectionProfileList
 }
 
-func newWSGPortalDetectionProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGPortalDetectionProfileListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPortalDetectionProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

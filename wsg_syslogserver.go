@@ -46,7 +46,7 @@ func (s *WSGSyslogServerService) FindSystemSyslog(ctx context.Context, optionalP
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSyslogServerSettingAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemSyslog, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemSyslog, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
@@ -82,7 +82,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslog(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSystemSyslog, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateSystemSyslog, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -116,7 +116,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPrimaryServer(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogPrimaryServer, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateSystemSyslogPrimaryServer, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -150,7 +150,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogPriority(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogPriority, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateSystemSyslogPriority, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -184,7 +184,7 @@ func (s *WSGSyslogServerService) PartialUpdateSystemSyslogSecondaryServer(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSystemSyslogSecondaryServer, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateSystemSyslogSecondaryServer, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

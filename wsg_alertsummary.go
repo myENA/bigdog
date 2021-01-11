@@ -25,9 +25,9 @@ type WSGAlertSummaryAlarmSummaryAPIResponse struct {
 	Data *WSGAlertSummaryAlarmSummary
 }
 
-func newWSGAlertSummaryAlarmSummaryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAlertSummaryAlarmSummaryAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAlertSummaryAlarmSummaryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -74,9 +74,9 @@ type WSGAlertSummaryEventSummaryAPIResponse struct {
 	Data *WSGAlertSummaryEventSummary
 }
 
-func newWSGAlertSummaryEventSummaryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAlertSummaryEventSummaryAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAlertSummaryEventSummaryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

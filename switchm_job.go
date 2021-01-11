@@ -91,9 +91,9 @@ type SwitchMJobAPIResponse struct {
 	Data *SwitchMJob
 }
 
-func newSwitchMJobAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMJobAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMJobAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -166,9 +166,9 @@ type SwitchMJobScheduleResponseAPIResponse struct {
 	Data *SwitchMJobScheduleResponse
 }
 
-func newSwitchMJobScheduleResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMJobScheduleResponseAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMJobScheduleResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -225,9 +225,9 @@ type SwitchMJobListAPIResponse struct {
 	Data *SwitchMJobList
 }
 
-func newSwitchMJobListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMJobListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMJobListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

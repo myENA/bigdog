@@ -153,9 +153,9 @@ type WSGWIFICallingPolicyAPIResponse struct {
 	Data *WSGWIFICallingPolicy
 }
 
-func newWSGWIFICallingPolicyAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGWIFICallingPolicyAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWIFICallingPolicyAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -200,9 +200,9 @@ type WSGWIFICallingPolicyListAPIResponse struct {
 	Data *WSGWIFICallingPolicyList
 }
 
-func newWSGWIFICallingPolicyListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGWIFICallingPolicyListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWIFICallingPolicyListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

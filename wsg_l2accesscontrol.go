@@ -136,9 +136,9 @@ type WSGL2AccessControlAPIResponse struct {
 	Data *WSGL2AccessControl
 }
 
-func newWSGL2AccessControlAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGL2AccessControlAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGL2AccessControlAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -183,9 +183,9 @@ type WSGL2AccessControlListAPIResponse struct {
 	Data *WSGL2AccessControlList
 }
 
-func newWSGL2AccessControlListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGL2AccessControlListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGL2AccessControlListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -309,7 +309,7 @@ func (s *WSGL2AccessControlService) AddRkszonesL2ACLByZoneId(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesL2ACLByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesL2ACLByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -347,7 +347,7 @@ func (s *WSGL2AccessControlService) DeleteRkszonesL2ACLById(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesL2ACLById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesL2ACLById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -383,7 +383,7 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLById(ctx context.Context, i
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGPortalServiceL2ACLAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesL2ACLById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesL2ACLById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -422,7 +422,7 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGPortalServiceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesL2ACLByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesL2ACLByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -459,7 +459,7 @@ func (s *WSGL2AccessControlService) FindServicesL2AccessControlByQueryCriteria(c
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesL2AccessControlByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesL2AccessControlByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -499,7 +499,7 @@ func (s *WSGL2AccessControlService) PartialUpdateRkszonesL2ACLById(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesL2ACLById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateRkszonesL2ACLById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

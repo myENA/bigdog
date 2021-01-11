@@ -70,9 +70,9 @@ type WSGDomainDevicePolicyProfileAPIResponse struct {
 	Data *WSGDomainDevicePolicyProfile
 }
 
-func newWSGDomainDevicePolicyProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDomainDevicePolicyProfileAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDomainDevicePolicyProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -180,9 +180,9 @@ type WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse struct {
 	Data *WSGDomainDevicePolicyProfileByQueryCriteria
 }
 
-func newWSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -297,9 +297,9 @@ type WSGDomainDevicePolicyProfileListAPIResponse struct {
 	Data *WSGDomainDevicePolicyProfileList
 }
 
-func newWSGDomainDevicePolicyProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDomainDevicePolicyProfileListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDomainDevicePolicyProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

@@ -43,7 +43,7 @@ func (s *WSGDPNATProfileService) AddDpNatProfiles(ctx context.Context, body *WSG
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDPProfileDpNatProfileBasicBOAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddDpNatProfiles, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddDpNatProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -81,7 +81,7 @@ func (s *WSGDPNATProfileService) AddDpNatProfilesDpNatPoolsById(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDPProfileDpNatProfilePoolBOAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddDpNatProfilesDpNatPoolsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddDpNatProfilesDpNatPoolsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -116,7 +116,7 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfiles(ctx context.Context, body *
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDpNatProfiles, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpNatProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -151,7 +151,7 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesById(ctx context.Context, id
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDpNatProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpNatProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -187,7 +187,7 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsById(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDpNatProfilesDpNatPoolsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpNatProfilesDpNatPoolsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -225,7 +225,7 @@ func (s *WSGDPNATProfileService) DeleteDpNatProfilesDpNatPoolsByPoolId(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDpNatProfilesDpNatPoolsByPoolId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpNatProfilesDpNatPoolsByPoolId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -255,7 +255,7 @@ func (s *WSGDPNATProfileService) FindDpNatProfiles(ctx context.Context, mutators
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDPProfileDpNatProfileBasicBOListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDpNatProfiles, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpNatProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -286,7 +286,7 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesById(ctx context.Context, id s
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDPProfileDpNatProfileBasicBOAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDpNatProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpNatProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -318,7 +318,7 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsById(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDPProfileDpNatProfilePoolBOListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDpNatProfilesDpNatPoolsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpNatProfilesDpNatPoolsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -352,7 +352,7 @@ func (s *WSGDPNATProfileService) FindDpNatProfilesDpNatPoolsByPoolId(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDPProfileDpNatProfilePoolBOAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDpNatProfilesDpNatPoolsByPoolId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpNatProfilesDpNatPoolsByPoolId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -388,7 +388,7 @@ func (s *WSGDPNATProfileService) UpdateDpNatProfilesById(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDPProfileDpNatProfileBasicBOAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateDpNatProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateDpNatProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -429,7 +429,7 @@ func (s *WSGDPNATProfileService) UpdateDpNatProfilesDpNatPoolsByPoolId(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDPProfileDpNatProfilePoolBOAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateDpNatProfilesDpNatPoolsByPoolId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateDpNatProfilesDpNatPoolsByPoolId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

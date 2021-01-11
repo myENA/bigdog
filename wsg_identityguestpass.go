@@ -44,7 +44,7 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassGenerate(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityGuestpassGenerate, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddIdentityGuestpassGenerate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -78,7 +78,7 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentityGuestPassListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityGuestpassList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddIdentityGuestpassList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -113,7 +113,7 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityGuestpassUpload, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddIdentityGuestpassUpload, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueMultipartFormData)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -148,7 +148,7 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityGuestpassUploadCommon, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddIdentityGuestpassUploadCommon, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -182,7 +182,7 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpass(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityGuestpass, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteIdentityGuestpass, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -217,7 +217,7 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityGuestpassByUserId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteIdentityGuestpassByUserId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -266,7 +266,7 @@ func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentityGuestPassListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityGuestpass, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindIdentityGuestpass, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["displayName"]; ok && len(v) > 0 {
@@ -327,7 +327,7 @@ func (s *WSGIdentityGuestPassService) PartialUpdateIdentityGuestpassByUserId(ctx
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateIdentityGuestpassByUserId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateIdentityGuestpassByUserId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

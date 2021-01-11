@@ -107,9 +107,9 @@ type WSGGeofenceProfileGetGeofenceProfileAPIResponse struct {
 	Data *WSGGeofenceProfileGetGeofenceProfile
 }
 
-func newWSGGeofenceProfileGetGeofenceProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGGeofenceProfileGetGeofenceProfileAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGGeofenceProfileGetGeofenceProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -152,9 +152,9 @@ type WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse struct {
 	Data *WSGGeofenceProfileGetGeofenceProfileProfileList
 }
 
-func newWSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -205,7 +205,7 @@ func (s *WSGGeofenceProfileService) AddRkszonesGeofenceProfilesByZoneId(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesGeofenceProfilesByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesGeofenceProfilesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -243,7 +243,7 @@ func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesById(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesGeofenceProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesGeofenceProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -280,7 +280,7 @@ func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesByZoneId(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesGeofenceProfilesByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesGeofenceProfilesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -318,7 +318,7 @@ func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesById(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGGeofenceProfileGetGeofenceProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesGeofenceProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesGeofenceProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -351,7 +351,7 @@ func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesByZoneId(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesGeofenceProfilesByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesGeofenceProfilesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -388,7 +388,7 @@ func (s *WSGGeofenceProfileService) UpdateRkszonesGeofenceProfilesById(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesGeofenceProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateRkszonesGeofenceProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

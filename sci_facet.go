@@ -33,9 +33,9 @@ type SCIFacetGetApmacFacet200ResponseTypeAPIResponse struct {
 	Data SCIFacetGetApmacFacet200ResponseType
 }
 
-func newSCIFacetGetApmacFacet200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIFacetGetApmacFacet200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIFacetGetApmacFacet200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -70,9 +70,9 @@ type SCIFacetGetFacet200ResponseTypeAPIResponse struct {
 	Data SCIFacetGetFacet200ResponseType
 }
 
-func newSCIFacetGetFacet200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIFacetGetFacet200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIFacetGetFacet200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -107,9 +107,9 @@ type SCIFacetGetSsidFacet200ResponseTypeAPIResponse struct {
 	Data SCIFacetGetSsidFacet200ResponseType
 }
 
-func newSCIFacetGetSsidFacet200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIFacetGetSsidFacet200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIFacetGetSsidFacet200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -144,9 +144,9 @@ type SCIFacetGetSwitchesFacet200ResponseTypeAPIResponse struct {
 	Data SCIFacetGetSwitchesFacet200ResponseType
 }
 
-func newSCIFacetGetSwitchesFacet200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIFacetGetSwitchesFacet200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIFacetGetSwitchesFacet200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -181,9 +181,9 @@ type SCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse struct {
 	Data SCIFacetGetSwitchHierarchyFacet200ResponseType
 }
 
-func newSCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -218,9 +218,9 @@ type SCIFacetGetSystemFacet200ResponseTypeAPIResponse struct {
 	Data SCIFacetGetSystemFacet200ResponseType
 }
 
-func newSCIFacetGetSystemFacet200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIFacetGetSystemFacet200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIFacetGetSystemFacet200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -267,7 +267,7 @@ func (s *SCIFacetService) FacetGetApmacFacet(ctx context.Context, body *SCICommo
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIFacetGetApmacFacet200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIFacetGetApmacFacet, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIFacetGetApmacFacet, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -311,7 +311,7 @@ func (s *SCIFacetService) FacetGetFacet(ctx context.Context, body *SCICommonQuer
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIFacetGetFacet200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIFacetGetFacet, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIFacetGetFacet, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -346,7 +346,7 @@ func (s *SCIFacetService) FacetGetSsidFacet(ctx context.Context, body *SCICommon
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIFacetGetSsidFacet200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIFacetGetSsidFacet, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIFacetGetSsidFacet, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -380,7 +380,7 @@ func (s *SCIFacetService) FacetGetSwitchesFacet(ctx context.Context, body *SCICo
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIFacetGetSwitchesFacet200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIFacetGetSwitchesFacet, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIFacetGetSwitchesFacet, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -414,7 +414,7 @@ func (s *SCIFacetService) FacetGetSwitchHierarchyFacet(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIFacetGetSwitchHierarchyFacet, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIFacetGetSwitchHierarchyFacet, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -448,7 +448,7 @@ func (s *SCIFacetService) FacetGetSystemFacet(ctx context.Context, body *SCIComm
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIFacetGetSystemFacet200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIFacetGetSystemFacet, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIFacetGetSystemFacet, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

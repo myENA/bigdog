@@ -161,9 +161,9 @@ type SwitchMSpecificSettingsAPIResponse struct {
 	Data *SwitchMSpecificSettings
 }
 
-func newSwitchMSpecificSettingsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSpecificSettingsAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSpecificSettingsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -220,9 +220,9 @@ type SwitchMSpecificSettingsAllResultAPIResponse struct {
 	Data *SwitchMSpecificSettingsAllResult
 }
 
-func newSwitchMSpecificSettingsAllResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMSpecificSettingsAllResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMSpecificSettingsAllResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -312,7 +312,7 @@ func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteSpecificSettingsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteSpecificSettingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -341,7 +341,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSpecificSettingsAllResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindSpecificSettings, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindSpecificSettings, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -372,7 +372,7 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSpecificSettingsAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindSpecificSettingsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindSpecificSettingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -407,7 +407,7 @@ func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateSpecificSettingsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateSpecificSettingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

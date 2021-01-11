@@ -167,9 +167,9 @@ type WSGNorthboundDataStreamingEventCodesAPIResponse struct {
 	Data *WSGNorthboundDataStreamingEventCodes
 }
 
-func newWSGNorthboundDataStreamingEventCodesAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGNorthboundDataStreamingEventCodesAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGNorthboundDataStreamingEventCodesAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -260,9 +260,9 @@ type WSGNorthboundDataStreamingProfileAPIResponse struct {
 	Data *WSGNorthboundDataStreamingProfile
 }
 
-func newWSGNorthboundDataStreamingProfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGNorthboundDataStreamingProfileAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGNorthboundDataStreamingProfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -338,9 +338,9 @@ type WSGNorthboundDataStreamingProfileListAPIResponse struct {
 	Data *WSGNorthboundDataStreamingProfileList
 }
 
-func newWSGNorthboundDataStreamingProfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGNorthboundDataStreamingProfileListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGNorthboundDataStreamingProfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -443,7 +443,7 @@ func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddNorthboundDataStreamingProfile, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddNorthboundDataStreamingProfile, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -478,7 +478,7 @@ func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfile
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteNorthboundDataStreamingProfileById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteNorthboundDataStreamingProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -507,7 +507,7 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCode
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGNorthboundDataStreamingEventCodesAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindNorthboundDataStreamingEventCodes, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindNorthboundDataStreamingEventCodes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -538,7 +538,7 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGNorthboundDataStreamingProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -566,7 +566,7 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileLi
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGNorthboundDataStreamingProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindNorthboundDataStreamingProfileList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -596,7 +596,7 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCo
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingEventCodes, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateNorthboundDataStreamingEventCodes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -634,7 +634,7 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfile
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingProfileById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateNorthboundDataStreamingProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -669,7 +669,7 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSetting
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateNorthboundDataStreamingSettings, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateNorthboundDataStreamingSettings, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

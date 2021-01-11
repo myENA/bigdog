@@ -43,7 +43,7 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGToolTestResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddToolSpeedflex, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddToolSpeedflex, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -80,7 +80,7 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindToolPing, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindToolPing, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("apMac", apMac)
@@ -113,7 +113,7 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGToolTestResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindToolSpeedflexByWcid, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindToolSpeedflexByWcid, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("wcid", wcid)
@@ -151,7 +151,7 @@ func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, ap
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindToolTraceRoute, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindToolTraceRoute, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("apMac", apMac)

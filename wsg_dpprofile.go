@@ -57,9 +57,9 @@ type WSGDPProfileDpDhcpProfileBasicBOAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfileBasicBO
 }
 
-func newWSGDPProfileDpDhcpProfileBasicBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileDpDhcpProfileBasicBOAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfileBasicBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -102,9 +102,9 @@ type WSGDPProfileDpDhcpProfileBasicBOListAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfileBasicBOList
 }
 
-func newWSGDPProfileDpDhcpProfileBasicBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileDpDhcpProfileBasicBOListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfileBasicBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -187,9 +187,9 @@ type WSGDPProfileDpDhcpProfileHostBOAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfileHostBO
 }
 
-func newWSGDPProfileDpDhcpProfileHostBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileDpDhcpProfileHostBOAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfileHostBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -232,9 +232,9 @@ type WSGDPProfileDpDhcpProfileHostBOListAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfileHostBOList
 }
 
-func newWSGDPProfileDpDhcpProfileHostBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileDpDhcpProfileHostBOListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfileHostBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -327,9 +327,9 @@ type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO
 }
 
-func newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -372,9 +372,9 @@ type WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList
 }
 
-func newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -529,9 +529,9 @@ type WSGDPProfileDpDhcpProfilePoolBOAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfilePoolBO
 }
 
-func newWSGDPProfileDpDhcpProfilePoolBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileDpDhcpProfilePoolBOAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfilePoolBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -574,9 +574,9 @@ type WSGDPProfileDpDhcpProfilePoolBOListAPIResponse struct {
 	Data *WSGDPProfileDpDhcpProfilePoolBOList
 }
 
-func newWSGDPProfileDpDhcpProfilePoolBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileDpDhcpProfilePoolBOListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpDhcpProfilePoolBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -659,9 +659,9 @@ type WSGDPProfileDpNatProfileBasicBOAPIResponse struct {
 	Data *WSGDPProfileDpNatProfileBasicBO
 }
 
-func newWSGDPProfileDpNatProfileBasicBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileDpNatProfileBasicBOAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpNatProfileBasicBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -704,9 +704,9 @@ type WSGDPProfileDpNatProfileBasicBOListAPIResponse struct {
 	Data *WSGDPProfileDpNatProfileBasicBOList
 }
 
-func newWSGDPProfileDpNatProfileBasicBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileDpNatProfileBasicBOListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpNatProfileBasicBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -781,9 +781,9 @@ type WSGDPProfileDpNatProfilePoolBOAPIResponse struct {
 	Data *WSGDPProfileDpNatProfilePoolBO
 }
 
-func newWSGDPProfileDpNatProfilePoolBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileDpNatProfilePoolBOAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpNatProfilePoolBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -826,9 +826,9 @@ type WSGDPProfileDpNatProfilePoolBOListAPIResponse struct {
 	Data *WSGDPProfileDpNatProfilePoolBOList
 }
 
-func newWSGDPProfileDpNatProfilePoolBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileDpNatProfilePoolBOListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileDpNatProfilePoolBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -931,9 +931,9 @@ type WSGDPProfileSettingBOAPIResponse struct {
 	Data *WSGDPProfileSettingBO
 }
 
-func newWSGDPProfileSettingBOAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileSettingBOAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileSettingBOAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -976,9 +976,9 @@ type WSGDPProfileSettingBOListAPIResponse struct {
 	Data *WSGDPProfileSettingBOList
 }
 
-func newWSGDPProfileSettingBOListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDPProfileSettingBOListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDPProfileSettingBOListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

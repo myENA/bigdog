@@ -43,7 +43,7 @@ func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddDpsSwitchoverCluster, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddDpsSwitchoverCluster, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -195,9 +195,9 @@ type WSGAccountSecurityProfileGetByIdResultAPIResponse struct {
 	Data *WSGAccountSecurityProfileGetByIdResult
 }
 
-func newWSGAccountSecurityProfileGetByIdResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAccountSecurityProfileGetByIdResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAccountSecurityProfileGetByIdResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -240,9 +240,9 @@ type WSGAccountSecurityProfileProfileListResultAPIResponse struct {
 	Data *WSGAccountSecurityProfileProfileListResult
 }
 
-func newWSGAccountSecurityProfileProfileListResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAccountSecurityProfileProfileListResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAccountSecurityProfileProfileListResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

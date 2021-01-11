@@ -43,7 +43,7 @@ func (s *WSGL2AccessControlinDomainLevelService) AddL2AccessControls(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddL2AccessControls, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddL2AccessControls, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGL2AccessControlinDomainLevelService) DeleteL2AccessControls(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteL2AccessControls, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteL2AccessControls, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGL2AccessControlinDomainLevelService) DeleteL2AccessControlsById(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteL2AccessControlsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteL2AccessControlsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -149,7 +149,7 @@ func (s *WSGL2AccessControlinDomainLevelService) FindL2AccessControls(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGL2AccessControlListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindL2AccessControls, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindL2AccessControls, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
@@ -189,7 +189,7 @@ func (s *WSGL2AccessControlinDomainLevelService) FindL2AccessControlsById(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGL2AccessControlAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindL2AccessControlsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindL2AccessControlsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -220,7 +220,7 @@ func (s *WSGL2AccessControlinDomainLevelService) FindL2AccessControlsByQueryCrit
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGL2AccessControlListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindL2AccessControlsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindL2AccessControlsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -258,7 +258,7 @@ func (s *WSGL2AccessControlinDomainLevelService) UpdateL2AccessControlsById(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateL2AccessControlsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateL2AccessControlsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -75,9 +75,9 @@ type SwitchMRegistrationRulesCreateResultAPIResponse struct {
 	Data *SwitchMRegistrationRulesCreateResult
 }
 
-func newSwitchMRegistrationRulesCreateResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMRegistrationRulesCreateResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMRegistrationRulesCreateResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -128,9 +128,9 @@ type SwitchMRegistrationRulesDeleteMultipleResultAPIResponse struct {
 	Data *SwitchMRegistrationRulesDeleteMultipleResult
 }
 
-func newSwitchMRegistrationRulesDeleteMultipleResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMRegistrationRulesDeleteMultipleResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMRegistrationRulesDeleteMultipleResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -181,9 +181,9 @@ type SwitchMRegistrationRulesDeleteResultAPIResponse struct {
 	Data *SwitchMRegistrationRulesDeleteResult
 }
 
-func newSwitchMRegistrationRulesDeleteResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMRegistrationRulesDeleteResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMRegistrationRulesDeleteResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -282,9 +282,9 @@ type SwitchMRegistrationRulesModifyResultAPIResponse struct {
 	Data *SwitchMRegistrationRulesModifyResult
 }
 
-func newSwitchMRegistrationRulesModifyResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMRegistrationRulesModifyResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMRegistrationRulesModifyResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -411,9 +411,9 @@ type SwitchMRegistrationRulesRuleQueryResultListAPIResponse struct {
 	Data *SwitchMRegistrationRulesRuleQueryResultList
 }
 
-func newSwitchMRegistrationRulesRuleQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMRegistrationRulesRuleQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMRegistrationRulesRuleQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -470,7 +470,7 @@ func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMRegistrationRulesCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddRegistrationRules, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddRegistrationRules, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -504,7 +504,7 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMRegistrationRulesDeleteMultipleResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteRegistrationRules, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteRegistrationRules, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -539,7 +539,7 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMRegistrationRulesDeleteResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteRegistrationRulesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteRegistrationRulesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -568,7 +568,7 @@ func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMRegistrationRulesRuleQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindRegistrationRules, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindRegistrationRules, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -602,7 +602,7 @@ func (s *SwitchMRegistrationRulesService) UpdateRegistrationRulesById(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMRegistrationRulesModifyResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateRegistrationRulesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateRegistrationRulesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

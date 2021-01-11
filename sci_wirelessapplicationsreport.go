@@ -748,7 +748,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport7
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessApplicationsReport7Top10ApplicationsByTrafficVolume, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessApplicationsReport7Top10ApplicationsByTrafficVolume, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -782,7 +782,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport8
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessApplicationsReport8TopAppsByTrafficTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessApplicationsReport8TopAppsByTrafficTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -816,7 +816,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport9
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessApplicationsReport9TopAppsByClientsTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessApplicationsReport9TopAppsByClientsTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -850,7 +850,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport1
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessApplicationsReport10Overview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessApplicationsReport10Overview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -884,7 +884,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport1
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportWirelessApplicationsReport11Top10ApplicationsByClientCount, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWirelessApplicationsReport11Top10ApplicationsByClientCount, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

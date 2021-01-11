@@ -37,9 +37,9 @@ type SCIScheduleBatchDelete200ResponseTypeAPIResponse struct {
 	Data *SCIScheduleBatchDelete200ResponseType
 }
 
-func newSCIScheduleBatchDelete200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIScheduleBatchDelete200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIScheduleBatchDelete200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -87,7 +87,7 @@ func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, formValues
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIScheduleBatchDelete200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIScheduleBatchDelete, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIScheduleBatchDelete, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -126,7 +126,7 @@ func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, fo
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsScheduleAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIScheduleCreateWithRelations, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIScheduleCreateWithRelations, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -157,7 +157,7 @@ func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ..
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIScheduleExecuteJob, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIScheduleExecuteJob, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -195,7 +195,7 @@ func (s *SCIScheduleService) ScheduleUpdateWithRelations(ctx context.Context, fo
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsScheduleAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSCIScheduleUpdateWithRelations, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCIScheduleUpdateWithRelations, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

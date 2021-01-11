@@ -163,9 +163,9 @@ type WSGTrafficAnalysisResultsAPIResponse struct {
 	Data *WSGTrafficAnalysisResults
 }
 
-func newWSGTrafficAnalysisResultsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGTrafficAnalysisResultsAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGTrafficAnalysisResultsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -220,7 +220,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesByQueryCriteria
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindTrafficAnalysisAggregatesByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindTrafficAnalysisAggregatesByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -264,7 +264,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesGroupedByQueryC
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindTrafficAnalysisAggregatesGroupedByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindTrafficAnalysisAggregatesGroupedByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -308,7 +308,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisClientResourceByQueryCrit
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindTrafficAnalysisClientResourceByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindTrafficAnalysisClientResourceByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -352,7 +352,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisLineRatesByQueryCriteria(
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindTrafficAnalysisLineRatesByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindTrafficAnalysisLineRatesByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -43,7 +43,7 @@ func (s *WSGWiFiCallingPolicyService) AddWifiCallingWifiCallingPolicy(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddWifiCallingWifiCallingPolicy, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddWifiCallingWifiCallingPolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicy(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteWifiCallingWifiCallingPolicy, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteWifiCallingWifiCallingPolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicyById(ctx
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteWifiCallingWifiCallingPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteWifiCallingWifiCallingPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -144,7 +144,7 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGWIFICallingPolicyListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindWifiCallingByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindWifiCallingByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -183,7 +183,7 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGWIFICallingPolicyListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindWifiCallingWifiCallingPolicy, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindWifiCallingWifiCallingPolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
@@ -223,7 +223,7 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGWIFICallingPolicyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindWifiCallingWifiCallingPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindWifiCallingWifiCallingPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -258,7 +258,7 @@ func (s *WSGWiFiCallingPolicyService) PartialUpdateWifiCallingWifiCallingPolicyB
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateWifiCallingWifiCallingPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateWifiCallingWifiCallingPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -297,7 +297,7 @@ func (s *WSGWiFiCallingPolicyService) UpdateWifiCallingWifiCallingPolicyById(ctx
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateWifiCallingWifiCallingPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateWifiCallingWifiCallingPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -91,9 +91,9 @@ type WSGMeshNodeInfoArrayAPIResponse struct {
 	Data WSGMeshNodeInfoArray
 }
 
-func newWSGMeshNodeInfoArrayAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGMeshNodeInfoArrayAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGMeshNodeInfoArrayAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -150,9 +150,9 @@ type WSGMeshNodeInfoListAPIResponse struct {
 	Data *WSGMeshNodeInfoList
 }
 
-func newWSGMeshNodeInfoListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGMeshNodeInfoListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGMeshNodeInfoListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

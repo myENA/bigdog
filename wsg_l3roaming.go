@@ -40,7 +40,7 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context, m
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileGetL3RoamingConfigAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindProfilesTunnelL3Roaming, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindProfilesTunnelL3Roaming, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -70,7 +70,7 @@ func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3Roaming(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelL3Roaming, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelL3Roaming, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

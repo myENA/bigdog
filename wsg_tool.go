@@ -85,9 +85,9 @@ type WSGToolTestResultAPIResponse struct {
 	Data *WSGToolTestResult
 }
 
-func newWSGToolTestResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGToolTestResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGToolTestResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

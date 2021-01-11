@@ -431,6 +431,14 @@ func MakeSCIInventorySwitchesReport121topSwitchModelsChartDataType() SCIInventor
 type SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType struct {
 	End *string `json:"end,omitempty"`
 
+	ICX715024P *float64 `json:"ICX7150-24P,omitempty"`
+
+	ICX715048PF *float64 `json:"ICX7150-48PF,omitempty"`
+
+	ICX715048ZP *float64 `json:"ICX7150-48ZP,omitempty"`
+
+	ICX765048ZP *float64 `json:"ICX7650-48ZP,omitempty"`
+
 	Start *string `json:"start,omitempty"`
 
 	SwitchCount *float64 `json:"switchCount,omitempty"`
@@ -451,6 +459,10 @@ func (t *SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType) Unmarsha
 		return err
 	}
 	delete(tmpType.XAdditionalProperties, "end")
+	delete(tmpType.XAdditionalProperties, "ICX7150-24P")
+	delete(tmpType.XAdditionalProperties, "ICX7150-48PF")
+	delete(tmpType.XAdditionalProperties, "ICX7150-48ZP")
+	delete(tmpType.XAdditionalProperties, "ICX7650-48ZP")
 	delete(tmpType.XAdditionalProperties, "start")
 	delete(tmpType.XAdditionalProperties, "switchCount")
 	delete(tmpType.XAdditionalProperties, "switchModel")
@@ -470,6 +482,18 @@ func (t *SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType) MarshalJ
 	}
 	if t.End != nil {
 		tmp["end"] = t.End
+	}
+	if t.ICX715024P != nil {
+		tmp["ICX7150-24P"] = t.ICX715024P
+	}
+	if t.ICX715048PF != nil {
+		tmp["ICX7150-48PF"] = t.ICX715048PF
+	}
+	if t.ICX715048ZP != nil {
+		tmp["ICX7150-48ZP"] = t.ICX715048ZP
+	}
+	if t.ICX765048ZP != nil {
+		tmp["ICX7650-48ZP"] = t.ICX765048ZP
 	}
 	if t.Start != nil {
 		tmp["start"] = t.Start
@@ -768,7 +792,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport113Over
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventorySwitchesReport113Overview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventorySwitchesReport113Overview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -802,7 +826,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport116Swit
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventorySwitchesReport116SwitchCountTrend, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventorySwitchesReport116SwitchCountTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -836,7 +860,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport117Top1
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventorySwitchesReport117Top10SwitchVersionChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventorySwitchesReport117Top10SwitchVersionChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -870,7 +894,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport118TopS
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventorySwitchesReport118TopSwitchVersions, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventorySwitchesReport118TopSwitchVersions, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -904,7 +928,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport121TopS
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventorySwitchesReport121TopSwitchModelsChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventorySwitchesReport121TopSwitchModelsChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -938,7 +962,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport122TopS
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventorySwitchesReport122TopSwitchModels, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventorySwitchesReport122TopSwitchModels, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -972,7 +996,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport132Port
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventorySwitchesReport132PortStatusTrend, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventorySwitchesReport132PortStatusTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

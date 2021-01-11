@@ -79,9 +79,9 @@ type WSGSessionManagementRuckusSessionsAPIResponse struct {
 	Data *WSGSessionManagementRuckusSessions
 }
 
-func newWSGSessionManagementRuckusSessionsAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGSessionManagementRuckusSessionsAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGSessionManagementRuckusSessionsAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -125,7 +125,7 @@ func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSessionManagementRuckusSessionsAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSessionManagement, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSessionManagement, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

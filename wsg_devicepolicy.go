@@ -75,9 +75,9 @@ type WSGDevicePolicyPorfileAPIResponse struct {
 	Data *WSGDevicePolicyPorfile
 }
 
-func newWSGDevicePolicyPorfileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDevicePolicyPorfileAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDevicePolicyPorfileAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -190,9 +190,9 @@ type WSGDevicePolicyPorfileListAPIResponse struct {
 	Data *WSGDevicePolicyPorfileList
 }
 
-func newWSGDevicePolicyPorfileListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGDevicePolicyPorfileListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGDevicePolicyPorfileListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -259,7 +259,7 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesDevicePolicyByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesDevicePolicyByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -297,7 +297,7 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesDevicePolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesDevicePolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -333,7 +333,7 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDevicePolicyPorfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesDevicePolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesDevicePolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -372,7 +372,7 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDevicePolicyPorfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesDevicePolicyByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesDevicePolicyByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -409,7 +409,7 @@ func (s *WSGDevicePolicyService) FindServicesDevicePolicyByQueryCriteria(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesDevicePolicyByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesDevicePolicyByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -449,7 +449,7 @@ func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesDevicePolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateRkszonesDevicePolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

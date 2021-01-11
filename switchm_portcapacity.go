@@ -69,9 +69,9 @@ type SwitchMPortCapacityResultAPIResponse struct {
 	Data *SwitchMPortCapacityResult
 }
 
-func newSwitchMPortCapacityResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMPortCapacityResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMPortCapacityResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -121,7 +121,7 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMPortCapacityResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindPortCapacity, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindPortCapacity, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("model", model)

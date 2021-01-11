@@ -40,7 +40,7 @@ func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context, mutators 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemSnmpAgentConfigurationAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindSystemSnmpAgent, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemSnmpAgent, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -70,7 +70,7 @@ func (s *WSGSNMPAgentService) UpdateSystemSnmpAgent(ctx context.Context, body *W
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateSystemSnmpAgent, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateSystemSnmpAgent, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

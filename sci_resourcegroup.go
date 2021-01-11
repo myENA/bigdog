@@ -37,9 +37,9 @@ type SCIResourceGroupBatchDelete200ResponseTypeAPIResponse struct {
 	Data *SCIResourceGroupBatchDelete200ResponseType
 }
 
-func newSCIResourceGroupBatchDelete200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIResourceGroupBatchDelete200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIResourceGroupBatchDelete200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -74,9 +74,9 @@ type SCIResourceGroupFind200ResponseTypeAPIResponse struct {
 	Data SCIResourceGroupFind200ResponseType
 }
 
-func newSCIResourceGroupFind200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIResourceGroupFind200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIResourceGroupFind200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -124,7 +124,7 @@ func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIResourceGroupBatchDelete200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIResourceGroupBatchDelete, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIResourceGroupBatchDelete, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -158,7 +158,7 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsResourceGroupAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIResourceGroupCreate, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIResourceGroupCreate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -193,7 +193,7 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIResourceGroupFind200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIResourceGroupFind, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIResourceGroupFind, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
@@ -231,7 +231,7 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsResourceGroupAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIResourceGroupFindById, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIResourceGroupFindById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -269,7 +269,7 @@ func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsResourceGroupAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSCIResourceGroupPrototypeUpdateAttributes, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCIResourceGroupPrototypeUpdateAttributes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

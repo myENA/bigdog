@@ -40,7 +40,7 @@ func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGSystemFtpGlobalSettingAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindGlobalSettingsStatsFtp, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindGlobalSettingsStatsFtp, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -70,7 +70,7 @@ func (s *WSGUploadStatisticstoFTPService) PartialUpdateGlobalSettingsStatsFtp(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateGlobalSettingsStatsFtp, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateGlobalSettingsStatsFtp, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

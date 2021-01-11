@@ -77,9 +77,9 @@ type SwitchMVEConfigCreateResultAPIResponse struct {
 	Data *SwitchMVEConfigCreateResult
 }
 
-func newSwitchMVEConfigCreateResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMVEConfigCreateResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMVEConfigCreateResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -130,9 +130,9 @@ type SwitchMVEConfigListAPIResponse struct {
 	Data *SwitchMVEConfigList
 }
 
-func newSwitchMVEConfigListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMVEConfigListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMVEConfigListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -289,9 +289,9 @@ type SwitchMVEConfigAPIResponse struct {
 	Data *SwitchMVEConfig
 }
 
-func newSwitchMVEConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMVEConfigAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMVEConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

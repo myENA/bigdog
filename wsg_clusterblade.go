@@ -93,9 +93,9 @@ type WSGClusterBladeClusterStateAPIResponse struct {
 	Data *WSGClusterBladeClusterState
 }
 
-func newWSGClusterBladeClusterStateAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGClusterBladeClusterStateAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGClusterBladeClusterStateAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

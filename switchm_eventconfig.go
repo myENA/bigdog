@@ -55,9 +55,9 @@ type SwitchMEventConfigAPIResponse struct {
 	Data *SwitchMEventConfig
 }
 
-func newSwitchMEventConfigAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMEventConfigAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMEventConfigAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -114,9 +114,9 @@ type SwitchMEventConfigGetEventConfigListAPIResponse struct {
 	Data *SwitchMEventConfigGetEventConfigList
 }
 
-func newSwitchMEventConfigGetEventConfigListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMEventConfigGetEventConfigListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMEventConfigGetEventConfigListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -171,9 +171,9 @@ type SwitchMEventConfigQueryResponseAPIResponse struct {
 	Data *SwitchMEventConfigQueryResponse
 }
 
-func newSwitchMEventConfigQueryResponseAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMEventConfigQueryResponseAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMEventConfigQueryResponseAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

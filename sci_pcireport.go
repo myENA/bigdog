@@ -46,7 +46,7 @@ func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, formV
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIPciReportDownloadReport, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIPciReportDownloadReport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -27,9 +27,9 @@ type WSGEventListEventQueryResultListAPIResponse struct {
 	Data *WSGEventListEventQueryResultList
 }
 
-func newWSGEventListEventQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGEventListEventQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGEventListEventQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

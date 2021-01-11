@@ -47,7 +47,7 @@ func (s *WSGBonjourFencingPolicyService) AddRkszonesBonjourFencingPolicyByZoneId
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesBonjourFencingPolicyByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesBonjourFencingPolicyByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -82,7 +82,7 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicy(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesBonjourFencingPolicy, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesBonjourFencingPolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -117,7 +117,7 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesBonjourFencingPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesBonjourFencingPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -150,7 +150,7 @@ func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac(c
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileBonjourFencingStatisticAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApsBonjourFencingStatisticByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApsBonjourFencingStatisticByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("apMac", apMac)
@@ -184,7 +184,7 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyById(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileBonjourFencingPolicyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesBonjourFencingPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesBonjourFencingPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -217,7 +217,7 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneI
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileBonjourFencingPolicyListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesBonjourFencingPolicyByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesBonjourFencingPolicyByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -248,7 +248,7 @@ func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQuery
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileBonjourFencingPolicyListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesBonjourFencingPolicyByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesBonjourFencingPolicyByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -288,7 +288,7 @@ func (s *WSGBonjourFencingPolicyService) PartialUpdateRkszonesBonjourFencingPoli
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesBonjourFencingPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateRkszonesBonjourFencingPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

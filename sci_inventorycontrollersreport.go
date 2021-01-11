@@ -587,7 +587,7 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryControllersReport96Krack, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryControllersReport96Krack, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -621,7 +621,7 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryControllersReport98ResourceUtilization, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryControllersReport98ResourceUtilization, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -655,7 +655,7 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryControllersReport99LicenseUtilization, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryControllersReport99LicenseUtilization, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -689,7 +689,7 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport1
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryControllersReport114ControllerInventoryOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryControllersReport114ControllerInventoryOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -723,7 +723,7 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport1
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryControllersReport151LicenseUtilizationOverTimeChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryControllersReport151LicenseUtilizationOverTimeChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

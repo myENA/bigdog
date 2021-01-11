@@ -43,7 +43,7 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGPro
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileCreateResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddBlockClient, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddBlockClient, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -81,7 +81,7 @@ func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddBlockClientByApMacByApMac, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddBlockClientByApMacByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -116,7 +116,7 @@ func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSG
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteBlockClient, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteBlockClient, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -151,7 +151,7 @@ func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id st
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteBlockClientById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteBlockClientById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -184,7 +184,7 @@ func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id stri
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileBlockClientAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindBlockClientById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindBlockClientById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -215,7 +215,7 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileBlockClientListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindBlockClientByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindBlockClientByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -250,7 +250,7 @@ func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileBlockClientListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindBlockClientByZoneByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindBlockClientByZoneByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -285,7 +285,7 @@ func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateBlockClientById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateBlockClientById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -324,7 +324,7 @@ func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateBlockClientById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateBlockClientById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -48,7 +48,7 @@ func (s *WSGResourceMonitoringService) FindResourceMonitoringSummaryByQueryCrite
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonMonitoringSummaryAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindResourceMonitoringSummaryByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindResourceMonitoringSummaryByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

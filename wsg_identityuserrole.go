@@ -43,7 +43,7 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityUserrole, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddIdentityUserrole, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentityListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddIdentityUserRoleList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddIdentityUserRoleList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -111,7 +111,7 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityUserrole, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteIdentityUserrole, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -146,7 +146,7 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityUserroleById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteIdentityUserroleById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -175,7 +175,7 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context, m
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentityListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityUserrole, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindIdentityUserrole, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -206,7 +206,7 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGIdentityUserRoleAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindIdentityUserroleById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindIdentityUserroleById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -241,7 +241,7 @@ func (s *WSGIdentityUserRoleService) PartialUpdateIdentityUserroleById(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateIdentityUserroleById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateIdentityUserroleById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

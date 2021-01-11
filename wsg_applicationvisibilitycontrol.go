@@ -44,7 +44,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicy(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAvcApplicationPolicy, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAvcApplicationPolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -78,7 +78,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicyV2(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAvcApplicationPolicyV2, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAvcApplicationPolicyV2, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -113,7 +113,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageUpload(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCSignaturePackageAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAvcSignaturePackageUpload, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAvcSignaturePackageUpload, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueMultipartFormData)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -149,7 +149,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCSignaturePackageAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAvcSignaturePackageV2Upload, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAvcSignaturePackageV2Upload, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueMultipartFormData)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -184,7 +184,7 @@ func (s *WSGApplicationVisibilityControlService) AddAvcUserDefined(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAvcUserDefined, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAvcUserDefined, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -218,7 +218,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicy(ctx 
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicy, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteAvcApplicationPolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -253,7 +253,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -285,7 +285,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyV2, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyV2, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -320,7 +320,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ByI
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyV2ById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyV2ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -352,7 +352,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAvcUserDefined, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteAvcUserDefined, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -387,7 +387,7 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAvcUserDefinedById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteAvcUserDefinedById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -419,7 +419,7 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyByQueryCri
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCApplicationPolicyProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindApplicationPolicyByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindApplicationPolicyByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -453,7 +453,7 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryC
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCApplicationPolicyProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindApplicationPolicyV2ByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindApplicationPolicyV2ByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -488,7 +488,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCApplicationPolicyProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAvcApplicationPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAvcApplicationPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -520,7 +520,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCApplicationPolicyProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAvcApplicationPolicyV2ById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAvcApplicationPolicyV2ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -548,7 +548,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCSignaturePackageAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAvcSignaturePackage, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAvcSignaturePackage, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -579,7 +579,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCApplicationAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAvcSignaturePackageApplicationByApplicationName, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAvcSignaturePackageApplicationByApplicationName, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("applicationName", applicationName)
@@ -607,7 +607,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCApplicationListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAvcSignaturePackageApplications, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAvcSignaturePackageApplications, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -634,7 +634,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategori
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCAppCategoryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAvcSignaturePackageCategories, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAvcSignaturePackageCategories, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -665,7 +665,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategory
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCAppCategoryAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAvcSignaturePackageCategoryByCategoryName, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAvcSignaturePackageCategoryByCategoryName, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("categoryName", categoryName)
@@ -693,7 +693,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCSignaturePackageAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAvcSignaturePackageV2, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAvcSignaturePackageV2, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -724,7 +724,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applic
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCApplicationListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Applications, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAvcSignaturePackageV2Applications, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["appName"]; ok && len(v) > 0 {
@@ -758,7 +758,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Catego
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCAppCategoryListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAvcSignaturePackageV2Categories, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAvcSignaturePackageV2Categories, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["catName"]; ok && len(v) > 0 {
@@ -792,7 +792,7 @@ func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCUserDefinedProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindAvcUserDefinedById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAvcUserDefinedById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -823,7 +823,7 @@ func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAVCUserDefinedProfileListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindUserDefinedByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindUserDefinedByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -861,7 +861,7 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateAvcApplicationPolicyById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateAvcApplicationPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -900,7 +900,7 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPoli
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateAvcApplicationPolicyV2ById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateAvcApplicationPolicyV2ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -939,7 +939,7 @@ func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcUserDefinedById
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateAvcUserDefinedById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateAvcUserDefinedById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

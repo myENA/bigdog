@@ -290,7 +290,7 @@ func (s *SCIAPsRebootReportService) ReportAPsRebootReport43TotalReboots(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPsRebootReport43TotalReboots, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPsRebootReport43TotalReboots, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -324,7 +324,7 @@ func (s *SCIAPsRebootReportService) ReportAPsRebootReport44TopApRebootsTable(ctx
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPsRebootReport44TopApRebootsTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPsRebootReport44TopApRebootsTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -358,7 +358,7 @@ func (s *SCIAPsRebootReportService) ReportAPsRebootReport45TopApRebootsOverTime(
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPsRebootReport45TopApRebootsOverTime, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPsRebootReport45TopApRebootsOverTime, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

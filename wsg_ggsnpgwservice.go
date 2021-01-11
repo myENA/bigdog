@@ -40,7 +40,7 @@ func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnDnsServerList(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesGgsnDnsServerList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesGgsnDnsServerList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -68,7 +68,7 @@ func (s *WSGGGSNPGWServiceService) DeleteServicesGgsnGgsnList(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesGgsnGgsnList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServicesGgsnGgsnList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -96,7 +96,7 @@ func (s *WSGGGSNPGWServiceService) FindServicesGgsn(ctx context.Context, mutator
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGServiceGgsnConfigAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindServicesGgsn, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesGgsn, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -126,7 +126,7 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsn(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesGgsn, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateServicesGgsn, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -160,7 +160,7 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnDnsServerList(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesGgsnDnsServerList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateServicesGgsnDnsServerList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -194,7 +194,7 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGgsnList(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesGgsnGgsnList, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateServicesGgsnGgsnList, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -228,7 +228,7 @@ func (s *WSGGGSNPGWServiceService) PartialUpdateServicesGgsnGtpSettings(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesGgsnGtpSettings, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateServicesGgsnGtpSettings, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

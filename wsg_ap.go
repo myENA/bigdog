@@ -179,9 +179,9 @@ type WSGAPConfigurationAPIResponse struct {
 	Data *WSGAPConfiguration
 }
 
-func newWSGAPConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPConfigurationAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -230,9 +230,9 @@ type WSGAPLinemanSummaryAPIResponse struct {
 	Data *WSGAPLinemanSummary
 }
 
-func newWSGAPLinemanSummaryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPLinemanSummaryAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPLinemanSummaryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -311,9 +311,9 @@ type WSGAPListEntryAPIResponse struct {
 	Data *WSGAPListEntry
 }
 
-func newWSGAPListEntryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPListEntryAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPListEntryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -536,9 +536,9 @@ type WSGAPOperationalSummaryAPIResponse struct {
 	Data *WSGAPOperationalSummary
 }
 
-func newWSGAPOperationalSummaryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPOperationalSummaryAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPOperationalSummaryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -632,9 +632,9 @@ type WSGAPRadioConfigurationAPIResponse struct {
 	Data *WSGAPRadioConfiguration
 }
 
-func newWSGAPRadioConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPRadioConfigurationAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPRadioConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1333,9 +1333,9 @@ type WSGAPModifyRogueTypeAPIResponse struct {
 	Data *WSGAPModifyRogueType
 }
 
-func newWSGAPModifyRogueTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPModifyRogueTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPModifyRogueTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1384,9 +1384,9 @@ type WSGAPNeighborAPListAPIResponse struct {
 	Data *WSGAPNeighborAPList
 }
 
-func newWSGAPNeighborAPListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPNeighborAPListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPNeighborAPListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

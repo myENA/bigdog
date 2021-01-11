@@ -1797,7 +1797,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport5TrendChart(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport5TrendChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport5TrendChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1831,7 +1831,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport7Top10ApplicationsByTra
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport7Top10ApplicationsByTrafficVolume, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport7Top10ApplicationsByTrafficVolume, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1865,7 +1865,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport8TopAppsByTrafficTable(
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport8TopAppsByTrafficTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport8TopAppsByTrafficTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1899,7 +1899,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport14TopTable(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport14TopTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport14TopTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1933,7 +1933,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport15TrendChart(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport15TrendChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport15TrendChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1967,7 +1967,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport22TrafficTrend(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport22TrafficTrend, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport22TrafficTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2001,7 +2001,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport40TopSsidsByTrafficTabl
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport40TopSsidsByTrafficTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport40TopSsidsByTrafficTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2035,7 +2035,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport75ApSummary(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport75ApSummary, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport75ApSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2069,7 +2069,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport76ApPerformance(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport76ApPerformance, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport76ApPerformance, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2103,7 +2103,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport77ApDetails(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport77ApDetails, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport77ApDetails, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2137,7 +2137,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport78ApStatsOverview(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport78ApStatsOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport78ApStatsOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2171,7 +2171,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport79ApUptimeHistory(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport79ApUptimeHistory, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport79ApUptimeHistory, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2205,7 +2205,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport80Top10ClientsByTraffic
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport80Top10ClientsByTrafficVolume, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport80Top10ClientsByTrafficVolume, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2239,7 +2239,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport81SessionsTable(ctx con
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport81SessionsTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport81SessionsTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2273,7 +2273,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport82RssTrend(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport82RssTrend, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport82RssTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2307,7 +2307,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport83SnrTrend(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport83SnrTrend, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport83SnrTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2341,7 +2341,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport84AlarmsTable(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport84AlarmsTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport84AlarmsTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2375,7 +2375,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport85EventsTable(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport85EventsTable, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport85EventsTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2409,7 +2409,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport95Anomalies(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport95Anomalies, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport95Anomalies, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2443,7 +2443,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport110ApAnomaly(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportAPDetailsReport110ApAnomaly, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportAPDetailsReport110ApAnomaly, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

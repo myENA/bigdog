@@ -130,9 +130,9 @@ type WSGVLANPoolingAPIResponse struct {
 	Data *WSGVLANPooling
 }
 
-func newWSGVLANPoolingAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGVLANPoolingAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGVLANPoolingAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -177,9 +177,9 @@ type WSGVLANPoolingListAPIResponse struct {
 	Data *WSGVLANPoolingList
 }
 
-func newWSGVLANPoolingListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGVLANPoolingListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGVLANPoolingListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -261,7 +261,7 @@ func (s *WSGVLANPoolingService) AddVlanpoolings(ctx context.Context, body *WSGVL
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddVlanpoolings, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddVlanpoolings, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -295,7 +295,7 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolings(ctx context.Context, body *WS
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteVlanpoolings, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteVlanpoolings, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -330,7 +330,7 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, id s
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteVlanpoolingsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteVlanpoolingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -362,7 +362,7 @@ func (s *WSGVLANPoolingService) FindServicesVlanPoolingByQueryCriteria(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesVlanPoolingByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesVlanPoolingByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -397,7 +397,7 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsById(ctx context.Context, id str
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGVLANPoolingAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindVlanpoolingsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindVlanpoolingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -428,7 +428,7 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGVLANPoolingListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindVlanpoolingsByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindVlanpoolingsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -466,7 +466,7 @@ func (s *WSGVLANPoolingService) PartialUpdateVlanpoolingsById(ctx context.Contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateVlanpoolingsById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateVlanpoolingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -160,9 +160,9 @@ type WSGWLANSchedulerWlanScheduleAPIResponse struct {
 	Data *WSGWLANSchedulerWlanSchedule
 }
 
-func newWSGWLANSchedulerWlanScheduleAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGWLANSchedulerWlanScheduleAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWLANSchedulerWlanScheduleAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -205,9 +205,9 @@ type WSGWLANSchedulerWlanScheduleListAPIResponse struct {
 	Data *WSGWLANSchedulerWlanScheduleList
 }
 
-func newWSGWLANSchedulerWlanScheduleListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGWLANSchedulerWlanScheduleListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWLANSchedulerWlanScheduleListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -314,9 +314,9 @@ type WSGWLANSchedulerWlanScheduleQueryResultListAPIResponse struct {
 	Data *WSGWLANSchedulerWlanScheduleQueryResultList
 }
 
-func newWSGWLANSchedulerWlanScheduleQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGWLANSchedulerWlanScheduleQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGWLANSchedulerWlanScheduleQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -367,7 +367,7 @@ func (s *WSGWLANSchedulerService) AddRkszonesWlanSchedulersByZoneId(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesWlanSchedulersByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesWlanSchedulersByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -405,7 +405,7 @@ func (s *WSGWLANSchedulerService) DeleteRkszonesWlanSchedulersById(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlanSchedulersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesWlanSchedulersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -441,7 +441,7 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById(ctx context.Con
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGWLANSchedulerWlanScheduleAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesWlanSchedulersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesWlanSchedulersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -480,7 +480,7 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGWLANSchedulerWlanScheduleListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesWlanSchedulersByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesWlanSchedulersByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -517,7 +517,7 @@ func (s *WSGWLANSchedulerService) FindServicesWlanSchedulerByQueryCriteria(ctx c
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGWLANSchedulerWlanScheduleQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindServicesWlanSchedulerByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesWlanSchedulerByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -557,7 +557,7 @@ func (s *WSGWLANSchedulerService) PartialUpdateRkszonesWlanSchedulersById(ctx co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlanSchedulersById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateRkszonesWlanSchedulersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

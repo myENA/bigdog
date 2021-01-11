@@ -79,9 +79,9 @@ type WSGAAAActiveDirectoryAPIResponse struct {
 	Data *WSGAAAActiveDirectory
 }
 
-func newWSGAAAActiveDirectoryAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAAAActiveDirectoryAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAAActiveDirectoryAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -124,9 +124,9 @@ type WSGAAAActiveDirectoryListAPIResponse struct {
 	Data *WSGAAAActiveDirectoryList
 }
 
-func newWSGAAAActiveDirectoryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAAAActiveDirectoryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAAActiveDirectoryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -203,9 +203,9 @@ type WSGAAAAuthenticationServerAPIResponse struct {
 	Data *WSGAAAAuthenticationServer
 }
 
-func newWSGAAAAuthenticationServerAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAAAAuthenticationServerAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAAAuthenticationServerAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -248,9 +248,9 @@ type WSGAAAAuthenticationServerListAPIResponse struct {
 	Data *WSGAAAAuthenticationServerList
 }
 
-func newWSGAAAAuthenticationServerListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAAAAuthenticationServerListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAAAuthenticationServerListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -597,9 +597,9 @@ type WSGAAALDAPServerAPIResponse struct {
 	Data *WSGAAALDAPServer
 }
 
-func newWSGAAALDAPServerAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAAALDAPServerAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAALDAPServerAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -642,9 +642,9 @@ type WSGAAALDAPServerListAPIResponse struct {
 	Data *WSGAAALDAPServerList
 }
 
-func newWSGAAALDAPServerListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAAALDAPServerListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAALDAPServerListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -865,9 +865,9 @@ type WSGAAATestAAAServerResultAPIResponse struct {
 	Data *WSGAAATestAAAServerResult
 }
 
-func newWSGAAATestAAAServerResultAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAAATestAAAServerResultAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAAATestAAAServerResultAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

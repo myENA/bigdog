@@ -43,9 +43,9 @@ type WSGIdentityAaaServerListAPIResponse struct {
 	Data *WSGIdentityAaaServerList
 }
 
-func newWSGIdentityAaaServerListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIdentityAaaServerListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityAaaServerListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -126,9 +126,9 @@ type WSGIdentityCountryListAPIResponse struct {
 	Data *WSGIdentityCountryList
 }
 
-func newWSGIdentityCountryListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIdentityCountryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityCountryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -511,9 +511,9 @@ type WSGIdentityGuestPassListAPIResponse struct {
 	Data *WSGIdentityGuestPassList
 }
 
-func newWSGIdentityGuestPassListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIdentityGuestPassListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityGuestPassListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -558,9 +558,9 @@ type WSGIdentityListAPIResponse struct {
 	Data *WSGIdentityList
 }
 
-func newWSGIdentityListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIdentityListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -697,9 +697,9 @@ type WSGIdentityUserRoleAPIResponse struct {
 	Data *WSGIdentityUserRole
 }
 
-func newWSGIdentityUserRoleAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIdentityUserRoleAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityUserRoleAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1028,9 +1028,9 @@ type WSGIdentityPackageListAPIResponse struct {
 	Data *WSGIdentityPackageList
 }
 
-func newWSGIdentityPackageListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIdentityPackageListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityPackageListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1362,9 +1362,9 @@ type WSGIdentitySubscriptionPackageAPIResponse struct {
 	Data *WSGIdentitySubscriptionPackage
 }
 
-func newWSGIdentitySubscriptionPackageAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIdentitySubscriptionPackageAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentitySubscriptionPackageAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1409,9 +1409,9 @@ type WSGIdentitySubscriptionPackageListAPIResponse struct {
 	Data *WSGIdentitySubscriptionPackageList
 }
 
-func newWSGIdentitySubscriptionPackageListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIdentitySubscriptionPackageListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentitySubscriptionPackageListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1609,9 +1609,9 @@ type WSGIdentityUserConfigurationAPIResponse struct {
 	Data *WSGIdentityUserConfiguration
 }
 
-func newWSGIdentityUserConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIdentityUserConfigurationAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityUserConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -1752,9 +1752,9 @@ type WSGIdentityUserListAPIResponse struct {
 	Data *WSGIdentityUserList
 }
 
-func newWSGIdentityUserListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGIdentityUserListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGIdentityUserListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

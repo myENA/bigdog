@@ -50,7 +50,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGAdministrationApplicationLogAndStatusListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApplicationsByBladeUUID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApplicationsByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("bladeUUID", bladeUUID)
@@ -94,7 +94,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 	if err = ctx.Err(); err != nil {
 		return resp.(*FileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApplicationsDownloadByBladeUUID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApplicationsDownloadByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("appName", appName)
@@ -130,7 +130,7 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeU
 	if err = ctx.Err(); err != nil {
 		return resp.(*FileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApplicationsDownloadsnapByBladeUUID, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApplicationsDownloadsnapByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("bladeUUID", bladeUUID)
@@ -161,7 +161,7 @@ func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx contex
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateApplications, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateApplications, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

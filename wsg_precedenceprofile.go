@@ -43,7 +43,7 @@ func (s *WSGPrecedenceProfileService) AddPrecedence(ctx context.Context, body *W
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddPrecedence, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddPrecedence, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGPrecedenceProfileService) DeletePrecedence(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeletePrecedence, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeletePrecedence, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGPrecedenceProfileService) DeletePrecedenceById(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeletePrecedenceById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeletePrecedenceById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -147,7 +147,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedence(ctx context.Context, option
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfilePrecedenceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindPrecedence, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindPrecedence, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["index"]; ok && len(v) > 0 {
@@ -184,7 +184,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceById(ctx context.Context, id
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileCreatePrecedenceProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindPrecedenceById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindPrecedenceById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -215,7 +215,7 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceByQueryCriteria(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfilePrecedenceListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindPrecedenceByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindPrecedenceByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -253,7 +253,7 @@ func (s *WSGPrecedenceProfileService) PartialUpdatePrecedenceById(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdatePrecedenceById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdatePrecedenceById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

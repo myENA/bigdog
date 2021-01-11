@@ -43,7 +43,7 @@ func (s *SwitchMTopReportsService) AddSwitchTopByFirmware(ctx context.Context, b
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchTopByFirmware, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchTopByFirmware, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *SwitchMTopReportsService) AddSwitchTopByModel(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchTopByModel, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchTopByModel, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

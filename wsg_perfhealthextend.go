@@ -45,9 +45,9 @@ type WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse struct {
 	Data *WSGPerformanceAndHealthExtensionsGroupBarList
 }
 
-func newWSGPerformanceAndHealthExtensionsGroupBarListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGPerformanceAndHealthExtensionsGroupBarListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -108,9 +108,9 @@ type WSGPerformanceAndHealthExtensionsLineListAPIResponse struct {
 	Data *WSGPerformanceAndHealthExtensionsLineList
 }
 
-func newWSGPerformanceAndHealthExtensionsLineListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGPerformanceAndHealthExtensionsLineListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGPerformanceAndHealthExtensionsLineListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

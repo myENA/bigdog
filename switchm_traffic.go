@@ -63,9 +63,9 @@ type SwitchMTrafficBroadcastQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficBroadcastQueryResultList
 }
 
-func newSwitchMTrafficBroadcastQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMTrafficBroadcastQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficBroadcastQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -130,9 +130,9 @@ type SwitchMTrafficMulticastQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficMulticastQueryResultList
 }
 
-func newSwitchMTrafficMulticastQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMTrafficMulticastQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficMulticastQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -199,9 +199,9 @@ type SwitchMTrafficPortErrorQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficPortErrorQueryResultList
 }
 
-func newSwitchMTrafficPortErrorQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMTrafficPortErrorQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficPortErrorQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -258,9 +258,9 @@ type SwitchMTrafficTopPortErrorQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficTopPortErrorQueryResultList
 }
 
-func newSwitchMTrafficTopPortErrorQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMTrafficTopPortErrorQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficTopPortErrorQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -317,9 +317,9 @@ type SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficTopPortTrafficUsageQueryResultList
 }
 
-func newSwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -376,9 +376,9 @@ type SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficTopSwitchPoEUtilizationQueryResultList
 }
 
-func newSwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -435,9 +435,9 @@ type SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficTopTrafficUsageQueryResultList
 }
 
-func newSwitchMTrafficTopTrafficUsageQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMTrafficTopTrafficUsageQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -520,9 +520,9 @@ type SwitchMTrafficQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficQueryResultList
 }
 
-func newSwitchMTrafficQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMTrafficQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -609,9 +609,9 @@ type SwitchMTrafficUnicastQueryResultListAPIResponse struct {
 	Data *SwitchMTrafficUnicastQueryResultList
 }
 
-func newSwitchMTrafficUnicastQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMTrafficUnicastQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMTrafficUnicastQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -658,7 +658,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddTrafficTopPoeutilization, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTopPoeutilization, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -692,7 +692,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTrafficTopPortErrorQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddTrafficTopPorterror, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTopPorterror, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -726,7 +726,7 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddTrafficTopPortusage, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTopPortusage, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -760,7 +760,7 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddTrafficTopUsage, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTopUsage, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -794,7 +794,7 @@ func (s *SwitchMTrafficService) AddTrafficTotalBroadcast(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTrafficBroadcastQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddTrafficTotalBroadcast, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTotalBroadcast, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -828,7 +828,7 @@ func (s *SwitchMTrafficService) AddTrafficTotalMulticast(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTrafficMulticastQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddTrafficTotalMulticast, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTotalMulticast, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -862,7 +862,7 @@ func (s *SwitchMTrafficService) AddTrafficTotalPorterror(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTrafficPortErrorQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddTrafficTotalPorterror, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTotalPorterror, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -896,7 +896,7 @@ func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTrafficQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddTrafficTotalTrend, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTotalTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -930,7 +930,7 @@ func (s *SwitchMTrafficService) AddTrafficTotalUnicast(ctx context.Context, body
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMTrafficUnicastQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddTrafficTotalUnicast, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTotalUnicast, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -47,7 +47,7 @@ func (s *WSGRestrictedAPAccessProfileService) AddRkszonesRestrictedApAccessProfi
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGCommonCreateResultAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesRestrictedApAccessProfilesByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesRestrictedApAccessProfilesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -82,7 +82,7 @@ func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessPr
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesRestrictedApAccessProfiles, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesRestrictedApAccessProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -119,7 +119,7 @@ func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessPr
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesRestrictedApAccessProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesRestrictedApAccessProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -155,7 +155,7 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileRestrictedApAccessProfileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesRestrictedApAccessProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesRestrictedApAccessProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -187,7 +187,7 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileRestrictedApAccessProfileArrayAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGFindRkszonesRestrictedApAccessProfilesByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindRkszonesRestrictedApAccessProfilesByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -228,7 +228,7 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGProfileIdListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesRestrictedApAccessProfilesByZoneId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesRestrictedApAccessProfilesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
@@ -271,7 +271,7 @@ func (s *WSGRestrictedAPAccessProfileService) UpdateRkszonesRestrictedApAccessPr
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesRestrictedApAccessProfilesById, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateRkszonesRestrictedApAccessProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

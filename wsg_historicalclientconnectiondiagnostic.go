@@ -61,9 +61,9 @@ type WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList
 	Data *WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountList
 }
 
-func newWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -115,7 +115,7 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdCount(ctx context.C
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGHccdCount, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGHccdCount, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -153,7 +153,7 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdTypeCount(ctx conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGHccdTypeCount, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGHccdTypeCount, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

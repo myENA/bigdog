@@ -45,9 +45,9 @@ type WSGAPRulesApRuleConfigurationAPIResponse struct {
 	Data *WSGAPRulesApRuleConfiguration
 }
 
-func newWSGAPRulesApRuleConfigurationAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPRulesApRuleConfigurationAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPRulesApRuleConfigurationAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -90,9 +90,9 @@ type WSGAPRulesApRuleListAPIResponse struct {
 	Data *WSGAPRulesApRuleList
 }
 
-func newWSGAPRulesApRuleListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newWSGAPRulesApRuleListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(WSGAPRulesApRuleListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 

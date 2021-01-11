@@ -1642,7 +1642,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport46ApInventoryOver
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport46ApInventoryOverview, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport46ApInventoryOverview, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1676,7 +1676,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport47TopApsDisconnec
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport47TopApsDisconnection, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport47TopApsDisconnection, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1710,7 +1710,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport48ApCountTrend(ct
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport48ApCountTrend, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport48ApCountTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1744,7 +1744,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport49ApStatusTrend(c
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport49ApStatusTrend, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport49ApStatusTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1778,7 +1778,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport50TopApsModelsCha
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport50TopApsModelsChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport50TopApsModelsChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1812,7 +1812,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport51Top10ApVersions
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport51Top10ApVersionsChart, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport51Top10ApVersionsChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1846,7 +1846,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport52TopApsRebootRea
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport52TopApsRebootReasons, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport52TopApsRebootReasons, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1880,7 +1880,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport53Top10ApsRebootC
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport53Top10ApsRebootCounts, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport53Top10ApsRebootCounts, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1914,7 +1914,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport54TopApAlarmTypes
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport54TopApAlarmTypes, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport54TopApAlarmTypes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1948,7 +1948,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport55TopAPModels(ctx
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport55TopAPModels, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport55TopAPModels, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1982,7 +1982,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport56TopAPVersions(c
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport56TopAPVersions, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport56TopAPVersions, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2016,7 +2016,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport57TopAPsOffline(c
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport57TopAPsOffline, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport57TopAPsOffline, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2050,7 +2050,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport58TopAPsByReboots
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport58TopAPsByReboots, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport58TopAPsByReboots, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2084,7 +2084,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport59ApsConfiguredIn
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport59ApsConfiguredInMultiCtrl, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport59ApsConfiguredInMultiCtrl, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2118,7 +2118,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport60ApDetailsOnOffl
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport60ApDetailsOnOfflineStatus, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport60ApDetailsOnOfflineStatus, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2152,7 +2152,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport61ApDetailsOtherS
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIReportInventoryAPsReport61ApDetailsOtherStatus, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportInventoryAPsReport61ApDetailsOtherStatus, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

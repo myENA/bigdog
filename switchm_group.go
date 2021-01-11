@@ -41,9 +41,9 @@ type SwitchMGroupAuditIdAPIResponse struct {
 	Data *SwitchMGroupAuditId
 }
 
-func newSwitchMGroupAuditIdAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMGroupAuditIdAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMGroupAuditIdAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -90,9 +90,9 @@ type SwitchMGroupAuditIdListAPIResponse struct {
 	Data *SwitchMGroupAuditIdList
 }
 
-func newSwitchMGroupAuditIdListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMGroupAuditIdListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMGroupAuditIdListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -239,9 +239,9 @@ type SwitchMGroupsByIdsQueryResultListAPIResponse struct {
 	Data *SwitchMGroupsByIdsQueryResultList
 }
 
-func newSwitchMGroupsByIdsQueryResultListAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMGroupsByIdsQueryResultListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMGroupsByIdsQueryResultListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -364,9 +364,9 @@ type SwitchMGroupSwitchGroupAPIResponse struct {
 	Data *SwitchMGroupSwitchGroup
 }
 
-func newSwitchMGroupSwitchGroupAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSwitchMGroupSwitchGroupAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SwitchMGroupSwitchGroupAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -495,7 +495,7 @@ func (s *SwitchMGroupService) AddGroup(ctx context.Context, body *SwitchMGroupSw
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMGroupAuditIdAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddGroup, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddGroup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -530,7 +530,7 @@ func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, sw
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMGroupAuditIdAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteGroupBySwitchGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteGroupBySwitchGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -563,7 +563,7 @@ func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, swit
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMGroupSwitchGroupAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindGroupBySwitchGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindGroupBySwitchGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchGroupId", switchGroupId)
@@ -599,7 +599,7 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMGroupsByIdsQueryResultListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindGroupIdsByDomainByDomainId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindGroupIdsByDomainByDomainId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("domainId", domainId)
@@ -633,7 +633,7 @@ func (s *SwitchMGroupService) FindSwitchClientVisibilityByQueryCriteria(ctx cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*FileAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSwitchMFindSwitchClientVisibilityByQueryCriteria, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMFindSwitchClientVisibilityByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -671,7 +671,7 @@ func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMGroupAuditIdAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPatch, RouteSwitchMPartialUpdateGroupBySwitchGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteSwitchMPartialUpdateGroupBySwitchGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -710,7 +710,7 @@ func (s *SwitchMGroupService) UpdateGroupBySwitchGroupId(ctx context.Context, bo
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMGroupAuditIdAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateGroupBySwitchGroupId, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateGroupBySwitchGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -745,7 +745,7 @@ func (s *SwitchMGroupService) UpdateGroupFirmwareByDomain(ctx context.Context, b
 	if err = ctx.Err(); err != nil {
 		return resp.(*SwitchMGroupAuditIdListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateGroupFirmwareByDomain, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateGroupFirmwareByDomain, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

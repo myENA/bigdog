@@ -37,9 +37,9 @@ type SCIPCIProfileBatchDelete200ResponseTypeAPIResponse struct {
 	Data *SCIPCIProfileBatchDelete200ResponseType
 }
 
-func newSCIPCIProfileBatchDelete200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIPCIProfileBatchDelete200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIPCIProfileBatchDelete200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -74,9 +74,9 @@ type SCIPCIProfileFind200ResponseTypeAPIResponse struct {
 	Data SCIPCIProfileFind200ResponseType
 }
 
-func newSCIPCIProfileFind200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIPCIProfileFind200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIPCIProfileFind200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -113,9 +113,9 @@ type SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse struct {
 	Data *SCIPCIProfilePrototypecountreports200ResponseType
 }
 
-func newSCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -150,9 +150,9 @@ type SCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse struct {
 	Data SCIPCIProfilePrototypegetreports200ResponseType
 }
 
-func newSCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+func newSCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
 	r := new(SCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
 	return r
 }
 
@@ -200,7 +200,7 @@ func (s *SCIPCIProfileService) PciProfileBatchDelete(ctx context.Context, formVa
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIPCIProfileBatchDelete200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIPciProfileBatchDelete, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIPciProfileBatchDelete, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -239,7 +239,7 @@ func (s *SCIPCIProfileService) PciProfileCreateWithRelations(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIPciProfileCreateWithRelations, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIPciProfileCreateWithRelations, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -274,7 +274,7 @@ func (s *SCIPCIProfileService) PciProfileFind(ctx context.Context, optionalParam
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIPCIProfileFind200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIPciProfileFind, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIPciProfileFind, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
@@ -312,7 +312,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCountReports(ctx context.Conte
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIPciProfilePrototypeCountReports, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIPciProfilePrototypeCountReports, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -350,7 +350,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCreateReports(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsPciReportAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteSCIPciProfilePrototypeCreateReports, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIPciProfilePrototypeCreateReports, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -386,7 +386,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeDeleteReports(ctx context.Cont
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSCIPciProfilePrototypeDeleteReports, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodDelete, RouteSCIPciProfilePrototypeDeleteReports, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -421,7 +421,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeDestroyByIdReports(ctx context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteSCIPciProfilePrototypeDestroyByIdReports, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodDelete, RouteSCIPciProfilePrototypeDestroyByIdReports, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -457,7 +457,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeFindByIdReports(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsPciReportAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIPciProfilePrototypeFindByIdReports, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIPciProfilePrototypeFindByIdReports, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("fk", fk)
@@ -494,7 +494,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeGetReports(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteSCIPciProfilePrototypeGetReports, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIPciProfilePrototypeGetReports, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
@@ -534,7 +534,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeUpdateByIdReports(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*SCIModelsPciReportAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSCIPciProfilePrototypeUpdateByIdReports, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCIPciProfilePrototypeUpdateByIdReports, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -579,7 +579,7 @@ func (s *SCIPCIProfileService) PciProfileUpdateWithRelations(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteSCIPciProfileUpdateWithRelations, true)
+	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCIPciProfileUpdateWithRelations, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

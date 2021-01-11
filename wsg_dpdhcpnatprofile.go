@@ -43,7 +43,7 @@ func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, b
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPost, RouteWSGAddDpProfileSettings, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddDpProfileSettings, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -77,7 +77,7 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDpProfileSettings, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpProfileSettings, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -112,7 +112,7 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDpProfileSettingsByDpKey, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpProfileSettingsByDpKey, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -141,7 +141,7 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context, 
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDPProfileSettingBOListAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDpProfileSettings, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpProfileSettings, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -172,7 +172,7 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Co
 	if err = ctx.Err(); err != nil {
 		return resp.(*WSGDPProfileSettingBOAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodGet, RouteWSGFindDpProfileSettingsByDpKey, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpProfileSettingsByDpKey, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("dpKey", dpKey)
@@ -207,7 +207,7 @@ func (s *WSGDPDHCPNATProfileService) UpdateDpProfileSettingsByDpKey(ctx context.
 	if err = ctx.Err(); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateDpProfileSettingsByDpKey, true)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateDpProfileSettingsByDpKey, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")

@@ -217,14 +217,16 @@ func NewWSGWLANGroupWlanMember() *WSGWLANGroupWlanMember {
 
 // AddRkszonesWlangroupsByZoneId
 //
-// Operation ID: addRkszonesWlangroupsByZoneId
-//
 // Use this API command to create a new WLAN group.
 //
-// Request Body:
+// Operation ID: addRkszonesWlangroupsByZoneId
+// Operation path: /rkszones/{zoneId}/wlangroups
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANGroupCreateWlanGroup
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANGroupService) AddRkszonesWlangroupsByZoneId(ctx context.Context, body *WSGWLANGroupCreateWlanGroup, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -254,66 +256,70 @@ func (s *WSGWLANGroupService) AddRkszonesWlangroupsByZoneId(ctx context.Context,
 
 // AddRkszonesWlangroupsMembersById
 //
-// Operation ID: addRkszonesWlangroupsMembersById
-//
 // Use this API command to add a member to a WLAN group.
 //
-// Request Body:
+// Operation ID: addRkszonesWlangroupsMembersById
+// Operation path: /rkszones/{zoneId}/wlangroups/{id}/members
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANGroupWlanMember
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById(ctx context.Context, body *WSGWLANGroupWlanMember, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANGroupService) AddRkszonesWlangroupsMembersById(ctx context.Context, body *WSGWLANGroupWlanMember, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesWlangroupsMembersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesWlangroupsById
 //
-// Operation ID: deleteRkszonesWlangroupsById
-//
 // Use this API command to delete a WLAN group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlangroupsById
+// Operation path: /rkszones/{zoneId}/wlangroups/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsById, true)
 	defer recycleAPIRequest(req)
@@ -323,33 +329,35 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsById(ctx context.Context, 
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesWlangroupsMembersByMemberId
 //
-// Operation ID: deleteRkszonesWlangroupsMembersByMemberId
-//
 // Use this API command to remove a member from a WLAN group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlangroupsMembersByMemberId
+// Operation path: /rkszones/{zoneId}/wlangroups/{id}/members/{memberId}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - memberId string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId(ctx context.Context, id string, memberId string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId(ctx context.Context, id string, memberId string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsMembersByMemberId, true)
 	defer recycleAPIRequest(req)
@@ -360,33 +368,35 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersByMemberId(ctx cont
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesWlangroupsMembersNasIdByMemberId
 //
-// Operation ID: deleteRkszonesWlangroupsMembersNasIdByMemberId
-//
 // Use this API command to disable a member NAS-ID override of a WLAN group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlangroupsMembersNasIdByMemberId
+// Operation path: /rkszones/{zoneId}/wlangroups/{id}/members/{memberId}/nasId
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - memberId string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId(ctx context.Context, id string, memberId string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId(ctx context.Context, id string, memberId string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsMembersNasIdByMemberId, true)
 	defer recycleAPIRequest(req)
@@ -397,33 +407,35 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersNasIdByMemberId(ctx
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesWlangroupsMembersVlanOverrideByMemberId
 //
-// Operation ID: deleteRkszonesWlangroupsMembersVlanOverrideByMemberId
-//
 // Use this API command to disable a member VLAN override of a WLAN group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlangroupsMembersVlanOverrideByMemberId
+// Operation path: /rkszones/{zoneId}/wlangroups/{id}/members/{memberId}/vlanOverride
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - memberId string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMemberId(ctx context.Context, id string, memberId string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMemberId(ctx context.Context, id string, memberId string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlangroupsMembersVlanOverrideByMemberId, true)
 	defer recycleAPIRequest(req)
@@ -434,16 +446,18 @@ func (s *WSGWLANGroupService) DeleteRkszonesWlangroupsMembersVlanOverrideByMembe
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesWlangroupsById
 //
-// Operation ID: findRkszonesWlangroupsById
-//
 // Use this API command to retrieve the WLAN group.
 //
-// Required Parameters:
+// Operation ID: findRkszonesWlangroupsById
+// Operation path: /rkszones/{zoneId}/wlangroups/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -472,15 +486,17 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsById(ctx context.Context, id
 
 // FindRkszonesWlangroupsByZoneId
 //
-// Operation ID: findRkszonesWlangroupsByZoneId
-//
 // Use this API command to retrieve the list of WLAN groups within a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesWlangroupsByZoneId
+// Operation path: /rkszones/{zoneId}/wlangroups
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -514,83 +530,87 @@ func (s *WSGWLANGroupService) FindRkszonesWlangroupsByZoneId(ctx context.Context
 
 // PartialUpdateRkszonesWlangroupsById
 //
-// Operation ID: partialUpdateRkszonesWlangroupsById
-//
 // Use this API command to modify the configuration of a WLAN group.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesWlangroupsById
+// Operation path: /rkszones/{zoneId}/wlangroups/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGWLANGroupModifyWlanGroup
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsById(ctx context.Context, body *WSGWLANGroupModifyWlanGroup, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsById(ctx context.Context, body *WSGWLANGroupModifyWlanGroup, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlangroupsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateRkszonesWlangroupsMembersByMemberId
 //
-// Operation ID: partialUpdateRkszonesWlangroupsMembersByMemberId
-//
 // Use this API command to modify a member of a WLAN group.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesWlangroupsMembersByMemberId
+// Operation path: /rkszones/{zoneId}/wlangroups/{id}/members/{memberId}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGWLANGroupModifyWlanGroupMember
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - memberId string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsMembersByMemberId(ctx context.Context, body *WSGWLANGroupModifyWlanGroupMember, id string, memberId string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANGroupService) PartialUpdateRkszonesWlangroupsMembersByMemberId(ctx context.Context, body *WSGWLANGroupModifyWlanGroupMember, id string, memberId string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlangroupsMembersByMemberId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("memberId", memberId)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

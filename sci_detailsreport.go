@@ -23,11 +23,13 @@ func (ss *SCIService) SCIDetailsReportsService() *SCIDetailsReportsService {
 
 // ReportSwitchDetailsReport125SwitchSummary
 //
-// Operation ID: report_SwitchDetailsReport_125_switchSummary
-//
 // Switch Details Report - Summary
 //
-// Request Body:
+// Operation ID: report_SwitchDetailsReport_125_switchSummary
+// Operation path: /reports/18/sections/125/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIDetailsReportsService) ReportSwitchDetailsReport125SwitchSummary(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport125SwitchSummary(ctx
 
 // ReportSwitchDetailsReport126SwitchResourceUtilization
 //
-// Operation ID: report_SwitchDetailsReport_126_switchResourceUtilization
-//
 // Switch Details Report - Resource Utilization
 //
-// Request Body:
+// Operation ID: report_SwitchDetailsReport_126_switchResourceUtilization
+// Operation path: /reports/18/sections/126/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIDetailsReportsService) ReportSwitchDetailsReport126SwitchResourceUtilization(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse, error) {
 	var (
@@ -87,11 +91,13 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport126SwitchResourceUti
 
 // ReportSwitchDetailsReport129TopSwitchPortsByTrafficChart
 //
-// Operation ID: report_SwitchDetailsReport_129_topSwitchPortsByTrafficChart
-//
 // Switch Details Report - Top Ports by Traffic
 //
-// Request Body:
+// Operation ID: report_SwitchDetailsReport_129_topSwitchPortsByTrafficChart
+// Operation path: /reports/18/sections/129/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIDetailsReportsService) ReportSwitchDetailsReport129TopSwitchPortsByTrafficChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -119,11 +125,13 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport129TopSwitchPortsByT
 
 // ReportSwitchDetailsReport130TopSwitchPortsByTrafficTable
 //
-// Operation ID: report_SwitchDetailsReport_130_topSwitchPortsByTrafficTable
-//
 // Switch Details Report - Top Ports by Traffic
 //
-// Request Body:
+// Operation ID: report_SwitchDetailsReport_130_topSwitchPortsByTrafficTable
+// Operation path: /reports/18/sections/130/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIDetailsReportsService) ReportSwitchDetailsReport130TopSwitchPortsByTrafficTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -151,11 +159,13 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport130TopSwitchPortsByT
 
 // ReportSwitchDetailsReport131SwitchTrafficTrend
 //
-// Operation ID: report_SwitchDetailsReport_131_switchTrafficTrend
-//
 // Switch Details Report - Traffic Trend
 //
-// Request Body:
+// Operation ID: report_SwitchDetailsReport_131_switchTrafficTrend
+// Operation path: /reports/18/sections/131/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIDetailsReportsService) ReportSwitchDetailsReport131SwitchTrafficTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -183,11 +193,13 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport131SwitchTrafficTren
 
 // ReportSwitchDetailsReport137LldpNeighborTable
 //
-// Operation ID: report_SwitchDetailsReport_137_lldpNeighborTable
-//
 // Switch Details Report - LLDP Neighbor List
 //
-// Request Body:
+// Operation ID: report_SwitchDetailsReport_137_lldpNeighborTable
+// Operation path: /reports/18/sections/137/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIDetailsReportsService) ReportSwitchDetailsReport137LldpNeighborTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -215,11 +227,13 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport137LldpNeighborTable
 
 // ReportSwitchDetailsReport138SwitchUptimeHistory
 //
-// Operation ID: report_SwitchDetailsReport_138_switchUptimeHistory
-//
 // Switch Details Report - Uptime History
 //
-// Request Body:
+// Operation ID: report_SwitchDetailsReport_138_switchUptimeHistory
+// Operation path: /reports/18/sections/138/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIDetailsReportsService) ReportSwitchDetailsReport138SwitchUptimeHistory(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse, error) {
 	var (
@@ -247,11 +261,13 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport138SwitchUptimeHisto
 
 // ReportSwitchDetailsReport139SwitchDetails
 //
-// Operation ID: report_SwitchDetailsReport_139_switchDetails
-//
 // Switch Details Report - Details
 //
-// Request Body:
+// Operation ID: report_SwitchDetailsReport_139_switchDetails
+// Operation path: /reports/18/sections/139/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIDetailsReportsService) ReportSwitchDetailsReport139SwitchDetails(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse, error) {
 	var (
@@ -279,11 +295,13 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport139SwitchDetails(ctx
 
 // ReportSwitchDetailsReport152PerSwitchErrorTrend
 //
-// Operation ID: report_SwitchDetailsReport_152_perSwitchErrorTrend
-//
 // Switch Details Report - Error Trend
 //
-// Request Body:
+// Operation ID: report_SwitchDetailsReport_152_perSwitchErrorTrend
+// Operation path: /reports/18/sections/152/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIDetailsReportsService) ReportSwitchDetailsReport152PerSwitchErrorTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse, error) {
 	var (

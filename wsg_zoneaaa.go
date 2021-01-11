@@ -23,14 +23,16 @@ func (ss *WSGService) WSGZoneAAAService() *WSGZoneAAAService {
 
 // AddRkszonesAaaAdByZoneId
 //
-// Operation ID: addRkszonesAaaAdByZoneId
-//
 // Use this API command to create a new active directory server of a zone.
 //
-// Request Body:
+// Operation ID: addRkszonesAaaAdByZoneId
+// Operation path: /rkszones/{zoneId}/aaa/ad
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAAACreateActiveDirectoryServer
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *WSGAAACreateActiveDirectoryServer, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,14 +62,16 @@ func (s *WSGZoneAAAService) AddRkszonesAaaAdByZoneId(ctx context.Context, body *
 
 // AddRkszonesAaaLdapByZoneId
 //
-// Operation ID: addRkszonesAaaLdapByZoneId
-//
 // Use this API command to create a new LDAP server of a zone.
 //
-// Request Body:
+// Operation ID: addRkszonesAaaLdapByZoneId
+// Operation path: /rkszones/{zoneId}/aaa/ldap
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAAACreateLDAPServer
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body *WSGAAACreateLDAPServer, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -97,18 +101,20 @@ func (s *WSGZoneAAAService) AddRkszonesAaaLdapByZoneId(ctx context.Context, body
 
 // AddRkszonesAaaRadiusByZoneId
 //
-// Operation ID: addRkszonesAaaRadiusByZoneId
-//
 // Use this API command to create a new radius server of a zone.
 //
-// Request Body:
+// Operation ID: addRkszonesAaaRadiusByZoneId
+// Operation path: /rkszones/{zoneId}/aaa/radius
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAAACreateAuthenticationServer
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - forAccounting string
 //		- nullable
 func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, body *WSGAAACreateAuthenticationServer, zoneId string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -141,26 +147,28 @@ func (s *WSGZoneAAAService) AddRkszonesAaaRadiusByZoneId(ctx context.Context, bo
 
 // DeleteRkszonesAaaAdById
 //
-// Operation ID: deleteRkszonesAaaAdById
-//
 // Use this API command to delete an active directory server of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesAaaAdById
+// Operation path: /rkszones/{zoneId}/aaa/ad/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesAaaAdById, true)
 	defer recycleAPIRequest(req)
@@ -170,31 +178,33 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaAdById(ctx context.Context, id stri
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesAaaById
 //
-// Operation ID: deleteRkszonesAaaById
-//
 // Use this API command to delete an AAA server.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesAaaById
+// Operation path: /rkszones/{zoneId}/aaa/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesAaaById, true)
 	defer recycleAPIRequest(req)
@@ -204,68 +214,72 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaById(ctx context.Context, id string
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesAaaByZoneId
 //
-// Operation ID: deleteRkszonesAaaByZoneId
-//
 // Use this API command to delete a list of AAA server.
 //
-// Request Body:
+// Operation ID: deleteRkszonesAaaByZoneId
+// Operation path: /rkszones/{zoneId}/aaa
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesAaaByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesAaaLdapById
 //
-// Operation ID: deleteRkszonesAaaLdapById
-//
 // Use this API command to delete a LDAP server of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesAaaLdapById
+// Operation path: /rkszones/{zoneId}/aaa/ldap/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesAaaLdapById, true)
 	defer recycleAPIRequest(req)
@@ -275,31 +289,33 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaLdapById(ctx context.Context, id st
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesAaaRadiusById
 //
-// Operation ID: deleteRkszonesAaaRadiusById
-//
 // Use this API command to delete a radius server of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesAaaRadiusById
+// Operation path: /rkszones/{zoneId}/aaa/radius/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesAaaRadiusById, true)
 	defer recycleAPIRequest(req)
@@ -309,31 +325,33 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusById(ctx context.Context, id 
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesAaaRadiusSecondaryById
 //
-// Operation ID: deleteRkszonesAaaRadiusSecondaryById
-//
 // Use this API command to disable secondary server on radius server of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesAaaRadiusSecondaryById
+// Operation path: /rkszones/{zoneId}/aaa/radius/{id}/secondary
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesAaaRadiusSecondaryById, true)
 	defer recycleAPIRequest(req)
@@ -343,31 +361,33 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusSecondaryById(ctx context.Con
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesAaaRadiusStandbyPrimaryById
 //
-// Operation ID: deleteRkszonesAaaRadiusStandbyPrimaryById
-//
 // Use this API command to disable primary server on radius server of a zone for Standby Cluster.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesAaaRadiusStandbyPrimaryById
+// Operation path: /rkszones/{zoneId}/aaa/radius/{id}/standbyPrimary
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesAaaRadiusStandbyPrimaryById, true)
 	defer recycleAPIRequest(req)
@@ -377,16 +397,18 @@ func (s *WSGZoneAAAService) DeleteRkszonesAaaRadiusStandbyPrimaryById(ctx contex
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesAaaAdById
 //
-// Operation ID: findRkszonesAaaAdById
-//
 // Use this API command to retrieve an active directory server of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesAaaAdById
+// Operation path: /rkszones/{zoneId}/aaa/ad/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -415,11 +437,13 @@ func (s *WSGZoneAAAService) FindRkszonesAaaAdById(ctx context.Context, id string
 
 // FindRkszonesAaaAdByZoneId
 //
-// Operation ID: findRkszonesAaaAdByZoneId
-//
 // Use this API command to retrieve a list of active directory servers of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesAaaAdByZoneId
+// Operation path: /rkszones/{zoneId}/aaa/ad
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaAdByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGAAAActiveDirectoryListAPIResponse, error) {
@@ -445,11 +469,13 @@ func (s *WSGZoneAAAService) FindRkszonesAaaAdByZoneId(ctx context.Context, zoneI
 
 // FindRkszonesAaaLdapById
 //
-// Operation ID: findRkszonesAaaLdapById
-//
 // Use this API command to retrieve a LDAP server of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesAaaLdapById
+// Operation path: /rkszones/{zoneId}/aaa/ldap/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -478,11 +504,13 @@ func (s *WSGZoneAAAService) FindRkszonesAaaLdapById(ctx context.Context, id stri
 
 // FindRkszonesAaaLdapByZoneId
 //
-// Operation ID: findRkszonesAaaLdapByZoneId
-//
 // Use this API command to retrieve a list of LDAP servers of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesAaaLdapByZoneId
+// Operation path: /rkszones/{zoneId}/aaa/ldap
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGZoneAAAService) FindRkszonesAaaLdapByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGAAALDAPServerListAPIResponse, error) {
@@ -508,11 +536,13 @@ func (s *WSGZoneAAAService) FindRkszonesAaaLdapByZoneId(ctx context.Context, zon
 
 // FindRkszonesAaaRadiusById
 //
-// Operation ID: findRkszonesAaaRadiusById
-//
 // Use this API command to retrieve a radius server of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesAaaRadiusById
+// Operation path: /rkszones/{zoneId}/aaa/radius/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -541,15 +571,17 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusById(ctx context.Context, id st
 
 // FindRkszonesAaaRadiusByZoneId
 //
-// Operation ID: findRkszonesAaaRadiusByZoneId
-//
 // Use this API command to retrieve a list of radius servers of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesAaaRadiusByZoneId
+// Operation path: /rkszones/{zoneId}/aaa/radius
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - forAccounting string
 //		- nullable
 func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, zoneId string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGAAAAuthenticationServerListAPIResponse, error) {
@@ -578,240 +610,252 @@ func (s *WSGZoneAAAService) FindRkszonesAaaRadiusByZoneId(ctx context.Context, z
 
 // PartialUpdateRkszonesAaaAdById
 //
-// Operation ID: partialUpdateRkszonesAaaAdById
-//
 // Use this API command to modify the configuration on active directory server of a zone.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesAaaAdById
+// Operation path: /rkszones/{zoneId}/aaa/ad/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAAAModifyActiveDirectoryServer
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesAaaAdById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateRkszonesAaaLdapById
 //
-// Operation ID: partialUpdateRkszonesAaaLdapById
-//
 // Use this API command to modify the configuration on LDAP server of a zone.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesAaaLdapById
+// Operation path: /rkszones/{zoneId}/aaa/ldap/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAAAModifyLDAPServer
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesAaaLdapById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateRkszonesAaaRadiusById
 //
-// Operation ID: partialUpdateRkszonesAaaRadiusById
-//
 // Use this API command to modify the configuration on radius server of a zone.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesAaaRadiusById
+// Operation path: /rkszones/{zoneId}/aaa/radius/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAAAModifyAuthenticationServer
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) PartialUpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesAaaRadiusById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateRkszonesAaaAdById
 //
-// Operation ID: updateRkszonesAaaAdById
-//
 // Use this API command to modify the configuration on active directory server of a zone by complete attributes.
 //
-// Request Body:
+// Operation ID: updateRkszonesAaaAdById
+// Operation path: /rkszones/{zoneId}/aaa/ad/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAAAModifyActiveDirectoryServer
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) UpdateRkszonesAaaAdById(ctx context.Context, body *WSGAAAModifyActiveDirectoryServer, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesAaaAdById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateRkszonesAaaLdapById
 //
-// Operation ID: updateRkszonesAaaLdapById
-//
 // Use this API command to modify the configuration on LDAP server of a zone by complete attributes.
 //
-// Request Body:
+// Operation ID: updateRkszonesAaaLdapById
+// Operation path: /rkszones/{zoneId}/aaa/ldap/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAAAModifyLDAPServer
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) UpdateRkszonesAaaLdapById(ctx context.Context, body *WSGAAAModifyLDAPServer, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesAaaLdapById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateRkszonesAaaRadiusById
 //
-// Operation ID: updateRkszonesAaaRadiusById
-//
 // Use this API command to modify the configuration on radius server of a zone by complete attributes.
 //
-// Request Body:
+// Operation ID: updateRkszonesAaaRadiusById
+// Operation path: /rkszones/{zoneId}/aaa/radius/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAAAModifyAuthenticationServer
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGZoneAAAService) UpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAAAService) UpdateRkszonesAaaRadiusById(ctx context.Context, body *WSGAAAModifyAuthenticationServer, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesAaaRadiusById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

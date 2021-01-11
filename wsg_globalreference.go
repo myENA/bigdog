@@ -23,9 +23,11 @@ func (ss *WSGService) WSGGlobalReferenceService() *WSGGlobalReferenceService {
 
 // FindGlobalSettingsFriendlyNameLang
 //
-// Operation ID: findGlobalSettingsFriendlyNameLang
-//
 // Use this API command to get friendly name of usable language for profile: Hotspot2.0 Identity Provider.
+//
+// Operation ID: findGlobalSettingsFriendlyNameLang
+// Operation path: /globalSettings/friendlyNameLang
+// Success code: 200 (OK)
 func (s *WSGGlobalReferenceService) FindGlobalSettingsFriendlyNameLang(ctx context.Context, mutators ...RequestMutator) (*WSGSystemFriendlyNameLangListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -48,9 +50,11 @@ func (s *WSGGlobalReferenceService) FindGlobalSettingsFriendlyNameLang(ctx conte
 
 // FindGlobalSettingsPortalLang
 //
-// Operation ID: findGlobalSettingsPortalLang
-//
 // Use this API command to get friendly name of usable language for profile: Guest Access (Language in General Options), Web Auth (Language in General Options).
+//
+// Operation ID: findGlobalSettingsPortalLang
+// Operation path: /globalSettings/portalLang
+// Success code: 200 (OK)
 func (s *WSGGlobalReferenceService) FindGlobalSettingsPortalLang(ctx context.Context, mutators ...RequestMutator) (*WSGSystemPortalLangListAPIResponse, error) {
 	var (
 		req      *APIRequest

@@ -23,14 +23,16 @@ func (ss *WSGService) WSGHotspot20WLANServiceService() *WSGHotspot20WLANServiceS
 
 // AddRkszonesHs20sByZoneId
 //
-// Operation ID: addRkszonesHs20sByZoneId
-//
 // Use this API command to create a new Hotspot 2.0 WLAN profile of a zone.
 //
-// Request Body:
+// Operation ID: addRkszonesHs20sByZoneId
+// Operation path: /rkszones/{zoneId}/hs20s
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGPortalServiceCreateHotspot20WlanProfile
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGHotspot20WLANServiceService) AddRkszonesHs20sByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspot20WlanProfile, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,26 +62,28 @@ func (s *WSGHotspot20WLANServiceService) AddRkszonesHs20sByZoneId(ctx context.Co
 
 // DeleteRkszonesHs20sById
 //
-// Operation ID: deleteRkszonesHs20sById
-//
 // Use this API command to delete a Hotspot 2.0 WLAN Profile of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesHs20sById
+// Operation path: /rkszones/{zoneId}/hs20s/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesHs20sById, true)
 	defer recycleAPIRequest(req)
@@ -89,16 +93,18 @@ func (s *WSGHotspot20WLANServiceService) DeleteRkszonesHs20sById(ctx context.Con
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesHs20sById
 //
-// Operation ID: findRkszonesHs20sById
-//
 // Use this API command to retrieve a Hotspot 2.0 WLAN profile of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesHs20sById
+// Operation path: /rkszones/{zoneId}/hs20s/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -127,11 +133,13 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sById(ctx context.Conte
 
 // FindRkszonesHs20sByZoneId
 //
-// Operation ID: findRkszonesHs20sByZoneId
-//
 // Use this API command to retrieve a list of Hotspot 2.0 WLAN profiles of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesHs20sByZoneId
+// Operation path: /rkszones/{zoneId}/hs20s
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGPortalServiceListAPIResponse, error) {
@@ -157,11 +165,13 @@ func (s *WSGHotspot20WLANServiceService) FindRkszonesHs20sByZoneId(ctx context.C
 
 // FindServicesHotspot20ProfileByQueryCriteria
 //
-// Operation ID: findServicesHotspot20ProfileByQueryCriteria
-//
 // Query Hotspot20 Profiles with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesHotspot20ProfileByQueryCriteria
+// Operation path: /query/services/hotspot20Profile
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGHotspot20WLANServiceService) FindServicesHotspot20ProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -189,40 +199,42 @@ func (s *WSGHotspot20WLANServiceService) FindServicesHotspot20ProfileByQueryCrit
 
 // PartialUpdateRkszonesHs20sById
 //
-// Operation ID: partialUpdateRkszonesHs20sById
-//
 // Use this API command to modify the configuration on Hotspot 2.0 WLAN profile of a zone.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesHs20sById
+// Operation path: /rkszones/{zoneId}/hs20s/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGPortalServiceModifyHotspot20WlanProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20WLANServiceService) PartialUpdateRkszonesHs20sById(ctx context.Context, body *WSGPortalServiceModifyHotspot20WlanProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGHotspot20WLANServiceService) PartialUpdateRkszonesHs20sById(ctx context.Context, body *WSGPortalServiceModifyHotspot20WlanProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesHs20sById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

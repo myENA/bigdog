@@ -23,11 +23,13 @@ func (ss *WSGService) WSGL3AccessControlPolicyService() *WSGL3AccessControlPolic
 
 // AddL3AccessControlPolicies
 //
-// Operation ID: addL3AccessControlPolicies
-//
 // Create a L3 Access Control Policy.
 //
-// Request Body:
+// Operation ID: addL3AccessControlPolicies
+// Operation path: /l3AccessControlPolicies
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateL3AccessControlPolicy
 func (s *WSGL3AccessControlPolicyService) AddL3AccessControlPolicies(ctx context.Context, body *WSGProfileCreateL3AccessControlPolicy, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *WSGL3AccessControlPolicyService) AddL3AccessControlPolicies(ctx context
 
 // DeleteL3AccessControlPolicies
 //
-// Operation ID: deleteL3AccessControlPolicies
-//
 // Use this API command to delete Bulk L3 Access Control Policies.
 //
-// Request Body:
+// Operation ID: deleteL3AccessControlPolicies
+// Operation path: /l3AccessControlPolicies
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGL3AccessControlPolicyService) DeleteL3AccessControlPolicies(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGL3AccessControlPolicyService) DeleteL3AccessControlPolicies(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteL3AccessControlPolicies, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteL3AccessControlPoliciesById
 //
-// Operation ID: deleteL3AccessControlPoliciesById
-//
 // Delete a L3 Access Control Policy.
 //
-// Required Parameters:
+// Operation ID: deleteL3AccessControlPoliciesById
+// Operation path: /l3AccessControlPolicies/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGL3AccessControlPolicyService) DeleteL3AccessControlPoliciesById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGL3AccessControlPolicyService) DeleteL3AccessControlPoliciesById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteL3AccessControlPoliciesById, true)
 	defer recycleAPIRequest(req)
@@ -113,16 +119,18 @@ func (s *WSGL3AccessControlPolicyService) DeleteL3AccessControlPoliciesById(ctx 
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindL3AccessControlPolicies
 //
-// Operation ID: findL3AccessControlPolicies
-//
 // Retrieve L3 Access Control Policy list.
 //
-// Optional Parameters:
+// Operation ID: findL3AccessControlPolicies
+// Operation path: /l3AccessControlPolicies
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - domainId string
 //		- nullable
 // - index string
@@ -160,11 +168,13 @@ func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPolicies(ctx contex
 
 // FindL3AccessControlPoliciesById
 //
-// Operation ID: findL3AccessControlPoliciesById
-//
 // Retrieve a L3 Access Control Policy.
 //
-// Required Parameters:
+// Operation ID: findL3AccessControlPoliciesById
+// Operation path: /l3AccessControlPolicies/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPoliciesById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileL3AccessControlPolicyAPIResponse, error) {
@@ -190,11 +200,13 @@ func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPoliciesById(ctx co
 
 // FindL3AccessControlPoliciesByQueryCriteria
 //
-// Operation ID: findL3AccessControlPoliciesByQueryCriteria
-//
 // Retrieve a list of L3 Access Control Policy.
 //
-// Request Body:
+// Operation ID: findL3AccessControlPoliciesByQueryCriteria
+// Operation path: /l3AccessControlPolicies/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPoliciesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileL3AccessControlPolicyArrayAPIResponse, error) {
 	var (
@@ -222,37 +234,39 @@ func (s *WSGL3AccessControlPolicyService) FindL3AccessControlPoliciesByQueryCrit
 
 // UpdateL3AccessControlPoliciesById
 //
-// Operation ID: updateL3AccessControlPoliciesById
-//
 // Modify a L3 Access Control Policy.
 //
-// Request Body:
+// Operation ID: updateL3AccessControlPoliciesById
+// Operation path: /l3AccessControlPolicies/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyL3AccessControlPolicy
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGL3AccessControlPolicyService) UpdateL3AccessControlPoliciesById(ctx context.Context, body *WSGProfileModifyL3AccessControlPolicy, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGL3AccessControlPolicyService) UpdateL3AccessControlPoliciesById(ctx context.Context, body *WSGProfileModifyL3AccessControlPolicy, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateL3AccessControlPoliciesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

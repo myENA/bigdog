@@ -112,14 +112,16 @@ func NewSwitchMSyslogServersQueryResult() *SwitchMSyslogServersQueryResult {
 
 // AddGroupSyslogServersByGroupId
 //
-// Operation ID: addGroupSyslogServersByGroupId
-//
 // Use this API command to create a new Syslog server.
 //
-// Request Body:
+// Operation ID: addGroupSyslogServersByGroupId
+// Operation path: /group/{groupId}/syslogServers
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMSyslogServersCreateSyslogServerConfig
 //
-// Required Parameters:
+// Required parameters:
 // - groupId string
 //		- required
 func (s *SwitchMSyslogServersService) AddGroupSyslogServersByGroupId(ctx context.Context, body *SwitchMSyslogServersCreateSyslogServerConfig, groupId string, mutators ...RequestMutator) (*SwitchMCommonCreateResultAPIResponse, error) {
@@ -149,26 +151,28 @@ func (s *SwitchMSyslogServersService) AddGroupSyslogServersByGroupId(ctx context
 
 // DeleteGroupSyslogServersById
 //
-// Operation ID: deleteGroupSyslogServersById
-//
 // Use this API command to delete a Syslog server.
 //
-// Required Parameters:
+// Operation ID: deleteGroupSyslogServersById
+// Operation path: /group/{groupId}/syslogServers/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - groupId string
 //		- required
 // - id string
 //		- required
-func (s *SwitchMSyslogServersService) DeleteGroupSyslogServersById(ctx context.Context, groupId string, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMSyslogServersService) DeleteGroupSyslogServersById(ctx context.Context, groupId string, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteGroupSyslogServersById, true)
 	defer recycleAPIRequest(req)
@@ -178,16 +182,18 @@ func (s *SwitchMSyslogServersService) DeleteGroupSyslogServersById(ctx context.C
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindGroupSyslogServersByGroupId
 //
-// Operation ID: findGroupSyslogServersByGroupId
-//
 // Use this API command to get Syslog servers.
 //
-// Required Parameters:
+// Operation ID: findGroupSyslogServersByGroupId
+// Operation path: /group/{groupId}/syslogServers
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - groupId string
 //		- required
 func (s *SwitchMSyslogServersService) FindGroupSyslogServersByGroupId(ctx context.Context, groupId string, mutators ...RequestMutator) (*SwitchMSyslogServersQueryResultAPIResponse, error) {
@@ -213,40 +219,42 @@ func (s *SwitchMSyslogServersService) FindGroupSyslogServersByGroupId(ctx contex
 
 // UpdateGroupSyslogServersById
 //
-// Operation ID: updateGroupSyslogServersById
-//
 // Use this API command to update a Syslog server.
 //
-// Request Body:
+// Operation ID: updateGroupSyslogServersById
+// Operation path: /group/{groupId}/syslogServers/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMSyslogServersSyslogServer
 //
-// Required Parameters:
+// Required parameters:
 // - groupId string
 //		- required
 // - id string
 //		- required
-func (s *SwitchMSyslogServersService) UpdateGroupSyslogServersById(ctx context.Context, body *SwitchMSyslogServersSyslogServer, groupId string, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMSyslogServersService) UpdateGroupSyslogServersById(ctx context.Context, body *SwitchMSyslogServersSyslogServer, groupId string, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateGroupSyslogServersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("groupId", groupId)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

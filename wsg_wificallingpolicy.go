@@ -23,11 +23,13 @@ func (ss *WSGService) WSGWiFiCallingPolicyService() *WSGWiFiCallingPolicyService
 
 // AddWifiCallingWifiCallingPolicy
 //
-// Operation ID: addWifiCallingWifiCallingPolicy
-//
 // Use this API command to Create Wi-Fi Calling Policy.
 //
-// Request Body:
+// Operation ID: addWifiCallingWifiCallingPolicy
+// Operation path: /wifiCalling/wifiCallingPolicy
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWIFICallingCreateWifiCallingPolicy
 func (s *WSGWiFiCallingPolicyService) AddWifiCallingWifiCallingPolicy(ctx context.Context, body *WSGWIFICallingCreateWifiCallingPolicy, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *WSGWiFiCallingPolicyService) AddWifiCallingWifiCallingPolicy(ctx contex
 
 // DeleteWifiCallingWifiCallingPolicy
 //
-// Operation ID: deleteWifiCallingWifiCallingPolicy
-//
 // Use this API command to Delete bulk Wi-Fi Calling policies.
 //
-// Request Body:
+// Operation ID: deleteWifiCallingWifiCallingPolicy
+// Operation path: /wifiCalling/wifiCallingPolicy
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGWIFICallingDeleteBulk
 func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicy(ctx context.Context, body *WSGWIFICallingDeleteBulk, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -87,24 +91,26 @@ func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicy(ctx con
 
 // DeleteWifiCallingWifiCallingPolicyById
 //
-// Operation ID: deleteWifiCallingWifiCallingPolicyById
-//
 // Use this API command to Delete a Wi-Fi Calling policy by ID.
 //
-// Required Parameters:
+// Operation ID: deleteWifiCallingWifiCallingPolicyById
+// Operation path: /wifiCalling/wifiCallingPolicy/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteWifiCallingWifiCallingPolicyById, true)
 	defer recycleAPIRequest(req)
@@ -113,16 +119,18 @@ func (s *WSGWiFiCallingPolicyService) DeleteWifiCallingWifiCallingPolicyById(ctx
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindWifiCallingByQueryCriteria
 //
-// Operation ID: findWifiCallingByQueryCriteria
-//
 // Use this API command to Query Wi-Fi Calling Policy List.
 //
-// Request Body:
+// Operation ID: findWifiCallingByQueryCriteria
+// Operation path: /wifiCalling/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGWIFICallingPolicyListAPIResponse, error) {
 	var (
@@ -150,11 +158,13 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingByQueryCriteria(ctx context
 
 // FindWifiCallingWifiCallingPolicy
 //
-// Operation ID: findWifiCallingWifiCallingPolicy
-//
 // Use this API command to Retrieve List of Wi-Fi Calling Policy.
 //
-// Optional Parameters:
+// Operation ID: findWifiCallingWifiCallingPolicy
+// Operation path: /wifiCalling/wifiCallingPolicy
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - domainId string
 //		- nullable
 // - index string
@@ -192,11 +202,13 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicy(ctx conte
 
 // FindWifiCallingWifiCallingPolicyById
 //
-// Operation ID: findWifiCallingWifiCallingPolicyById
-//
 // Use this API command to Retrieve Wi-Fi Calling Policy.
 //
-// Required Parameters:
+// Operation ID: findWifiCallingWifiCallingPolicyById
+// Operation path: /wifiCalling/wifiCallingPolicy/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGWIFICallingPolicyAPIResponse, error) {
@@ -222,74 +234,78 @@ func (s *WSGWiFiCallingPolicyService) FindWifiCallingWifiCallingPolicyById(ctx c
 
 // PartialUpdateWifiCallingWifiCallingPolicyById
 //
-// Operation ID: partialUpdateWifiCallingWifiCallingPolicyById
-//
 // Use this API command to Modify a Wi-Fi Calling policy.
 //
-// Request Body:
+// Operation ID: partialUpdateWifiCallingWifiCallingPolicyById
+// Operation path: /wifiCalling/wifiCallingPolicy/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGWIFICallingModifyWifiCallingPolicy
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGWiFiCallingPolicyService) PartialUpdateWifiCallingWifiCallingPolicyById(ctx context.Context, body *WSGWIFICallingModifyWifiCallingPolicy, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWiFiCallingPolicyService) PartialUpdateWifiCallingWifiCallingPolicyById(ctx context.Context, body *WSGWIFICallingModifyWifiCallingPolicy, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateWifiCallingWifiCallingPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateWifiCallingWifiCallingPolicyById
 //
-// Operation ID: updateWifiCallingWifiCallingPolicyById
-//
 // Use this API command to Modify Entire Wi-Fi Calling policy.
 //
-// Request Body:
+// Operation ID: updateWifiCallingWifiCallingPolicyById
+// Operation path: /wifiCalling/wifiCallingPolicy/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGWIFICallingModifyWifiCallingPolicy
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGWiFiCallingPolicyService) UpdateWifiCallingWifiCallingPolicyById(ctx context.Context, body *WSGWIFICallingModifyWifiCallingPolicy, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWiFiCallingPolicyService) UpdateWifiCallingWifiCallingPolicyById(ctx context.Context, body *WSGWIFICallingModifyWifiCallingPolicy, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateWifiCallingWifiCallingPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

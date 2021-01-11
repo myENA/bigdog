@@ -823,11 +823,13 @@ func NewSCIClientDetailsReport92sessionsTableMetaDataMaxValuesType() *SCIClientD
 
 // ReportClientDetailsReport7Top10ApplicationsByTrafficVolume
 //
-// Operation ID: report_ClientDetailsReport_7_top10ApplicationsByTrafficVolume
-//
 // Client Details Report - Top Applications by Traffic
 //
-// Request Body:
+// Operation ID: report_ClientDetailsReport_7_top10ApplicationsByTrafficVolume
+// Operation path: /reports/12/sections/7/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIClientDetailsReportService) ReportClientDetailsReport7Top10ApplicationsByTrafficVolume(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse, error) {
 	var (
@@ -855,11 +857,13 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport7Top10Applicati
 
 // ReportClientDetailsReport8TopAppsByTrafficTable
 //
-// Operation ID: report_ClientDetailsReport_8_topAppsByTrafficTable
-//
 // Client Details Report - Top Applications by Traffic
 //
-// Request Body:
+// Operation ID: report_ClientDetailsReport_8_topAppsByTrafficTable
+// Operation path: /reports/12/sections/8/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIClientDetailsReportService) ReportClientDetailsReport8TopAppsByTrafficTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -887,11 +891,13 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport8TopAppsByTraff
 
 // ReportClientDetailsReport82RssTrend
 //
-// Operation ID: report_ClientDetailsReport_82_rssTrend
-//
 // Client Details Report - RSS Trend
 //
-// Request Body:
+// Operation ID: report_ClientDetailsReport_82_rssTrend
+// Operation path: /reports/12/sections/82/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIClientDetailsReportService) ReportClientDetailsReport82RssTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientDetailsReport82rssTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -919,11 +925,13 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport82RssTrend(ctx 
 
 // ReportClientDetailsReport83SnrTrend
 //
-// Operation ID: report_ClientDetailsReport_83_snrTrend
-//
 // Client Details Report - SNR Trend
 //
-// Request Body:
+// Operation ID: report_ClientDetailsReport_83_snrTrend
+// Operation path: /reports/12/sections/83/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIClientDetailsReportService) ReportClientDetailsReport83SnrTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientDetailsReport83snrTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -951,11 +959,13 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport83SnrTrend(ctx 
 
 // ReportClientDetailsReport86Summary
 //
-// Operation ID: report_ClientDetailsReport_86_summary
-//
 // Client Details Report - Summary
 //
-// Request Body:
+// Operation ID: report_ClientDetailsReport_86_summary
+// Operation path: /reports/12/sections/86/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIClientDetailsReportService) ReportClientDetailsReport86Summary(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientDetailsReport86summary200ResponseTypeAPIResponse, error) {
 	var (
@@ -983,11 +993,13 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport86Summary(ctx c
 
 // ReportClientDetailsReport87ClientStats
 //
-// Operation ID: report_ClientDetailsReport_87_clientStats
-//
 // Client Details Report - Stats
 //
-// Request Body:
+// Operation ID: report_ClientDetailsReport_87_clientStats
+// Operation path: /reports/12/sections/87/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIClientDetailsReportService) ReportClientDetailsReport87ClientStats(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientDetailsReport87clientStats200ResponseTypeAPIResponse, error) {
 	var (
@@ -1015,11 +1027,13 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport87ClientStats(c
 
 // ReportClientDetailsReport89TrafficTrend
 //
-// Operation ID: report_ClientDetailsReport_89_trafficTrend
-//
 // Client Details Report - Traffic Trend
 //
-// Request Body:
+// Operation ID: report_ClientDetailsReport_89_trafficTrend
+// Operation path: /reports/12/sections/89/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIClientDetailsReportService) ReportClientDetailsReport89TrafficTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientDetailsReport89trafficTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -1047,11 +1061,13 @@ func (s *SCIClientDetailsReportService) ReportClientDetailsReport89TrafficTrend(
 
 // ReportClientDetailsReport92SessionsTable
 //
-// Operation ID: report_ClientDetailsReport_92_sessionsTable
-//
 // Client Details Report - Sessions
 //
-// Request Body:
+// Operation ID: report_ClientDetailsReport_92_sessionsTable
+// Operation path: /reports/12/sections/92/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIClientDetailsReportService) ReportClientDetailsReport92SessionsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientDetailsReport92sessionsTable200ResponseTypeAPIResponse, error) {
 	var (

@@ -2398,14 +2398,16 @@ func NewWSGWLANVlan() *WSGWLANVlan {
 
 // AddRkszonesWlansByZoneId
 //
-// Operation ID: addRkszonesWlansByZoneId
-//
 // Use this API command to create a new standard, open and non-tunneled basic WLAN.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansByZoneId
+// Operation path: /rkszones/{zoneId}/wlans
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateStandardOpenWlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansByZoneId(ctx context.Context, body *WSGWLANCreateStandardOpenWlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2435,14 +2437,16 @@ func (s *WSGWLANService) AddRkszonesWlansByZoneId(ctx context.Context, body *WSG
 
 // AddRkszonesWlansGuestByZoneId
 //
-// Operation ID: addRkszonesWlansGuestByZoneId
-//
 // Use this API command to create a new guest access WLAN.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansGuestByZoneId
+// Operation path: /rkszones/{zoneId}/wlans/guest
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateGuestAccessWlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansGuestByZoneId(ctx context.Context, body *WSGWLANCreateGuestAccessWlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2472,14 +2476,16 @@ func (s *WSGWLANService) AddRkszonesWlansGuestByZoneId(ctx context.Context, body
 
 // AddRkszonesWlansHotspot20ByZoneId
 //
-// Operation ID: addRkszonesWlansHotspot20ByZoneId
-//
 // Use this API command to create a new Hotspot 2.0 access WLAN.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansHotspot20ByZoneId
+// Operation path: /rkszones/{zoneId}/wlans/hotspot20
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateHotspot20Wlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansHotspot20ByZoneId(ctx context.Context, body *WSGWLANCreateHotspot20Wlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2509,14 +2515,16 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20ByZoneId(ctx context.Context, 
 
 // AddRkszonesWlansHotspot20openByZoneId
 //
-// Operation ID: addRkszonesWlansHotspot20openByZoneId
-//
 // Use this API command to create a new Hotspot 2.0 Onboarding WLAN with Authentication Method as 'Open'.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansHotspot20openByZoneId
+// Operation path: /rkszones/{zoneId}/wlans/hotspot20open
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateHotspot20OpenWlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansHotspot20openByZoneId(ctx context.Context, body *WSGWLANCreateHotspot20OpenWlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2546,14 +2554,16 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20openByZoneId(ctx context.Conte
 
 // AddRkszonesWlansHotspot20osenByZoneId
 //
-// Operation ID: addRkszonesWlansHotspot20osenByZoneId
-//
 // Use this API command to create a new Hotspot 2.0 Onboarding WLAN with Authentication Method as '802.1X'.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansHotspot20osenByZoneId
+// Operation path: /rkszones/{zoneId}/wlans/hotspot20osen
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateHotspot20OpenWlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansHotspot20osenByZoneId(ctx context.Context, body *WSGWLANCreateHotspot20OpenWlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2583,26 +2593,28 @@ func (s *WSGWLANService) AddRkszonesWlansHotspot20osenByZoneId(ctx context.Conte
 
 // AddRkszonesWlansQosMapsById
 //
-// Operation ID: addRkszonesWlansQosMapsById
-//
 // Use this API command to enable Qos Map Set of a WLAN.
 //
-// Required Parameters:
+// Operation ID: addRkszonesWlansQosMapsById
+// Operation path: /rkszones/{zoneId}/wlans/{id}/qosMaps
+// Success code: 201 (Created)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANService) AddRkszonesWlansQosMapsById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANService) AddRkszonesWlansQosMapsById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesWlansQosMapsById, true)
 	defer recycleAPIRequest(req)
@@ -2612,19 +2624,21 @@ func (s *WSGWLANService) AddRkszonesWlansQosMapsById(ctx context.Context, id str
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddRkszonesWlansStandard8021XByZoneId
 //
-// Operation ID: addRkszonesWlansStandard8021XByZoneId
-//
 // Use this API command to create a new standard, 802.1X and non-tunneled WLAN.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansStandard8021XByZoneId
+// Operation path: /rkszones/{zoneId}/wlans/standard8021X
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateStandard80211Wlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansStandard8021XByZoneId(ctx context.Context, body *WSGWLANCreateStandard80211Wlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2654,14 +2668,16 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XByZoneId(ctx context.Conte
 
 // AddRkszonesWlansStandard8021XmacByZoneId
 //
-// Operation ID: addRkszonesWlansStandard8021XmacByZoneId
-//
 // Use this API command to create a new standard, 802.1X with MAC address and non-tunneled WLAN.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansStandard8021XmacByZoneId
+// Operation path: /rkszones/{zoneId}/wlans/standard8021Xmac
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateStandard80211Wlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansStandard8021XmacByZoneId(ctx context.Context, body *WSGWLANCreateStandard80211Wlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2691,14 +2707,16 @@ func (s *WSGWLANService) AddRkszonesWlansStandard8021XmacByZoneId(ctx context.Co
 
 // AddRkszonesWlansStandardmacByZoneId
 //
-// Operation ID: addRkszonesWlansStandardmacByZoneId
-//
 // Use this API command to create a new standard, MAC auth and non-tunneled WLAN.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansStandardmacByZoneId
+// Operation path: /rkszones/{zoneId}/wlans/standardmac
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateStandard80211Wlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansStandardmacByZoneId(ctx context.Context, body *WSGWLANCreateStandard80211Wlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2728,14 +2746,16 @@ func (s *WSGWLANService) AddRkszonesWlansStandardmacByZoneId(ctx context.Context
 
 // AddRkszonesWlansWebauthByZoneId
 //
-// Operation ID: addRkszonesWlansWebauthByZoneId
-//
 // Use this API command to creates new web authentication WLAN.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansWebauthByZoneId
+// Operation path: /rkszones/{zoneId}/wlans/webauth
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateWebAuthWlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWebauthByZoneId(ctx context.Context, body *WSGWLANCreateWebAuthWlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2765,14 +2785,16 @@ func (s *WSGWLANService) AddRkszonesWlansWebauthByZoneId(ctx context.Context, bo
 
 // AddRkszonesWlansWechatByZoneId
 //
-// Operation ID: addRkszonesWlansWechatByZoneId
-//
 // Use this API command to create a new wechat WLAN.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansWechatByZoneId
+// Operation path: /rkszones/{zoneId}/wlans/wechat
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateWechatWlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWechatByZoneId(ctx context.Context, body *WSGWLANCreateWechatWlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2802,14 +2824,16 @@ func (s *WSGWLANService) AddRkszonesWlansWechatByZoneId(ctx context.Context, bod
 
 // AddRkszonesWlansWispr8021XByZoneId
 //
-// Operation ID: addRkszonesWlansWispr8021XByZoneId
-//
 // Use this API command to create a new hotspot (WISPr) with 802.1X WLAN.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansWispr8021XByZoneId
+// Operation path: /rkszones/{zoneId}/wlans/wispr8021X
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateHotspotWlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWispr8021XByZoneId(ctx context.Context, body *WSGWLANCreateHotspotWlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2839,14 +2863,16 @@ func (s *WSGWLANService) AddRkszonesWlansWispr8021XByZoneId(ctx context.Context,
 
 // AddRkszonesWlansWisprByZoneId
 //
-// Operation ID: addRkszonesWlansWisprByZoneId
-//
 // Use this API command to create new hotspot (WISPr) WLAN.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansWisprByZoneId
+// Operation path: /rkszones/{zoneId}/wlans/wispr
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateHotspotWlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWisprByZoneId(ctx context.Context, body *WSGWLANCreateHotspotWlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2876,14 +2902,16 @@ func (s *WSGWLANService) AddRkszonesWlansWisprByZoneId(ctx context.Context, body
 
 // AddRkszonesWlansWisprmacByZoneId
 //
-// Operation ID: addRkszonesWlansWisprmacByZoneId
-//
 // Use this API command to create a new hotspot (WISPr) with MAC bypass WLAN.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansWisprmacByZoneId
+// Operation path: /rkszones/{zoneId}/wlans/wisprmac
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANCreateHotspotWlan
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANService) AddRkszonesWlansWisprmacByZoneId(ctx context.Context, body *WSGWLANCreateHotspotWlan, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -2913,26 +2941,28 @@ func (s *WSGWLANService) AddRkszonesWlansWisprmacByZoneId(ctx context.Context, b
 
 // DeleteRkszonesWlansAccountingServiceOrProfileById
 //
-// Operation ID: deleteRkszonesWlansAccountingServiceOrProfileById
-//
 // Use this API command to disable the accounting of a WLAN.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlansAccountingServiceOrProfileById
+// Operation path: /rkszones/{zoneId}/wlans/{id}/accountingServiceOrProfile
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANService) DeleteRkszonesWlansAccountingServiceOrProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANService) DeleteRkszonesWlansAccountingServiceOrProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlansAccountingServiceOrProfileById, true)
 	defer recycleAPIRequest(req)
@@ -2942,31 +2972,33 @@ func (s *WSGWLANService) DeleteRkszonesWlansAccountingServiceOrProfileById(ctx c
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesWlansById
 //
-// Operation ID: deleteRkszonesWlansById
-//
 // Use this API command to delete a WLAN.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlansById
+// Operation path: /rkszones/{zoneId}/wlans/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANService) DeleteRkszonesWlansById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANService) DeleteRkszonesWlansById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlansById, true)
 	defer recycleAPIRequest(req)
@@ -2976,31 +3008,33 @@ func (s *WSGWLANService) DeleteRkszonesWlansById(ctx context.Context, id string,
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesWlansDevicePolicyById
 //
-// Operation ID: deleteRkszonesWlansDevicePolicyById
-//
 // Use this API command to disable the device policy of a WLAN.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlansDevicePolicyById
+// Operation path: /rkszones/{zoneId}/wlans/{id}/devicePolicy
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANService) DeleteRkszonesWlansDevicePolicyById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANService) DeleteRkszonesWlansDevicePolicyById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlansDevicePolicyById, true)
 	defer recycleAPIRequest(req)
@@ -3010,31 +3044,33 @@ func (s *WSGWLANService) DeleteRkszonesWlansDevicePolicyById(ctx context.Context
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesWlansDiffServProfileById
 //
-// Operation ID: deleteRkszonesWlansDiffServProfileById
-//
 // Use this API command to disable the DiffServ profile of a WLAN.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlansDiffServProfileById
+// Operation path: /rkszones/{zoneId}/wlans/{id}/diffServProfile
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANService) DeleteRkszonesWlansDiffServProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANService) DeleteRkszonesWlansDiffServProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlansDiffServProfileById, true)
 	defer recycleAPIRequest(req)
@@ -3044,31 +3080,33 @@ func (s *WSGWLANService) DeleteRkszonesWlansDiffServProfileById(ctx context.Cont
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesWlansDnsServerProfileById
 //
-// Operation ID: deleteRkszonesWlansDnsServerProfileById
-//
 // Use this API command to disable DNS server profile of a WLAN.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlansDnsServerProfileById
+// Operation path: /rkszones/{zoneId}/wlans/{id}/dnsServerProfile
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlansDnsServerProfileById, true)
 	defer recycleAPIRequest(req)
@@ -3078,31 +3116,33 @@ func (s *WSGWLANService) DeleteRkszonesWlansDnsServerProfileById(ctx context.Con
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesWlansL2ACLById
 //
-// Operation ID: deleteRkszonesWlansL2ACLById
-//
 // Use this API command to disable the layer 2 access control list (ACL) configuration of a WLAN.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlansL2ACLById
+// Operation path: /rkszones/{zoneId}/wlans/{id}/l2ACL
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlansL2ACLById, true)
 	defer recycleAPIRequest(req)
@@ -3112,31 +3152,33 @@ func (s *WSGWLANService) DeleteRkszonesWlansL2ACLById(ctx context.Context, id st
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesWlansQosMapsById
 //
-// Operation ID: deleteRkszonesWlansQosMapsById
-//
 // Use this API command to disable Qos Map Set of a WLAN.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlansQosMapsById
+// Operation path: /rkszones/{zoneId}/wlans/{id}/qosMaps
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANService) DeleteRkszonesWlansQosMapsById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANService) DeleteRkszonesWlansQosMapsById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlansQosMapsById, true)
 	defer recycleAPIRequest(req)
@@ -3146,16 +3188,18 @@ func (s *WSGWLANService) DeleteRkszonesWlansQosMapsById(ctx context.Context, id 
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesWlansById
 //
-// Operation ID: findRkszonesWlansById
-//
 // Use this API command to retrieve a WLAN.
 //
-// Required Parameters:
+// Operation ID: findRkszonesWlansById
+// Operation path: /rkszones/{zoneId}/wlans/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -3184,15 +3228,17 @@ func (s *WSGWLANService) FindRkszonesWlansById(ctx context.Context, id string, z
 
 // FindRkszonesWlansByZoneId
 //
-// Operation ID: findRkszonesWlansByZoneId
-//
 // Use this API command to retrieve a list of WLANs within a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesWlansByZoneId
+// Operation path: /rkszones/{zoneId}/wlans
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -3226,11 +3272,13 @@ func (s *WSGWLANService) FindRkszonesWlansByZoneId(ctx context.Context, zoneId s
 
 // FindWlanByQueryCriteria
 //
-// Operation ID: findWlanByQueryCriteria
-//
 // Query WLANs with specified filters.
 //
-// Request Body:
+// Operation ID: findWlanByQueryCriteria
+// Operation path: /query/wlan
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGWLANService) FindWlanByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGWLANQueryListAPIResponse, error) {
 	var (
@@ -3258,80 +3306,84 @@ func (s *WSGWLANService) FindWlanByQueryCriteria(ctx context.Context, body *WSGC
 
 // PartialUpdateRkszonesWlansById
 //
-// Operation ID: partialUpdateRkszonesWlansById
-//
 // Use this API command to modify the configuration of a WLAN.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesWlansById
+// Operation path: /rkszones/{zoneId}/wlans/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGWLANModifyWlan
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANService) PartialUpdateRkszonesWlansById(ctx context.Context, body *WSGWLANModifyWlan, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANService) PartialUpdateRkszonesWlansById(ctx context.Context, body *WSGWLANModifyWlan, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlansById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateRkszonesWlansById
 //
-// Operation ID: updateRkszonesWlansById
-//
 // Use this API command to modify entire information of a WLAN.
 //
-// Request Body:
+// Operation ID: updateRkszonesWlansById
+// Operation path: /rkszones/{zoneId}/wlans/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGWLANModifyWlan
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANService) UpdateRkszonesWlansById(ctx context.Context, body *WSGWLANModifyWlan, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANService) UpdateRkszonesWlansById(ctx context.Context, body *WSGWLANModifyWlan, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesWlansById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

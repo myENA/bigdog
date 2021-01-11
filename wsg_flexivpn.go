@@ -39,26 +39,28 @@ func NewWSGFlexiVPNSetting() *WSGFlexiVPNSetting {
 
 // DeleteRkszonesWlansFlexiVpnProfileById
 //
-// Operation ID: deleteRkszonesWlansFlexiVpnProfileById
-//
 // Use this API command to delete Flexi-VPN on WLAN
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlansFlexiVpnProfileById
+// Operation path: /rkszones/{zoneId}/wlans/{id}/flexiVpnProfile
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlansFlexiVpnProfileById, true)
 	defer recycleAPIRequest(req)
@@ -68,16 +70,18 @@ func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindServicesFlexiVpnProfileByQueryCriteria
 //
-// Operation ID: findServicesFlexiVpnProfileByQueryCriteria
-//
 // Use this API command to query Flexi-VPN profiles.
 //
-// Request Body:
+// Operation ID: findServicesFlexiVpnProfileByQueryCriteria
+// Operation path: /query/services/flexiVpnProfile
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileFlexiVpnProfileListAPIResponse, error) {
 	var (

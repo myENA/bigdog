@@ -157,14 +157,16 @@ func NewWSGGeofenceProfileGetGeofenceProfileProfileList() *WSGGeofenceProfileGet
 
 // AddRkszonesGeofenceProfilesByZoneId
 //
-// Operation ID: addRkszonesGeofenceProfilesByZoneId
-//
 // Use this API command to create a Geofence Profile.
 //
-// Request Body:
+// Operation ID: addRkszonesGeofenceProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/geofenceProfiles
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGGeofenceProfile
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGGeofenceProfileService) AddRkszonesGeofenceProfilesByZoneId(ctx context.Context, body *WSGGeofenceProfile, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -194,26 +196,28 @@ func (s *WSGGeofenceProfileService) AddRkszonesGeofenceProfilesByZoneId(ctx cont
 
 // DeleteRkszonesGeofenceProfilesById
 //
-// Operation ID: deleteRkszonesGeofenceProfilesById
-//
 // Use this API command to delete a Geofence Profile.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesGeofenceProfilesById
+// Operation path: /rkszones/{zoneId}/geofenceProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesGeofenceProfilesById, true)
 	defer recycleAPIRequest(req)
@@ -223,53 +227,57 @@ func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesById(ctx conte
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesGeofenceProfilesByZoneId
 //
-// Operation ID: deleteRkszonesGeofenceProfilesByZoneId
-//
 // Use this API command to delete a list of Geofence Profile.
 //
-// Request Body:
+// Operation ID: deleteRkszonesGeofenceProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/geofenceProfiles
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
-func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGGeofenceProfileService) DeleteRkszonesGeofenceProfilesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesGeofenceProfilesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesGeofenceProfilesById
 //
-// Operation ID: findRkszonesGeofenceProfilesById
-//
 // Use this API command to retrieve a Geofence Profile.
 //
-// Required Parameters:
+// Operation ID: findRkszonesGeofenceProfilesById
+// Operation path: /rkszones/{zoneId}/geofenceProfiles/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -298,11 +306,13 @@ func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesById(ctx context
 
 // FindRkszonesGeofenceProfilesByZoneId
 //
-// Operation ID: findRkszonesGeofenceProfilesByZoneId
-//
 // Query Geofence Profile with specified filters.
 //
-// Required Parameters:
+// Operation ID: findRkszonesGeofenceProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/geofenceProfiles
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse, error) {
@@ -328,40 +338,42 @@ func (s *WSGGeofenceProfileService) FindRkszonesGeofenceProfilesByZoneId(ctx con
 
 // UpdateRkszonesGeofenceProfilesById
 //
-// Operation ID: updateRkszonesGeofenceProfilesById
-//
 // Use this API command to update a Geofence Profile.
 //
-// Request Body:
+// Operation ID: updateRkszonesGeofenceProfilesById
+// Operation path: /rkszones/{zoneId}/geofenceProfiles/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGGeofenceProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGeofenceProfileService) UpdateRkszonesGeofenceProfilesById(ctx context.Context, body *WSGGeofenceProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGGeofenceProfileService) UpdateRkszonesGeofenceProfilesById(ctx context.Context, body *WSGGeofenceProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesGeofenceProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

@@ -1071,11 +1071,13 @@ func NewSCIWirelessClientsReport112top10AuthenticationMechanismByClientCountMeta
 
 // ReportWirelessClientsReport12Overview
 //
-// Operation ID: report_WirelessClientsReport_12_overview
-//
 // Wireless - Clients Report - Overview
 //
-// Request Body:
+// Operation ID: report_WirelessClientsReport_12_overview
+// Operation path: /reports/1/sections/12/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport12Overview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport12overview200ResponseTypeAPIResponse, error) {
 	var (
@@ -1103,11 +1105,13 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport12Overview(
 
 // ReportWirelessClientsReport13TopChart
 //
-// Operation ID: report_WirelessClientsReport_13_topChart
-//
 // Wireless - Clients Report - Top 10 Unique Clients by Traffic
 //
-// Request Body:
+// Operation ID: report_WirelessClientsReport_13_topChart
+// Operation path: /reports/1/sections/13/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport13TopChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport13topChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -1135,11 +1139,13 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport13TopChart(
 
 // ReportWirelessClientsReport14TopTable
 //
-// Operation ID: report_WirelessClientsReport_14_topTable
-//
 // Wireless - Clients Report - Clients Details
 //
-// Request Body:
+// Operation ID: report_WirelessClientsReport_14_topTable
+// Operation path: /reports/1/sections/14/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport14TopTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport14topTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -1167,11 +1173,13 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport14TopTable(
 
 // ReportWirelessClientsReport15TrendChart
 //
-// Operation ID: report_WirelessClientsReport_15_trendChart
-//
 // Wireless - Clients Report - Unique Clients Trend Over Time
 //
-// Request Body:
+// Operation ID: report_WirelessClientsReport_15_trendChart
+// Operation path: /reports/1/sections/15/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport15TrendChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport15trendChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -1199,11 +1207,13 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport15TrendChar
 
 // ReportWirelessClientsReport16TrendTable
 //
-// Operation ID: report_WirelessClientsReport_16_trendTable
-//
 // Wireless - Clients Report - Unique Clients Trend Over Time
 //
-// Request Body:
+// Operation ID: report_WirelessClientsReport_16_trendTable
+// Operation path: /reports/1/sections/16/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport16TrendTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport16trendTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -1231,11 +1241,13 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport16TrendTabl
 
 // ReportWirelessClientsReport17TopPercentile
 //
-// Operation ID: report_WirelessClientsReport_17_topPercentile
-//
 // Wireless - Clients Report - Top Clients by Traffic Percentile
 //
-// Request Body:
+// Operation ID: report_WirelessClientsReport_17_topPercentile
+// Operation path: /reports/1/sections/17/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport17TopPercentile(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport17topPercentile200ResponseTypeAPIResponse, error) {
 	var (
@@ -1263,11 +1275,13 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport17TopPercen
 
 // ReportWirelessClientsReport18TopNOSByClientCount
 //
-// Operation ID: report_WirelessClientsReport_18_topNOSByClientCount
-//
 // Wireless - Clients Report - Top 10 OS by Client Count
 //
-// Request Body:
+// Operation ID: report_WirelessClientsReport_18_topNOSByClientCount
+// Operation path: /reports/1/sections/18/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport18TopNOSByClientCount(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport18topNOSByClientCount200ResponseTypeAPIResponse, error) {
 	var (
@@ -1295,11 +1309,13 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport18TopNOSByC
 
 // ReportWirelessClientsReport19Top10ManufacturersByClientCount
 //
-// Operation ID: report_WirelessClientsReport_19_top10ManufacturersByClientCount
-//
 // Wireless - Clients Report - Top 10 Manufacturers by Client Count
 //
-// Request Body:
+// Operation ID: report_WirelessClientsReport_19_top10ManufacturersByClientCount
+// Operation path: /reports/1/sections/19/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport19Top10ManufacturersByClientCount(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport19top10ManufacturersByClientCount200ResponseTypeAPIResponse, error) {
 	var (
@@ -1327,11 +1343,13 @@ func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport19Top10Manu
 
 // ReportWirelessClientsReport112Top10AuthenticationMechanismByClientCount
 //
-// Operation ID: report_WirelessClientsReport_112_top10AuthenticationMechanismByClientCount
-//
 // Wireless - Clients Report - Top 10 Authentication Methods by Client Count
 //
-// Request Body:
+// Operation ID: report_WirelessClientsReport_112_top10AuthenticationMechanismByClientCount
+// Operation path: /reports/1/sections/112/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessClientsReportService) ReportWirelessClientsReport112Top10AuthenticationMechanismByClientCount(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessClientsReport112top10AuthenticationMechanismByClientCount200ResponseTypeAPIResponse, error) {
 	var (

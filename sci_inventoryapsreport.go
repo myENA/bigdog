@@ -1622,11 +1622,13 @@ func NewSCIInventoryAPsReport60apDetailsOnOfflineStatusDataType() *SCIInventoryA
 
 // ReportInventoryAPsReport46ApInventoryOverview
 //
-// Operation ID: report_InventoryAPsReport_46_apInventoryOverview
-//
 // Inventory - APs Report - Overview
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_46_apInventoryOverview
+// Operation path: /reports/9/sections/46/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport46ApInventoryOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -1654,11 +1656,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport46ApInventoryOver
 
 // ReportInventoryAPsReport47TopApsDisconnection
 //
-// Operation ID: report_InventoryAPsReport_47_topApsDisconnection
-//
 // Inventory - APs Report - Top APs by Offline Duration
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_47_topApsDisconnection
+// Operation path: /reports/9/sections/47/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport47TopApsDisconnection(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse, error) {
 	var (
@@ -1686,11 +1690,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport47TopApsDisconnec
 
 // ReportInventoryAPsReport48ApCountTrend
 //
-// Operation ID: report_InventoryAPsReport_48_apCountTrend
-//
 // Inventory - APs Report - AP Count Trend
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_48_apCountTrend
+// Operation path: /reports/9/sections/48/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport48ApCountTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -1718,11 +1724,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport48ApCountTrend(ct
 
 // ReportInventoryAPsReport49ApStatusTrend
 //
-// Operation ID: report_InventoryAPsReport_49_apStatusTrend
-//
 // Inventory - APs Report - AP Status Trends
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_49_apStatusTrend
+// Operation path: /reports/9/sections/49/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport49ApStatusTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -1750,11 +1758,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport49ApStatusTrend(c
 
 // ReportInventoryAPsReport50TopApsModelsChart
 //
-// Operation ID: report_InventoryAPsReport_50_topApsModelsChart
-//
 // Inventory - APs Report - Top AP Models
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_50_topApsModelsChart
+// Operation path: /reports/9/sections/50/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport50TopApsModelsChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -1782,11 +1792,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport50TopApsModelsCha
 
 // ReportInventoryAPsReport51Top10ApVersionsChart
 //
-// Operation ID: report_InventoryAPsReport_51_top10ApVersionsChart
-//
 // Inventory - APs Report - Top AP Software Versions
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_51_top10ApVersionsChart
+// Operation path: /reports/9/sections/51/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport51Top10ApVersionsChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -1814,11 +1826,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport51Top10ApVersions
 
 // ReportInventoryAPsReport52TopApsRebootReasons
 //
-// Operation ID: report_InventoryAPsReport_52_topApsRebootReasons
-//
 // Inventory - APs Report - Top 10 AP Reboot Reasons
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_52_topApsRebootReasons
+// Operation path: /reports/9/sections/52/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport52TopApsRebootReasons(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse, error) {
 	var (
@@ -1846,11 +1860,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport52TopApsRebootRea
 
 // ReportInventoryAPsReport53Top10ApsRebootCounts
 //
-// Operation ID: report_InventoryAPsReport_53_top10ApsRebootCounts
-//
 // Inventory - APs Report - Top APs by Reboot Count
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_53_top10ApsRebootCounts
+// Operation path: /reports/9/sections/53/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport53Top10ApsRebootCounts(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse, error) {
 	var (
@@ -1878,11 +1894,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport53Top10ApsRebootC
 
 // ReportInventoryAPsReport54TopApAlarmTypes
 //
-// Operation ID: report_InventoryAPsReport_54_topApAlarmTypes
-//
 // Inventory - APs Report - Top 10 AP Alarm Types
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_54_topApAlarmTypes
+// Operation path: /reports/9/sections/54/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport54TopApAlarmTypes(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse, error) {
 	var (
@@ -1910,11 +1928,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport54TopApAlarmTypes
 
 // ReportInventoryAPsReport55TopAPModels
 //
-// Operation ID: report_InventoryAPsReport_55_topAPModels
-//
 // Inventory - APs Report - Top AP Models
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_55_topAPModels
+// Operation path: /reports/9/sections/55/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport55TopAPModels(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse, error) {
 	var (
@@ -1942,11 +1962,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport55TopAPModels(ctx
 
 // ReportInventoryAPsReport56TopAPVersions
 //
-// Operation ID: report_InventoryAPsReport_56_topAPVersions
-//
 // Inventory - APs Report - Top AP Software Versions
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_56_topAPVersions
+// Operation path: /reports/9/sections/56/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport56TopAPVersions(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse, error) {
 	var (
@@ -1974,11 +1996,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport56TopAPVersions(c
 
 // ReportInventoryAPsReport57TopAPsOffline
 //
-// Operation ID: report_InventoryAPsReport_57_topAPsOffline
-//
 // Inventory - APs Report - Top APs by Offline Duration
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_57_topAPsOffline
+// Operation path: /reports/9/sections/57/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport57TopAPsOffline(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse, error) {
 	var (
@@ -2006,11 +2030,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport57TopAPsOffline(c
 
 // ReportInventoryAPsReport58TopAPsByReboots
 //
-// Operation ID: report_InventoryAPsReport_58_topAPsByReboots
-//
 // Inventory - APs Report - Top APs by Reboot Count
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_58_topAPsByReboots
+// Operation path: /reports/9/sections/58/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport58TopAPsByReboots(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse, error) {
 	var (
@@ -2038,11 +2064,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport58TopAPsByReboots
 
 // ReportInventoryAPsReport59ApsConfiguredInMultiCtrl
 //
-// Operation ID: report_InventoryAPsReport_59_apsConfiguredInMultiCtrl
-//
 // Inventory - APs Report - APs Configured in Multiple Systems
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_59_apsConfiguredInMultiCtrl
+// Operation path: /reports/9/sections/59/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport59ApsConfiguredInMultiCtrl(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResponse, error) {
 	var (
@@ -2070,11 +2098,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport59ApsConfiguredIn
 
 // ReportInventoryAPsReport60ApDetailsOnOfflineStatus
 //
-// Operation ID: report_InventoryAPsReport_60_apDetailsOnOfflineStatus
-//
 // Inventory - APs Report - AP Details for Online/Offline Status
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_60_apDetailsOnOfflineStatus
+// Operation path: /reports/9/sections/60/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport60ApDetailsOnOfflineStatus(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResponse, error) {
 	var (
@@ -2102,11 +2132,13 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport60ApDetailsOnOffl
 
 // ReportInventoryAPsReport61ApDetailsOtherStatus
 //
-// Operation ID: report_InventoryAPsReport_61_apDetailsOtherStatus
-//
 // Inventory - APs Report - AP Details for Other Statuses
 //
-// Request Body:
+// Operation ID: report_InventoryAPsReport_61_apDetailsOtherStatus
+// Operation path: /reports/9/sections/61/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport61ApDetailsOtherStatus(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse, error) {
 	var (

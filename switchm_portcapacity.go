@@ -86,11 +86,13 @@ func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
 
 // FindPortCapacity
 //
-// Operation ID: findPortCapacity
-//
 // Use this API command to Retrieve Switch Port Capacity List.
 //
-// Required Parameters:
+// Operation ID: findPortCapacity
+// Operation path: /portCapacity
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - model string
 //		- required
 // - portIdentifier string

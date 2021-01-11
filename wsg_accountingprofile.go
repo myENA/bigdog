@@ -23,11 +23,13 @@ func (ss *WSGService) WSGAccountingProfileService() *WSGAccountingProfileService
 
 // AddProfilesAcct
 //
-// Operation ID: addProfilesAcct
-//
 // Use this API command to create a new accounting profile.
 //
-// Request Body:
+// Operation ID: addProfilesAcct
+// Operation path: /profiles/acct
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateAccountingProfile
 func (s *WSGAccountingProfileService) AddProfilesAcct(ctx context.Context, body *WSGProfileCreateAccountingProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,14 +57,16 @@ func (s *WSGAccountingProfileService) AddProfilesAcct(ctx context.Context, body 
 
 // AddProfilesAcctCloneById
 //
-// Operation ID: addProfilesAcctCloneById
-//
 // Use this API command to clone an accounting profile.
 //
-// Request Body:
+// Operation ID: addProfilesAcctCloneById
+// Operation path: /profiles/acct/clone/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGProfileClone
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Context, body *WSGProfileClone, id string, mutators ...RequestMutator) (*WSGProfileCloneAPIResponse, error) {
@@ -92,56 +96,60 @@ func (s *WSGAccountingProfileService) AddProfilesAcctCloneById(ctx context.Conte
 
 // DeleteProfilesAcct
 //
-// Operation ID: deleteProfilesAcct
-//
 // Use this API command to delete a list of accounting profile.
 //
-// Request Body:
+// Operation ID: deleteProfilesAcct
+// Operation path: /profiles/acct
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileDeleteBulkAccountingProfile
-func (s *WSGAccountingProfileService) DeleteProfilesAcct(ctx context.Context, body *WSGProfileDeleteBulkAccountingProfile, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccountingProfileService) DeleteProfilesAcct(ctx context.Context, body *WSGProfileDeleteBulkAccountingProfile, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesAcct, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesAcctById
 //
-// Operation ID: deleteProfilesAcctById
-//
 // Use this API command to delete an accounting profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesAcctById
+// Operation path: /profiles/acct/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesAcctById, true)
 	defer recycleAPIRequest(req)
@@ -150,14 +158,16 @@ func (s *WSGAccountingProfileService) DeleteProfilesAcctById(ctx context.Context
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesAcct
 //
-// Operation ID: findProfilesAcct
-//
 // Use this API command to retrieve a list of accounting profiles.
+//
+// Operation ID: findProfilesAcct
+// Operation path: /profiles/acct
+// Success code: 200 (OK)
 func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context, mutators ...RequestMutator) (*WSGProfileAccountingProfileListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -180,11 +190,13 @@ func (s *WSGAccountingProfileService) FindProfilesAcct(ctx context.Context, muta
 
 // FindProfilesAcctById
 //
-// Operation ID: findProfilesAcctById
-//
 // Use this API command to retrieve an accounting profile.
 //
-// Required Parameters:
+// Operation ID: findProfilesAcctById
+// Operation path: /profiles/acct/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileAccountingProfileAPIResponse, error) {
@@ -210,11 +222,13 @@ func (s *WSGAccountingProfileService) FindProfilesAcctById(ctx context.Context, 
 
 // FindProfilesAcctByQueryCriteria
 //
-// Operation ID: findProfilesAcctByQueryCriteria
-//
 // Use this API command to retrieve a list of accounting profiles by query criteria.
 //
-// Request Body:
+// Operation ID: findProfilesAcctByQueryCriteria
+// Operation path: /profiles/acct/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileAccountingProfileListAPIResponse, error) {
 	var (
@@ -242,37 +256,39 @@ func (s *WSGAccountingProfileService) FindProfilesAcctByQueryCriteria(ctx contex
 
 // PartialUpdateProfilesAcctById
 //
-// Operation ID: partialUpdateProfilesAcctById
-//
 // Use this API command to modify the configuration of an accounting profile.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesAcctById
+// Operation path: /profiles/acct/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyAccountingProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAccountingProfileService) PartialUpdateProfilesAcctById(ctx context.Context, body *WSGProfileModifyAccountingProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccountingProfileService) PartialUpdateProfilesAcctById(ctx context.Context, body *WSGProfileModifyAccountingProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesAcctById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

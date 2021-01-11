@@ -1108,11 +1108,13 @@ func NewSCINetworkWiredReport143topSwitchesByErrorsTableDataType() *SCINetworkWi
 
 // ReportNetworkWiredReport123TopSwitchPOEUtilChart
 //
-// Operation ID: report_NetworkWiredReport_123_topSwitchPOEUtilChart
-//
 // Network - Wired Report - Top Switches by PoE Usage
 //
-// Request Body:
+// Operation ID: report_NetworkWiredReport_123_topSwitchPOEUtilChart
+// Operation path: /reports/17/sections/123/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport123TopSwitchPOEUtilChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -1140,11 +1142,13 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport123TopSwitchPOEUt
 
 // ReportNetworkWiredReport124TopSwitchPOEUtils
 //
-// Operation ID: report_NetworkWiredReport_124_topSwitchPOEUtils
-//
 // Network - Wired Report - Top Switches by PoE Usage
 //
-// Request Body:
+// Operation ID: report_NetworkWiredReport_124_topSwitchPOEUtils
+// Operation path: /reports/17/sections/124/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport124TopSwitchPOEUtils(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse, error) {
 	var (
@@ -1172,11 +1176,13 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport124TopSwitchPOEUt
 
 // ReportNetworkWiredReport127Top10SwitchesByTrafficVolume
 //
-// Operation ID: report_NetworkWiredReport_127_top10SwitchesByTrafficVolume
-//
 // Network - Wired Report - Top Switches by Traffic
 //
-// Request Body:
+// Operation ID: report_NetworkWiredReport_127_top10SwitchesByTrafficVolume
+// Operation path: /reports/17/sections/127/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport127Top10SwitchesByTrafficVolume(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse, error) {
 	var (
@@ -1204,11 +1210,13 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport127Top10SwitchesB
 
 // ReportNetworkWiredReport128TopSwitchesByTrafficTable
 //
-// Operation ID: report_NetworkWiredReport_128_topSwitchesByTrafficTable
-//
 // Network - Wired Report - Top Switches by Traffic
 //
-// Request Body:
+// Operation ID: report_NetworkWiredReport_128_topSwitchesByTrafficTable
+// Operation path: /reports/17/sections/128/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport128TopSwitchesByTrafficTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -1236,11 +1244,13 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport128TopSwitchesByT
 
 // ReportNetworkWiredReport134WiredOverview
 //
-// Operation ID: report_NetworkWiredReport_134_wiredOverview
-//
 // Network - Wired Report - Overview
 //
-// Request Body:
+// Operation ID: report_NetworkWiredReport_134_wiredOverview
+// Operation path: /reports/17/sections/134/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport134WiredOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -1268,11 +1278,13 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport134WiredOverview(
 
 // ReportNetworkWiredReport135WiredTrafficDistribution
 //
-// Operation ID: report_NetworkWiredReport_135_wiredTrafficDistribution
-//
 // Network - Wired Report - Traffic Distribution by Switch Model and Port Speed
 //
-// Request Body:
+// Operation ID: report_NetworkWiredReport_135_wiredTrafficDistribution
+// Operation path: /reports/17/sections/135/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport135WiredTrafficDistribution(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse, error) {
 	var (
@@ -1300,11 +1312,13 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport135WiredTrafficDi
 
 // ReportNetworkWiredReport136SwitchTrafficTrend
 //
-// Operation ID: report_NetworkWiredReport_136_switchTrafficTrend
-//
 // Network - Wired Report - Traffic Trend
 //
-// Request Body:
+// Operation ID: report_NetworkWiredReport_136_switchTrafficTrend
+// Operation path: /reports/17/sections/136/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport136SwitchTrafficTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -1332,11 +1346,13 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport136SwitchTrafficT
 
 // ReportNetworkWiredReport141SwitchErrorTrend
 //
-// Operation ID: report_NetworkWiredReport_141_switchErrorTrend
-//
 // Network - Wired Report - Error Trend
 //
-// Request Body:
+// Operation ID: report_NetworkWiredReport_141_switchErrorTrend
+// Operation path: /reports/17/sections/141/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport141SwitchErrorTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -1364,11 +1380,13 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport141SwitchErrorTre
 
 // ReportNetworkWiredReport142TopSwitchesByErrorsChart
 //
-// Operation ID: report_NetworkWiredReport_142_topSwitchesByErrorsChart
-//
 // Network - Wired Report - Top Switches by Errors
 //
-// Request Body:
+// Operation ID: report_NetworkWiredReport_142_topSwitchesByErrorsChart
+// Operation path: /reports/17/sections/142/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport142TopSwitchesByErrorsChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -1396,11 +1414,13 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport142TopSwitchesByE
 
 // ReportNetworkWiredReport143TopSwitchesByErrorsTable
 //
-// Operation ID: report_NetworkWiredReport_143_topSwitchesByErrorsTable
-//
 // Network - Wired Report - Top Switches by Errors
 //
-// Request Body:
+// Operation ID: report_NetworkWiredReport_143_topSwitchesByErrorsTable
+// Operation path: /reports/17/sections/143/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWiredReportService) ReportNetworkWiredReport143TopSwitchesByErrorsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse, error) {
 	var (

@@ -23,14 +23,16 @@ func (ss *WSGService) WSGClientIsolationWhitelistService() *WSGClientIsolationWh
 
 // AddRkszonesClientIsolationWhitelistByZoneId
 //
-// Operation ID: addRkszonesClientIsolationWhitelistByZoneId
-//
 // Create a new ClientIsolationWhitelist.
 //
-// Request Body:
+// Operation ID: addRkszonesClientIsolationWhitelistByZoneId
+// Operation path: /rkszones/{zoneId}/clientIsolationWhitelist
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateClientIsolationWhitelist
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGClientIsolationWhitelistService) AddRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, body *WSGProfileCreateClientIsolationWhitelist, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,56 +62,60 @@ func (s *WSGClientIsolationWhitelistService) AddRkszonesClientIsolationWhitelist
 
 // DeleteRkszonesClientIsolationWhitelist
 //
-// Operation ID: deleteRkszonesClientIsolationWhitelist
-//
 // Use this API command to delete Bulk Client Isolation Whitelist.
 //
-// Request Body:
+// Operation ID: deleteRkszonesClientIsolationWhitelist
+// Operation path: /rkszones/clientIsolationWhitelist
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelist(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelist(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesClientIsolationWhitelist, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesClientIsolationWhitelistById
 //
-// Operation ID: deleteRkszonesClientIsolationWhitelistById
-//
 // Delete a Client Isolation Whitelist.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesClientIsolationWhitelistById
+// Operation path: /rkszones/clientIsolationWhitelist/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelistById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitelistById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesClientIsolationWhitelistById, true)
 	defer recycleAPIRequest(req)
@@ -118,16 +124,18 @@ func (s *WSGClientIsolationWhitelistService) DeleteRkszonesClientIsolationWhitel
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesClientIsolationWhitelistById
 //
-// Operation ID: findRkszonesClientIsolationWhitelistById
-//
 // Retrieve an Client Isolation Whitelist.
 //
-// Required Parameters:
+// Operation ID: findRkszonesClientIsolationWhitelistById
+// Operation path: /rkszones/{zoneId}/clientIsolationWhitelist/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -156,11 +164,13 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 
 // FindRkszonesClientIsolationWhitelistByZoneId
 //
-// Operation ID: findRkszonesClientIsolationWhitelistByZoneId
-//
 // Retrieve a list of Client Isolation Whitelist.
 //
-// Required Parameters:
+// Operation ID: findRkszonesClientIsolationWhitelistByZoneId
+// Operation path: /rkszones/{zoneId}/clientIsolationWhitelist
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelistByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGProfileClientIsolationWhitelistArrayAPIResponse, error) {
@@ -186,11 +196,13 @@ func (s *WSGClientIsolationWhitelistService) FindRkszonesClientIsolationWhitelis
 
 // FindServicesClientIsolationWhitelistByQueryCriteria
 //
-// Operation ID: findServicesClientIsolationWhitelistByQueryCriteria
-//
 // Retrieve a list of Client Isolation Whitelist.
 //
-// Request Body:
+// Operation ID: findServicesClientIsolationWhitelistByQueryCriteria
+// Operation path: /query/services/clientIsolationWhitelist
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelistByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileClientIsolationWhitelistArrayAPIResponse, error) {
 	var (
@@ -218,40 +230,42 @@ func (s *WSGClientIsolationWhitelistService) FindServicesClientIsolationWhitelis
 
 // PartialUpdateRkszonesClientIsolationWhitelistById
 //
-// Operation ID: partialUpdateRkszonesClientIsolationWhitelistById
-//
 // Modify a specific Client Isolation Whitelist basic.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesClientIsolationWhitelistById
+// Operation path: /rkszones/{zoneId}/clientIsolationWhitelist/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyClientIsolationWhitelist
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGClientIsolationWhitelistService) PartialUpdateRkszonesClientIsolationWhitelistById(ctx context.Context, body *WSGProfileModifyClientIsolationWhitelist, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGClientIsolationWhitelistService) PartialUpdateRkszonesClientIsolationWhitelistById(ctx context.Context, body *WSGProfileModifyClientIsolationWhitelist, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesClientIsolationWhitelistById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

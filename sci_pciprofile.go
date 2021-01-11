@@ -131,11 +131,13 @@ func MakeSCIPCIProfilePrototypegetreports200ResponseType() SCIPCIProfilePrototyp
 
 // PciProfileBatchDelete
 //
-// Operation ID: pciProfile_batchDelete
-//
 // Delete multiple PCI Profiles
 //
-// Form Data Parameters:
+// Operation ID: pciProfile_batchDelete
+// Operation path: /pciProfiles/batchDelete
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - ids string
 //		- required
 func (s *SCIPCIProfileService) PciProfileBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIPCIProfileBatchDelete200ResponseTypeAPIResponse, error) {
@@ -164,11 +166,13 @@ func (s *SCIPCIProfileService) PciProfileBatchDelete(ctx context.Context, formVa
 
 // PciProfileCreateWithRelations
 //
-// Operation ID: pciProfile_createWithRelations
-//
 // Create a PCI profile and generate a report.
 //
-// Form Data Parameters:
+// Operation ID: pciProfile_createWithRelations
+// Operation path: /pciProfiles/createWithRelations
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - answers string
 //		- required
 // - name string
@@ -201,11 +205,13 @@ func (s *SCIPCIProfileService) PciProfileCreateWithRelations(ctx context.Context
 
 // PciProfileFind
 //
-// Operation ID: pciProfile_find
-//
 // Find all instances of the model matched by filter from the data source.
 //
-// Optional Parameters:
+// Operation ID: pciProfile_find
+// Operation path: /pciProfiles
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIPCIProfileService) PciProfileFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIPCIProfileFind200ResponseTypeAPIResponse, error) {
@@ -233,15 +239,17 @@ func (s *SCIPCIProfileService) PciProfileFind(ctx context.Context, optionalParam
 
 // PciProfilePrototypeCountReports
 //
-// Operation ID: pciProfile_prototype_count_reports
-//
 // Counts reports of pciProfile.
 //
-// Required Parameters:
+// Operation ID: pciProfile_prototype_count_reports
+// Operation path: /pciProfiles/{id}/reports/count
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - where string
 //		- nullable
 func (s *SCIPCIProfileService) PciProfilePrototypeCountReports(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse, error) {
@@ -270,14 +278,16 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCountReports(ctx context.Conte
 
 // PciProfilePrototypeCreateReports
 //
-// Operation ID: pciProfile_prototype_create_reports
-//
 // Creates a new instance in reports of this model.
 //
-// Request Body:
+// Operation ID: pciProfile_prototype_create_reports
+// Operation path: /pciProfiles/{id}/reports
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsPciReport
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *SCIPCIProfileService) PciProfilePrototypeCreateReports(ctx context.Context, data *SCIModelsPciReport, id string, mutators ...RequestMutator) (*SCIModelsPciReportAPIResponse, error) {
@@ -307,24 +317,26 @@ func (s *SCIPCIProfileService) PciProfilePrototypeCreateReports(ctx context.Cont
 
 // PciProfilePrototypeDeleteReports
 //
-// Operation ID: pciProfile_prototype_delete_reports
-//
 // Deletes all reports of this model.
 //
-// Required Parameters:
+// Operation ID: pciProfile_prototype_delete_reports
+// Operation path: /pciProfiles/{id}/reports
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *SCIPCIProfileService) PciProfilePrototypeDeleteReports(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIPCIProfileService) PciProfilePrototypeDeleteReports(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSCIPciProfilePrototypeDeleteReports, true)
 	defer recycleAPIRequest(req)
@@ -333,31 +345,33 @@ func (s *SCIPCIProfileService) PciProfilePrototypeDeleteReports(ctx context.Cont
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PciProfilePrototypeDestroyByIdReports
 //
-// Operation ID: pciProfile_prototype_destroyById_reports
-//
 // Delete a related item by id for reports.
 //
-// Required Parameters:
+// Operation ID: pciProfile_prototype_destroyById_reports
+// Operation path: /pciProfiles/{id}/reports/{fk}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - fk string
 //		- required
 // - id string
 //		- required
-func (s *SCIPCIProfileService) PciProfilePrototypeDestroyByIdReports(ctx context.Context, fk string, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIPCIProfileService) PciProfilePrototypeDestroyByIdReports(ctx context.Context, fk string, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSCIPciProfilePrototypeDestroyByIdReports, true)
 	defer recycleAPIRequest(req)
@@ -367,16 +381,18 @@ func (s *SCIPCIProfileService) PciProfilePrototypeDestroyByIdReports(ctx context
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PciProfilePrototypeFindByIdReports
 //
-// Operation ID: pciProfile_prototype_findById_reports
-//
 // Find a related item by id for reports.
 //
-// Required Parameters:
+// Operation ID: pciProfile_prototype_findById_reports
+// Operation path: /pciProfiles/{id}/reports/{fk}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - fk string
 //		- required
 // - id string
@@ -405,15 +421,17 @@ func (s *SCIPCIProfileService) PciProfilePrototypeFindByIdReports(ctx context.Co
 
 // PciProfilePrototypeGetReports
 //
-// Operation ID: pciProfile_prototype_get_reports
-//
 // Queries reports of pciProfile.
 //
-// Required Parameters:
+// Operation ID: pciProfile_prototype_get_reports
+// Operation path: /pciProfiles/{id}/reports
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIPCIProfileService) PciProfilePrototypeGetReports(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse, error) {
@@ -442,14 +460,16 @@ func (s *SCIPCIProfileService) PciProfilePrototypeGetReports(ctx context.Context
 
 // PciProfilePrototypeUpdateByIdReports
 //
-// Operation ID: pciProfile_prototype_updateById_reports
-//
 // Update a related item by id for reports.
 //
-// Request Body:
+// Operation ID: pciProfile_prototype_updateById_reports
+// Operation path: /pciProfiles/{id}/reports/{fk}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsPciReport
 //
-// Required Parameters:
+// Required parameters:
 // - fk string
 //		- required
 // - id string
@@ -482,11 +502,13 @@ func (s *SCIPCIProfileService) PciProfilePrototypeUpdateByIdReports(ctx context.
 
 // PciProfileUpdateWithRelations
 //
-// Operation ID: pciProfile_updateWithRelations
-//
 // Update a PCI profile and generate a report.
 //
-// Form Data Parameters:
+// Operation ID: pciProfile_updateWithRelations
+// Operation path: /pciProfiles/{id}/updateWithRelations
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - answers string
 //		- required
 // - name string
@@ -494,7 +516,7 @@ func (s *SCIPCIProfileService) PciProfilePrototypeUpdateByIdReports(ctx context.
 // - ssids string
 //		- required
 //
-// Required Parameters:
+// Required parameters:
 // - id float64
 //		- required
 func (s *SCIPCIProfileService) PciProfileUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {

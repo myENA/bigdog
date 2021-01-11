@@ -23,88 +23,94 @@ func (ss *WSGService) WSGDPDHCPNATProfileService() *WSGDPDHCPNATProfileService {
 
 // AddDpProfileSettings
 //
-// Operation ID: addDpProfileSettings
-//
 // Use this API command to create DP DHCP & NAT profile setting.
 //
-// Request Body:
+// Operation ID: addDpProfileSettings
+// Operation path: /dpProfileSettings
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGDPProfileSettingBO
-func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, body *WSGDPProfileSettingBO, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDPDHCPNATProfileService) AddDpProfileSettings(ctx context.Context, body *WSGDPProfileSettingBO, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddDpProfileSettings, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteDpProfileSettings
 //
-// Operation ID: deleteDpProfileSettings
-//
 // Use this API command to delete DP DHCP & NAT profile settings.
 //
-// Request Body:
+// Operation ID: deleteDpProfileSettings
+// Operation path: /dpProfileSettings
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGDPProfileBulkDelete
-func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context, body *WSGDPProfileBulkDelete, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettings(ctx context.Context, body *WSGDPProfileBulkDelete, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDpProfileSettings, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteDpProfileSettingsByDpKey
 //
-// Operation ID: deleteDpProfileSettingsByDpKey
-//
 // Use this API command to delete DP DHCP & NAT profile setting.
 //
-// Required Parameters:
+// Operation ID: deleteDpProfileSettingsByDpKey
+// Operation path: /dpProfileSettings/{dpKey}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - dpKey string
 //		- required
-func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.Context, dpKey string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.Context, dpKey string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDpProfileSettingsByDpKey, true)
 	defer recycleAPIRequest(req)
@@ -113,14 +119,16 @@ func (s *WSGDPDHCPNATProfileService) DeleteDpProfileSettingsByDpKey(ctx context.
 	req.PathParams.Set("dpKey", dpKey)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindDpProfileSettings
 //
-// Operation ID: findDpProfileSettings
-//
 // Use this API command to retrieve DP DHCP & NAT profile setting list.
+//
+// Operation ID: findDpProfileSettings
+// Operation path: /dpProfileSettings
+// Success code: 200 (OK)
 func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context, mutators ...RequestMutator) (*WSGDPProfileSettingBOListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -143,11 +151,13 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettings(ctx context.Context, 
 
 // FindDpProfileSettingsByDpKey
 //
-// Operation ID: findDpProfileSettingsByDpKey
-//
 // Use this API command to retrieve DP DHCP & NAT profile setting.
 //
-// Required Parameters:
+// Operation ID: findDpProfileSettingsByDpKey
+// Operation path: /dpProfileSettings/{dpKey}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - dpKey string
 //		- required
 func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Context, dpKey string, mutators ...RequestMutator) (*WSGDPProfileSettingBOAPIResponse, error) {
@@ -173,37 +183,39 @@ func (s *WSGDPDHCPNATProfileService) FindDpProfileSettingsByDpKey(ctx context.Co
 
 // UpdateDpProfileSettingsByDpKey
 //
-// Operation ID: updateDpProfileSettingsByDpKey
-//
 // Use this API command to modify DP DHCP & NAT profile setting.
 //
-// Request Body:
+// Operation ID: updateDpProfileSettingsByDpKey
+// Operation path: /dpProfileSettings/{dpKey}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGDPProfileSettingBO
 //
-// Required Parameters:
+// Required parameters:
 // - dpKey string
 //		- required
-func (s *WSGDPDHCPNATProfileService) UpdateDpProfileSettingsByDpKey(ctx context.Context, body *WSGDPProfileSettingBO, dpKey string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDPDHCPNATProfileService) UpdateDpProfileSettingsByDpKey(ctx context.Context, body *WSGDPProfileSettingBO, dpKey string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateDpProfileSettingsByDpKey, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("dpKey", dpKey)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

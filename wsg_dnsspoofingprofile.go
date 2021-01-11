@@ -182,14 +182,16 @@ func NewWSGDNSSpoofingProfileGetDnsSpoofingProfileList() *WSGDNSSpoofingProfileG
 
 // AddRkszonesDnsSpoofingProfilesByZoneId
 //
-// Operation ID: addRkszonesDnsSpoofingProfilesByZoneId
-//
 // Use this API command to create DNS Spoofing profile.
 //
-// Request Body:
+// Operation ID: addRkszonesDnsSpoofingProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/dnsSpoofingProfiles
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDNSSpoofingProfile
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGDNSSpoofingProfileService) AddRkszonesDnsSpoofingProfilesByZoneId(ctx context.Context, body *WSGDNSSpoofingProfile, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -219,58 +221,62 @@ func (s *WSGDNSSpoofingProfileService) AddRkszonesDnsSpoofingProfilesByZoneId(ct
 
 // DeleteRkszonesDnsSpoofingProfiles
 //
-// Operation ID: deleteRkszonesDnsSpoofingProfiles
-//
 // Use this API command to delete bulk DNS Spoofing profile.
 //
-// Request Body:
+// Operation ID: deleteRkszonesDnsSpoofingProfiles
+// Operation path: /rkszones/dnsSpoofingProfiles
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGDNSSpoofingProfileService) DeleteRkszonesDnsSpoofingProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDNSSpoofingProfileService) DeleteRkszonesDnsSpoofingProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesDnsSpoofingProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesDnsSpoofingProfilesById
 //
-// Operation ID: deleteRkszonesDnsSpoofingProfilesById
-//
 // Use this API command to delete DNS Spoofing profile.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesDnsSpoofingProfilesById
+// Operation path: /rkszones/{zoneId}/dnsSpoofingProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDNSSpoofingProfileService) DeleteRkszonesDnsSpoofingProfilesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDNSSpoofingProfileService) DeleteRkszonesDnsSpoofingProfilesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesDnsSpoofingProfilesById, true)
 	defer recycleAPIRequest(req)
@@ -280,16 +286,18 @@ func (s *WSGDNSSpoofingProfileService) DeleteRkszonesDnsSpoofingProfilesById(ctx
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesDnsSpoofingProfilesById
 //
-// Operation ID: findRkszonesDnsSpoofingProfilesById
-//
 // Use this API command to retrieve DNS Spoofing profile.
 //
-// Required Parameters:
+// Operation ID: findRkszonesDnsSpoofingProfilesById
+// Operation path: /rkszones/{zoneId}/dnsSpoofingProfiles/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -318,11 +326,13 @@ func (s *WSGDNSSpoofingProfileService) FindRkszonesDnsSpoofingProfilesById(ctx c
 
 // FindRkszonesDnsSpoofingProfilesByZoneId
 //
-// Operation ID: findRkszonesDnsSpoofingProfilesByZoneId
-//
 // Use this API command to retrieve a list of DNS Spoofing profile.
 //
-// Required Parameters:
+// Operation ID: findRkszonesDnsSpoofingProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/dnsSpoofingProfiles
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGDNSSpoofingProfileService) FindRkszonesDnsSpoofingProfilesByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse, error) {
@@ -348,40 +358,42 @@ func (s *WSGDNSSpoofingProfileService) FindRkszonesDnsSpoofingProfilesByZoneId(c
 
 // UpdateRkszonesDnsSpoofingProfilesById
 //
-// Operation ID: updateRkszonesDnsSpoofingProfilesById
-//
 // Use this API command to update DNS Spoofing profile.
 //
-// Request Body:
+// Operation ID: updateRkszonesDnsSpoofingProfilesById
+// Operation path: /rkszones/{zoneId}/dnsSpoofingProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGDNSSpoofingProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDNSSpoofingProfileService) UpdateRkszonesDnsSpoofingProfilesById(ctx context.Context, body *WSGDNSSpoofingProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDNSSpoofingProfileService) UpdateRkszonesDnsSpoofingProfilesById(ctx context.Context, body *WSGDNSSpoofingProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesDnsSpoofingProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

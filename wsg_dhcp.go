@@ -23,14 +23,16 @@ func (ss *WSGService) WSGDHCPService() *WSGDHCPService {
 
 // AddRkszonesDhcpSiteDhcpProfileByZoneId
 //
-// Operation ID: addRkszonesDhcpSiteDhcpProfileByZoneId
-//
 // Use this API command to create DHCP Pool.
 //
-// Request Body:
+// Operation ID: addRkszonesDhcpSiteDhcpProfileByZoneId
+// Operation path: /rkszones/{zoneId}/dhcpSite/dhcpProfile
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateDhcpProfile
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *WSGProfileCreateDhcpProfile, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,14 +62,16 @@ func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Cont
 
 // AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId
 //
-// Operation ID: addRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId
-//
 // Use this API command to get the DHCP/NAT service IP assignment when selecting with "Enable on Multiple APs". In the Manually Select AP mode (the manualSelect is true), the body should contain the selected APs (include the siteAps array). Otherwise, there is no need to include the selected APs in the Auto Select AP mode (see samples).
 //
-// Request Body:
+// Operation ID: addRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId
+// Operation path: /rkszones/{zoneId}/dhcpSite/dhcpSiteConfig/doAssignIp
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonDoAssignIp
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId(ctx context.Context, body *WSGCommonDoAssignIp, zoneId string, mutators ...RequestMutator) (*WSGCommonDhcpSiteConfigListRefAPIResponse, error) {
@@ -97,26 +101,28 @@ func (s *WSGDHCPService) AddRkszonesDhcpSiteDhcpSiteConfigDoAssignIpByZoneId(ctx
 
 // DeleteRkszonesDhcpSiteDhcpProfileById
 //
-// Operation ID: deleteRkszonesDhcpSiteDhcpProfileById
-//
 // Use this API command to delete DHCP Pool by pool's ID.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesDhcpSiteDhcpProfileById
+// Operation path: /rkszones/{zoneId}/dhcpSite/dhcpProfile/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesDhcpSiteDhcpProfileById, true)
 	defer recycleAPIRequest(req)
@@ -126,53 +132,57 @@ func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileById(ctx context.Conte
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesDhcpSiteDhcpProfileByZoneId
 //
-// Operation ID: deleteRkszonesDhcpSiteDhcpProfileByZoneId
-//
 // Use this API command to delete multiple DHCP Pools.
 //
-// Request Body:
+// Operation ID: deleteRkszonesDhcpSiteDhcpProfileByZoneId
+// Operation path: /rkszones/{zoneId}/dhcpSite/dhcpProfile
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
-func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDHCPService) DeleteRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesDhcpSiteDhcpProfileByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindDhcpDataDhcpMsgStatsByApMac
 //
-// Operation ID: findDhcpDataDhcpMsgStatsByApMac
-//
 // Use this API command to get AP DHCP Message Statistic.
 //
-// Required Parameters:
+// Operation ID: findDhcpDataDhcpMsgStatsByApMac
+// Operation path: /dhcpData/dhcpMsgStats/{apMac}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGDHCPService) FindDhcpDataDhcpMsgStatsByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGDHCPMessageStatsDhcpMsgStatsAPIResponse, error) {
@@ -198,11 +208,13 @@ func (s *WSGDHCPService) FindDhcpDataDhcpMsgStatsByApMac(ctx context.Context, ap
 
 // FindDhcpDataDhcpPoolsByApMac
 //
-// Operation ID: findDhcpDataDhcpPoolsByApMac
-//
 // Use this API command to get AP DHCP Pools Usage.
 //
-// Required Parameters:
+// Operation ID: findDhcpDataDhcpPoolsByApMac
+// Operation path: /dhcpData/dhcpPools/{apMac}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGDHCPPoolsAPIResponse, error) {
@@ -228,11 +240,13 @@ func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByApMac(ctx context.Context, apMac
 
 // FindDhcpDataDhcpPoolsByPoolIndex
 //
-// Operation ID: findDhcpDataDhcpPoolsByPoolIndex
-//
 // Use this API command to get AP DHCP Pool Usage by pool's index.
 //
-// Required Parameters:
+// Operation ID: findDhcpDataDhcpPoolsByPoolIndex
+// Operation path: /dhcpData/dhcpPools/{apMac}/{poolIndex}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 // - poolIndex string
@@ -261,11 +275,13 @@ func (s *WSGDHCPService) FindDhcpDataDhcpPoolsByPoolIndex(ctx context.Context, a
 
 // FindRkszonesDhcpSiteDhcpProfileById
 //
-// Operation ID: findRkszonesDhcpSiteDhcpProfileById
-//
 // Use this API command to get DHCP Pool by pool's ID.
 //
-// Required Parameters:
+// Operation ID: findRkszonesDhcpSiteDhcpProfileById
+// Operation path: /rkszones/{zoneId}/dhcpSite/dhcpProfile/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -294,11 +310,13 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileById(ctx context.Context
 
 // FindRkszonesDhcpSiteDhcpProfileByZoneId
 //
-// Operation ID: findRkszonesDhcpSiteDhcpProfileByZoneId
-//
 // Use this API command to get DHCP Pool list.
 //
-// Required Parameters:
+// Operation ID: findRkszonesDhcpSiteDhcpProfileByZoneId
+// Operation path: /rkszones/{zoneId}/dhcpSite/dhcpProfile
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGProfileDhcpProfileListAPIResponse, error) {
@@ -324,11 +342,13 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpProfileByZoneId(ctx context.Con
 
 // FindRkszonesDhcpSiteDhcpSiteConfigByZoneId
 //
-// Operation ID: findRkszonesDhcpSiteDhcpSiteConfigByZoneId
-//
 // Use this API command to get DHCP Configuration.
 //
-// Required Parameters:
+// Operation ID: findRkszonesDhcpSiteDhcpSiteConfigByZoneId
+// Operation path: /rkszones/{zoneId}/dhcpSite/dhcpSiteConfig
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGCommonDhcpSiteConfigListRefAPIResponse, error) {
@@ -354,11 +374,13 @@ func (s *WSGDHCPService) FindRkszonesDhcpSiteDhcpSiteConfigByZoneId(ctx context.
 
 // FindRkszonesServicesDhcpSiteConfigByQueryCriteria
 //
-// Operation ID: findRkszonesServicesDhcpSiteConfigByQueryCriteria
-//
 // Use this API command to modify DHCP/NAT service configuration of Domain.
 //
-// Request Body:
+// Operation ID: findRkszonesServicesDhcpSiteConfigByQueryCriteria
+// Operation path: /rkszones/services/dhcpSiteConfig/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGZoneQueryCriteria
 func (s *WSGDHCPService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria(ctx context.Context, body *WSGZoneQueryCriteria, mutators ...RequestMutator) (*WSGZoneDhcpSiteConfigListAPIResponse, error) {
 	var (
@@ -386,11 +408,13 @@ func (s *WSGDHCPService) FindRkszonesServicesDhcpSiteConfigByQueryCriteria(ctx c
 
 // FindServicesDhcpProfileByQueryCriteria
 //
-// Operation ID: findServicesDhcpProfileByQueryCriteria
-//
 // Query DHCP Profiles with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesDhcpProfileByQueryCriteria
+// Operation path: /query/services/dhcpProfile
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGDHCPService) FindServicesDhcpProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileDhcpProfileListAPIResponse, error) {
 	var (
@@ -418,40 +442,42 @@ func (s *WSGDHCPService) FindServicesDhcpProfileByQueryCriteria(ctx context.Cont
 
 // PartialUpdateRkszonesDhcpSiteDhcpProfileById
 //
-// Operation ID: partialUpdateRkszonesDhcpSiteDhcpProfileById
-//
 // Use this API command to modify DHCP Pool by pool's ID.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesDhcpSiteDhcpProfileById
+// Operation path: /rkszones/{zoneId}/dhcpSite/dhcpProfile/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileCreateDhcpProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDHCPService) PartialUpdateRkszonesDhcpSiteDhcpProfileById(ctx context.Context, body *WSGProfileCreateDhcpProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDHCPService) PartialUpdateRkszonesDhcpSiteDhcpProfileById(ctx context.Context, body *WSGProfileCreateDhcpProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesDhcpSiteDhcpProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

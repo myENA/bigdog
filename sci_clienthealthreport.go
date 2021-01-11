@@ -404,11 +404,13 @@ func NewSCIClientHealthReport149clientHealthMetricTrendsDataTypeType() *SCIClien
 
 // ReportClientHealthReport144ClientHealthSummary
 //
-// Operation ID: report_ClientHealthReport_144_clientHealthSummary
-//
 // Client Health Report - Summary
 //
-// Request Body:
+// Operation ID: report_ClientHealthReport_144_clientHealthSummary
+// Operation path: /reports/20/sections/144/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIClientHealthReportService) ReportClientHealthReport144ClientHealthSummary(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse, error) {
 	var (
@@ -436,11 +438,13 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport144ClientHealthSu
 
 // ReportClientHealthReport148ClientConnectionHealth
 //
-// Operation ID: report_ClientHealthReport_148_clientConnectionHealth
-//
 // Client Health Report - Client Connection Health
 //
-// Request Body:
+// Operation ID: report_ClientHealthReport_148_clientConnectionHealth
+// Operation path: /reports/20/sections/148/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIClientHealthReportService) ReportClientHealthReport148ClientConnectionHealth(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse, error) {
 	var (
@@ -468,11 +472,13 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport148ClientConnecti
 
 // ReportClientHealthReport149ClientHealthMetricTrends
 //
-// Operation ID: report_ClientHealthReport_149_clientHealthMetricTrends
-//
 // Client Health Report - Health Metric Trends
 //
-// Request Body:
+// Operation ID: report_ClientHealthReport_149_clientHealthMetricTrends
+// Operation path: /reports/20/sections/149/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIClientHealthReportService) ReportClientHealthReport149ClientHealthMetricTrends(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse, error) {
 	var (
@@ -500,11 +506,13 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport149ClientHealthMe
 
 // ReportClientHealthReport150TopClientHealthScoreByGroup
 //
-// Operation ID: report_ClientHealthReport_150_topClientHealthScoreByGroup
-//
 // Client Health Report - Health By Group
 //
-// Request Body:
+// Operation ID: report_ClientHealthReport_150_topClientHealthScoreByGroup
+// Operation path: /reports/20/sections/150/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIClientHealthReportService) ReportClientHealthReport150TopClientHealthScoreByGroup(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse, error) {
 	var (

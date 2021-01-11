@@ -23,11 +23,13 @@ func (ss *WSGService) WSGIdentityUserService() *WSGIdentityUserService {
 
 // AddIdentityUserList
 //
-// Operation ID: addIdentityUserList
-//
 // Use this API command to retrieve a list of identity user.
 //
-// Request Body:
+// Operation ID: addIdentityUserList
+// Operation path: /identity/userList
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGIdentityQueryCriteria
 func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *WSGIdentityQueryCriteria, mutators ...RequestMutator) (*WSGIdentityUserListAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *WSGIdentityUserService) AddIdentityUserList(ctx context.Context, body *
 
 // AddIdentityUsers
 //
-// Operation ID: addIdentityUsers
-//
 // Use this API command to create identity user.
 //
-// Request Body:
+// Operation ID: addIdentityUsers
+// Operation path: /identity/users
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGIdentityCreateUser
 func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSGIdentityCreateUser, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -87,56 +91,60 @@ func (s *WSGIdentityUserService) AddIdentityUsers(ctx context.Context, body *WSG
 
 // DeleteIdentityUsers
 //
-// Operation ID: deleteIdentityUsers
-//
 // Use this API command to delete multiple identity users.
 //
-// Request Body:
+// Operation ID: deleteIdentityUsers
+// Operation path: /identity/users
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGIdentityDeleteBulk
-func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *WSGIdentityDeleteBulk, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIdentityUserService) DeleteIdentityUsers(ctx context.Context, body *WSGIdentityDeleteBulk, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityUsers, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteIdentityUsersById
 //
-// Operation ID: deleteIdentityUsersById
-//
 // Use this API command to delete identity user.
 //
-// Required Parameters:
+// Operation ID: deleteIdentityUsersById
+// Operation path: /identity/users/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityUsersById, true)
 	defer recycleAPIRequest(req)
@@ -145,16 +153,18 @@ func (s *WSGIdentityUserService) DeleteIdentityUsersById(ctx context.Context, id
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindIdentityUsers
 //
-// Operation ID: findIdentityUsers
-//
 // Use this API command to retrieve a list of identity user.
 //
-// Optional Parameters:
+// Operation ID: findIdentityUsers
+// Operation path: /identity/users
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - createdOnFrom string
 //		- nullable
 // - createdOnTo string
@@ -247,9 +257,11 @@ func (s *WSGIdentityUserService) FindIdentityUsers(ctx context.Context, optional
 
 // FindIdentityUsersAaaserver
 //
-// Operation ID: findIdentityUsersAaaserver
-//
 // Use this API command to retrieve a list of aaa server.
+//
+// Operation ID: findIdentityUsersAaaserver
+// Operation path: /identity/users/aaaserver
+// Success code: 200 (OK)
 func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context, mutators ...RequestMutator) (*WSGIdentityAaaServerListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -272,11 +284,13 @@ func (s *WSGIdentityUserService) FindIdentityUsersAaaserver(ctx context.Context,
 
 // FindIdentityUsersById
 //
-// Operation ID: findIdentityUsersById
-//
 // Use this API command to retrieve identity user.
 //
-// Required Parameters:
+// Operation ID: findIdentityUsersById
+// Operation path: /identity/users/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGIdentityUserConfigurationAPIResponse, error) {
@@ -302,9 +316,11 @@ func (s *WSGIdentityUserService) FindIdentityUsersById(ctx context.Context, id s
 
 // FindIdentityUsersCountries
 //
-// Operation ID: findIdentityUsersCountries
-//
 // Use this API command to retrieve a list of countries.
+//
+// Operation ID: findIdentityUsersCountries
+// Operation path: /identity/users/countries
+// Success code: 200 (OK)
 func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context, mutators ...RequestMutator) (*WSGIdentityCountryListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -327,9 +343,11 @@ func (s *WSGIdentityUserService) FindIdentityUsersCountries(ctx context.Context,
 
 // FindIdentityUsersPackages
 //
-// Operation ID: findIdentityUsersPackages
-//
 // Use this API command to retrieve a list of packages.
+//
+// Operation ID: findIdentityUsersPackages
+// Operation path: /identity/users/packages
+// Success code: 200 (OK)
 func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context, mutators ...RequestMutator) (*WSGIdentityPackageListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -352,37 +370,39 @@ func (s *WSGIdentityUserService) FindIdentityUsersPackages(ctx context.Context, 
 
 // PartialUpdateIdentityUsersById
 //
-// Operation ID: partialUpdateIdentityUsersById
-//
 // Use this API command to modify the configuration of identity user.
 //
-// Request Body:
+// Operation ID: partialUpdateIdentityUsersById
+// Operation path: /identity/users/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGIdentityModifyUser
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Context, body *WSGIdentityModifyUser, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIdentityUserService) PartialUpdateIdentityUsersById(ctx context.Context, body *WSGIdentityModifyUser, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateIdentityUsersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

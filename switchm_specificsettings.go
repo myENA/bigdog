@@ -267,24 +267,26 @@ func NewSwitchMSpecificSettingsUpdateSpecificSettings() *SwitchMSpecificSettings
 
 // DeleteSpecificSettingsById
 //
-// Operation ID: deleteSpecificSettingsById
-//
 // Use this API command to Delete Specific Settings.
 //
-// Required Parameters:
+// Operation ID: deleteSpecificSettingsById
+// Operation path: /specificSettings/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteSpecificSettingsById, true)
 	defer recycleAPIRequest(req)
@@ -293,14 +295,16 @@ func (s *SwitchMSpecificSettingsService) DeleteSpecificSettingsById(ctx context.
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindSpecificSettings
 //
-// Operation ID: findSpecificSettings
-//
 // Use this API command to Retrieve all Specific Setting list.
+//
+// Operation ID: findSpecificSettings
+// Operation path: /specificSettings
+// Success code: 200 (OK)
 func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Context, mutators ...RequestMutator) (*SwitchMSpecificSettingsAllResultAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -323,11 +327,13 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettings(ctx context.Contex
 
 // FindSpecificSettingsById
 //
-// Operation ID: findSpecificSettingsById
-//
 // Use this API command to Retrieve Specific Settings.
 //
-// Required Parameters:
+// Operation ID: findSpecificSettingsById
+// Operation path: /specificSettings/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMSpecificSettingsAPIResponse, error) {
@@ -353,37 +359,39 @@ func (s *SwitchMSpecificSettingsService) FindSpecificSettingsById(ctx context.Co
 
 // UpdateSpecificSettingsById
 //
-// Operation ID: updateSpecificSettingsById
-//
 // Use this API command to Update Specific Settings.
 //
-// Request Body:
+// Operation ID: updateSpecificSettingsById
+// Operation path: /specificSettings/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMSpecificSettingsUpdateSpecificSettings
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.Context, body *SwitchMSpecificSettingsUpdateSpecificSettings, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMSpecificSettingsService) UpdateSpecificSettingsById(ctx context.Context, body *SwitchMSpecificSettingsUpdateSpecificSettings, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateSpecificSettingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

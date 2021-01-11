@@ -24,11 +24,13 @@ func (ss *WSGService) WSGAccessPointAppService() *WSGAccessPointAppService {
 
 // FindApsLineman
 //
-// Operation ID: findApsLineman
-//
 // Use this API command to retrieve the summary information of an AP. This is used by the Ruckus Wireless AP mobile app.
 //
-// Optional Parameters:
+// Operation ID: findApsLineman
+// Operation path: /aps/lineman
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - domainId string
 //		- nullable
 // - index string
@@ -76,11 +78,13 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 
 // FindApsTotalCount
 //
-// Operation ID: findApsTotalCount
-//
 // Use this API command to retrieve the total AP count within a zone or a domain.
 //
-// Optional Parameters:
+// Operation ID: findApsTotalCount
+// Operation path: /aps/totalCount
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - domainId string
 //		- nullable
 // - zoneId string
@@ -113,49 +117,53 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 
 // FindLinemanWorkflow
 //
-// Operation ID: findLinemanWorkflow
-//
 // Use this API command to download the workflow file used by the Ruckus Wireless AP mobile app.
-func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
+//
+// Operation ID: findLinemanWorkflow
+// Operation path: /lineman/workflow
+// Success code: 200 (OK)
+func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindLinemanWorkflow, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // UpdateLinemanWorkflow
 //
-// Operation ID: updateLinemanWorkflow
-//
 // Use this API command to upload a workflow file used by the Ruckus Wireless AP mobile app.
 //
-// Form Data Parameters:
+// Operation ID: updateLinemanWorkflow
+// Operation path: /lineman/workflow
+// Success code: 204 (No Content)
+//
+// Form data parameters:
 // - uploadFile io.Reader
 //		- required
-func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateLinemanWorkflow, true)
 	defer recycleAPIRequest(req)
@@ -163,9 +171,9 @@ func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, fi
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.MultipartForm()
 	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

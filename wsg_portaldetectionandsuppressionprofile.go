@@ -23,14 +23,16 @@ func (ss *WSGService) WSGPortalDetectionandSuppressionProfileService() *WSGPorta
 
 // AddRkszonesPortalDetectionProfilesByZoneId
 //
-// Operation ID: addRkszonesPortalDetectionProfilesByZoneId
-//
 // Use this API command to create portal detection and suppression profile.
 //
-// Request Body:
+// Operation ID: addRkszonesPortalDetectionProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/portalDetectionProfiles
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGPortalDetectionProfileCreatePortalDetectionProfile
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGPortalDetectionandSuppressionProfileService) AddRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,26 +62,28 @@ func (s *WSGPortalDetectionandSuppressionProfileService) AddRkszonesPortalDetect
 
 // DeleteRkszonesPortalDetectionProfilesById
 //
-// Operation ID: deleteRkszonesPortalDetectionProfilesById
-//
 // Use this API command to delete portal detection and suppression profile by profile's ID.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesPortalDetectionProfilesById
+// Operation path: /rkszones/{zoneId}/portalDetectionProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDetectionProfilesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDetectionProfilesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesPortalDetectionProfilesById, true)
 	defer recycleAPIRequest(req)
@@ -89,53 +93,57 @@ func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDet
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesPortalDetectionProfilesByZoneId
 //
-// Operation ID: deleteRkszonesPortalDetectionProfilesByZoneId
-//
 // Use this API command to delete multiple portal detection and suppression profiles.
 //
-// Request Body:
+// Operation ID: deleteRkszonesPortalDetectionProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/portalDetectionProfiles
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
-func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) DeleteRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesPortalDetectionProfilesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesPortalDetectionProfilesById
 //
-// Operation ID: findRkszonesPortalDetectionProfilesById
-//
 // Use this API command to get portal detection and suppression profile by profile's ID.
 //
-// Required Parameters:
+// Operation ID: findRkszonesPortalDetectionProfilesById
+// Operation path: /rkszones/{zoneId}/portalDetectionProfiles/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -164,11 +172,13 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 
 // FindRkszonesPortalDetectionProfilesByQueryCriteria
 //
-// Operation ID: findRkszonesPortalDetectionProfilesByQueryCriteria
-//
 // Query portal detection and suppression profile with specified filters.
 //
-// Request Body:
+// Operation ID: findRkszonesPortalDetectionProfilesByQueryCriteria
+// Operation path: /rkszones/portalDetectionProfiles/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGPortalDetectionProfileListAPIResponse, error) {
 	var (
@@ -196,11 +206,13 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 
 // FindRkszonesPortalDetectionProfilesByZoneId
 //
-// Operation ID: findRkszonesPortalDetectionProfilesByZoneId
-//
 // Use this API command to get portal detection and suppression profile list.
 //
-// Required Parameters:
+// Operation ID: findRkszonesPortalDetectionProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/portalDetectionProfiles
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetectionProfilesByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGPortalDetectionProfileListAPIResponse, error) {
@@ -226,80 +238,84 @@ func (s *WSGPortalDetectionandSuppressionProfileService) FindRkszonesPortalDetec
 
 // PartialUpdateRkszonesPortalDetectionProfilesById
 //
-// Operation ID: partialUpdateRkszonesPortalDetectionProfilesById
-//
 // Use this API command to modify portal detection and suppression profile by profile's ID.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesPortalDetectionProfilesById
+// Operation path: /rkszones/{zoneId}/portalDetectionProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGPortalDetectionProfileCreatePortalDetectionProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGPortalDetectionandSuppressionProfileService) PartialUpdateRkszonesPortalDetectionProfilesById(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) PartialUpdateRkszonesPortalDetectionProfilesById(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesPortalDetectionProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateRkszonesPortalDetectionProfilesById
 //
-// Operation ID: updateRkszonesPortalDetectionProfilesById
-//
 // Use this API command to modify portal detection and suppression profile by profile's ID.
 //
-// Request Body:
+// Operation ID: updateRkszonesPortalDetectionProfilesById
+// Operation path: /rkszones/{zoneId}/portalDetectionProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGPortalDetectionProfileCreatePortalDetectionProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGPortalDetectionandSuppressionProfileService) UpdateRkszonesPortalDetectionProfilesById(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGPortalDetectionandSuppressionProfileService) UpdateRkszonesPortalDetectionProfilesById(ctx context.Context, body *WSGPortalDetectionProfileCreatePortalDetectionProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesPortalDetectionProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

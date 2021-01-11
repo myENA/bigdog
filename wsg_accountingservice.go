@@ -23,11 +23,13 @@ func (ss *WSGService) WSGAccountingServiceService() *WSGAccountingServiceService
 
 // AddServicesAcctRadius
 //
-// Operation ID: addServicesAcctRadius
-//
 // Use this API command to create a new RADIUS accounting service.
 //
-// Request Body:
+// Operation ID: addServicesAcctRadius
+// Operation path: /services/acct/radius
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGServiceCreateRadiusAccounting
 func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context, body *WSGServiceCreateRadiusAccounting, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,14 +57,16 @@ func (s *WSGAccountingServiceService) AddServicesAcctRadius(ctx context.Context,
 
 // AddServicesAcctTestById
 //
-// Operation ID: addServicesAcctTestById
-//
 // Use this API command to test an accounting service.
 //
-// Request Body:
+// Operation ID: addServicesAcctTestById
+// Operation path: /services/acct/test/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGServiceTestingConfig
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Context, body *WSGServiceTestingConfig, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -92,56 +96,60 @@ func (s *WSGAccountingServiceService) AddServicesAcctTestById(ctx context.Contex
 
 // DeleteServicesAcct
 //
-// Operation ID: deleteServicesAcct
-//
 // Use this API command to delete a list of accounting service.
 //
-// Request Body:
+// Operation ID: deleteServicesAcct
+// Operation path: /services/acct
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGServiceDeleteBulkAccountingService
-func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, body *WSGServiceDeleteBulkAccountingService, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccountingServiceService) DeleteServicesAcct(ctx context.Context, body *WSGServiceDeleteBulkAccountingService, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAcct, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteServicesAcctById
 //
-// Operation ID: deleteServicesAcctById
-//
 // Use this API command to delete an accounting service.
 //
-// Required Parameters:
+// Operation ID: deleteServicesAcctById
+// Operation path: /services/acct/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAcctById, true)
 	defer recycleAPIRequest(req)
@@ -150,29 +158,31 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctById(ctx context.Context
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteServicesAcctRadiusById
 //
-// Operation ID: deleteServicesAcctRadiusById
-//
 // Use this API command to delete a RADIUS accounting service.
 //
-// Required Parameters:
+// Operation ID: deleteServicesAcctRadiusById
+// Operation path: /services/acct/radius/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusById, true)
 	defer recycleAPIRequest(req)
@@ -181,29 +191,31 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusById(ctx context.C
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteServicesAcctRadiusSecondaryById
 //
-// Operation ID: deleteServicesAcctRadiusSecondaryById
-//
 // Use this API command to disable secondary RADIUS server of a RADIUS accounting service.
 //
-// Required Parameters:
+// Operation ID: deleteServicesAcctRadiusSecondaryById
+// Operation path: /services/acct/radius/{id}/secondary
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusSecondaryById, true)
 	defer recycleAPIRequest(req)
@@ -212,29 +224,31 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusSecondaryById(ctx 
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteServicesAcctRadiusStandbyPrimaryById
 //
-// Operation ID: deleteServicesAcctRadiusStandbyPrimaryById
-//
 // Use this API command to disable Standby secondary RADIUS server of a RADIUS Accounting service.
 //
-// Required Parameters:
+// Operation ID: deleteServicesAcctRadiusStandbyPrimaryById
+// Operation path: /services/acct/radius/{id}/standbyPrimary
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAcctRadiusStandbyPrimaryById, true)
 	defer recycleAPIRequest(req)
@@ -243,16 +257,18 @@ func (s *WSGAccountingServiceService) DeleteServicesAcctRadiusStandbyPrimaryById
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindServicesAaaServerAcctByQueryCriteria
 //
-// Operation ID: findServicesAaaServerAcctByQueryCriteria
-//
 // Query Non-Proxy Accounting AAAServers with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesAaaServerAcctByQueryCriteria
+// Operation path: /query/services/aaaServer/acct
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAccountingServiceService) FindServicesAaaServerAcctByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGAAAServerQueryListAPIResponse, error) {
 	var (
@@ -280,11 +296,13 @@ func (s *WSGAccountingServiceService) FindServicesAaaServerAcctByQueryCriteria(c
 
 // FindServicesAcctByQueryCriteria
 //
-// Operation ID: findServicesAcctByQueryCriteria
-//
 // Use this API command to retrieve a list of accounting services by query criteria.
 //
-// Request Body:
+// Operation ID: findServicesAcctByQueryCriteria
+// Operation path: /services/acct/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAccountingServiceService) FindServicesAcctByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGServiceCommonAccountingServiceListAPIResponse, error) {
 	var (
@@ -312,9 +330,11 @@ func (s *WSGAccountingServiceService) FindServicesAcctByQueryCriteria(ctx contex
 
 // FindServicesAcctRadius
 //
-// Operation ID: findServicesAcctRadius
-//
 // Use this API command to retrieve a list of RADIUS accounting services.
+//
+// Operation ID: findServicesAcctRadius
+// Operation path: /services/acct/radius
+// Success code: 200 (OK)
 func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context, mutators ...RequestMutator) (*WSGServiceRadiusAccountingServiceListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -337,11 +357,13 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadius(ctx context.Context
 
 // FindServicesAcctRadiusById
 //
-// Operation ID: findServicesAcctRadiusById
-//
 // Use this API command to retrieve a RADIUS accounting service.
 //
-// Required Parameters:
+// Operation ID: findServicesAcctRadiusById
+// Operation path: /services/acct/radius/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGServiceRadiusAccountingServiceAPIResponse, error) {
@@ -367,11 +389,13 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusById(ctx context.Con
 
 // FindServicesAcctRadiusByQueryCriteria
 //
-// Operation ID: findServicesAcctRadiusByQueryCriteria
-//
 // Use this API command to retrieve a list of Radius accounting services by query criteria.
 //
-// Request Body:
+// Operation ID: findServicesAcctRadiusByQueryCriteria
+// Operation path: /services/acct/radius/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGServiceRadiusAccountingServiceListAPIResponse, error) {
 	var (
@@ -399,37 +423,39 @@ func (s *WSGAccountingServiceService) FindServicesAcctRadiusByQueryCriteria(ctx 
 
 // PartialUpdateServicesAcctRadiusById
 //
-// Operation ID: partialUpdateServicesAcctRadiusById
-//
 // Use this API command to modify the configuration of a RADIUS accounting service.
 //
-// Request Body:
+// Operation ID: partialUpdateServicesAcctRadiusById
+// Operation path: /services/acct/radius/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGServiceModifyRadiusAccounting
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAccountingServiceService) PartialUpdateServicesAcctRadiusById(ctx context.Context, body *WSGServiceModifyRadiusAccounting, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccountingServiceService) PartialUpdateServicesAcctRadiusById(ctx context.Context, body *WSGServiceModifyRadiusAccounting, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesAcctRadiusById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

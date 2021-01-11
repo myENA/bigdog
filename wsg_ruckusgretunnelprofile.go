@@ -23,11 +23,13 @@ func (ss *WSGService) WSGRuckusGRETunnelProfileService() *WSGRuckusGRETunnelProf
 
 // AddProfilesTunnelRuckusgre
 //
-// Operation ID: addProfilesTunnelRuckusgre
-//
 // Use this API command to create RuckusGRE tunnel profile.
 //
-// Request Body:
+// Operation ID: addProfilesTunnelRuckusgre
+// Operation path: /profiles/tunnel/ruckusgre
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateRuckusGREProfile
 func (s *WSGRuckusGRETunnelProfileService) AddProfilesTunnelRuckusgre(ctx context.Context, body *WSGProfileCreateRuckusGREProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *WSGRuckusGRETunnelProfileService) AddProfilesTunnelRuckusgre(ctx contex
 
 // DeleteProfilesTunnelRuckusgre
 //
-// Operation ID: deleteProfilesTunnelRuckusgre
-//
 // Use this API command to delete multiple RuckusGRE tunnel profile.
 //
-// Request Body:
+// Operation ID: deleteProfilesTunnelRuckusgre
+// Operation path: /profiles/tunnel/ruckusgre
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgre(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgre(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesTunnelRuckusgre, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesTunnelRuckusgreById
 //
-// Operation ID: deleteProfilesTunnelRuckusgreById
-//
 // Use this API command to delete RuckusGRE tunnel profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesTunnelRuckusgreById
+// Operation path: /profiles/tunnel/ruckusgre/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgreById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgreById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesTunnelRuckusgreById, true)
 	defer recycleAPIRequest(req)
@@ -113,14 +119,16 @@ func (s *WSGRuckusGRETunnelProfileService) DeleteProfilesTunnelRuckusgreById(ctx
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesTunnelRuckusgre
 //
-// Operation ID: findProfilesTunnelRuckusgre
-//
 // Use this API command to retrieve a list of RuckusGRE tunnel profile.
+//
+// Operation ID: findProfilesTunnelRuckusgre
+// Operation path: /profiles/tunnel/ruckusgre
+// Success code: 200 (OK)
 func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgre(ctx context.Context, mutators ...RequestMutator) (*WSGProfileListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -143,11 +151,13 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgre(ctx conte
 
 // FindProfilesTunnelRuckusgreById
 //
-// Operation ID: findProfilesTunnelRuckusgreById
-//
 // Use this API command to retrieve RuckusGRE tunnel profile.
 //
-// Required Parameters:
+// Operation ID: findProfilesTunnelRuckusgreById
+// Operation path: /profiles/tunnel/ruckusgre/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileRuckusGREProfileAPIResponse, error) {
@@ -173,11 +183,13 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreById(ctx c
 
 // FindProfilesTunnelRuckusgreByQueryCriteria
 //
-// Operation ID: findProfilesTunnelRuckusgreByQueryCriteria
-//
 // Use this API command to query a list of RuckusGRE tunnel profile.
 //
-// Request Body:
+// Operation ID: findProfilesTunnelRuckusgreByQueryCriteria
+// Operation path: /profiles/tunnel/ruckusgre/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileRuckusGREProfileListAPIResponse, error) {
 	var (
@@ -205,37 +217,39 @@ func (s *WSGRuckusGRETunnelProfileService) FindProfilesTunnelRuckusgreByQueryCri
 
 // PartialUpdateProfilesTunnelRuckusgreById
 //
-// Operation ID: partialUpdateProfilesTunnelRuckusgreById
-//
 // Use this API command to modify the configuration of RuckusGRE tunnel profile.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesTunnelRuckusgreById
+// Operation path: /profiles/tunnel/ruckusgre/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyRuckusGREProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGRuckusGRETunnelProfileService) PartialUpdateProfilesTunnelRuckusgreById(ctx context.Context, body *WSGProfileModifyRuckusGREProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGRuckusGRETunnelProfileService) PartialUpdateProfilesTunnelRuckusgreById(ctx context.Context, body *WSGProfileModifyRuckusGREProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelRuckusgreById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

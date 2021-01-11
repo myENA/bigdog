@@ -237,3 +237,30 @@ func (b *RawAPIResponse) doHydrate(ptr interface{}) error {
 	b.err = ErrResponseHydrated
 	return nil
 }
+
+// EmptyAPIResponse is returned by API calls that do not return a body, i.e. those with an http response code of 204
+// or 201.  Calls to Read on this type will immediately return an io.EOF
+type EmptyAPIResponse struct {
+	*RawAPIResponse
+}
+
+func newEmptyAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(EmptyAPIResponse)
+	cleanupReadCloser(body)
+	r.RawAPIResponse = newRawAPIResponse(meta, nil).(*RawAPIResponse)
+	return r
+}
+
+func (*EmptyAPIResponse) Read(_ []byte) (int, error) {
+	return 0, io.EOF
+}
+
+type FileAPIResponse struct {
+	*RawAPIResponse
+}
+
+func newFileAPIResponse(meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(FileAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(meta, body).(*RawAPIResponse)
+	return r
+}

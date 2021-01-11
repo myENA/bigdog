@@ -24,14 +24,16 @@ func (ss *WSGService) WSGDynamicPSKService() *WSGDynamicPSKService {
 
 // AddRkszonesWlansDpskBatchGenUnboundById
 //
-// Operation ID: addRkszonesWlansDpskBatchGenUnboundById
-//
 // Use this API command to batch generate DPSKs of a WLAN. You can either specify passphrases or not. If the amount is bigger than 1, system will generate usernames with index. e.g. student-1, student-2, ...etc.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansDpskBatchGenUnboundById
+// Operation path: /rkszones/{zoneId}/wlans/{id}/dpsk/batchGenUnbound
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGDPSKBatchGenUnbound
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -64,14 +66,16 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskBatchGenUnboundById(ctx conte
 
 // AddRkszonesWlansDpskById
 //
-// Operation ID: addRkszonesWlansDpskById
-//
 // Use this API command to delete DPSKs of a WLAN.
 //
-// Request Body:
+// Operation ID: addRkszonesWlansDpskById
+// Operation path: /rkszones/{zoneId}/wlans/{id}/dpsk
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPSKDeleteDPSKs
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -104,15 +108,17 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, bod
 
 // AddRkszonesWlansDpskUploadById
 //
-// Operation ID: addRkszonesWlansDpskUploadById
-//
 // Use this API command to upload DPSK file of a WLAN (CSV file and Content-Type multipart/form-data ONLY).
 //
-// Form Data Parameters:
+// Operation ID: addRkszonesWlansDpskUploadById
+// Operation path: /rkszones/{zoneId}/wlans/{id}/dpsk/upload
+// Success code: 201 (Created)
+//
+// Form data parameters:
 // - uploadFile io.Reader
 //		- required
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -146,11 +152,13 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Contex
 
 // FindDpskByQueryCriteria
 //
-// Operation ID: findDpskByQueryCriteria
-//
 // Query DPSKs with specified filters.
 //
-// Request Body:
+// Operation ID: findDpskByQueryCriteria
+// Operation path: /query/dpsk
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGDynamicPSKService) FindDpskByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGDPSKQueryListAPIResponse, error) {
 	var (
@@ -178,11 +186,13 @@ func (s *WSGDynamicPSKService) FindDpskByQueryCriteria(ctx context.Context, body
 
 // FindRkszonesDeleteExpiredDpskByZoneId
 //
-// Operation ID: findRkszonesDeleteExpiredDpskByZoneId
-//
 // Use this API command to retrieve interval of delete expired DPSK of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesDeleteExpiredDpskByZoneId
+// Operation path: /rkszones/{zoneId}/deleteExpiredDpsk
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGDPSKDeleteExpiredDpskConfigAPIResponse, error) {
@@ -208,24 +218,26 @@ func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context
 
 // FindRkszonesDownloadDpskCsvSample
 //
-// Operation ID: findRkszonesDownloadDpskCsvSample
-//
 // Use this API command to download DPSK CSV sample.
 //
-// Optional Parameters:
+// Operation ID: findRkszonesDownloadDpskCsvSample
+// Operation path: /rkszones/downloadDpskCsvSample
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - type_ string
 //		- nullable
-func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindRkszonesDownloadDpskCsvSample, true)
 	defer recycleAPIRequest(req)
@@ -235,16 +247,18 @@ func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Con
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // FindRkszonesDpskByZoneId
 //
-// Operation ID: findRkszonesDpskByZoneId
-//
 // Use this API command to retrieve DPSK info of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesDpskByZoneId
+// Operation path: /rkszones/{zoneId}/dpsk
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesDpskByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGDPSKGetDpskInfoListAPIResponse, error) {
@@ -270,11 +284,13 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskByZoneId(ctx context.Context, zon
 
 // FindRkszonesDpskEnabledWlansByZoneId
 //
-// Operation ID: findRkszonesDpskEnabledWlansByZoneId
-//
 // Use this API command to retrieve DPSK enabled WLAN info of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesDpskEnabledWlansByZoneId
+// Operation path: /rkszones/{zoneId}/dpskEnabledWlans
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGDynamicPSKService) FindRkszonesDpskEnabledWlansByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGDPSKGetDpskEnabledWlansAPIResponse, error) {
@@ -300,11 +316,13 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskEnabledWlansByZoneId(ctx context.
 
 // FindRkszonesWlansDpskByDpskId
 //
-// Operation ID: findRkszonesWlansDpskByDpskId
-//
 // Use this API command to retrieve DPSK info.
 //
-// Required Parameters:
+// Operation ID: findRkszonesWlansDpskByDpskId
+// Operation path: /rkszones/{zoneId}/wlans/{id}/dpsk/{dpskId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - dpskId string
 //		- required
 // - id string
@@ -336,11 +354,13 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskByDpskId(ctx context.Context
 
 // FindRkszonesWlansDpskById
 //
-// Operation ID: findRkszonesWlansDpskById
-//
 // Use this API command to retrieve DPSK info of a WLAN.
 //
-// Required Parameters:
+// Operation ID: findRkszonesWlansDpskById
+// Operation path: /rkszones/{zoneId}/wlans/{id}/dpsk
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -369,80 +389,84 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskById(ctx context.Context, id
 
 // PartialUpdateRkszonesWlansDpskByDpskId
 //
-// Operation ID: partialUpdateRkszonesWlansDpskByDpskId
-//
 // Use this API command to update DPSK info.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesWlansDpskByDpskId
+// Operation path: /rkszones/{zoneId}/wlans/{id}/dpsk/{dpskId}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGDPSKUpdateDpsk
 //
-// Required Parameters:
+// Required parameters:
 // - dpskId string
 //		- required
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) PartialUpdateRkszonesWlansDpskByDpskId(ctx context.Context, body *WSGDPSKUpdateDpsk, dpskId string, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDynamicPSKService) PartialUpdateRkszonesWlansDpskByDpskId(ctx context.Context, body *WSGDPSKUpdateDpsk, dpskId string, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlansDpskByDpskId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("dpskId", dpskId)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateRkszonesDeleteExpiredDpskByZoneId
 //
-// Operation ID: updateRkszonesDeleteExpiredDpskByZoneId
-//
 // Use this API command to modify interval of delete expired DPSK of a zone.
 //
-// Request Body:
+// Operation ID: updateRkszonesDeleteExpiredDpskByZoneId
+// Operation path: /rkszones/{zoneId}/deleteExpiredDpsk
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGDPSKModifyDeleteExpiredDpsk
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
-func (s *WSGDynamicPSKService) UpdateRkszonesDeleteExpiredDpskByZoneId(ctx context.Context, body *WSGDPSKModifyDeleteExpiredDpsk, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDynamicPSKService) UpdateRkszonesDeleteExpiredDpskByZoneId(ctx context.Context, body *WSGDPSKModifyDeleteExpiredDpsk, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesDeleteExpiredDpskByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

@@ -121,75 +121,81 @@ func NewWSGCALEAMacListRsp() *WSGCALEAMacListRsp {
 
 // AddSystemCaleaCommonSetting
 //
-// Operation ID: addSystemCaleaCommonSetting
-//
 // Use this API command to set CALEA common setting.
 //
-// Request Body:
+// Operation ID: addSystemCaleaCommonSetting
+// Operation path: /system/caleaCommonSetting
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCALEACommonSettingRq
-func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body *WSGCALEACommonSettingRq, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGCALEAService) AddSystemCaleaCommonSetting(ctx context.Context, body *WSGCALEACommonSettingRq, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemCaleaCommonSetting, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddSystemCaleaMac
 //
-// Operation ID: addSystemCaleaMac
-//
 // Use this API command to add specified CALEA UE MACs
 //
-// Request Body:
+// Operation ID: addSystemCaleaMac
+// Operation path: /system/caleaMac
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCALEAMacListRq
-func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAMacListRq, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGCALEAService) AddSystemCaleaMac(ctx context.Context, body *WSGCALEAMacListRq, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemCaleaMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddSystemCaleaMacList
 //
-// Operation ID: addSystemCaleaMacList
-//
 // Use this API command to upload csv file of CALEA UE MACs.
 //
-// Form Data Parameters:
+// Operation ID: addSystemCaleaMacList
+// Operation path: /system/caleaMacList
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - uploadFile io.Reader
 //		- required
 func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -219,52 +225,56 @@ func (s *WSGCALEAService) AddSystemCaleaMacList(ctx context.Context, filename st
 
 // DeleteSystemCaleaMac
 //
-// Operation ID: deleteSystemCaleaMac
-//
 // Use this API command to delete specified CALEA UE MACs.
 //
-// Request Body:
+// Operation ID: deleteSystemCaleaMac
+// Operation path: /system/caleaMac
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCALEAMacListRq
-func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCALEAMacListRq, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGCALEAService) DeleteSystemCaleaMac(ctx context.Context, body *WSGCALEAMacListRq, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteSystemCaleaMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteSystemCaleaMacList
 //
-// Operation ID: deleteSystemCaleaMacList
-//
 // Use this API command to delete all CALEA UE MACs.
-func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
+//
+// Operation ID: deleteSystemCaleaMacList
+// Operation path: /system/caleaMacList
+// Success code: 200 (OK)
+func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteSystemCaleaMacList, true)
 	defer recycleAPIRequest(req)
@@ -272,14 +282,16 @@ func (s *WSGCALEAService) DeleteSystemCaleaMacList(ctx context.Context, mutators
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindSystemCaleaCommonSetting
 //
-// Operation ID: findSystemCaleaCommonSetting
-//
 // Use this API command to get CALEA common setting.
+//
+// Operation ID: findSystemCaleaCommonSetting
+// Operation path: /system/caleaCommonSetting
+// Success code: 200 (OK)
 func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context, mutators ...RequestMutator) (*WSGCALEACommonSettingRspAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -302,9 +314,11 @@ func (s *WSGCALEAService) FindSystemCaleaCommonSetting(ctx context.Context, muta
 
 // FindSystemCaleaMacList
 //
-// Operation ID: findSystemCaleaMacList
-//
 // Use this API command to get all CALEA UE MACs.
+//
+// Operation ID: findSystemCaleaMacList
+// Operation path: /system/caleaMacList
+// Success code: 200 (OK)
 func (s *WSGCALEAService) FindSystemCaleaMacList(ctx context.Context, mutators ...RequestMutator) (*WSGCALEAMacListRspAPIResponse, error) {
 	var (
 		req      *APIRequest

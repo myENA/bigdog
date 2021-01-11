@@ -23,14 +23,16 @@ func (ss *WSGService) WSGSplitTunnelProfileService() *WSGSplitTunnelProfileServi
 
 // AddRkszonesSplitTunnelProfilesByZoneId
 //
-// Operation ID: addRkszonesSplitTunnelProfilesByZoneId
-//
 // Create a split tunnel profile.
 //
-// Request Body:
+// Operation ID: addRkszonesSplitTunnelProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/splitTunnelProfiles
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSplitTunnelCreateSplitTunnelProfile
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGSplitTunnelProfileService) AddRkszonesSplitTunnelProfilesByZoneId(ctx context.Context, body *WSGSplitTunnelCreateSplitTunnelProfile, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,58 +62,62 @@ func (s *WSGSplitTunnelProfileService) AddRkszonesSplitTunnelProfilesByZoneId(ct
 
 // DeleteRkszonesSplitTunnelProfiles
 //
-// Operation ID: deleteRkszonesSplitTunnelProfiles
-//
 // Use this API command to delete bulk split tunnel profiles.
 //
-// Request Body:
+// Operation ID: deleteRkszonesSplitTunnelProfiles
+// Operation path: /rkszones/splitTunnelProfiles
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesSplitTunnelProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesSplitTunnelProfilesById
 //
-// Operation ID: deleteRkszonesSplitTunnelProfilesById
-//
 // Use this API command to delete a split tunnel profile by ID.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesSplitTunnelProfilesById
+// Operation path: /rkszones/{zoneId}/splitTunnelProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfilesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfilesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesSplitTunnelProfilesById, true)
 	defer recycleAPIRequest(req)
@@ -121,16 +127,18 @@ func (s *WSGSplitTunnelProfileService) DeleteRkszonesSplitTunnelProfilesById(ctx
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesSplitTunnelProfilesById
 //
-// Operation ID: findRkszonesSplitTunnelProfilesById
-//
 // Get a split tunnel profile by ID.
 //
-// Required Parameters:
+// Operation ID: findRkszonesSplitTunnelProfilesById
+// Operation path: /rkszones/{zoneId}/splitTunnelProfiles/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -159,11 +167,13 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesById(ctx c
 
 // FindRkszonesSplitTunnelProfilesByQueryCriteria
 //
-// Operation ID: findRkszonesSplitTunnelProfilesByQueryCriteria
-//
 // Use this API command to retrieve a list of split tunnel profile by query criteria.
 //
-// Request Body:
+// Operation ID: findRkszonesSplitTunnelProfilesByQueryCriteria
+// Operation path: /rkszones/splitTunnelProfiles/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGSplitTunnelProfileQueryAPIResponse, error) {
 	var (
@@ -191,11 +201,13 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByQueryCri
 
 // FindRkszonesSplitTunnelProfilesByZoneId
 //
-// Operation ID: findRkszonesSplitTunnelProfilesByZoneId
-//
 // Get a ID list of split tunnel profile in this Zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesSplitTunnelProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/splitTunnelProfiles
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGSplitTunnelProfileListAPIResponse, error) {
@@ -221,80 +233,84 @@ func (s *WSGSplitTunnelProfileService) FindRkszonesSplitTunnelProfilesByZoneId(c
 
 // PartialUpdateRkszonesSplitTunnelProfilesById
 //
-// Operation ID: partialUpdateRkszonesSplitTunnelProfilesById
-//
 // Use this API command to modify a split tunnel profile.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesSplitTunnelProfilesById
+// Operation path: /rkszones/{zoneId}/splitTunnelProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSplitTunnelModifySplitTunnelProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGSplitTunnelProfileService) PartialUpdateRkszonesSplitTunnelProfilesById(ctx context.Context, body *WSGSplitTunnelModifySplitTunnelProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSplitTunnelProfileService) PartialUpdateRkszonesSplitTunnelProfilesById(ctx context.Context, body *WSGSplitTunnelModifySplitTunnelProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesSplitTunnelProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateRkszonesSplitTunnelProfilesById
 //
-// Operation ID: updateRkszonesSplitTunnelProfilesById
-//
 // Use this API command to modify entire information of a split tunnel profile.
 //
-// Request Body:
+// Operation ID: updateRkszonesSplitTunnelProfilesById
+// Operation path: /rkszones/{zoneId}/splitTunnelProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSplitTunnelCreateSplitTunnelProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGSplitTunnelProfileService) UpdateRkszonesSplitTunnelProfilesById(ctx context.Context, body *WSGSplitTunnelCreateSplitTunnelProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSplitTunnelProfileService) UpdateRkszonesSplitTunnelProfilesById(ctx context.Context, body *WSGSplitTunnelCreateSplitTunnelProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesSplitTunnelProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

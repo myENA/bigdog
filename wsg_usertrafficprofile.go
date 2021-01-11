@@ -23,11 +23,13 @@ func (ss *WSGService) WSGUserTrafficProfileService() *WSGUserTrafficProfileServi
 
 // AddProfilesUtp
 //
-// Operation ID: addProfilesUtp
-//
 // Use this API command to create a new user traffic profile.
 //
-// Request Body:
+// Operation ID: addProfilesUtp
+// Operation path: /profiles/utp
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateUserTrafficProfile
 func (s *WSGUserTrafficProfileService) AddProfilesUtp(ctx context.Context, body *WSGProfileCreateUserTrafficProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,14 +57,16 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtp(ctx context.Context, body 
 
 // AddProfilesUtpCloneById
 //
-// Operation ID: addProfilesUtpCloneById
-//
 // Use this API command to copy a traffic profile.
 //
-// Request Body:
+// Operation ID: addProfilesUtpCloneById
+// Operation path: /profiles/utp/clone/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGProfileClone
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Context, body *WSGProfileClone, id string, mutators ...RequestMutator) (*WSGProfileCloneAPIResponse, error) {
@@ -92,56 +96,60 @@ func (s *WSGUserTrafficProfileService) AddProfilesUtpCloneById(ctx context.Conte
 
 // DeleteProfilesUtp
 //
-// Operation ID: deleteProfilesUtp
-//
 // Use this API command to delete a list of traffic profile.
 //
-// Request Body:
+// Operation ID: deleteProfilesUtp
+// Operation path: /profiles/utp
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileDeleteBulkUserTrafficProfile
-func (s *WSGUserTrafficProfileService) DeleteProfilesUtp(ctx context.Context, body *WSGProfileDeleteBulkUserTrafficProfile, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGUserTrafficProfileService) DeleteProfilesUtp(ctx context.Context, body *WSGProfileDeleteBulkUserTrafficProfile, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesUtp, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesUtpById
 //
-// Operation ID: deleteProfilesUtpById
-//
 // Use this API command to delete an user traffic profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesUtpById
+// Operation path: /profiles/utp/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGUserTrafficProfileService) DeleteProfilesUtpById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGUserTrafficProfileService) DeleteProfilesUtpById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesUtpById, true)
 	defer recycleAPIRequest(req)
@@ -150,29 +158,31 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpById(ctx context.Context
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesUtpDownlinkRateLimitingById
 //
-// Operation ID: deleteProfilesUtpDownlinkRateLimitingById
-//
 // Use this API command to disable downlink rate limiting of user traffic profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesUtpDownlinkRateLimitingById
+// Operation path: /profiles/utp/{id}/downlinkRateLimiting
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesUtpDownlinkRateLimitingById, true)
 	defer recycleAPIRequest(req)
@@ -181,29 +191,31 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpDownlinkRateLimitingById
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesUtpUplinkRateLimitingById
 //
-// Operation ID: deleteProfilesUtpUplinkRateLimitingById
-//
 // Use this API command to disable uplink rateLimiting of user traffic profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesUtpUplinkRateLimitingById
+// Operation path: /profiles/utp/{id}/uplinkRateLimiting
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesUtpUplinkRateLimitingById, true)
 	defer recycleAPIRequest(req)
@@ -212,16 +224,18 @@ func (s *WSGUserTrafficProfileService) DeleteProfilesUtpUplinkRateLimitingById(c
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesUtp
 //
-// Operation ID: findProfilesUtp
-//
 // Use this API command to retrieve a list of user traffic profile.
 //
-// Optional Parameters:
+// Operation ID: findProfilesUtp
+// Operation path: /profiles/utp
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -254,11 +268,13 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtp(ctx context.Context, opti
 
 // FindProfilesUtpById
 //
-// Operation ID: findProfilesUtpById
-//
 // Use this API command to retrieve an user traffic profile.
 //
-// Required Parameters:
+// Operation ID: findProfilesUtpById
+// Operation path: /profiles/utp/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGUserTrafficProfileService) FindProfilesUtpById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileUserTrafficProfileAPIResponse, error) {
@@ -284,11 +300,13 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpById(ctx context.Context, 
 
 // FindProfilesUtpByQueryCriteria
 //
-// Operation ID: findProfilesUtpByQueryCriteria
-//
 // Use this API command to retrieve a list of User Traffic Profile by query criteria.
 //
-// Request Body:
+// Operation ID: findProfilesUtpByQueryCriteria
+// Operation path: /profiles/utp/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileUserTrafficProfileListAPIResponse, error) {
 	var (
@@ -316,37 +334,39 @@ func (s *WSGUserTrafficProfileService) FindProfilesUtpByQueryCriteria(ctx contex
 
 // PartialUpdateProfilesUtpById
 //
-// Operation ID: partialUpdateProfilesUtpById
-//
 // Use this API command to modify the configuration of user traffic profile.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesUtpById
+// Operation path: /profiles/utp/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyUserTrafficProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGUserTrafficProfileService) PartialUpdateProfilesUtpById(ctx context.Context, body *WSGProfileModifyUserTrafficProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGUserTrafficProfileService) PartialUpdateProfilesUtpById(ctx context.Context, body *WSGProfileModifyUserTrafficProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesUtpById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

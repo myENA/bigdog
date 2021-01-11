@@ -23,51 +23,55 @@ func (ss *WSGService) WSGBonjourGatewayPoliciesService() *WSGBonjourGatewayPolic
 
 // AddRkszonesBonjourGatewayEnableByZoneId
 //
-// Operation ID: addRkszonesBonjourGatewayEnableByZoneId
-//
 // Use this API command to enable/disable bonjour gateway policy.
 //
-// Request Body:
+// Operation ID: addRkszonesBonjourGatewayEnableByZoneId
+// Operation path: /rkszones/{zoneId}/bonjourGateway/enable
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGZoneModifyBonjourGatewayEnable
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
-func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayEnableByZoneId(ctx context.Context, body *WSGZoneModifyBonjourGatewayEnable, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayEnableByZoneId(ctx context.Context, body *WSGZoneModifyBonjourGatewayEnable, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesBonjourGatewayEnableByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddRkszonesBonjourGatewayPoliciesByZoneId
 //
-// Operation ID: addRkszonesBonjourGatewayPoliciesByZoneId
-//
 // Use this API command to create bonjour gateway policy.
 //
-// Request Body:
+// Operation ID: addRkszonesBonjourGatewayPoliciesByZoneId
+// Operation path: /rkszones/{zoneId}/bonjourGateway/policies
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGZoneCreateBonjourGatewayPolicy
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayPoliciesByZoneId(ctx context.Context, body *WSGZoneCreateBonjourGatewayPolicy, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -97,26 +101,28 @@ func (s *WSGBonjourGatewayPoliciesService) AddRkszonesBonjourGatewayPoliciesByZo
 
 // DeleteRkszonesBonjourGatewayPoliciesById
 //
-// Operation ID: deleteRkszonesBonjourGatewayPoliciesById
-//
 // Use this API command to delete bonjour gateway policy.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesBonjourGatewayPoliciesById
+// Operation path: /rkszones/{zoneId}/bonjourGateway/policies/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGBonjourGatewayPoliciesService) DeleteRkszonesBonjourGatewayPoliciesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBonjourGatewayPoliciesService) DeleteRkszonesBonjourGatewayPoliciesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesBonjourGatewayPoliciesById, true)
 	defer recycleAPIRequest(req)
@@ -126,16 +132,18 @@ func (s *WSGBonjourGatewayPoliciesService) DeleteRkszonesBonjourGatewayPoliciesB
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesBonjourGatewayPoliciesById
 //
-// Operation ID: findRkszonesBonjourGatewayPoliciesById
-//
 // Use this API command to retrieve bonjour gateway policy.
 //
-// Required Parameters:
+// Operation ID: findRkszonesBonjourGatewayPoliciesById
+// Operation path: /rkszones/{zoneId}/bonjourGateway/policies/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -164,11 +172,13 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByI
 
 // FindRkszonesBonjourGatewayPoliciesByZoneId
 //
-// Operation ID: findRkszonesBonjourGatewayPoliciesByZoneId
-//
 // Use this API command to retrieve a list of bonjour gateway policies.
 //
-// Required Parameters:
+// Operation ID: findRkszonesBonjourGatewayPoliciesByZoneId
+// Operation path: /rkszones/{zoneId}/bonjourGateway/policies
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGZoneBonjourGatewayPolicyListAPIResponse, error) {
@@ -194,11 +204,13 @@ func (s *WSGBonjourGatewayPoliciesService) FindRkszonesBonjourGatewayPoliciesByZ
 
 // FindServicesBonjourPolicyByQueryCriteria
 //
-// Operation ID: findServicesBonjourPolicyByQueryCriteria
-//
 // Query bonjourPolicy Profiles with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesBonjourPolicyByQueryCriteria
+// Operation path: /query/services/bonjourPolicy
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGBonjourGatewayPoliciesService) FindServicesBonjourPolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -226,40 +238,42 @@ func (s *WSGBonjourGatewayPoliciesService) FindServicesBonjourPolicyByQueryCrite
 
 // PartialUpdateRkszonesBonjourGatewayPoliciesById
 //
-// Operation ID: partialUpdateRkszonesBonjourGatewayPoliciesById
-//
 // Use this API command to modify the configuration of bonjour gateway policy.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesBonjourGatewayPoliciesById
+// Operation path: /rkszones/{zoneId}/bonjourGateway/policies/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGZoneModifyBonjourGatewayPolicy
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGBonjourGatewayPoliciesService) PartialUpdateRkszonesBonjourGatewayPoliciesById(ctx context.Context, body *WSGZoneModifyBonjourGatewayPolicy, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBonjourGatewayPoliciesService) PartialUpdateRkszonesBonjourGatewayPoliciesById(ctx context.Context, body *WSGZoneModifyBonjourGatewayPolicy, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesBonjourGatewayPoliciesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

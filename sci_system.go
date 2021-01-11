@@ -75,11 +75,13 @@ func MakeSCISystemGetSsids200ResponseType() SCISystemGetSsids200ResponseType {
 
 // SystemCreate
 //
-// Operation ID: system_create
-//
 // Create a new instance of the model and persist it into the data source.
 //
-// Request Body:
+// Operation ID: system_create
+// Operation path: /systems
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsSystem
 func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSystem, mutators ...RequestMutator) (*SCIModelsSystemAPIResponse, error) {
 	var (
@@ -107,11 +109,13 @@ func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSyst
 
 // SystemDeleteById
 //
-// Operation ID: system_deleteById
-//
 // Delete a model instance by id from the data source.
 //
-// Required Parameters:
+// Operation ID: system_deleteById
+// Operation path: /systems/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -138,11 +142,13 @@ func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, muta
 
 // SystemFind
 //
-// Operation ID: system_find
-//
 // Find all instances of the model matched by filter from the data source.
 //
-// Optional Parameters:
+// Operation ID: system_find
+// Operation path: /systems
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCISystemFind200ResponseTypeAPIResponse, error) {
@@ -170,15 +176,17 @@ func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[st
 
 // SystemFindById
 //
-// Operation ID: system_findById
-//
 // Find a model instance by id from the data source.
 //
-// Required Parameters:
+// Operation ID: system_findById
+// Operation path: /systems/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCISystemService) SystemFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsSystemAPIResponse, error) {
@@ -207,9 +215,11 @@ func (s *SCISystemService) SystemFindById(ctx context.Context, id string, option
 
 // SystemGetSsids
 //
-// Operation ID: system_getSsids
-//
 // authenticate user with specific role
+//
+// Operation ID: system_getSsids
+// Operation path: /systems/getSsids
+// Success code: 200 (OK)
 func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...RequestMutator) (*SCISystemGetSsids200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -233,14 +243,16 @@ func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...Reque
 
 // SystemPrototypeUpdateAttributes
 //
-// Operation ID: system_prototype_updateAttributes
-//
 // Update attributes for a model instance and persist it into the data source.
 //
-// Request Body:
+// Operation ID: system_prototype_updateAttributes
+// Operation path: /systems/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsSystem
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *SCISystemService) SystemPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsSystem, id string, mutators ...RequestMutator) (*SCIModelsSystemAPIResponse, error) {

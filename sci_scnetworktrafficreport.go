@@ -23,11 +23,13 @@ func (ss *SCIService) SCISCNetworkTrafficReportService() *SCISCNetworkTrafficRep
 
 // ReportSCNetworkTrafficReport93ScNetworkTraffic
 //
-// Operation ID: report_SCNetworkTrafficReport_93_scNetworkTraffic
-//
 // SC Network Traffic Report - Summary
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_93_scNetworkTraffic
+// Operation path: /reports/13/sections/93/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport93ScNetworkTraffic(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport93ScNetwo
 
 // ReportSCNetworkTrafficReport94ScNetworkTrend
 //
-// Operation ID: report_SCNetworkTrafficReport_94_scNetworkTrend
-//
 // SC Network Traffic Report - SmartCell Trend Over Time
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_94_scNetworkTrend
+// Operation path: /reports/13/sections/94/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport94ScNetworkTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -87,11 +91,13 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport94ScNetwo
 
 // ReportSCNetworkTrafficReport100DroppedCallRate
 //
-// Operation ID: report_SCNetworkTrafficReport_100_droppedCallRate
-//
 // SC Network Traffic Report - SmartCell Dropped Call Rate
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_100_droppedCallRate
+// Operation path: /reports/13/sections/100/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport100DroppedCallRate(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse, error) {
 	var (
@@ -119,11 +125,13 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport100Droppe
 
 // ReportSCNetworkTrafficReport101ConnectionSetupSuccessRate
 //
-// Operation ID: report_SCNetworkTrafficReport_101_connectionSetupSuccessRate
-//
 // SC Network Traffic Report - SmartCell Connection Setup Success Rate
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_101_connectionSetupSuccessRate
+// Operation path: /reports/13/sections/101/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport101ConnectionSetupSuccessRate(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseTypeAPIResponse, error) {
 	var (
@@ -151,11 +159,13 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport101Connec
 
 // ReportSCNetworkTrafficReport102HandoverSuccessRate
 //
-// Operation ID: report_SCNetworkTrafficReport_102_handoverSuccessRate
-//
 // SC Network Traffic Report - SmartCell Handover Success Rate
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_102_handoverSuccessRate
+// Operation path: /reports/13/sections/102/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport102HandoverSuccessRate(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResponse, error) {
 	var (
@@ -183,11 +193,13 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport102Handov
 
 // ReportSCNetworkTrafficReport103AvgThroughput
 //
-// Operation ID: report_SCNetworkTrafficReport_103_avgThroughput
-//
 // SC Network Traffic Report - SmartCell Average Throughput
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_103_avgThroughput
+// Operation path: /reports/13/sections/103/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport103AvgThroughput(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse, error) {
 	var (
@@ -215,11 +227,13 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport103AvgThr
 
 // ReportSCNetworkTrafficReport104ScAvailability
 //
-// Operation ID: report_SCNetworkTrafficReport_104_scAvailability
-//
 // SC Network Traffic Report - SmartCell Availability
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_104_scAvailability
+// Operation path: /reports/13/sections/104/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport104ScAvailability(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse, error) {
 	var (
@@ -247,11 +261,13 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport104ScAvai
 
 // ReportSCNetworkTrafficReport105RscConnectionStats
 //
-// Operation ID: report_SCNetworkTrafficReport_105_rscConnectionStats
-//
 // SC Network Traffic Report - SmartCell Connection Statistics
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_105_rscConnectionStats
+// Operation path: /reports/13/sections/105/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport105RscConnectionStats(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIResponse, error) {
 	var (
@@ -279,11 +295,13 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport105RscCon
 
 // ReportSCNetworkTrafficReport106RscGpsStats
 //
-// Operation ID: report_SCNetworkTrafficReport_106_rscGpsStats
-//
 // SC Network Traffic Report - RSC GPS Statistics
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_106_rscGpsStats
+// Operation path: /reports/13/sections/106/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport106RscGpsStats(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse, error) {
 	var (
@@ -311,11 +329,13 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport106RscGps
 
 // ReportSCNetworkTrafficReport107TrafficVolume
 //
-// Operation ID: report_SCNetworkTrafficReport_107_trafficVolume
-//
 // SC Network Traffic Report - SmartCell Traffic Volume
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_107_trafficVolume
+// Operation path: /reports/13/sections/107/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport107TrafficVolume(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse, error) {
 	var (
@@ -343,11 +363,13 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport107Traffi
 
 // ReportSCNetworkTrafficReport108PhaseSyncLoss
 //
-// Operation ID: report_SCNetworkTrafficReport_108_phaseSyncLoss
-//
 // SC Network Traffic Report - SmartCell Phase Sync Loss
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_108_phaseSyncLoss
+// Operation path: /reports/13/sections/108/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport108PhaseSyncLoss(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse, error) {
 	var (
@@ -375,11 +397,13 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport108PhaseS
 
 // ReportSCNetworkTrafficReport109FrequencySyncLoss
 //
-// Operation ID: report_SCNetworkTrafficReport_109_frequencySyncLoss
-//
 // SC Network Traffic Report - SmartCell Frequency Sync Loss
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_109_frequencySyncLoss
+// Operation path: /reports/13/sections/109/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport109FrequencySyncLoss(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIResponse, error) {
 	var (
@@ -407,11 +431,13 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport109Freque
 
 // ReportSCNetworkTrafficReport111RscTrafficStats
 //
-// Operation ID: report_SCNetworkTrafficReport_111_rscTrafficStats
-//
 // SC Network Traffic Report - RSC Traffic Statistics
 //
-// Request Body:
+// Operation ID: report_SCNetworkTrafficReport_111_rscTrafficStats
+// Operation path: /reports/13/sections/111/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport111RscTrafficStats(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse, error) {
 	var (

@@ -728,11 +728,13 @@ func NewSCIWirelessApplicationsReport11top10ApplicationsByClientCountMetaData() 
 
 // ReportWirelessApplicationsReport7Top10ApplicationsByTrafficVolume
 //
-// Operation ID: report_WirelessApplicationsReport_7_top10ApplicationsByTrafficVolume
-//
 // Wireless - Applications Report - Top Applications by Traffic
 //
-// Request Body:
+// Operation ID: report_WirelessApplicationsReport_7_top10ApplicationsByTrafficVolume
+// Operation path: /reports/3/sections/7/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport7Top10ApplicationsByTrafficVolume(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse, error) {
 	var (
@@ -760,11 +762,13 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport7
 
 // ReportWirelessApplicationsReport8TopAppsByTrafficTable
 //
-// Operation ID: report_WirelessApplicationsReport_8_topAppsByTrafficTable
-//
 // Wireless - Applications Report - Top Applications by Traffic
 //
-// Request Body:
+// Operation ID: report_WirelessApplicationsReport_8_topAppsByTrafficTable
+// Operation path: /reports/3/sections/8/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport8TopAppsByTrafficTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -792,11 +796,13 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport8
 
 // ReportWirelessApplicationsReport9TopAppsByClientsTable
 //
-// Operation ID: report_WirelessApplicationsReport_9_topAppsByClientsTable
-//
 // Wireless - Applications Report - Top Applications by Client Count
 //
-// Request Body:
+// Operation ID: report_WirelessApplicationsReport_9_topAppsByClientsTable
+// Operation path: /reports/3/sections/9/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport9TopAppsByClientsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -824,11 +830,13 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport9
 
 // ReportWirelessApplicationsReport10Overview
 //
-// Operation ID: report_WirelessApplicationsReport_10_overview
-//
 // Wireless - Applications Report - Overview
 //
-// Request Body:
+// Operation ID: report_WirelessApplicationsReport_10_overview
+// Operation path: /reports/3/sections/10/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport10Overview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse, error) {
 	var (
@@ -856,11 +864,13 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport1
 
 // ReportWirelessApplicationsReport11Top10ApplicationsByClientCount
 //
-// Operation ID: report_WirelessApplicationsReport_11_top10ApplicationsByClientCount
-//
 // Wireless - Applications Report - Top Applications by Client Count
 //
-// Request Body:
+// Operation ID: report_WirelessApplicationsReport_11_top10ApplicationsByClientCount
+// Operation path: /reports/3/sections/11/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport11Top10ApplicationsByClientCount(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseTypeAPIResponse, error) {
 	var (

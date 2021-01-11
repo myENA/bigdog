@@ -23,11 +23,13 @@ func (ss *WSGService) WSGSMSGatewayService() *WSGSMSGatewayService {
 
 // FindSmsGateway
 //
-// Operation ID: findSmsGateway
-//
 // Get SMS gateway.
 //
-// Optional Parameters:
+// Operation ID: findSmsGateway
+// Operation path: /smsGateway
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - domainId string
 //		- nullable
 func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSystemSmsAPIResponse, error) {
@@ -55,11 +57,13 @@ func (s *WSGSMSGatewayService) FindSmsGateway(ctx context.Context, optionalParam
 
 // FindSmsGatewayByQueryCriteria
 //
-// Operation ID: findSmsGatewayByQueryCriteria
-//
 // Query SMS gateway.
 //
-// Request Body:
+// Operation ID: findSmsGatewayByQueryCriteria
+// Operation path: /smsGateway/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGSystemSmsListAPIResponse, error) {
 	var (
@@ -87,11 +91,13 @@ func (s *WSGSMSGatewayService) FindSmsGatewayByQueryCriteria(ctx context.Context
 
 // PartialUpdateSmsGateway
 //
-// Operation ID: partialUpdateSmsGateway
-//
 // Update SMS gateway.
 //
-// Request Body:
+// Operation ID: partialUpdateSmsGateway
+// Operation path: /smsGateway
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSystemSms
 func (s *WSGSMSGatewayService) PartialUpdateSmsGateway(ctx context.Context, body *WSGSystemSms, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (

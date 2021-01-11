@@ -307,14 +307,16 @@ func NewWSGWLANSchedulerWlanScheduleQueryResultList() *WSGWLANSchedulerWlanSched
 
 // AddRkszonesWlanSchedulersByZoneId
 //
-// Operation ID: addRkszonesWlanSchedulersByZoneId
-//
 // Use this API command to create a new WLAN schedule.
 //
-// Request Body:
+// Operation ID: addRkszonesWlanSchedulersByZoneId
+// Operation path: /rkszones/{zoneId}/wlanSchedulers
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGWLANSchedulerCreateWlanScheduler
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWLANSchedulerService) AddRkszonesWlanSchedulersByZoneId(ctx context.Context, body *WSGWLANSchedulerCreateWlanScheduler, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -344,26 +346,28 @@ func (s *WSGWLANSchedulerService) AddRkszonesWlanSchedulersByZoneId(ctx context.
 
 // DeleteRkszonesWlanSchedulersById
 //
-// Operation ID: deleteRkszonesWlanSchedulersById
-//
 // Use this API command to delete a WLAN schedule.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesWlanSchedulersById
+// Operation path: /rkszones/{zoneId}/wlanSchedulers/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANSchedulerService) DeleteRkszonesWlanSchedulersById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANSchedulerService) DeleteRkszonesWlanSchedulersById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesWlanSchedulersById, true)
 	defer recycleAPIRequest(req)
@@ -373,16 +377,18 @@ func (s *WSGWLANSchedulerService) DeleteRkszonesWlanSchedulersById(ctx context.C
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesWlanSchedulersById
 //
-// Operation ID: findRkszonesWlanSchedulersById
-//
 // Use this API command to retrieve a WLAN schedule.
 //
-// Required Parameters:
+// Operation ID: findRkszonesWlanSchedulersById
+// Operation path: /rkszones/{zoneId}/wlanSchedulers/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -411,15 +417,17 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersById(ctx context.Con
 
 // FindRkszonesWlanSchedulersByZoneId
 //
-// Operation ID: findRkszonesWlanSchedulersByZoneId
-//
 // Use this API command to retrieve the list of WLAN schedule from a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesWlanSchedulersByZoneId
+// Operation path: /rkszones/{zoneId}/wlanSchedulers
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -453,11 +461,13 @@ func (s *WSGWLANSchedulerService) FindRkszonesWlanSchedulersByZoneId(ctx context
 
 // FindServicesWlanSchedulerByQueryCriteria
 //
-// Operation ID: findServicesWlanSchedulerByQueryCriteria
-//
 // Query Wlan Schedulers with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesWlanSchedulerByQueryCriteria
+// Operation path: /query/services/wlanScheduler
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGWLANSchedulerService) FindServicesWlanSchedulerByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGWLANSchedulerWlanScheduleQueryResultListAPIResponse, error) {
 	var (
@@ -485,40 +495,42 @@ func (s *WSGWLANSchedulerService) FindServicesWlanSchedulerByQueryCriteria(ctx c
 
 // PartialUpdateRkszonesWlanSchedulersById
 //
-// Operation ID: partialUpdateRkszonesWlanSchedulersById
-//
 // Use this API command to modify the configuration of a WLAN schedule.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesWlanSchedulersById
+// Operation path: /rkszones/{zoneId}/wlanSchedulers/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGWLANSchedulerModifyWlanScheduler
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWLANSchedulerService) PartialUpdateRkszonesWlanSchedulersById(ctx context.Context, body *WSGWLANSchedulerModifyWlanScheduler, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWLANSchedulerService) PartialUpdateRkszonesWlanSchedulersById(ctx context.Context, body *WSGWLANSchedulerModifyWlanScheduler, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesWlanSchedulersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

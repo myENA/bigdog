@@ -23,11 +23,13 @@ func (ss *SwitchMService) SwitchMCommonSettingsService() *SwitchMCommonSettingsS
 
 // AddDnsConfig
 //
-// Operation ID: addDnsConfig
-//
 // Use this API command to Create DNS Config.
 //
-// Request Body:
+// Operation ID: addDnsConfig
+// Operation path: /dnsConfig
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *SwitchMDNSConfigCreateDnsConfig
 func (s *SwitchMCommonSettingsService) AddDnsConfig(ctx context.Context, body *SwitchMDNSConfigCreateDnsConfig, mutators ...RequestMutator) (*SwitchMCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,24 +57,26 @@ func (s *SwitchMCommonSettingsService) AddDnsConfig(ctx context.Context, body *S
 
 // DeleteDnsConfigBySwitchGroupId
 //
-// Operation ID: deleteDnsConfigBySwitchGroupId
-//
 // Use this API command to Delete DNS Config.
 //
-// Required Parameters:
+// Operation ID: deleteDnsConfigBySwitchGroupId
+// Operation path: /dnsConfig/{switchGroupId}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - switchGroupId string
 //		- required
-func (s *SwitchMCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx context.Context, switchGroupId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx context.Context, switchGroupId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteDnsConfigBySwitchGroupId, true)
 	defer recycleAPIRequest(req)
@@ -81,16 +85,18 @@ func (s *SwitchMCommonSettingsService) DeleteDnsConfigBySwitchGroupId(ctx contex
 	req.PathParams.Set("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindDnsConfigBySwitchGroupId
 //
-// Operation ID: findDnsConfigBySwitchGroupId
-//
 // Use this API command to Retrieve DNS Config.
 //
-// Required Parameters:
+// Operation ID: findDnsConfigBySwitchGroupId
+// Operation path: /dnsConfig/{switchGroupId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - switchGroupId string
 //		- required
 func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.Context, switchGroupId string, mutators ...RequestMutator) (*SwitchMDNSConfigAPIResponse, error) {
@@ -116,37 +122,39 @@ func (s *SwitchMCommonSettingsService) FindDnsConfigBySwitchGroupId(ctx context.
 
 // UpdateDnsConfigBySwitchGroupId
 //
-// Operation ID: updateDnsConfigBySwitchGroupId
-//
 // Use this API command to Update DNS Config.
 //
-// Request Body:
+// Operation ID: updateDnsConfigBySwitchGroupId
+// Operation path: /dnsConfig/{switchGroupId}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMDNSConfigUpdateDnsConfig
 //
-// Required Parameters:
+// Required parameters:
 // - switchGroupId string
 //		- required
-func (s *SwitchMCommonSettingsService) UpdateDnsConfigBySwitchGroupId(ctx context.Context, body *SwitchMDNSConfigUpdateDnsConfig, switchGroupId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMCommonSettingsService) UpdateDnsConfigBySwitchGroupId(ctx context.Context, body *SwitchMDNSConfigUpdateDnsConfig, switchGroupId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateDnsConfigBySwitchGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("switchGroupId", switchGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

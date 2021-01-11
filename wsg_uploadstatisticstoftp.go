@@ -23,9 +23,11 @@ func (ss *WSGService) WSGUploadStatisticstoFTPService() *WSGUploadStatisticstoFT
 
 // FindGlobalSettingsStatsFtp
 //
-// Operation ID: findGlobalSettingsStatsFtp
-//
 // Use this API command to retrieve the uploading statistical data to FTP server setting.
+//
+// Operation ID: findGlobalSettingsStatsFtp
+// Operation path: /globalSettings/statsFtp
+// Success code: 200 (OK)
 func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp(ctx context.Context, mutators ...RequestMutator) (*WSGSystemFtpGlobalSettingAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -48,32 +50,34 @@ func (s *WSGUploadStatisticstoFTPService) FindGlobalSettingsStatsFtp(ctx context
 
 // PartialUpdateGlobalSettingsStatsFtp
 //
-// Operation ID: partialUpdateGlobalSettingsStatsFtp
-//
 // Use this API command to modify the setting of uploading statistical data to FTP server.
 //
-// Request Body:
+// Operation ID: partialUpdateGlobalSettingsStatsFtp
+// Operation path: /globalSettings/statsFtp
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemFtpGlobalSetting
-func (s *WSGUploadStatisticstoFTPService) PartialUpdateGlobalSettingsStatsFtp(ctx context.Context, body *WSGSystemFtpGlobalSetting, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGUploadStatisticstoFTPService) PartialUpdateGlobalSettingsStatsFtp(ctx context.Context, body *WSGSystemFtpGlobalSetting, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateGlobalSettingsStatsFtp, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

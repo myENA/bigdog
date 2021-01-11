@@ -122,11 +122,13 @@ func NewWSGRogueClientRogueInfoList() *WSGRogueClientRogueInfoList {
 
 // FindRogueclientsByQueryCriteria
 //
-// Operation ID: findRogueclientsByQueryCriteria
-//
 // Use this API command to retrieve a list of rogue clients.
 //
-// Request Body:
+// Operation ID: findRogueclientsByQueryCriteria
+// Operation path: /rogueclients/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGRogueClientService) FindRogueclientsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRogueClientRogueInfoListAPIResponse, error) {
 	var (

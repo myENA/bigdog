@@ -23,14 +23,16 @@ func (ss *WSGService) WSGBonjourFencingPolicyService() *WSGBonjourFencingPolicyS
 
 // AddRkszonesBonjourFencingPolicyByZoneId
 //
-// Operation ID: addRkszonesBonjourFencingPolicyByZoneId
-//
 // Use this API command to create Bonjour Fencing Policy.
 //
-// Request Body:
+// Operation ID: addRkszonesBonjourFencingPolicyByZoneId
+// Operation path: /rkszones/{zoneId}/bonjourFencingPolicy
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateBonjourFencingPolicy
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGBonjourFencingPolicyService) AddRkszonesBonjourFencingPolicyByZoneId(ctx context.Context, body *WSGProfileCreateBonjourFencingPolicy, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,56 +62,60 @@ func (s *WSGBonjourFencingPolicyService) AddRkszonesBonjourFencingPolicyByZoneId
 
 // DeleteRkszonesBonjourFencingPolicy
 //
-// Operation ID: deleteRkszonesBonjourFencingPolicy
-//
 // Use this API command to delete Bulk Bonjour Fencing Policy.
 //
-// Request Body:
+// Operation ID: deleteRkszonesBonjourFencingPolicy
+// Operation path: /rkszones/bonjourFencingPolicy
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicy(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicy(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesBonjourFencingPolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesBonjourFencingPolicyById
 //
-// Operation ID: deleteRkszonesBonjourFencingPolicyById
-//
 // Use this API command to delete Bonjour Fencing Policy.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesBonjourFencingPolicyById
+// Operation path: /rkszones/bonjourFencingPolicy/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesBonjourFencingPolicyById, true)
 	defer recycleAPIRequest(req)
@@ -118,16 +124,18 @@ func (s *WSGBonjourFencingPolicyService) DeleteRkszonesBonjourFencingPolicyById(
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindApsBonjourFencingStatisticByApMac
 //
-// Operation ID: findApsBonjourFencingStatisticByApMac
-//
 // Use this API command to get Bonjour Fencing Statistic per AP.
 //
-// Required Parameters:
+// Operation ID: findApsBonjourFencingStatisticByApMac
+// Operation path: /aps/{apMac}/bonjourFencingStatistic
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGProfileBonjourFencingStatisticAPIResponse, error) {
@@ -153,11 +161,13 @@ func (s *WSGBonjourFencingPolicyService) FindApsBonjourFencingStatisticByApMac(c
 
 // FindRkszonesBonjourFencingPolicyById
 //
-// Operation ID: findRkszonesBonjourFencingPolicyById
-//
 // Use this API command to retrieve Bonjour Fencing Policy.
 //
-// Required Parameters:
+// Operation ID: findRkszonesBonjourFencingPolicyById
+// Operation path: /rkszones/{zoneId}/bonjourFencingPolicy/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -186,11 +196,13 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyById(ct
 
 // FindRkszonesBonjourFencingPolicyByZoneId
 //
-// Operation ID: findRkszonesBonjourFencingPolicyByZoneId
-//
 // Use this API command to retrieve a list of Bonjour Fencing Policy.
 //
-// Required Parameters:
+// Operation ID: findRkszonesBonjourFencingPolicyByZoneId
+// Operation path: /rkszones/{zoneId}/bonjourFencingPolicy
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGProfileBonjourFencingPolicyListAPIResponse, error) {
@@ -216,11 +228,13 @@ func (s *WSGBonjourFencingPolicyService) FindRkszonesBonjourFencingPolicyByZoneI
 
 // FindServicesBonjourFencingPolicyByQueryCriteria
 //
-// Operation ID: findServicesBonjourFencingPolicyByQueryCriteria
-//
 // Use this API command to retrieve a list of Bonjour Fencing Policy.
 //
-// Request Body:
+// Operation ID: findServicesBonjourFencingPolicyByQueryCriteria
+// Operation path: /query/services/bonjourFencingPolicy
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileBonjourFencingPolicyListAPIResponse, error) {
 	var (
@@ -248,40 +262,42 @@ func (s *WSGBonjourFencingPolicyService) FindServicesBonjourFencingPolicyByQuery
 
 // PartialUpdateRkszonesBonjourFencingPolicyById
 //
-// Operation ID: partialUpdateRkszonesBonjourFencingPolicyById
-//
 // Use this API command to modify the configuration of Bonjour Fencing Policy.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesBonjourFencingPolicyById
+// Operation path: /rkszones/{zoneId}/bonjourFencingPolicy/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyBonjourFencingPolicy
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGBonjourFencingPolicyService) PartialUpdateRkszonesBonjourFencingPolicyById(ctx context.Context, body *WSGProfileModifyBonjourFencingPolicy, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBonjourFencingPolicyService) PartialUpdateRkszonesBonjourFencingPolicyById(ctx context.Context, body *WSGProfileModifyBonjourFencingPolicy, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesBonjourFencingPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

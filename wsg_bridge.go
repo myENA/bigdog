@@ -23,11 +23,13 @@ func (ss *WSGService) WSGBridgeService() *WSGBridgeService {
 
 // AddProfilesBridge
 //
-// Operation ID: addProfilesBridge
-//
 // Use this API command to create Bridge profile.
 //
-// Request Body:
+// Operation ID: addProfilesBridge
+// Operation path: /profiles/bridge
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateBridgeProfile
 func (s *WSGBridgeService) AddProfilesBridge(ctx context.Context, body *WSGProfileCreateBridgeProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *WSGBridgeService) AddProfilesBridge(ctx context.Context, body *WSGProfi
 
 // DeleteProfilesBridge
 //
-// Operation ID: deleteProfilesBridge
-//
 // Use this API command to delete multiple bridge profile.
 //
-// Request Body:
+// Operation ID: deleteProfilesBridge
+// Operation path: /profiles/bridge
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGBridgeService) DeleteProfilesBridge(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBridgeService) DeleteProfilesBridge(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesBridge, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesBridgeById
 //
-// Operation ID: deleteProfilesBridgeById
-//
 // Use this API command to delete Bridge profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesBridgeById
+// Operation path: /profiles/bridge/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesBridgeById, true)
 	defer recycleAPIRequest(req)
@@ -113,14 +119,16 @@ func (s *WSGBridgeService) DeleteProfilesBridgeById(ctx context.Context, id stri
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesBridge
 //
-// Operation ID: findProfilesBridge
-//
 // Use this API command to retrieve a list of Bridge profile.
+//
+// Operation ID: findProfilesBridge
+// Operation path: /profiles/bridge
+// Success code: 200 (OK)
 func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context, mutators ...RequestMutator) (*WSGProfileListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -143,11 +151,13 @@ func (s *WSGBridgeService) FindProfilesBridge(ctx context.Context, mutators ...R
 
 // FindProfilesBridgeById
 //
-// Operation ID: findProfilesBridgeById
-//
 // Use this API command to retrieve Bridge profile by ID.
 //
-// Required Parameters:
+// Operation ID: findProfilesBridgeById
+// Operation path: /profiles/bridge/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileBridgeProfileAPIResponse, error) {
@@ -173,11 +183,13 @@ func (s *WSGBridgeService) FindProfilesBridgeById(ctx context.Context, id string
 
 // FindProfilesBridgeByQueryCriteria
 //
-// Operation ID: findProfilesBridgeByQueryCriteria
-//
 // Use this API command to query a list of Bridge profile.
 //
-// Request Body:
+// Operation ID: findProfilesBridgeByQueryCriteria
+// Operation path: /profiles/bridge/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileBridgeProfileListAPIResponse, error) {
 	var (
@@ -205,37 +217,39 @@ func (s *WSGBridgeService) FindProfilesBridgeByQueryCriteria(ctx context.Context
 
 // PartialUpdateProfilesBridgeById
 //
-// Operation ID: partialUpdateProfilesBridgeById
-//
 // Use this API command to modify the configuration of Bridge profile.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesBridgeById
+// Operation path: /profiles/bridge/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyBridgeProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGBridgeService) PartialUpdateProfilesBridgeById(ctx context.Context, body *WSGProfileModifyBridgeProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBridgeService) PartialUpdateProfilesBridgeById(ctx context.Context, body *WSGProfileModifyBridgeProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesBridgeById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

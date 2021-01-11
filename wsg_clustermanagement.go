@@ -24,9 +24,11 @@ func (ss *WSGService) WSGClusterManagementService() *WSGClusterManagementService
 
 // AddApPatch
 //
-// Operation ID: addApPatch
-//
 // Use this API command to apply AP patch.
+//
+// Operation ID: addApPatch
+// Operation path: /apPatch
+// Success code: 200 (OK)
 func (s *WSGClusterManagementService) AddApPatch(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationApPatchStatusAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -50,24 +52,26 @@ func (s *WSGClusterManagementService) AddApPatch(ctx context.Context, mutators .
 
 // AddApPatchFile
 //
-// Operation ID: addApPatchFile
-//
 // Use this API command to upload AP Patch File.
 //
-// Form Data Parameters:
+// Operation ID: addApPatchFile
+// Operation path: /apPatch/file
+// Success code: 204 (No Content)
+//
+// Form data parameters:
 // - uploadFile io.Reader
 //		- required
-func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddApPatchFile, true)
 	defer recycleAPIRequest(req)
@@ -75,29 +79,31 @@ func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, filena
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.MultipartForm()
 	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddClusterBackup
 //
-// Operation ID: addClusterBackup
-//
 // Backup cluster.
-func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
+//
+// Operation ID: addClusterBackup
+// Operation path: /cluster/backup
+// Success code: 204 (No Content)
+func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddClusterBackup, true)
 	defer recycleAPIRequest(req)
@@ -105,29 +111,31 @@ func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context, muta
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddClusterRestoreById
 //
-// Operation ID: addClusterRestoreById
-//
 // Restore cluster backup by ID.
 //
-// Required Parameters:
+// Operation ID: addClusterRestoreById
+// Operation path: /cluster/restore/{id:.+}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddClusterRestoreById, true)
 	defer recycleAPIRequest(req)
@@ -136,14 +144,16 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddConfigurationBackup
 //
-// Operation ID: addConfigurationBackup
-//
 // Backup system configuration.
+//
+// Operation ID: addConfigurationBackup
+// Operation path: /configuration/backup
+// Success code: 201 (Created)
 func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -167,24 +177,26 @@ func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context
 
 // AddConfigurationRestoreById
 //
-// Operation ID: addConfigurationRestoreById
-//
 // Restore system configuration with specified backupUUID.
 //
-// Required Parameters:
+// Operation ID: addConfigurationRestoreById
+// Operation path: /configuration/restore/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddConfigurationRestoreById, true)
 	defer recycleAPIRequest(req)
@@ -193,29 +205,31 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddConfigurationUpload
 //
-// Operation ID: addConfigurationUpload
-//
 // Upload system configuration file.
 //
-// Form Data Parameters:
+// Operation ID: addConfigurationUpload
+// Operation path: /configuration/upload
+// Success code: 204 (No Content)
+//
+// Form data parameters:
 // - uploadFile io.Reader
 //		- required
-func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddConfigurationUpload, true)
 	defer recycleAPIRequest(req)
@@ -223,18 +237,20 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.MultipartForm()
 	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddUpgrade
 //
-// Operation ID: addUpgrade
-//
 // Use this API command to do system upgrade.
+//
+// Operation ID: addUpgrade
+// Operation path: /upgrade
+// Success code: 200 (OK)
 func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationUpgradeStatusAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -258,11 +274,13 @@ func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context, mutators .
 
 // AddUpgradeUpload
 //
-// Operation ID: addUpgradeUpload
-//
 // Use this API command to upload patch file.
 //
-// Form Data Parameters:
+// Operation ID: addUpgradeUpload
+// Operation path: /upgrade/upload
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - uploadFile io.Reader
 //		- required
 func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*WSGAdministrationUpgradeStatusAPIResponse, error) {
@@ -292,24 +310,26 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, file
 
 // DeleteClusterById
 //
-// Operation ID: deleteClusterById
-//
 // Delete cluster backup by ID.
 //
-// Required Parameters:
+// Operation ID: deleteClusterById
+// Operation path: /cluster/{id:.+}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteClusterById, true)
 	defer recycleAPIRequest(req)
@@ -318,29 +338,31 @@ func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id 
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteConfigurationById
 //
-// Operation ID: deleteConfigurationById
-//
 // Delete system configuration file.
 //
-// Required Parameters:
+// Operation ID: deleteConfigurationById
+// Operation path: /configuration/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteConfigurationById, true)
 	defer recycleAPIRequest(req)
@@ -349,14 +371,16 @@ func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Contex
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindApPatch
 //
-// Operation ID: findApPatch
-//
 // Use this API command to retrive uploaded AP patch file info.
+//
+// Operation ID: findApPatch
+// Operation path: /apPatch
+// Success code: 200 (OK)
 func (s *WSGClusterManagementService) FindApPatch(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationApPatchInfoAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -379,11 +403,13 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context, mutators 
 
 // FindApPatchHistory
 //
-// Operation ID: findApPatchHistory
-//
 // Use this API command to retrive AP patch history.
 //
-// Optional Parameters:
+// Operation ID: findApPatchHistory
+// Operation path: /apPatch/history
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -421,9 +447,11 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 
 // FindApPatchStatus
 //
-// Operation ID: findApPatchStatus
-//
 // Use this API command to retrive cluster progress status.
+//
+// Operation ID: findApPatchStatus
+// Operation path: /apPatch/status
+// Success code: 200 (OK)
 func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationApPatchStatusAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -446,11 +474,13 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context, mut
 
 // FindCluster
 //
-// Operation ID: findCluster
-//
 // Retrive cluster backup list.
 //
-// Optional Parameters:
+// Operation ID: findCluster
+// Operation path: /cluster
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -488,9 +518,11 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 
 // FindClusterGeoRedundancy
 //
-// Operation ID: findClusterGeoRedundancy
-//
 // Get cluster redundancy settings.
+//
+// Operation ID: findClusterGeoRedundancy
+// Operation path: /cluster/geoRedundancy
+// Success code: 200 (OK)
 func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Context, mutators ...RequestMutator) (*WSGClusterRedundancySettingsAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -513,9 +545,11 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 
 // FindClusterState
 //
-// Operation ID: findClusterState
-//
 // Use this API command to get current cluster, blade, and management service states
+//
+// Operation ID: findClusterState
+// Operation path: /cluster/state
+// Success code: 200 (OK)
 func (s *WSGClusterManagementService) FindClusterState(ctx context.Context, mutators ...RequestMutator) (*WSGClusterBladeClusterStateAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -538,11 +572,13 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context, muta
 
 // FindConfiguration
 //
-// Operation ID: findConfiguration
-//
 // Retrive system configuration list.
 //
-// Optional Parameters:
+// Operation ID: findConfiguration
+// Operation path: /configuration
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -575,28 +611,30 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 
 // FindConfigurationDownload
 //
-// Operation ID: findConfigurationDownload
-//
 // Download system configuration file.
 //
-// Required Parameters:
+// Operation ID: findConfigurationDownload
+// Operation path: /configuration/download
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - backupUUID string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - timeZone string
 //		- nullable
-func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Context, backupUUID string, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Context, backupUUID string, optionalParams map[string][]string, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindConfigurationDownload, true)
 	defer recycleAPIRequest(req)
@@ -607,14 +645,16 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // FindConfigurationSettingsAutoExportBackup
 //
-// Operation ID: findConfigurationSettingsAutoExportBackup
-//
 // Get Auto Export Backup Settings.
+//
+// Operation ID: findConfigurationSettingsAutoExportBackup
+// Operation path: /configurationSettings/autoExportBackup
+// Success code: 200 (OK)
 func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationAutoExportBackupAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -637,9 +677,11 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(
 
 // FindConfigurationSettingsScheduleBackup
 //
-// Operation ID: findConfigurationSettingsScheduleBackup
-//
 // Get Schedule Backup Setting.
+//
+// Operation ID: findConfigurationSettingsScheduleBackup
+// Operation path: /configurationSettings/scheduleBackup
+// Success code: 200 (OK)
 func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationScheduleBackupAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -662,11 +704,13 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 
 // FindUpgradeHistory
 //
-// Operation ID: findUpgradeHistory
-//
 // Use this API command to retrive upgrade history.
 //
-// Optional Parameters:
+// Operation ID: findUpgradeHistory
+// Operation path: /upgrade/history
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -704,9 +748,11 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 
 // FindUpgradePatch
 //
-// Operation ID: findUpgradePatch
-//
 // Use this API command to retrive upload file Info.
+//
+// Operation ID: findUpgradePatch
+// Operation path: /upgrade/patch
+// Success code: 200 (OK)
 func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationUpgradePatchInfoAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -729,9 +775,11 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context, muta
 
 // FindUpgradeStatus
 //
-// Operation ID: findUpgradeStatus
-//
 // Use this API command to retrive cluster progress status.
+//
+// Operation ID: findUpgradeStatus
+// Operation path: /upgrade/status
+// Success code: 200 (OK)
 func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationUpgradeStatusAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -754,75 +802,81 @@ func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context, mut
 
 // PartialUpdateConfigurationSettingsAutoExportBackup
 //
-// Operation ID: partialUpdateConfigurationSettingsAutoExportBackup
-//
 // Modify Auto Export Backup Settings.
 //
-// Request Body:
+// Operation ID: partialUpdateConfigurationSettingsAutoExportBackup
+// Operation path: /configurationSettings/autoExportBackup
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAdministrationModifyAutoExportBackup
-func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExportBackup(ctx context.Context, body *WSGAdministrationModifyAutoExportBackup, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExportBackup(ctx context.Context, body *WSGAdministrationModifyAutoExportBackup, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsAutoExportBackup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateConfigurationSettingsScheduleBackup
 //
-// Operation ID: partialUpdateConfigurationSettingsScheduleBackup
-//
 // Modify Schedule Backup Setting.
 //
-// Request Body:
+// Operation ID: partialUpdateConfigurationSettingsScheduleBackup
+// Operation path: /configurationSettings/scheduleBackup
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAdministrationModifyScheduleBackup
-func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsScheduleBackup(ctx context.Context, body *WSGAdministrationModifyScheduleBackup, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsScheduleBackup(ctx context.Context, body *WSGAdministrationModifyScheduleBackup, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsScheduleBackup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateClusterGeoRedundancy
 //
-// Operation ID: updateClusterGeoRedundancy
-//
 // Update cluster redundancy settings.
 //
-// Request Body:
+// Operation ID: updateClusterGeoRedundancy
+// Operation path: /cluster/geoRedundancy
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGClusterRedundancyUpdateClusterRedundancy
 func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Context, body *WSGClusterRedundancyUpdateClusterRedundancy, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (

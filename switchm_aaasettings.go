@@ -266,11 +266,13 @@ func NewSwitchMAAASettingsAAASettingAuthorizationTypeExecType() *SwitchMAAASetti
 
 // FindGroupAaaSettingsByGroupId
 //
-// Operation ID: findGroupAaaSettingsByGroupId
-//
 // Use this API command to retrieve the AAA settings.
 //
-// Required Parameters:
+// Operation ID: findGroupAaaSettingsByGroupId
+// Operation path: /group/{groupId}/aaaSettings
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - groupId string
 //		- required
 func (s *SwitchMAAASettingsService) FindGroupAaaSettingsByGroupId(ctx context.Context, groupId string, mutators ...RequestMutator) (*SwitchMAAASettingsAAASettingAPIResponse, error) {
@@ -296,37 +298,39 @@ func (s *SwitchMAAASettingsService) FindGroupAaaSettingsByGroupId(ctx context.Co
 
 // UpdateGroupAaaSettingsByGroupId
 //
-// Operation ID: updateGroupAaaSettingsByGroupId
-//
 // Use this API command to modify the AAA settings.
 //
-// Request Body:
+// Operation ID: updateGroupAaaSettingsByGroupId
+// Operation path: /group/{groupId}/aaaSettings
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMAAASettingsAAASetting
 //
-// Required Parameters:
+// Required parameters:
 // - groupId string
 //		- required
-func (s *SwitchMAAASettingsService) UpdateGroupAaaSettingsByGroupId(ctx context.Context, body *SwitchMAAASettingsAAASetting, groupId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMAAASettingsService) UpdateGroupAaaSettingsByGroupId(ctx context.Context, body *SwitchMAAASettingsAAASetting, groupId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateGroupAaaSettingsByGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

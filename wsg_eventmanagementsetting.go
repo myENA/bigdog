@@ -23,11 +23,13 @@ func (ss *WSGService) WSGEventManagementSettingService() *WSGEventManagementSett
 
 // FindRkszonesEventEmailSettingsByZoneId
 //
-// Operation ID: findRkszonesEventEmailSettingsByZoneId
-//
 // Get Event E-mail Setting of Zone Override.
 //
-// Required Parameters:
+// Operation ID: findRkszonesEventEmailSettingsByZoneId
+// Operation path: /rkszones/{zoneId}/eventEmailSettings
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGEventManagementEventEmailSettingAPIResponse, error) {
@@ -53,11 +55,13 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventEmailSettingsByZoneI
 
 // FindRkszonesEventNotificationSettingsByZoneId
 //
-// Operation ID: findRkszonesEventNotificationSettingsByZoneId
-//
 // Get Event Notification Setting of Zone Override.
 //
-// Required Parameters:
+// Operation ID: findRkszonesEventNotificationSettingsByZoneId
+// Operation path: /rkszones/{zoneId}/eventNotificationSettings
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettingsByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGEventManagementEventDataResponseAPIResponse, error) {
@@ -83,74 +87,78 @@ func (s *WSGEventManagementSettingService) FindRkszonesEventNotificationSettings
 
 // UpdateRkszonesEventEmailSettingsByZoneId
 //
-// Operation ID: updateRkszonesEventEmailSettingsByZoneId
-//
 // Modify Event E-mail Setting of Zone Override.
 //
-// Request Body:
+// Operation ID: updateRkszonesEventEmailSettingsByZoneId
+// Operation path: /rkszones/{zoneId}/eventEmailSettings
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGEventManagementEventEmailSetting
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
-func (s *WSGEventManagementSettingService) UpdateRkszonesEventEmailSettingsByZoneId(ctx context.Context, body *WSGEventManagementEventEmailSetting, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGEventManagementSettingService) UpdateRkszonesEventEmailSettingsByZoneId(ctx context.Context, body *WSGEventManagementEventEmailSetting, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesEventEmailSettingsByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateRkszonesEventNotificationSettingsByZoneId
 //
-// Operation ID: updateRkszonesEventNotificationSettingsByZoneId
-//
 // Modify Event Notification Setting of Zone Override.
 //
-// Request Body:
+// Operation ID: updateRkszonesEventNotificationSettingsByZoneId
+// Operation path: /rkszones/{zoneId}/eventNotificationSettings
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body WSGEventManagementEventSettingList
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
-func (s *WSGEventManagementSettingService) UpdateRkszonesEventNotificationSettingsByZoneId(ctx context.Context, body WSGEventManagementEventSettingList, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGEventManagementSettingService) UpdateRkszonesEventNotificationSettingsByZoneId(ctx context.Context, body WSGEventManagementEventSettingList, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesEventNotificationSettingsByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

@@ -217,11 +217,13 @@ func NewWSGVLANPoolingListType() *WSGVLANPoolingListType {
 
 // AddVlanpoolings
 //
-// Operation ID: addVlanpoolings
-//
 // Use this API command to create new VLAN pooling.
 //
-// Request Body:
+// Operation ID: addVlanpoolings
+// Operation path: /vlanpoolings
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGVLANPoolingCreateVlanPooling
 func (s *WSGVLANPoolingService) AddVlanpoolings(ctx context.Context, body *WSGVLANPoolingCreateVlanPooling, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -249,56 +251,60 @@ func (s *WSGVLANPoolingService) AddVlanpoolings(ctx context.Context, body *WSGVL
 
 // DeleteVlanpoolings
 //
-// Operation ID: deleteVlanpoolings
-//
 // Use this API command to bulk delete VLAN pooling.
 //
-// Request Body:
+// Operation ID: deleteVlanpoolings
+// Operation path: /vlanpoolings
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGVLANPoolingDeleteBulkVlanPooling
-func (s *WSGVLANPoolingService) DeleteVlanpoolings(ctx context.Context, body *WSGVLANPoolingDeleteBulkVlanPooling, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGVLANPoolingService) DeleteVlanpoolings(ctx context.Context, body *WSGVLANPoolingDeleteBulkVlanPooling, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteVlanpoolings, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteVlanpoolingsById
 //
-// Operation ID: deleteVlanpoolingsById
-//
 // Use this API command to delete VLAN pooling.
 //
-// Required Parameters:
+// Operation ID: deleteVlanpoolingsById
+// Operation path: /vlanpoolings/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteVlanpoolingsById, true)
 	defer recycleAPIRequest(req)
@@ -307,16 +313,18 @@ func (s *WSGVLANPoolingService) DeleteVlanpoolingsById(ctx context.Context, id s
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindServicesVlanPoolingByQueryCriteria
 //
-// Operation ID: findServicesVlanPoolingByQueryCriteria
-//
 // Query Vlan Pooling Profiles with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesVlanPoolingByQueryCriteria
+// Operation path: /query/services/vlanPooling
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGVLANPoolingService) FindServicesVlanPoolingByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -344,11 +352,13 @@ func (s *WSGVLANPoolingService) FindServicesVlanPoolingByQueryCriteria(ctx conte
 
 // FindVlanpoolingsById
 //
-// Operation ID: findVlanpoolingsById
-//
 // Use this API command to retrieve VLAN pooling.
 //
-// Required Parameters:
+// Operation ID: findVlanpoolingsById
+// Operation path: /vlanpoolings/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGVLANPoolingService) FindVlanpoolingsById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGVLANPoolingAPIResponse, error) {
@@ -374,11 +384,13 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsById(ctx context.Context, id str
 
 // FindVlanpoolingsByQueryCriteria
 //
-// Operation ID: findVlanpoolingsByQueryCriteria
-//
 // Use this API command to retrieve a list of VLAN poolings.
 //
-// Request Body:
+// Operation ID: findVlanpoolingsByQueryCriteria
+// Operation path: /vlanpoolings/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGVLANPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGVLANPoolingListAPIResponse, error) {
 	var (
@@ -406,37 +418,39 @@ func (s *WSGVLANPoolingService) FindVlanpoolingsByQueryCriteria(ctx context.Cont
 
 // PartialUpdateVlanpoolingsById
 //
-// Operation ID: partialUpdateVlanpoolingsById
-//
 // Use this API command to modify the configuration on VLAN pooling.
 //
-// Request Body:
+// Operation ID: partialUpdateVlanpoolingsById
+// Operation path: /vlanpoolings/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGVLANPoolingModifyVlanPooling
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGVLANPoolingService) PartialUpdateVlanpoolingsById(ctx context.Context, body *WSGVLANPoolingModifyVlanPooling, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGVLANPoolingService) PartialUpdateVlanpoolingsById(ctx context.Context, body *WSGVLANPoolingModifyVlanPooling, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateVlanpoolingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

@@ -118,11 +118,13 @@ func MakeSCIMigrationFind200ResponseType() SCIMigrationFind200ResponseType {
 
 // MigrationCount
 //
-// Operation ID: Migration_count
-//
 // Count instances of the model matched by where from the data source.
 //
-// Optional Parameters:
+// Operation ID: Migration_count
+// Operation path: /Migrations/count
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - where string
 //		- nullable
 func (s *SCIMigrationService) MigrationCount(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIMigrationCount200ResponseTypeAPIResponse, error) {
@@ -150,11 +152,13 @@ func (s *SCIMigrationService) MigrationCount(ctx context.Context, optionalParams
 
 // MigrationCreate
 //
-// Operation ID: Migration_create
-//
 // Create a new instance of the model and persist it into the data source.
 //
-// Request Body:
+// Operation ID: Migration_create
+// Operation path: /Migrations
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsMigration
 func (s *SCIMigrationService) MigrationCreate(ctx context.Context, data *SCIModelsMigration, mutators ...RequestMutator) (*SCIModelsMigrationAPIResponse, error) {
 	var (
@@ -182,24 +186,26 @@ func (s *SCIMigrationService) MigrationCreate(ctx context.Context, data *SCIMode
 
 // MigrationCreateChangeStreamGetMigrationsChangeStream
 //
-// Operation ID: Migration_createChangeStream_get_Migrations_change-stream
-//
 // Create a change stream.
 //
-// Optional Parameters:
+// Operation ID: Migration_createChangeStream_get_Migrations_change-stream
+// Operation path: /Migrations/change-stream
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - options string
 //		- nullable
-func (s *SCIMigrationService) MigrationCreateChangeStreamGetMigrationsChangeStream(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIMigrationService) MigrationCreateChangeStreamGetMigrationsChangeStream(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSCIMigrationCreateChangeStreamGetMigrationsChangeStream, true)
 	defer recycleAPIRequest(req)
@@ -209,49 +215,53 @@ func (s *SCIMigrationService) MigrationCreateChangeStreamGetMigrationsChangeStre
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // MigrationCreateChangeStreamPostMigrationsChangeStream
 //
-// Operation ID: Migration_createChangeStream_post_Migrations_change-stream
-//
 // Create a change stream.
 //
-// Form Data Parameters:
+// Operation ID: Migration_createChangeStream_post_Migrations_change-stream
+// Operation path: /Migrations/change-stream
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - options string
 //		- nullable
-func (s *SCIMigrationService) MigrationCreateChangeStreamPostMigrationsChangeStream(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIMigrationService) MigrationCreateChangeStreamPostMigrationsChangeStream(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIMigrationCreateChangeStreamPostMigrationsChangeStream, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // MigrationDeleteById
 //
-// Operation ID: Migration_deleteById
-//
 // Delete a model instance by id from the data source.
 //
-// Required Parameters:
+// Operation ID: Migration_deleteById
+// Operation path: /Migrations/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SCIMigrationService) MigrationDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -278,11 +288,13 @@ func (s *SCIMigrationService) MigrationDeleteById(ctx context.Context, id string
 
 // MigrationExistsGetMigrationsIdExists
 //
-// Operation ID: Migration_exists_get_Migrations_{id}_exists
-//
 // Check whether a model instance exists in the data source.
 //
-// Required Parameters:
+// Operation ID: Migration_exists_get_Migrations_{id}_exists
+// Operation path: /Migrations/{id}/exists
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SCIMigrationService) MigrationExistsGetMigrationsIdExists(ctx context.Context, id string, mutators ...RequestMutator) (*SCIMigrationExistsgetMigrationsidexists200ResponseTypeAPIResponse, error) {
@@ -308,11 +320,13 @@ func (s *SCIMigrationService) MigrationExistsGetMigrationsIdExists(ctx context.C
 
 // MigrationFind
 //
-// Operation ID: Migration_find
-//
 // Find all instances of the model matched by filter from the data source.
 //
-// Optional Parameters:
+// Operation ID: Migration_find
+// Operation path: /Migrations
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIMigrationService) MigrationFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIMigrationFind200ResponseTypeAPIResponse, error) {
@@ -340,15 +354,17 @@ func (s *SCIMigrationService) MigrationFind(ctx context.Context, optionalParams 
 
 // MigrationFindById
 //
-// Operation ID: Migration_findById
-//
 // Find a model instance by id from the data source.
 //
-// Required Parameters:
+// Operation ID: Migration_findById
+// Operation path: /Migrations/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIMigrationService) MigrationFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsMigrationAPIResponse, error) {
@@ -377,11 +393,13 @@ func (s *SCIMigrationService) MigrationFindById(ctx context.Context, id string, 
 
 // MigrationFindOne
 //
-// Operation ID: Migration_findOne
-//
 // Find first instance of the model matched by filter from the data source.
 //
-// Optional Parameters:
+// Operation ID: Migration_findOne
+// Operation path: /Migrations/findOne
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIMigrationService) MigrationFindOne(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsMigrationAPIResponse, error) {
@@ -409,28 +427,30 @@ func (s *SCIMigrationService) MigrationFindOne(ctx context.Context, optionalPara
 
 // MigrationMigrateByName
 //
-// Operation ID: Migration_migrateByName
-//
 // Run specific migration by name
 //
-// Required Parameters:
+// Operation ID: Migration_migrateByName
+// Operation path: /Migrations/migrateByName
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - name string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - record bool
 //		- nullable
-func (s *SCIMigrationService) MigrationMigrateByName(ctx context.Context, name string, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIMigrationService) MigrationMigrateByName(ctx context.Context, name string, optionalParams map[string][]string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSCIMigrationMigrateByName, true)
 	defer recycleAPIRequest(req)
@@ -441,29 +461,31 @@ func (s *SCIMigrationService) MigrationMigrateByName(ctx context.Context, name s
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // MigrationMigrateTo
 //
-// Operation ID: Migration_migrateTo
-//
 // Run all pending migrations
 //
-// Optional Parameters:
+// Operation ID: Migration_migrateTo
+// Operation path: /Migrations/migrate
+// Success code: 204 (No Content)
+//
+// Optional parameters:
 // - to string
 //		- nullable
-func (s *SCIMigrationService) MigrationMigrateTo(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIMigrationService) MigrationMigrateTo(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSCIMigrationMigrateTo, true)
 	defer recycleAPIRequest(req)
@@ -473,19 +495,21 @@ func (s *SCIMigrationService) MigrationMigrateTo(ctx context.Context, optionalPa
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // MigrationPrototypeUpdateAttributes
 //
-// Operation ID: Migration_prototype_updateAttributes
-//
 // Update attributes for a model instance and persist it into the data source.
 //
-// Request Body:
+// Operation ID: Migration_prototype_updateAttributes
+// Operation path: /Migrations/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsMigration
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *SCIMigrationService) MigrationPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsMigration, id string, mutators ...RequestMutator) (*SCIModelsMigrationAPIResponse, error) {
@@ -515,24 +539,26 @@ func (s *SCIMigrationService) MigrationPrototypeUpdateAttributes(ctx context.Con
 
 // MigrationRollbackTo
 //
-// Operation ID: Migration_rollbackTo
-//
 // Rollback migrations
 //
-// Required Parameters:
+// Operation ID: Migration_rollbackTo
+// Operation path: /Migrations/rollback
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - to string
 //		- required
-func (s *SCIMigrationService) MigrationRollbackTo(ctx context.Context, to string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIMigrationService) MigrationRollbackTo(ctx context.Context, to string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSCIMigrationRollbackTo, true)
 	defer recycleAPIRequest(req)
@@ -540,19 +566,21 @@ func (s *SCIMigrationService) MigrationRollbackTo(ctx context.Context, to string
 	req.QueryParams.Set("to", to)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // MigrationUpdateAll
 //
-// Operation ID: Migration_updateAll
-//
 // Update instances of the model matched by where from the data source.
 //
-// Request Body:
+// Operation ID: Migration_updateAll
+// Operation path: /Migrations/update
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsMigration
 //
-// Optional Parameters:
+// Optional parameters:
 // - where string
 //		- nullable
 func (s *SCIMigrationService) MigrationUpdateAll(ctx context.Context, data *SCIModelsMigration, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -584,11 +612,13 @@ func (s *SCIMigrationService) MigrationUpdateAll(ctx context.Context, data *SCIM
 
 // MigrationUpsert
 //
-// Operation ID: Migration_upsert
-//
 // Update an existing model instance or insert a new one into the data source.
 //
-// Request Body:
+// Operation ID: Migration_upsert
+// Operation path: /Migrations
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsMigration
 func (s *SCIMigrationService) MigrationUpsert(ctx context.Context, data *SCIModelsMigration, mutators ...RequestMutator) (*SCIModelsMigrationAPIResponse, error) {
 	var (

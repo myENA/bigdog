@@ -23,15 +23,17 @@ func (ss *WSGService) WSGApplicationLogAndStatusService() *WSGApplicationLogAndS
 
 // FindApplicationsByBladeUUID
 //
-// Operation ID: findApplicationsByBladeUUID
-//
 // Use this API command to retrieve a list of application log and status.
 //
-// Required Parameters:
+// Operation ID: findApplicationsByBladeUUID
+// Operation path: /applications/{bladeUUID}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - bladeUUID string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -65,30 +67,32 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsByBladeUUID(ctx cont
 
 // FindApplicationsDownloadByBladeUUID
 //
-// Operation ID: findApplicationsDownloadByBladeUUID
-//
 // Use this API command to download logs of the application.
 //
-// Required Parameters:
+// Operation ID: findApplicationsDownloadByBladeUUID
+// Operation path: /applications/download/{bladeUUID}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - appName string
 //		- required
 // - bladeUUID string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - logFileName string
 //		- nullable
-func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(ctx context.Context, appName string, bladeUUID string, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(ctx context.Context, appName string, bladeUUID string, optionalParams map[string][]string, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApplicationsDownloadByBladeUUID, true)
 	defer recycleAPIRequest(req)
@@ -100,29 +104,31 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadByBladeUUID(
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // FindApplicationsDownloadsnapByBladeUUID
 //
-// Operation ID: findApplicationsDownloadsnapByBladeUUID
-//
 // Use this API command to download snapshot logs.
 //
-// Required Parameters:
+// Operation ID: findApplicationsDownloadsnapByBladeUUID
+// Operation path: /applications/downloadsnap/{bladeUUID}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApplicationsDownloadsnapByBladeUUID, true)
 	defer recycleAPIRequest(req)
@@ -130,37 +136,39 @@ func (s *WSGApplicationLogAndStatusService) FindApplicationsDownloadsnapByBladeU
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // PartialUpdateApplications
 //
-// Operation ID: partialUpdateApplications
-//
 // Use this API command to modify log level of specified application.
 //
-// Request Body:
+// Operation ID: partialUpdateApplications
+// Operation path: /applications
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAdministrationModifyLogLevel
-func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx context.Context, body *WSGAdministrationModifyLogLevel, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGApplicationLogAndStatusService) PartialUpdateApplications(ctx context.Context, body *WSGAdministrationModifyLogLevel, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateApplications, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

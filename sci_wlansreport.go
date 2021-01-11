@@ -859,11 +859,13 @@ func NewSCIWLANsReport41topSsidsByClientsTableMetaDataMaxValuesType() *SCIWLANsR
 
 // ReportWLANsReport35Overview
 //
-// Operation ID: report_WLANsReport_35_overview
-//
 // WLANs Report - Overview
 //
-// Request Body:
+// Operation ID: report_WLANsReport_35_overview
+// Operation path: /reports/4/sections/35/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWLANsReportService) ReportWLANsReport35Overview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWLANsReport35overview200ResponseTypeAPIResponse, error) {
 	var (
@@ -891,11 +893,13 @@ func (s *SCIWLANsReportService) ReportWLANsReport35Overview(ctx context.Context,
 
 // ReportWLANsReport36Top10SsidsByTraffic
 //
-// Operation ID: report_WLANsReport_36_top10SsidsByTraffic
-//
 // WLANs Report - Top SSIDs by Traffic
 //
-// Request Body:
+// Operation ID: report_WLANsReport_36_top10SsidsByTraffic
+// Operation path: /reports/4/sections/36/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWLANsReportService) ReportWLANsReport36Top10SsidsByTraffic(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWLANsReport36top10SsidsByTraffic200ResponseTypeAPIResponse, error) {
 	var (
@@ -923,11 +927,13 @@ func (s *SCIWLANsReportService) ReportWLANsReport36Top10SsidsByTraffic(ctx conte
 
 // ReportWLANsReport37ActiveSsidsTrend
 //
-// Operation ID: report_WLANsReport_37_activeSsidsTrend
-//
 // WLANs Report - Active SSIDs Trend
 //
-// Request Body:
+// Operation ID: report_WLANsReport_37_activeSsidsTrend
+// Operation path: /reports/4/sections/37/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWLANsReportService) ReportWLANsReport37ActiveSsidsTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWLANsReport37activeSsidsTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -955,11 +961,13 @@ func (s *SCIWLANsReportService) ReportWLANsReport37ActiveSsidsTrend(ctx context.
 
 // ReportWLANsReport38Top10SsidsByClientCount
 //
-// Operation ID: report_WLANsReport_38_top10SsidsByClientCount
-//
 // WLANs Report - Top SSIDs by Client Count
 //
-// Request Body:
+// Operation ID: report_WLANsReport_38_top10SsidsByClientCount
+// Operation path: /reports/4/sections/38/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWLANsReportService) ReportWLANsReport38Top10SsidsByClientCount(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWLANsReport38top10SsidsByClientCount200ResponseTypeAPIResponse, error) {
 	var (
@@ -987,11 +995,13 @@ func (s *SCIWLANsReportService) ReportWLANsReport38Top10SsidsByClientCount(ctx c
 
 // ReportWLANsReport39SsidChangesOverTime
 //
-// Operation ID: report_WLANsReport_39_ssidChangesOverTime
-//
 // WLANs Report - SSID Changes Over Time
 //
-// Request Body:
+// Operation ID: report_WLANsReport_39_ssidChangesOverTime
+// Operation path: /reports/4/sections/39/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWLANsReportService) ReportWLANsReport39SsidChangesOverTime(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWLANsReport39ssidChangesOverTime200ResponseTypeAPIResponse, error) {
 	var (
@@ -1019,11 +1029,13 @@ func (s *SCIWLANsReportService) ReportWLANsReport39SsidChangesOverTime(ctx conte
 
 // ReportWLANsReport40TopSsidsByTrafficTable
 //
-// Operation ID: report_WLANsReport_40_topSsidsByTrafficTable
-//
 // WLANs Report - Top SSIDs by Traffic
 //
-// Request Body:
+// Operation ID: report_WLANsReport_40_topSsidsByTrafficTable
+// Operation path: /reports/4/sections/40/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWLANsReportService) ReportWLANsReport40TopSsidsByTrafficTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWLANsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -1051,11 +1063,13 @@ func (s *SCIWLANsReportService) ReportWLANsReport40TopSsidsByTrafficTable(ctx co
 
 // ReportWLANsReport41TopSsidsByClientsTable
 //
-// Operation ID: report_WLANsReport_41_topSsidsByClientsTable
-//
 // WLANs Report - Top SSIDs by Client Count
 //
-// Request Body:
+// Operation ID: report_WLANsReport_41_topSsidsByClientsTable
+// Operation path: /reports/4/sections/41/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIWLANsReportService) ReportWLANsReport41TopSsidsByClientsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportWLANsReport41topSsidsByClientsTable200ResponseTypeAPIResponse, error) {
 	var (

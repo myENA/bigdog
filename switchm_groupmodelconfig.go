@@ -199,11 +199,13 @@ func NewSwitchMGroupModelConfigUpdateGroupConfigResultList() *SwitchMGroupModelC
 
 // FindGroupModelConfigsByQueryCriteria
 //
-// Operation ID: findGroupModelConfigsByQueryCriteria
-//
 // Use this API command to retrieve the list of group model configs.
 //
-// Request Body:
+// Operation ID: findGroupModelConfigsByQueryCriteria
+// Operation path: /groupModelConfigs/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMGroupModelConfigQueryResultAPIResponse, error) {
 	var (
@@ -231,14 +233,16 @@ func (s *SwitchMGroupModelConfigService) FindGroupModelConfigsByQueryCriteria(ct
 
 // UpdateGroupModelConfigsByGroupId
 //
-// Operation ID: updateGroupModelConfigsByGroupId
-//
 // Use this API command to add or remove the model family of a group config.
 //
-// Request Body:
+// Operation ID: updateGroupModelConfigsByGroupId
+// Operation path: /groupModelConfigs/{groupId}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMGroupModelConfigSelectedIds
 //
-// Required Parameters:
+// Required parameters:
 // - groupId string
 //		- required
 func (s *SwitchMGroupModelConfigService) UpdateGroupModelConfigsByGroupId(ctx context.Context, body *SwitchMGroupModelConfigSelectedIds, groupId string, mutators ...RequestMutator) (*SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse, error) {

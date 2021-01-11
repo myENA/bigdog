@@ -23,11 +23,13 @@ func (ss *WSGService) WSGURLFilteringPolicyService() *WSGURLFilteringPolicyServi
 
 // AddUrlFilteringUrlFilteringPolicy
 //
-// Operation ID: addUrlFilteringUrlFilteringPolicy
-//
 // Use this API command to create a URL Filtering policy.
 //
-// Request Body:
+// Operation ID: addUrlFilteringUrlFilteringPolicy
+// Operation path: /urlFiltering/urlFilteringPolicy
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGURLFilteringCreateUrlFilteringPolicy
 func (s *WSGURLFilteringPolicyService) AddUrlFilteringUrlFilteringPolicy(ctx context.Context, body *WSGURLFilteringCreateUrlFilteringPolicy, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *WSGURLFilteringPolicyService) AddUrlFilteringUrlFilteringPolicy(ctx con
 
 // DeleteUrlFilteringUrlFilteringPolicy
 //
-// Operation ID: deleteUrlFilteringUrlFilteringPolicy
-//
 // Use this API command to delete bulk URL Filtering policies.
 //
-// Request Body:
+// Operation ID: deleteUrlFilteringUrlFilteringPolicy
+// Operation path: /urlFiltering/urlFilteringPolicy
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGURLFilteringDeleteBulk
 func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicy(ctx context.Context, body *WSGURLFilteringDeleteBulk, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -87,24 +91,26 @@ func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicy(ctx 
 
 // DeleteUrlFilteringUrlFilteringPolicyById
 //
-// Operation ID: deleteUrlFilteringUrlFilteringPolicyById
-//
 // Use this API command to delete a URL Filtering policy.
 //
-// Required Parameters:
+// Operation ID: deleteUrlFilteringUrlFilteringPolicyById
+// Operation path: /urlFiltering/urlFilteringPolicy/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteUrlFilteringUrlFilteringPolicyById, true)
 	defer recycleAPIRequest(req)
@@ -113,14 +119,16 @@ func (s *WSGURLFilteringPolicyService) DeleteUrlFilteringUrlFilteringPolicyById(
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindUrlFilteringBlockCategories
 //
-// Operation ID: findUrlFilteringBlockCategories
-//
 // Use this API command to retrieve the block categories of URL Filtering.
+//
+// Operation ID: findUrlFilteringBlockCategories
+// Operation path: /urlFiltering/blockCategories
+// Success code: 200 (OK)
 func (s *WSGURLFilteringPolicyService) FindUrlFilteringBlockCategories(ctx context.Context, mutators ...RequestMutator) (*WSGURLFilteringBlockCategoriesListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -143,11 +151,13 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringBlockCategories(ctx conte
 
 // FindUrlFilteringByQueryCriteria
 //
-// Operation ID: findUrlFilteringByQueryCriteria
-//
 // Use this API command to retrieve a list of URL Filtering policies by query criteria.
 //
-// Request Body:
+// Operation ID: findUrlFilteringByQueryCriteria
+// Operation path: /urlFiltering/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGURLFilteringPolicyListAPIResponse, error) {
 	var (
@@ -175,11 +185,13 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringByQueryCriteria(ctx conte
 
 // FindUrlFilteringUrlFilteringPolicy
 //
-// Operation ID: findUrlFilteringUrlFilteringPolicy
-//
 // Use this API command to retrieve list of URL Filtering policies.
 //
-// Optional Parameters:
+// Operation ID: findUrlFilteringUrlFilteringPolicy
+// Operation path: /urlFiltering/urlFilteringPolicy
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - domainId string
 //		- nullable
 // - index string
@@ -217,11 +229,13 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicy(ctx co
 
 // FindUrlFilteringUrlFilteringPolicyById
 //
-// Operation ID: findUrlFilteringUrlFilteringPolicyById
-//
 // Use this API command to retrieve an URL Filtering policy.
 //
-// Required Parameters:
+// Operation ID: findUrlFilteringUrlFilteringPolicyById
+// Operation path: /urlFiltering/urlFilteringPolicy/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGURLFilteringPolicyAPIResponse, error) {
@@ -247,37 +261,39 @@ func (s *WSGURLFilteringPolicyService) FindUrlFilteringUrlFilteringPolicyById(ct
 
 // PartialUpdateUrlFilteringUrlFilteringPolicyById
 //
-// Operation ID: partialUpdateUrlFilteringUrlFilteringPolicyById
-//
 // Use this API command to patch a URL Filtering policy.
 //
-// Request Body:
+// Operation ID: partialUpdateUrlFilteringUrlFilteringPolicyById
+// Operation path: /urlFiltering/urlFilteringPolicy/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGURLFilteringModifyUrlFilteringPolicy
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGURLFilteringPolicyService) PartialUpdateUrlFilteringUrlFilteringPolicyById(ctx context.Context, body *WSGURLFilteringModifyUrlFilteringPolicy, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGURLFilteringPolicyService) PartialUpdateUrlFilteringUrlFilteringPolicyById(ctx context.Context, body *WSGURLFilteringModifyUrlFilteringPolicy, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateUrlFilteringUrlFilteringPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

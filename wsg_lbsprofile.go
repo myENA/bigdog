@@ -23,11 +23,13 @@ func (ss *WSGService) WSGLBSprofileService() *WSGLBSprofileService {
 
 // AddProfilesLbs
 //
-// Operation ID: addProfilesLbs
-//
 // Create LBS profile.
 //
-// Request Body:
+// Operation ID: addProfilesLbs
+// Operation path: /profiles/lbs
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGProfileLbsProfile
 func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProfileLbsProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *WSGLBSprofileService) AddProfilesLbs(ctx context.Context, body *WSGProf
 
 // DeleteProfilesLbs
 //
-// Operation ID: deleteProfilesLbs
-//
 // Delete multiple LBS profile.
 //
-// Request Body:
+// Operation ID: deleteProfilesLbs
+// Operation path: /profiles/lbs
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGLBSprofileService) DeleteProfilesLbs(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesLbs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesLbsById
 //
-// Operation ID: deleteProfilesLbsById
-//
 // Delete LBS profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesLbsById
+// Operation path: /profiles/lbs/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesLbsById, true)
 	defer recycleAPIRequest(req)
@@ -113,16 +119,18 @@ func (s *WSGLBSprofileService) DeleteProfilesLbsById(ctx context.Context, id str
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesLbsById
 //
-// Operation ID: findProfilesLbsById
-//
 // Retrieve LBS profile.
 //
-// Required Parameters:
+// Operation ID: findProfilesLbsById
+// Operation path: /profiles/lbs/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileLbsProfileAPIResponse, error) {
@@ -148,11 +156,13 @@ func (s *WSGLBSprofileService) FindProfilesLbsById(ctx context.Context, id strin
 
 // FindProfilesLbsByQueryCriteria
 //
-// Operation ID: findProfilesLbsByQueryCriteria
-//
 // Query LBS profiles.
 //
-// Request Body:
+// Operation ID: findProfilesLbsByQueryCriteria
+// Operation path: /profiles/lbs/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileLbsProfileListAPIResponse, error) {
 	var (
@@ -180,37 +190,39 @@ func (s *WSGLBSprofileService) FindProfilesLbsByQueryCriteria(ctx context.Contex
 
 // PartialUpdateProfilesLbsById
 //
-// Operation ID: partialUpdateProfilesLbsById
-//
 // Update LBS profile.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesLbsById
+// Operation path: /profiles/lbs/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGProfileLbsProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGLBSprofileService) PartialUpdateProfilesLbsById(ctx context.Context, body *WSGProfileLbsProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGLBSprofileService) PartialUpdateProfilesLbsById(ctx context.Context, body *WSGProfileLbsProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesLbsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

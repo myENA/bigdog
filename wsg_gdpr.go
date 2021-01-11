@@ -90,11 +90,13 @@ func NewWSGGDPRReport() *WSGGDPRReport {
 
 // AddGdprReport
 //
-// Operation ID: addGdprReport
-//
 // Use this API command to execute a client-related data search or delete task and upload a report to FTP. Also use this API to check task progress or to interrupt it.
 //
-// Request Body:
+// Operation ID: addGdprReport
+// Operation path: /gdpr/report
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGGDPRReport
 func (s *WSGGDPRService) AddGdprReport(ctx context.Context, body *WSGGDPRReport, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (

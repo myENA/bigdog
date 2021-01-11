@@ -179,14 +179,16 @@ func NewWSGTrafficAnalysisResults() *WSGTrafficAnalysisResults {
 
 // FindTrafficAnalysisAggregatesByQueryCriteria
 //
-// Operation ID: findTrafficAnalysisAggregatesByQueryCriteria
-//
 // View traffic analysis aggregates
 //
-// Request Body:
+// Operation ID: findTrafficAnalysisAggregatesByQueryCriteria
+// Operation path: /trafficAnalysis/aggs/{resource}/{source}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - resource string
 //		- required
 //		- oneof:[clients,usage]
@@ -221,14 +223,16 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesByQueryCriteria
 
 // FindTrafficAnalysisAggregatesGroupedByQueryCriteria
 //
-// Operation ID: findTrafficAnalysisAggregatesGroupedByQueryCriteria
-//
 // View grouped traffic analysis aggregates
 //
-// Request Body:
+// Operation ID: findTrafficAnalysisAggregatesGroupedByQueryCriteria
+// Operation path: /trafficAnalysis/aggs/{resource}/group/{source}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - resource string
 //		- required
 //		- oneof:[clients,usage]
@@ -263,14 +267,16 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesGroupedByQueryC
 
 // FindTrafficAnalysisClientResourceByQueryCriteria
 //
-// Operation ID: findTrafficAnalysisClientResourceByQueryCriteria
-//
 // View client resource analytics
 //
-// Request Body:
+// Operation ID: findTrafficAnalysisClientResourceByQueryCriteria
+// Operation path: /trafficAnalysis/client/{resource}/{source}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - resource string
 //		- required
 //		- oneof:[usage,os,app]
@@ -305,14 +311,16 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisClientResourceByQueryCrit
 
 // FindTrafficAnalysisLineRatesByQueryCriteria
 //
-// Operation ID: findTrafficAnalysisLineRatesByQueryCriteria
-//
 // View line rate aggregation data
 //
-// Request Body:
+// Operation ID: findTrafficAnalysisLineRatesByQueryCriteria
+// Operation path: /trafficAnalysis/line/{resource}/{source}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - resource string
 //		- required
 //		- oneof:[usage,clients,aggclients]

@@ -23,11 +23,13 @@ func (ss *WSGService) WSGTTGPDGService() *WSGTTGPDGService {
 
 // AddProfilesTtgpdg
 //
-// Operation ID: addProfilesTtgpdg
-//
 // Use this API command to create TTG+PDG profile.
 //
-// Request Body:
+// Operation ID: addProfilesTtgpdg
+// Operation path: /profiles/ttgpdg
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateTtgpdgProfile
 func (s *WSGTTGPDGService) AddProfilesTtgpdg(ctx context.Context, body *WSGProfileCreateTtgpdgProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *WSGTTGPDGService) AddProfilesTtgpdg(ctx context.Context, body *WSGProfi
 
 // DeleteProfilesTtgpdg
 //
-// Operation ID: deleteProfilesTtgpdg
-//
 // Use this API command to delete multiple TTG PDG profile.
 //
-// Request Body:
+// Operation ID: deleteProfilesTtgpdg
+// Operation path: /profiles/ttgpdg
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGTTGPDGService) DeleteProfilesTtgpdg(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdg(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesTtgpdg, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesTtgpdgApnRealmsById
 //
-// Operation ID: deleteProfilesTtgpdgApnRealmsById
-//
 // Use this API command to disable the APN realm of TTG PDG profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesTtgpdgApnRealmsById
+// Operation path: /profiles/ttgpdg/{id}/apnRealms
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesTtgpdgApnRealmsById, true)
 	defer recycleAPIRequest(req)
@@ -113,29 +119,31 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgApnRealmsById(ctx context.Context
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesTtgpdgById
 //
-// Operation ID: deleteProfilesTtgpdgById
-//
 // Use this API command to delete TTG PDG profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesTtgpdgById
+// Operation path: /profiles/ttgpdg/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGTTGPDGService) DeleteProfilesTtgpdgById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdgById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesTtgpdgById, true)
 	defer recycleAPIRequest(req)
@@ -144,29 +152,31 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgById(ctx context.Context, id stri
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesTtgpdgDhcpRelayById
 //
-// Operation ID: deleteProfilesTtgpdgDhcpRelayById
-//
 // Use this API command to disable the DHCP relay of TTG PDG profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesTtgpdgDhcpRelayById
+// Operation path: /profiles/ttgpdg/{id}/dhcpRelay
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesTtgpdgDhcpRelayById, true)
 	defer recycleAPIRequest(req)
@@ -175,14 +185,16 @@ func (s *WSGTTGPDGService) DeleteProfilesTtgpdgDhcpRelayById(ctx context.Context
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesTtgpdg
 //
-// Operation ID: findProfilesTtgpdg
-//
 // Use this API command to retrieve a list of TTG+PDG profile.
+//
+// Operation ID: findProfilesTtgpdg
+// Operation path: /profiles/ttgpdg
+// Success code: 200 (OK)
 func (s *WSGTTGPDGService) FindProfilesTtgpdg(ctx context.Context, mutators ...RequestMutator) (*WSGProfileListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -205,11 +217,13 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdg(ctx context.Context, mutators ...R
 
 // FindProfilesTtgpdgById
 //
-// Operation ID: findProfilesTtgpdgById
-//
 // Use this API command to retrieve TTG+PDG profile by ID.
 //
-// Required Parameters:
+// Operation ID: findProfilesTtgpdgById
+// Operation path: /profiles/ttgpdg/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGTTGPDGService) FindProfilesTtgpdgById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileTtgpdgProfileAPIResponse, error) {
@@ -235,11 +249,13 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgById(ctx context.Context, id string
 
 // FindProfilesTtgpdgByQueryCriteria
 //
-// Operation ID: findProfilesTtgpdgByQueryCriteria
-//
 // Use this API command to query a list of TTG+PDG profile.
 //
-// Request Body:
+// Operation ID: findProfilesTtgpdgByQueryCriteria
+// Operation path: /profiles/ttgpdg/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileTtgpdgProfileListAPIResponse, error) {
 	var (
@@ -267,37 +283,39 @@ func (s *WSGTTGPDGService) FindProfilesTtgpdgByQueryCriteria(ctx context.Context
 
 // PartialUpdateProfilesTtgpdgById
 //
-// Operation ID: partialUpdateProfilesTtgpdgById
-//
 // Use this API command to modify the configuration of TTG+PDG profile.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesTtgpdgById
+// Operation path: /profiles/ttgpdg/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileTtgpdgProfileConfiguration
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGTTGPDGService) PartialUpdateProfilesTtgpdgById(ctx context.Context, body *WSGProfileTtgpdgProfileConfiguration, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGTTGPDGService) PartialUpdateProfilesTtgpdgById(ctx context.Context, body *WSGProfileTtgpdgProfileConfiguration, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesTtgpdgById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

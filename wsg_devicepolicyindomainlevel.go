@@ -23,11 +23,13 @@ func (ss *WSGService) WSGDevicePolicyInDomainLevelService() *WSGDevicePolicyInDo
 
 // AddDevicePolicy
 //
-// Operation ID: addDevicePolicy
-//
 // Use this API command to create a Device Policy profile.
 //
-// Request Body:
+// Operation ID: addDevicePolicy
+// Operation path: /devicePolicy
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGDomainDevicePolicyCreateDomainDevicePolicy
 func (s *WSGDevicePolicyInDomainLevelService) AddDevicePolicy(ctx context.Context, body *WSGDomainDevicePolicyCreateDomainDevicePolicy, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *WSGDevicePolicyInDomainLevelService) AddDevicePolicy(ctx context.Contex
 
 // DeleteDevicePolicy
 //
-// Operation ID: deleteDevicePolicy
-//
 // Use this API command to delete a list of Device Policy profile.
 //
-// Request Body:
+// Operation ID: deleteDevicePolicy
+// Operation path: /devicePolicy
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGDevicePolicyInDomainLevelService) DeleteDevicePolicy(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDevicePolicyInDomainLevelService) DeleteDevicePolicy(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDevicePolicy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteDevicePolicyById
 //
-// Operation ID: deleteDevicePolicyById
-//
 // Use this API command to delete a Device Policy profile.
 //
-// Required Parameters:
+// Operation ID: deleteDevicePolicyById
+// Operation path: /devicePolicy/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGDevicePolicyInDomainLevelService) DeleteDevicePolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDevicePolicyInDomainLevelService) DeleteDevicePolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDevicePolicyById, true)
 	defer recycleAPIRequest(req)
@@ -113,16 +119,18 @@ func (s *WSGDevicePolicyInDomainLevelService) DeleteDevicePolicyById(ctx context
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindDevicePolicy
 //
-// Operation ID: findDevicePolicy
-//
 // Use this API command to retrieve list of Device Policy profiles.
 //
-// Optional Parameters:
+// Operation ID: findDevicePolicy
+// Operation path: /devicePolicy
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - domainId string
 //		- nullable
 // - index string
@@ -160,11 +168,13 @@ func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicy(ctx context.Conte
 
 // FindDevicePolicyById
 //
-// Operation ID: findDevicePolicyById
-//
 // Use this API command to retrieve a Device Policy profile.
 //
-// Required Parameters:
+// Operation ID: findDevicePolicyById
+// Operation path: /devicePolicy/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGDomainDevicePolicyProfileAPIResponse, error) {
@@ -190,11 +200,13 @@ func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicyById(ctx context.C
 
 // FindDevicePolicyByQueryCriteria
 //
-// Operation ID: findDevicePolicyByQueryCriteria
-//
 // Query Device Policy Profile with specified filters.
 //
-// Request Body:
+// Operation ID: findDevicePolicyByQueryCriteria
+// Operation path: /devicePolicy/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse, error) {
 	var (
@@ -222,37 +234,39 @@ func (s *WSGDevicePolicyInDomainLevelService) FindDevicePolicyByQueryCriteria(ct
 
 // UpdateDevicePolicyById
 //
-// Operation ID: updateDevicePolicyById
-//
 // Use this API command to update a Device Policy profile.
 //
-// Request Body:
+// Operation ID: updateDevicePolicyById
+// Operation path: /devicePolicy/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGDomainDevicePolicyModifyDomainDevicePolicy
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGDevicePolicyInDomainLevelService) UpdateDevicePolicyById(ctx context.Context, body *WSGDomainDevicePolicyModifyDomainDevicePolicy, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDevicePolicyInDomainLevelService) UpdateDevicePolicyById(ctx context.Context, body *WSGDomainDevicePolicyModifyDomainDevicePolicy, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateDevicePolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

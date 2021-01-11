@@ -23,11 +23,13 @@ func (ss *WSGService) WSGZoneAffinityProfileService() *WSGZoneAffinityProfileSer
 
 // AddProfilesZoneAffinity
 //
-// Operation ID: addProfilesZoneAffinity
-//
 // Use this API command to create zone affinity profile.
 //
-// Request Body:
+// Operation ID: addProfilesZoneAffinity
+// Operation path: /profiles/zoneAffinity
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateZoneAffinityProfile
 func (s *WSGZoneAffinityProfileService) AddProfilesZoneAffinity(ctx context.Context, body *WSGProfileCreateZoneAffinityProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,24 +57,26 @@ func (s *WSGZoneAffinityProfileService) AddProfilesZoneAffinity(ctx context.Cont
 
 // DeleteProfilesZoneAffinityById
 //
-// Operation ID: deleteProfilesZoneAffinityById
-//
 // Use this API command to delete zone affinity profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesZoneAffinityById
+// Operation path: /profiles/zoneAffinity/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesZoneAffinityById, true)
 	defer recycleAPIRequest(req)
@@ -81,16 +85,18 @@ func (s *WSGZoneAffinityProfileService) DeleteProfilesZoneAffinityById(ctx conte
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesZoneAffinity
 //
-// Operation ID: findProfilesZoneAffinity
-//
 // Use this API command to get all zone affinity profiles.
 //
-// Optional Parameters:
+// Operation ID: findProfilesZoneAffinity
+// Operation path: /profiles/zoneAffinity
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - vdpId string
 //		- nullable
 func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGProfileZoneAffinityProfileListAPIResponse, error) {
@@ -118,11 +124,13 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinity(ctx context.Con
 
 // FindProfilesZoneAffinityById
 //
-// Operation ID: findProfilesZoneAffinityById
-//
 // Use this API command to get one zone affinity profile.
 //
-// Required Parameters:
+// Operation ID: findProfilesZoneAffinityById
+// Operation path: /profiles/zoneAffinity/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileReturnZoneAffinityProfileAPIResponse, error) {
@@ -148,37 +156,39 @@ func (s *WSGZoneAffinityProfileService) FindProfilesZoneAffinityById(ctx context
 
 // PartialUpdateProfilesZoneAffinityById
 //
-// Operation ID: partialUpdateProfilesZoneAffinityById
-//
 // Use this API command to modify zone affinity profile.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesZoneAffinityById
+// Operation path: /profiles/zoneAffinity/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyZoneAffinityProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGZoneAffinityProfileService) PartialUpdateProfilesZoneAffinityById(ctx context.Context, body *WSGProfileModifyZoneAffinityProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZoneAffinityProfileService) PartialUpdateProfilesZoneAffinityById(ctx context.Context, body *WSGProfileModifyZoneAffinityProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesZoneAffinityById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

@@ -23,24 +23,26 @@ func (ss *WSGService) WSGControlPlanesService() *WSGControlPlanesService {
 
 // DeleteControlPlanesStaticRoutesByBladeUUID
 //
-// Operation ID: deleteControlPlanesStaticRoutesByBladeUUID
-//
 // Use this API command to delete the static route of control plane.
 //
-// Required Parameters:
+// Operation ID: deleteControlPlanesStaticRoutesByBladeUUID
+// Operation path: /controlPlanes/{bladeUUID}/staticRoutes
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteControlPlanesStaticRoutesByBladeUUID, true)
 	defer recycleAPIRequest(req)
@@ -49,29 +51,31 @@ func (s *WSGControlPlanesService) DeleteControlPlanesStaticRoutesByBladeUUID(ctx
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteControlPlanesUserDefinedInterfaceByBladeUUID
 //
-// Operation ID: deleteControlPlanesUserDefinedInterfaceByBladeUUID
-//
 // Use this API command to delete the user defined interface of control plane.
 //
-// Required Parameters:
+// Operation ID: deleteControlPlanesUserDefinedInterfaceByBladeUUID
+// Operation path: /controlPlanes/{bladeUUID}/userDefinedInterface
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteControlPlanesUserDefinedInterfaceByBladeUUID, true)
 	defer recycleAPIRequest(req)
@@ -80,14 +84,16 @@ func (s *WSGControlPlanesService) DeleteControlPlanesUserDefinedInterfaceByBlade
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindControlPlanes
 //
-// Operation ID: findControlPlanes
-//
 // Use this API command to retrieve the list of control plane.
+//
+// Operation ID: findControlPlanes
+// Operation path: /controlPlanes
+// Success code: 200 (OK)
 func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context, mutators ...RequestMutator) (*WSGSystemControlPlaneListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -110,11 +116,13 @@ func (s *WSGControlPlanesService) FindControlPlanes(ctx context.Context, mutator
 
 // FindControlPlanesByBladeUUID
 //
-// Operation ID: findControlPlanesByBladeUUID
-//
 // Use this API command to retrieve control plane.
 //
-// Required Parameters:
+// Operation ID: findControlPlanesByBladeUUID
+// Operation path: /controlPlanes/{bladeUUID}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - bladeUUID string
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*WSGSystemControlPlaneConfigurationAPIResponse, error) {
@@ -140,11 +148,13 @@ func (s *WSGControlPlanesService) FindControlPlanesByBladeUUID(ctx context.Conte
 
 // FindControlPlanesInterfaces
 //
-// Operation ID: findControlPlanesInterfaces
-//
 // Use this API command to retrieve Control Plane Interface list.
 //
-// Optional Parameters:
+// Operation ID: findControlPlanesInterfaces
+// Operation path: /controlPlanes/interfaces
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - bladeUUID string
 //		- nullable
 func (s *WSGControlPlanesService) FindControlPlanesInterfaces(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSystemControlPlaneInterfaceListAPIResponse, error) {
@@ -172,11 +182,13 @@ func (s *WSGControlPlanesService) FindControlPlanesInterfaces(ctx context.Contex
 
 // FindControlPlanesStaticRoutesByBladeUUID
 //
-// Operation ID: findControlPlanesStaticRoutesByBladeUUID
-//
 // Use this API command to retrieve static route of control plane.
 //
-// Required Parameters:
+// Operation ID: findControlPlanesStaticRoutesByBladeUUID
+// Operation path: /controlPlanes/{bladeUUID}/staticRoutes
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - bladeUUID string
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*WSGSystemStaticRouteListAPIResponse, error) {
@@ -202,11 +214,13 @@ func (s *WSGControlPlanesService) FindControlPlanesStaticRoutesByBladeUUID(ctx c
 
 // FindControlPlanesUserDefinedInterfaceByBladeUUID
 //
-// Operation ID: findControlPlanesUserDefinedInterfaceByBladeUUID
-//
 // Use this API command to retrieve user defined interface of control plane.
 //
-// Required Parameters:
+// Operation ID: findControlPlanesUserDefinedInterfaceByBladeUUID
+// Operation path: /controlPlanes/{bladeUUID}/userDefinedInterface
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - bladeUUID string
 //		- required
 func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*WSGSystemUserDefinedInterfaceListAPIResponse, error) {
@@ -232,143 +246,151 @@ func (s *WSGControlPlanesService) FindControlPlanesUserDefinedInterfaceByBladeUU
 
 // PartialUpdateControlPlanesByBladeUUID
 //
-// Operation ID: partialUpdateControlPlanesByBladeUUID
-//
 // Use this API command to modify the configuration of control plane.
 //
-// Request Body:
+// Operation ID: partialUpdateControlPlanesByBladeUUID
+// Operation path: /controlPlanes/{bladeUUID}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemModifyControlPlane
 //
-// Required Parameters:
+// Required parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx context.Context, body *WSGSystemModifyControlPlane, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGControlPlanesService) PartialUpdateControlPlanesByBladeUUID(ctx context.Context, body *WSGSystemModifyControlPlane, bladeUUID string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateControlPlanesByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateControlPlanesIpSupport
 //
-// Operation ID: partialUpdateControlPlanesIpSupport
-//
 // Use this API command to modify ip support of control plane.
 //
-// Request Body:
+// Operation ID: partialUpdateControlPlanesIpSupport
+// Operation path: /controlPlanes/ipSupport
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemModifyIpSupportType
-func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx context.Context, body *WSGSystemModifyIpSupportType, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGControlPlanesService) PartialUpdateControlPlanesIpSupport(ctx context.Context, body *WSGSystemModifyIpSupportType, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateControlPlanesIpSupport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateControlPlanesStaticRoutesByBladeUUID
 //
-// Operation ID: partialUpdateControlPlanesStaticRoutesByBladeUUID
-//
 // Use this API command to modify the static route of control plane.
 //
-// Request Body:
+// Operation ID: partialUpdateControlPlanesStaticRoutesByBladeUUID
+// Operation path: /controlPlanes/{bladeUUID}/staticRoutes
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemModifyCPStaticRoute
 //
-// Required Parameters:
+// Required parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) PartialUpdateControlPlanesStaticRoutesByBladeUUID(ctx context.Context, body *WSGSystemModifyCPStaticRoute, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGControlPlanesService) PartialUpdateControlPlanesStaticRoutesByBladeUUID(ctx context.Context, body *WSGSystemModifyCPStaticRoute, bladeUUID string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateControlPlanesStaticRoutesByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID
 //
-// Operation ID: partialUpdateControlPlanesUserDefinedInterfaceByBladeUUID
-//
 // Use this API command to modify user defined interface of control plane.
 //
-// Request Body:
+// Operation ID: partialUpdateControlPlanesUserDefinedInterfaceByBladeUUID
+// Operation path: /controlPlanes/{bladeUUID}/userDefinedInterface
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemModifyCPUserDefinedInterface
 //
-// Required Parameters:
+// Required parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGControlPlanesService) PartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, body *WSGSystemModifyCPUserDefinedInterface, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGControlPlanesService) PartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID(ctx context.Context, body *WSGSystemModifyCPUserDefinedInterface, bladeUUID string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateControlPlanesUserDefinedInterfaceByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

@@ -5434,51 +5434,55 @@ func NewSCIReportWLANsReport41topSsidsByClientsTable200ResponseType() *SCIReport
 // ReportDownloadReport
 //
 // Operation ID: report_downloadReport
+// Operation path: /reports/{id}/download/{format}
+// Success code: 204 (No Content)
 //
-// Form Data Parameters:
+// Form data parameters:
 // - state string
 //		- required
 // - timezone string
 //		- required
 //
-// Required Parameters:
+// Required parameters:
 // - format string
 //		- required
 // - id string
 //		- required
-func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues url.Values, format string, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues url.Values, format string, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIReportDownloadReport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("format", format)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // ReportFind
 //
-// Operation ID: report_find
-//
 // Find all instances of the model matched by filter from the data source.
 //
-// Optional Parameters:
+// Operation ID: report_find
+// Operation path: /reports
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIReportFind200ResponseTypeAPIResponse, error) {
@@ -5506,15 +5510,17 @@ func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[st
 
 // ReportFindById
 //
-// Operation ID: report_findById
-//
 // Find a model instance by id from the data source.
 //
-// Required Parameters:
+// Operation ID: report_findById
+// Operation path: /reports/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIReportService) ReportFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsReportAPIResponse, error) {
@@ -5543,11 +5549,13 @@ func (s *SCIReportService) ReportFindById(ctx context.Context, id string, option
 
 // ReportGetData
 //
-// Operation ID: report_getData
-//
 // For the <b><code>filter</code></b> field below, an example would be <pre><code class="json">{ "type": "or", "fields": [{ "type": "selector", "dimension": "apMac", "value": "000000000000" }]}</code></pre>
 //
-// Form Data Parameters:
+// Operation ID: report_getData
+// Operation path: /reports/{id}/sections/{sectionId}/data
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - end string
 //		- required
 // - filter string
@@ -5565,7 +5573,7 @@ func (s *SCIReportService) ReportFindById(ctx context.Context, id string, option
 // - switchFilter string
 //		- nullable
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - sectionId string
@@ -5599,6 +5607,8 @@ func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Val
 // ReportLatestIngestedTime
 //
 // Operation ID: report_latestIngestedTime
+// Operation path: /reports/latestIngestedTime
+// Success code: 200 (OK)
 func (s *SCIReportService) ReportLatestIngestedTime(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -5621,15 +5631,17 @@ func (s *SCIReportService) ReportLatestIngestedTime(ctx context.Context, mutator
 
 // ReportPrototypeGetSections
 //
-// Operation ID: report_prototype_get_sections
-//
 // Queries sections of report.
 //
-// Required Parameters:
+// Operation ID: report_prototype_get_sections
+// Operation path: /reports/{id}/sections
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIReportPrototypegetsections200ResponseTypeAPIResponse, error) {
@@ -5658,11 +5670,13 @@ func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id st
 
 // ReportWithRelations
 //
-// Operation ID: report_withRelations
-//
 // For the <b><code>urlSegmentName</code></b> field below, examples could be <code>overview</code>, <code>network</code>, <code>ap</code>, <code>clients</code>
 //
-// Required Parameters:
+// Operation ID: report_withRelations
+// Operation path: /reports/withRelations
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - urlSegmentName string
 //		- required
 //		- oneof:[ap,client,switch,wlans,airtime,applications,network,aps,overview,comparison,health]

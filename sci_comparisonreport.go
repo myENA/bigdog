@@ -23,11 +23,13 @@ func (ss *SCIService) SCIComparisonReportService() *SCIComparisonReportService {
 
 // ReportComparisonReport140ComparisionOverview
 //
-// Operation ID: report_ComparisonReport_140_comparisionOverview
-//
 // Comparison Report - Overview
 //
-// Request Body:
+// Operation ID: report_ComparisonReport_140_comparisionOverview
+// Operation path: /reports/19/sections/140/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIComparisonReportService) ReportComparisonReport140ComparisionOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportComparisonReport140comparisionOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *SCIComparisonReportService) ReportComparisonReport140ComparisionOvervie
 
 // ReportComparisonReport145ComparisionMetric1
 //
-// Operation ID: report_ComparisonReport_145_comparisionMetric1
-//
 // Comparison Report - Metric 1 Over Time
 //
-// Request Body:
+// Operation ID: report_ComparisonReport_145_comparisionMetric1
+// Operation path: /reports/19/sections/145/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIComparisonReportService) ReportComparisonReport145ComparisionMetric1(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportComparisonReport145comparisionMetric1200ResponseTypeAPIResponse, error) {
 	var (
@@ -87,11 +91,13 @@ func (s *SCIComparisonReportService) ReportComparisonReport145ComparisionMetric1
 
 // ReportComparisonReport146ComparisionMetric2
 //
-// Operation ID: report_ComparisonReport_146_comparisionMetric2
-//
 // Comparison Report - Metric 2 Over Time
 //
-// Request Body:
+// Operation ID: report_ComparisonReport_146_comparisionMetric2
+// Operation path: /reports/19/sections/146/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIComparisonReportService) ReportComparisonReport146ComparisionMetric2(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportComparisonReport146comparisionMetric2200ResponseTypeAPIResponse, error) {
 	var (
@@ -119,11 +125,13 @@ func (s *SCIComparisonReportService) ReportComparisonReport146ComparisionMetric2
 
 // ReportComparisonReport147ComparisionTable
 //
-// Operation ID: report_ComparisonReport_147_comparisionTable
-//
 // Comparison Report - Table
 //
-// Request Body:
+// Operation ID: report_ComparisonReport_147_comparisionTable
+// Operation path: /reports/19/sections/147/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIComparisonReportService) ReportComparisonReport147ComparisionTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportComparisonReport147comparisionTable200ResponseTypeAPIResponse, error) {
 	var (

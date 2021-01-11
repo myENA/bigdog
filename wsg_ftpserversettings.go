@@ -23,11 +23,13 @@ func (ss *WSGService) WSGFTPServerSettingsService() *WSGFTPServerSettingsService
 
 // AddFtps
 //
-// Operation ID: addFtps
-//
 // Add FTP server.
 //
-// Request Body:
+// Operation ID: addFtps
+// Operation path: /ftps
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGSystemFtp
 func (s *WSGFTPServerSettingsService) AddFtps(ctx context.Context, body *WSGSystemFtp, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *WSGFTPServerSettingsService) AddFtps(ctx context.Context, body *WSGSyst
 
 // DeleteFtps
 //
-// Operation ID: deleteFtps
-//
 // Remove FTP servers.
 //
-// Request Body:
+// Operation ID: deleteFtps
+// Operation path: /ftps
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSystemDeleteBulkFtp
 func (s *WSGFTPServerSettingsService) DeleteFtps(ctx context.Context, body *WSGSystemDeleteBulkFtp, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -87,24 +91,26 @@ func (s *WSGFTPServerSettingsService) DeleteFtps(ctx context.Context, body *WSGS
 
 // DeleteFtpsByFtpId
 //
-// Operation ID: deleteFtpsByFtpId
-//
 // Remove FTP server.
 //
-// Required Parameters:
+// Operation ID: deleteFtpsByFtpId
+// Operation path: /ftps/{ftpId}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - ftpId string
 //		- required
-func (s *WSGFTPServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, ftpId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGFTPServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, ftpId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteFtpsByFtpId, true)
 	defer recycleAPIRequest(req)
@@ -113,16 +119,18 @@ func (s *WSGFTPServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, ftp
 	req.PathParams.Set("ftpId", ftpId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindFtpsByFtpId
 //
-// Operation ID: findFtpsByFtpId
-//
 // Retrieve information of specific FTP server.
 //
-// Required Parameters:
+// Operation ID: findFtpsByFtpId
+// Operation path: /ftps/{ftpId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - ftpId string
 //		- required
 func (s *WSGFTPServerSettingsService) FindFtpsByFtpId(ctx context.Context, ftpId string, mutators ...RequestMutator) (*WSGSystemFtpAPIResponse, error) {
@@ -148,11 +156,13 @@ func (s *WSGFTPServerSettingsService) FindFtpsByFtpId(ctx context.Context, ftpId
 
 // FindFtpsByQueryCriteria
 //
-// Operation ID: findFtpsByQueryCriteria
-//
 // Retrieve information of all FTP server.
 //
-// Request Body:
+// Operation ID: findFtpsByQueryCriteria
+// Operation path: /ftps/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGFTPServerSettingsService) FindFtpsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGSystemFtpListAPIResponse, error) {
 	var (
@@ -180,11 +190,13 @@ func (s *WSGFTPServerSettingsService) FindFtpsByQueryCriteria(ctx context.Contex
 
 // FindFtpsTest
 //
-// Operation ID: findFtpsTest
-//
 // Test ftp server of specific FTP server settings.
 //
-// Request Body:
+// Operation ID: findFtpsTest
+// Operation path: /ftps/test
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSystemFtp
 func (s *WSGFTPServerSettingsService) FindFtpsTest(ctx context.Context, body *WSGSystemFtp, mutators ...RequestMutator) (*WSGSystemFtpTestResponseAPIResponse, error) {
 	var (
@@ -211,11 +223,13 @@ func (s *WSGFTPServerSettingsService) FindFtpsTest(ctx context.Context, body *WS
 
 // FindFtpsTestByFtpId
 //
-// Operation ID: findFtpsTestByFtpId
-//
 // Test ftp server of specific FTP server id.
 //
-// Required Parameters:
+// Operation ID: findFtpsTestByFtpId
+// Operation path: /ftps/test/{ftpId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - ftpId string
 //		- required
 func (s *WSGFTPServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, ftpId string, mutators ...RequestMutator) (*WSGSystemFtpTestResponseAPIResponse, error) {
@@ -241,37 +255,39 @@ func (s *WSGFTPServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, f
 
 // PartialUpdateFtpsByFtpId
 //
-// Operation ID: partialUpdateFtpsByFtpId
-//
 // Update FTP server settings.
 //
-// Request Body:
+// Operation ID: partialUpdateFtpsByFtpId
+// Operation path: /ftps/{ftpId}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemFtp
 //
-// Required Parameters:
+// Required parameters:
 // - ftpId string
 //		- required
-func (s *WSGFTPServerSettingsService) PartialUpdateFtpsByFtpId(ctx context.Context, body *WSGSystemFtp, ftpId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGFTPServerSettingsService) PartialUpdateFtpsByFtpId(ctx context.Context, body *WSGSystemFtp, ftpId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateFtpsByFtpId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("ftpId", ftpId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

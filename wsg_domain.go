@@ -177,14 +177,16 @@ func NewWSGDomainModifyDomain() *WSGDomainModifyDomain {
 
 // AddDomains
 //
-// Operation ID: addDomains
-//
 // Use this API command to create new domain.
 //
-// Request Body:
+// Operation ID: addDomains
+// Operation path: /domains
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGDomainCreateDomain
 //
-// Optional Parameters:
+// Optional parameters:
 // - parentDomainId string
 //		- nullable
 func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreateDomain, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -216,24 +218,26 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 
 // DeleteDomainsById
 //
-// Operation ID: deleteDomainsById
-//
 // Use this API command to delete domain.
 //
-// Required Parameters:
+// Operation ID: deleteDomainsById
+// Operation path: /domains/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteDomainsById, true)
 	defer recycleAPIRequest(req)
@@ -242,16 +246,18 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mut
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindDomains
 //
-// Operation ID: findDomains
-//
 // Use this API command to retrieve a list of domain under Administration Domain.
 //
-// Optional Parameters:
+// Operation ID: findDomains
+// Operation path: /domains
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - excludeRegularDomain string
 //		- nullable
 // - includeSelf string
@@ -299,15 +305,17 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 
 // FindDomainsById
 //
-// Operation ID: findDomainsById
-//
 // Use this API command to retrieve domain by specified Domain ID.
 //
-// Required Parameters:
+// Operation ID: findDomainsById
+// Operation path: /domains/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - recursively string
 //		- nullable
 func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGDomainConfigurationAPIResponse, error) {
@@ -336,11 +344,13 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 
 // FindDomainsByNameByDomainName
 //
-// Operation ID: findDomainsByNameByDomainName
-//
 // Use this API command to retrieve a list of domain by specified Domain name.
 //
-// Required Parameters:
+// Operation ID: findDomainsByNameByDomainName
+// Operation path: /domains/byName/{domainName}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - domainName string
 //		- required
 func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, domainName string, mutators ...RequestMutator) (*WSGDomainListAPIResponse, error) {
@@ -366,15 +376,17 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 
 // FindDomainsSubdomainById
 //
-// Operation ID: findDomainsSubdomainById
-//
 // Use this API command to retrieve a list of subdomain by specified Domain ID.
 //
-// Required Parameters:
+// Operation ID: findDomainsSubdomainById
+// Operation path: /domains/{id}/subdomain
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - excludeRegularDomain string
 //		- nullable
 // - includeSelf string
@@ -423,37 +435,39 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 
 // PartialUpdateDomainsById
 //
-// Operation ID: partialUpdateDomainsById
-//
 // Use this API command to modify the configuration of domain.
 //
-// Request Body:
+// Operation ID: partialUpdateDomainsById
+// Operation path: /domains/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGDomainModifyDomain
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *WSGDomainModifyDomain, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateDomainsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

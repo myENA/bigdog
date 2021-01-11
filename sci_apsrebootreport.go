@@ -270,11 +270,13 @@ func NewSCIAPsRebootReport45topApRebootsOverTimeDataType() *SCIAPsRebootReport45
 
 // ReportAPsRebootReport43TotalReboots
 //
-// Operation ID: report_APsRebootReport_43_totalReboots
-//
 // APs Reboot Report - Total Reboots
 //
-// Request Body:
+// Operation ID: report_APsRebootReport_43_totalReboots
+// Operation path: /reports/8/sections/43/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPsRebootReportService) ReportAPsRebootReport43TotalReboots(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse, error) {
 	var (
@@ -302,11 +304,13 @@ func (s *SCIAPsRebootReportService) ReportAPsRebootReport43TotalReboots(ctx cont
 
 // ReportAPsRebootReport44TopApRebootsTable
 //
-// Operation ID: report_APsRebootReport_44_topApRebootsTable
-//
 // APs Reboot Report - Top AP Reboots
 //
-// Request Body:
+// Operation ID: report_APsRebootReport_44_topApRebootsTable
+// Operation path: /reports/8/sections/44/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPsRebootReportService) ReportAPsRebootReport44TopApRebootsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -334,11 +338,13 @@ func (s *SCIAPsRebootReportService) ReportAPsRebootReport44TopApRebootsTable(ctx
 
 // ReportAPsRebootReport45TopApRebootsOverTime
 //
-// Operation ID: report_APsRebootReport_45_topApRebootsOverTime
-//
 // APs Reboot Report - AP Reboots
 //
-// Request Body:
+// Operation ID: report_APsRebootReport_45_topApRebootsOverTime
+// Operation path: /reports/8/sections/45/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPsRebootReportService) ReportAPsRebootReport45TopApRebootsOverTime(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse, error) {
 	var (

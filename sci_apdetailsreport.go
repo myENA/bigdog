@@ -1777,11 +1777,13 @@ func NewSCIAPDetailsReport85eventsTableDataType() *SCIAPDetailsReport85eventsTab
 
 // ReportAPDetailsReport5TrendChart
 //
-// Operation ID: report_APDetailsReport_5_trendChart
-//
 // AP Details Report - Airtime Utilization Trend
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_5_trendChart
+// Operation path: /reports/11/sections/5/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport5TrendChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -1809,11 +1811,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport5TrendChart(ctx context
 
 // ReportAPDetailsReport7Top10ApplicationsByTrafficVolume
 //
-// Operation ID: report_APDetailsReport_7_top10ApplicationsByTrafficVolume
-//
 // AP Details Report - Top Applications by Traffic
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_7_top10ApplicationsByTrafficVolume
+// Operation path: /reports/11/sections/7/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport7Top10ApplicationsByTrafficVolume(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse, error) {
 	var (
@@ -1841,11 +1845,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport7Top10ApplicationsByTra
 
 // ReportAPDetailsReport8TopAppsByTrafficTable
 //
-// Operation ID: report_APDetailsReport_8_topAppsByTrafficTable
-//
 // AP Details Report - Top Applications by Traffic
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_8_topAppsByTrafficTable
+// Operation path: /reports/11/sections/8/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport8TopAppsByTrafficTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -1873,11 +1879,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport8TopAppsByTrafficTable(
 
 // ReportAPDetailsReport14TopTable
 //
-// Operation ID: report_APDetailsReport_14_topTable
-//
 // AP Details Report - Clients Details
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_14_topTable
+// Operation path: /reports/11/sections/14/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport14TopTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -1905,11 +1913,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport14TopTable(ctx context.
 
 // ReportAPDetailsReport15TrendChart
 //
-// Operation ID: report_APDetailsReport_15_trendChart
-//
 // AP Details Report - Unique Clients Trend Over Time
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_15_trendChart
+// Operation path: /reports/11/sections/15/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport15TrendChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -1937,11 +1947,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport15TrendChart(ctx contex
 
 // ReportAPDetailsReport22TrafficTrend
 //
-// Operation ID: report_APDetailsReport_22_trafficTrend
-//
 // AP Details Report - Traffic Trend
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_22_trafficTrend
+// Operation path: /reports/11/sections/22/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport22TrafficTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -1969,11 +1981,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport22TrafficTrend(ctx cont
 
 // ReportAPDetailsReport40TopSsidsByTrafficTable
 //
-// Operation ID: report_APDetailsReport_40_topSsidsByTrafficTable
-//
 // AP Details Report - Top SSIDs by Traffic
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_40_topSsidsByTrafficTable
+// Operation path: /reports/11/sections/40/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport40TopSsidsByTrafficTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -2001,11 +2015,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport40TopSsidsByTrafficTabl
 
 // ReportAPDetailsReport75ApSummary
 //
-// Operation ID: report_APDetailsReport_75_apSummary
-//
 // AP Details Report - Summary
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_75_apSummary
+// Operation path: /reports/11/sections/75/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport75ApSummary(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse, error) {
 	var (
@@ -2033,11 +2049,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport75ApSummary(ctx context
 
 // ReportAPDetailsReport76ApPerformance
 //
-// Operation ID: report_APDetailsReport_76_apPerformance
-//
 // AP Details Report - Performance
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_76_apPerformance
+// Operation path: /reports/11/sections/76/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport76ApPerformance(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse, error) {
 	var (
@@ -2065,11 +2083,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport76ApPerformance(ctx con
 
 // ReportAPDetailsReport77ApDetails
 //
-// Operation ID: report_APDetailsReport_77_apDetails
-//
 // AP Details Report - Details
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_77_apDetails
+// Operation path: /reports/11/sections/77/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport77ApDetails(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse, error) {
 	var (
@@ -2097,11 +2117,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport77ApDetails(ctx context
 
 // ReportAPDetailsReport78ApStatsOverview
 //
-// Operation ID: report_APDetailsReport_78_apStatsOverview
-//
 // AP Details Report - Stats
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_78_apStatsOverview
+// Operation path: /reports/11/sections/78/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport78ApStatsOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -2129,11 +2151,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport78ApStatsOverview(ctx c
 
 // ReportAPDetailsReport79ApUptimeHistory
 //
-// Operation ID: report_APDetailsReport_79_apUptimeHistory
-//
 // AP Details Report - Uptime History
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_79_apUptimeHistory
+// Operation path: /reports/11/sections/79/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport79ApUptimeHistory(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse, error) {
 	var (
@@ -2161,11 +2185,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport79ApUptimeHistory(ctx c
 
 // ReportAPDetailsReport80Top10ClientsByTrafficVolume
 //
-// Operation ID: report_APDetailsReport_80_top10ClientsByTrafficVolume
-//
 // AP Details Report - Top 10 Clients by Traffic Volume
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_80_top10ClientsByTrafficVolume
+// Operation path: /reports/11/sections/80/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport80Top10ClientsByTrafficVolume(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResponse, error) {
 	var (
@@ -2193,11 +2219,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport80Top10ClientsByTraffic
 
 // ReportAPDetailsReport81SessionsTable
 //
-// Operation ID: report_APDetailsReport_81_sessionsTable
-//
 // AP Details Report - Sessions
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_81_sessionsTable
+// Operation path: /reports/11/sections/81/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport81SessionsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -2225,11 +2253,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport81SessionsTable(ctx con
 
 // ReportAPDetailsReport82RssTrend
 //
-// Operation ID: report_APDetailsReport_82_rssTrend
-//
 // AP Details Report - RSS Trend
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_82_rssTrend
+// Operation path: /reports/11/sections/82/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport82RssTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -2257,11 +2287,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport82RssTrend(ctx context.
 
 // ReportAPDetailsReport83SnrTrend
 //
-// Operation ID: report_APDetailsReport_83_snrTrend
-//
 // AP Details Report - SNR Trend
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_83_snrTrend
+// Operation path: /reports/11/sections/83/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport83SnrTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -2289,11 +2321,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport83SnrTrend(ctx context.
 
 // ReportAPDetailsReport84AlarmsTable
 //
-// Operation ID: report_APDetailsReport_84_alarmsTable
-//
 // AP Details Report - Alarms
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_84_alarmsTable
+// Operation path: /reports/11/sections/84/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport84AlarmsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -2321,11 +2355,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport84AlarmsTable(ctx conte
 
 // ReportAPDetailsReport85EventsTable
 //
-// Operation ID: report_APDetailsReport_85_eventsTable
-//
 // AP Details Report - Events
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_85_eventsTable
+// Operation path: /reports/11/sections/85/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport85EventsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -2353,11 +2389,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport85EventsTable(ctx conte
 
 // ReportAPDetailsReport95Anomalies
 //
-// Operation ID: report_APDetailsReport_95_anomalies
-//
 // AP Details Report - Anomalies
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_95_anomalies
+// Operation path: /reports/11/sections/95/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport95Anomalies(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse, error) {
 	var (
@@ -2385,11 +2423,13 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport95Anomalies(ctx context
 
 // ReportAPDetailsReport110ApAnomaly
 //
-// Operation ID: report_APDetailsReport_110_apAnomaly
-//
 // AP Details Report - Anomalies for the Past 30 Days
 //
-// Request Body:
+// Operation ID: report_APDetailsReport_110_apAnomaly
+// Operation path: /reports/11/sections/110/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAPDetailsReportService) ReportAPDetailsReport110ApAnomaly(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse, error) {
 	var (

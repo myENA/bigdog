@@ -23,9 +23,11 @@ func (ss *SwitchMService) SwitchMConfigurationHistoryService() *SwitchMConfigura
 
 // FindConfigurationHistory
 //
-// Operation ID: findConfigurationHistory
-//
 // Use this API command to Retrieve Configuration History List.
+//
+// Operation ID: findConfigurationHistory
+// Operation path: /configurationHistory
+// Success code: 200 (OK)
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx context.Context, mutators ...RequestMutator) (*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -48,11 +50,13 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx contex
 
 // FindConfigurationHistoryByQueryCriteria
 //
-// Operation ID: findConfigurationHistoryByQueryCriteria
-//
 // Use this API command to Query Configuration History List.
 //
-// Request Body:
+// Operation ID: findConfigurationHistoryByQueryCriteria
+// Operation path: /configurationHistory/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse, error) {
 	var (
@@ -80,9 +84,11 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 
 // FindConfigurationHistoryDetail
 //
-// Operation ID: findConfigurationHistoryDetail
-//
 // Use this API command to Retrieve Configuration History List.
+//
+// Operation ID: findConfigurationHistoryDetail
+// Operation path: /configurationHistory/detail
+// Success code: 200 (OK)
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx context.Context, mutators ...RequestMutator) (*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -105,11 +111,13 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx 
 
 // FindConfigurationHistoryDetailByQueryCriteria
 //
-// Operation ID: findConfigurationHistoryDetailByQueryCriteria
-//
 // Use this API command to Query Configuration History List.
 //
-// Request Body:
+// Operation ID: findConfigurationHistoryDetailByQueryCriteria
+// Operation path: /configurationHistory/detail/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse, error) {
 	var (

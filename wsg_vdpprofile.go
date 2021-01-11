@@ -23,24 +23,26 @@ func (ss *WSGService) WSGVDPProfileService() *WSGVDPProfileService {
 
 // DeleteProfilesVdpById
 //
-// Operation ID: deleteProfilesVdpById
-//
 // Use this API command to delete an vdp.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesVdpById
+// Operation path: /profiles/vdp/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesVdpById, true)
 	defer recycleAPIRequest(req)
@@ -49,16 +51,18 @@ func (s *WSGVDPProfileService) DeleteProfilesVdpById(ctx context.Context, id str
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesVdp
 //
-// Operation ID: findProfilesVdp
-//
 // Use this API command to retrieve a list of vdp.
 //
-// Optional Parameters:
+// Operation ID: findProfilesVdp
+// Operation path: /profiles/vdp
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -91,11 +95,13 @@ func (s *WSGVDPProfileService) FindProfilesVdp(ctx context.Context, optionalPara
 
 // FindProfilesVdpById
 //
-// Operation ID: findProfilesVdpById
-//
 // Use this API command to retrieve an vdp.
 //
-// Required Parameters:
+// Operation ID: findProfilesVdpById
+// Operation path: /profiles/vdp/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileVdpProfileAPIResponse, error) {
@@ -121,24 +127,26 @@ func (s *WSGVDPProfileService) FindProfilesVdpById(ctx context.Context, id strin
 
 // UpdateProfilesVdpApproveById
 //
-// Operation ID: updateProfilesVdpApproveById
-//
 // Use this API command to approve vdp.
 //
-// Required Parameters:
+// Operation ID: updateProfilesVdpApproveById
+// Operation path: /profiles/vdp/{id}/approve
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateProfilesVdpApproveById, true)
 	defer recycleAPIRequest(req)
@@ -147,5 +155,5 @@ func (s *WSGVDPProfileService) UpdateProfilesVdpApproveById(ctx context.Context,
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

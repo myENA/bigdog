@@ -23,14 +23,16 @@ func (ss *WSGService) WSGEthernetPortProfileService() *WSGEthernetPortProfileSer
 
 // AddRkszonesProfileEthernetPortByZoneId
 //
-// Operation ID: addRkszonesProfileEthernetPortByZoneId
-//
 // Create a new Ethernet Port Porfile.
 //
-// Request Body:
+// Operation ID: addRkszonesProfileEthernetPortByZoneId
+// Operation path: /rkszones/{zoneId}/profile/ethernetPort
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGEthernetPortCreateEthernetPortProfile
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGEthernetPortProfileService) AddRkszonesProfileEthernetPortByZoneId(ctx context.Context, body *WSGEthernetPortCreateEthernetPortProfile, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,26 +62,28 @@ func (s *WSGEthernetPortProfileService) AddRkszonesProfileEthernetPortByZoneId(c
 
 // DeleteRkszonesProfileEthernetPortById
 //
-// Operation ID: deleteRkszonesProfileEthernetPortById
-//
 // Delete Ethernet Port Porfile.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesProfileEthernetPortById
+// Operation path: /rkszones/{zoneId}/profile/ethernetPort/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGEthernetPortProfileService) DeleteRkszonesProfileEthernetPortById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGEthernetPortProfileService) DeleteRkszonesProfileEthernetPortById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesProfileEthernetPortById, true)
 	defer recycleAPIRequest(req)
@@ -89,16 +93,18 @@ func (s *WSGEthernetPortProfileService) DeleteRkszonesProfileEthernetPortById(ct
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesProfileEthernetPortById
 //
-// Operation ID: findRkszonesProfileEthernetPortById
-//
 // Retrieve a Ethernet Port Porfile.
 //
-// Required Parameters:
+// Operation ID: findRkszonesProfileEthernetPortById
+// Operation path: /rkszones/{zoneId}/profile/ethernetPort/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -127,15 +133,17 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortById(ctx 
 
 // FindRkszonesProfileEthernetPortByZoneId
 //
-// Operation ID: findRkszonesProfileEthernetPortByZoneId
-//
 // Retrieve a list of Ethernet Port Porfiles within a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesProfileEthernetPortByZoneId
+// Operation path: /rkszones/{zoneId}/profile/ethernetPort
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -169,11 +177,13 @@ func (s *WSGEthernetPortProfileService) FindRkszonesProfileEthernetPortByZoneId(
 
 // FindServicesEthernetPortProfileByQueryCriteria
 //
-// Operation ID: findServicesEthernetPortProfileByQueryCriteria
-//
 // Query Ethernet Port Profiles with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesEthernetPortProfileByQueryCriteria
+// Operation path: /query/services/ethernetPortProfile
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGEthernetPortProfileService) FindServicesEthernetPortProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -201,80 +211,84 @@ func (s *WSGEthernetPortProfileService) FindServicesEthernetPortProfileByQueryCr
 
 // PartialUpdateRkszonesProfileEthernetPortById
 //
-// Operation ID: partialUpdateRkszonesProfileEthernetPortById
-//
 // Modify a specific Ethernet Port Porfile.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesProfileEthernetPortById
+// Operation path: /rkszones/{zoneId}/profile/ethernetPort/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGEthernetPortModifyEthernetPortProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGEthernetPortProfileService) PartialUpdateRkszonesProfileEthernetPortById(ctx context.Context, body *WSGEthernetPortModifyEthernetPortProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGEthernetPortProfileService) PartialUpdateRkszonesProfileEthernetPortById(ctx context.Context, body *WSGEthernetPortModifyEthernetPortProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesProfileEthernetPortById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateRkszonesProfileEthernetPortById
 //
-// Operation ID: updateRkszonesProfileEthernetPortById
-//
 // Modify a specific Ethernet Port Porfile.
 //
-// Request Body:
+// Operation ID: updateRkszonesProfileEthernetPortById
+// Operation path: /rkszones/{zoneId}/profile/ethernetPort/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGEthernetPortModifyEthernetPortProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGEthernetPortProfileService) UpdateRkszonesProfileEthernetPortById(ctx context.Context, body *WSGEthernetPortModifyEthernetPortProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGEthernetPortProfileService) UpdateRkszonesProfileEthernetPortById(ctx context.Context, body *WSGEthernetPortModifyEthernetPortProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesProfileEthernetPortById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

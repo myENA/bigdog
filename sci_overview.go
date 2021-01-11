@@ -1929,11 +1929,13 @@ func NewSCIOverview115networkUsageOverviewDataZoneType() *SCIOverview115networkU
 
 // ReportOverview62Overview
 //
-// Operation ID: report_Overview_62_overview
-//
 // Overview - Ruckus SmartAnalytics
 //
-// Request Body:
+// Operation ID: report_Overview_62_overview
+// Operation path: /reports/10/sections/62/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview62Overview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview62overview200ResponseTypeAPIResponse, error) {
 	var (
@@ -1961,11 +1963,13 @@ func (s *SCIOverviewService) ReportOverview62Overview(ctx context.Context, body 
 
 // ReportOverview63Controller
 //
-// Operation ID: report_Overview_63_controller
-//
 // Overview - Controllers
 //
-// Request Body:
+// Operation ID: report_Overview_63_controller
+// Operation path: /reports/10/sections/63/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview63Controller(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview63controller200ResponseTypeAPIResponse, error) {
 	var (
@@ -1993,11 +1997,13 @@ func (s *SCIOverviewService) ReportOverview63Controller(ctx context.Context, bod
 
 // ReportOverview64ApOverview
 //
-// Operation ID: report_Overview_64_apOverview
-//
 // Overview - Access Points
 //
-// Request Body:
+// Operation ID: report_Overview_64_apOverview
+// Operation path: /reports/10/sections/64/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview64ApOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview64apOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -2025,11 +2031,13 @@ func (s *SCIOverviewService) ReportOverview64ApOverview(ctx context.Context, bod
 
 // ReportOverview66ApAlarmOverview
 //
-// Operation ID: report_Overview_66_apAlarmOverview
-//
 // Overview - Alarms
 //
-// Request Body:
+// Operation ID: report_Overview_66_apAlarmOverview
+// Operation path: /reports/10/sections/66/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview66ApAlarmOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -2057,11 +2065,13 @@ func (s *SCIOverviewService) ReportOverview66ApAlarmOverview(ctx context.Context
 
 // ReportOverview67SwitchOverview
 //
-// Operation ID: report_Overview_67_switchOverview
-//
 // Overview - Switches
 //
-// Request Body:
+// Operation ID: report_Overview_67_switchOverview
+// Operation path: /reports/10/sections/67/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview67SwitchOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview67switchOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -2089,11 +2099,13 @@ func (s *SCIOverviewService) ReportOverview67SwitchOverview(ctx context.Context,
 
 // ReportOverview68ApClientCountOverview
 //
-// Operation ID: report_Overview_68_apClientCountOverview
-//
 // Overview - Top APs by Client Count
 //
-// Request Body:
+// Operation ID: report_Overview_68_apClientCountOverview
+// Operation path: /reports/10/sections/68/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview68ApClientCountOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -2121,11 +2133,13 @@ func (s *SCIOverviewService) ReportOverview68ApClientCountOverview(ctx context.C
 
 // ReportOverview69TotalTrafficMinMaxRate
 //
-// Operation ID: report_Overview_69_totalTrafficMinMaxRate
-//
 // Overview - Total Wireless Traffic
 //
-// Request Body:
+// Operation ID: report_Overview_69_totalTrafficMinMaxRate
+// Operation path: /reports/10/sections/69/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview69TotalTrafficMinMaxRate(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse, error) {
 	var (
@@ -2153,11 +2167,13 @@ func (s *SCIOverviewService) ReportOverview69TotalTrafficMinMaxRate(ctx context.
 
 // ReportOverview70SessionsOverview
 //
-// Operation ID: report_Overview_70_sessionsOverview
-//
 // Overview - Unique Wireless Sessions
 //
-// Request Body:
+// Operation ID: report_Overview_70_sessionsOverview
+// Operation path: /reports/10/sections/70/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview70SessionsOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview70sessionsOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -2185,11 +2201,13 @@ func (s *SCIOverviewService) ReportOverview70SessionsOverview(ctx context.Contex
 
 // ReportOverview71SsidOverview
 //
-// Operation ID: report_Overview_71_ssidOverview
-//
 // Overview - WLANs
 //
-// Request Body:
+// Operation ID: report_Overview_71_ssidOverview
+// Operation path: /reports/10/sections/71/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview71SsidOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview71ssidOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -2217,11 +2235,13 @@ func (s *SCIOverviewService) ReportOverview71SsidOverview(ctx context.Context, b
 
 // ReportOverview72RadioOverview
 //
-// Operation ID: report_Overview_72_radioOverview
-//
 // Overview - Radios
 //
-// Request Body:
+// Operation ID: report_Overview_72_radioOverview
+// Operation path: /reports/10/sections/72/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview72RadioOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview72radioOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -2249,11 +2269,13 @@ func (s *SCIOverviewService) ReportOverview72RadioOverview(ctx context.Context, 
 
 // ReportOverview73ApplicationsOverview
 //
-// Operation ID: report_Overview_73_applicationsOverview
-//
 // Overview - Applications (Wireless)
 //
-// Request Body:
+// Operation ID: report_Overview_73_applicationsOverview
+// Operation path: /reports/10/sections/73/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview73ApplicationsOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview73applicationsOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -2281,11 +2303,13 @@ func (s *SCIOverviewService) ReportOverview73ApplicationsOverview(ctx context.Co
 
 // ReportOverview74ApEventOverview
 //
-// Operation ID: report_Overview_74_apEventOverview
-//
 // Overview - Events
 //
-// Request Body:
+// Operation ID: report_Overview_74_apEventOverview
+// Operation path: /reports/10/sections/74/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview74ApEventOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview74apEventOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -2313,11 +2337,13 @@ func (s *SCIOverviewService) ReportOverview74ApEventOverview(ctx context.Context
 
 // ReportOverview97FactOverview
 //
-// Operation ID: report_Overview_97_factOverview
-//
 // Overview - Did you know?
 //
-// Request Body:
+// Operation ID: report_Overview_97_factOverview
+// Operation path: /reports/10/sections/97/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview97FactOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview97factOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -2345,11 +2371,13 @@ func (s *SCIOverviewService) ReportOverview97FactOverview(ctx context.Context, b
 
 // ReportOverview115NetworkUsageOverview
 //
-// Operation ID: report_Overview_115_networkUsageOverview
-//
 // Overview - Network Usage Overview
 //
-// Request Body:
+// Operation ID: report_Overview_115_networkUsageOverview
+// Operation path: /reports/10/sections/115/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIOverviewService) ReportOverview115NetworkUsageOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse, error) {
 	var (

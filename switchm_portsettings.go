@@ -435,41 +435,45 @@ func NewSwitchMPortSettingsUpdatePortSettings() *SwitchMPortSettingsUpdatePortSe
 
 // AddPortSettingsBulk
 //
-// Operation ID: addPortSettingsBulk
-//
 // Use this API command to Bulk update the port setting
 //
-// Request Body:
+// Operation ID: addPortSettingsBulk
+// Operation path: /portSettings/bulk
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMPortSettingsCreateBulk
-func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, body *SwitchMPortSettingsCreateBulk, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMPortSettingsService) AddPortSettingsBulk(ctx context.Context, body *SwitchMPortSettingsCreateBulk, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddPortSettingsBulk, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindPortSettings
 //
-// Operation ID: findPortSettings
-//
 // Use this API command to Retrieve all Port Settings list.
+//
+// Operation ID: findPortSettings
+// Operation path: /portSettings
+// Success code: 200 (OK)
 func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context, mutators ...RequestMutator) (*SwitchMPortSettingsQueryResultAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -492,11 +496,13 @@ func (s *SwitchMPortSettingsService) FindPortSettings(ctx context.Context, mutat
 
 // FindPortSettingsById
 //
-// Operation ID: findPortSettingsById
-//
 // Use this API command to Retrieve Port Settings.
 //
-// Required Parameters:
+// Operation ID: findPortSettingsById
+// Operation path: /portSettings/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMPortSettingsAPIResponse, error) {
@@ -522,11 +528,13 @@ func (s *SwitchMPortSettingsService) FindPortSettingsById(ctx context.Context, i
 
 // FindPortSettingsByQueryCriteria
 //
-// Operation ID: findPortSettingsByQueryCriteria
-//
 // Use this API command to Retrieve Port Settings list.
 //
-// Request Body:
+// Operation ID: findPortSettingsByQueryCriteria
+// Operation path: /portSettings/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMPortSettingsQueryResultAPIResponse, error) {
 	var (
@@ -554,37 +562,39 @@ func (s *SwitchMPortSettingsService) FindPortSettingsByQueryCriteria(ctx context
 
 // UpdatePortSettingsById
 //
-// Operation ID: updatePortSettingsById
-//
 // Use this API command to Update Port Settings.
 //
-// Request Body:
+// Operation ID: updatePortSettingsById
+// Operation path: /portSettings/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMPortSettingsUpdatePortSettings
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context, body *SwitchMPortSettingsUpdatePortSettings, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMPortSettingsService) UpdatePortSettingsById(ctx context.Context, body *SwitchMPortSettingsUpdatePortSettings, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdatePortSettingsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

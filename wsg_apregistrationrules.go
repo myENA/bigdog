@@ -23,11 +23,13 @@ func (ss *WSGService) WSGAPRegistrationRulesService() *WSGAPRegistrationRulesSer
 
 // AddApRules
 //
-// Operation ID: addApRules
-//
 // Use this API command to create AP Registration Rules profile.
 //
-// Request Body:
+// Operation ID: addApRules
+// Operation path: /apRules
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAPRulesCreateApRule
 func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WSGAPRulesCreateApRule, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,24 +57,26 @@ func (s *WSGAPRegistrationRulesService) AddApRules(ctx context.Context, body *WS
 
 // DeleteApRulesById
 //
-// Operation ID: deleteApRulesById
-//
 // Use this API command to delete AP Registration Rules profile.
 //
-// Required Parameters:
+// Operation ID: deleteApRulesById
+// Operation path: /apRules/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApRulesById, true)
 	defer recycleAPIRequest(req)
@@ -81,14 +85,16 @@ func (s *WSGAPRegistrationRulesService) DeleteApRulesById(ctx context.Context, i
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindApRules
 //
-// Operation ID: findApRules
-//
 // Use this API command to retrieve a list of AP Registration Rules profile.
+//
+// Operation ID: findApRules
+// Operation path: /apRules
+// Success code: 200 (OK)
 func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context, mutators ...RequestMutator) (*WSGAPRulesApRuleListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -111,11 +117,13 @@ func (s *WSGAPRegistrationRulesService) FindApRules(ctx context.Context, mutator
 
 // FindApRulesById
 //
-// Operation ID: findApRulesById
-//
 // Use this API command to retrieve AP Registration Rules profile by ID.
 //
-// Required Parameters:
+// Operation ID: findApRulesById
+// Operation path: /apRules/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGAPRulesApRuleConfigurationAPIResponse, error) {
@@ -141,24 +149,26 @@ func (s *WSGAPRegistrationRulesService) FindApRulesById(ctx context.Context, id 
 
 // FindApRulesPriorityDownById
 //
-// Operation ID: findApRulesPriorityDownById
-//
 // Use this API command to move Priority Down of AP Registration Rules profile.
 //
-// Required Parameters:
+// Operation ID: findApRulesPriorityDownById
+// Operation path: /apRules/priorityDown/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApRulesPriorityDownById, true)
 	defer recycleAPIRequest(req)
@@ -166,29 +176,31 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityDownById(ctx context.
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindApRulesPriorityUpById
 //
-// Operation ID: findApRulesPriorityUpById
-//
 // Use this API command to move Priority Up of AP Registration Rules profile.
 //
-// Required Parameters:
+// Operation ID: findApRulesPriorityUpById
+// Operation path: /apRules/priorityUp/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApRulesPriorityUpById, true)
 	defer recycleAPIRequest(req)
@@ -196,42 +208,44 @@ func (s *WSGAPRegistrationRulesService) FindApRulesPriorityUpById(ctx context.Co
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateApRulesById
 //
-// Operation ID: partialUpdateApRulesById
-//
 // Use this API command to modify the configuration of AP Registration Rules profile.
 //
-// Request Body:
+// Operation ID: partialUpdateApRulesById
+// Operation path: /apRules/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAPRulesModifyApRule
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAPRegistrationRulesService) PartialUpdateApRulesById(ctx context.Context, body *WSGAPRulesModifyApRule, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPRegistrationRulesService) PartialUpdateApRulesById(ctx context.Context, body *WSGAPRulesModifyApRule, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateApRulesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

@@ -23,11 +23,13 @@ func (ss *WSGService) WSGDNSServerManagementService() *WSGDNSServerManagementSer
 
 // AddProfilesDnsserver
 //
-// Operation ID: addProfilesDnsserver
-//
 // Use this API command to create DNS server profile.
 //
-// Request Body:
+// Operation ID: addProfilesDnsserver
+// Operation path: /profiles/dnsserver
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateDnsServerProfile
 func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context, body *WSGProfileCreateDnsServerProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,14 +57,16 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserver(ctx context.Context
 
 // AddProfilesDnsserverCloneById
 //
-// Operation ID: addProfilesDnsserverCloneById
-//
 // Use this API command to clone an DNS server profile.
 //
-// Request Body:
+// Operation ID: addProfilesDnsserverCloneById
+// Operation path: /profiles/dnsserver/clone/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGProfileClone
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx context.Context, body *WSGProfileClone, id string, mutators ...RequestMutator) (*WSGProfileCloneAPIResponse, error) {
@@ -92,56 +96,60 @@ func (s *WSGDNSServerManagementService) AddProfilesDnsserverCloneById(ctx contex
 
 // DeleteProfilesDnsserver
 //
-// Operation ID: deleteProfilesDnsserver
-//
 // Use this API command to delete a list of DNS server profile.
 //
-// Request Body:
+// Operation ID: deleteProfilesDnsserver
+// Operation path: /profiles/dnsserver
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDNSServerManagementService) DeleteProfilesDnsserver(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesDnsserver, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesDnsserverById
 //
-// Operation ID: deleteProfilesDnsserverById
-//
 // Use this API command to delete DNS server profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesDnsserverById
+// Operation path: /profiles/dnsserver/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesDnsserverById, true)
 	defer recycleAPIRequest(req)
@@ -150,16 +158,18 @@ func (s *WSGDNSServerManagementService) DeleteProfilesDnsserverById(ctx context.
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesDnsserver
 //
-// Operation ID: findProfilesDnsserver
-//
 // Use this API command to retrieve a list of DNS server profile.
 //
-// Optional Parameters:
+// Operation ID: findProfilesDnsserver
+// Operation path: /profiles/dnsserver
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -192,11 +202,13 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserver(ctx context.Contex
 
 // FindProfilesDnsserverById
 //
-// Operation ID: findProfilesDnsserverById
-//
 // Use this API command to retrieve DNS server profile.
 //
-// Required Parameters:
+// Operation ID: findProfilesDnsserverById
+// Operation path: /profiles/dnsserver/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileDnsServerProfileAPIResponse, error) {
@@ -222,11 +234,13 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverById(ctx context.Co
 
 // FindProfilesDnsserverByQueryCriteria
 //
-// Operation ID: findProfilesDnsserverByQueryCriteria
-//
 // Use this API command to retrieve a list of DNS server profile  by query criteria.
 //
-// Request Body:
+// Operation ID: findProfilesDnsserverByQueryCriteria
+// Operation path: /profiles/dnsserver/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileDnsServerProfileListAPIResponse, error) {
 	var (
@@ -254,37 +268,39 @@ func (s *WSGDNSServerManagementService) FindProfilesDnsserverByQueryCriteria(ctx
 
 // PartialUpdateProfilesDnsserverById
 //
-// Operation ID: partialUpdateProfilesDnsserverById
-//
 // Use this API command to modify the configuration of DNS server profile.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesDnsserverById
+// Operation path: /profiles/dnsserver/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyDnsServerProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGDNSServerManagementService) PartialUpdateProfilesDnsserverById(ctx context.Context, body *WSGProfileModifyDnsServerProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDNSServerManagementService) PartialUpdateProfilesDnsserverById(ctx context.Context, body *WSGProfileModifyDnsServerProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesDnsserverById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

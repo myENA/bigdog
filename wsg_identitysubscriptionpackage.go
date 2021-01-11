@@ -23,11 +23,13 @@ func (ss *WSGService) WSGIdentitySubscriptionPackageService() *WSGIdentitySubscr
 
 // AddIdentityPackageList
 //
-// Operation ID: addIdentityPackageList
-//
 // Use this API command to retrieve a list of subscription package.
 //
-// Request Body:
+// Operation ID: addIdentityPackageList
+// Operation path: /identity/packageList
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGIdentityQueryCriteria
 func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx context.Context, body *WSGIdentityQueryCriteria, mutators ...RequestMutator) (*WSGIdentitySubscriptionPackageListAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackageList(ctx conte
 
 // AddIdentityPackages
 //
-// Operation ID: addIdentityPackages
-//
 // Use this API command to create subscription package.
 //
-// Request Body:
+// Operation ID: addIdentityPackages
+// Operation path: /identity/packages
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGIdentityCreateSubscriptionPackage
 func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackages(ctx context.Context, body *WSGIdentityCreateSubscriptionPackage, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -87,56 +91,60 @@ func (s *WSGIdentitySubscriptionPackageService) AddIdentityPackages(ctx context.
 
 // DeleteIdentityPackages
 //
-// Operation ID: deleteIdentityPackages
-//
 // Use this API command to delete multiple subscription packages.
 //
-// Request Body:
+// Operation ID: deleteIdentityPackages
+// Operation path: /identity/packages
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGIdentityDeleteBulk
-func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackages(ctx context.Context, body *WSGIdentityDeleteBulk, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackages(ctx context.Context, body *WSGIdentityDeleteBulk, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityPackages, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteIdentityPackagesById
 //
-// Operation ID: deleteIdentityPackagesById
-//
 // Use this API command to delete subscription package.
 //
-// Required Parameters:
+// Operation ID: deleteIdentityPackagesById
+// Operation path: /identity/packages/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityPackagesById, true)
 	defer recycleAPIRequest(req)
@@ -145,14 +153,16 @@ func (s *WSGIdentitySubscriptionPackageService) DeleteIdentityPackagesById(ctx c
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindIdentityPackages
 //
-// Operation ID: findIdentityPackages
-//
 // Use this API command to retrieve a list of subscription package.
+//
+// Operation ID: findIdentityPackages
+// Operation path: /identity/packages
+// Success code: 200 (OK)
 func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context.Context, mutators ...RequestMutator) (*WSGIdentitySubscriptionPackageListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -175,11 +185,13 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackages(ctx context
 
 // FindIdentityPackagesById
 //
-// Operation ID: findIdentityPackagesById
-//
 // Use this API command to retrieve subscription package.
 //
-// Required Parameters:
+// Operation ID: findIdentityPackagesById
+// Operation path: /identity/packages/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGIdentitySubscriptionPackageAPIResponse, error) {
@@ -205,37 +217,39 @@ func (s *WSGIdentitySubscriptionPackageService) FindIdentityPackagesById(ctx con
 
 // PartialUpdateIdentityPackagesById
 //
-// Operation ID: partialUpdateIdentityPackagesById
-//
 // Use this API command to modify the configuration of subscription package.
 //
-// Request Body:
+// Operation ID: partialUpdateIdentityPackagesById
+// Operation path: /identity/packages/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGIdentityModifySubscriptionPackage
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGIdentitySubscriptionPackageService) PartialUpdateIdentityPackagesById(ctx context.Context, body *WSGIdentityModifySubscriptionPackage, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIdentitySubscriptionPackageService) PartialUpdateIdentityPackagesById(ctx context.Context, body *WSGIdentityModifySubscriptionPackage, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateIdentityPackagesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

@@ -745,11 +745,13 @@ func NewWSGCertificateTrustedCAChainCertListType() *WSGCertificateTrustedCAChain
 
 // AddCertstoreCertificate
 //
-// Operation ID: addCertstoreCertificate
-//
 // Use this API command to create an installed certificate.
 //
-// Request Body:
+// Operation ID: addCertstoreCertificate
+// Operation path: /certstore/certificate
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGCertificateCreateCert
 func (s *WSGCertificateService) AddCertstoreCertificate(ctx context.Context, body *WSGCertificateCreateCert, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -777,11 +779,13 @@ func (s *WSGCertificateService) AddCertstoreCertificate(ctx context.Context, bod
 
 // AddCertstoreClientCert
 //
-// Operation ID: addCertstoreClientCert
-//
 // Use this API command to create a client certificate.
 //
-// Request Body:
+// Operation ID: addCertstoreClientCert
+// Operation path: /certstore/clientCert
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGCertificateCreateClientCert
 func (s *WSGCertificateService) AddCertstoreClientCert(ctx context.Context, body *WSGCertificateCreateClientCert, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -809,11 +813,13 @@ func (s *WSGCertificateService) AddCertstoreClientCert(ctx context.Context, body
 
 // AddCertstoreCsr
 //
-// Operation ID: addCertstoreCsr
-//
 // Use this API command to create a certificates signing request.
 //
-// Request Body:
+// Operation ID: addCertstoreCsr
+// Operation path: /certstore/csr
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGCertificateCreateCSR
 func (s *WSGCertificateService) AddCertstoreCsr(ctx context.Context, body *WSGCertificateCreateCSR, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -841,11 +847,13 @@ func (s *WSGCertificateService) AddCertstoreCsr(ctx context.Context, body *WSGCe
 
 // AddCertstoreTrustedCAChainCert
 //
-// Operation ID: addCertstoreTrustedCAChainCert
-//
 // Use this API command to create trusted CA chain certificates.
 //
-// Request Body:
+// Operation ID: addCertstoreTrustedCAChainCert
+// Operation path: /certstore/trustedCAChainCert
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGCertificateCreateTrustedCAChain
 func (s *WSGCertificateService) AddCertstoreTrustedCAChainCert(ctx context.Context, body *WSGCertificateCreateTrustedCAChain, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -873,24 +881,26 @@ func (s *WSGCertificateService) AddCertstoreTrustedCAChainCert(ctx context.Conte
 
 // DeleteCertstoreCertificateById
 //
-// Operation ID: deleteCertstoreCertificateById
-//
 // Use this API command to delete an installed certificate.
 //
-// Required Parameters:
+// Operation ID: deleteCertstoreCertificateById
+// Operation path: /certstore/certificate/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteCertstoreCertificateById, true)
 	defer recycleAPIRequest(req)
@@ -899,29 +909,31 @@ func (s *WSGCertificateService) DeleteCertstoreCertificateById(ctx context.Conte
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteCertstoreClientCertById
 //
-// Operation ID: deleteCertstoreClientCertById
-//
 // Use this API command to delete a client certificate.
 //
-// Required Parameters:
+// Operation ID: deleteCertstoreClientCertById
+// Operation path: /certstore/clientCert/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteCertstoreClientCertById, true)
 	defer recycleAPIRequest(req)
@@ -930,29 +942,31 @@ func (s *WSGCertificateService) DeleteCertstoreClientCertById(ctx context.Contex
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteCertstoreCsrById
 //
-// Operation ID: deleteCertstoreCsrById
-//
 // Use this API command to delete a certificates signing request.
 //
-// Required Parameters:
+// Operation ID: deleteCertstoreCsrById
+// Operation path: /certstore/csr/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteCertstoreCsrById, true)
 	defer recycleAPIRequest(req)
@@ -961,61 +975,65 @@ func (s *WSGCertificateService) DeleteCertstoreCsrById(ctx context.Context, id s
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteCertstoreTrustedCAChainCert
 //
-// Operation ID: deleteCertstoreTrustedCAChainCert
-//
 // Use this API command to delete bulk trusted CA chain certificates.
 //
-// Request Body:
+// Operation ID: deleteCertstoreTrustedCAChainCert
+// Operation path: /certstore/trustedCAChainCert
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCertificateDeleteBulk
-func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCert(ctx context.Context, body *WSGCertificateDeleteBulk, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCert(ctx context.Context, body *WSGCertificateDeleteBulk, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteCertstoreTrustedCAChainCert, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteCertstoreTrustedCAChainCertById
 //
-// Operation ID: deleteCertstoreTrustedCAChainCertById
-//
 // Use this API command to delete a trusted CA chain certificate.
 //
-// Required Parameters:
+// Operation ID: deleteCertstoreTrustedCAChainCertById
+// Operation path: /certstore/trustedCAChainCert/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteCertstoreTrustedCAChainCertById, true)
 	defer recycleAPIRequest(req)
@@ -1024,16 +1042,18 @@ func (s *WSGCertificateService) DeleteCertstoreTrustedCAChainCertById(ctx contex
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindCertstoreCertificate
 //
-// Operation ID: findCertstoreCertificate
-//
 // Use this API command to retrieve list of installed certificates.
 //
-// Optional Parameters:
+// Operation ID: findCertstoreCertificate
+// Operation path: /certstore/certificate
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -1066,11 +1086,13 @@ func (s *WSGCertificateService) FindCertstoreCertificate(ctx context.Context, op
 
 // FindCertstoreCertificateById
 //
-// Operation ID: findCertstoreCertificateById
-//
 // Use this API command to retrieve an installed certificate.
 //
-// Required Parameters:
+// Operation ID: findCertstoreCertificateById
+// Operation path: /certstore/certificate/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGCertificateAPIResponse, error) {
@@ -1096,11 +1118,13 @@ func (s *WSGCertificateService) FindCertstoreCertificateById(ctx context.Context
 
 // FindCertstoreClientCert
 //
-// Operation ID: findCertstoreClientCert
-//
 // Use this API command to retrieve list of client certificates.
 //
-// Optional Parameters:
+// Operation ID: findCertstoreClientCert
+// Operation path: /certstore/clientCert
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -1133,11 +1157,13 @@ func (s *WSGCertificateService) FindCertstoreClientCert(ctx context.Context, opt
 
 // FindCertstoreClientCertById
 //
-// Operation ID: findCertstoreClientCertById
-//
 // Use this API command to retrieve a client certificate.
 //
-// Required Parameters:
+// Operation ID: findCertstoreClientCertById
+// Operation path: /certstore/clientCert/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGCertificateClientCertAPIResponse, error) {
@@ -1163,11 +1189,13 @@ func (s *WSGCertificateService) FindCertstoreClientCertById(ctx context.Context,
 
 // FindCertstoreCsr
 //
-// Operation ID: findCertstoreCsr
-//
 // Use this API command to retrieve list of certificates signing request.
 //
-// Optional Parameters:
+// Operation ID: findCertstoreCsr
+// Operation path: /certstore/csr
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -1200,11 +1228,13 @@ func (s *WSGCertificateService) FindCertstoreCsr(ctx context.Context, optionalPa
 
 // FindCertstoreCsrById
 //
-// Operation ID: findCertstoreCsrById
-//
 // Use this API command to retrieve a certificates signing request.
 //
-// Required Parameters:
+// Operation ID: findCertstoreCsrById
+// Operation path: /certstore/csr/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGCertificatesSigningRequestAPIResponse, error) {
@@ -1230,9 +1260,11 @@ func (s *WSGCertificateService) FindCertstoreCsrById(ctx context.Context, id str
 
 // FindCertstoreSetting
 //
-// Operation ID: findCertstoreSetting
-//
 // Use this API command to retrieve certificate setting.
+//
+// Operation ID: findCertstoreSetting
+// Operation path: /certstore/setting
+// Success code: 200 (OK)
 func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context, mutators ...RequestMutator) (*WSGCertificateCertSettingAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -1255,11 +1287,13 @@ func (s *WSGCertificateService) FindCertstoreSetting(ctx context.Context, mutato
 
 // FindCertstoreTrustedCAChainCert
 //
-// Operation ID: findCertstoreTrustedCAChainCert
-//
 // Use this API command to retrieve list of installed trusted CA chain certificates.
 //
-// Optional Parameters:
+// Operation ID: findCertstoreTrustedCAChainCert
+// Operation path: /certstore/trustedCAChainCert
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -1292,11 +1326,13 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCert(ctx context.Cont
 
 // FindCertstoreTrustedCAChainCertById
 //
-// Operation ID: findCertstoreTrustedCAChainCertById
-//
 // Use this API command to retrieve an installed trusted CA chain certificates.
 //
-// Required Parameters:
+// Operation ID: findCertstoreTrustedCAChainCertById
+// Operation path: /certstore/trustedCAChainCert/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGCertificateTrustedCAChainAPIResponse, error) {
@@ -1322,101 +1358,107 @@ func (s *WSGCertificateService) FindCertstoreTrustedCAChainCertById(ctx context.
 
 // PartialUpdateCertstoreSetting
 //
-// Operation ID: partialUpdateCertstoreSetting
-//
 // Use this API command to Modify the Certificate Setting.
 //
-// Request Body:
+// Operation ID: partialUpdateCertstoreSetting
+// Operation path: /certstore/setting
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCertificateCertSetting
-func (s *WSGCertificateService) PartialUpdateCertstoreSetting(ctx context.Context, body *WSGCertificateCertSetting, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGCertificateService) PartialUpdateCertstoreSetting(ctx context.Context, body *WSGCertificateCertSetting, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateCertstoreSetting, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateCertstoreSettingServiceCertificates
 //
-// Operation ID: partialUpdateCertstoreSettingServiceCertificates
-//
 // Use this API command to Modify serviceCertificates of the Certificate Setting.
 //
-// Request Body:
+// Operation ID: partialUpdateCertstoreSettingServiceCertificates
+// Operation path: /certstore/setting/serviceCertificates
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body WSGCertificateServiceCertificates
-func (s *WSGCertificateService) PartialUpdateCertstoreSettingServiceCertificates(ctx context.Context, body WSGCertificateServiceCertificates, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGCertificateService) PartialUpdateCertstoreSettingServiceCertificates(ctx context.Context, body WSGCertificateServiceCertificates, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateCertstoreSettingServiceCertificates, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateCertstoreTrustedCAChainCertById
 //
-// Operation ID: partialUpdateCertstoreTrustedCAChainCertById
-//
 // Use this API command to patch a trusted CA chain certificates.
 //
-// Request Body:
+// Operation ID: partialUpdateCertstoreTrustedCAChainCertById
+// Operation path: /certstore/trustedCAChainCert/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCertificateModifyTrustedCAChain
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGCertificateService) PartialUpdateCertstoreTrustedCAChainCertById(ctx context.Context, body *WSGCertificateModifyTrustedCAChain, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGCertificateService) PartialUpdateCertstoreTrustedCAChainCertById(ctx context.Context, body *WSGCertificateModifyTrustedCAChain, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateCertstoreTrustedCAChainCertById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

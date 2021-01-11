@@ -211,14 +211,16 @@ func NewWSGDevicePolicyPorfileListType() *WSGDevicePolicyPorfileListType {
 
 // AddRkszonesDevicePolicyByZoneId
 //
-// Operation ID: addRkszonesDevicePolicyByZoneId
-//
 // Create a new Device Policy Profile (for Firmware Versions less than 5.2).
 //
-// Request Body:
+// Operation ID: addRkszonesDevicePolicyByZoneId
+// Operation path: /rkszones/{zoneId}/devicePolicy
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGDevicePolicyCreateDevicePolicy
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Context, body *WSGDevicePolicyCreateDevicePolicy, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -248,26 +250,28 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 
 // DeleteRkszonesDevicePolicyById
 //
-// Operation ID: deleteRkszonesDevicePolicyById
-//
 // Delete Device Policy Profile (for Firmware Versions less than 5.2).
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesDevicePolicyById
+// Operation path: /rkszones/{zoneId}/devicePolicy/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesDevicePolicyById, true)
 	defer recycleAPIRequest(req)
@@ -277,16 +281,18 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesDevicePolicyById
 //
-// Operation ID: findRkszonesDevicePolicyById
-//
 // Retrieve a Device Policy Profile (for Firmware Versions less than 5.2).
 //
-// Required Parameters:
+// Operation ID: findRkszonesDevicePolicyById
+// Operation path: /rkszones/{zoneId}/devicePolicy/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -315,15 +321,17 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 
 // FindRkszonesDevicePolicyByZoneId
 //
-// Operation ID: findRkszonesDevicePolicyByZoneId
-//
 // Retrieve a list of Device Policy Profiles within a zone (for Firmware Versions less than 5.2).
 //
-// Required Parameters:
+// Operation ID: findRkszonesDevicePolicyByZoneId
+// Operation path: /rkszones/{zoneId}/devicePolicy
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -357,11 +365,13 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 
 // FindServicesDevicePolicyByQueryCriteria
 //
-// Operation ID: findServicesDevicePolicyByQueryCriteria
-//
 // Query Device Policy Profiles with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesDevicePolicyByQueryCriteria
+// Operation path: /query/services/devicePolicy
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGDevicePolicyService) FindServicesDevicePolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -389,40 +399,42 @@ func (s *WSGDevicePolicyService) FindServicesDevicePolicyByQueryCriteria(ctx con
 
 // PartialUpdateRkszonesDevicePolicyById
 //
-// Operation ID: partialUpdateRkszonesDevicePolicyById
-//
 // Modify a specific Device Policy Profile (for Firmware Versions less than 5.2).
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesDevicePolicyById
+// Operation path: /rkszones/{zoneId}/devicePolicy/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGDevicePolicyModifyDevicePolicy
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx context.Context, body *WSGDevicePolicyModifyDevicePolicy, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx context.Context, body *WSGDevicePolicyModifyDevicePolicy, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesDevicePolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

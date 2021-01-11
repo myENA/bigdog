@@ -23,14 +23,16 @@ func (ss *WSGService) WSGGuestAccessService() *WSGGuestAccessService {
 
 // AddRkszonesPortalsGuestByZoneId
 //
-// Operation ID: addRkszonesPortalsGuestByZoneId
-//
 // Use this API command to create new guest access of a zone.
 //
-// Request Body:
+// Operation ID: addRkszonesPortalsGuestByZoneId
+// Operation path: /rkszones/{zoneId}/portals/guest
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGPortalServiceCreateGuestAccess
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGGuestAccessService) AddRkszonesPortalsGuestByZoneId(ctx context.Context, body *WSGPortalServiceCreateGuestAccess, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,26 +62,28 @@ func (s *WSGGuestAccessService) AddRkszonesPortalsGuestByZoneId(ctx context.Cont
 
 // DeleteRkszonesPortalsGuestById
 //
-// Operation ID: deleteRkszonesPortalsGuestById
-//
 // Use this API command to delete guest access of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesPortalsGuestById
+// Operation path: /rkszones/{zoneId}/portals/guest/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesPortalsGuestById, true)
 	defer recycleAPIRequest(req)
@@ -89,31 +93,33 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestById(ctx context.Conte
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesPortalsGuestRedirectById
 //
-// Operation ID: deleteRkszonesPortalsGuestRedirectById
-//
 // Use this API command to set redirect to the URL that user intends to visit on guest access of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesPortalsGuestRedirectById
+// Operation path: /rkszones/{zoneId}/portals/guest/{id}/redirect
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesPortalsGuestRedirectById, true)
 	defer recycleAPIRequest(req)
@@ -123,31 +129,33 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestRedirectById(ctx conte
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesPortalsGuestSmsGatewayById
 //
-// Operation ID: deleteRkszonesPortalsGuestSmsGatewayById
-//
 // Use this API command to disable SMS gateway on guest access of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesPortalsGuestSmsGatewayById
+// Operation path: /rkszones/{zoneId}/portals/guest/{id}/smsGateway
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesPortalsGuestSmsGatewayById, true)
 	defer recycleAPIRequest(req)
@@ -157,16 +165,18 @@ func (s *WSGGuestAccessService) DeleteRkszonesPortalsGuestSmsGatewayById(ctx con
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesPortalsGuestById
 //
-// Operation ID: findRkszonesPortalsGuestById
-//
 // Use this API command to retrieve guest access of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesPortalsGuestById
+// Operation path: /rkszones/{zoneId}/portals/guest/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -195,11 +205,13 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestById(ctx context.Context
 
 // FindRkszonesPortalsGuestByZoneId
 //
-// Operation ID: findRkszonesPortalsGuestByZoneId
-//
 // Use this API command to retrieve a list of guest access of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesPortalsGuestByZoneId
+// Operation path: /rkszones/{zoneId}/portals/guest
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGPortalServiceListAPIResponse, error) {
@@ -225,11 +237,13 @@ func (s *WSGGuestAccessService) FindRkszonesPortalsGuestByZoneId(ctx context.Con
 
 // FindServicesGuestAccessByQueryCriteria
 //
-// Operation ID: findServicesGuestAccessByQueryCriteria
-//
 // Query Guest Access Profiles with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesGuestAccessByQueryCriteria
+// Operation path: /query/services/guestAccess
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGGuestAccessService) FindServicesGuestAccessByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -257,40 +271,42 @@ func (s *WSGGuestAccessService) FindServicesGuestAccessByQueryCriteria(ctx conte
 
 // PartialUpdateRkszonesPortalsGuestById
 //
-// Operation ID: partialUpdateRkszonesPortalsGuestById
-//
 // Use this API command to modify the configuration on guest access of a zone.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesPortalsGuestById
+// Operation path: /rkszones/{zoneId}/portals/guest/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGPortalServiceModifyGuestAccess
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGGuestAccessService) PartialUpdateRkszonesPortalsGuestById(ctx context.Context, body *WSGPortalServiceModifyGuestAccess, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGGuestAccessService) PartialUpdateRkszonesPortalsGuestById(ctx context.Context, body *WSGPortalServiceModifyGuestAccess, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesPortalsGuestById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

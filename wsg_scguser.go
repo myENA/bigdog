@@ -1025,11 +1025,13 @@ func NewWSGSCGUserList() *WSGSCGUserList {
 
 // AddUsers
 //
-// Operation ID: addUsers
-//
 // Add SCG user.
 //
-// Request Body:
+// Operation ID: addUsers
+// Operation path: /users
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSCGUserCreateScgUser
 func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreateScgUser, mutators ...RequestMutator) (*WSGSCGUserAuditIdAPIResponse, error) {
 	var (
@@ -1057,43 +1059,47 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 
 // DeleteUsers
 //
-// Operation ID: deleteUsers
-//
 // Delete multiple SCG user.
 //
-// Request Body:
+// Operation ID: deleteUsers
+// Operation path: /users
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteUsers, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteUsersByUserId
 //
-// Operation ID: deleteUsersByUserId
-//
 // Delete SCG user.
 //
-// Required Parameters:
+// Operation ID: deleteUsersByUserId
+// Operation path: /users/{userId}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - userId string
 //		- required
 func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId string, mutators ...RequestMutator) (*WSGSCGUserAuditIdAPIResponse, error) {
@@ -1120,11 +1126,13 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 
 // FindUsersByQueryCriteria
 //
-// Operation ID: findUsersByQueryCriteria
-//
 // Query SCG users.
 //
-// Request Body:
+// Operation ID: findUsersByQueryCriteria
+// Operation path: /users/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSCGUserQueryCriteria
 func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *WSGSCGUserQueryCriteria, mutators ...RequestMutator) (*WSGSCGUserListAPIResponse, error) {
 	var (
@@ -1152,11 +1160,13 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 
 // FindUsersByUserId
 //
-// Operation ID: findUsersByUserId
-//
 // Get SCG user.
 //
-// Required Parameters:
+// Operation ID: findUsersByUserId
+// Operation path: /users/{userId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - userId string
 //		- required
 func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string, mutators ...RequestMutator) (*WSGSCGUserGetScgUserAPIResponse, error) {
@@ -1182,14 +1192,16 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 
 // PartialUpdateUsersByUserId
 //
-// Operation ID: partialUpdateUsersByUserId
-//
 // Update SCG user.
 //
-// Request Body:
+// Operation ID: partialUpdateUsersByUserId
+// Operation path: /users/{userId}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSCGUserModifyScgUser
 //
-// Required Parameters:
+// Required parameters:
 // - userId string
 //		- required
 func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body *WSGSCGUserModifyScgUser, userId string, mutators ...RequestMutator) (*WSGSCGUserAuditIdAPIResponse, error) {

@@ -23,11 +23,13 @@ func (ss *SwitchMService) SwitchMLAGSettingService() *SwitchMLAGSettingService {
 
 // AddLagConfigs
 //
-// Operation ID: addLagConfigs
-//
 // Use this API command to Create LAG Config.
 //
-// Request Body:
+// Operation ID: addLagConfigs
+// Operation path: /lagConfigs
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *SwitchMLAGConfigCreate
 func (s *SwitchMLAGSettingService) AddLagConfigs(ctx context.Context, body *SwitchMLAGConfigCreate, mutators ...RequestMutator) (*SwitchMLAGConfigCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *SwitchMLAGSettingService) AddLagConfigs(ctx context.Context, body *Swit
 
 // DeleteLagConfigs
 //
-// Operation ID: deleteLagConfigs
-//
 // Use this API command to Delete LAG Config by Id list.
 //
-// Request Body:
+// Operation ID: deleteLagConfigs
+// Operation path: /lagConfigs
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMLAGSettingService) DeleteLagConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMLAGSettingService) DeleteLagConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteLagConfigs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteLagConfigsById
 //
-// Operation ID: deleteLagConfigsById
-//
 // Use this API command to Delete LAG Config.
 //
-// Required Parameters:
+// Operation ID: deleteLagConfigsById
+// Operation path: /lagConfigs/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMLAGSettingService) DeleteLagConfigsById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMLAGSettingService) DeleteLagConfigsById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteLagConfigsById, true)
 	defer recycleAPIRequest(req)
@@ -113,14 +119,16 @@ func (s *SwitchMLAGSettingService) DeleteLagConfigsById(ctx context.Context, id 
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindLagConfigs
 //
-// Operation ID: findLagConfigs
-//
 // Use this API command to Retrieve all LAG Config list.
+//
+// Operation ID: findLagConfigs
+// Operation path: /lagConfigs
+// Success code: 200 (OK)
 func (s *SwitchMLAGSettingService) FindLagConfigs(ctx context.Context, mutators ...RequestMutator) (*SwitchMLAGConfigListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -143,11 +151,13 @@ func (s *SwitchMLAGSettingService) FindLagConfigs(ctx context.Context, mutators 
 
 // FindLagConfigsById
 //
-// Operation ID: findLagConfigsById
-//
 // Use this API command to Retrieve Specific LAG Config.
 //
-// Required Parameters:
+// Operation ID: findLagConfigsById
+// Operation path: /lagConfigs/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMLAGConfigAPIResponse, error) {
@@ -173,11 +183,13 @@ func (s *SwitchMLAGSettingService) FindLagConfigsById(ctx context.Context, id st
 
 // FindLagConfigsByQueryCriteria
 //
-// Operation ID: findLagConfigsByQueryCriteria
-//
 // Use this API command to Retrieve LAG Config list.
 //
-// Request Body:
+// Operation ID: findLagConfigsByQueryCriteria
+// Operation path: /lagConfigs/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMLAGConfigListAPIResponse, error) {
 	var (
@@ -205,37 +217,39 @@ func (s *SwitchMLAGSettingService) FindLagConfigsByQueryCriteria(ctx context.Con
 
 // UpdateLagConfigsById
 //
-// Operation ID: updateLagConfigsById
-//
 // Use this API command to Update LAG Config.
 //
-// Request Body:
+// Operation ID: updateLagConfigsById
+// Operation path: /lagConfigs/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMLAGConfigModify
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMLAGSettingService) UpdateLagConfigsById(ctx context.Context, body *SwitchMLAGConfigModify, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMLAGSettingService) UpdateLagConfigsById(ctx context.Context, body *SwitchMLAGConfigModify, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateLagConfigsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

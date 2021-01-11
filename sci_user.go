@@ -217,11 +217,13 @@ func NewSCIUserLoginResponse() *SCIUserLoginResponse {
 
 // UserBatchDelete
 //
-// Operation ID: user_batchDelete
-//
 // Delete users and remove them from their related models.
 //
-// Form Data Parameters:
+// Operation ID: user_batchDelete
+// Operation path: /users/batchDelete
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - ids string
 //		- required
 func (s *SCIUserService) UserBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIUserBatchDelete200ResponseTypeAPIResponse, error) {
@@ -250,11 +252,13 @@ func (s *SCIUserService) UserBatchDelete(ctx context.Context, formValues url.Val
 
 // UserCreateWithRelations
 //
-// Operation ID: user_createWithRelations
-//
 // Create user and its related models.
 //
-// Form Data Parameters:
+// Operation ID: user_createWithRelations
+// Operation path: /users/createWithRelations
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - email string
 //		- required
 // - firstName string
@@ -298,15 +302,17 @@ func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, formValues
 
 // UserFindById
 //
-// Operation ID: user_findById
-//
 // Find a model instance by id from the data source.
 //
-// Required Parameters:
+// Operation ID: user_findById
+// Operation path: /users/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsUserAPIResponse, error) {
@@ -335,9 +341,11 @@ func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalPa
 
 // UserGetResourceGroupsForUpsert
 //
-// Operation ID: user_getResourceGroupsForUpsert
-//
 // Get resource groups that current user can manage.
+//
+// Operation ID: user_getResourceGroupsForUpsert
+// Operation path: /users/getResourceGroupsForUpsert
+// Success code: 200 (OK)
 func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mutators ...RequestMutator) (*SCIUserGetResourceGroupsForUpsert200ResponseTypeAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -360,11 +368,13 @@ func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mut
 
 // UserGetUsers
 //
-// Operation ID: user_getUsers
-//
 // Get users that current user can manage.
 //
-// Optional Parameters:
+// Operation ID: user_getUsers
+// Operation path: /users
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIUserGetUsers200ResponseTypeAPIResponse, error) {
@@ -392,14 +402,16 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 
 // UserLogin
 //
-// Operation ID: user_login
-//
 // Login a user with username/email and password.
 //
-// Request Body:
+// Operation ID: user_login
+// Operation path: /users/login
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIUserLoginRequest
 //
-// Optional Parameters:
+// Optional parameters:
 // - include string
 //		- nullable
 func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLoginRequest, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIUserLoginResponseAPIResponse, error) {
@@ -431,24 +443,26 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLogi
 
 // UserLogout
 //
-// Operation ID: user_logout
-//
 // Logout a user with access token.
 //
-// Required Parameters:
+// Operation ID: user_logout
+// Operation path: /users/logout
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - accesstoken string
 //		- required
-func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIUserLogout, false)
 	defer recycleAPIRequest(req)
@@ -457,19 +471,21 @@ func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mut
 	req.QueryParams.Set("access_token", accesstoken)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UserPrototypeCreateFilters
 //
-// Operation ID: user_prototype_create_filters
-//
 // Creates a new instance in filters of this model.
 //
-// Request Body:
+// Operation ID: user_prototype_create_filters
+// Operation path: /users/{id}/filters
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsFilter
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *SCIModelsFilter, id string, mutators ...RequestMutator) (*SCIModelsFilterAPIResponse, error) {
@@ -499,26 +515,28 @@ func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *S
 
 // UserPrototypeDestroyByIdFilters
 //
-// Operation ID: user_prototype_destroyById_filters
-//
 // Delete a related item by id for filters.
 //
-// Required Parameters:
+// Operation ID: user_prototype_destroyById_filters
+// Operation path: /users/{id}/filters/{fk}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - fk string
 //		- required
 // - id string
 //		- required
-func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk string, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk string, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSCIUserPrototypeDestroyByIdFilters, true)
 	defer recycleAPIRequest(req)
@@ -528,16 +546,18 @@ func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UserPrototypeFindByIdFilters
 //
-// Operation ID: user_prototype_findById_filters
-//
 // Find a related item by id for filters.
 //
-// Required Parameters:
+// Operation ID: user_prototype_findById_filters
+// Operation path: /users/{id}/filters/{fk}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - fk string
 //		- required
 // - id string
@@ -566,15 +586,17 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 
 // UserPrototypeGetFilters
 //
-// Operation ID: user_prototype_get_filters
-//
 // Queries filters of user.
 //
-// Required Parameters:
+// Operation ID: user_prototype_get_filters
+// Operation path: /users/{id}/filters
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIUserPrototypegetfilters200ResponseTypeAPIResponse, error) {
@@ -603,15 +625,17 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 
 // UserPrototypeGetSchedules
 //
-// Operation ID: user_prototype_get_schedules
-//
 // Queries schedules of user.
 //
-// Required Parameters:
+// Operation ID: user_prototype_get_schedules
+// Operation path: /users/{id}/schedules
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIUserPrototypegetschedules200ResponseTypeAPIResponse, error) {
@@ -640,14 +664,16 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 
 // UserPrototypeUpdateAttributes
 //
-// Operation ID: user_prototype_updateAttributes
-//
 // Update attributes for a model instance and persist it into the data source.
 //
-// Request Body:
+// Operation ID: user_prototype_updateAttributes
+// Operation path: /users/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsUser
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsUser, id string, mutators ...RequestMutator) (*SCIModelsUserAPIResponse, error) {
@@ -677,14 +703,16 @@ func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data
 
 // UserPrototypeUpdateByIdFilters
 //
-// Operation ID: user_prototype_updateById_filters
-//
 // Update a related item by id for filters.
 //
-// Request Body:
+// Operation ID: user_prototype_updateById_filters
+// Operation path: /users/{id}/filters/{fk}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsFilter
 //
-// Required Parameters:
+// Required parameters:
 // - fk string
 //		- required
 // - id string
@@ -717,11 +745,13 @@ func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, dat
 
 // UserUpdateWithRelations
 //
-// Operation ID: user_updateWithRelations
-//
 // Update a user and its related models.
 //
-// Form Data Parameters:
+// Operation ID: user_updateWithRelations
+// Operation path: /users/{id}/updateWithRelations
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - email string
 //		- required
 // - firstName string
@@ -737,7 +767,7 @@ func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, dat
 // - username string
 //		- required
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (*SCIModelsUserAPIResponse, error) {
@@ -767,11 +797,13 @@ func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, formValues
 
 // UserValidateCurrentPassword
 //
-// Operation ID: user_validateCurrentPassword
-//
 // check if current password entered is valid
 //
-// Form Data Parameters:
+// Operation ID: user_validateCurrentPassword
+// Operation path: /users/validateCurrentPassword
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - currentPassword string
 //		- required
 func (s *SCIUserService) UserValidateCurrentPassword(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIModelsUserAPIResponse, error) {

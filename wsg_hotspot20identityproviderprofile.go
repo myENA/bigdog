@@ -23,11 +23,13 @@ func (ss *WSGService) WSGHotspot20IdentityProviderProfileService() *WSGHotspot20
 
 // AddProfilesHs20Identityproviders
 //
-// Operation ID: addProfilesHs20Identityproviders
-//
 // Use this API command to create a new Hotspot 2.0 identity provider.
 //
-// Request Body:
+// Operation ID: addProfilesHs20Identityproviders
+// Operation path: /profiles/hs20/identityproviders
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileHs20Provider
 func (s *WSGHotspot20IdentityProviderProfileService) AddProfilesHs20Identityproviders(ctx context.Context, body *WSGProfileHs20Provider, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *WSGHotspot20IdentityProviderProfileService) AddProfilesHs20Identityprov
 
 // DeleteProfilesHs20Identityproviders
 //
-// Operation ID: deleteProfilesHs20Identityproviders
-//
 // Use this API command to delete multiple Hotspot 2.0 identity provider.
 //
-// Request Body:
+// Operation ID: deleteProfilesHs20Identityproviders
+// Operation path: /profiles/hs20/identityproviders
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityproviders(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityproviders(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesHs20Identityproviders, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesHs20IdentityprovidersAccountingsById
 //
-// Operation ID: deleteProfilesHs20IdentityprovidersAccountingsById
-//
 // Use this API command to disable accountings of a Hotspot 2.0 identity provider.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesHs20IdentityprovidersAccountingsById
+// Operation path: /profiles/hs20/identityproviders/{id}/accountings
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersAccountingsById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersAccountingsById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersAccountingsById, true)
 	defer recycleAPIRequest(req)
@@ -113,29 +119,31 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesHs20IdentityprovidersById
 //
-// Operation ID: deleteProfilesHs20IdentityprovidersById
-//
 // Use this API command to delete a Hotspot 2.0 identity provider.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesHs20IdentityprovidersById
+// Operation path: /profiles/hs20/identityproviders/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersById, true)
 	defer recycleAPIRequest(req)
@@ -144,29 +152,31 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesHs20IdentityprovidersOsuById
 //
-// Operation ID: deleteProfilesHs20IdentityprovidersOsuById
-//
 // Use this API command to disable online signup & provisioning of a Hotspot 2.0 identity provider.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesHs20IdentityprovidersOsuById
+// Operation path: /profiles/hs20/identityproviders/{id}/osu
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersOsuById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20IdentityprovidersOsuById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesHs20IdentityprovidersOsuById, true)
 	defer recycleAPIRequest(req)
@@ -175,16 +185,18 @@ func (s *WSGHotspot20IdentityProviderProfileService) DeleteProfilesHs20Identityp
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesHs20Identityproviders
 //
-// Operation ID: findProfilesHs20Identityproviders
-//
 // Use this API command to retrieve list of Hotspot 2.0 identity providers.
 //
-// Optional Parameters:
+// Operation ID: findProfilesHs20Identityproviders
+// Operation path: /profiles/hs20/identityproviders
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -217,11 +229,13 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 
 // FindProfilesHs20IdentityprovidersById
 //
-// Operation ID: findProfilesHs20IdentityprovidersById
-//
 // Use this API command to retrieve a Hotspot 2.0 identity provider.
 //
-// Required Parameters:
+// Operation ID: findProfilesHs20IdentityprovidersById
+// Operation path: /profiles/hs20/identityproviders/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20IdentityprovidersById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileHs20ProviderAPIResponse, error) {
@@ -247,11 +261,13 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 
 // FindProfilesHs20IdentityprovidersByQueryCriteria
 //
-// Operation ID: findProfilesHs20IdentityprovidersByQueryCriteria
-//
 // Query hotspot 2.0 identity providers.
 //
-// Request Body:
+// Operation ID: findProfilesHs20IdentityprovidersByQueryCriteria
+// Operation path: /profiles/hs20/identityproviders/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20IdentityprovidersByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileHs20ProviderListAPIResponse, error) {
 	var (
@@ -279,37 +295,39 @@ func (s *WSGHotspot20IdentityProviderProfileService) FindProfilesHs20Identitypro
 
 // PartialUpdateProfilesHs20IdentityprovidersById
 //
-// Operation ID: partialUpdateProfilesHs20IdentityprovidersById
-//
 // Use this API command to modify the configuration of a Hotspot 2.0 identity provider.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesHs20IdentityprovidersById
+// Operation path: /profiles/hs20/identityproviders/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileHs20Provider
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGHotspot20IdentityProviderProfileService) PartialUpdateProfilesHs20IdentityprovidersById(ctx context.Context, body *WSGProfileHs20Provider, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGHotspot20IdentityProviderProfileService) PartialUpdateProfilesHs20IdentityprovidersById(ctx context.Context, body *WSGProfileHs20Provider, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesHs20IdentityprovidersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

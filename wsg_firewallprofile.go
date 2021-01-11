@@ -23,11 +23,13 @@ func (ss *WSGService) WSGFirewallProfileService() *WSGFirewallProfileService {
 
 // AddFirewallProfiles
 //
-// Operation ID: addFirewallProfiles
-//
 // Create a Firewall Profile.
 //
-// Request Body:
+// Operation ID: addFirewallProfiles
+// Operation path: /firewallProfiles
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateFirewallProfile
 func (s *WSGFirewallProfileService) AddFirewallProfiles(ctx context.Context, body *WSGProfileCreateFirewallProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *WSGFirewallProfileService) AddFirewallProfiles(ctx context.Context, bod
 
 // DeleteFirewallProfiles
 //
-// Operation ID: deleteFirewallProfiles
-//
 // Use this API command to delete Bulk Firewall Profiles.
 //
-// Request Body:
+// Operation ID: deleteFirewallProfiles
+// Operation path: /firewallProfiles
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGFirewallProfileService) DeleteFirewallProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGFirewallProfileService) DeleteFirewallProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteFirewallProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteFirewallProfilesById
 //
-// Operation ID: deleteFirewallProfilesById
-//
 // Delete a Firewall Profile.
 //
-// Required Parameters:
+// Operation ID: deleteFirewallProfilesById
+// Operation path: /firewallProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGFirewallProfileService) DeleteFirewallProfilesById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGFirewallProfileService) DeleteFirewallProfilesById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteFirewallProfilesById, true)
 	defer recycleAPIRequest(req)
@@ -113,16 +119,18 @@ func (s *WSGFirewallProfileService) DeleteFirewallProfilesById(ctx context.Conte
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindFirewallProfiles
 //
-// Operation ID: findFirewallProfiles
-//
 // Retrieve Firewall Profile list.
 //
-// Optional Parameters:
+// Operation ID: findFirewallProfiles
+// Operation path: /firewallProfiles
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - domainId string
 //		- nullable
 // - index string
@@ -160,11 +168,13 @@ func (s *WSGFirewallProfileService) FindFirewallProfiles(ctx context.Context, op
 
 // FindFirewallProfilesById
 //
-// Operation ID: findFirewallProfilesById
-//
 // Retrieve a Firewall Profile.
 //
-// Required Parameters:
+// Operation ID: findFirewallProfilesById
+// Operation path: /firewallProfiles/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGFirewallProfileService) FindFirewallProfilesById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileFirewallProfileAPIResponse, error) {
@@ -190,11 +200,13 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesById(ctx context.Context
 
 // FindFirewallProfilesByQueryCriteria
 //
-// Operation ID: findFirewallProfilesByQueryCriteria
-//
 // Retrieve a list of Firewall Profile.
 //
-// Request Body:
+// Operation ID: findFirewallProfilesByQueryCriteria
+// Operation path: /firewallProfiles/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGFirewallProfileService) FindFirewallProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileFirewallProfileArrayAPIResponse, error) {
 	var (
@@ -222,11 +234,13 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesByQueryCriteria(ctx cont
 
 // FindFirewallProfilesEthernetPortProfilesById
 //
-// Operation ID: findFirewallProfilesEthernetPortProfilesById
-//
 // Retrieve a EthernetPort Profile list of Firewall Profile is used by
 //
-// Required Parameters:
+// Operation ID: findFirewallProfilesEthernetPortProfilesById
+// Operation path: /firewallProfiles/{id}/ethernetPortProfiles
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGFirewallProfileService) FindFirewallProfilesEthernetPortProfilesById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGEthernetPortProfileListAPIResponse, error) {
@@ -252,11 +266,13 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesEthernetPortProfilesById
 
 // FindFirewallProfilesWlansById
 //
-// Operation ID: findFirewallProfilesWlansById
-//
 // Retrieve a WLAN list of Firewall Profile is used by
 //
-// Required Parameters:
+// Operation ID: findFirewallProfilesWlansById
+// Operation path: /firewallProfiles/{id}/wlans
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGFirewallProfileService) FindFirewallProfilesWlansById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGWLANQueryListAPIResponse, error) {
@@ -282,37 +298,39 @@ func (s *WSGFirewallProfileService) FindFirewallProfilesWlansById(ctx context.Co
 
 // UpdateFirewallProfilesById
 //
-// Operation ID: updateFirewallProfilesById
-//
 // Modify a Firewall Profile.
 //
-// Request Body:
+// Operation ID: updateFirewallProfilesById
+// Operation path: /firewallProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyFirewallProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGFirewallProfileService) UpdateFirewallProfilesById(ctx context.Context, body *WSGProfileModifyFirewallProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGFirewallProfileService) UpdateFirewallProfilesById(ctx context.Context, body *WSGProfileModifyFirewallProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateFirewallProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

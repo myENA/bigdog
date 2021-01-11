@@ -25,11 +25,13 @@ func (ss *SCIService) SCISettingService() *SCISettingService {
 
 // SettingDeleteById
 //
-// Operation ID: setting_deleteById
-//
 // Delete a model instance by id from the data source.
 //
-// Required Parameters:
+// Operation ID: setting_deleteById
+// Operation path: /settings/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SCISettingService) SettingDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -56,15 +58,17 @@ func (s *SCISettingService) SettingDeleteById(ctx context.Context, id string, mu
 
 // SettingFindById
 //
-// Operation ID: setting_findById
-//
 // Find a model instance by id from the data source.
 //
-// Required Parameters:
+// Operation ID: setting_findById
+// Operation path: /settings/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCISettingService) SettingFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsSettingAPIResponse, error) {
@@ -94,8 +98,10 @@ func (s *SCISettingService) SettingFindById(ctx context.Context, id string, opti
 // SettingSendTestEmail
 //
 // Operation ID: setting_sendTestEmail
+// Operation path: /settings/sendTestEmail
+// Success code: 200 (OK)
 //
-// Form Data Parameters:
+// Form data parameters:
 // - recipients string
 //		- required
 func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -124,11 +130,13 @@ func (s *SCISettingService) SettingSendTestEmail(ctx context.Context, formValues
 
 // SettingUpsert
 //
-// Operation ID: setting_upsert
-//
 // Update an existing model instance or insert a new one into the data source.
 //
-// Request Body:
+// Operation ID: setting_upsert
+// Operation path: /settings
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsSetting
 func (s *SCISettingService) SettingUpsert(ctx context.Context, data *SCIModelsSetting, mutators ...RequestMutator) (*SCIModelsSettingAPIResponse, error) {
 	var (

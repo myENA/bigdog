@@ -24,8 +24,10 @@ func (ss *SCIService) SCIZoneDirectorXMLService() *SCIZoneDirectorXMLService {
 // ZdXmlGetAjaxRequest
 //
 // Operation ID: zdXml_getAjaxRequest
+// Operation path: /zdXmls/getAjaxRequest
+// Success code: 200 (OK)
 //
-// Required Parameters:
+// Required parameters:
 // - systemid string
 //		- required
 func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, systemid string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -52,8 +54,10 @@ func (s *SCIZoneDirectorXMLService) ZdXmlGetAjaxRequest(ctx context.Context, sys
 // ZdXmlUpload
 //
 // Operation ID: zdXml_upload
+// Operation path: /zdXmls/{container}/upload
+// Success code: 200 (OK)
 //
-// Required Parameters:
+// Required parameters:
 // - container string
 //		- required
 func (s *SCIZoneDirectorXMLService) ZdXmlUpload(ctx context.Context, container string, mutators ...RequestMutator) (*RawAPIResponse, error) {

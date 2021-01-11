@@ -235,14 +235,16 @@ func NewSwitchMAAAServersCreateAdminAAAServer() *SwitchMAAAServersCreateAdminAAA
 
 // AddGroupAaaServersByGroupId
 //
-// Operation ID: addGroupAaaServersByGroupId
-//
 // Use this API command to create a new AAA server.
 //
-// Request Body:
+// Operation ID: addGroupAaaServersByGroupId
+// Operation path: /group/{groupId}/aaaServers
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *SwitchMAAAServersCreateAdminAAAServer
 //
-// Required Parameters:
+// Required parameters:
 // - groupId string
 //		- required
 func (s *SwitchMAAAServersService) AddGroupAaaServersByGroupId(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, groupId string, mutators ...RequestMutator) (*SwitchMCommonCreateResultAPIResponse, error) {
@@ -272,63 +274,67 @@ func (s *SwitchMAAAServersService) AddGroupAaaServersByGroupId(ctx context.Conte
 
 // DeleteGroupAaaServersByGroupId
 //
-// Operation ID: deleteGroupAaaServersByGroupId
-//
 // Use this API command to delete AAA Servers.
 //
-// Request Body:
+// Operation ID: deleteGroupAaaServersByGroupId
+// Operation path: /group/{groupId}/aaaServers
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMCommonBulkDeleteRequest
 //
-// Required Parameters:
+// Required parameters:
 // - groupId string
 //		- required
-func (s *SwitchMAAAServersService) DeleteGroupAaaServersByGroupId(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, groupId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMAAAServersService) DeleteGroupAaaServersByGroupId(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, groupId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteGroupAaaServersByGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("groupId", groupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteGroupAaaServersById
 //
-// Operation ID: deleteGroupAaaServersById
-//
 // Use this API command to delete a AAA server.
 //
-// Required Parameters:
+// Operation ID: deleteGroupAaaServersById
+// Operation path: /group/{groupId}/aaaServers/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - groupId string
 //		- required
 // - id string
 //		- required
-func (s *SwitchMAAAServersService) DeleteGroupAaaServersById(ctx context.Context, groupId string, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMAAAServersService) DeleteGroupAaaServersById(ctx context.Context, groupId string, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteGroupAaaServersById, true)
 	defer recycleAPIRequest(req)
@@ -338,16 +344,18 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersById(ctx context.Context
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindGroupAaaServersByGroupId
 //
-// Operation ID: findGroupAaaServersByGroupId
-//
 // Use this API command to retrieve a list of AAA server.
 //
-// Required Parameters:
+// Operation ID: findGroupAaaServersByGroupId
+// Operation path: /group/{groupId}/aaaServers
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - groupId string
 //		- required
 func (s *SwitchMAAAServersService) FindGroupAaaServersByGroupId(ctx context.Context, groupId string, mutators ...RequestMutator) (*SwitchMAAAServersQueryResultAPIResponse, error) {
@@ -373,11 +381,13 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersByGroupId(ctx context.Cont
 
 // FindGroupAaaServersById
 //
-// Operation ID: findGroupAaaServersById
-//
 // Use this API command to retrieve a AAA server.
 //
-// Required Parameters:
+// Operation ID: findGroupAaaServersById
+// Operation path: /group/{groupId}/aaaServers/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - groupId string
 //		- required
 // - id string
@@ -406,40 +416,42 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersById(ctx context.Context, 
 
 // UpdateGroupAaaServersById
 //
-// Operation ID: updateGroupAaaServersById
-//
 // Use this API command to modify the basic information on a AAA server by complete attributes.
 //
-// Request Body:
+// Operation ID: updateGroupAaaServersById
+// Operation path: /group/{groupId}/aaaServers/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMAAAServersCreateAdminAAAServer
 //
-// Required Parameters:
+// Required parameters:
 // - groupId string
 //		- required
 // - id string
 //		- required
-func (s *SwitchMAAAServersService) UpdateGroupAaaServersById(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, groupId string, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMAAAServersService) UpdateGroupAaaServersById(ctx context.Context, body *SwitchMAAAServersCreateAdminAAAServer, groupId string, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateGroupAaaServersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("groupId", groupId)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

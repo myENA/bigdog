@@ -546,13 +546,15 @@ func NewSwitchMTroubleshootingSupportLogStatus() *SwitchMTroubleshootingSupportL
 
 // ExecuteSwitchRemoteClientConnectivity
 //
-// Operation ID: executeSwitchRemoteClientConnectivity
-//
 // Switch trace client connectivity
 //
 // Trace a specific client's path of connectivity to a given switch
 //
-// Request Body:
+// Operation ID: executeSwitchRemoteClientConnectivity
+// Operation path: /switch/troubleshooting/connectiontracking
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMTroubleshootingRemoteClientConnectivityRequest
 func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteClientConnectivity(ctx context.Context, body *SwitchMTroubleshootingRemoteClientConnectivityRequest, mutators ...RequestMutator) (*SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse, error) {
 	var (
@@ -580,13 +582,15 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteClientConnectivity(ct
 
 // ExecuteSwitchRemotePing
 //
-// Operation ID: executeSwitchRemotePing
-//
 // Switch remote ping
 //
 // Attempt to ping an address or hostname from a specific switch. Note: This API is quite slow, and may take > 5 seconds to respond
 //
-// Request Body:
+// Operation ID: executeSwitchRemotePing
+// Operation path: /switch/troubleshooting/ping
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMTroubleshootingRemotePingRequest
 func (s *SwitchMTroubleshootingService) ExecuteSwitchRemotePing(ctx context.Context, body *SwitchMTroubleshootingRemotePingRequest, mutators ...RequestMutator) (*SwitchMTroubleshootingRemoteCommandResponseAPIResponse, error) {
 	var (
@@ -614,13 +618,15 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemotePing(ctx context.Cont
 
 // ExecuteSwitchRemoteTraceroute
 //
-// Operation ID: executeSwitchRemoteTraceroute
-//
 // Switch remote traceroute
 //
 // Attempt to execute a traceroute from a specific switch to a destination.  Note: This is a very slow API, taking > 30 seconds to respond.
 //
-// Request Body:
+// Operation ID: executeSwitchRemoteTraceroute
+// Operation path: /switch/troubleshooting/traceroute
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMTroubleshootingRemoteTracerouteRequest
 func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteTraceroute(ctx context.Context, body *SwitchMTroubleshootingRemoteTracerouteRequest, mutators ...RequestMutator) (*SwitchMTroubleshootingRemoteCommandResponseAPIResponse, error) {
 	var (
@@ -648,11 +654,13 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteTraceroute(ctx contex
 
 // FindSupportLogBySwitchId
 //
-// Operation ID: findSupportLogBySwitchId
-//
 // Use this API to request ICX to prepare support log.
 //
-// Required Parameters:
+// Operation ID: findSupportLogBySwitchId
+// Operation path: /supportLog/{switchId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - switchId string
 //		- required
 func (s *SwitchMTroubleshootingService) FindSupportLogBySwitchId(ctx context.Context, switchId string, mutators ...RequestMutator) (*SwitchMCommonCreateResultAPIResponse, error) {
@@ -678,24 +686,26 @@ func (s *SwitchMTroubleshootingService) FindSupportLogBySwitchId(ctx context.Con
 
 // FindSupportLogDownloadBySwitchId
 //
-// Operation ID: findSupportLogDownloadBySwitchId
-//
 // Use this API to download support log.
 //
-// Required Parameters:
+// Operation ID: findSupportLogDownloadBySwitchId
+// Operation path: /supportLog/download/{switchId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - switchId string
 //		- required
-func (s *SwitchMTroubleshootingService) FindSupportLogDownloadBySwitchId(ctx context.Context, switchId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMTroubleshootingService) FindSupportLogDownloadBySwitchId(ctx context.Context, switchId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSwitchMFindSupportLogDownloadBySwitchId, true)
 	defer recycleAPIRequest(req)
@@ -703,16 +713,18 @@ func (s *SwitchMTroubleshootingService) FindSupportLogDownloadBySwitchId(ctx con
 	req.PathParams.Set("switchId", switchId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindSupportLogStatusBySwitchId
 //
-// Operation ID: findSupportLogStatusBySwitchId
-//
 // Use this API to get the status of current support log request.
 //
-// Required Parameters:
+// Operation ID: findSupportLogStatusBySwitchId
+// Operation path: /supportLog/status/{switchId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - switchId string
 //		- required
 func (s *SwitchMTroubleshootingService) FindSupportLogStatusBySwitchId(ctx context.Context, switchId string, mutators ...RequestMutator) (*SwitchMTroubleshootingSupportLogStatusAPIResponse, error) {

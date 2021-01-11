@@ -225,11 +225,13 @@ func NewSwitchMStaticRouteSettingUpdateStaticRoute() *SwitchMStaticRouteSettingU
 
 // AddStaticRoutes
 //
-// Operation ID: addStaticRoutes
-//
 // Use this API command to Create Static Route.
 //
-// Request Body:
+// Operation ID: addStaticRoutes
+// Operation path: /staticRoutes
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *SwitchMStaticRouteSettingCreateStaticRoute
 func (s *SwitchMStaticRouteSettingService) AddStaticRoutes(ctx context.Context, body *SwitchMStaticRouteSettingCreateStaticRoute, mutators ...RequestMutator) (*SwitchMCommonCreateResultAPIResponse, error) {
 	var (
@@ -257,56 +259,60 @@ func (s *SwitchMStaticRouteSettingService) AddStaticRoutes(ctx context.Context, 
 
 // DeleteStaticRoutes
 //
-// Operation ID: deleteStaticRoutes
-//
 // Use this API command to Delete Static Route by Id list.
 //
-// Request Body:
+// Operation ID: deleteStaticRoutes
+// Operation path: /staticRoutes
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutes(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutes(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteStaticRoutes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteStaticRoutesById
 //
-// Operation ID: deleteStaticRoutesById
-//
 // Use this API command to Delete Static Route.
 //
-// Required Parameters:
+// Operation ID: deleteStaticRoutesById
+// Operation path: /staticRoutes/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutesById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutesById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteStaticRoutesById, true)
 	defer recycleAPIRequest(req)
@@ -315,16 +321,18 @@ func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutesById(ctx context.Co
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindStaticRoutesById
 //
-// Operation ID: findStaticRoutesById
-//
 // Use this API command to Retrieve Static Route.
 //
-// Required Parameters:
+// Operation ID: findStaticRoutesById
+// Operation path: /staticRoutes/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMStaticRouteSettingService) FindStaticRoutesById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMStaticRouteSettingStaticRouteAPIResponse, error) {
@@ -350,11 +358,13 @@ func (s *SwitchMStaticRouteSettingService) FindStaticRoutesById(ctx context.Cont
 
 // FindStaticRoutesByQueryCriteria
 //
-// Operation ID: findStaticRoutesByQueryCriteria
-//
 // Use this API command to Retrieve Static Route list.
 //
-// Request Body:
+// Operation ID: findStaticRoutesByQueryCriteria
+// Operation path: /staticRoutes/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMStaticRouteSettingService) FindStaticRoutesByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse, error) {
 	var (
@@ -382,37 +392,39 @@ func (s *SwitchMStaticRouteSettingService) FindStaticRoutesByQueryCriteria(ctx c
 
 // UpdateStaticRoutesById
 //
-// Operation ID: updateStaticRoutesById
-//
 // Use this API command to Update Static Route.
 //
-// Request Body:
+// Operation ID: updateStaticRoutesById
+// Operation path: /staticRoutes/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMStaticRouteSettingUpdateStaticRoute
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMStaticRouteSettingService) UpdateStaticRoutesById(ctx context.Context, body *SwitchMStaticRouteSettingUpdateStaticRoute, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMStaticRouteSettingService) UpdateStaticRoutesById(ctx context.Context, body *SwitchMStaticRouteSettingUpdateStaticRoute, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateStaticRoutesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

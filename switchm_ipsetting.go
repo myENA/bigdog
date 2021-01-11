@@ -23,11 +23,13 @@ func (ss *SwitchMService) SwitchMIPSettingsService() *SwitchMIPSettingsService {
 
 // AddIpConfigs
 //
-// Operation ID: addIpConfigs
-//
 // Use this API command to Create IP Config.
 //
-// Request Body:
+// Operation ID: addIpConfigs
+// Operation path: /ipConfigs
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *SwitchMIPConfigCreate
 func (s *SwitchMIPSettingsService) AddIpConfigs(ctx context.Context, body *SwitchMIPConfigCreate, mutators ...RequestMutator) (*SwitchMIPConfigCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *SwitchMIPSettingsService) AddIpConfigs(ctx context.Context, body *Switc
 
 // DeleteIpConfigs
 //
-// Operation ID: deleteIpConfigs
-//
 // Use this API command to Delete IP Config by Id list.
 //
-// Request Body:
+// Operation ID: deleteIpConfigs
+// Operation path: /ipConfigs
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMIPSettingsService) DeleteIpConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMIPSettingsService) DeleteIpConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteIpConfigs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteIpConfigsById
 //
-// Operation ID: deleteIpConfigsById
-//
 // Use this API command to Delete IP Config.
 //
-// Required Parameters:
+// Operation ID: deleteIpConfigsById
+// Operation path: /ipConfigs/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMIPSettingsService) DeleteIpConfigsById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMIPSettingsService) DeleteIpConfigsById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteIpConfigsById, true)
 	defer recycleAPIRequest(req)
@@ -113,14 +119,16 @@ func (s *SwitchMIPSettingsService) DeleteIpConfigsById(ctx context.Context, id s
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindIpConfigs
 //
-// Operation ID: findIpConfigs
-//
 // Use this API command to Retrieve IP Config List.
+//
+// Operation ID: findIpConfigs
+// Operation path: /ipConfigs
+// Success code: 200 (OK)
 func (s *SwitchMIPSettingsService) FindIpConfigs(ctx context.Context, mutators ...RequestMutator) (*SwitchMIPConfigListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -143,11 +151,13 @@ func (s *SwitchMIPSettingsService) FindIpConfigs(ctx context.Context, mutators .
 
 // FindIpConfigsById
 //
-// Operation ID: findIpConfigsById
-//
 // Use this API command to Retrieve IP Config.
 //
-// Required Parameters:
+// Operation ID: findIpConfigsById
+// Operation path: /ipConfigs/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMIPSettingsService) FindIpConfigsById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMIPConfigAPIResponse, error) {
@@ -173,11 +183,13 @@ func (s *SwitchMIPSettingsService) FindIpConfigsById(ctx context.Context, id str
 
 // FindIpConfigsByQueryCriteria
 //
-// Operation ID: findIpConfigsByQueryCriteria
-//
 // Use this API command to Retrieve IP Config list.
 //
-// Request Body:
+// Operation ID: findIpConfigsByQueryCriteria
+// Operation path: /ipConfigs/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMIPSettingsService) FindIpConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMIPConfigListAPIResponse, error) {
 	var (
@@ -205,37 +217,39 @@ func (s *SwitchMIPSettingsService) FindIpConfigsByQueryCriteria(ctx context.Cont
 
 // UpdateIpConfigsById
 //
-// Operation ID: updateIpConfigsById
-//
 // Use this API command to Update IP Config.
 //
-// Request Body:
+// Operation ID: updateIpConfigsById
+// Operation path: /ipConfigs/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMIPConfigModify
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMIPSettingsService) UpdateIpConfigsById(ctx context.Context, body *SwitchMIPConfigModify, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMIPSettingsService) UpdateIpConfigsById(ctx context.Context, body *SwitchMIPConfigModify, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateIpConfigsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

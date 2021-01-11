@@ -23,11 +23,13 @@ func (ss *WSGService) WSGQueryWithFilterService() *WSGQueryWithFilterService {
 
 // FindGgsnGtpcConStatsByQueryCriteria
 //
-// Operation ID: findGgsnGtpcConStatsByQueryCriteria
-//
 // Use this API command to retrieve a list of GGSN Connection.
 //
-// Request Body:
+// Operation ID: findGgsnGtpcConStatsByQueryCriteria
+// Operation path: /query/ggsnGtpcCon/stats
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindGgsnGtpcConStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRACStatsGgsnGtpcConListAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *WSGQueryWithFilterService) FindGgsnGtpcConStatsByQueryCriteria(ctx cont
 
 // FindGgsnGtpStatsByQueryCriteria
 //
-// Operation ID: findGgsnGtpStatsByQueryCriteria
-//
 // Use this API command to retrieve a list of GGSN/PGW GTP-C Sessions.
 //
-// Request Body:
+// Operation ID: findGgsnGtpStatsByQueryCriteria
+// Operation path: /query/ggsnGtp/stats
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindGgsnGtpStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRACStatsGgsnGtpListAPIResponse, error) {
 	var (
@@ -87,11 +91,13 @@ func (s *WSGQueryWithFilterService) FindGgsnGtpStatsByQueryCriteria(ctx context.
 
 // FindRadiusProxyStatsByQueryCriteria
 //
-// Operation ID: findRadiusProxyStatsByQueryCriteria
-//
 // Use this API command to retrieve a list of Radius Proxy.
 //
-// Request Body:
+// Operation ID: findRadiusProxyStatsByQueryCriteria
+// Operation path: /query/radiusProxy/stats
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGQueryWithFilterService) FindRadiusProxyStatsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRACStatsRadiusProxyListAPIResponse, error) {
 	var (

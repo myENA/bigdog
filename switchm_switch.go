@@ -1283,11 +1283,13 @@ func NewSwitchMSwitchTopSwitchesByModelQueryResultList() *SwitchMSwitchTopSwitch
 
 // AddSwitch
 //
-// Operation ID: addSwitch
-//
 // Use this API command to retrieve all the switches currently managed by SmartZone.
 //
-// Request Body:
+// Operation ID: addSwitch
+// Operation path: /switch
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMSwitchQueryResultListAPIResponse, error) {
 	var (
@@ -1315,11 +1317,13 @@ func (s *SwitchMSwitchService) AddSwitch(ctx context.Context, body *SwitchMCommo
 
 // AddSwitchReboot
 //
-// Operation ID: addSwitchReboot
-//
 // Reboot switch by MAC address
 //
-// Required Parameters:
+// Operation ID: addSwitchReboot
+// Operation path: /switch/{switchId}/reboot
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - switchId string
 //		- required
 func (s *SwitchMSwitchService) AddSwitchReboot(ctx context.Context, switchId string, mutators ...RequestMutator) (*SwitchMSwitchRebootResponseAPIResponse, error) {
@@ -1346,11 +1350,13 @@ func (s *SwitchMSwitchService) AddSwitchReboot(ctx context.Context, switchId str
 
 // AddSwitchSnmpSyncedSwitch
 //
-// Operation ID: addSwitchSnmpSyncedSwitch
-//
 // Use this API command to retrieve all the switches currently managed by SmartZone and SNMP synced.
 //
-// Request Body:
+// Operation ID: addSwitchSnmpSyncedSwitch
+// Operation path: /switch/snmpSyncedSwitch
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMSwitchQueryResultListAPIResponse, error) {
 	var (
@@ -1378,11 +1384,13 @@ func (s *SwitchMSwitchService) AddSwitchSnmpSyncedSwitch(ctx context.Context, bo
 
 // AddSwitchViewDetails
 //
-// Operation ID: addSwitchViewDetails
-//
 // Use this API command to retrieve switch and port details for the selected Switch/SwitchGroup/Domain.
 //
-// Request Body:
+// Operation ID: addSwitchViewDetails
+// Operation path: /switch/view/details
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMSwitchStackMemberQueryResultAPIResponse, error) {
 	var (
@@ -1410,11 +1418,13 @@ func (s *SwitchMSwitchService) AddSwitchViewDetails(ctx context.Context, body *S
 
 // DeleteSwitch
 //
-// Operation ID: deleteSwitch
-//
 // Use this API command to delete multiple switches managed by SmartZone
 //
-// Request Body:
+// Operation ID: deleteSwitch
+// Operation path: /switch
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body SwitchMSwitchIdList
 func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwitchIdList, mutators ...RequestMutator) (*SwitchMSwitchDeleteSwitchesResultListAPIResponse, error) {
 	var (
@@ -1442,11 +1452,13 @@ func (s *SwitchMSwitchService) DeleteSwitch(ctx context.Context, body SwitchMSwi
 
 // DeleteSwitchById
 //
-// Operation ID: deleteSwitchById
-//
 // Use this API command to delete a switch managed by SmartZone.
 //
-// Required Parameters:
+// Operation ID: deleteSwitchById
+// Operation path: /switch/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMSwitchAuditIdAPIResponse, error) {
@@ -1473,11 +1485,13 @@ func (s *SwitchMSwitchService) DeleteSwitchById(ctx context.Context, id string, 
 
 // FindSwitchById
 //
-// Operation ID: findSwitchById
-//
 // Use this API command to retrieve a switch status.
 //
-// Required Parameters:
+// Operation ID: findSwitchById
+// Operation path: /switch/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMSwitchNetworkSwitchAPIResponse, error) {
@@ -1503,11 +1517,13 @@ func (s *SwitchMSwitchService) FindSwitchById(ctx context.Context, id string, mu
 
 // FindSwitchFirmwareBySwitchId
 //
-// Operation ID: findSwitchFirmwareBySwitchId
-//
 // Use this API command to get a list of firmware update history.
 //
-// Required Parameters:
+// Operation ID: findSwitchFirmwareBySwitchId
+// Operation path: /switch/{switchId}/firmware
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - switchId string
 //		- required
 func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context, switchId string, mutators ...RequestMutator) (*SwitchMSwitchFirmwareHistoryQueryResultListAPIResponse, error) {
@@ -1533,9 +1549,11 @@ func (s *SwitchMSwitchService) FindSwitchFirmwareBySwitchId(ctx context.Context,
 
 // FindSwitchModelList
 //
-// Operation ID: findSwitchModelList
-//
 // Use this API command to Retrieve Switch Model List.
+//
+// Operation ID: findSwitchModelList
+// Operation path: /switchModel/list
+// Success code: 200 (OK)
 func (s *SwitchMSwitchService) FindSwitchModelList(ctx context.Context, mutators ...RequestMutator) (*SwitchMSwitchModelResultAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -1558,14 +1576,16 @@ func (s *SwitchMSwitchService) FindSwitchModelList(ctx context.Context, mutators
 
 // UpdateSwitchMoveByDestinationSwitchGroupId
 //
-// Operation ID: updateSwitchMoveByDestinationSwitchGroupId
-//
 // Use this API command to move a list of switches to a switch group.
 //
-// Request Body:
+// Operation ID: updateSwitchMoveByDestinationSwitchGroupId
+// Operation path: /switch/move/{destinationSwitchGroupId}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body SwitchMSwitchIdList
 //
-// Required Parameters:
+// Required parameters:
 // - destinationSwitchGroupId string
 //		- required
 func (s *SwitchMSwitchService) UpdateSwitchMoveByDestinationSwitchGroupId(ctx context.Context, body SwitchMSwitchIdList, destinationSwitchGroupId string, mutators ...RequestMutator) (*RawAPIResponse, error) {

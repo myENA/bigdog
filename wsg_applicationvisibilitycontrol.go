@@ -24,11 +24,13 @@ func (ss *WSGService) WSGApplicationVisibilityControlService() *WSGApplicationVi
 
 // AddAvcApplicationPolicy
 //
-// Operation ID: addAvcApplicationPolicy
-//
 // Use this API command to create a new AVC Application Policy profile (for 5.0 and Earlier Firmware Versions).
 //
-// Request Body:
+// Operation ID: addAvcApplicationPolicy
+// Operation path: /avc/applicationPolicy
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAVCCreateApplicationPolicyProfile
 func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicy(ctx context.Context, body *WSGAVCCreateApplicationPolicyProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -56,11 +58,13 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicy(ctx con
 
 // AddAvcApplicationPolicyV2
 //
-// Operation ID: addAvcApplicationPolicyV2
-//
 // Use this API command to create a new AVC Application Policy profile.
 //
-// Request Body:
+// Operation ID: addAvcApplicationPolicyV2
+// Operation path: /avc/applicationPolicyV2
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAVCCreateApplicationPolicyProfile
 func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicyV2(ctx context.Context, body *WSGAVCCreateApplicationPolicyProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -88,11 +92,13 @@ func (s *WSGApplicationVisibilityControlService) AddAvcApplicationPolicyV2(ctx c
 
 // AddAvcSignaturePackageUpload
 //
-// Operation ID: addAvcSignaturePackageUpload
-//
 // Update AVC Signature Package by upload file (for 5.0 and Earlier Firmware Versions).
 //
-// Form Data Parameters:
+// Operation ID: addAvcSignaturePackageUpload
+// Operation path: /avc/signaturePackage/upload
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - uploadFile io.Reader
 //		- required
 func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*WSGAVCSignaturePackageAPIResponse, error) {
@@ -122,11 +128,13 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageUpload(ct
 
 // AddAvcSignaturePackageV2Upload
 //
-// Operation ID: addAvcSignaturePackageV2Upload
-//
 // Update AVC Signature Package by upload file.
 //
-// Form Data Parameters:
+// Operation ID: addAvcSignaturePackageV2Upload
+// Operation path: /avc/signaturePackageV2/upload
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - uploadFile io.Reader
 //		- required
 func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*WSGAVCSignaturePackageAPIResponse, error) {
@@ -156,11 +164,13 @@ func (s *WSGApplicationVisibilityControlService) AddAvcSignaturePackageV2Upload(
 
 // AddAvcUserDefined
 //
-// Operation ID: addAvcUserDefined
-//
 // Use this API command to create a new AVC User Defined profile.
 //
-// Request Body:
+// Operation ID: addAvcUserDefined
+// Operation path: /avc/userDefined
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAVCCreateUserDefinedProfile
 func (s *WSGApplicationVisibilityControlService) AddAvcUserDefined(ctx context.Context, body *WSGAVCCreateUserDefinedProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -188,11 +198,13 @@ func (s *WSGApplicationVisibilityControlService) AddAvcUserDefined(ctx context.C
 
 // DeleteAvcApplicationPolicy
 //
-// Operation ID: deleteAvcApplicationPolicy
-//
 // Use this API command to delete a AVC Application Policy Profile (for 5.0 and Earlier Firmware Versions).
 //
-// Request Body:
+// Operation ID: deleteAvcApplicationPolicy
+// Operation path: /avc/applicationPolicy
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGAVCDeleteBulk
 func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicy(ctx context.Context, body *WSGAVCDeleteBulk, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -220,24 +232,26 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicy(ctx 
 
 // DeleteAvcApplicationPolicyById
 //
-// Operation ID: deleteAvcApplicationPolicyById
-//
 // Use this API command to delete a AVC Application Policy Profile (for 5.0 and Earlier Firmware Versions).
 //
-// Required Parameters:
+// Operation ID: deleteAvcApplicationPolicyById
+// Operation path: /avc/applicationPolicy/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyById, true)
 	defer recycleAPIRequest(req)
@@ -246,16 +260,18 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyById(
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteAvcApplicationPolicyV2
 //
-// Operation ID: deleteAvcApplicationPolicyV2
-//
 // Use this API command to delete a AVC Application Policy Profile.
 //
-// Request Body:
+// Operation ID: deleteAvcApplicationPolicyV2
+// Operation path: /avc/applicationPolicyV2
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGAVCDeleteBulk
 func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2(ctx context.Context, body *WSGAVCDeleteBulk, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -283,24 +299,26 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2(ct
 
 // DeleteAvcApplicationPolicyV2ById
 //
-// Operation ID: deleteAvcApplicationPolicyV2ById
-//
 // Use this API command to delete a AVC Application Policy Profile.
 //
-// Required Parameters:
+// Operation ID: deleteAvcApplicationPolicyV2ById
+// Operation path: /avc/applicationPolicyV2/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAvcApplicationPolicyV2ById, true)
 	defer recycleAPIRequest(req)
@@ -309,61 +327,65 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcApplicationPolicyV2ByI
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteAvcUserDefined
 //
-// Operation ID: deleteAvcUserDefined
-//
 // Use this API command to delete a AVC User Defined Profile.
 //
-// Request Body:
+// Operation ID: deleteAvcUserDefined
+// Operation path: /avc/userDefined
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAVCDeleteBulk
-func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx context.Context, body *WSGAVCDeleteBulk, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefined(ctx context.Context, body *WSGAVCDeleteBulk, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAvcUserDefined, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteAvcUserDefinedById
 //
-// Operation ID: deleteAvcUserDefinedById
-//
 // Use this API command to delete a AVC User Defined Profile.
 //
-// Required Parameters:
+// Operation ID: deleteAvcUserDefinedById
+// Operation path: /avc/userDefined/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAvcUserDefinedById, true)
 	defer recycleAPIRequest(req)
@@ -372,16 +394,18 @@ func (s *WSGApplicationVisibilityControlService) DeleteAvcUserDefinedById(ctx co
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindApplicationPolicyByQueryCriteria
 //
-// Operation ID: findApplicationPolicyByQueryCriteria
-//
 // Use this API command to retrieve a list of AVC Application Policy profiles (for 5.0 and Earlier Firmware Versions).
 //
-// Request Body:
+// Operation ID: findApplicationPolicyByQueryCriteria
+// Operation path: /query/applicationPolicy
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGAVCApplicationPolicyProfileListAPIResponse, error) {
 	var (
@@ -409,11 +433,13 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyByQueryCri
 
 // FindApplicationPolicyV2ByQueryCriteria
 //
-// Operation ID: findApplicationPolicyV2ByQueryCriteria
-//
 // Use this API command to retrieve a list of AVC Application Policy profiles.
 //
-// Request Body:
+// Operation ID: findApplicationPolicyV2ByQueryCriteria
+// Operation path: /query/applicationPolicyV2
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGAVCApplicationPolicyProfileListAPIResponse, error) {
 	var (
@@ -441,11 +467,13 @@ func (s *WSGApplicationVisibilityControlService) FindApplicationPolicyV2ByQueryC
 
 // FindAvcApplicationPolicyById
 //
-// Operation ID: findAvcApplicationPolicyById
-//
 // Use this API command to retrieve a AVC Application Policy profile (for 5.0 and Earlier Firmware Versions).
 //
-// Required Parameters:
+// Operation ID: findAvcApplicationPolicyById
+// Operation path: /avc/applicationPolicy/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGAVCApplicationPolicyProfileAPIResponse, error) {
@@ -471,11 +499,13 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyById(ct
 
 // FindAvcApplicationPolicyV2ById
 //
-// Operation ID: findAvcApplicationPolicyV2ById
-//
 // Use this API command to retrieve a AVC Application Policy profile.
 //
-// Required Parameters:
+// Operation ID: findAvcApplicationPolicyV2ById
+// Operation path: /avc/applicationPolicyV2/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGAVCApplicationPolicyProfileAPIResponse, error) {
@@ -501,9 +531,11 @@ func (s *WSGApplicationVisibilityControlService) FindAvcApplicationPolicyV2ById(
 
 // FindAvcSignaturePackage
 //
-// Operation ID: findAvcSignaturePackage
-//
 // Get current Signature Package info (for 5.0 and Earlier Firmware Versions).
+//
+// Operation ID: findAvcSignaturePackage
+// Operation path: /avc/signaturePackage
+// Success code: 200 (OK)
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx context.Context, mutators ...RequestMutator) (*WSGAVCSignaturePackageAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -526,11 +558,13 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackage(ctx con
 
 // FindAvcSignaturePackageApplicationByApplicationName
 //
-// Operation ID: findAvcSignaturePackageApplicationByApplicationName
-//
 // Get Application info (catId, appId and name) by application name (for 5.0 and Earlier Firmware Versions).
 //
-// Required Parameters:
+// Operation ID: findAvcSignaturePackageApplicationByApplicationName
+// Operation path: /avc/signaturePackage/application/{applicationName}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - applicationName string
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicationByApplicationName(ctx context.Context, applicationName string, mutators ...RequestMutator) (*WSGAVCApplicationAPIResponse, error) {
@@ -556,9 +590,11 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 
 // FindAvcSignaturePackageApplications
 //
-// Operation ID: findAvcSignaturePackageApplications
-//
 // Get Application list from current Signature Package (for 5.0 and Earlier Firmware Versions).
+//
+// Operation ID: findAvcSignaturePackageApplications
+// Operation path: /avc/signaturePackage/applications
+// Success code: 200 (OK)
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplications(ctx context.Context, mutators ...RequestMutator) (*WSGAVCApplicationListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -581,9 +617,11 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageApplicat
 
 // FindAvcSignaturePackageCategories
 //
-// Operation ID: findAvcSignaturePackageCategories
-//
 // Get Application Category list from current Signature Package (for 5.0 and Earlier Firmware Versions).
+//
+// Operation ID: findAvcSignaturePackageCategories
+// Operation path: /avc/signaturePackage/categories
+// Success code: 200 (OK)
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategories(ctx context.Context, mutators ...RequestMutator) (*WSGAVCAppCategoryListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -606,11 +644,13 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategori
 
 // FindAvcSignaturePackageCategoryByCategoryName
 //
-// Operation ID: findAvcSignaturePackageCategoryByCategoryName
-//
 // Get Application Category info (catId and name) by category name (for 5.0 and Earlier Firmware Versions).
 //
-// Required Parameters:
+// Operation ID: findAvcSignaturePackageCategoryByCategoryName
+// Operation path: /avc/signaturePackage/category/{categoryName}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - categoryName string
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategoryByCategoryName(ctx context.Context, categoryName string, mutators ...RequestMutator) (*WSGAVCAppCategoryAPIResponse, error) {
@@ -636,9 +676,11 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageCategory
 
 // FindAvcSignaturePackageV2
 //
-// Operation ID: findAvcSignaturePackageV2
-//
 // Get current Signature Package info.
+//
+// Operation ID: findAvcSignaturePackageV2
+// Operation path: /avc/signaturePackageV2
+// Success code: 200 (OK)
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx context.Context, mutators ...RequestMutator) (*WSGAVCSignaturePackageAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -661,11 +703,13 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2(ctx c
 
 // FindAvcSignaturePackageV2Applications
 //
-// Operation ID: findAvcSignaturePackageV2Applications
-//
 // Get Application list from current Signature Package.
 //
-// Optional Parameters:
+// Operation ID: findAvcSignaturePackageV2Applications
+// Operation path: /avc/signaturePackageV2/applications
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - appName string
 //		- nullable
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applications(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGAVCApplicationListAPIResponse, error) {
@@ -693,11 +737,13 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Applic
 
 // FindAvcSignaturePackageV2Categories
 //
-// Operation ID: findAvcSignaturePackageV2Categories
-//
 // Get Application Category list from current Signature Package.
 //
-// Optional Parameters:
+// Operation ID: findAvcSignaturePackageV2Categories
+// Operation path: /avc/signaturePackageV2/categories
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - catName string
 //		- nullable
 func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Categories(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGAVCAppCategoryListAPIResponse, error) {
@@ -725,11 +771,13 @@ func (s *WSGApplicationVisibilityControlService) FindAvcSignaturePackageV2Catego
 
 // FindAvcUserDefinedById
 //
-// Operation ID: findAvcUserDefinedById
-//
 // Use this API command to retrieve a AVC User Defined profile.
 //
-// Required Parameters:
+// Operation ID: findAvcUserDefinedById
+// Operation path: /avc/userDefined/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGAVCUserDefinedProfileAPIResponse, error) {
@@ -755,11 +803,13 @@ func (s *WSGApplicationVisibilityControlService) FindAvcUserDefinedById(ctx cont
 
 // FindUserDefinedByQueryCriteria
 //
-// Operation ID: findUserDefinedByQueryCriteria
-//
 // Use this API command to retrieve a list of AVC User Defined profiles.
 //
-// Request Body:
+// Operation ID: findUserDefinedByQueryCriteria
+// Operation path: /query/userDefined
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGAVCUserDefinedProfileListAPIResponse, error) {
 	var (
@@ -787,111 +837,117 @@ func (s *WSGApplicationVisibilityControlService) FindUserDefinedByQueryCriteria(
 
 // PartialUpdateAvcApplicationPolicyById
 //
-// Operation ID: partialUpdateAvcApplicationPolicyById
-//
 // Use this API command to modify the configuration on AVC Application Policy profile (for 5.0 and Earlier Firmware Versions).
 //
-// Request Body:
+// Operation ID: partialUpdateAvcApplicationPolicyById
+// Operation path: /avc/applicationPolicy/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAVCModifyApplicationPolicyProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPolicyById(ctx context.Context, body *WSGAVCModifyApplicationPolicyProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPolicyById(ctx context.Context, body *WSGAVCModifyApplicationPolicyProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateAvcApplicationPolicyById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateAvcApplicationPolicyV2ById
 //
-// Operation ID: partialUpdateAvcApplicationPolicyV2ById
-//
 // Use this API command to modify the configuration on AVC Application Policy profile.
 //
-// Request Body:
+// Operation ID: partialUpdateAvcApplicationPolicyV2ById
+// Operation path: /avc/applicationPolicyV2/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAVCModifyApplicationPolicyProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPolicyV2ById(ctx context.Context, body *WSGAVCModifyApplicationPolicyProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcApplicationPolicyV2ById(ctx context.Context, body *WSGAVCModifyApplicationPolicyProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateAvcApplicationPolicyV2ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateAvcUserDefinedById
 //
-// Operation ID: partialUpdateAvcUserDefinedById
-//
 // Use this API command to modify the configuration on AVC User Defined profile.
 //
-// Request Body:
+// Operation ID: partialUpdateAvcUserDefinedById
+// Operation path: /avc/userDefined/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAVCModifyUserDefinedProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcUserDefinedById(ctx context.Context, body *WSGAVCModifyUserDefinedProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGApplicationVisibilityControlService) PartialUpdateAvcUserDefinedById(ctx context.Context, body *WSGAVCModifyUserDefinedProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateAvcUserDefinedById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

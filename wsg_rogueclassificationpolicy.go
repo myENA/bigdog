@@ -23,14 +23,16 @@ func (ss *WSGService) WSGRogueClassificationPolicyService() *WSGRogueClassificat
 
 // AddRkszonesRogueApPoliciesByZoneId
 //
-// Operation ID: addRkszonesRogueApPoliciesByZoneId
-//
 // Use this API command to create rogue AP policy.
 //
-// Request Body:
+// Operation ID: addRkszonesRogueApPoliciesByZoneId
+// Operation path: /rkszones/{zoneId}/rogueApPolicies
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateRogueApPolicy
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGRogueClassificationPolicyService) AddRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *WSGProfileCreateRogueApPolicy, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,26 +62,28 @@ func (s *WSGRogueClassificationPolicyService) AddRkszonesRogueApPoliciesByZoneId
 
 // DeleteRkszonesRogueApPoliciesById
 //
-// Operation ID: deleteRkszonesRogueApPoliciesById
-//
 // Use this API command to delete rogue AP policy.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesRogueApPoliciesById
+// Operation path: /rkszones/{zoneId}/rogueApPolicies/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesRogueApPoliciesById, true)
 	defer recycleAPIRequest(req)
@@ -89,53 +93,57 @@ func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesById(
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesRogueApPoliciesByZoneId
 //
-// Operation ID: deleteRkszonesRogueApPoliciesByZoneId
-//
 // Use this API command to delete bulk rogue AP policy.
 //
-// Request Body:
+// Operation ID: deleteRkszonesRogueApPoliciesByZoneId
+// Operation path: /rkszones/{zoneId}/rogueApPolicies
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
-func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGRogueClassificationPolicyService) DeleteRkszonesRogueApPoliciesByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesRogueApPoliciesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesRogueApPoliciesById
 //
-// Operation ID: findRkszonesRogueApPoliciesById
-//
 // Use this API command to retrieve rogue AP policy.
 //
-// Required Parameters:
+// Operation ID: findRkszonesRogueApPoliciesById
+// Operation path: /rkszones/{zoneId}/rogueApPolicies/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -164,11 +172,13 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesById(ct
 
 // FindRkszonesRogueApPoliciesByZoneId
 //
-// Operation ID: findRkszonesRogueApPoliciesByZoneId
-//
 // Use this API command to retrieve a list of rogue AP policy.
 //
-// Required Parameters:
+// Operation ID: findRkszonesRogueApPoliciesByZoneId
+// Operation path: /rkszones/{zoneId}/rogueApPolicies
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGProfileRogueApPolicyListAPIResponse, error) {
@@ -194,40 +204,42 @@ func (s *WSGRogueClassificationPolicyService) FindRkszonesRogueApPoliciesByZoneI
 
 // PartialUpdateRkszonesRogueApPoliciesById
 //
-// Operation ID: partialUpdateRkszonesRogueApPoliciesById
-//
 // Use this API command to modify rogue AP policy.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesRogueApPoliciesById
+// Operation path: /rkszones/{zoneId}/rogueApPolicies/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileUpdateRogueApPolicy
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRogueClassificationPolicyService) PartialUpdateRkszonesRogueApPoliciesById(ctx context.Context, body *WSGProfileUpdateRogueApPolicy, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGRogueClassificationPolicyService) PartialUpdateRkszonesRogueApPoliciesById(ctx context.Context, body *WSGProfileUpdateRogueApPolicy, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesRogueApPoliciesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

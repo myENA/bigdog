@@ -23,9 +23,11 @@ func (ss *WSGService) WSGSNMPAgentService() *WSGSNMPAgentService {
 
 // FindSystemSnmpAgent
 //
-// Operation ID: findSystemSnmpAgent
-//
 // Retrieve SNMP Agent sertting.
+//
+// Operation ID: findSystemSnmpAgent
+// Operation path: /system/snmpAgent
+// Success code: 200 (OK)
 func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context, mutators ...RequestMutator) (*WSGSystemSnmpAgentConfigurationAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -48,32 +50,34 @@ func (s *WSGSNMPAgentService) FindSystemSnmpAgent(ctx context.Context, mutators 
 
 // UpdateSystemSnmpAgent
 //
-// Operation ID: updateSystemSnmpAgent
-//
 // Modify syslog server setting.
 //
-// Request Body:
+// Operation ID: updateSystemSnmpAgent
+// Operation path: /system/snmpAgent
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemModifySnmpAgent
-func (s *WSGSNMPAgentService) UpdateSystemSnmpAgent(ctx context.Context, body *WSGSystemModifySnmpAgent, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSNMPAgentService) UpdateSystemSnmpAgent(ctx context.Context, body *WSGSystemModifySnmpAgent, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateSystemSnmpAgent, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

@@ -23,11 +23,13 @@ func (ss *WSGService) WSGConnectivityToolsService() *WSGConnectivityToolsService
 
 // AddToolSpeedflex
 //
-// Operation ID: addToolSpeedflex
-//
 // Use this API command to start the SpeedFlex test.
 //
-// Request Body:
+// Operation ID: addToolSpeedflex
+// Operation path: /tool/speedflex
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGToolSpeedFlex
 func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body *WSGToolSpeedFlex, mutators ...RequestMutator) (*WSGToolTestResultAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *WSGConnectivityToolsService) AddToolSpeedflex(ctx context.Context, body
 
 // FindToolPing
 //
-// Operation ID: findToolPing
-//
 // Use this API command to run the PING test on an AP.
 //
-// Required Parameters:
+// Operation ID: findToolPing
+// Operation path: /tool/ping
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 // - targetIP string
@@ -88,11 +92,13 @@ func (s *WSGConnectivityToolsService) FindToolPing(ctx context.Context, apMac st
 
 // FindToolSpeedflexByWcid
 //
-// Operation ID: findToolSpeedflexByWcid
-//
 // Use this API command to retrieve existing SpeedFlex test results.
 //
-// Required Parameters:
+// Operation ID: findToolSpeedflexByWcid
+// Operation path: /tool/speedflex/{wcid}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - wcid string
 //		- required
 func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Context, wcid string, mutators ...RequestMutator) (*WSGToolTestResultAPIResponse, error) {
@@ -118,17 +124,19 @@ func (s *WSGConnectivityToolsService) FindToolSpeedflexByWcid(ctx context.Contex
 
 // FindToolTraceRoute
 //
-// Operation ID: findToolTraceRoute
-//
 // Use this API command to run the traceroute test on an AP.
 //
-// Required Parameters:
+// Operation ID: findToolTraceRoute
+// Operation path: /tool/traceRoute
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 // - targetIP string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - timeoutInSec string
 //		- nullable
 func (s *WSGConnectivityToolsService) FindToolTraceRoute(ctx context.Context, apMac string, targetIP string, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {

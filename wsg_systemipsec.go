@@ -236,9 +236,11 @@ func NewWSGSystemIPsecUpdate() *WSGSystemIPsecUpdate {
 
 // FindSystemIpsec
 //
-// Operation ID: findSystemIpsec
-//
 // Use this API command to retrieve the System IPSec.
+//
+// Operation ID: findSystemIpsec
+// Operation path: /systemIpsec
+// Success code: 200 (OK)
 func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context, mutators ...RequestMutator) (*WSGSystemIPsecGetResultAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -261,11 +263,13 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context, mutators ..
 
 // UpdateSystemIpsec
 //
-// Operation ID: updateSystemIpsec
-//
 // Use this API command to modify the System IPSec.
 //
-// Request Body:
+// Operation ID: updateSystemIpsec
+// Operation path: /systemIpsec
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSystemIPsecUpdate
 func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSGSystemIPsecUpdate, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (

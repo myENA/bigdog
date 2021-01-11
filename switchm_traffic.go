@@ -530,11 +530,13 @@ func NewSwitchMTrafficUnicastQueryResultList() *SwitchMTrafficUnicastQueryResult
 
 // AddTrafficTopPoeutilization
 //
-// Operation ID: addTrafficTopPoeutilization
-//
 // Use this API command retrieve the top 10 switches by the PoE utilization.
 //
-// Request Body:
+// Operation ID: addTrafficTopPoeutilization
+// Operation path: /traffic/top/poeutilization
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse, error) {
 	var (
@@ -562,11 +564,13 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 
 // AddTrafficTopPorterror
 //
-// Operation ID: addTrafficTopPorterror
-//
 // Use this API command to get the top 10 switches by the porterror.
 //
-// Request Body:
+// Operation ID: addTrafficTopPorterror
+// Operation path: /traffic/top/porterror
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficTopPortErrorQueryResultListAPIResponse, error) {
 	var (
@@ -594,11 +598,13 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 
 // AddTrafficTopPortusage
 //
-// Operation ID: addTrafficTopPortusage
-//
 // Use this API command to get the top 10 ports by the traffic.
 //
-// Request Body:
+// Operation ID: addTrafficTopPortusage
+// Operation path: /traffic/top/portusage
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse, error) {
 	var (
@@ -626,11 +632,13 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 
 // AddTrafficTopUsage
 //
-// Operation ID: addTrafficTopUsage
-//
 // Use this API command to retrieve Top Swich/Port usage data based on the time duration.
 //
-// Request Body:
+// Operation ID: addTrafficTopUsage
+// Operation path: /traffic/top/usage
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse, error) {
 	var (
@@ -658,11 +666,13 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 
 // AddTrafficTotalBroadcast
 //
-// Operation ID: addTrafficTotalBroadcast
-//
 // Use this API command to retrieve Switch/Port Broadcast trend data based on the time duration.
 //
-// Request Body:
+// Operation ID: addTrafficTotalBroadcast
+// Operation path: /traffic/total/broadcast
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTotalBroadcast(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficBroadcastQueryResultListAPIResponse, error) {
 	var (
@@ -690,11 +700,13 @@ func (s *SwitchMTrafficService) AddTrafficTotalBroadcast(ctx context.Context, bo
 
 // AddTrafficTotalMulticast
 //
-// Operation ID: addTrafficTotalMulticast
-//
 // Use this API command to retrieve Switch/Port Multicast trend data based on the time duration.
 //
-// Request Body:
+// Operation ID: addTrafficTotalMulticast
+// Operation path: /traffic/total/multicast
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTotalMulticast(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficMulticastQueryResultListAPIResponse, error) {
 	var (
@@ -722,11 +734,13 @@ func (s *SwitchMTrafficService) AddTrafficTotalMulticast(ctx context.Context, bo
 
 // AddTrafficTotalPorterror
 //
-// Operation ID: addTrafficTotalPorterror
-//
 // Use this API command to retrieve Switch/Port Port Errors data based on the time duration.
 //
-// Request Body:
+// Operation ID: addTrafficTotalPorterror
+// Operation path: /traffic/total/porterror
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTotalPorterror(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficPortErrorQueryResultListAPIResponse, error) {
 	var (
@@ -754,11 +768,13 @@ func (s *SwitchMTrafficService) AddTrafficTotalPorterror(ctx context.Context, bo
 
 // AddTrafficTotalTrend
 //
-// Operation ID: addTrafficTotalTrend
-//
 // Use this API command to retrieve Swich/Port trend data based on the time duration.
 //
-// Request Body:
+// Operation ID: addTrafficTotalTrend
+// Operation path: /traffic/total/trend
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficQueryResultListAPIResponse, error) {
 	var (
@@ -786,11 +802,13 @@ func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *
 
 // AddTrafficTotalUnicast
 //
-// Operation ID: addTrafficTotalUnicast
-//
 // Use this API command to retrieve Switch/Port Unicast trend data based on the time duration.
 //
-// Request Body:
+// Operation ID: addTrafficTotalUnicast
+// Operation path: /traffic/total/unicast
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTrafficService) AddTrafficTotalUnicast(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMTrafficUnicastQueryResultListAPIResponse, error) {
 	var (

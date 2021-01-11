@@ -23,11 +23,13 @@ func (ss *WSGService) WSGIdentityUserRoleService() *WSGIdentityUserRoleService {
 
 // AddIdentityUserrole
 //
-// Operation ID: addIdentityUserrole
-//
 // Use this API command to create identity user role.
 //
-// Request Body:
+// Operation ID: addIdentityUserrole
+// Operation path: /identity/userrole
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGIdentityCreateIdentityUserRole
 func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, body *WSGIdentityCreateIdentityUserRole, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserrole(ctx context.Context, bo
 
 // AddIdentityUserRoleList
 //
-// Operation ID: addIdentityUserRoleList
-//
 // Use this API command to retrieve a list of identity user role.
 //
-// Request Body:
+// Operation ID: addIdentityUserRoleList
+// Operation path: /identity/userRoleList
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGIdentityQueryCriteria
 func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context, body *WSGIdentityQueryCriteria, mutators ...RequestMutator) (*WSGIdentityListAPIResponse, error) {
 	var (
@@ -87,56 +91,60 @@ func (s *WSGIdentityUserRoleService) AddIdentityUserRoleList(ctx context.Context
 
 // DeleteIdentityUserrole
 //
-// Operation ID: deleteIdentityUserrole
-//
 // Use this API command to delete multiple identity user roles.
 //
-// Request Body:
+// Operation ID: deleteIdentityUserrole
+// Operation path: /identity/userrole
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGIdentityDeleteBulk
-func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context, body *WSGIdentityDeleteBulk, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIdentityUserRoleService) DeleteIdentityUserrole(ctx context.Context, body *WSGIdentityDeleteBulk, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityUserrole, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteIdentityUserroleById
 //
-// Operation ID: deleteIdentityUserroleById
-//
 // Use this API command to delete identity user role.
 //
-// Required Parameters:
+// Operation ID: deleteIdentityUserroleById
+// Operation path: /identity/userrole/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityUserroleById, true)
 	defer recycleAPIRequest(req)
@@ -145,14 +153,16 @@ func (s *WSGIdentityUserRoleService) DeleteIdentityUserroleById(ctx context.Cont
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindIdentityUserrole
 //
-// Operation ID: findIdentityUserrole
-//
 // Use this API command to retrieve a list of identity user role.
+//
+// Operation ID: findIdentityUserrole
+// Operation path: /identity/userrole
+// Success code: 200 (OK)
 func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context, mutators ...RequestMutator) (*WSGIdentityListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -175,11 +185,13 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserrole(ctx context.Context, m
 
 // FindIdentityUserroleById
 //
-// Operation ID: findIdentityUserroleById
-//
 // Use this API command to retrieve identity user role by ID.
 //
-// Required Parameters:
+// Operation ID: findIdentityUserroleById
+// Operation path: /identity/userrole/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGIdentityUserRoleAPIResponse, error) {
@@ -205,37 +217,39 @@ func (s *WSGIdentityUserRoleService) FindIdentityUserroleById(ctx context.Contex
 
 // PartialUpdateIdentityUserroleById
 //
-// Operation ID: partialUpdateIdentityUserroleById
-//
 // Use this API command to modify the configuration of identity user role.
 //
-// Request Body:
+// Operation ID: partialUpdateIdentityUserroleById
+// Operation path: /identity/userrole/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGIdentityModifyIdentityUserRole
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGIdentityUserRoleService) PartialUpdateIdentityUserroleById(ctx context.Context, body *WSGIdentityModifyIdentityUserRole, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIdentityUserRoleService) PartialUpdateIdentityUserroleById(ctx context.Context, body *WSGIdentityModifyIdentityUserRole, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateIdentityUserroleById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

@@ -1459,11 +1459,13 @@ func NewWSGAdministrationZdImportStatus() *WSGAdministrationZdImportStatus {
 
 // AddAdminaaa
 //
-// Operation ID: addAdminaaa
-//
 // Use this API command to create a new Admin AAA server
 //
-// Request Body:
+// Operation ID: addAdminaaa
+// Operation path: /adminaaa
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAdministrationCreateAdminAAAServer
 func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdministrationCreateAdminAAAServer, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -1491,20 +1493,22 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 
 // AddRestart
 //
-// Operation ID: addRestart
-//
 // Use this API command to restart the controller.
-func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
+//
+// Operation ID: addRestart
+// Operation path: /restart
+// Success code: 204 (No Content)
+func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRestart, true)
 	defer recycleAPIRequest(req)
@@ -1512,25 +1516,27 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...R
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddShutdown
 //
-// Operation ID: addShutdown
-//
 // Use this API command to shut down the controller.
-func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
+//
+// Operation ID: addShutdown
+// Operation path: /shutdown
+// Success code: 204 (No Content)
+func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddShutdown, true)
 	defer recycleAPIRequest(req)
@@ -1538,29 +1544,31 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteAdminaaaById
 //
-// Operation ID: deleteAdminaaaById
-//
 // Use this API command to delete an existing Admin AAA server
 //
-// Required Parameters:
+// Operation ID: deleteAdminaaaById
+// Operation path: /adminaaa/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteAdminaaaById, true)
 	defer recycleAPIRequest(req)
@@ -1569,16 +1577,18 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindAdminaaa
 //
-// Operation ID: findAdminaaa
-//
 // Use this API command to retrieve the list of Admin AAA server
 //
-// Required Parameters:
+// Operation ID: findAdminaaa
+// Operation path: /adminaaa
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - type_ string
 //		- required
 func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ string, mutators ...RequestMutator) (*WSGAdministrationRetrieveAdminAAAServerListAPIResponse, error) {
@@ -1604,11 +1614,13 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 
 // FindAdminaaaById
 //
-// Operation ID: findAdminaaaById
-//
 // Use this API command to retrieve an existing Admin AAA server
 //
-// Required Parameters:
+// Operation ID: findAdminaaaById
+// Operation path: /adminaaa/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGAdministrationRetrieveAdminAAAServerAPIResponse, error) {
@@ -1634,9 +1646,11 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 
 // FindLicenses
 //
-// Operation ID: findLicenses
-//
 // Use this API command to get all licenses currently assign in SCG.
+//
+// Operation ID: findLicenses
+// Operation path: /licenses
+// Success code: 200 (OK)
 func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -1659,9 +1673,11 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ..
 
 // FindLicenseServer
 //
-// Operation ID: findLicenseServer
-//
 // Use this API command to get license server configuration.
+//
+// Operation ID: findLicenseServer
+// Operation path: /licenseServer
+// Success code: 200 (OK)
 func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicenseServerAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -1684,9 +1700,11 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutato
 
 // FindLicensesSummary
 //
-// Operation ID: findLicensesSummary
-//
 // Use this API command to get licenses summary information.
+//
+// Operation ID: findLicensesSummary
+// Operation path: /licensesSummary
+// Success code: 200 (OK)
 func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesSummaryListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -1709,9 +1727,11 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, muta
 
 // FindLicensesSyncLogs
 //
-// Operation ID: findLicensesSyncLogs
-//
 // Use this API command to get licenses synchronize logs.
+//
+// Operation ID: findLicensesSyncLogs
+// Operation path: /licensesSyncLogs
+// Success code: 200 (OK)
 func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mutators ...RequestMutator) (*WSGAdministrationLicensesSyncLogsListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -1734,89 +1754,95 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mut
 
 // UpdateAdminaaaById
 //
-// Operation ID: updateAdminaaaById
-//
 // Use this API command to modify an existing Admin AAA server
 //
-// Request Body:
+// Operation ID: updateAdminaaaById
+// Operation path: /adminaaa/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGAdministrationModifyAdminAAAServer
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body *WSGAdministrationModifyAdminAAAServer, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateAdminaaaById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateLicenseServer
 //
-// Operation ID: updateLicenseServer
-//
 // Use this API command to update license server configuration.
 //
-// Request Body:
+// Operation ID: updateLicenseServer
+// Operation path: /licenseServer
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAdministrationModfiyLicenseServer
-func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body *WSGAdministrationModfiyLicenseServer, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body *WSGAdministrationModfiyLicenseServer, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateLicenseServer, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateLicensesSync
 //
-// Operation ID: updateLicensesSync
-//
 // Use this API command to ask all SCG in cluster to sync licenses from license server.
-func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
+//
+// Operation ID: updateLicensesSync
+// Operation path: /licenses/sync
+// Success code: 204 (No Content)
+func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateLicensesSync, true)
 	defer recycleAPIRequest(req)
@@ -1824,5 +1850,5 @@ func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context, mutat
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

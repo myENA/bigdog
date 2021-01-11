@@ -79,11 +79,13 @@ func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseTy
 
 // ResourceGroupBatchDelete
 //
-// Operation ID: resourceGroup_batchDelete
-//
 // Delete multiple Resource Groups
 //
-// Form Data Parameters:
+// Operation ID: resourceGroup_batchDelete
+// Operation path: /resourceGroups/batchDelete
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - ids string
 //		- required
 func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIResourceGroupBatchDelete200ResponseTypeAPIResponse, error) {
@@ -112,11 +114,13 @@ func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, 
 
 // ResourceGroupCreate
 //
-// Operation ID: resourceGroup_create
-//
 // Create a new instance of the model and persist it into the data source.
 //
-// Request Body:
+// Operation ID: resourceGroup_create
+// Operation path: /resourceGroups
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsResourceGroup
 func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data *SCIModelsResourceGroup, mutators ...RequestMutator) (*SCIModelsResourceGroupAPIResponse, error) {
 	var (
@@ -144,11 +148,13 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data 
 
 // ResourceGroupFind
 //
-// Operation ID: resourceGroup_find
-//
 // Find all instances of the model matched by filter from the data source.
 //
-// Optional Parameters:
+// Operation ID: resourceGroup_find
+// Operation path: /resourceGroups
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIResourceGroupFind200ResponseTypeAPIResponse, error) {
@@ -176,15 +182,17 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 
 // ResourceGroupFindById
 //
-// Operation ID: resourceGroup_findById
-//
 // Find a model instance by id from the data source.
 //
-// Required Parameters:
+// Operation ID: resourceGroup_findById
+// Operation path: /resourceGroups/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsResourceGroupAPIResponse, error) {
@@ -213,14 +221,16 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 
 // ResourceGroupPrototypeUpdateAttributes
 //
-// Operation ID: resourceGroup_prototype_updateAttributes
-//
 // Update attributes for a model instance and persist it into the data source.
 //
-// Request Body:
+// Operation ID: resourceGroup_prototype_updateAttributes
+// Operation path: /resourceGroups/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsResourceGroup
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsResourceGroup, id string, mutators ...RequestMutator) (*SCIModelsResourceGroupAPIResponse, error) {

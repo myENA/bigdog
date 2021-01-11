@@ -272,11 +272,13 @@ func MakeSwitchMSwitchStackConfigStackConfigList() SwitchMSwitchStackConfigStack
 
 // AddStack
 //
-// Operation ID: addStack
-//
 // Use this API command to create a stack configuration.
 //
-// Request Body:
+// Operation ID: addStack
+// Operation path: /stack
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body SwitchMSwitchStackConfigStackConfigList
 func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body SwitchMSwitchStackConfigStackConfigList, mutators ...RequestMutator) (*SwitchMSwitchStackConfigAuditIdListAPIResponse, error) {
 	var (
@@ -304,11 +306,13 @@ func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body Swi
 
 // FindStackBySwitchId
 //
-// Operation ID: findStackBySwitchId
-//
 // Use this API command to retrieve a stack configuration configured via SZ.
 //
-// Required Parameters:
+// Operation ID: findStackBySwitchId
+// Operation path: /stack/{switchId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - switchId string
 //		- required
 func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Context, switchId string, mutators ...RequestMutator) (*SwitchMSwitchStackConfigStackConfigAPIResponse, error) {
@@ -334,11 +338,13 @@ func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Contex
 
 // FindStackMemberBySerialNumber
 //
-// Operation ID: findStackMemberBySerialNumber
-//
 // Use this API command to retrieve the member of switches in a stack.
 //
-// Required Parameters:
+// Operation ID: findStackMemberBySerialNumber
+// Operation path: /stack/member/{serialNumber}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - serialNumber string
 //		- required
 func (s *SwitchMSwitchStackConfigService) FindStackMemberBySerialNumber(ctx context.Context, serialNumber string, mutators ...RequestMutator) (*SwitchMSwitchStackConfigListAPIResponse, error) {

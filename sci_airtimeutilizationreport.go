@@ -1033,11 +1033,13 @@ func NewSCIAirtimeUtilizationReport6trendTableMetaDataMaxValuesType() *SCIAirtim
 
 // ReportAirtimeUtilizationReport1Overview
 //
-// Operation ID: report_AirtimeUtilizationReport_1_overview
-//
 // Airtime Utilization Report - Overview
 //
-// Request Body:
+// Operation ID: report_AirtimeUtilizationReport_1_overview
+// Operation path: /reports/5/sections/1/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport1Overview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse, error) {
 	var (
@@ -1065,11 +1067,13 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport1Over
 
 // ReportAirtimeUtilizationReport2TopChart
 //
-// Operation ID: report_AirtimeUtilizationReport_2_topChart
-//
 // Airtime Utilization Report - Top 10 APs by Airtime Utilization
 //
-// Request Body:
+// Operation ID: report_AirtimeUtilizationReport_2_topChart
+// Operation path: /reports/5/sections/2/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport2TopChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -1097,11 +1101,13 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport2TopC
 
 // ReportAirtimeUtilizationReport3TopAPsByAirtime24Table
 //
-// Operation ID: report_AirtimeUtilizationReport_3_topAPsByAirtime24Table
-//
 // Airtime Utilization Report - Top APs by Airtime Utilization for 2.4 GHz
 //
-// Request Body:
+// Operation ID: report_AirtimeUtilizationReport_3_topAPsByAirtime24Table
+// Operation path: /reports/5/sections/3/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport3TopAPsByAirtime24Table(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIResponse, error) {
 	var (
@@ -1129,11 +1135,13 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport3TopA
 
 // ReportAirtimeUtilizationReport4TopAPsByAirtime5Table
 //
-// Operation ID: report_AirtimeUtilizationReport_4_topAPsByAirtime5Table
-//
 // Airtime Utilization Report - Top APs by Airtime Utilization for 5 GHz
 //
-// Request Body:
+// Operation ID: report_AirtimeUtilizationReport_4_topAPsByAirtime5Table
+// Operation path: /reports/5/sections/4/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport4TopAPsByAirtime5Table(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIResponse, error) {
 	var (
@@ -1161,11 +1169,13 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport4TopA
 
 // ReportAirtimeUtilizationReport5TrendChart
 //
-// Operation ID: report_AirtimeUtilizationReport_5_trendChart
-//
 // Airtime Utilization Report - Airtime Utilization Trend
 //
-// Request Body:
+// Operation ID: report_AirtimeUtilizationReport_5_trendChart
+// Operation path: /reports/5/sections/5/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport5TrendChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -1193,11 +1203,13 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport5Tren
 
 // ReportAirtimeUtilizationReport6TrendTable
 //
-// Operation ID: report_AirtimeUtilizationReport_6_trendTable
-//
 // Airtime Utilization Report - Airtime Utilization Over Time
 //
-// Request Body:
+// Operation ID: report_AirtimeUtilizationReport_6_trendTable
+// Operation path: /reports/5/sections/6/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport6TrendTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse, error) {
 	var (

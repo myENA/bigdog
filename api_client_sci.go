@@ -293,7 +293,7 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Invalidate(ctx context.Contex
 	defer atp.mu.Unlock()
 
 	var (
-		logoutResp *RawAPIResponse
+		logoutResp APIResponse
 		logoutMeta APIResponseMeta
 		err        error
 	)

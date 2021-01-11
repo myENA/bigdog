@@ -748,11 +748,13 @@ func NewSCIInventorySwitchesReport132portStatusTrendMetaData() *SCIInventorySwit
 
 // ReportInventorySwitchesReport113Overview
 //
-// Operation ID: report_InventorySwitchesReport_113_overview
-//
 // Inventory - Switches Report - Overview
 //
-// Request Body:
+// Operation ID: report_InventorySwitchesReport_113_overview
+// Operation path: /reports/16/sections/113/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport113Overview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse, error) {
 	var (
@@ -780,11 +782,13 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport113Over
 
 // ReportInventorySwitchesReport116SwitchCountTrend
 //
-// Operation ID: report_InventorySwitchesReport_116_switchCountTrend
-//
 // Inventory - Switches Report - Switch Count Trend
 //
-// Request Body:
+// Operation ID: report_InventorySwitchesReport_116_switchCountTrend
+// Operation path: /reports/16/sections/116/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport116SwitchCountTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -812,11 +816,13 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport116Swit
 
 // ReportInventorySwitchesReport117Top10SwitchVersionChart
 //
-// Operation ID: report_InventorySwitchesReport_117_top10SwitchVersionChart
-//
 // Inventory - Switches Report - Top Switch Software Versions
 //
-// Request Body:
+// Operation ID: report_InventorySwitchesReport_117_top10SwitchVersionChart
+// Operation path: /reports/16/sections/117/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport117Top10SwitchVersionChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -844,11 +850,13 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport117Top1
 
 // ReportInventorySwitchesReport118TopSwitchVersions
 //
-// Operation ID: report_InventorySwitchesReport_118_topSwitchVersions
-//
 // Inventory - Switches Report - Top Switch Software Versions
 //
-// Request Body:
+// Operation ID: report_InventorySwitchesReport_118_topSwitchVersions
+// Operation path: /reports/16/sections/118/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport118TopSwitchVersions(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIResponse, error) {
 	var (
@@ -876,11 +884,13 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport118TopS
 
 // ReportInventorySwitchesReport121TopSwitchModelsChart
 //
-// Operation ID: report_InventorySwitchesReport_121_topSwitchModelsChart
-//
 // Inventory - Switches Report - Top Switch Models
 //
-// Request Body:
+// Operation ID: report_InventorySwitchesReport_121_topSwitchModelsChart
+// Operation path: /reports/16/sections/121/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport121TopSwitchModelsChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIResponse, error) {
 	var (
@@ -908,11 +918,13 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport121TopS
 
 // ReportInventorySwitchesReport122TopSwitchModels
 //
-// Operation ID: report_InventorySwitchesReport_122_topSwitchModels
-//
 // Inventory - Switches Report - Top Switch Models
 //
-// Request Body:
+// Operation ID: report_InventorySwitchesReport_122_topSwitchModels
+// Operation path: /reports/16/sections/122/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport122TopSwitchModels(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResponse, error) {
 	var (
@@ -940,11 +952,13 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport122TopS
 
 // ReportInventorySwitchesReport132PortStatusTrend
 //
-// Operation ID: report_InventorySwitchesReport_132_portStatusTrend
-//
 // Inventory - Switches Report - Port Status Trends
 //
-// Request Body:
+// Operation ID: report_InventorySwitchesReport_132_portStatusTrend
+// Operation path: /reports/16/sections/132/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport132PortStatusTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResponse, error) {
 	var (

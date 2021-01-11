@@ -24,60 +24,64 @@ func (ss *WSGService) WSGAccessPointConfigurationService() *WSGAccessPointConfig
 
 // AddAps
 //
-// Operation ID: addAps
-//
 // Use this API command to create a new access point.
 //
-// Request Body:
+// Operation ID: addAps
+// Operation path: /aps
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAPCreateAP
-func (s *WSGAccessPointConfigurationService) AddAps(ctx context.Context, body *WSGAPCreateAP, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) AddAps(ctx context.Context, body *WSGAPCreateAP, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddAps, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddApsPictureByApMac
 //
-// Operation ID: addApsPictureByApMac
-//
 // Use this API command to upload a new AP picture.
 //
-// Form Data Parameters:
+// Operation ID: addApsPictureByApMac
+// Operation path: /aps/{apMac}/picture
+// Success code: 204 (No Content)
+//
+// Form data parameters:
 // - uploadFile io.Reader
 //		- required
 //
-// Required Parameters:
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Context, filename string, uploadFile io.Reader, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Context, filename string, uploadFile io.Reader, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddApsPictureByApMac, true)
 	defer recycleAPIRequest(req)
@@ -85,66 +89,70 @@ func (s *WSGAccessPointConfigurationService) AddApsPictureByApMac(ctx context.Co
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.MultipartForm()
 	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddSwapAps
 //
-// Operation ID: addSwapAps
-//
 // Use this API command to swap in specific AP
 //
-// Request Body:
+// Operation ID: addSwapAps
+// Operation path: /swapAps
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAPSwapApConfigure
-func (s *WSGAccessPointConfigurationService) AddSwapAps(ctx context.Context, body *WSGAPSwapApConfigure, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) AddSwapAps(ctx context.Context, body *WSGAPSwapApConfigure, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSwapAps, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsAltitudeByApMac
 //
-// Operation ID: deleteApsAltitudeByApMac
-//
 // Use this API command to disable AP level override of altitude. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsAltitudeByApMac
+// Operation path: /aps/{apMac}/altitude
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsAltitudeByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsAltitudeByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsAltitudeByApMac, true)
 	defer recycleAPIRequest(req)
@@ -153,29 +161,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAltitudeByApMac(ctx contex
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsApMgmtVlanByApMac
 //
-// Operation ID: deleteApsApMgmtVlanByApMac
-//
 // Disable AP Management Vlan Override of an AP.
 //
-// Required Parameters:
+// Operation ID: deleteApsApMgmtVlanByApMac
+// Operation path: /aps/{apMac}/apMgmtVlan
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsApMgmtVlanByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsApMgmtVlanByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsApMgmtVlanByApMac, true)
 	defer recycleAPIRequest(req)
@@ -184,29 +194,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsApMgmtVlanByApMac(ctx cont
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsAutoChannelSelection24ByApMac
 //
-// Operation ID: deleteApsAutoChannelSelection24ByApMac
-//
 // Use this API command to disable the AP level override of auto channel selection on the 2.4GHz radio. The access point will take its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsAutoChannelSelection24ByApMac
+// Operation path: /aps/{apMac}/autoChannelSelection24
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection24ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection24ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsAutoChannelSelection24ByApMac, true)
 	defer recycleAPIRequest(req)
@@ -215,29 +227,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection24ByAp
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsAutoChannelSelection50ByApMac
 //
-// Operation ID: deleteApsAutoChannelSelection50ByApMac
-//
 // Use this API command to disable the AP level override of auto channel selection on the 5GHz radio. The access point will take its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsAutoChannelSelection50ByApMac
+// Operation path: /aps/{apMac}/autoChannelSelection50
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection50ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection50ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsAutoChannelSelection50ByApMac, true)
 	defer recycleAPIRequest(req)
@@ -246,29 +260,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsAutoChannelSelection50ByAp
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsBonjourGatewayByApMac
 //
-// Operation ID: deleteApsBonjourGatewayByApMac
-//
 // Use this API command to disable AP level override of bonjour gateway. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsBonjourGatewayByApMac
+// Operation path: /aps/{apMac}/bonjourGateway
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsBonjourGatewayByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsBonjourGatewayByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsBonjourGatewayByApMac, true)
 	defer recycleAPIRequest(req)
@@ -277,29 +293,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsBonjourGatewayByApMac(ctx 
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsByApMac
 //
-// Operation ID: deleteApsByApMac
-//
 // Use this API command to delete an access point.
 //
-// Required Parameters:
+// Operation ID: deleteApsByApMac
+// Operation path: /aps/{apMac}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsByApMac, true)
 	defer recycleAPIRequest(req)
@@ -308,29 +326,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsByApMac(ctx context.Contex
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsChannelEvaluationIntervalByApMac
 //
-// Operation ID: deleteApsChannelEvaluationIntervalByApMac
-//
 // Disable AP lChannel Evaluation Interval. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsChannelEvaluationIntervalByApMac
+// Operation path: /aps/{apMac}/channelEvaluationInterval
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsChannelEvaluationIntervalByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsChannelEvaluationIntervalByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsChannelEvaluationIntervalByApMac, true)
 	defer recycleAPIRequest(req)
@@ -339,29 +359,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsChannelEvaluationIntervalB
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsClientAdmissionControl24ByApMac
 //
-// Operation ID: deleteApsClientAdmissionControl24ByApMac
-//
 // Use this API command to disable AP level override of client admission control 2.4GHz radio configuration. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsClientAdmissionControl24ByApMac
+// Operation path: /aps/{apMac}/clientAdmissionControl24
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl24ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl24ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsClientAdmissionControl24ByApMac, true)
 	defer recycleAPIRequest(req)
@@ -370,29 +392,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl24By
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsClientAdmissionControl50ByApMac
 //
-// Operation ID: deleteApsClientAdmissionControl50ByApMac
-//
 // Use this API command to disable AP level override of client admission control 5GHz radio configuration. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsClientAdmissionControl50ByApMac
+// Operation path: /aps/{apMac}/clientAdmissionControl50
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl50ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl50ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsClientAdmissionControl50ByApMac, true)
 	defer recycleAPIRequest(req)
@@ -401,29 +425,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsClientAdmissionControl50By
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsDirectedMulticastFromNetworkEnabledByApMac
 //
-// Operation ID: deleteApsDirectedMulticastFromNetworkEnabledByApMac
-//
 // Use this API command to disable Directed Multicast from network to wired/wireless client configuration override.The AP will apply its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsDirectedMulticastFromNetworkEnabledByApMac
+// Operation path: /aps/{apMac}/directedMulticastFromNetworkEnabled
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromNetworkEnabledByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromNetworkEnabledByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsDirectedMulticastFromNetworkEnabledByApMac, true)
 	defer recycleAPIRequest(req)
@@ -432,29 +458,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromNetwo
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsDirectedMulticastFromWiredClientEnabledByApMac
 //
-// Operation ID: deleteApsDirectedMulticastFromWiredClientEnabledByApMac
-//
 // Use this API command to disable Island SSID Broadcast enabled configuration override.The AP will apply its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsDirectedMulticastFromWiredClientEnabledByApMac
+// Operation path: /aps/{apMac}/directedMulticastFromWiredClientEnabled
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWiredClientEnabledByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWiredClientEnabledByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsDirectedMulticastFromWiredClientEnabledByApMac, true)
 	defer recycleAPIRequest(req)
@@ -463,29 +491,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWired
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsDirectedMulticastFromWirelessClientEnabledByApMac
 //
-// Operation ID: deleteApsDirectedMulticastFromWirelessClientEnabledByApMac
-//
 // Use this API command to disable Island SSID Broadcast enabled configuration override.The AP will apply its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsDirectedMulticastFromWirelessClientEnabledByApMac
+// Operation path: /aps/{apMac}/directedMulticastFromWirelessClientEnabled
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWirelessClientEnabledByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWirelessClientEnabledByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsDirectedMulticastFromWirelessClientEnabledByApMac, true)
 	defer recycleAPIRequest(req)
@@ -494,29 +524,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsDirectedMulticastFromWirel
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsGpsCoordinatesByApMac
 //
-// Operation ID: deleteApsGpsCoordinatesByApMac
-//
 // Disable AP Management GPS Cooordinates of an AP.
 //
-// Required Parameters:
+// Operation ID: deleteApsGpsCoordinatesByApMac
+// Operation path: /aps/{apMac}/gpsCoordinates
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsGpsCoordinatesByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsGpsCoordinatesByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsGpsCoordinatesByApMac, true)
 	defer recycleAPIRequest(req)
@@ -525,29 +557,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsGpsCoordinatesByApMac(ctx 
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsLocationAdditionalInfoByApMac
 //
-// Operation ID: deleteApsLocationAdditionalInfoByApMac
-//
 // Use this API command to disable AP level override of location additionalInfo. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsLocationAdditionalInfoByApMac
+// Operation path: /aps/{apMac}/locationAdditionalInfo
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsLocationAdditionalInfoByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsLocationAdditionalInfoByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsLocationAdditionalInfoByApMac, true)
 	defer recycleAPIRequest(req)
@@ -556,29 +590,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLocationAdditionalInfoByAp
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsLocationByApMac
 //
-// Operation ID: deleteApsLocationByApMac
-//
 // Use this API command to disable AP level override of location. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsLocationByApMac
+// Operation path: /aps/{apMac}/location
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsLocationByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsLocationByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsLocationByApMac, true)
 	defer recycleAPIRequest(req)
@@ -587,29 +623,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLocationByApMac(ctx contex
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsLoginByApMac
 //
-// Operation ID: deleteApsLoginByApMac
-//
 // Use this API command to disable the AP-level logon override. The AP will apply its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsLoginByApMac
+// Operation path: /aps/{apMac}/login
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsLoginByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsLoginByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsLoginByApMac, true)
 	defer recycleAPIRequest(req)
@@ -618,29 +656,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLoginByApMac(ctx context.C
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsLteBandLockChannelsByApMac
 //
-// Operation ID: deleteApsLteBandLockChannelsByApMac
-//
 // Use this API command to disable LTE band lock channel override. The AP will apply its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsLteBandLockChannelsByApMac
+// Operation path: /aps/{apMac}/lteBandLockChannels
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsLteBandLockChannelsByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsLteBandLockChannelsByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsLteBandLockChannelsByApMac, true)
 	defer recycleAPIRequest(req)
@@ -649,29 +689,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsLteBandLockChannelsByApMac
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsMeshOptionsByApMac
 //
-// Operation ID: deleteApsMeshOptionsByApMac
-//
 // Use this API command to disable mesh options.
 //
-// Required Parameters:
+// Operation ID: deleteApsMeshOptionsByApMac
+// Operation path: /aps/{apMac}/meshOptions
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsMeshOptionsByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsMeshOptionsByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsMeshOptionsByApMac, true)
 	defer recycleAPIRequest(req)
@@ -680,29 +722,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsMeshOptionsByApMac(ctx con
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsPictureByApMac
 //
-// Operation ID: deleteApsPictureByApMac
-//
 // Use this API command to delete an AP picture.
 //
-// Required Parameters:
+// Operation ID: deleteApsPictureByApMac
+// Operation path: /aps/{apMac}/picture
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsPictureByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsPictureByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsPictureByApMac, true)
 	defer recycleAPIRequest(req)
@@ -711,29 +755,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsPictureByApMac(ctx context
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsProtectionMode24ByApMac
 //
-// Operation ID: deleteApsProtectionMode24ByApMac
-//
 // Use this API command to disable 2.4GHz radio protection mode configuration override.The AP will apply its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsProtectionMode24ByApMac
+// Operation path: /aps/{apMac}/protectionMode24
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsProtectionMode24ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsProtectionMode24ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsProtectionMode24ByApMac, true)
 	defer recycleAPIRequest(req)
@@ -742,29 +788,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsProtectionMode24ByApMac(ct
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsRecoverySsidByApMac
 //
-// Operation ID: deleteApsRecoverySsidByApMac
-//
 // Use this API command to disable Recovery SSID configuration override.The AP will apply its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsRecoverySsidByApMac
+// Operation path: /aps/{apMac}/recoverySsid
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsRecoverySsidByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsRecoverySsidByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsRecoverySsidByApMac, true)
 	defer recycleAPIRequest(req)
@@ -773,29 +821,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRecoverySsidByApMac(ctx co
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsRksGreForwardBroadcastByApMac
 //
-// Operation ID: deleteApsRksGreForwardBroadcastByApMac
-//
 // Use this API command to disable Ruckus GRE Broadcast packet forwarding override. The AP will apply its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsRksGreForwardBroadcastByApMac
+// Operation path: /aps/{apMac}/rksGreForwardBroadcast
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsRksGreForwardBroadcastByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsRksGreForwardBroadcastByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsRksGreForwardBroadcastByApMac, true)
 	defer recycleAPIRequest(req)
@@ -804,29 +854,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRksGreForwardBroadcastByAp
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsRogueApAggressivenessModeByApMac
 //
-// Operation ID: deleteApsRogueApAggressivenessModeByApMac
-//
 // Use this API command to disable rogue AP aggressiveness mode override. The AP will apply its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsRogueApAggressivenessModeByApMac
+// Operation path: /aps/{apMac}/rogueApAggressivenessMode
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsRogueApAggressivenessModeByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsRogueApAggressivenessModeByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsRogueApAggressivenessModeByApMac, true)
 	defer recycleAPIRequest(req)
@@ -835,29 +887,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApAggressivenessModeB
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsRogueApJammingThresholdByApMac
 //
-// Operation ID: deleteApsRogueApJammingThresholdByApMac
-//
 // Use this API command to disable rogue AP jamming threshold override. The AP will apply its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsRogueApJammingThresholdByApMac
+// Operation path: /aps/{apMac}/rogueApJammingThreshold
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsRogueApJammingThresholdByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsRogueApJammingThresholdByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsRogueApJammingThresholdByApMac, true)
 	defer recycleAPIRequest(req)
@@ -866,29 +920,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApJammingThresholdByA
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsRogueApReportThresholdByApMac
 //
-// Operation ID: deleteApsRogueApReportThresholdByApMac
-//
 // Use this API command to disable rogue AP report threshold override. The AP will apply its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsRogueApReportThresholdByApMac
+// Operation path: /aps/{apMac}/rogueApReportThreshold
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsRogueApReportThresholdByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsRogueApReportThresholdByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsRogueApReportThresholdByApMac, true)
 	defer recycleAPIRequest(req)
@@ -897,29 +953,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsRogueApReportThresholdByAp
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsSmartMonitorByApMac
 //
-// Operation ID: deleteApsSmartMonitorByApMac
-//
 // Use this API command to disable AP level override of smart monitor. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsSmartMonitorByApMac
+// Operation path: /aps/{apMac}/smartMonitor
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsSmartMonitorByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsSmartMonitorByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsSmartMonitorByApMac, true)
 	defer recycleAPIRequest(req)
@@ -928,29 +986,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSmartMonitorByApMac(ctx co
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsSpecificByApMac
 //
-// Operation ID: deleteApsSpecificByApMac
-//
 // Use this API command to disable specific configuration override from AP group or zone.
 //
-// Required Parameters:
+// Operation ID: deleteApsSpecificByApMac
+// Operation path: /aps/{apMac}/specific
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsSpecificByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsSpecificByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsSpecificByApMac, true)
 	defer recycleAPIRequest(req)
@@ -959,29 +1019,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSpecificByApMac(ctx contex
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsSyslogByApMac
 //
-// Operation ID: deleteApsSyslogByApMac
-//
 // Use this API command to disable the AP level syslog override. The access point will take its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsSyslogByApMac
+// Operation path: /aps/{apMac}/syslog
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsSyslogByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsSyslogByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsSyslogByApMac, true)
 	defer recycleAPIRequest(req)
@@ -990,29 +1052,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsSyslogByApMac(ctx context.
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsVenueProfileByApMac
 //
-// Operation ID: deleteApsVenueProfileByApMac
-//
 // Use this API command to disable AP level override of venue profile. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsVenueProfileByApMac
+// Operation path: /aps/{apMac}/venueProfile
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsVenueProfileByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsVenueProfileByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsVenueProfileByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1021,29 +1085,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsVenueProfileByApMac(ctx co
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsWifi24ByApMac
 //
-// Operation ID: deleteApsWifi24ByApMac
-//
 // Use this API command to disable the AP level override of the 2.4GHz radio configuration. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsWifi24ByApMac
+// Operation path: /aps/{apMac}/wifi24
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi24ByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1052,29 +1118,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ByApMac(ctx context.
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsWifi24ChannelByApMac
 //
-// Operation ID: deleteApsWifi24ChannelByApMac
-//
 // Use this API command to disable the AP level override of the 2.4GHz radio channel. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsWifi24ChannelByApMac
+// Operation path: /aps/{apMac}/wifi24/channel
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi24ChannelByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1083,29 +1151,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelByApMac(ctx c
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsWifi24ChannelRangeByApMac
 //
-// Operation ID: deleteApsWifi24ChannelRangeByApMac
-//
 // Use this API command to disable the AP level override of the 2.4GHz radio channelRange. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsWifi24ChannelRangeByApMac
+// Operation path: /aps/{apMac}/wifi24/channelRange
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelRangeByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelRangeByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi24ChannelRangeByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1114,29 +1184,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelRangeByApMac(
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsWifi24ChannelWidthByApMac
 //
-// Operation ID: deleteApsWifi24ChannelWidthByApMac
-//
 // Use this API command to disable the AP level override of the 2.4GHz radio channelWidth. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsWifi24ChannelWidthByApMac
+// Operation path: /aps/{apMac}/wifi24/channelWidth
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelWidthByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelWidthByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi24ChannelWidthByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1145,29 +1217,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24ChannelWidthByApMac(
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsWifi24TxPowerByApMac
 //
-// Operation ID: deleteApsWifi24TxPowerByApMac
-//
 // Use this API command to disable the AP level override of the 2.4GHz radio txPower. The access point will take its group's configuration or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsWifi24TxPowerByApMac
+// Operation path: /aps/{apMac}/wifi24/txPower
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsWifi24TxPowerByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi24TxPowerByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi24TxPowerByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1176,29 +1250,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi24TxPowerByApMac(ctx c
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsWifi50ByApMac
 //
-// Operation ID: deleteApsWifi50ByApMac
-//
 // Use this API command to disable the AP level override of 5GHz radio configuration. The access point will take its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsWifi50ByApMac
+// Operation path: /aps/{apMac}/wifi50
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi50ByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1207,29 +1283,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ByApMac(ctx context.
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsWifi50ChannelByApMac
 //
-// Operation ID: deleteApsWifi50ChannelByApMac
-//
 // Use this API command to disable the AP level override of 5GHz radio channel. The access point will take its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsWifi50ChannelByApMac
+// Operation path: /aps/{apMac}/wifi50/channel
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi50ChannelByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1238,29 +1316,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelByApMac(ctx c
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsWifi50ChannelRangeByApMac
 //
-// Operation ID: deleteApsWifi50ChannelRangeByApMac
-//
 // Use this API command to disable the AP level override of 5GHz radio channelRange. The access point will take its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsWifi50ChannelRangeByApMac
+// Operation path: /aps/{apMac}/wifi50/channelRange
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelRangeByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelRangeByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi50ChannelRangeByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1269,29 +1349,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelRangeByApMac(
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsWifi50ChannelWidthByApMac
 //
-// Operation ID: deleteApsWifi50ChannelWidthByApMac
-//
 // Use this API command to disable the AP level override of 5GHz radio channelWidth. The access point will take its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsWifi50ChannelWidthByApMac
+// Operation path: /aps/{apMac}/wifi50/channelWidth
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelWidthByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelWidthByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi50ChannelWidthByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1300,29 +1382,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50ChannelWidthByApMac(
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsWifi50TxPowerByApMac
 //
-// Operation ID: deleteApsWifi50TxPowerByApMac
-//
 // Use this API command to disable the AP level override of 5GHz radio txPower. The access point will take its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsWifi50TxPowerByApMac
+// Operation path: /aps/{apMac}/wifi50/txPower
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsWifi50TxPowerByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWifi50TxPowerByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWifi50TxPowerByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1331,29 +1415,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWifi50TxPowerByApMac(ctx c
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsWlanGroup24ByApMac
 //
-// Operation ID: deleteApsWlanGroup24ByApMac
-//
 // Use this API command to disable the AP level override of WLAN group configuration on 2.4GHz radio. The access point will take its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsWlanGroup24ByApMac
+// Operation path: /aps/{apMac}/wlanGroup24
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup24ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup24ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWlanGroup24ByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1362,29 +1448,31 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup24ByApMac(ctx con
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteApsWlanGroup50ByApMac
 //
-// Operation ID: deleteApsWlanGroup50ByApMac
-//
 // Use this API command to disable the AP level override of WLAN group on the 5GHz radio. The access point will take its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteApsWlanGroup50ByApMac
+// Operation path: /aps/{apMac}/wlanGroup50
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup50ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup50ByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteApsWlanGroup50ByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1393,16 +1481,18 @@ func (s *WSGAccessPointConfigurationService) DeleteApsWlanGroup50ByApMac(ctx con
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindApRadiosByApMac
 //
-// Operation ID: findApRadiosByApMac
-//
 // Fetch radio details about an access point by MAC address
 //
-// Required Parameters:
+// Operation ID: findApRadiosByApMac
+// Operation path: /aps/{apMac}/radios
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) FindApRadiosByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGAPRadioConfigurationAPIResponse, error) {
@@ -1428,11 +1518,13 @@ func (s *WSGAccessPointConfigurationService) FindApRadiosByApMac(ctx context.Con
 
 // FindAps
 //
-// Operation ID: findAps
-//
 // Use this API command to retrieve the list of APs that belong to a zone or a domain.
 //
-// Optional Parameters:
+// Operation ID: findAps
+// Operation path: /aps
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - domainId string
 //		- nullable
 // - index string
@@ -1475,11 +1567,13 @@ func (s *WSGAccessPointConfigurationService) FindAps(ctx context.Context, option
 
 // FindApsByApMac
 //
-// Operation ID: findApsByApMac
-//
 // Use this API command to retrieve the configuration of an AP.
 //
-// Required Parameters:
+// Operation ID: findApsByApMac
+// Operation path: /aps/{apMac}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGAccessPointConfigurationService) FindApsByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGAPConfigurationAPIResponse, error) {
@@ -1505,24 +1599,26 @@ func (s *WSGAccessPointConfigurationService) FindApsByApMac(ctx context.Context,
 
 // FindApsPictureByApMac
 //
-// Operation ID: findApsPictureByApMac
-//
 // Use this API command to retrieve the current AP picture.
 //
-// Required Parameters:
+// Operation ID: findApsPictureByApMac
+// Operation path: /aps/{apMac}/picture
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) FindApsPictureByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) FindApsPictureByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApsPictureByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1530,29 +1626,31 @@ func (s *WSGAccessPointConfigurationService) FindApsPictureByApMac(ctx context.C
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // FindApsSupportLogByApMac
 //
-// Operation ID: findApsSupportLogByApMac
-//
 // Use this API command to download AP support log.
 //
-// Required Parameters:
+// Operation ID: findApsSupportLogByApMac
+// Operation path: /aps/{apMac}/supportLog
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) FindApsSupportLogByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) FindApsSupportLogByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteWSGFindApsSupportLogByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1560,14 +1658,16 @@ func (s *WSGAccessPointConfigurationService) FindApsSupportLogByApMac(ctx contex
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // FindMeshZeroTouch
 //
-// Operation ID: findMeshZeroTouch
-//
 // Use this API command to retrieve a list of unapproved AP.
+//
+// Operation ID: findMeshZeroTouch
+// Operation path: /mesh/zeroTouch
+// Success code: 200 (OK)
 func (s *WSGAccessPointConfigurationService) FindMeshZeroTouch(ctx context.Context, mutators ...RequestMutator) (*WSGMeshNodeInfoListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -1590,98 +1690,104 @@ func (s *WSGAccessPointConfigurationService) FindMeshZeroTouch(ctx context.Conte
 
 // PartialUpdateApsByApMac
 //
-// Operation ID: partialUpdateApsByApMac
-//
 // Use this API command to modify the configuration of an AP.
 //
-// Request Body:
+// Operation ID: partialUpdateApsByApMac
+// Operation path: /aps/{apMac}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAPModifyAP
 //
-// Required Parameters:
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) PartialUpdateApsByApMac(ctx context.Context, body *WSGAPModifyAP, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) PartialUpdateApsByApMac(ctx context.Context, body *WSGAPModifyAP, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateApsByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateApsByApMac
 //
-// Operation ID: updateApsByApMac
-//
 // Use this API command to modify the entire information of an AP.
 //
-// Request Body:
+// Operation ID: updateApsByApMac
+// Operation path: /aps/{apMac}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAPModifyAP
 //
-// Required Parameters:
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) UpdateApsByApMac(ctx context.Context, body *WSGAPModifyAP, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) UpdateApsByApMac(ctx context.Context, body *WSGAPModifyAP, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateApsByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateApsRebootByApMac
 //
-// Operation ID: updateApsRebootByApMac
-//
 // reboot an access point.
 //
-// Required Parameters:
+// Operation ID: updateApsRebootByApMac
+// Operation path: /aps/{apMac}/reboot
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) UpdateApsRebootByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) UpdateApsRebootByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateApsRebootByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1690,53 +1796,57 @@ func (s *WSGAccessPointConfigurationService) UpdateApsRebootByApMac(ctx context.
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateApsSpecificByApMac
 //
-// Operation ID: updateApsSpecificByApMac
-//
 // Use this API command to modify specific configuration.
 //
-// Request Body:
+// Operation ID: updateApsSpecificByApMac
+// Operation path: /aps/{apMac}/specific
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAPModel
 //
-// Required Parameters:
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointConfigurationService) UpdateApsSpecificByApMac(ctx context.Context, body *WSGAPModel, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointConfigurationService) UpdateApsSpecificByApMac(ctx context.Context, body *WSGAPModel, apMac string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateApsSpecificByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateMeshZeroTouch
 //
-// Operation ID: updateMeshZeroTouch
-//
 // Use this API command to approve/reject unapproved AP. Recommend to deploy 20 island APs to join per batch at the same time.
 //
-// Request Body:
+// Operation ID: updateMeshZeroTouch
+// Operation path: /mesh/zeroTouch
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGMeshNodeInfoUpdateAPZeroTouch
 func (s *WSGAccessPointConfigurationService) UpdateMeshZeroTouch(ctx context.Context, body *WSGMeshNodeInfoUpdateAPZeroTouch, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (

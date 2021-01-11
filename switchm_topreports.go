@@ -23,11 +23,13 @@ func (ss *SwitchMService) SwitchMTopReportsService() *SwitchMTopReportsService {
 
 // AddSwitchTopByFirmware
 //
-// Operation ID: addSwitchTopByFirmware
-//
 // Use this API command to retrieves top N switch count based on firmware version.
 //
-// Request Body:
+// Operation ID: addSwitchTopByFirmware
+// Operation path: /switch/top/byFirmware
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTopReportsService) AddSwitchTopByFirmware(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *SwitchMTopReportsService) AddSwitchTopByFirmware(ctx context.Context, b
 
 // AddSwitchTopByModel
 //
-// Operation ID: addSwitchTopByModel
-//
 // Use this API command to retrieve top N switch count based on switch model.
 //
-// Request Body:
+// Operation ID: addSwitchTopByModel
+// Operation path: /switch/top/byModel
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMTopReportsService) AddSwitchTopByModel(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse, error) {
 	var (

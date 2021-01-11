@@ -23,11 +23,13 @@ func (ss *SwitchMService) SwitchMAccessControlListService() *SwitchMAccessContro
 
 // AddAccessControls
 //
-// Operation ID: addAccessControls
-//
 // Use this API command to Create the Access Control Config.
 //
-// Request Body:
+// Operation ID: addAccessControls
+// Operation path: /accessControls
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMACLConfigCreateACLConfig
 func (s *SwitchMAccessControlListService) AddAccessControls(ctx context.Context, body *SwitchMACLConfigCreateACLConfig, mutators ...RequestMutator) (*SwitchMCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *SwitchMAccessControlListService) AddAccessControls(ctx context.Context,
 
 // DeleteAccessControls
 //
-// Operation ID: deleteAccessControls
-//
 // Use this API command to Delete the Access Control Config by Id list.
 //
-// Request Body:
+// Operation ID: deleteAccessControls
+// Operation path: /accessControls
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMAccessControlListService) DeleteAccessControls(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMAccessControlListService) DeleteAccessControls(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteAccessControls, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteAccessControlsById
 //
-// Operation ID: deleteAccessControlsById
-//
 // Use this API command to Delete the Access Control Config.
 //
-// Required Parameters:
+// Operation ID: deleteAccessControlsById
+// Operation path: /accessControls/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMAccessControlListService) DeleteAccessControlsById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMAccessControlListService) DeleteAccessControlsById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteAccessControlsById, true)
 	defer recycleAPIRequest(req)
@@ -113,16 +119,18 @@ func (s *SwitchMAccessControlListService) DeleteAccessControlsById(ctx context.C
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindAccessControlsById
 //
-// Operation ID: findAccessControlsById
-//
 // Use this API command to Retrieve the Access Control Config.
 //
-// Required Parameters:
+// Operation ID: findAccessControlsById
+// Operation path: /accessControls/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMAccessControlListService) FindAccessControlsById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMACLConfigAPIResponse, error) {
@@ -148,11 +156,13 @@ func (s *SwitchMAccessControlListService) FindAccessControlsById(ctx context.Con
 
 // FindAccessControlsByQueryCriteria
 //
-// Operation ID: findAccessControlsByQueryCriteria
-//
 // Use this API command to Retrieve the Access Control Config list.
 //
-// Request Body:
+// Operation ID: findAccessControlsByQueryCriteria
+// Operation path: /accessControls/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMAccessControlListService) FindAccessControlsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMACLConfigsQueryResultAPIResponse, error) {
 	var (
@@ -180,37 +190,39 @@ func (s *SwitchMAccessControlListService) FindAccessControlsByQueryCriteria(ctx 
 
 // UpdateAccessControlsById
 //
-// Operation ID: updateAccessControlsById
-//
 // Use this API command to Update the Access Control Config.
 //
-// Request Body:
+// Operation ID: updateAccessControlsById
+// Operation path: /accessControls/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMACLConfigUpdateACLConfig
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMAccessControlListService) UpdateAccessControlsById(ctx context.Context, body *SwitchMACLConfigUpdateACLConfig, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMAccessControlListService) UpdateAccessControlsById(ctx context.Context, body *SwitchMACLConfigUpdateACLConfig, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateAccessControlsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

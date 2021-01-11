@@ -2537,11 +2537,13 @@ func NewWSGSystemUserDefinedInterfaceList() *WSGSystemUserDefinedInterfaceList {
 
 // AddGlobalSettingsSystemTimeValidate
 //
-// Operation ID: addGlobalSettingsSystemTimeValidate
-//
 // Use this API command to validate a NTP server.
 //
-// Request Body:
+// Operation ID: addGlobalSettingsSystemTimeValidate
+// Operation path: /globalSettings/systemTime/validate
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSystemNtpServerValidation
 func (s *WSGSystemService) AddGlobalSettingsSystemTimeValidate(ctx context.Context, body *WSGSystemNtpServerValidation, mutators ...RequestMutator) (*WSGSystemNtpServerValidationMessageAPIResponse, error) {
 	var (
@@ -2569,9 +2571,11 @@ func (s *WSGSystemService) AddGlobalSettingsSystemTimeValidate(ctx context.Conte
 
 // AddSystemApBalance
 //
-// Operation ID: addSystemAp_balance
-//
 // Execute ap balance.
+//
+// Operation ID: addSystemAp_balance
+// Operation path: /system/ap_balance
+// Success code: 200 (OK)
 func (s *WSGSystemService) AddSystemApBalance(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -2595,84 +2599,90 @@ func (s *WSGSystemService) AddSystemApBalance(ctx context.Context, mutators ...R
 
 // AddSystemApMacOUIs
 //
-// Operation ID: addSystemApMacOUIs
-//
 // Use this API command to create AP Mac OUI.
 //
-// Request Body:
+// Operation ID: addSystemApMacOUIs
+// Operation path: /system/apMacOUIs
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemCreateApMacOUI
-func (s *WSGSystemService) AddSystemApMacOUIs(ctx context.Context, body *WSGSystemCreateApMacOUI, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSystemService) AddSystemApMacOUIs(ctx context.Context, body *WSGSystemCreateApMacOUI, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemApMacOUIs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddSystemApRoutineConfigInterval
 //
-// Operation ID: addSystemApRoutineConfigInterval
-//
 // Use this API command to get AP routine configuration interval setting.
 //
-// Request Body:
+// Operation ID: addSystemApRoutineConfigInterval
+// Operation path: /system/apRoutineConfigInterval
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAPRoutineConfigIntervalReq
-func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context, body *WSGAPRoutineConfigIntervalReq, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSystemService) AddSystemApRoutineConfigInterval(ctx context.Context, body *WSGAPRoutineConfigIntervalReq, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemApRoutineConfigInterval, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddSystemApRoutineStatusIntervalSlowdown
 //
-// Operation ID: addSystemApRoutineStatusIntervalSlowdown
-//
 // Use this API command to set AP routine status interval setting to 900 seconds.
-func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
+//
+// Operation ID: addSystemApRoutineStatusIntervalSlowdown
+// Operation path: /system/apRoutineStatusInterval/slowdown
+// Success code: 204 (No Content)
+func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.Context, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemApRoutineStatusIntervalSlowdown, true)
 	defer recycleAPIRequest(req)
@@ -2680,25 +2690,27 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSlowdown(ctx context.
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddSystemApRoutineStatusIntervalSpeedup
 //
-// Operation ID: addSystemApRoutineStatusIntervalSpeedup
-//
 // Use this API command to set AP routine status interval setting to 180 seconds.
-func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
+//
+// Operation ID: addSystemApRoutineStatusIntervalSpeedup
+// Operation path: /system/apRoutineStatusInterval/speedup
+// Success code: 204 (No Content)
+func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.Context, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddSystemApRoutineStatusIntervalSpeedup, true)
 	defer recycleAPIRequest(req)
@@ -2706,29 +2718,31 @@ func (s *WSGSystemService) AddSystemApRoutineStatusIntervalSpeedup(ctx context.C
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteSystemApMacOUIsByOUI
 //
-// Operation ID: deleteSystemApMacOUIsByOUI
-//
 // Use this API command to delete AP Mac OUI.
 //
-// Required Parameters:
+// Operation ID: deleteSystemApMacOUIsByOUI
+// Operation path: /system/apMacOUIs/{OUI}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - OUI string
 //		- required
-func (s *WSGSystemService) DeleteSystemApMacOUIsByOUI(ctx context.Context, OUI string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSystemService) DeleteSystemApMacOUIsByOUI(ctx context.Context, OUI string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteSystemApMacOUIsByOUI, true)
 	defer recycleAPIRequest(req)
@@ -2737,29 +2751,31 @@ func (s *WSGSystemService) DeleteSystemApMacOUIsByOUI(ctx context.Context, OUI s
 	req.PathParams.Set("OUI", OUI)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteSystemNbi
 //
-// Operation ID: deleteSystemNbi
-//
 // Use this API command to disable the user information by Northbound Portal Interface.
 //
-// Optional Parameters:
+// Operation ID: deleteSystemNbi
+// Operation path: /system/nbi
+// Success code: 204 (No Content)
+//
+// Optional parameters:
 // - domainId string
 //		- nullable
-func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteSystemNbi, true)
 	defer recycleAPIRequest(req)
@@ -2770,14 +2786,16 @@ func (s *WSGSystemService) DeleteSystemNbi(ctx context.Context, optionalParams m
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindController
 //
-// Operation ID: findController
-//
 // Use this API command to retrieve the system summary.
+//
+// Operation ID: findController
+// Operation path: /controller
+// Success code: 200 (OK)
 func (s *WSGSystemService) FindController(ctx context.Context, mutators ...RequestMutator) (*WSGSystemControllerListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -2800,15 +2818,17 @@ func (s *WSGSystemService) FindController(ctx context.Context, mutators ...Reque
 
 // FindControllerStatisticsById
 //
-// Operation ID: findControllerStatisticsById
-//
 // Use this API command to retrieve the system statistics.
 //
-// Required Parameters:
+// Operation ID: findControllerStatisticsById
+// Operation path: /controller/{id}/statistics
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - interval string
 //		- nullable
 // - size float64
@@ -2842,9 +2862,11 @@ func (s *WSGSystemService) FindControllerStatisticsById(ctx context.Context, id 
 
 // FindSystem
 //
-// Operation ID: findSystem
-//
 // Use this API command to get settings of system. Currently, Only can get settings about AP number limit.
+//
+// Operation ID: findSystem
+// Operation path: /system
+// Success code: 200 (OK)
 func (s *WSGSystemService) FindSystem(ctx context.Context, mutators ...RequestMutator) (*WSGSystemSettingsAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -2867,9 +2889,11 @@ func (s *WSGSystemService) FindSystem(ctx context.Context, mutators ...RequestMu
 
 // FindSystemApMacOUIs
 //
-// Operation ID: findSystemApMacOUIs
-//
 // Use this API command to retrieve a list of AP Mac OUIs.
+//
+// Operation ID: findSystemApMacOUIs
+// Operation path: /system/apMacOUIs
+// Success code: 200 (OK)
 func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context, mutators ...RequestMutator) (*WSGSystemApMacOUIListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -2892,9 +2916,11 @@ func (s *WSGSystemService) FindSystemApMacOUIs(ctx context.Context, mutators ...
 
 // FindSystemApmodels
 //
-// Operation ID: findSystemApmodels
-//
 // Use this API command to retrieve support AP models for the current installed SZ version's default AP firmware.
+//
+// Operation ID: findSystemApmodels
+// Operation path: /system/apmodels
+// Success code: 200 (OK)
 func (s *WSGSystemService) FindSystemApmodels(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -2917,11 +2943,13 @@ func (s *WSGSystemService) FindSystemApmodels(ctx context.Context, mutators ...R
 
 // FindSystemApmodelsByFirmwareVersion
 //
-// Operation ID: findSystemApmodelsByFirmwareVersion
-//
 // Use this API command to retrieve support AP models from input firmware version.
 //
-// Required Parameters:
+// Operation ID: findSystemApmodelsByFirmwareVersion
+// Operation path: /system/apmodels/{firmwareVersion:.+}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - firmwareVersion string
 //		- required
 func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Context, firmwareVersion string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -2947,9 +2975,11 @@ func (s *WSGSystemService) FindSystemApmodelsByFirmwareVersion(ctx context.Conte
 
 // FindSystemApRoutineConfigInterval
 //
-// Operation ID: findSystemApRoutineConfigInterval
-//
 // Use this API command to get AP routine configuration interval setting.
+//
+// Operation ID: findSystemApRoutineConfigInterval
+// Operation path: /system/apRoutineConfigInterval
+// Success code: 200 (OK)
 func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context, mutators ...RequestMutator) (*WSGAPRoutineConfigIntervalRspAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -2972,9 +3002,11 @@ func (s *WSGSystemService) FindSystemApRoutineConfigInterval(ctx context.Context
 
 // FindSystemApRoutineStatusInterval
 //
-// Operation ID: findSystemApRoutineStatusInterval
-//
 // Use this API command to get AP routine status interval setting.
+//
+// Operation ID: findSystemApRoutineStatusInterval
+// Operation path: /system/apRoutineStatusInterval
+// Success code: 200 (OK)
 func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context, mutators ...RequestMutator) (*WSGAPRoutineStatusIntervalRspAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -2997,11 +3029,13 @@ func (s *WSGSystemService) FindSystemApRoutineStatusInterval(ctx context.Context
 
 // FindSystemByQueryCriteria
 //
-// Operation ID: findSystemByQueryCriteria
-//
 // Use this API command to query settings of system. Currently, Only can get settings about AP number limit by query criteria with domain and zone filters.
 //
-// Request Body:
+// Operation ID: findSystemByQueryCriteria
+// Operation path: /system/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGSystemSettingsAPIResponse, error) {
 	var (
@@ -3029,9 +3063,11 @@ func (s *WSGSystemService) FindSystemByQueryCriteria(ctx context.Context, body *
 
 // FindSystemDevicesSummary
 //
-// Operation ID: findSystemDevicesSummary
-//
 // Use this API command to retrieve devices summary.
+//
+// Operation ID: findSystemDevicesSummary
+// Operation path: /system/devicesSummary
+// Success code: 200 (OK)
 func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context, mutators ...RequestMutator) (*WSGDeviceCapacityDevicesSummaryAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -3054,9 +3090,11 @@ func (s *WSGSystemService) FindSystemDevicesSummary(ctx context.Context, mutator
 
 // FindSystemGatewayAdvanced
 //
-// Operation ID: findSystemGatewayAdvanced
-//
 // Use this API command to retrieve gateway advanced setting.
+//
+// Operation ID: findSystemGatewayAdvanced
+// Operation path: /system/gatewayAdvanced
+// Success code: 200 (OK)
 func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context, mutators ...RequestMutator) (*WSGSystemGatewayAdvancedAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -3079,11 +3117,13 @@ func (s *WSGSystemService) FindSystemGatewayAdvanced(ctx context.Context, mutato
 
 // FindSystemInventory
 //
-// Operation ID: findSystemInventory
-//
 // Use this API command to retrieve the system inventory with current logon user domain.
 //
-// Optional Parameters:
+// Operation ID: findSystemInventory
+// Operation path: /system/inventory
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -3116,11 +3156,13 @@ func (s *WSGSystemService) FindSystemInventory(ctx context.Context, optionalPara
 
 // FindSystemNbi
 //
-// Operation ID: findSystemNbi
-//
 // Use this API command to retrieve user information by Northbound Portal Interface.
 //
-// Optional Parameters:
+// Operation ID: findSystemNbi
+// Operation path: /system/nbi
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - domainId string
 //		- nullable
 func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSystemNorthboundInterfaceAPIResponse, error) {
@@ -3148,9 +3190,11 @@ func (s *WSGSystemService) FindSystemNbi(ctx context.Context, optionalParams map
 
 // FindSystemSecuritySetting
 //
-// Operation ID: findSystemSecuritySetting
-//
 // Use this API command to retrieve the security setting.
+//
+// Operation ID: findSystemSecuritySetting
+// Operation path: /system/securitySetting
+// Success code: 200 (OK)
 func (s *WSGSystemService) FindSystemSecuritySetting(ctx context.Context, mutators ...RequestMutator) (*WSGSystemSecuritySettingAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -3173,9 +3217,11 @@ func (s *WSGSystemService) FindSystemSecuritySetting(ctx context.Context, mutato
 
 // FindSystemSystemTime
 //
-// Operation ID: findSystemSystemTime
-//
 // Retrieve System Time Setting.
+//
+// Operation ID: findSystemSystemTime
+// Operation path: /system/systemTime
+// Success code: 200 (OK)
 func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context, mutators ...RequestMutator) (*WSGSystemTimeSettingAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -3198,183 +3244,195 @@ func (s *WSGSystemService) FindSystemSystemTime(ctx context.Context, mutators ..
 
 // PartialUpdateSystem
 //
-// Operation ID: partialUpdateSystem
-//
 // Use this API command to modify settings of system. Currently, Only can modify settings about AP number limit by query criteria with domain and zone filters.
 //
-// Request Body:
+// Operation ID: partialUpdateSystem
+// Operation path: /system
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemSettings
-func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSystemSettings, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSystemService) PartialUpdateSystem(ctx context.Context, body *WSGSystemSettings, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSystem, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateSystemGatewayAdvanced
 //
-// Operation ID: partialUpdateSystemGatewayAdvanced
-//
 // Use this API command to modify the gateway advanced setting.
 //
-// Request Body:
+// Operation ID: partialUpdateSystemGatewayAdvanced
+// Operation path: /system/gatewayAdvanced
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemModifyGatewayAdvanced
-func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Context, body *WSGSystemModifyGatewayAdvanced, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSystemService) PartialUpdateSystemGatewayAdvanced(ctx context.Context, body *WSGSystemModifyGatewayAdvanced, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSystemGatewayAdvanced, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateSystemNbi
 //
-// Operation ID: partialUpdateSystemNbi
-//
 // Use this API command to modify the user information by Northbound Portal Interface.
 //
-// Request Body:
+// Operation ID: partialUpdateSystemNbi
+// Operation path: /system/nbi
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemNorthboundInterface
 //
-// Optional Parameters:
+// Optional parameters:
 // - domainId string
 //		- nullable
-func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSGSystemNorthboundInterface, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSystemService) PartialUpdateSystemNbi(ctx context.Context, body *WSGSystemNorthboundInterface, optionalParams map[string][]string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSystemNbi, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	if v, ok := optionalParams["domainId"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("domainId", v)
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateSystemSystemTime
 //
-// Operation ID: partialUpdateSystemSystemTime
-//
 // Modify System Time Setting.
 //
-// Request Body:
+// Operation ID: partialUpdateSystemSystemTime
+// Operation path: /system/systemTime
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemModifySystemTimeSetting
-func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, body *WSGSystemModifySystemTimeSetting, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSystemService) PartialUpdateSystemSystemTime(ctx context.Context, body *WSGSystemModifySystemTimeSetting, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateSystemSystemTime, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateSystemApMacOUIsByOUI
 //
-// Operation ID: updateSystemApMacOUIsByOUI
-//
 // Use this API command to update AP Mac OUI.
 //
-// Request Body:
+// Operation ID: updateSystemApMacOUIsByOUI
+// Operation path: /system/apMacOUIs/{OUI}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemUpdateApMacOUI
 //
-// Required Parameters:
+// Required parameters:
 // - OUI string
 //		- required
-func (s *WSGSystemService) UpdateSystemApMacOUIsByOUI(ctx context.Context, body *WSGSystemUpdateApMacOUI, OUI string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSystemService) UpdateSystemApMacOUIsByOUI(ctx context.Context, body *WSGSystemUpdateApMacOUI, OUI string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateSystemApMacOUIsByOUI, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("OUI", OUI)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateSystemSecuritySetting
 //
-// Operation ID: updateSystemSecuritySetting
-//
 // Use this API command to retrieve the security setting.
 //
-// Request Body:
+// Operation ID: updateSystemSecuritySetting
+// Operation path: /system/securitySetting
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSystemSecuritySetting
 func (s *WSGSystemService) UpdateSystemSecuritySetting(ctx context.Context, body *WSGSystemSecuritySetting, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (

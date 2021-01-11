@@ -1395,11 +1395,13 @@ func NewSCINetworkWirelessReport27top10ApByClientCountMetaData() *SCINetworkWire
 
 // ReportNetworkWirelessReport20Overview
 //
-// Operation ID: report_NetworkWirelessReport_20_overview
-//
 // Network - Wireless Report - Overview
 //
-// Request Body:
+// Operation ID: report_NetworkWirelessReport_20_overview
+// Operation path: /reports/2/sections/20/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport20Overview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse, error) {
 	var (
@@ -1427,11 +1429,13 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport20Overview(
 
 // ReportNetworkWirelessReport21TrafficDistribution
 //
-// Operation ID: report_NetworkWirelessReport_21_trafficDistribution
-//
 // Network - Wireless Report - Traffic Distribution
 //
-// Request Body:
+// Operation ID: report_NetworkWirelessReport_21_trafficDistribution
+// Operation path: /reports/2/sections/21/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport21TrafficDistribution(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIResponse, error) {
 	var (
@@ -1459,11 +1463,13 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport21TrafficDi
 
 // ReportNetworkWirelessReport22TrafficTrend
 //
-// Operation ID: report_NetworkWirelessReport_22_trafficTrend
-//
 // Network - Wireless Report - Traffic Trend
 //
-// Request Body:
+// Operation ID: report_NetworkWirelessReport_22_trafficTrend
+// Operation path: /reports/2/sections/22/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport22TrafficTrend(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse, error) {
 	var (
@@ -1491,11 +1497,13 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport22TrafficTr
 
 // ReportNetworkWirelessReport23TrafficOverTimeTable
 //
-// Operation ID: report_NetworkWirelessReport_23_trafficOverTimeTable
-//
 // Network - Wireless Report - Traffic Over Time
 //
-// Request Body:
+// Operation ID: report_NetworkWirelessReport_23_trafficOverTimeTable
+// Operation path: /reports/2/sections/23/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport23TrafficOverTimeTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -1523,11 +1531,13 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport23TrafficOv
 
 // ReportNetworkWirelessReport24TopAPsByTrafficTable
 //
-// Operation ID: report_NetworkWirelessReport_24_topAPsByTrafficTable
-//
 // Network - Wireless Report - Top APs by Traffic
 //
-// Request Body:
+// Operation ID: report_NetworkWirelessReport_24_topAPsByTrafficTable
+// Operation path: /reports/2/sections/24/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport24TopAPsByTrafficTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -1555,11 +1565,13 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport24TopAPsByT
 
 // ReportNetworkWirelessReport25TopAPsByClientsTable
 //
-// Operation ID: report_NetworkWirelessReport_25_topAPsByClientsTable
-//
 // Network - Wireless Report - Top APs by Client Count
 //
-// Request Body:
+// Operation ID: report_NetworkWirelessReport_25_topAPsByClientsTable
+// Operation path: /reports/2/sections/25/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport25TopAPsByClientsTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -1587,11 +1599,13 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport25TopAPsByC
 
 // ReportNetworkWirelessReport26Top10APsByTrafficVolume
 //
-// Operation ID: report_NetworkWirelessReport_26_top10APsByTrafficVolume
-//
 // Network - Wireless Report - Top APs by Traffic
 //
-// Request Body:
+// Operation ID: report_NetworkWirelessReport_26_top10APsByTrafficVolume
+// Operation path: /reports/2/sections/26/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport26Top10APsByTrafficVolume(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIResponse, error) {
 	var (
@@ -1619,11 +1633,13 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport26Top10APsB
 
 // ReportNetworkWirelessReport27Top10ApByClientCount
 //
-// Operation ID: report_NetworkWirelessReport_27_top10ApByClientCount
-//
 // Network - Wireless Report - Top APs by Client Count
 //
-// Request Body:
+// Operation ID: report_NetworkWirelessReport_27_top10ApByClientCount
+// Operation path: /reports/2/sections/27/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport27Top10ApByClientCount(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIResponse, error) {
 	var (

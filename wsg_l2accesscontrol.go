@@ -261,14 +261,16 @@ func NewWSGL2AccessControlUserDefinedEtherTypeObject() *WSGL2AccessControlUserDe
 
 // AddRkszonesL2ACLByZoneId
 //
-// Operation ID: addRkszonesL2ACLByZoneId
-//
 // Create a new L2 Access Control (for Firmware Versions less than 5.2).
 //
-// Request Body:
+// Operation ID: addRkszonesL2ACLByZoneId
+// Operation path: /rkszones/{zoneId}/l2ACL
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGPortalServiceCreateL2ACL
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGL2AccessControlService) AddRkszonesL2ACLByZoneId(ctx context.Context, body *WSGPortalServiceCreateL2ACL, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -298,26 +300,28 @@ func (s *WSGL2AccessControlService) AddRkszonesL2ACLByZoneId(ctx context.Context
 
 // DeleteRkszonesL2ACLById
 //
-// Operation ID: deleteRkszonesL2ACLById
-//
 // Delete an L2 Access Control (for Firmware Versions less than 5.2).
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesL2ACLById
+// Operation path: /rkszones/{zoneId}/l2ACL/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGL2AccessControlService) DeleteRkszonesL2ACLById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGL2AccessControlService) DeleteRkszonesL2ACLById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesL2ACLById, true)
 	defer recycleAPIRequest(req)
@@ -327,16 +331,18 @@ func (s *WSGL2AccessControlService) DeleteRkszonesL2ACLById(ctx context.Context,
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesL2ACLById
 //
-// Operation ID: findRkszonesL2ACLById
-//
 // Retrieve an L2 Access Control (for Firmware Versions less than 5.2).
 //
-// Required Parameters:
+// Operation ID: findRkszonesL2ACLById
+// Operation path: /rkszones/{zoneId}/l2ACL/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -365,15 +371,17 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLById(ctx context.Context, i
 
 // FindRkszonesL2ACLByZoneId
 //
-// Operation ID: findRkszonesL2ACLByZoneId
-//
 // Retrieve a list of L2 Access Control (for Firmware Versions less than 5.2).
 //
-// Required Parameters:
+// Operation ID: findRkszonesL2ACLByZoneId
+// Operation path: /rkszones/{zoneId}/l2ACL
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -407,11 +415,13 @@ func (s *WSGL2AccessControlService) FindRkszonesL2ACLByZoneId(ctx context.Contex
 
 // FindServicesL2AccessControlByQueryCriteria
 //
-// Operation ID: findServicesL2AccessControlByQueryCriteria
-//
 // Query L2 AccessControl Profiles with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesL2AccessControlByQueryCriteria
+// Operation path: /query/services/l2AccessControl
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGL2AccessControlService) FindServicesL2AccessControlByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -439,40 +449,42 @@ func (s *WSGL2AccessControlService) FindServicesL2AccessControlByQueryCriteria(c
 
 // PartialUpdateRkszonesL2ACLById
 //
-// Operation ID: partialUpdateRkszonesL2ACLById
-//
 // Modify a specific L2 Access Control basic (for Firmware Versions less than 5.2).
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesL2ACLById
+// Operation path: /rkszones/{zoneId}/l2ACL/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGPortalServiceModifyL2ACL
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGL2AccessControlService) PartialUpdateRkszonesL2ACLById(ctx context.Context, body *WSGPortalServiceModifyL2ACL, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGL2AccessControlService) PartialUpdateRkszonesL2ACLById(ctx context.Context, body *WSGPortalServiceModifyL2ACL, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesL2ACLById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

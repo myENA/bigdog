@@ -23,14 +23,16 @@ func (ss *WSGService) WSGHotspotServiceService() *WSGHotspotServiceService {
 
 // AddRkszonesPortalsHotspotExternalByZoneId
 //
-// Operation ID: addRkszonesPortalsHotspotExternalByZoneId
-//
 // Use this API command to create a new Hotspot (WISPr) with external logon URL of a zone.MacAddressFormat.
 //
-// Request Body:
+// Operation ID: addRkszonesPortalsHotspotExternalByZoneId
+// Operation path: /rkszones/{zoneId}/portals/hotspot/external
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGPortalServiceCreateHotspotExternal
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotExternal, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,14 +62,16 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotExternalByZoneId(ctx
 
 // AddRkszonesPortalsHotspotInternalByZoneId
 //
-// Operation ID: addRkszonesPortalsHotspotInternalByZoneId
-//
 // Use this API command to create a new Hotspot (WISPr) with internal logon URL of a zone.MacAddressFormat.
 //
-// Request Body:
+// Operation ID: addRkszonesPortalsHotspotInternalByZoneId
+// Operation path: /rkszones/{zoneId}/portals/hotspot/internal
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGPortalServiceCreateHotspotInternal
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotInternal, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -97,14 +101,16 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotInternalByZoneId(ctx
 
 // AddRkszonesPortalsHotspotSmartClientOnlyByZoneId
 //
-// Operation ID: addRkszonesPortalsHotspotSmartClientOnlyByZoneId
-//
 // Use this API command to create a new Hotspot (WISPr) with smart client only of a zone.MacAddressFormat.
 //
-// Request Body:
+// Operation ID: addRkszonesPortalsHotspotSmartClientOnlyByZoneId
+// Operation path: /rkszones/{zoneId}/portals/hotspot/smartClientOnly
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGPortalServiceCreateHotspotSmartClientOnly
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspotSmartClientOnly, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -134,26 +140,28 @@ func (s *WSGHotspotServiceService) AddRkszonesPortalsHotspotSmartClientOnlyByZon
 
 // DeleteRkszonesPortalsHotspotById
 //
-// Operation ID: deleteRkszonesPortalsHotspotById
-//
 // Use this API command to delete a Hotspot (WISPr) of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesPortalsHotspotById
+// Operation path: /rkszones/{zoneId}/portals/hotspot/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspotServiceService) DeleteRkszonesPortalsHotspotById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGHotspotServiceService) DeleteRkszonesPortalsHotspotById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesPortalsHotspotById, true)
 	defer recycleAPIRequest(req)
@@ -163,16 +171,18 @@ func (s *WSGHotspotServiceService) DeleteRkszonesPortalsHotspotById(ctx context.
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesPortalsHotspotById
 //
-// Operation ID: findRkszonesPortalsHotspotById
-//
 // Use this API command to retrieve a Hotspot (WISPr) of zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesPortalsHotspotById
+// Operation path: /rkszones/{zoneId}/portals/hotspot/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -201,11 +211,13 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotById(ctx context.Co
 
 // FindRkszonesPortalsHotspotByZoneId
 //
-// Operation ID: findRkszonesPortalsHotspotByZoneId
-//
 // Use this API command to retrieve a list of Hotspot (WISPr) of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesPortalsHotspotByZoneId
+// Operation path: /rkszones/{zoneId}/portals/hotspot
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGPortalServiceListAPIResponse, error) {
@@ -231,11 +243,13 @@ func (s *WSGHotspotServiceService) FindRkszonesPortalsHotspotByZoneId(ctx contex
 
 // FindServicesHotspotByQueryCriteria
 //
-// Operation ID: findServicesHotspotByQueryCriteria
-//
 // Query Hotspot Profiles with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesHotspotByQueryCriteria
+// Operation path: /query/services/hotspot
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGHotspotServiceService) FindServicesHotspotByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -263,40 +277,42 @@ func (s *WSGHotspotServiceService) FindServicesHotspotByQueryCriteria(ctx contex
 
 // PartialUpdateRkszonesPortalsHotspotById
 //
-// Operation ID: partialUpdateRkszonesPortalsHotspotById
-//
 // Use this API command to modify the configuration on Hotspot (WISPr) of a zone.MacAddressFormat.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesPortalsHotspotById
+// Operation path: /rkszones/{zoneId}/portals/hotspot/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGPortalServiceModifyHotspot
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspotServiceService) PartialUpdateRkszonesPortalsHotspotById(ctx context.Context, body *WSGPortalServiceModifyHotspot, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGHotspotServiceService) PartialUpdateRkszonesPortalsHotspotById(ctx context.Context, body *WSGPortalServiceModifyHotspot, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesPortalsHotspotById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

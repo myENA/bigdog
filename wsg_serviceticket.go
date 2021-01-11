@@ -78,11 +78,13 @@ func NewWSGServiceTicketLoginResponse() *WSGServiceTicketLoginResponse {
 
 // AddServiceTicket
 //
-// Operation ID: addServiceTicket
-//
 // Use this API command to log on to the controller and acquire a valid service ticket.
 //
-// Request Body:
+// Operation ID: addServiceTicket
+// Operation path: /serviceTicket
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGServiceTicketLoginRequest
 func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WSGServiceTicketLoginRequest, mutators ...RequestMutator) (*WSGServiceTicketLoginResponseAPIResponse, error) {
 	var (
@@ -110,11 +112,13 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 
 // DeleteServiceTicket
 //
-// Operation ID: deleteServiceTicket
-//
 // Use this API command to log off of the controller.
 //
-// Required Parameters:
+// Operation ID: deleteServiceTicket
+// Operation path: /serviceTicket
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - serviceTicket string
 //		- required
 func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, serviceTicket string, mutators ...RequestMutator) (*RawAPIResponse, error) {

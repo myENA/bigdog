@@ -342,11 +342,13 @@ func NewSCISessionsSummaryReport42durationPercentileDataType() *SCISessionsSumma
 
 // ReportSessionsSummaryReport33TopTable
 //
-// Operation ID: report_SessionsSummaryReport_33_topTable
-//
 // Sessions Summary Report - Top Sessions Summary
 //
-// Request Body:
+// Operation ID: report_SessionsSummaryReport_33_topTable
+// Operation path: /reports/6/sections/33/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport33TopTable(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse, error) {
 	var (
@@ -374,11 +376,13 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport33TopTable(
 
 // ReportSessionsSummaryReport34Overview
 //
-// Operation ID: report_SessionsSummaryReport_34_overview
-//
 // Sessions Summary Report - Average Durations
 //
-// Request Body:
+// Operation ID: report_SessionsSummaryReport_34_overview
+// Operation path: /reports/6/sections/34/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport34Overview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse, error) {
 	var (
@@ -406,11 +410,13 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport34Overview(
 
 // ReportSessionsSummaryReport42DurationPercentile
 //
-// Operation ID: report_SessionsSummaryReport_42_durationPercentile
-//
 // Sessions Summary Report - Session Duration Percentiles
 //
-// Request Body:
+// Operation ID: report_SessionsSummaryReport_42_durationPercentile
+// Operation path: /reports/6/sections/42/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport42DurationPercentile(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResponse, error) {
 	var (

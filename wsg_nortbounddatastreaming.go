@@ -386,11 +386,13 @@ func NewWSGNorthboundDataStreamingSettings() *WSGNorthboundDataStreamingSettings
 
 // AddNorthboundDataStreamingProfile
 //
-// Operation ID: addNorthboundDataStreamingProfile
-//
 // Use this API command to create northbound Data Streaming Profile
 //
-// Request Body:
+// Operation ID: addNorthboundDataStreamingProfile
+// Operation path: /northboundDataStreamingProfile
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile
 func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ctx context.Context, body *WSGNorthboundDataStreamingCreateNorthboundDataStreamingProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -418,24 +420,26 @@ func (s *WSGNorthboundDataStreamingService) AddNorthboundDataStreamingProfile(ct
 
 // DeleteNorthboundDataStreamingProfileById
 //
-// Operation ID: deleteNorthboundDataStreamingProfileById
-//
 // Use this API command to delete northbound Data Streaming Profile
 //
-// Required Parameters:
+// Operation ID: deleteNorthboundDataStreamingProfileById
+// Operation path: /northboundDataStreamingProfile/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfileById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteNorthboundDataStreamingProfileById, true)
 	defer recycleAPIRequest(req)
@@ -444,14 +448,16 @@ func (s *WSGNorthboundDataStreamingService) DeleteNorthboundDataStreamingProfile
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindNorthboundDataStreamingEventCodes
 //
-// Operation ID: findNorthboundDataStreamingEventCodes
-//
 // Use this API command to retrieve NorthboundDataStreamingEventCodes.
+//
+// Operation ID: findNorthboundDataStreamingEventCodes
+// Operation path: /northboundDataStreamingEventCodes
+// Success code: 200 (OK)
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCodes(ctx context.Context, mutators ...RequestMutator) (*WSGNorthboundDataStreamingEventCodesAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -474,11 +480,13 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingEventCode
 
 // FindNorthboundDataStreamingProfileById
 //
-// Operation ID: findNorthboundDataStreamingProfileById
-//
 // Use this API command to retrieve northbound Data Streaming Profile
 //
-// Required Parameters:
+// Operation ID: findNorthboundDataStreamingProfileById
+// Operation path: /northboundDataStreamingProfile/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGNorthboundDataStreamingProfileAPIResponse, error) {
@@ -504,9 +512,11 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileBy
 
 // FindNorthboundDataStreamingProfileList
 //
-// Operation ID: findNorthboundDataStreamingProfileList
-//
 // Use this API command to retrieve northbound Data Streaming Profile List
+//
+// Operation ID: findNorthboundDataStreamingProfileList
+// Operation path: /northboundDataStreamingProfileList
+// Success code: 200 (OK)
 func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileList(ctx context.Context, mutators ...RequestMutator) (*WSGNorthboundDataStreamingProfileListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -529,11 +539,13 @@ func (s *WSGNorthboundDataStreamingService) FindNorthboundDataStreamingProfileLi
 
 // UpdateNorthboundDataStreamingEventCodes
 //
-// Operation ID: updateNorthboundDataStreamingEventCodes
-//
 // Use this API command to modify NorthboundDataStreamingEventCodes.
 //
-// Request Body:
+// Operation ID: updateNorthboundDataStreamingEventCodes
+// Operation path: /northboundDataStreamingEventCodes
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCodes(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingEventCodes, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -561,14 +573,16 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingEventCo
 
 // UpdateNorthboundDataStreamingProfileById
 //
-// Operation ID: updateNorthboundDataStreamingProfileById
-//
 // Use this API command to update northbound Data Streaming Profile
 //
-// Request Body:
+// Operation ID: updateNorthboundDataStreamingProfileById
+// Operation path: /northboundDataStreamingProfile/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfileById(ctx context.Context, body *WSGNorthboundDataStreamingModifyNorthboundDataStreamingProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -598,11 +612,13 @@ func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingProfile
 
 // UpdateNorthboundDataStreamingSettings
 //
-// Operation ID: updateNorthboundDataStreamingSettings
-//
 // Use this API command to modify Northbound Data Streaming Settings.
 //
-// Request Body:
+// Operation ID: updateNorthboundDataStreamingSettings
+// Operation path: /northboundDataStreamingSettings
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGNorthboundDataStreamingSettings
 func (s *WSGNorthboundDataStreamingService) UpdateNorthboundDataStreamingSettings(ctx context.Context, body *WSGNorthboundDataStreamingSettings, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (

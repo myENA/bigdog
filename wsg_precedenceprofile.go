@@ -23,11 +23,13 @@ func (ss *WSGService) WSGPrecedenceProfileService() *WSGPrecedenceProfileService
 
 // AddPrecedence
 //
-// Operation ID: addPrecedence
-//
 // Use this API command to create Precedence Profile.
 //
-// Request Body:
+// Operation ID: addPrecedence
+// Operation path: /precedence
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreatePrecedenceProfile
 func (s *WSGPrecedenceProfileService) AddPrecedence(ctx context.Context, body *WSGProfileCreatePrecedenceProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *WSGPrecedenceProfileService) AddPrecedence(ctx context.Context, body *W
 
 // DeletePrecedence
 //
-// Operation ID: deletePrecedence
-//
 // Use this API command to Bulk Delete Precedence Profile.
 //
-// Request Body:
+// Operation ID: deletePrecedence
+// Operation path: /precedence
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileDeleteBulkPrecedenceProfile
-func (s *WSGPrecedenceProfileService) DeletePrecedence(ctx context.Context, body *WSGProfileDeleteBulkPrecedenceProfile, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGPrecedenceProfileService) DeletePrecedence(ctx context.Context, body *WSGProfileDeleteBulkPrecedenceProfile, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeletePrecedence, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeletePrecedenceById
 //
-// Operation ID: deletePrecedenceById
-//
 // Use this API command to Delete Precedence Profile by profile's ID.
 //
-// Required Parameters:
+// Operation ID: deletePrecedenceById
+// Operation path: /precedence/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGPrecedenceProfileService) DeletePrecedenceById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGPrecedenceProfileService) DeletePrecedenceById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeletePrecedenceById, true)
 	defer recycleAPIRequest(req)
@@ -113,16 +119,18 @@ func (s *WSGPrecedenceProfileService) DeletePrecedenceById(ctx context.Context, 
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindPrecedence
 //
-// Operation ID: findPrecedence
-//
 // Use this API command to Get Precedence Profile list.
 //
-// Optional Parameters:
+// Operation ID: findPrecedence
+// Operation path: /precedence
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -155,11 +163,13 @@ func (s *WSGPrecedenceProfileService) FindPrecedence(ctx context.Context, option
 
 // FindPrecedenceById
 //
-// Operation ID: findPrecedenceById
-//
 // Use this API command to Get Precedence Profile by profile's ID.
 //
-// Required Parameters:
+// Operation ID: findPrecedenceById
+// Operation path: /precedence/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGPrecedenceProfileService) FindPrecedenceById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileCreatePrecedenceProfileAPIResponse, error) {
@@ -185,11 +195,13 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceById(ctx context.Context, id
 
 // FindPrecedenceByQueryCriteria
 //
-// Operation ID: findPrecedenceByQueryCriteria
-//
 // Use this API command to query Precedence Profile.
 //
-// Request Body:
+// Operation ID: findPrecedenceByQueryCriteria
+// Operation path: /precedence/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGPrecedenceProfileService) FindPrecedenceByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfilePrecedenceListAPIResponse, error) {
 	var (
@@ -217,37 +229,39 @@ func (s *WSGPrecedenceProfileService) FindPrecedenceByQueryCriteria(ctx context.
 
 // PartialUpdatePrecedenceById
 //
-// Operation ID: partialUpdatePrecedenceById
-//
 // Use this API command to Modify Precedence Profile by profile's ID.
 //
-// Request Body:
+// Operation ID: partialUpdatePrecedenceById
+// Operation path: /precedence/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGProfileUpdatePrecedenceProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGPrecedenceProfileService) PartialUpdatePrecedenceById(ctx context.Context, body *WSGProfileUpdatePrecedenceProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGPrecedenceProfileService) PartialUpdatePrecedenceById(ctx context.Context, body *WSGProfileUpdatePrecedenceProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdatePrecedenceById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

@@ -23,14 +23,16 @@ func (ss *WSGService) WSGRestrictedAPAccessProfileService() *WSGRestrictedAPAcce
 
 // AddRkszonesRestrictedApAccessProfilesByZoneId
 //
-// Operation ID: addRkszonesRestrictedApAccessProfilesByZoneId
-//
 // Create a Restricted AP Access Profile.
 //
-// Request Body:
+// Operation ID: addRkszonesRestrictedApAccessProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/restrictedApAccessProfiles
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateRestrictedApAccessProfile
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGRestrictedAPAccessProfileService) AddRkszonesRestrictedApAccessProfilesByZoneId(ctx context.Context, body *WSGProfileCreateRestrictedApAccessProfile, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,58 +62,62 @@ func (s *WSGRestrictedAPAccessProfileService) AddRkszonesRestrictedApAccessProfi
 
 // DeleteRkszonesRestrictedApAccessProfiles
 //
-// Operation ID: deleteRkszonesRestrictedApAccessProfiles
-//
 // Use this API command to delete Bulk Restricted AP Access Profile.
 //
-// Request Body:
+// Operation ID: deleteRkszonesRestrictedApAccessProfiles
+// Operation path: /rkszones/restrictedApAccessProfiles
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessProfiles(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesRestrictedApAccessProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesRestrictedApAccessProfilesById
 //
-// Operation ID: deleteRkszonesRestrictedApAccessProfilesById
-//
 // Delete a Restricted AP Access Profile.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesRestrictedApAccessProfilesById
+// Operation path: /rkszones/{zoneId}/restrictedApAccessProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessProfilesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessProfilesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesRestrictedApAccessProfilesById, true)
 	defer recycleAPIRequest(req)
@@ -121,16 +127,18 @@ func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessPr
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesRestrictedApAccessProfilesById
 //
-// Operation ID: findRkszonesRestrictedApAccessProfilesById
-//
 // Retrieve a Restricted AP Access Profile.
 //
-// Required Parameters:
+// Operation ID: findRkszonesRestrictedApAccessProfilesById
+// Operation path: /rkszones/{zoneId}/restrictedApAccessProfiles/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -159,11 +167,13 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 
 // FindRkszonesRestrictedApAccessProfilesByQueryCriteria
 //
-// Operation ID: findRkszonesRestrictedApAccessProfilesByQueryCriteria
-//
 // Retrieve a list of Restricted AP Access Profile.
 //
-// Request Body:
+// Operation ID: findRkszonesRestrictedApAccessProfilesByQueryCriteria
+// Operation path: /rkszones/restrictedApAccessProfiles/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileRestrictedApAccessProfileArrayAPIResponse, error) {
 	var (
@@ -191,15 +201,17 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 
 // FindRkszonesRestrictedApAccessProfilesByZoneId
 //
-// Operation ID: findRkszonesRestrictedApAccessProfilesByZoneId
-//
 // Retrieve Restricted AP Access Profile list.
 //
-// Required Parameters:
+// Operation ID: findRkszonesRestrictedApAccessProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/restrictedApAccessProfiles
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -233,40 +245,42 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 
 // UpdateRkszonesRestrictedApAccessProfilesById
 //
-// Operation ID: updateRkszonesRestrictedApAccessProfilesById
-//
 // Modify a Restricted AP Access Profile.
 //
-// Request Body:
+// Operation ID: updateRkszonesRestrictedApAccessProfilesById
+// Operation path: /rkszones/{zoneId}/restrictedApAccessProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyRestrictedApAccessProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRestrictedAPAccessProfileService) UpdateRkszonesRestrictedApAccessProfilesById(ctx context.Context, body *WSGProfileModifyRestrictedApAccessProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGRestrictedAPAccessProfileService) UpdateRkszonesRestrictedApAccessProfilesById(ctx context.Context, body *WSGProfileModifyRestrictedApAccessProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesRestrictedApAccessProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

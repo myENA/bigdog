@@ -23,14 +23,16 @@ func (ss *WSGService) WSGResourceHealthService() *WSGResourceHealthService {
 
 // FindResourceHealthSummaryByQueryCriteria
 //
-// Operation ID: findResourceHealthSummaryByQueryCriteria
-//
 // Get current connected count of requested resource
 //
-// Request Body:
+// Operation ID: findResourceHealthSummaryByQueryCriteria
+// Operation path: /health/status/{resource}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - resource string
 //		- required
 //		- oneof:[client,ap]

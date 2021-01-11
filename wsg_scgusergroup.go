@@ -23,11 +23,13 @@ func (ss *WSGService) WSGSCGUserGroupService() *WSGSCGUserGroupService {
 
 // AddUserGroups
 //
-// Operation ID: addUserGroups
-//
 // Add SCG user group.
 //
-// Request Body:
+// Operation ID: addUserGroups
+// Operation path: /userGroups
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGSCGUserGroup
 func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCGUserGroup, mutators ...RequestMutator) (*WSGSCGUserGroupAuditIdAPIResponse, error) {
 	var (
@@ -55,43 +57,47 @@ func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCG
 
 // DeleteUserGroups
 //
-// Operation ID: deleteUserGroups
-//
 // Delete multiple SCG user group.
 //
-// Request Body:
+// Operation ID: deleteUserGroups
+// Operation path: /userGroups
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteUserGroups, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteUserGroupsByUserGroupId
 //
-// Operation ID: deleteUserGroupsByUserGroupId
-//
 // Delete SCG user group.
 //
-// Required Parameters:
+// Operation ID: deleteUserGroupsByUserGroupId
+// Operation path: /userGroups/{userGroupId}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - userGroupId string
 //		- required
 func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Context, userGroupId string, mutators ...RequestMutator) (*WSGSCGUserGroupAuditIdAPIResponse, error) {
@@ -118,11 +124,13 @@ func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 
 // FindUserGroupsByQueryCriteria
 //
-// Operation ID: findUserGroupsByQueryCriteria
-//
 // Query user groups.
 //
-// Request Body:
+// Operation ID: findUserGroupsByQueryCriteria
+// Operation path: /userGroups/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSCGUserQueryCriteria
 func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Context, body *WSGSCGUserQueryCriteria, mutators ...RequestMutator) (*WSGSCGUserGroupListAPIResponse, error) {
 	var (
@@ -150,15 +158,17 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 
 // FindUserGroupsByUserGroupId
 //
-// Operation ID: findUserGroupsByUserGroupId
-//
 // Get SCG user group.
 //
-// Required Parameters:
+// Operation ID: findUserGroupsByUserGroupId
+// Operation path: /userGroups/{userGroupId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - userGroupId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - includeUsers string
 //		- nullable
 func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context, userGroupId string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSCGUserGroupAPIResponse, error) {
@@ -187,9 +197,11 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context
 
 // FindUserGroupsCurrentUserPermissionCategories
 //
-// Operation ID: findUserGroupsCurrentUserPermissionCategories
-//
 // Get permitted categories of current user.
+//
+// Operation ID: findUserGroupsCurrentUserPermissionCategories
+// Operation path: /userGroups/currentUser/permissionCategories
+// Success code: 200 (OK)
 func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(ctx context.Context, mutators ...RequestMutator) (*WSGSCGUserGroupPermissionListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -212,9 +224,11 @@ func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(c
 
 // FindUserGroupsRoles
 //
-// Operation ID: findUserGroupsRoles
-//
 // Get pre-defined roles.
+//
+// Operation ID: findUserGroupsRoles
+// Operation path: /userGroups/roles
+// Success code: 200 (OK)
 func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context, mutators ...RequestMutator) (*WSGSCGUserGroupRoleLabelValueListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -237,15 +251,17 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context, mutato
 
 // FindUserGroupsRolesPermissionsByRole
 //
-// Operation ID: findUserGroupsRolesPermissionsByRole
-//
 // Get permission items of role.
 //
-// Required Parameters:
+// Operation ID: findUserGroupsRolesPermissionsByRole
+// Operation path: /userGroups/roles/{role}/permissions
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - role string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - domainId string
 //		- nullable
 func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx context.Context, role string, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSCGUserGroupPermissionListAPIResponse, error) {
@@ -274,14 +290,16 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 
 // PartialUpdateUserGroupsByUserGroupId
 //
-// Operation ID: partialUpdateUserGroupsByUserGroupId
-//
 // Update user groups.
 //
-// Request Body:
+// Operation ID: partialUpdateUserGroupsByUserGroupId
+// Operation path: /userGroups/{userGroupId}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSCGUserPatchScgUserGroup
 //
-// Required Parameters:
+// Required parameters:
 // - userGroupId string
 //		- required
 func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx context.Context, body *WSGSCGUserPatchScgUserGroup, userGroupId string, mutators ...RequestMutator) (*WSGSCGUserGroupAuditIdAPIResponse, error) {

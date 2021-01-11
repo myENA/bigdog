@@ -23,11 +23,13 @@ func (ss *WSGService) WSGL2oGREService() *WSGL2oGREService {
 
 // AddProfilesL2ogre
 //
-// Operation ID: addProfilesL2ogre
-//
 // Use this API command to create L2oGRE profile.
 //
-// Request Body:
+// Operation ID: addProfilesL2ogre
+// Operation path: /profiles/l2ogre
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateL2oGREProfile
 func (s *WSGL2oGREService) AddProfilesL2ogre(ctx context.Context, body *WSGProfileCreateL2oGREProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *WSGL2oGREService) AddProfilesL2ogre(ctx context.Context, body *WSGProfi
 
 // DeleteProfilesL2ogre
 //
-// Operation ID: deleteProfilesL2ogre
-//
 // Use this API command to delete multiple L2oGRE profile.
 //
-// Request Body:
+// Operation ID: deleteProfilesL2ogre
+// Operation path: /profiles/l2ogre
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGL2oGREService) DeleteProfilesL2ogre(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGL2oGREService) DeleteProfilesL2ogre(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesL2ogre, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesL2ogreById
 //
-// Operation ID: deleteProfilesL2ogreById
-//
 // Use this API command to delete L2oGRE profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesL2ogreById
+// Operation path: /profiles/l2ogre/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGL2oGREService) DeleteProfilesL2ogreById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGL2oGREService) DeleteProfilesL2ogreById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesL2ogreById, true)
 	defer recycleAPIRequest(req)
@@ -113,14 +119,16 @@ func (s *WSGL2oGREService) DeleteProfilesL2ogreById(ctx context.Context, id stri
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesL2ogre
 //
-// Operation ID: findProfilesL2ogre
-//
 // Use this API command to retrieve a list of L2oGRE profile.
+//
+// Operation ID: findProfilesL2ogre
+// Operation path: /profiles/l2ogre
+// Success code: 200 (OK)
 func (s *WSGL2oGREService) FindProfilesL2ogre(ctx context.Context, mutators ...RequestMutator) (*WSGProfileListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -143,11 +151,13 @@ func (s *WSGL2oGREService) FindProfilesL2ogre(ctx context.Context, mutators ...R
 
 // FindProfilesL2ogreById
 //
-// Operation ID: findProfilesL2ogreById
-//
 // Use this API command to retrieve L2oGRE profile by ID.
 //
-// Required Parameters:
+// Operation ID: findProfilesL2ogreById
+// Operation path: /profiles/l2ogre/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGL2oGREService) FindProfilesL2ogreById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileL2oGREProfileAPIResponse, error) {
@@ -173,11 +183,13 @@ func (s *WSGL2oGREService) FindProfilesL2ogreById(ctx context.Context, id string
 
 // FindProfilesL2ogreByQueryCriteria
 //
-// Operation ID: findProfilesL2ogreByQueryCriteria
-//
 // Use this API command to query a list of L2oGRE profile.
 //
-// Request Body:
+// Operation ID: findProfilesL2ogreByQueryCriteria
+// Operation path: /profiles/l2ogre/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileL2oGREProfileListAPIResponse, error) {
 	var (
@@ -205,37 +217,39 @@ func (s *WSGL2oGREService) FindProfilesL2ogreByQueryCriteria(ctx context.Context
 
 // PartialUpdateProfilesL2ogreById
 //
-// Operation ID: partialUpdateProfilesL2ogreById
-//
 // Use this API command to modify the configuration of L2oGRE profile.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesL2ogreById
+// Operation path: /profiles/l2ogre/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyL2oGREProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGL2oGREService) PartialUpdateProfilesL2ogreById(ctx context.Context, body *WSGProfileModifyL2oGREProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGL2oGREService) PartialUpdateProfilesL2ogreById(ctx context.Context, body *WSGProfileModifyL2oGREProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesL2ogreById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

@@ -23,11 +23,13 @@ func (ss *WSGService) WSGIPSECProfileService() *WSGIPSECProfileService {
 
 // AddProfilesTunnelIpsec
 //
-// Operation ID: addProfilesTunnelIpsec
-//
 // Create a new ipsec.
 //
-// Request Body:
+// Operation ID: addProfilesTunnelIpsec
+// Operation path: /profiles/tunnel/ipsec
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateIpsecProfile
 func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, body *WSGProfileCreateIpsecProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *WSGIPSECProfileService) AddProfilesTunnelIpsec(ctx context.Context, bod
 
 // DeleteProfilesTunnelIpsec
 //
-// Operation ID: deleteProfilesTunnelIpsec
-//
 // Delete multiple ipsec.
 //
-// Request Body:
+// Operation ID: deleteProfilesTunnelIpsec
+// Operation path: /profiles/tunnel/ipsec
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsec(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsec, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesTunnelIpsecById
 //
-// Operation ID: deleteProfilesTunnelIpsecById
-//
 // Delete a ipsec.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesTunnelIpsecById
+// Operation path: /profiles/tunnel/ipsec/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesTunnelIpsecById, true)
 	defer recycleAPIRequest(req)
@@ -113,16 +119,18 @@ func (s *WSGIPSECProfileService) DeleteProfilesTunnelIpsecById(ctx context.Conte
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesTunnelIpsec
 //
-// Operation ID: findProfilesTunnelIpsec
-//
 // Retrieve a list of IPSEC.
 //
-// Optional Parameters:
+// Operation ID: findProfilesTunnelIpsec
+// Operation path: /profiles/tunnel/ipsec
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -155,11 +163,13 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsec(ctx context.Context, op
 
 // FindProfilesTunnelIpsecById
 //
-// Operation ID: findProfilesTunnelIpsecById
-//
 // Retrieve a IPSEC.
 //
-// Required Parameters:
+// Operation ID: findProfilesTunnelIpsecById
+// Operation path: /profiles/tunnel/ipsec/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileIpsecProfileAPIResponse, error) {
@@ -185,11 +195,13 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecById(ctx context.Context
 
 // FindProfilesTunnelIpsecByQueryCriteria
 //
-// Operation ID: findProfilesTunnelIpsecByQueryCriteria
-//
 // Query a list of IPSEC.
 //
-// Request Body:
+// Operation ID: findProfilesTunnelIpsecByQueryCriteria
+// Operation path: /profiles/tunnel/ipsec/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileIpsecProfileListAPIResponse, error) {
 	var (
@@ -217,37 +229,39 @@ func (s *WSGIPSECProfileService) FindProfilesTunnelIpsecByQueryCriteria(ctx cont
 
 // PartialUpdateProfilesTunnelIpsecById
 //
-// Operation ID: partialUpdateProfilesTunnelIpsecById
-//
 // Modify a specific ipsec basic.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesTunnelIpsecById
+// Operation path: /profiles/tunnel/ipsec/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyIpsecProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx context.Context, body *WSGProfileModifyIpsecProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIPSECProfileService) PartialUpdateProfilesTunnelIpsecById(ctx context.Context, body *WSGProfileModifyIpsecProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelIpsecById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

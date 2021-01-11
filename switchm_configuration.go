@@ -23,11 +23,13 @@ func (ss *SwitchMService) SwitchMConfigurationService() *SwitchMConfigurationSer
 
 // AddSwitchconfig
 //
-// Operation ID: addSwitchconfig
-//
 // Use this API command to retrieve configuration backup list with specified filters.
 //
-// Request Body:
+// Operation ID: addSwitchconfig
+// Operation path: /switchconfig
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMConfigurationBackupListAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *SwitchMConfigurationService) AddSwitchconfig(ctx context.Context, body 
 
 // AddSwitchconfigBackup
 //
-// Operation ID: addSwitchconfigBackup
-//
 // Use this API command to backup configuration for a list of switches.
 //
-// Request Body:
+// Operation ID: addSwitchconfigBackup
+// Operation path: /switchconfig/backup
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body SwitchMConfigurationBackupSwitchIds
 func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context, body SwitchMConfigurationBackupSwitchIds, mutators ...RequestMutator) (*SwitchMConfigurationBackupCreateBackupResultListAPIResponse, error) {
 	var (
@@ -87,11 +91,13 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackup(ctx context.Context,
 
 // AddSwitchconfigBackupDiff
 //
-// Operation ID: addSwitchconfigBackupDiff
-//
 // Use this API command to diff between two config back up files for a switch.
 //
-// Request Body:
+// Operation ID: addSwitchconfigBackupDiff
+// Operation path: /switchconfig/backup/diff
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMConfigurationBackupConfigBackupDiffInput
 func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Context, body *SwitchMConfigurationBackupConfigBackupDiffInput, mutators ...RequestMutator) (*SwitchMConfigurationBackupConfigBackupDiffAPIResponse, error) {
 	var (
@@ -119,56 +125,60 @@ func (s *SwitchMConfigurationService) AddSwitchconfigBackupDiff(ctx context.Cont
 
 // DeleteSwitchconfig
 //
-// Operation ID: deleteSwitchconfig
-//
 // Use this API command to delete config backups by a list of config backup id.
 //
-// Request Body:
+// Operation ID: deleteSwitchconfig
+// Operation path: /switchconfig
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body SwitchMConfigurationBackupBackupIds
-func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, body SwitchMConfigurationBackupBackupIds, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMConfigurationService) DeleteSwitchconfig(ctx context.Context, body SwitchMConfigurationBackupBackupIds, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteSwitchconfig, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteSwitchconfigByConfigId
 //
-// Operation ID: deleteSwitchconfigByConfigId
-//
 // Use this API command to delete the configuration backup.
 //
-// Required Parameters:
+// Operation ID: deleteSwitchconfigByConfigId
+// Operation path: /switchconfig/{configId}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - configId string
 //		- required
-func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.Context, configId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.Context, configId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteSwitchconfigByConfigId, true)
 	defer recycleAPIRequest(req)
@@ -177,16 +187,18 @@ func (s *SwitchMConfigurationService) DeleteSwitchconfigByConfigId(ctx context.C
 	req.PathParams.Set("configId", configId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindSwitchconfigByConfigId
 //
-// Operation ID: findSwitchconfigByConfigId
-//
 // Use this API command to retrieve configuration backup content.
 //
-// Required Parameters:
+// Operation ID: findSwitchconfigByConfigId
+// Operation path: /switchconfig/{configId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - configId string
 //		- required
 func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Context, configId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -212,11 +224,13 @@ func (s *SwitchMConfigurationService) FindSwitchconfigByConfigId(ctx context.Con
 
 // FindSwitchconfigDownloadByConfigId
 //
-// Operation ID: findSwitchconfigDownloadByConfigId
-//
 // Use this API command to download configuration backup content as plain text.
 //
-// Required Parameters:
+// Operation ID: findSwitchconfigDownloadByConfigId
+// Operation path: /switchconfig/download/{configId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - configId string
 //		- required
 func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx context.Context, configId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -242,26 +256,28 @@ func (s *SwitchMConfigurationService) FindSwitchconfigDownloadByConfigId(ctx con
 
 // UpdateSwitchconfigBackupByGroupId
 //
-// Operation ID: updateSwitchconfigBackupByGroupId
-//
 // Use this API command to backup configurations for all switches under a group.
 //
-// Required Parameters:
+// Operation ID: updateSwitchconfigBackupByGroupId
+// Operation path: /switchconfig/{groupType}/{groupId}/backup
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - groupId string
 //		- required
 // - groupType string
 //		- required
-func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx context.Context, groupId string, groupType string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx context.Context, groupId string, groupType string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateSwitchconfigBackupByGroupId, true)
 	defer recycleAPIRequest(req)
@@ -271,16 +287,18 @@ func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupByGroupId(ctx cont
 	req.PathParams.Set("groupType", groupType)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateSwitchconfigBackupRestoreByBackupId
 //
-// Operation ID: updateSwitchconfigBackupRestoreByBackupId
-//
 // Restore a configuration backup to the switch.
 //
-// Required Parameters:
+// Operation ID: updateSwitchconfigBackupRestoreByBackupId
+// Operation path: /switchconfig/backup/{backupId}/restore
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - backupId string
 //		- required
 func (s *SwitchMConfigurationService) UpdateSwitchconfigBackupRestoreByBackupId(ctx context.Context, backupId string, mutators ...RequestMutator) (*RawAPIResponse, error) {

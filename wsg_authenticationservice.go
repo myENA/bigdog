@@ -23,11 +23,13 @@ func (ss *WSGService) WSGAuthenticationServiceService() *WSGAuthenticationServic
 
 // AddServicesAuthAd
 //
-// Operation ID: addServicesAuthAd
-//
 // Use this API command to create a new active directory authentication service.
 //
-// Request Body:
+// Operation ID: addServicesAuthAd
+// Operation path: /services/auth/ad
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGServiceCreateActiveDirectoryAuthentication
 func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context, body *WSGServiceCreateActiveDirectoryAuthentication, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context,
 
 // AddServicesAuthHlr
 //
-// Operation ID: addServicesAuthHlr
-//
 // Use this API command to create a new hlr authentication service.
 //
-// Request Body:
+// Operation ID: addServicesAuthHlr
+// Operation path: /services/auth/hlr
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGServiceCreateHlrAuthentication
 func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context, body *WSGServiceCreateHlrAuthentication, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -87,11 +91,13 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context
 
 // AddServicesAuthLdap
 //
-// Operation ID: addServicesAuthLdap
-//
 // Use this API command to create a new LDAP authentication service.
 //
-// Request Body:
+// Operation ID: addServicesAuthLdap
+// Operation path: /services/auth/ldap
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGServiceCreateLDAPAuthentication
 func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Context, body *WSGServiceCreateLDAPAuthentication, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -119,11 +125,13 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Contex
 
 // AddServicesAuthRadius
 //
-// Operation ID: addServicesAuthRadius
-//
 // Use this API command to create a new RADIUS authentication service.
 //
-// Request Body:
+// Operation ID: addServicesAuthRadius
+// Operation path: /services/auth/radius
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGServiceCreateRadiusAuthentication
 func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Context, body *WSGServiceCreateRadiusAuthentication, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -151,93 +159,99 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Cont
 
 // AddServicesAuthTestById
 //
-// Operation ID: addServicesAuthTestById
-//
 // Use this API command to test an authentication service.
 //
-// Request Body:
+// Operation ID: addServicesAuthTestById
+// Operation path: /services/auth/test/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGServiceTestingConfig
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Context, body *WSGServiceTestingConfig, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Context, body *WSGServiceTestingConfig, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddServicesAuthTestById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteServicesAuth
 //
-// Operation ID: deleteServicesAuth
-//
 // Use this API command to delete a list of authentication service.
 //
-// Request Body:
+// Operation ID: deleteServicesAuth
+// Operation path: /services/auth
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGServiceDeleteBulkAuthenticationService
-func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context, body *WSGServiceDeleteBulkAuthenticationService, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context, body *WSGServiceDeleteBulkAuthenticationService, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuth, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteServicesAuthAdById
 //
-// Operation ID: deleteServicesAuthAdById
-//
 // Use this API command to delete an active directory authentication service.
 //
-// Required Parameters:
+// Operation ID: deleteServicesAuthAdById
+// Operation path: /services/auth/ad/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthAdById, true)
 	defer recycleAPIRequest(req)
@@ -246,29 +260,31 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.C
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteServicesAuthById
 //
-// Operation ID: deleteServicesAuthById
-//
 // Use this API command to delete an authentication service.
 //
-// Required Parameters:
+// Operation ID: deleteServicesAuthById
+// Operation path: /services/auth/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthById, true)
 	defer recycleAPIRequest(req)
@@ -277,29 +293,31 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Con
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteServicesAuthHlrById
 //
-// Operation ID: deleteServicesAuthHlrById
-//
 // Use this API command to delete a hlr authentication service.
 //
-// Required Parameters:
+// Operation ID: deleteServicesAuthHlrById
+// Operation path: /services/auth/hlr/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthHlrById, true)
 	defer recycleAPIRequest(req)
@@ -308,29 +326,31 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteServicesAuthLdapById
 //
-// Operation ID: deleteServicesAuthLdapById
-//
 // Use this API command to delete a LDAP authentication service.
 //
-// Required Parameters:
+// Operation ID: deleteServicesAuthLdapById
+// Operation path: /services/auth/ldap/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthLdapById, true)
 	defer recycleAPIRequest(req)
@@ -339,29 +359,31 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteServicesAuthRadiusById
 //
-// Operation ID: deleteServicesAuthRadiusById
-//
 // Use this API command to delete a RADIUS authentication service.
 //
-// Required Parameters:
+// Operation ID: deleteServicesAuthRadiusById
+// Operation path: /services/auth/radius/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusById, true)
 	defer recycleAPIRequest(req)
@@ -370,29 +392,31 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx conte
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteServicesAuthRadiusSecondaryById
 //
-// Operation ID: deleteServicesAuthRadiusSecondaryById
-//
 // Use this API command to disable secondary RADIUS server of a RADIUS authentication service.
 //
-// Required Parameters:
+// Operation ID: deleteServicesAuthRadiusSecondaryById
+// Operation path: /services/auth/radius/{id}/secondary
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusSecondaryById, true)
 	defer recycleAPIRequest(req)
@@ -401,29 +425,31 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteServicesAuthRadiusStandbyPrimaryById
 //
-// Operation ID: deleteServicesAuthRadiusStandbyPrimaryById
-//
 // Use this API command to disable Standby secondary RADIUS server of a RADIUS authentication service.
 //
-// Required Parameters:
+// Operation ID: deleteServicesAuthRadiusStandbyPrimaryById
+// Operation path: /services/auth/radius/{id}/standbyPrimary
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimaryById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimaryById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteServicesAuthRadiusStandbyPrimaryById, true)
 	defer recycleAPIRequest(req)
@@ -432,16 +458,18 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimary
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindServicesAaaServerAuthByQueryCriteria
 //
-// Operation ID: findServicesAaaServerAuthByQueryCriteria
-//
 // Query Non-Proxy Authentication AAAServers with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesAaaServerAuthByQueryCriteria
+// Operation path: /query/services/aaaServer/auth
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAaaServerAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGAAAServerQueryListAPIResponse, error) {
 	var (
@@ -469,9 +497,11 @@ func (s *WSGAuthenticationServiceService) FindServicesAaaServerAuthByQueryCriter
 
 // FindServicesAuthAd
 //
-// Operation ID: findServicesAuthAd
-//
 // Use this API command to retrieve a list of active directory authentication services.
+//
+// Operation ID: findServicesAuthAd
+// Operation path: /services/auth/ad
+// Success code: 200 (OK)
 func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context, mutators ...RequestMutator) (*WSGServiceActiveDirectoryServiceListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -494,11 +524,13 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context
 
 // FindServicesAuthAdById
 //
-// Operation ID: findServicesAuthAdById
-//
 // Use this API command to retrieve an active directory authentication service.
 //
-// Required Parameters:
+// Operation ID: findServicesAuthAdById
+// Operation path: /services/auth/ad/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGServiceActiveDirectoryServiceAPIResponse, error) {
@@ -524,11 +556,13 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Con
 
 // FindServicesAuthAdByQueryCriteria
 //
-// Operation ID: findServicesAuthAdByQueryCriteria
-//
 // Use this API command to retrieve a list of AD Authentication services by query criteria.
 //
-// Request Body:
+// Operation ID: findServicesAuthAdByQueryCriteria
+// Operation path: /services/auth/ad/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthAdByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGServiceActiveDirectoryServiceListAPIResponse, error) {
 	var (
@@ -556,11 +590,13 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdByQueryCriteria(ctx 
 
 // FindServicesAuthByQueryCriteria
 //
-// Operation ID: findServicesAuthByQueryCriteria
-//
 // Use this API command to retrieve a list of Authentication services by query criteria.
 //
-// Request Body:
+// Operation ID: findServicesAuthByQueryCriteria
+// Operation path: /services/auth/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGServiceCommonAuthenticationServiceListAPIResponse, error) {
 	var (
@@ -588,11 +624,13 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx co
 
 // FindServicesAuthGuestById
 //
-// Operation ID: findServicesAuthGuestById
-//
 // Use this API command to retrieve a Guest authentication service.
 //
-// Required Parameters:
+// Operation ID: findServicesAuthGuestById
+// Operation path: /services/auth/guest/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGServiceCommonAuthenticationServiceAPIResponse, error) {
@@ -618,9 +656,11 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.
 
 // FindServicesAuthHlr
 //
-// Operation ID: findServicesAuthHlr
-//
 // Use this API command to retrieve a list of hlr authentication services.
+//
+// Operation ID: findServicesAuthHlr
+// Operation path: /services/auth/hlr
+// Success code: 200 (OK)
 func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Context, mutators ...RequestMutator) (*WSGServiceHlrServiceListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -643,11 +683,13 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Contex
 
 // FindServicesAuthHlrById
 //
-// Operation ID: findServicesAuthHlrById
-//
 // Use this API command to retrieve a hlr authentication service.
 //
-// Required Parameters:
+// Operation ID: findServicesAuthHlrById
+// Operation path: /services/auth/hlr/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGServiceHlrServiceAPIResponse, error) {
@@ -673,11 +715,13 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Co
 
 // FindServicesAuthHlrByQueryCriteria
 //
-// Operation ID: findServicesAuthHlrByQueryCriteria
-//
 // Use this API command to retrieve a list of hlr Authentication services by query criteria.
 //
-// Request Body:
+// Operation ID: findServicesAuthHlrByQueryCriteria
+// Operation path: /services/auth/hlr/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthHlrByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGServiceHlrServiceListAPIResponse, error) {
 	var (
@@ -705,9 +749,11 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrByQueryCriteria(ctx
 
 // FindServicesAuthLdap
 //
-// Operation ID: findServicesAuthLdap
-//
 // Use this API command to retrieve a list of LDAP authentication services.
+//
+// Operation ID: findServicesAuthLdap
+// Operation path: /services/auth/ldap
+// Success code: 200 (OK)
 func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Context, mutators ...RequestMutator) (*WSGServiceLDAPServiceListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -730,11 +776,13 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Conte
 
 // FindServicesAuthLdapById
 //
-// Operation ID: findServicesAuthLdapById
-//
 // Use this API command to retrieve a LDAP authentication service.
 //
-// Required Parameters:
+// Operation ID: findServicesAuthLdapById
+// Operation path: /services/auth/ldap/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGServiceLDAPServiceAPIResponse, error) {
@@ -760,11 +808,13 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.C
 
 // FindServicesAuthLdapByQueryCriteria
 //
-// Operation ID: findServicesAuthLdapByQueryCriteria
-//
 // Use this API command to retrieve a list of LDAP Authentication services by query criteria.
 //
-// Request Body:
+// Operation ID: findServicesAuthLdapByQueryCriteria
+// Operation path: /services/auth/ldap/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGServiceLDAPServiceListAPIResponse, error) {
 	var (
@@ -792,11 +842,13 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ct
 
 // FindServicesAuthLocalDbById
 //
-// Operation ID: findServicesAuthLocal_dbById
-//
 // Use this API command to retrieve a LocalDB authentication service.
 //
-// Required Parameters:
+// Operation ID: findServicesAuthLocal_dbById
+// Operation path: /services/auth/local_db/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthLocalDbById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGServiceCommonAuthenticationServiceAPIResponse, error) {
@@ -822,9 +874,11 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLocalDbById(ctx contex
 
 // FindServicesAuthRadius
 //
-// Operation ID: findServicesAuthRadius
-//
 // Use this API command to retrieve a list of RADIUS authentication services.
+//
+// Operation ID: findServicesAuthRadius
+// Operation path: /services/auth/radius
+// Success code: 200 (OK)
 func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Context, mutators ...RequestMutator) (*WSGServiceRadiusAuthenticationServiceListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -847,11 +901,13 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Con
 
 // FindServicesAuthRadiusById
 //
-// Operation ID: findServicesAuthRadiusById
-//
 // Use this API command to retrieve a RADIUS authentication service.
 //
-// Required Parameters:
+// Operation ID: findServicesAuthRadiusById
+// Operation path: /services/auth/radius/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGServiceRadiusAuthenticationServiceAPIResponse, error) {
@@ -877,11 +933,13 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context
 
 // FindServicesAuthRadiusByQueryCriteria
 //
-// Operation ID: findServicesAuthRadiusByQueryCriteria
-//
 // Use this API command to retrieve a list of radius Authentication services by query criteria.
 //
-// Request Body:
+// Operation ID: findServicesAuthRadiusByQueryCriteria
+// Operation path: /services/auth/radius/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGServiceRadiusAuthenticationServiceListAPIResponse, error) {
 	var (
@@ -909,185 +967,195 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(
 
 // PartialUpdateServicesAuthAdById
 //
-// Operation ID: partialUpdateServicesAuthAdById
-//
 // Use this API command to modify the configuration of an active directory authentication service.
 //
-// Request Body:
+// Operation ID: partialUpdateServicesAuthAdById
+// Operation path: /services/auth/ad/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGServiceModifyActiveDirectoryAuthentication
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx context.Context, body *WSGServiceModifyActiveDirectoryAuthentication, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx context.Context, body *WSGServiceModifyActiveDirectoryAuthentication, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesAuthAdById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateServicesAuthHlrById
 //
-// Operation ID: partialUpdateServicesAuthHlrById
-//
 // Use this API command to modify the configuration of a hlr authentication service.
 //
-// Request Body:
+// Operation ID: partialUpdateServicesAuthHlrById
+// Operation path: /services/auth/hlr/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGServiceModifyHlrAuthentication
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx context.Context, body *WSGServiceModifyHlrAuthentication, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx context.Context, body *WSGServiceModifyHlrAuthentication, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesAuthHlrById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateServicesAuthLdapById
 //
-// Operation ID: partialUpdateServicesAuthLdapById
-//
 // Use this API command to modify the configuration of a LDAP authentication service.
 //
-// Request Body:
+// Operation ID: partialUpdateServicesAuthLdapById
+// Operation path: /services/auth/ldap/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGServiceModifyLDAPAuthentication
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx context.Context, body *WSGServiceModifyLDAPAuthentication, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx context.Context, body *WSGServiceModifyLDAPAuthentication, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesAuthLdapById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateServicesAuthLocalDbById
 //
-// Operation ID: partialUpdateServicesAuthLocal_dbById
-//
 // Use this API command to update LocalDB authentication service.
 //
-// Request Body:
+// Operation ID: partialUpdateServicesAuthLocal_dbById
+// Operation path: /services/auth/local_db/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGServiceModifyLocalDbAuthentication
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocalDbById(ctx context.Context, body *WSGServiceModifyLocalDbAuthentication, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocalDbById(ctx context.Context, body *WSGServiceModifyLocalDbAuthentication, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesAuthLocalDbById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdateServicesAuthRadiusById
 //
-// Operation ID: partialUpdateServicesAuthRadiusById
-//
 // Use this API command to modify the configuration of a RADIUS authentication service.
 //
-// Request Body:
+// Operation ID: partialUpdateServicesAuthRadiusById
+// Operation path: /services/auth/radius/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGServiceModifyRadiusAuthentication
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthRadiusById(ctx context.Context, body *WSGServiceModifyRadiusAuthentication, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthRadiusById(ctx context.Context, body *WSGServiceModifyRadiusAuthentication, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateServicesAuthRadiusById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

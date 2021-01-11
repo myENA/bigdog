@@ -23,14 +23,16 @@ func (ss *WSGService) WSGRealTimeLocationServiceProfileService() *WSGRealTimeLoc
 
 // AddRkszonesRealTimeLocationServiceByZoneId
 //
-// Operation ID: addRkszonesRealTimeLocationServiceByZoneId
-//
 // Use this API command to create RTLS Profile.
 //
-// Request Body:
+// Operation ID: addRkszonesRealTimeLocationServiceByZoneId
+// Operation path: /rkszones/{zoneId}/realTimeLocationService
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateRtlsProfile
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGRealTimeLocationServiceProfileService) AddRkszonesRealTimeLocationServiceByZoneId(ctx context.Context, body *WSGProfileCreateRtlsProfile, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,26 +62,28 @@ func (s *WSGRealTimeLocationServiceProfileService) AddRkszonesRealTimeLocationSe
 
 // DeleteRkszonesRealTimeLocationServiceById
 //
-// Operation ID: deleteRkszonesRealTimeLocationServiceById
-//
 // Use this API command to Delete RTLS Profile by profile's ID.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesRealTimeLocationServiceById
+// Operation path: /rkszones/{zoneId}/realTimeLocationService/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRealTimeLocationServiceProfileService) DeleteRkszonesRealTimeLocationServiceById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGRealTimeLocationServiceProfileService) DeleteRkszonesRealTimeLocationServiceById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesRealTimeLocationServiceById, true)
 	defer recycleAPIRequest(req)
@@ -89,16 +93,18 @@ func (s *WSGRealTimeLocationServiceProfileService) DeleteRkszonesRealTimeLocatio
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesRealTimeLocationServiceById
 //
-// Operation ID: findRkszonesRealTimeLocationServiceById
-//
 // Use this API command to Get RTLS Profile by profile's ID.
 //
-// Required Parameters:
+// Operation ID: findRkszonesRealTimeLocationServiceById
+// Operation path: /rkszones/{zoneId}/realTimeLocationService/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -127,11 +133,13 @@ func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationS
 
 // FindRkszonesRealTimeLocationServiceByZoneId
 //
-// Operation ID: findRkszonesRealTimeLocationServiceByZoneId
-//
 // Use this API command to Get RTLS Profile by zone ID.
 //
-// Required Parameters:
+// Operation ID: findRkszonesRealTimeLocationServiceByZoneId
+// Operation path: /rkszones/{zoneId}/realTimeLocationService
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationServiceByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGProfileRtlsProfileListAPIResponse, error) {
@@ -157,40 +165,42 @@ func (s *WSGRealTimeLocationServiceProfileService) FindRkszonesRealTimeLocationS
 
 // UpdateRkszonesRealTimeLocationServiceById
 //
-// Operation ID: updateRkszonesRealTimeLocationServiceById
-//
 // Use this API command to Modify RTLS Profile by profile's ID.
 //
-// Request Body:
+// Operation ID: updateRkszonesRealTimeLocationServiceById
+// Operation path: /rkszones/{zoneId}/realTimeLocationService/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGProfileUpdateRtlsProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGRealTimeLocationServiceProfileService) UpdateRkszonesRealTimeLocationServiceById(ctx context.Context, body *WSGProfileUpdateRtlsProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGRealTimeLocationServiceProfileService) UpdateRkszonesRealTimeLocationServiceById(ctx context.Context, body *WSGProfileUpdateRtlsProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesRealTimeLocationServiceById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

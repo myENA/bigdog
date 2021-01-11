@@ -175,11 +175,13 @@ func MakeSCIFacetGetSystemFacet200ResponseType() SCIFacetGetSystemFacet200Respon
 
 // FacetGetApmacFacet
 //
-// Operation ID: facet_getApmacFacet
-//
 // Retrieve list of apmac facets based on query
 //
-// Request Body:
+// Operation ID: facet_getApmacFacet
+// Operation path: /facets/apmac
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonQueryBody
 func (s *SCIFacetService) FacetGetApmacFacet(ctx context.Context, body *SCICommonQueryBody, mutators ...RequestMutator) (*SCIFacetGetApmacFacet200ResponseTypeAPIResponse, error) {
 	var (
@@ -207,8 +209,6 @@ func (s *SCIFacetService) FacetGetApmacFacet(ctx context.Context, body *SCICommo
 
 // FacetGetFacet
 //
-// Operation ID: facet_getFacet
-//
 // For the <b><code>filter</code></b> field below, an example would be
 // <pre>
 //   <code class="json">
@@ -216,10 +216,14 @@ func (s *SCIFacetService) FacetGetApmacFacet(ctx context.Context, body *SCICommo
 //   </code>
 // </pre>
 //
-// Request Body:
+// Operation ID: facet_getFacet
+// Operation path: /facets/{name}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonQueryBody
 //
-// Required Parameters:
+// Required parameters:
 // - name string
 //		- required
 //		- oneof:[system,switchHierarchy,apmac,ssid,switches]
@@ -250,11 +254,13 @@ func (s *SCIFacetService) FacetGetFacet(ctx context.Context, body *SCICommonQuer
 
 // FacetGetSsidFacet
 //
-// Operation ID: facet_getSsidFacet
-//
 // Retrieve list of ssid facets based on query
 //
-// Request Body:
+// Operation ID: facet_getSsidFacet
+// Operation path: /facets/ssid
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonQueryBody
 func (s *SCIFacetService) FacetGetSsidFacet(ctx context.Context, body *SCICommonQueryBody, mutators ...RequestMutator) (*SCIFacetGetSsidFacet200ResponseTypeAPIResponse, error) {
 	var (
@@ -282,11 +288,13 @@ func (s *SCIFacetService) FacetGetSsidFacet(ctx context.Context, body *SCICommon
 
 // FacetGetSwitchesFacet
 //
-// Operation ID: facet_getSwitchesFacet
-//
 // Retrieve list of switches facets based on query
 //
-// Request Body:
+// Operation ID: facet_getSwitchesFacet
+// Operation path: /facets/switches
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonQueryBody
 func (s *SCIFacetService) FacetGetSwitchesFacet(ctx context.Context, body *SCICommonQueryBody, mutators ...RequestMutator) (*SCIFacetGetSwitchesFacet200ResponseTypeAPIResponse, error) {
 	var (
@@ -314,11 +322,13 @@ func (s *SCIFacetService) FacetGetSwitchesFacet(ctx context.Context, body *SCICo
 
 // FacetGetSwitchHierarchyFacet
 //
-// Operation ID: facet_getSwitchHierarchyFacet
-//
 // Retrieve list of switchHierarchy facets based on query
 //
-// Request Body:
+// Operation ID: facet_getSwitchHierarchyFacet
+// Operation path: /facets/switchHierarchy
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonQueryBody
 func (s *SCIFacetService) FacetGetSwitchHierarchyFacet(ctx context.Context, body *SCICommonQueryBody, mutators ...RequestMutator) (*SCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse, error) {
 	var (
@@ -346,11 +356,13 @@ func (s *SCIFacetService) FacetGetSwitchHierarchyFacet(ctx context.Context, body
 
 // FacetGetSystemFacet
 //
-// Operation ID: facet_getSystemFacet
-//
 // Retrieve list of system facets based on query
 //
-// Request Body:
+// Operation ID: facet_getSystemFacet
+// Operation path: /facets/system
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonQueryBody
 func (s *SCIFacetService) FacetGetSystemFacet(ctx context.Context, body *SCICommonQueryBody, mutators ...RequestMutator) (*SCIFacetGetSystemFacet200ResponseTypeAPIResponse, error) {
 	var (

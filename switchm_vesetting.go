@@ -23,11 +23,13 @@ func (ss *SwitchMService) SwitchMVESettingsService() *SwitchMVESettingsService {
 
 // AddVeConfigs
 //
-// Operation ID: addVeConfigs
-//
 // Use this API command to Create VE Config.
 //
-// Request Body:
+// Operation ID: addVeConfigs
+// Operation path: /veConfigs
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *SwitchMVEConfigCreate
 func (s *SwitchMVESettingsService) AddVeConfigs(ctx context.Context, body *SwitchMVEConfigCreate, mutators ...RequestMutator) (*SwitchMVEConfigCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *SwitchMVESettingsService) AddVeConfigs(ctx context.Context, body *Switc
 
 // DeleteVeConfigs
 //
-// Operation ID: deleteVeConfigs
-//
 // Use this API command to Delete VE Config by Id list.
 //
-// Request Body:
+// Operation ID: deleteVeConfigs
+// Operation path: /veConfigs
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMVESettingsService) DeleteVeConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMVESettingsService) DeleteVeConfigs(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteVeConfigs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteVeConfigsById
 //
-// Operation ID: deleteVeConfigsById
-//
 // Use this API command to Delete VE Config.
 //
-// Required Parameters:
+// Operation ID: deleteVeConfigsById
+// Operation path: /veConfigs/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMVESettingsService) DeleteVeConfigsById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMVESettingsService) DeleteVeConfigsById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteVeConfigsById, true)
 	defer recycleAPIRequest(req)
@@ -113,14 +119,16 @@ func (s *SwitchMVESettingsService) DeleteVeConfigsById(ctx context.Context, id s
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindVeConfigs
 //
-// Operation ID: findVeConfigs
-//
 // Use this API command to Retrieve VE Config List.
+//
+// Operation ID: findVeConfigs
+// Operation path: /veConfigs
+// Success code: 200 (OK)
 func (s *SwitchMVESettingsService) FindVeConfigs(ctx context.Context, mutators ...RequestMutator) (*SwitchMVEConfigListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -143,11 +151,13 @@ func (s *SwitchMVESettingsService) FindVeConfigs(ctx context.Context, mutators .
 
 // FindVeConfigsById
 //
-// Operation ID: findVeConfigsById
-//
 // Use this API command to Retrieve VE Config.
 //
-// Required Parameters:
+// Operation ID: findVeConfigsById
+// Operation path: /veConfigs/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMVESettingsService) FindVeConfigsById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMVEConfigAPIResponse, error) {
@@ -173,11 +183,13 @@ func (s *SwitchMVESettingsService) FindVeConfigsById(ctx context.Context, id str
 
 // FindVeConfigsByQueryCriteria
 //
-// Operation ID: findVeConfigsByQueryCriteria
-//
 // Use this API command to Retrieve VE Config list.
 //
-// Request Body:
+// Operation ID: findVeConfigsByQueryCriteria
+// Operation path: /veConfigs/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMVESettingsService) FindVeConfigsByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMVEConfigListAPIResponse, error) {
 	var (
@@ -205,37 +217,39 @@ func (s *SwitchMVESettingsService) FindVeConfigsByQueryCriteria(ctx context.Cont
 
 // UpdateVeConfigsById
 //
-// Operation ID: updateVeConfigsById
-//
 // Use this API command to Update VE Config.
 //
-// Request Body:
+// Operation ID: updateVeConfigsById
+// Operation path: /veConfigs/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMVEConfigModify
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMVESettingsService) UpdateVeConfigsById(ctx context.Context, body *SwitchMVEConfigModify, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMVESettingsService) UpdateVeConfigsById(ctx context.Context, body *SwitchMVEConfigModify, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateVeConfigsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

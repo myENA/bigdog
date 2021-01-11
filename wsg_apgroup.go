@@ -463,14 +463,16 @@ func NewWSGAPGroupModifyAPGroup() *WSGAPGroupModifyAPGroup {
 
 // AddRkszonesApgroupsByZoneId
 //
-// Operation ID: addRkszonesApgroupsByZoneId
-//
 // Use this API command to create new AP group within a zone.
 //
-// Request Body:
+// Operation ID: addRkszonesApgroupsByZoneId
+// Operation path: /rkszones/{zoneId}/apgroups
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAPGroupCreateAPGroup
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGAPGroupService) AddRkszonesApgroupsByZoneId(ctx context.Context, body *WSGAPGroupCreateAPGroup, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -500,28 +502,30 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsByZoneId(ctx context.Context, bod
 
 // AddRkszonesApgroupsMembersByApMac
 //
-// Operation ID: addRkszonesApgroupsMembersByApMac
-//
 // Use this API command to add a member AP to an AP group.
 //
-// Required Parameters:
+// Operation ID: addRkszonesApgroupsMembersByApMac
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/members/{apMac}
+// Success code: 201 (Created)
+//
+// Required parameters:
 // - apMac string
 //		- required
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) AddRkszonesApgroupsMembersByApMac(ctx context.Context, apMac string, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) AddRkszonesApgroupsMembersByApMac(ctx context.Context, apMac string, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesApgroupsMembersByApMac, true)
 	defer recycleAPIRequest(req)
@@ -532,71 +536,75 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsMembersByApMac(ctx context.Contex
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddRkszonesApgroupsMembersById
 //
-// Operation ID: addRkszonesApgroupsMembersById
-//
 // Add multiple members to an AP group.
 //
-// Request Body:
+// Operation ID: addRkszonesApgroupsMembersById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/members
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAPGroupAddMembers
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) AddRkszonesApgroupsMembersById(ctx context.Context, body *WSGAPGroupAddMembers, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) AddRkszonesApgroupsMembersById(ctx context.Context, body *WSGAPGroupAddMembers, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddRkszonesApgroupsMembersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsAltitudeById
 //
-// Operation ID: deleteRkszonesApgroupsAltitudeById
-//
 // Use this API command to clear the altitude of AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsAltitudeById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/altitude
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsAltitudeById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsAltitudeById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAltitudeById, true)
 	defer recycleAPIRequest(req)
@@ -606,31 +614,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAltitudeById(ctx context.Conte
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsApMgmtVlanById
 //
-// Operation ID: deleteRkszonesApgroupsApMgmtVlanById
-//
 // Disable AP Management Vlan Override of an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsApMgmtVlanById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/apMgmtVlan
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsApMgmtVlanById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsApMgmtVlanById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsApMgmtVlanById, true)
 	defer recycleAPIRequest(req)
@@ -640,33 +650,35 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsApMgmtVlanById(ctx context.Con
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsApmodelByModel
 //
-// Operation ID: deleteRkszonesApgroupsApmodelByModel
-//
 // Use this API command to disable AP model specific configuration override zone that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsApmodelByModel
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/apmodel/{model}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - model string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsApmodelByModel(ctx context.Context, id string, model string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsApmodelByModel(ctx context.Context, id string, model string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsApmodelByModel, true)
 	defer recycleAPIRequest(req)
@@ -677,31 +689,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsApmodelByModel(ctx context.Con
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsAutoChannelSelection24ById
 //
-// Operation ID: deleteRkszonesApgroupsAutoChannelSelection24ById
-//
 // Disable Radio 2.4G Auto ChannelSelectMode and ChannelFly MTBC Override of an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsAutoChannelSelection24ById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/autoChannelSelection24
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection24ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection24ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAutoChannelSelection24ById, true)
 	defer recycleAPIRequest(req)
@@ -711,31 +725,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection24ById(ctx
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsAutoChannelSelection50ById
 //
-// Operation ID: deleteRkszonesApgroupsAutoChannelSelection50ById
-//
 // Disable Radio 5G Auto ChannelSelectMode and ChannelFly MTBC Override of an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsAutoChannelSelection50ById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/autoChannelSelection50
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection50ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection50ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAutoChannelSelection50ById, true)
 	defer recycleAPIRequest(req)
@@ -745,31 +761,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection50ById(ctx
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsAwsVenueById
 //
-// Operation ID: deleteRkszonesApgroupsAwsVenueById
-//
 // Use this API command to disable AWS venue override. The AP will apply its group's or zone's configuration.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsAwsVenueById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/awsVenue
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsAwsVenueById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsAwsVenueById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAwsVenueById, true)
 	defer recycleAPIRequest(req)
@@ -779,31 +797,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAwsVenueById(ctx context.Conte
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsById
 //
-// Operation ID: deleteRkszonesApgroupsById
-//
 // Use this API command to delete an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsById, true)
 	defer recycleAPIRequest(req)
@@ -813,31 +833,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsById(ctx context.Context, id s
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsChannelEvaluationIntervalById
 //
-// Operation ID: deleteRkszonesApgroupsChannelEvaluationIntervalById
-//
 // Disable Channel Evaluation Interval Override of an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsChannelEvaluationIntervalById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/channelEvaluationInterval
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsChannelEvaluationIntervalById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsChannelEvaluationIntervalById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsChannelEvaluationIntervalById, true)
 	defer recycleAPIRequest(req)
@@ -847,31 +869,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsChannelEvaluationIntervalById(
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsClientAdmissionControl24ById
 //
-// Operation ID: deleteRkszonesApgroupsClientAdmissionControl24ById
-//
 // Use this API command to disable client admission control 2.4GHz radio configuration override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsClientAdmissionControl24ById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/clientAdmissionControl24
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl24ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl24ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsClientAdmissionControl24ById, true)
 	defer recycleAPIRequest(req)
@@ -881,31 +905,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl24ById(c
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsClientAdmissionControl50ById
 //
-// Operation ID: deleteRkszonesApgroupsClientAdmissionControl50ById
-//
 // Use this API command to disable client admission control 5GHz radio configuration override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsClientAdmissionControl50ById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/clientAdmissionControl50
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl50ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl50ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsClientAdmissionControl50ById, true)
 	defer recycleAPIRequest(req)
@@ -915,31 +941,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl50ById(c
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById
 //
-// Operation ID: deleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById
-//
 // Use this API command to disable Directed Multicast from Network to wired/wireless client configuration override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/directedMulticastFromNetworkEnabled
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById, true)
 	defer recycleAPIRequest(req)
@@ -949,31 +977,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromNetworkEn
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById
 //
-// Operation ID: deleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById
-//
 // Use this API command to disable Directed Multicast from wired client to Network configuration override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/directedMulticastFromWiredClientEnabled
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById, true)
 	defer recycleAPIRequest(req)
@@ -983,31 +1013,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWiredClie
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById
 //
-// Operation ID: deleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById
-//
 // Use this API command to disable Directed Multicast from wireless client to Network configuration override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/directedMulticastFromWirelessClientEnabled
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById, true)
 	defer recycleAPIRequest(req)
@@ -1017,31 +1049,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWirelessC
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsLocationAdditionalInfoById
 //
-// Operation ID: deleteRkszonesApgroupsLocationAdditionalInfoById
-//
 // Use this API command to disable location additionalInfo override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsLocationAdditionalInfoById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/locationAdditionalInfo
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationAdditionalInfoById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationAdditionalInfoById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLocationAdditionalInfoById, true)
 	defer recycleAPIRequest(req)
@@ -1051,31 +1085,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationAdditionalInfoById(ctx
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsLocationBasedServiceById
 //
-// Operation ID: deleteRkszonesApgroupsLocationBasedServiceById
-//
 // Use this API command to disable location based service override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsLocationBasedServiceById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/locationBasedService
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationBasedServiceById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationBasedServiceById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLocationBasedServiceById, true)
 	defer recycleAPIRequest(req)
@@ -1085,31 +1121,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationBasedServiceById(ctx c
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsLocationById
 //
-// Operation ID: deleteRkszonesApgroupsLocationById
-//
 // Use this API command to disable location override for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsLocationById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/location
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLocationById, true)
 	defer recycleAPIRequest(req)
@@ -1119,31 +1157,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationById(ctx context.Conte
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsLteBandLockChannelsById
 //
-// Operation ID: deleteRkszonesApgroupsLteBandLockChannelsById
-//
 // Use this API command to disable LTE band lock channel override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsLteBandLockChannelsById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/lteBandLockChannels
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsLteBandLockChannelsById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsLteBandLockChannelsById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLteBandLockChannelsById, true)
 	defer recycleAPIRequest(req)
@@ -1153,33 +1193,35 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLteBandLockChannelsById(ctx co
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsMembersByApMac
 //
-// Operation ID: deleteRkszonesApgroupsMembersByApMac
-//
 // Use this API command to remove a member AP from an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsMembersByApMac
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/members/{apMac}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - apMac string
 //		- required
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsMembersByApMac(ctx context.Context, apMac string, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsMembersByApMac(ctx context.Context, apMac string, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsMembersByApMac, true)
 	defer recycleAPIRequest(req)
@@ -1190,31 +1232,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsMembersByApMac(ctx context.Con
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsProtectionMode24ById
 //
-// Operation ID: deleteRkszonesApgroupsProtectionMode24ById
-//
 // Use this API command to disable 2.4GHz radio protection mode configuration override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsProtectionMode24ById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/protectionMode24
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsProtectionMode24ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsProtectionMode24ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsProtectionMode24ById, true)
 	defer recycleAPIRequest(req)
@@ -1224,31 +1268,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsProtectionMode24ById(ctx conte
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsRecoverySsidById
 //
-// Operation ID: deleteRkszonesApgroupsRecoverySsidById
-//
 // Use this API command to disable Recovery SSID configuration override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsRecoverySsidById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/recoverySsid
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsRecoverySsidById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsRecoverySsidById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRecoverySsidById, true)
 	defer recycleAPIRequest(req)
@@ -1258,31 +1304,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRecoverySsidById(ctx context.C
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsRksGreForwardBroadcastById
 //
-// Operation ID: deleteRkszonesApgroupsRksGreForwardBroadcastById
-//
 // Use this API command to disable Ruckus GRE Broadcast packet forwarding override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsRksGreForwardBroadcastById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/rksGreForwardBroadcast
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsRksGreForwardBroadcastById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsRksGreForwardBroadcastById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRksGreForwardBroadcastById, true)
 	defer recycleAPIRequest(req)
@@ -1292,31 +1340,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRksGreForwardBroadcastById(ctx
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsRogueApAggressivenessModeById
 //
-// Operation ID: deleteRkszonesApgroupsRogueApAggressivenessModeById
-//
 // Use this API command to disable rogue AP aggressiveness mode override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsRogueApAggressivenessModeById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/rogueApAggressivenessMode
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApAggressivenessModeById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApAggressivenessModeById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRogueApAggressivenessModeById, true)
 	defer recycleAPIRequest(req)
@@ -1326,31 +1376,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApAggressivenessModeById(
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsRogueApJammingThresholdById
 //
-// Operation ID: deleteRkszonesApgroupsRogueApJammingThresholdById
-//
 // Use this API command to disable rogue AP jamming threshold override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsRogueApJammingThresholdById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/rogueApJammingThreshold
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApJammingThresholdById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApJammingThresholdById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRogueApJammingThresholdById, true)
 	defer recycleAPIRequest(req)
@@ -1360,31 +1412,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApJammingThresholdById(ct
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsRogueApReportThresholdById
 //
-// Operation ID: deleteRkszonesApgroupsRogueApReportThresholdById
-//
 // Use this API command to disable rogue AP report threshold override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsRogueApReportThresholdById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/rogueApReportThreshold
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApReportThresholdById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApReportThresholdById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRogueApReportThresholdById, true)
 	defer recycleAPIRequest(req)
@@ -1394,31 +1448,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApReportThresholdById(ctx
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsVenueProfileById
 //
-// Operation ID: deleteRkszonesApgroupsVenueProfileById
-//
 // Use this API command to clear Hotspot 2.0 venue profile for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsVenueProfileById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/venueProfile
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsVenueProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsVenueProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsVenueProfileById, true)
 	defer recycleAPIRequest(req)
@@ -1428,31 +1484,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsVenueProfileById(ctx context.C
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWifi24ById
 //
-// Operation ID: deleteRkszonesApgroupsWifi24ById
-//
 // Use this API command to disable 2.4GHz radio configuration override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWifi24ById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wifi24
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ById, true)
 	defer recycleAPIRequest(req)
@@ -1462,31 +1520,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ById(ctx context.Context
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWifi24ChannelById
 //
-// Operation ID: deleteRkszonesApgroupsWifi24ChannelById
-//
 // Use this API command to disable 2.4GHz radio channel override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWifi24ChannelById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wifi24/channel
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ChannelById, true)
 	defer recycleAPIRequest(req)
@@ -1496,31 +1556,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelById(ctx context.
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWifi24ChannelRangeById
 //
-// Operation ID: deleteRkszonesApgroupsWifi24ChannelRangeById
-//
 // Use this API command to disable 2.4GHz radio channelRange override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWifi24ChannelRangeById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wifi24/channelRange
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelRangeById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelRangeById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ChannelRangeById, true)
 	defer recycleAPIRequest(req)
@@ -1530,31 +1592,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelRangeById(ctx con
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWifi24ChannelWidthById
 //
-// Operation ID: deleteRkszonesApgroupsWifi24ChannelWidthById
-//
 // Use this API command to disable 2.4GHz radio channelWidth override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWifi24ChannelWidthById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wifi24/channelWidth
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelWidthById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelWidthById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ChannelWidthById, true)
 	defer recycleAPIRequest(req)
@@ -1564,31 +1628,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelWidthById(ctx con
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWifi24TxPowerById
 //
-// Operation ID: deleteRkszonesApgroupsWifi24TxPowerById
-//
 // Use this API command to disable 2.4GHz radio txPower override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWifi24TxPowerById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wifi24/txPower
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24TxPowerById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24TxPowerById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24TxPowerById, true)
 	defer recycleAPIRequest(req)
@@ -1598,31 +1664,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24TxPowerById(ctx context.
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWifi50ById
 //
-// Operation ID: deleteRkszonesApgroupsWifi50ById
-//
 // Use this API command to disable 5GHz radio configuration override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWifi50ById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wifi50
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50ById, true)
 	defer recycleAPIRequest(req)
@@ -1632,31 +1700,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ById(ctx context.Context
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWifi50ChannelWidthById
 //
-// Operation ID: deleteRkszonesApgroupsWifi50ChannelWidthById
-//
 // Use this API command to disable 5GHz radio channelWidth override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWifi50ChannelWidthById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wifi50/channelWidth
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ChannelWidthById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ChannelWidthById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50ChannelWidthById, true)
 	defer recycleAPIRequest(req)
@@ -1666,31 +1736,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ChannelWidthById(ctx con
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWifi50IndoorChannelById
 //
-// Operation ID: deleteRkszonesApgroupsWifi50IndoorChannelById
-//
 // Use this API command to disable 5GHz radio indoorChannel override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWifi50IndoorChannelById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wifi50/indoorChannel
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50IndoorChannelById, true)
 	defer recycleAPIRequest(req)
@@ -1700,31 +1772,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelById(ctx co
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWifi50IndoorChannelRangeById
 //
-// Operation ID: deleteRkszonesApgroupsWifi50IndoorChannelRangeById
-//
 // Use this API command to disable 5GHz radio indoorChannelRange override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWifi50IndoorChannelRangeById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wifi50/indoorChannelRange
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelRangeById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelRangeById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50IndoorChannelRangeById, true)
 	defer recycleAPIRequest(req)
@@ -1734,31 +1808,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelRangeById(c
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWifi50OutdoorChannelById
 //
-// Operation ID: deleteRkszonesApgroupsWifi50OutdoorChannelById
-//
 // Use this API command to disable 5GHz radio outdoorChannel override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWifi50OutdoorChannelById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wifi50/outdoorChannel
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50OutdoorChannelById, true)
 	defer recycleAPIRequest(req)
@@ -1768,31 +1844,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelById(ctx c
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWifi50OutdoorChannelRangeById
 //
-// Operation ID: deleteRkszonesApgroupsWifi50OutdoorChannelRangeById
-//
 // Use this API command to disable 5GHz radio outdoorChannelRange override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWifi50OutdoorChannelRangeById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wifi50/outdoorChannelRange
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelRangeById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelRangeById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50OutdoorChannelRangeById, true)
 	defer recycleAPIRequest(req)
@@ -1802,31 +1880,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelRangeById(
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWifi50TxPowerById
 //
-// Operation ID: deleteRkszonesApgroupsWifi50TxPowerById
-//
 // Use this API command to disable 5GHz radio txPower override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWifi50TxPowerById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wifi50/txPower
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50TxPowerById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50TxPowerById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50TxPowerById, true)
 	defer recycleAPIRequest(req)
@@ -1836,31 +1916,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50TxPowerById(ctx context.
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWlanGroup24ById
 //
-// Operation ID: deleteRkszonesApgroupsWlanGroup24ById
-//
 // Use this API command to disable WLAN group on 2.4GHz radio override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWlanGroup24ById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wlanGroup24
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup24ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup24ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWlanGroup24ById, true)
 	defer recycleAPIRequest(req)
@@ -1870,31 +1952,33 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup24ById(ctx context.Co
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesApgroupsWlanGroup50ById
 //
-// Operation ID: deleteRkszonesApgroupsWlanGroup50ById
-//
 // Use this API command to disable WLAN group on 5GHz radio override zone for APs that belong to an AP group.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesApgroupsWlanGroup50ById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/wlanGroup50
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup50ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup50ById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWlanGroup50ById, true)
 	defer recycleAPIRequest(req)
@@ -1904,16 +1988,18 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup50ById(ctx context.Co
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesApgroupsApmodelByModel
 //
-// Operation ID: findRkszonesApgroupsApmodelByModel
-//
 // Use this API command to retrieve AP model specific configuration override zone that belong to an AP group, NULL means the override setting is not checked inside an AP group.
 //
-// Required Parameters:
+// Operation ID: findRkszonesApgroupsApmodelByModel
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/apmodel/{model}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - model string
@@ -1945,11 +2031,13 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsApmodelByModel(ctx context.Conte
 
 // FindRkszonesApgroupsById
 //
-// Operation ID: findRkszonesApgroupsById
-//
 // Use this API command to retrieve information about an AP group.
 //
-// Required Parameters:
+// Operation ID: findRkszonesApgroupsById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -1978,15 +2066,17 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsById(ctx context.Context, id str
 
 // FindRkszonesApgroupsByZoneId
 //
-// Operation ID: findRkszonesApgroupsByZoneId
-//
 // Use this API command to retrieve the list of AP groups that belong to a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesApgroupsByZoneId
+// Operation path: /rkszones/{zoneId}/apgroups
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -2020,11 +2110,13 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsByZoneId(ctx context.Context, zo
 
 // FindRkszonesApgroupsDefaultByZoneId
 //
-// Operation ID: findRkszonesApgroupsDefaultByZoneId
-//
 // Use this API command to retrieve information about default AP group of zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesApgroupsDefaultByZoneId
+// Operation path: /rkszones/{zoneId}/apgroups/default
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGAPGroupService) FindRkszonesApgroupsDefaultByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGAPGroupConfigurationAPIResponse, error) {
@@ -2050,123 +2142,129 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsDefaultByZoneId(ctx context.Cont
 
 // PartialUpdateRkszonesApgroupsById
 //
-// Operation ID: partialUpdateRkszonesApgroupsById
-//
 // Use this API command to modify the configuration of an AP group.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesApgroupsById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAPGroupModifyAPGroup
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) PartialUpdateRkszonesApgroupsById(ctx context.Context, body *WSGAPGroupModifyAPGroup, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) PartialUpdateRkszonesApgroupsById(ctx context.Context, body *WSGAPGroupModifyAPGroup, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesApgroupsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateRkszonesApgroupsApmodelByModel
 //
-// Operation ID: updateRkszonesApgroupsApmodelByModel
-//
 // Use this API command to modify AP model specific configuration override zone that belong to an AP group.
 //
-// Request Body:
+// Operation ID: updateRkszonesApgroupsApmodelByModel
+// Operation path: /rkszones/{zoneId}/apgroups/{id}/apmodel/{model}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGZoneAPModelApModel
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - model string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) UpdateRkszonesApgroupsApmodelByModel(ctx context.Context, body *WSGZoneAPModelApModel, id string, model string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) UpdateRkszonesApgroupsApmodelByModel(ctx context.Context, body *WSGZoneAPModelApModel, id string, model string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesApgroupsApmodelByModel, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("model", model)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateRkszonesApgroupsById
 //
-// Operation ID: updateRkszonesApgroupsById
-//
 // Use this API command to modify the entire information of an AP group.
 //
-// Request Body:
+// Operation ID: updateRkszonesApgroupsById
+// Operation path: /rkszones/{zoneId}/apgroups/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAPGroupModifyAPGroup
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGAPGroupService) UpdateRkszonesApgroupsById(ctx context.Context, body *WSGAPGroupModifyAPGroup, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAPGroupService) UpdateRkszonesApgroupsById(ctx context.Context, body *WSGAPGroupModifyAPGroup, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesApgroupsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

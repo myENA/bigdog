@@ -374,11 +374,13 @@ func NewSwitchMHealthTemperature() *SwitchMHealthTemperature {
 
 // AddHealthCpuAgg
 //
-// Operation ID: addHealthCpuAgg
-//
 // Use this API command to retrieve aggregated CPU (min, max, avg, curr) data based on the time duration.
 //
-// Request Body:
+// Operation ID: addHealthCpuAgg
+// Operation path: /health/cpu/agg
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMHealthAggMetricsAPIResponse, error) {
 	var (
@@ -406,11 +408,13 @@ func (s *SwitchMHealthService) AddHealthCpuAgg(ctx context.Context, body *Switch
 
 // AddHealthCpuLine
 //
-// Operation ID: addHealthCpuLine
-//
 // Use this API command to retrieve CPU trend data based on the time duration.
 //
-// Request Body:
+// Operation ID: addHealthCpuLine
+// Operation path: /health/cpu/line
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMHealthIcxMetricsAPIResponse, error) {
 	var (
@@ -438,11 +442,13 @@ func (s *SwitchMHealthService) AddHealthCpuLine(ctx context.Context, body *Switc
 
 // AddHealthMemAgg
 //
-// Operation ID: addHealthMemAgg
-//
 // Use this API command to retrieve aggregated CPU (min, max, avg, curr) data based on the time duration.
 //
-// Request Body:
+// Operation ID: addHealthMemAgg
+// Operation path: /health/mem/agg
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMHealthAggMetricsAPIResponse, error) {
 	var (
@@ -470,11 +476,13 @@ func (s *SwitchMHealthService) AddHealthMemAgg(ctx context.Context, body *Switch
 
 // AddHealthMemLine
 //
-// Operation ID: addHealthMemLine
-//
 // Use this API command to retrieve switch memory trend data based on the time duration.
 //
-// Request Body:
+// Operation ID: addHealthMemLine
+// Operation path: /health/mem/line
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMHealthIcxMetricsAPIResponse, error) {
 	var (
@@ -502,11 +510,13 @@ func (s *SwitchMHealthService) AddHealthMemLine(ctx context.Context, body *Switc
 
 // AddHealthStatus
 //
-// Operation ID: addHealthStatus
-//
 // Use this API command to retrieve switch health status.
 //
-// Request Body:
+// Operation ID: addHealthStatus
+// Operation path: /health/status
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMHealthStatusAPIResponse, error) {
 	var (
@@ -534,11 +544,13 @@ func (s *SwitchMHealthService) AddHealthStatus(ctx context.Context, body *Switch
 
 // AddHealthStatusAll
 //
-// Operation ID: addHealthStatusAll
-//
 // Use this API command to retrieve fan, temperature and power supply status for the switch managed by SmartZone.
 //
-// Request Body:
+// Operation ID: addHealthStatusAll
+// Operation path: /health/status/all
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMHealthService) AddHealthStatusAll(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMHealthStatusAPIResponse, error) {
 	var (
@@ -566,14 +578,16 @@ func (s *SwitchMHealthService) AddHealthStatusAll(ctx context.Context, body *Swi
 
 // AddHealthStatusBySerialNumber
 //
-// Operation ID: addHealthStatusBySerialNumber
-//
 // Use this API command to retrieve fan, temperature and power supply status for the switch unit managed by SmartZone.
 //
-// Request Body:
+// Operation ID: addHealthStatusBySerialNumber
+// Operation path: /health/status/{serialNumber}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - serialNumber string
 //		- required
 func (s *SwitchMHealthService) AddHealthStatusBySerialNumber(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, serialNumber string, mutators ...RequestMutator) (*SwitchMHealthStatusAPIResponse, error) {

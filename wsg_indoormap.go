@@ -422,11 +422,13 @@ func NewWSGIndoorMapScale() *WSGIndoorMapScale {
 
 // AddMaps
 //
-// Operation ID: addMaps
-//
 // Use this API command to create indoorMap.
 //
-// Request Body:
+// Operation ID: addMaps
+// Operation path: /maps
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGIndoorMap
 func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap, mutators ...RequestMutator) (*WSGIndoorMapIndooMapAuditIdAPIResponse, error) {
 	var (
@@ -454,11 +456,13 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap, m
 
 // DeleteMapsByIndoorMapId
 //
-// Operation ID: deleteMapsByIndoorMapId
-//
 // Use this API command to delete indoor map.
 //
-// Required Parameters:
+// Operation ID: deleteMapsByIndoorMapId
+// Operation path: /maps/{indoorMapId}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - indoorMapId string
 //		- required
 func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoorMapId string, mutators ...RequestMutator) (*WSGIndoorMapIndooMapAuditIdAPIResponse, error) {
@@ -485,11 +489,13 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoo
 
 // FindMaps
 //
-// Operation ID: findMaps
-//
 // Use this API command to get indoor map list.
 //
-// Required Parameters:
+// Operation ID: findMaps
+// Operation path: /maps
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - groupId string
 //		- required
 // - groupType string
@@ -518,11 +524,13 @@ func (s *WSGIndoorMapService) FindMaps(ctx context.Context, groupId string, grou
 
 // FindMapsByIndoorMapId
 //
-// Operation ID: findMapsByIndoorMapId
-//
 // Use this API command to get indoor maps.
 //
-// Required Parameters:
+// Operation ID: findMapsByIndoorMapId
+// Operation path: /maps/{indoorMapId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - indoorMapId string
 //		- required
 func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorMapId string, mutators ...RequestMutator) (*WSGIndoorMapAPIResponse, error) {
@@ -548,11 +556,13 @@ func (s *WSGIndoorMapService) FindMapsByIndoorMapId(ctx context.Context, indoorM
 
 // FindMapsByQueryCriteria
 //
-// Operation ID: findMapsByQueryCriteria
-//
 // Use this API command to query indoorMap.
 //
-// Request Body:
+// Operation ID: findMapsByQueryCriteria
+// Operation path: /maps/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGIndoorMapListAPIResponse, error) {
 	var (
@@ -580,14 +590,16 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 
 // PartialUpdateMapsByIndoorMapId
 //
-// Operation ID: partialUpdateMapsByIndoorMapId
-//
 // Use this API command to update specific indoor map.
 //
-// Request Body:
+// Operation ID: partialUpdateMapsByIndoorMapId
+// Operation path: /maps/{indoorMapId}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGIndoorMap
 //
-// Required Parameters:
+// Required parameters:
 // - indoorMapId string
 //		- required
 func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context, body *WSGIndoorMap, indoorMapId string, mutators ...RequestMutator) (*WSGIndoorMapIndooMapAuditIdAPIResponse, error) {
@@ -617,14 +629,16 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 
 // UpdateMapsApsByIndoorMapId
 //
-// Operation ID: updateMapsApsByIndoorMapId
-//
 // Use this API command to put Aps in indoor map.
 //
-// Request Body:
+// Operation ID: updateMapsApsByIndoorMapId
+// Operation path: /maps/{indoorMapId}/aps
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body WSGIndoorMapAccessPointList
 //
-// Required Parameters:
+// Required parameters:
 // - indoorMapId string
 //		- required
 func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body WSGIndoorMapAccessPointList, indoorMapId string, mutators ...RequestMutator) (*WSGIndoorMapIndooMapAuditIdAPIResponse, error) {

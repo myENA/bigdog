@@ -23,11 +23,13 @@ func (ss *WSGService) WSGBlockClientService() *WSGBlockClientService {
 
 // AddBlockClient
 //
-// Operation ID: addBlockClient
-//
 // Create new Block Clients by list.
 //
-// Request Body:
+// Operation ID: addBlockClient
+// Operation path: /blockClient
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileBulkBlockClient
 func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGProfileBulkBlockClient, mutators ...RequestMutator) (*WSGProfileCreateResultListAPIResponse, error) {
 	var (
@@ -55,14 +57,16 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGPro
 
 // AddBlockClientByApMacByApMac
 //
-// Operation ID: addBlockClientByApMacByApMac
-//
 // Create a new Block Client by AP MAC.
 //
-// Request Body:
+// Operation ID: addBlockClientByApMacByApMac
+// Operation path: /blockClient/byApMac/{apMac}
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileBlockClient
 //
-// Required Parameters:
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context, body *WSGProfileBlockClient, apMac string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -92,56 +96,60 @@ func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context
 
 // DeleteBlockClient
 //
-// Operation ID: deleteBlockClient
-//
 // Delete Block Client List.
 //
-// Request Body:
+// Operation ID: deleteBlockClient
+// Operation path: /blockClient
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
-func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSGCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteBlockClient, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteBlockClientById
 //
-// Operation ID: deleteBlockClientById
-//
 // Delete a Block Client.
 //
-// Required Parameters:
+// Operation ID: deleteBlockClientById
+// Operation path: /blockClient/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteBlockClientById, true)
 	defer recycleAPIRequest(req)
@@ -150,16 +158,18 @@ func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id st
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindBlockClientById
 //
-// Operation ID: findBlockClientById
-//
 // Retrieve a Block Client.
 //
-// Required Parameters:
+// Operation ID: findBlockClientById
+// Operation path: /blockClient/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileBlockClientAPIResponse, error) {
@@ -185,11 +195,13 @@ func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id stri
 
 // FindBlockClientByQueryCriteria
 //
-// Operation ID: findBlockClientByQueryCriteria
-//
 // Retrieve a list of Block Client.
 //
-// Request Body:
+// Operation ID: findBlockClientByQueryCriteria
+// Operation path: /blockClient/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileBlockClientListAPIResponse, error) {
 	var (
@@ -217,11 +229,13 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 
 // FindBlockClientByZoneByZoneId
 //
-// Operation ID: findBlockClientByZoneByZoneId
-//
 // Retrieve a list of Block Client.
 //
-// Required Parameters:
+// Operation ID: findBlockClientByZoneByZoneId
+// Operation path: /blockClient/byZone/{zoneId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGProfileBlockClientListAPIResponse, error) {
@@ -247,74 +261,78 @@ func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Contex
 
 // PartialUpdateBlockClientById
 //
-// Operation ID: partialUpdateBlockClientById
-//
 // Modify a specific Block Client basic.
 //
-// Request Body:
+// Operation ID: partialUpdateBlockClientById
+// Operation path: /blockClient/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyBlockClient
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context, body *WSGProfileModifyBlockClient, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context, body *WSGProfileModifyBlockClient, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateBlockClientById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateBlockClientById
 //
-// Operation ID: updateBlockClientById
-//
 // Modify a specific Block Client basic.
 //
-// Request Body:
+// Operation ID: updateBlockClientById
+// Operation path: /blockClient/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyBlockClient
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body *WSGProfileModifyBlockClient, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body *WSGProfileModifyBlockClient, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateBlockClientById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

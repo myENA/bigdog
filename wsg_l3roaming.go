@@ -23,9 +23,11 @@ func (ss *WSGService) WSGL3RoamingService() *WSGL3RoamingService {
 
 // FindProfilesTunnelL3Roaming
 //
-// Operation ID: findProfilesTunnelL3Roaming
-//
 // Use this API command to retrieve L3 Roaming basic configuration.
+//
+// Operation ID: findProfilesTunnelL3Roaming
+// Operation path: /profiles/tunnel/l3Roaming
+// Success code: 200 (OK)
 func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context, mutators ...RequestMutator) (*WSGProfileGetL3RoamingConfigAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -48,32 +50,34 @@ func (s *WSGL3RoamingService) FindProfilesTunnelL3Roaming(ctx context.Context, m
 
 // PartialUpdateProfilesTunnelL3Roaming
 //
-// Operation ID: partialUpdateProfilesTunnelL3Roaming
-//
 // Use this API command to modify L3 Roaming basic configuration.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesTunnelL3Roaming
+// Operation path: /profiles/tunnel/l3Roaming
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileUpdateL3RoamingConfig
-func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3Roaming(ctx context.Context, body *WSGProfileUpdateL3RoamingConfig, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGL3RoamingService) PartialUpdateProfilesTunnelL3Roaming(ctx context.Context, body *WSGProfileUpdateL3RoamingConfig, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesTunnelL3Roaming, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

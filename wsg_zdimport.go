@@ -23,75 +23,81 @@ func (ss *WSGService) WSGZDImportService() *WSGZDImportService {
 
 // AddZdImportConnectZD
 //
-// Operation ID: addZdImportConnectZD
-//
 // Connect to ZD.
 //
-// Request Body:
+// Operation ID: addZdImportConnectZD
+// Operation path: /zdImport/connectZD
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAdministrationConnectZD
-func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSGAdministrationConnectZD, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZDImportService) AddZdImportConnectZD(ctx context.Context, body *WSGAdministrationConnectZD, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddZdImportConnectZD, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // AddZdImportMigrate
 //
-// Operation ID: addZdImportMigrate
-//
 // Migrate ZD to SCG.
 //
-// Request Body:
+// Operation ID: addZdImportMigrate
+// Operation path: /zdImport/migrate
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGAdministrationZdImport
-func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAdministrationZdImport, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGZDImportService) AddZdImportMigrate(ctx context.Context, body *WSGAdministrationZdImport, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddZdImportMigrate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindZdImportGetZDAPs
 //
-// Operation ID: findZdImportGetZDAPs
-//
 // Get ZD AP.
 //
-// Required Parameters:
+// Operation ID: findZdImportGetZDAPs
+// Operation path: /zdImport/getZDAPs
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - ip string
 //		- required
 func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string, mutators ...RequestMutator) (*WSGAdministrationZdAPListAPIResponse, error) {
@@ -117,11 +123,13 @@ func (s *WSGZDImportService) FindZdImportGetZDAPs(ctx context.Context, ip string
 
 // FindZdImportStatus
 //
-// Operation ID: findZdImportStatus
-//
 // Get Migrate Status.
 //
-// Optional Parameters:
+// Operation ID: findZdImportStatus
+// Operation path: /zdImport/status
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - details string
 //		- nullable
 func (s *WSGZDImportService) FindZdImportStatus(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGAdministrationZdImportStatusAPIResponse, error) {

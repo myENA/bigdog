@@ -23,14 +23,16 @@ func (ss *WSGService) WSGResourceMonitoringService() *WSGResourceMonitoringServi
 
 // FindResourceMonitoringSummaryByQueryCriteria
 //
-// Operation ID: findResourceMonitoringSummaryByQueryCriteria
-//
 // Retrieve monitoring status of resource
 //
-// Request Body:
+// Operation ID: findResourceMonitoringSummaryByQueryCriteria
+// Operation path: /monitor/{resource}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - resource string
 //		- required
 //		- oneof:[client,ap]

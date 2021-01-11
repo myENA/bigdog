@@ -54,11 +54,13 @@ func NewSCIScheduleBatchDelete200ResponseType() *SCIScheduleBatchDelete200Respon
 
 // ScheduleBatchDelete
 //
-// Operation ID: schedule_batchDelete
-//
 // Delete schedules with their related filters and occurrences in a single transaction.
 //
-// Form Data Parameters:
+// Operation ID: schedule_batchDelete
+// Operation path: /schedules/batchDelete
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - ids string
 //		- required
 func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*SCIScheduleBatchDelete200ResponseTypeAPIResponse, error) {
@@ -87,11 +89,13 @@ func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, formValues
 
 // ScheduleCreateWithRelations
 //
-// Operation ID: schedule_createWithRelations
-//
 // Create schedule with filter and occurrence in a single transaction.
 //
-// Form Data Parameters:
+// Operation ID: schedule_createWithRelations
+// Operation path: /schedules/createWithRelations
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - filterData string
 //		- required
 // - reportId string
@@ -124,9 +128,11 @@ func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, fo
 
 // ScheduleExecuteJob
 //
-// Operation ID: schedule_executeJob
-//
 // Run schedule job
+//
+// Operation ID: schedule_executeJob
+// Operation path: /schedules/executeJob
+// Success code: 200 (OK)
 func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -150,17 +156,19 @@ func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ..
 
 // ScheduleUpdateWithRelations
 //
-// Operation ID: schedule_updateWithRelations
-//
 // Update schedule with filter and occurrence in a single transaction.
 //
-// Form Data Parameters:
+// Operation ID: schedule_updateWithRelations
+// Operation path: /schedules/{id}/updateWithRelations
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - filterData string
 //		- required
 // - scheduleData string
 //		- required
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *SCIScheduleService) ScheduleUpdateWithRelations(ctx context.Context, formValues url.Values, id string, mutators ...RequestMutator) (*SCIModelsScheduleAPIResponse, error) {

@@ -118,11 +118,13 @@ func MakeSCIMigrationMapFind200ResponseType() SCIMigrationMapFind200ResponseType
 
 // MigrationMapCount
 //
-// Operation ID: MigrationMap_count
-//
 // Count instances of the model matched by where from the data source.
 //
-// Optional Parameters:
+// Operation ID: MigrationMap_count
+// Operation path: /MigrationMaps/count
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - where string
 //		- nullable
 func (s *SCIMigrationMapService) MigrationMapCount(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIMigrationMapCount200ResponseTypeAPIResponse, error) {
@@ -150,11 +152,13 @@ func (s *SCIMigrationMapService) MigrationMapCount(ctx context.Context, optional
 
 // MigrationMapCreate
 //
-// Operation ID: MigrationMap_create
-//
 // Create a new instance of the model and persist it into the data source.
 //
-// Request Body:
+// Operation ID: MigrationMap_create
+// Operation path: /MigrationMaps
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsMigrationMap
 func (s *SCIMigrationMapService) MigrationMapCreate(ctx context.Context, data *SCIModelsMigrationMap, mutators ...RequestMutator) (*SCIModelsMigrationMapAPIResponse, error) {
 	var (
@@ -182,24 +186,26 @@ func (s *SCIMigrationMapService) MigrationMapCreate(ctx context.Context, data *S
 
 // MigrationMapCreateChangeStreamGetMigrationMapsChangeStream
 //
-// Operation ID: MigrationMap_createChangeStream_get_MigrationMaps_change-stream
-//
 // Create a change stream.
 //
-// Optional Parameters:
+// Operation ID: MigrationMap_createChangeStream_get_MigrationMaps_change-stream
+// Operation path: /MigrationMaps/change-stream
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - options string
 //		- nullable
-func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsChangeStream(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsChangeStream(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodGet, RouteSCIMigrationMapCreateChangeStreamGetMigrationMapsChangeStream, true)
 	defer recycleAPIRequest(req)
@@ -209,49 +215,53 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // MigrationMapCreateChangeStreamPostMigrationMapsChangeStream
 //
-// Operation ID: MigrationMap_createChangeStream_post_MigrationMaps_change-stream
-//
 // Create a change stream.
 //
-// Form Data Parameters:
+// Operation ID: MigrationMap_createChangeStream_post_MigrationMaps_change-stream
+// Operation path: /MigrationMaps/change-stream
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - options string
 //		- nullable
-func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMapsChangeStream(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMapsChangeStream(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIMigrationMapCreateChangeStreamPostMigrationMapsChangeStream, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // MigrationMapDeleteById
 //
-// Operation ID: MigrationMap_deleteById
-//
 // Delete a model instance by id from the data source.
 //
-// Required Parameters:
+// Operation ID: MigrationMap_deleteById
+// Operation path: /MigrationMaps/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SCIMigrationMapService) MigrationMapDeleteById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -278,11 +288,13 @@ func (s *SCIMigrationMapService) MigrationMapDeleteById(ctx context.Context, id 
 
 // MigrationMapExistsGetMigrationMapsIdExists
 //
-// Operation ID: MigrationMap_exists_get_MigrationMaps_{id}_exists
-//
 // Check whether a model instance exists in the data source.
 //
-// Required Parameters:
+// Operation ID: MigrationMap_exists_get_MigrationMaps_{id}_exists
+// Operation path: /MigrationMaps/{id}/exists
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SCIMigrationMapService) MigrationMapExistsGetMigrationMapsIdExists(ctx context.Context, id string, mutators ...RequestMutator) (*SCIMigrationMapExistsgetMigrationMapsidexists200ResponseTypeAPIResponse, error) {
@@ -308,11 +320,13 @@ func (s *SCIMigrationMapService) MigrationMapExistsGetMigrationMapsIdExists(ctx 
 
 // MigrationMapFind
 //
-// Operation ID: MigrationMap_find
-//
 // Find all instances of the model matched by filter from the data source.
 //
-// Optional Parameters:
+// Operation ID: MigrationMap_find
+// Operation path: /MigrationMaps
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIMigrationMapService) MigrationMapFind(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIMigrationMapFind200ResponseTypeAPIResponse, error) {
@@ -340,15 +354,17 @@ func (s *SCIMigrationMapService) MigrationMapFind(ctx context.Context, optionalP
 
 // MigrationMapFindById
 //
-// Operation ID: MigrationMap_findById
-//
 // Find a model instance by id from the data source.
 //
-// Required Parameters:
+// Operation ID: MigrationMap_findById
+// Operation path: /MigrationMaps/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIMigrationMapService) MigrationMapFindById(ctx context.Context, id string, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsMigrationMapAPIResponse, error) {
@@ -377,11 +393,13 @@ func (s *SCIMigrationMapService) MigrationMapFindById(ctx context.Context, id st
 
 // MigrationMapFindOne
 //
-// Operation ID: MigrationMap_findOne
-//
 // Find first instance of the model matched by filter from the data source.
 //
-// Optional Parameters:
+// Operation ID: MigrationMap_findOne
+// Operation path: /MigrationMaps/findOne
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - filter string
 //		- nullable
 func (s *SCIMigrationMapService) MigrationMapFindOne(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*SCIModelsMigrationMapAPIResponse, error) {
@@ -409,14 +427,16 @@ func (s *SCIMigrationMapService) MigrationMapFindOne(ctx context.Context, option
 
 // MigrationMapPrototypeUpdateAttributes
 //
-// Operation ID: MigrationMap_prototype_updateAttributes
-//
 // Update attributes for a model instance and persist it into the data source.
 //
-// Request Body:
+// Operation ID: MigrationMap_prototype_updateAttributes
+// Operation path: /MigrationMaps/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsMigrationMap
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *SCIMigrationMapService) MigrationMapPrototypeUpdateAttributes(ctx context.Context, data *SCIModelsMigrationMap, id string, mutators ...RequestMutator) (*SCIModelsMigrationMapAPIResponse, error) {
@@ -446,14 +466,16 @@ func (s *SCIMigrationMapService) MigrationMapPrototypeUpdateAttributes(ctx conte
 
 // MigrationMapUpdateAll
 //
-// Operation ID: MigrationMap_updateAll
-//
 // Update instances of the model matched by where from the data source.
 //
-// Request Body:
+// Operation ID: MigrationMap_updateAll
+// Operation path: /MigrationMaps/update
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsMigrationMap
 //
-// Optional Parameters:
+// Optional parameters:
 // - where string
 //		- nullable
 func (s *SCIMigrationMapService) MigrationMapUpdateAll(ctx context.Context, data *SCIModelsMigrationMap, optionalParams map[string][]string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -485,11 +507,13 @@ func (s *SCIMigrationMapService) MigrationMapUpdateAll(ctx context.Context, data
 
 // MigrationMapUpsert
 //
-// Operation ID: MigrationMap_upsert
-//
 // Update an existing model instance or insert a new one into the data source.
 //
-// Request Body:
+// Operation ID: MigrationMap_upsert
+// Operation path: /MigrationMaps
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCIModelsMigrationMap
 func (s *SCIMigrationMapService) MigrationMapUpsert(ctx context.Context, data *SCIModelsMigrationMap, mutators ...RequestMutator) (*SCIModelsMigrationMapAPIResponse, error) {
 	var (

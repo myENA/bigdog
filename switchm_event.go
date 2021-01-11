@@ -23,11 +23,13 @@ func (ss *SwitchMService) SwitchMEventService() *SwitchMEventService {
 
 // AddCustomEvent
 //
-// Operation ID: addCustomEvent
-//
 // Use this API command to create a new text pattern event config
 //
-// Request Body:
+// Operation ID: addCustomEvent
+// Operation path: /customEvent
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMEventConfig
 func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchMEventConfig, mutators ...RequestMutator) (*SwitchMEventConfigQueryResponseAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 
 // DeleteCustomEventById
 //
-// Operation ID: deleteCustomEventById
-//
 // Use this API command to delete a text pattern event config
 //
-// Required Parameters:
+// Operation ID: deleteCustomEventById
+// Operation path: /customEvent/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMEventConfigQueryResponseAPIResponse, error) {
@@ -86,9 +90,11 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 
 // FindCustomEvent
 //
-// Operation ID: findCustomEvent
-//
 // Use this API command to retrieve switch event config list
+//
+// Operation ID: findCustomEvent
+// Operation path: /customEvent
+// Success code: 200 (OK)
 func (s *SwitchMEventService) FindCustomEvent(ctx context.Context, mutators ...RequestMutator) (*SwitchMEventConfigGetEventConfigListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -111,11 +117,13 @@ func (s *SwitchMEventService) FindCustomEvent(ctx context.Context, mutators ...R
 
 // FindCustomEventById
 //
-// Operation ID: findCustomEventById
-//
 // Use this API command to retrieve one switch event config
 //
-// Required Parameters:
+// Operation ID: findCustomEventById
+// Operation path: /customEvent/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMEventConfigAPIResponse, error) {
@@ -141,14 +149,16 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 
 // UpdateCustomEventById
 //
-// Operation ID: updateCustomEventById
-//
 // Use this API command to modify a switch custom event config. The patch variable {id} is same as id attribute in the request payload. For CPU/Memory, only key, type, criteria, and severity attributes are required.
 //
-// Request Body:
+// Operation ID: updateCustomEventById
+// Operation path: /customEvent/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMEventConfig
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *SwitchMEventConfig, id string, mutators ...RequestMutator) (*SwitchMEventConfigQueryResponseAPIResponse, error) {

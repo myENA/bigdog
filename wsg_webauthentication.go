@@ -23,14 +23,16 @@ func (ss *WSGService) WSGWebAuthenticationService() *WSGWebAuthenticationService
 
 // AddRkszonesPortalsWebauthByZoneId
 //
-// Operation ID: addRkszonesPortalsWebauthByZoneId
-//
 // Use this API command to create a new web authentication of a zone.
 //
-// Request Body:
+// Operation ID: addRkszonesPortalsWebauthByZoneId
+// Operation path: /rkszones/{zoneId}/portals/webauth
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGPortalServiceCreateWebAuthentication
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWebAuthenticationService) AddRkszonesPortalsWebauthByZoneId(ctx context.Context, body *WSGPortalServiceCreateWebAuthentication, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,26 +62,28 @@ func (s *WSGWebAuthenticationService) AddRkszonesPortalsWebauthByZoneId(ctx cont
 
 // DeleteRkszonesPortalsWebauthById
 //
-// Operation ID: deleteRkszonesPortalsWebauthById
-//
 // Use this API command to delete an web authentication of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesPortalsWebauthById
+// Operation path: /rkszones/{zoneId}/portals/webauth/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesPortalsWebauthById, true)
 	defer recycleAPIRequest(req)
@@ -89,31 +93,33 @@ func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthById(ctx conte
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesPortalsWebauthRedirectById
 //
-// Operation ID: deleteRkszonesPortalsWebauthRedirectById
-//
 // Use this API command to set redirect to the URL that user intends to visit on web authentication of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesPortalsWebauthRedirectById
+// Operation path: /rkszones/{zoneId}/portals/webauth/{id}/redirect
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesPortalsWebauthRedirectById, true)
 	defer recycleAPIRequest(req)
@@ -123,16 +129,18 @@ func (s *WSGWebAuthenticationService) DeleteRkszonesPortalsWebauthRedirectById(c
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesPortalsWebauthById
 //
-// Operation ID: findRkszonesPortalsWebauthById
-//
 // Use this API command to retrieve a web authentication of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesPortalsWebauthById
+// Operation path: /rkszones/{zoneId}/portals/webauth/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -161,11 +169,13 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthById(ctx context
 
 // FindRkszonesPortalsWebauthByZoneId
 //
-// Operation ID: findRkszonesPortalsWebauthByZoneId
-//
 // Use this API command to retrieve a list of web authentication of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesPortalsWebauthByZoneId
+// Operation path: /rkszones/{zoneId}/portals/webauth
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGPortalServiceListAPIResponse, error) {
@@ -191,11 +201,13 @@ func (s *WSGWebAuthenticationService) FindRkszonesPortalsWebauthByZoneId(ctx con
 
 // FindServicesWebAuthenticationByQueryCriteria
 //
-// Operation ID: findServicesWebAuthenticationByQueryCriteria
-//
 // Query Web Authentications with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesWebAuthenticationByQueryCriteria
+// Operation path: /query/services/webAuthentication
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGWebAuthenticationService) FindServicesWebAuthenticationByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -223,40 +235,42 @@ func (s *WSGWebAuthenticationService) FindServicesWebAuthenticationByQueryCriter
 
 // PartialUpdateRkszonesPortalsWebauthById
 //
-// Operation ID: partialUpdateRkszonesPortalsWebauthById
-//
 // Use this API command to modify the configuration on web authentication of a zone.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesPortalsWebauthById
+// Operation path: /rkszones/{zoneId}/portals/webauth/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGPortalServiceModifyWebAuthentication
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWebAuthenticationService) PartialUpdateRkszonesPortalsWebauthById(ctx context.Context, body *WSGPortalServiceModifyWebAuthentication, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWebAuthenticationService) PartialUpdateRkszonesPortalsWebauthById(ctx context.Context, body *WSGPortalServiceModifyWebAuthentication, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesPortalsWebauthById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

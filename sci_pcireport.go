@@ -26,32 +26,34 @@ func (ss *SCIService) SCIPCIReportService() *SCIPCIReportService {
 // PciReportDownloadReport
 //
 // Operation ID: pciReport_downloadReport
+// Operation path: /pciReports/download
+// Success code: 204 (No Content)
 //
-// Form Data Parameters:
+// Form data parameters:
 // - reportId string
 //		- required
 // - timezone string
 //		- required
-func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SCIPCIReportService) PciReportDownloadReport(ctx context.Context, formValues url.Values, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSCIPciReportDownloadReport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

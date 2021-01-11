@@ -23,11 +23,13 @@ func (ss *WSGService) WSGAuthenticationProfileService() *WSGAuthenticationProfil
 
 // AddProfilesAuth
 //
-// Operation ID: addProfilesAuth
-//
 // Use this API command to create a new authentication profile.
 //
-// Request Body:
+// Operation ID: addProfilesAuth
+// Operation path: /profiles/auth
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateAuthenticationProfile
 func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, body *WSGProfileCreateAuthenticationProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,14 +57,16 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuth(ctx context.Context, b
 
 // AddProfilesAuthCloneById
 //
-// Operation ID: addProfilesAuthCloneById
-//
 // Use this API command to clone an authentication profile.
 //
-// Request Body:
+// Operation ID: addProfilesAuthCloneById
+// Operation path: /profiles/auth/clone/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGProfileClone
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.Context, body *WSGProfileClone, id string, mutators ...RequestMutator) (*WSGProfileCloneAPIResponse, error) {
@@ -92,56 +96,60 @@ func (s *WSGAuthenticationProfileService) AddProfilesAuthCloneById(ctx context.C
 
 // DeleteProfilesAuth
 //
-// Operation ID: deleteProfilesAuth
-//
 // Use this API command to delete a list of authentication profile.
 //
-// Request Body:
+// Operation ID: deleteProfilesAuth
+// Operation path: /profiles/auth
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileDeleteBulkAuthenticationProfile
-func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context, body *WSGProfileDeleteBulkAuthenticationProfile, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationProfileService) DeleteProfilesAuth(ctx context.Context, body *WSGProfileDeleteBulkAuthenticationProfile, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesAuth, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteProfilesAuthById
 //
-// Operation ID: deleteProfilesAuthById
-//
 // Use this API command to delete an authentication profile.
 //
-// Required Parameters:
+// Operation ID: deleteProfilesAuthById
+// Operation path: /profiles/auth/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteProfilesAuthById, true)
 	defer recycleAPIRequest(req)
@@ -150,14 +158,16 @@ func (s *WSGAuthenticationProfileService) DeleteProfilesAuthById(ctx context.Con
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindProfilesAuth
 //
-// Operation ID: findProfilesAuth
-//
 // Use this API command to retrieve a list of authentication profiles.
+//
+// Operation ID: findProfilesAuth
+// Operation path: /profiles/auth
+// Success code: 200 (OK)
 func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context, mutators ...RequestMutator) (*WSGProfileAuthenticationProfileListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -180,11 +190,13 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuth(ctx context.Context, 
 
 // FindProfilesAuthAuthorizationList
 //
-// Operation ID: findProfilesAuthAuthorizationList
-//
 // Use this API command to retrieve a list of authorization profiles.
 //
-// Required Parameters:
+// Operation ID: findProfilesAuthAuthorizationList
+// Operation path: /profiles/auth/authorizationList
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - type_ string
 //		- required
 func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx context.Context, type_ string, mutators ...RequestMutator) (*WSGProfileBaseServiceInfoListAPIResponse, error) {
@@ -210,11 +222,13 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthorizationList(ctx 
 
 // FindProfilesAuthAuthServiceListByQueryCriteria
 //
-// Operation ID: findProfilesAuthAuthServiceListByQueryCriteria
-//
 // Use this API command to retrieve a list of authentication service.
 //
-// Request Body:
+// Operation ID: findProfilesAuthAuthServiceListByQueryCriteria
+// Operation path: /profiles/auth/authServiceList/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileBaseServiceInfoListAPIResponse, error) {
 	var (
@@ -242,11 +256,13 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthAuthServiceListByQuery
 
 // FindProfilesAuthById
 //
-// Operation ID: findProfilesAuthById
-//
 // Use this API command to retrieve an authentication profile.
 //
-// Required Parameters:
+// Operation ID: findProfilesAuthById
+// Operation path: /profiles/auth/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGProfileAuthenticationProfileAPIResponse, error) {
@@ -272,11 +288,13 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthById(ctx context.Conte
 
 // FindProfilesAuthByQueryCriteria
 //
-// Operation ID: findProfilesAuthByQueryCriteria
-//
 // Use this API command to retrieve a list of authentication profiles by query criteria.
 //
-// Request Body:
+// Operation ID: findProfilesAuthByQueryCriteria
+// Operation path: /profiles/auth/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileAuthenticationProfileListAPIResponse, error) {
 	var (
@@ -304,37 +322,39 @@ func (s *WSGAuthenticationProfileService) FindProfilesAuthByQueryCriteria(ctx co
 
 // PartialUpdateProfilesAuthById
 //
-// Operation ID: partialUpdateProfilesAuthById
-//
 // Use this API command to modify the configuration of an authentication profile.
 //
-// Request Body:
+// Operation ID: partialUpdateProfilesAuthById
+// Operation path: /profiles/auth/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileModifyAuthenticationProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGAuthenticationProfileService) PartialUpdateProfilesAuthById(ctx context.Context, body *WSGProfileModifyAuthenticationProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAuthenticationProfileService) PartialUpdateProfilesAuthById(ctx context.Context, body *WSGProfileModifyAuthenticationProfile, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateProfilesAuthById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

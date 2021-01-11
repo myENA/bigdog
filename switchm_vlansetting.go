@@ -23,11 +23,13 @@ func (ss *SwitchMService) SwitchMVLANSettingsService() *SwitchMVLANSettingsServi
 
 // AddVlans
 //
-// Operation ID: addVlans
-//
 // Use this API command to Create the VLAN Config.
 //
-// Request Body:
+// Operation ID: addVlans
+// Operation path: /vlans
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *SwitchMVLANConfigCreateVlanConfig
 func (s *SwitchMVLANSettingsService) AddVlans(ctx context.Context, body *SwitchMVLANConfigCreateVlanConfig, mutators ...RequestMutator) (*SwitchMCommonCreateResultAPIResponse, error) {
 	var (
@@ -55,56 +57,60 @@ func (s *SwitchMVLANSettingsService) AddVlans(ctx context.Context, body *SwitchM
 
 // DeleteVlans
 //
-// Operation ID: deleteVlans
-//
 // Use this API command to Delete the VLAN Config by Id list.
 //
-// Request Body:
+// Operation ID: deleteVlans
+// Operation path: /vlans
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *SwitchMCommonBulkDeleteRequest
-func (s *SwitchMVLANSettingsService) DeleteVlans(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMVLANSettingsService) DeleteVlans(ctx context.Context, body *SwitchMCommonBulkDeleteRequest, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteVlans, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteVlansById
 //
-// Operation ID: deleteVlansById
-//
 // Use this API command to Delete the VLAN Config.
 //
-// Required Parameters:
+// Operation ID: deleteVlansById
+// Operation path: /vlans/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMVLANSettingsService) DeleteVlansById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMVLANSettingsService) DeleteVlansById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteSwitchMDeleteVlansById, true)
 	defer recycleAPIRequest(req)
@@ -113,14 +119,16 @@ func (s *SwitchMVLANSettingsService) DeleteVlansById(ctx context.Context, id str
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindVlans
 //
-// Operation ID: findVlans
-//
 // Use this API command to Retrieve the VLAN Config List.
+//
+// Operation ID: findVlans
+// Operation path: /vlans
+// Success code: 200 (OK)
 func (s *SwitchMVLANSettingsService) FindVlans(ctx context.Context, mutators ...RequestMutator) (*SwitchMVLANConfigQueryResultAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -143,11 +151,13 @@ func (s *SwitchMVLANSettingsService) FindVlans(ctx context.Context, mutators ...
 
 // FindVlansById
 //
-// Operation ID: findVlansById
-//
 // Use this API command to Retrieve the VLAN Config.
 //
-// Required Parameters:
+// Operation ID: findVlansById
+// Operation path: /vlans/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *SwitchMVLANSettingsService) FindVlansById(ctx context.Context, id string, mutators ...RequestMutator) (*SwitchMVLANConfigAPIResponse, error) {
@@ -173,11 +183,13 @@ func (s *SwitchMVLANSettingsService) FindVlansById(ctx context.Context, id strin
 
 // FindVlansByQueryCriteria
 //
-// Operation ID: findVlansByQueryCriteria
-//
 // Use this API command to Retrieve the VLAN Config list.
 //
-// Request Body:
+// Operation ID: findVlansByQueryCriteria
+// Operation path: /vlans/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMVLANSettingsService) FindVlansByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMVLANConfigQueryResultAPIResponse, error) {
 	var (
@@ -205,37 +217,39 @@ func (s *SwitchMVLANSettingsService) FindVlansByQueryCriteria(ctx context.Contex
 
 // UpdateVlansById
 //
-// Operation ID: updateVlansById
-//
 // Use this API command to Update the VLAN Config.
 //
-// Request Body:
+// Operation ID: updateVlansById
+// Operation path: /vlans/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMVLANConfigUpdateVlanConfig
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
-func (s *SwitchMVLANSettingsService) UpdateVlansById(ctx context.Context, body *SwitchMVLANConfigUpdateVlanConfig, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMVLANSettingsService) UpdateVlansById(ctx context.Context, body *SwitchMVLANConfigUpdateVlanConfig, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteSwitchMUpdateVlansById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

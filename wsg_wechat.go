@@ -23,14 +23,16 @@ func (ss *WSGService) WSGWechatService() *WSGWechatService {
 
 // AddRkszonesPortalsWechatByZoneId
 //
-// Operation ID: addRkszonesPortalsWechatByZoneId
-//
 // Use this API command to create wechat portal.
 //
-// Request Body:
+// Operation ID: addRkszonesPortalsWechatByZoneId
+// Operation path: /rkszones/{zoneId}/portals/wechat
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGPortalServiceCreateWechat
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGWechatService) AddRkszonesPortalsWechatByZoneId(ctx context.Context, body *WSGPortalServiceCreateWechat, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,26 +62,28 @@ func (s *WSGWechatService) AddRkszonesPortalsWechatByZoneId(ctx context.Context,
 
 // DeleteRkszonesPortalsWechatById
 //
-// Operation ID: deleteRkszonesPortalsWechatById
-//
 // Use this API command to delete wechat portal.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesPortalsWechatById
+// Operation path: /rkszones/{zoneId}/portals/wechat/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWechatService) DeleteRkszonesPortalsWechatById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWechatService) DeleteRkszonesPortalsWechatById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesPortalsWechatById, true)
 	defer recycleAPIRequest(req)
@@ -89,16 +93,18 @@ func (s *WSGWechatService) DeleteRkszonesPortalsWechatById(ctx context.Context, 
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesPortalsWechatById
 //
-// Operation ID: findRkszonesPortalsWechatById
-//
 // Use this API command to retrieve wechat portal by ID.
 //
-// Required Parameters:
+// Operation ID: findRkszonesPortalsWechatById
+// Operation path: /rkszones/{zoneId}/portals/wechat/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -127,15 +133,17 @@ func (s *WSGWechatService) FindRkszonesPortalsWechatById(ctx context.Context, id
 
 // FindRkszonesPortalsWechatByZoneId
 //
-// Operation ID: findRkszonesPortalsWechatByZoneId
-//
 // Use this API command to retrieve a list of wechat portal.
 //
-// Required Parameters:
+// Operation ID: findRkszonesPortalsWechatByZoneId
+// Operation path: /rkszones/{zoneId}/portals/wechat
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -169,11 +177,13 @@ func (s *WSGWechatService) FindRkszonesPortalsWechatByZoneId(ctx context.Context
 
 // FindServicesWechatProfileByQueryCriteria
 //
-// Operation ID: findServicesWechatProfileByQueryCriteria
-//
 // Query Wechat Portals with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesWechatProfileByQueryCriteria
+// Operation path: /query/services/wechatProfile
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGWechatService) FindServicesWechatProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -201,40 +211,42 @@ func (s *WSGWechatService) FindServicesWechatProfileByQueryCriteria(ctx context.
 
 // PartialUpdateRkszonesPortalsWechatById
 //
-// Operation ID: partialUpdateRkszonesPortalsWechatById
-//
 // Use this API command to modify the configuration of wechat portal.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesPortalsWechatById
+// Operation path: /rkszones/{zoneId}/portals/wechat/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGPortalServiceModifyWechat
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGWechatService) PartialUpdateRkszonesPortalsWechatById(ctx context.Context, body *WSGPortalServiceModifyWechat, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGWechatService) PartialUpdateRkszonesPortalsWechatById(ctx context.Context, body *WSGPortalServiceModifyWechat, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesPortalsWechatById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

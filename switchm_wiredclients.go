@@ -26,11 +26,13 @@ func (ss *SwitchMService) SwitchMWiredClientsService() *SwitchMWiredClientsServi
 
 // AddSwitchClients
 //
-// Operation ID: addSwitchClients
-//
 // Use this API command to retrieve all the wired clients connected to switch, currently managed by SmartZone.
 //
-// Request Body:
+// Operation ID: addSwitchClients
+// Operation path: /switch/clients
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMSwitchConnectedDevicesQueryListAPIResponse, error) {
 	var (
@@ -58,11 +60,13 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 
 // AddSwitchClientsAp
 //
-// Operation ID: addSwitchClientsAp
-//
 // Use this API command to retrieve all the Ruckus APs connected to switch, currently managed by SmartZone.
 //
-// Request Body:
+// Operation ID: addSwitchClientsAp
+// Operation path: /switch/clients/ap
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMSwitchConnectedAPsQueryListAPIResponse, error) {
 	var (
@@ -90,68 +94,72 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, bod
 
 // AddSwitchClientsAPExport
 //
-// Operation ID: addSwitchClientsAPExport
-//
 // Download CSV of AP's discovered via LLDP
 //
-// Request Body:
+// Operation ID: addSwitchClientsAPExport
+// Operation path: /switch/clients/ap/export
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMWiredClientsService) AddSwitchClientsAPExport(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMWiredClientsService) AddSwitchClientsAPExport(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchClientsAPExport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "application/x-www-form-urlencoded")
 	req.Header.Set(headerKeyAccept, "*/*")
 	if b, err := json.Marshal(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	} else if err = req.SetBody(bytes.NewBufferString((url.Values{"json": []string{string(b)}}).Encode())); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // AddSwitchClientsExport
 //
-// Operation ID: addSwitchClientsExport
-//
 // Download CSV of wired clients discovered via LLDP
 //
-// Request Body:
+// Operation ID: addSwitchClientsExport
+// Operation path: /switch/clients/export
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMWiredClientsService) AddSwitchClientsExport(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMWiredClientsService) AddSwitchClientsExport(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchClientsExport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "application/x-www-form-urlencoded")
 	req.Header.Set(headerKeyAccept, "*/*")
 	if b, err := json.Marshal(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	} else if err = req.SetBody(bytes.NewBufferString((url.Values{"json": []string{string(b)}}).Encode())); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }

@@ -23,14 +23,16 @@ func (ss *WSGService) WSGDeviceHealthAndPerformanceService() *WSGDeviceHealthAnd
 
 // HealthExtendGroupBarByType
 //
-// Operation ID: healthExtendGroupBarByType
-//
 // Retrieve connection failure legend values based on query
 //
-// Request Body:
+// Operation ID: healthExtendGroupBarByType
+// Operation path: /healthExtend/groupBar/{type}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - type_ string
 //		- required
 //		- oneof:[totalFailure,authFailure,assocFailure,eapFailure,radiusFailure,dhcpFailure,userAuthFailure]
@@ -61,14 +63,16 @@ func (s *WSGDeviceHealthAndPerformanceService) HealthExtendGroupBarByType(ctx co
 
 // HealthExtendLineByType
 //
-// Operation ID: healthExtendLineByType
-//
 // Retrieve graph values based on query
 //
-// Request Body:
+// Operation ID: healthExtendLineByType
+// Operation path: /healthExtend/line/{type}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - type_ string
 //		- required
 //		- oneof:[totalFailure,authFailure,assocFailure,eapFailure,radiusFailure,dhcpFailure,userAuthFailure]
@@ -99,14 +103,16 @@ func (s *WSGDeviceHealthAndPerformanceService) HealthExtendLineByType(ctx contex
 
 // PerfGroupBarByType
 //
-// Operation ID: perfGroupBarByType
-//
 // Retrieve graph type legend values based on query
 //
-// Request Body:
+// Operation ID: perfGroupBarByType
+// Operation path: /perf/groupBar/{type}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - type_ string
 //		- required
 //		- oneof:[latency,airtimeUtilization,capacity]
@@ -137,14 +143,16 @@ func (s *WSGDeviceHealthAndPerformanceService) PerfGroupBarByType(ctx context.Co
 
 // PerfLineByType
 //
-// Operation ID: perfLineByType
-//
 // Retrieve graph values based on query
 //
-// Request Body:
+// Operation ID: perfLineByType
+// Operation path: /perf/line/{type}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - type_ string
 //		- required
 //		- oneof:[latency,airtimeUtilization,capacity]

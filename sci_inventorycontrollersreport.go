@@ -567,11 +567,13 @@ func NewSCIInventoryControllersReport151licenseUtilizationOverTimeChartMetaData(
 
 // ReportInventoryControllersReport96Krack
 //
-// Operation ID: report_InventoryControllersReport_96_krack
-//
 // Inventory - Controllers Report - KRACK Assessment
 //
-// Request Body:
+// Operation ID: report_InventoryControllersReport_96_krack
+// Operation path: /reports/15/sections/96/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport96Krack(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryControllersReport96krack200ResponseTypeAPIResponse, error) {
 	var (
@@ -599,11 +601,13 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 
 // ReportInventoryControllersReport98ResourceUtilization
 //
-// Operation ID: report_InventoryControllersReport_98_resourceUtilization
-//
 // Inventory - Controllers Report - Resource Utilization
 //
-// Request Body:
+// Operation ID: report_InventoryControllersReport_98_resourceUtilization
+// Operation path: /reports/15/sections/98/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport98ResourceUtilization(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryControllersReport98resourceUtilization200ResponseTypeAPIResponse, error) {
 	var (
@@ -631,11 +635,13 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 
 // ReportInventoryControllersReport99LicenseUtilization
 //
-// Operation ID: report_InventoryControllersReport_99_licenseUtilization
-//
 // Inventory - Controllers Report - License Utilization
 //
-// Request Body:
+// Operation ID: report_InventoryControllersReport_99_licenseUtilization
+// Operation path: /reports/15/sections/99/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport99LicenseUtilization(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryControllersReport99licenseUtilization200ResponseTypeAPIResponse, error) {
 	var (
@@ -663,11 +669,13 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport9
 
 // ReportInventoryControllersReport114ControllerInventoryOverview
 //
-// Operation ID: report_InventoryControllersReport_114_controllerInventoryOverview
-//
 // Inventory - Controllers Report - Overview
 //
-// Request Body:
+// Operation ID: report_InventoryControllersReport_114_controllerInventoryOverview
+// Operation path: /reports/15/sections/114/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport114ControllerInventoryOverview(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryControllersReport114controllerInventoryOverview200ResponseTypeAPIResponse, error) {
 	var (
@@ -695,11 +703,13 @@ func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport1
 
 // ReportInventoryControllersReport151LicenseUtilizationOverTimeChart
 //
-// Operation ID: report_InventoryControllersReport_151_licenseUtilizationOverTimeChart
-//
 // Inventory - Controllers Report - License Utilization Over Time
 //
-// Request Body:
+// Operation ID: report_InventoryControllersReport_151_licenseUtilizationOverTimeChart
+// Operation path: /reports/15/sections/151/data
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SCICommonReportQueryBody
 func (s *SCIInventoryControllersReportService) ReportInventoryControllersReport151LicenseUtilizationOverTimeChart(ctx context.Context, body *SCICommonReportQueryBody, mutators ...RequestMutator) (*SCIReportInventoryControllersReport151licenseUtilizationOverTimeChart200ResponseTypeAPIResponse, error) {
 	var (

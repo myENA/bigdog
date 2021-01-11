@@ -23,11 +23,13 @@ func (ss *WSGService) WSGTestAAAServerService() *WSGTestAAAServerService {
 
 // AddSystemAaaTest
 //
-// Operation ID: addSystemAaaTest
-//
 // Use this API command to test AAA server.
 //
-// Request Body:
+// Operation ID: addSystemAaaTest
+// Operation path: /system/aaa/test
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGAAATestAuthenticationServer
 func (s *WSGTestAAAServerService) AddSystemAaaTest(ctx context.Context, body *WSGAAATestAuthenticationServer, mutators ...RequestMutator) (*WSGAAATestAAAServerResultAPIResponse, error) {
 	var (

@@ -23,14 +23,16 @@ func (ss *WSGService) WSGTrafficClassProfileService() *WSGTrafficClassProfileSer
 
 // AddRkszonesTrafficClassProfileByZoneId
 //
-// Operation ID: addRkszonesTrafficClassProfileByZoneId
-//
 // Use this API command to create a new Traffic Class Profile of a zone.
 //
-// Request Body:
+// Operation ID: addRkszonesTrafficClassProfileByZoneId
+// Operation path: /rkszones/{zoneId}/trafficClassProfile
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGProfileCreateTrafficClassProfile
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGTrafficClassProfileService) AddRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *WSGProfileCreateTrafficClassProfile, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,26 +62,28 @@ func (s *WSGTrafficClassProfileService) AddRkszonesTrafficClassProfileByZoneId(c
 
 // DeleteRkszonesTrafficClassProfileById
 //
-// Operation ID: deleteRkszonesTrafficClassProfileById
-//
 // Use this API command to delete a Traffic Class Profile of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesTrafficClassProfileById
+// Operation path: /rkszones/{zoneId}/trafficClassProfile/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesTrafficClassProfileById, true)
 	defer recycleAPIRequest(req)
@@ -89,53 +93,57 @@ func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileById(ct
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesTrafficClassProfileByZoneId
 //
-// Operation ID: deleteRkszonesTrafficClassProfileByZoneId
-//
 // Use this API command to bulk delete Traffic Class Profiles of a zone.
 //
-// Request Body:
+// Operation ID: deleteRkszonesTrafficClassProfileByZoneId
+// Operation path: /rkszones/{zoneId}/trafficClassProfile
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGCommonBulkDeleteRequest
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
-func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGTrafficClassProfileService) DeleteRkszonesTrafficClassProfileByZoneId(ctx context.Context, body *WSGCommonBulkDeleteRequest, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesTrafficClassProfileByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesTrafficClassProfileById
 //
-// Operation ID: findRkszonesTrafficClassProfileById
-//
 // Use this API command to retrieve a Traffic Class Profile of zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesTrafficClassProfileById
+// Operation path: /rkszones/{zoneId}/trafficClassProfile/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -164,11 +172,13 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileById(ctx 
 
 // FindRkszonesTrafficClassProfileByZoneId
 //
-// Operation ID: findRkszonesTrafficClassProfileByZoneId
-//
 // Use this API command to retrieve a list of Traffic Class Profile of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesTrafficClassProfileByZoneId
+// Operation path: /rkszones/{zoneId}/trafficClassProfile
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGProfileTrafficClassProfileListAPIResponse, error) {
@@ -194,11 +204,13 @@ func (s *WSGTrafficClassProfileService) FindRkszonesTrafficClassProfileByZoneId(
 
 // FindServicesTrafficClassProfileByQueryCriteria
 //
-// Operation ID: findServicesTrafficClassProfileByQueryCriteria
-//
 // Retrieve a list of Traffic Class Profile.
 //
-// Request Body:
+// Operation ID: findServicesTrafficClassProfileByQueryCriteria
+// Operation path: /query/services/trafficClassProfile
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGProfileTrafficClassProfileListAPIResponse, error) {
 	var (
@@ -226,40 +238,42 @@ func (s *WSGTrafficClassProfileService) FindServicesTrafficClassProfileByQueryCr
 
 // PartialUpdateRkszonesTrafficClassProfileById
 //
-// Operation ID: partialUpdateRkszonesTrafficClassProfileById
-//
 // Use this API command to modify Traffic Class Profile of a zone.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesTrafficClassProfileById
+// Operation path: /rkszones/{zoneId}/trafficClassProfile/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGProfileCreateTrafficClassProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGTrafficClassProfileService) PartialUpdateRkszonesTrafficClassProfileById(ctx context.Context, body *WSGProfileCreateTrafficClassProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGTrafficClassProfileService) PartialUpdateRkszonesTrafficClassProfileById(ctx context.Context, body *WSGProfileCreateTrafficClassProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesTrafficClassProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

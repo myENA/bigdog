@@ -23,32 +23,34 @@ func (ss *WSGService) WSGDataPlaneOperationalService() *WSGDataPlaneOperationalS
 
 // AddDpsSwitchoverCluster
 //
-// Operation ID: addDpsSwitchoverCluster
-//
 // Use this API command to switchover DP to another cluster
 //
-// Request Body:
+// Operation ID: addDpsSwitchoverCluster
+// Operation path: /dps/switchoverCluster
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGDPSwitchoverDp
-func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster(ctx context.Context, body *WSGDPSwitchoverDp, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDataPlaneOperationalService) AddDpsSwitchoverCluster(ctx context.Context, body *WSGDPSwitchoverDp, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddDpsSwitchoverCluster, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

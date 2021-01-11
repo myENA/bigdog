@@ -78,14 +78,16 @@ func NewWSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountL
 
 // HccdCount
 //
-// Operation ID: hccdCount
-//
 // Retrieve total count of of specified type of diagnostic entries
 //
-// Request Body:
+// Operation ID: hccdCount
+// Operation path: /hccd/hccdClientConnection/{type}/count
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - type_ string
 //		- required
 //		- oneof:[failureType]
@@ -117,11 +119,13 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdCount(ctx context.C
 // HccdTypeCount
 //
 // Operation ID: hccdTypeCount
+// Operation path: /hccd/hccdClientConnection/{type}/failedMsgId/count
+// Success code: 200 (OK)
 //
-// Request Body:
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - type_ string
 //		- required
 //		- oneof:[association,authentication,eap,radius,dhcp,userAuthentication]

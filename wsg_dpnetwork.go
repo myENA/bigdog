@@ -23,24 +23,26 @@ func (ss *WSGService) WSGDPNetworkService() *WSGDPNetworkService {
 
 // DeletePlanesStaticRouteByBladeUUID
 //
-// Operation ID: deletePlanesStaticRouteByBladeUUID
-//
 // Use this API command to delete static route.
 //
-// Required Parameters:
+// Operation ID: deletePlanesStaticRouteByBladeUUID
+// Operation path: /planes/{bladeUUID}/staticRoute
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGDPNetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDPNetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeletePlanesStaticRouteByBladeUUID, true)
 	defer recycleAPIRequest(req)
@@ -49,14 +51,16 @@ func (s *WSGDPNetworkService) DeletePlanesStaticRouteByBladeUUID(ctx context.Con
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindPlanes
 //
-// Operation ID: findPlanes
-//
 // Use this API command to retrieve a list of data planes.
+//
+// Operation ID: findPlanes
+// Operation path: /planes
+// Success code: 200 (OK)
 func (s *WSGDPNetworkService) FindPlanes(ctx context.Context, mutators ...RequestMutator) (*WSGSystemDataPlaneListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -79,11 +83,13 @@ func (s *WSGDPNetworkService) FindPlanes(ctx context.Context, mutators ...Reques
 
 // FindPlanesByBladeUUID
 //
-// Operation ID: findPlanesByBladeUUID
-//
 // Use this API command to retrieve data plane by id.
 //
-// Required Parameters:
+// Operation ID: findPlanesByBladeUUID
+// Operation path: /planes/{bladeUUID}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - bladeUUID string
 //		- required
 func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUUID string, mutators ...RequestMutator) (*WSGSystemDataPlaneConfigurationAPIResponse, error) {
@@ -109,11 +115,13 @@ func (s *WSGDPNetworkService) FindPlanesByBladeUUID(ctx context.Context, bladeUU
 
 // FindPlanesDpTunnelSetting
 //
-// Operation ID: findPlanesDpTunnelSetting
-//
 // Use this API command to get DP mesh tunnel setting.
 //
-// Optional Parameters:
+// Operation ID: findPlanesDpTunnelSetting
+// Operation path: /planes/dpTunnel/setting
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - useless string
 //		- nullable
 func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context, optionalParams map[string][]string, mutators ...RequestMutator) (*WSGSystemGetDataPlaneMeshTunnelSettingAPIResponse, error) {
@@ -141,106 +149,112 @@ func (s *WSGDPNetworkService) FindPlanesDpTunnelSetting(ctx context.Context, opt
 
 // PartialUpdatePlanesByBladeUUID
 //
-// Operation ID: partialUpdatePlanesByBladeUUID
-//
 // Use this API command to modify the configuration of data plane.
 //
-// Request Body:
+// Operation ID: partialUpdatePlanesByBladeUUID
+// Operation path: /planes/{bladeUUID}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemModifyDataPlane
 //
-// Required Parameters:
+// Required parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGDPNetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context, body *WSGSystemModifyDataPlane, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDPNetworkService) PartialUpdatePlanesByBladeUUID(ctx context.Context, body *WSGSystemModifyDataPlane, bladeUUID string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdatePlanesByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // PartialUpdatePlaneStatesByBladeUUID
 //
-// Operation ID: partialUpdatePlaneStatesByBladeUUID
-//
 // Use this API command to update DP state profile.
 //
-// Request Body:
+// Operation ID: partialUpdatePlaneStatesByBladeUUID
+// Operation path: /planeStates/{bladeUUID}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemModifyDataPlaneState
 //
-// Required Parameters:
+// Required parameters:
 // - bladeUUID string
 //		- required
-func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Context, body *WSGSystemModifyDataPlaneState, bladeUUID string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDPNetworkService) PartialUpdatePlaneStatesByBladeUUID(ctx context.Context, body *WSGSystemModifyDataPlaneState, bladeUUID string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdatePlaneStatesByBladeUUID, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("bladeUUID", bladeUUID)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdatePlanesDpTunnelSetting
 //
-// Operation ID: updatePlanesDpTunnelSetting
-//
 // Use this API command to update DP mesh tunnel setting.
 //
-// Request Body:
+// Operation ID: updatePlanesDpTunnelSetting
+// Operation path: /planes/dpTunnel/setting
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGSystemUpdateDpMeshTunnelSetting
-func (s *WSGDPNetworkService) UpdatePlanesDpTunnelSetting(ctx context.Context, body *WSGSystemUpdateDpMeshTunnelSetting, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGDPNetworkService) UpdatePlanesDpTunnelSetting(ctx context.Context, body *WSGSystemUpdateDpMeshTunnelSetting, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdatePlanesDpTunnelSetting, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

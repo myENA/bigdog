@@ -268,14 +268,16 @@ func NewWSGVendorSpecificAttributeProfileVendorSpecificAttribute() *WSGVendorSpe
 
 // AddRkszonesVendorSpecificAttributeProfilesByZoneId
 //
-// Operation ID: addRkszonesVendorSpecificAttributeProfilesByZoneId
-//
 // Create a vendor specific attribute profile.
 //
-// Request Body:
+// Operation ID: addRkszonesVendorSpecificAttributeProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/vendorSpecificAttributeProfiles
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGVendorSpecificAttributeProfilePersist
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, zoneId string, mutators ...RequestMutator) (*WSGVendorSpecificAttributeProfileCreateResultAPIResponse, error) {
@@ -305,26 +307,28 @@ func (s *WSGVendorSpecificAttributeProfileService) AddRkszonesVendorSpecificAttr
 
 // DeleteRkszonesVendorSpecificAttributeProfilesById
 //
-// Operation ID: deleteRkszonesVendorSpecificAttributeProfilesById
-//
 // Use this API command to delete a vendor specific attribute profile by ID.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesVendorSpecificAttributeProfilesById
+// Operation path: /rkszones/{zoneId}/vendorSpecificAttributeProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesVendorSpecificAttributeProfilesById, true)
 	defer recycleAPIRequest(req)
@@ -334,53 +338,57 @@ func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificA
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteRkszonesVendorSpecificAttributeProfilesByZoneId
 //
-// Operation ID: deleteRkszonesVendorSpecificAttributeProfilesByZoneId
-//
 // Use this API command to delete a list of vendor specific attribute profile.
 //
-// Request Body:
+// Operation ID: deleteRkszonesVendorSpecificAttributeProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/vendorSpecificAttributeProfiles
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGVendorSpecificAttributeProfileDeleteBulk
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfileDeleteBulk, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGVendorSpecificAttributeProfileService) DeleteRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, body *WSGVendorSpecificAttributeProfileDeleteBulk, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesVendorSpecificAttributeProfilesByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesVendorSpecificAttributeProfilesById
 //
-// Operation ID: findRkszonesVendorSpecificAttributeProfilesById
-//
 // Get a vendor specific attribute profile by ID.
 //
-// Required Parameters:
+// Operation ID: findRkszonesVendorSpecificAttributeProfilesById
+// Operation path: /rkszones/{zoneId}/vendorSpecificAttributeProfiles/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -409,11 +417,13 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 
 // FindRkszonesVendorSpecificAttributeProfilesByQueryCriteria
 //
-// Operation ID: findRkszonesVendorSpecificAttributeProfilesByQueryCriteria
-//
 // Use this API command to retrieve a list of vendor specific attribute profile by query criteria.
 //
-// Request Body:
+// Operation ID: findRkszonesVendorSpecificAttributeProfilesByQueryCriteria
+// Operation path: /rkszones/vendorSpecificAttributeProfiles/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGVendorSpecificAttributeProfileQueryCriteriaResultAPIResponse, error) {
 	var (
@@ -441,11 +451,13 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 
 // FindRkszonesVendorSpecificAttributeProfilesByZoneId
 //
-// Operation ID: findRkszonesVendorSpecificAttributeProfilesByZoneId
-//
 // Get a ID list of vendor specific attribute profile in this Zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesVendorSpecificAttributeProfilesByZoneId
+// Operation path: /rkszones/{zoneId}/vendorSpecificAttributeProfiles
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAttributeProfilesByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGVendorSpecificAttributeProfileListAPIResponse, error) {
@@ -471,40 +483,42 @@ func (s *WSGVendorSpecificAttributeProfileService) FindRkszonesVendorSpecificAtt
 
 // UpdateRkszonesVendorSpecificAttributeProfilesById
 //
-// Operation ID: updateRkszonesVendorSpecificAttributeProfilesById
-//
 // Use this API command to modify entire information of a vendor specific attribute profile.
 //
-// Request Body:
+// Operation ID: updateRkszonesVendorSpecificAttributeProfilesById
+// Operation path: /rkszones/{zoneId}/vendorSpecificAttributeProfiles/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGVendorSpecificAttributeProfilePersist
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGVendorSpecificAttributeProfileService) UpdateRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGVendorSpecificAttributeProfileService) UpdateRkszonesVendorSpecificAttributeProfilesById(ctx context.Context, body *WSGVendorSpecificAttributeProfilePersist, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPut, RouteWSGUpdateRkszonesVendorSpecificAttributeProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

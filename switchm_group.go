@@ -427,11 +427,13 @@ func NewSwitchMGroupUpdateSwitchGroupByPut() *SwitchMGroupUpdateSwitchGroupByPut
 
 // AddGroup
 //
-// Operation ID: addGroup
-//
 // Use this API command to create a new switch group under an existing domain or switch group.
 //
-// Request Body:
+// Operation ID: addGroup
+// Operation path: /group
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *SwitchMGroupSwitchGroup
 func (s *SwitchMGroupService) AddGroup(ctx context.Context, body *SwitchMGroupSwitchGroup, mutators ...RequestMutator) (*SwitchMGroupAuditIdAPIResponse, error) {
 	var (
@@ -459,11 +461,13 @@ func (s *SwitchMGroupService) AddGroup(ctx context.Context, body *SwitchMGroupSw
 
 // DeleteGroupBySwitchGroupId
 //
-// Operation ID: deleteGroupBySwitchGroupId
-//
 // Use this API command to delete a switch group.
 //
-// Required Parameters:
+// Operation ID: deleteGroupBySwitchGroupId
+// Operation path: /group/{switchGroupId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - switchGroupId string
 //		- required
 func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, switchGroupId string, mutators ...RequestMutator) (*SwitchMGroupAuditIdAPIResponse, error) {
@@ -490,11 +494,13 @@ func (s *SwitchMGroupService) DeleteGroupBySwitchGroupId(ctx context.Context, sw
 
 // FindGroupBySwitchGroupId
 //
-// Operation ID: findGroupBySwitchGroupId
-//
 // Use this API command to retrieve switch group detail.
 //
-// Required Parameters:
+// Operation ID: findGroupBySwitchGroupId
+// Operation path: /group/{switchGroupId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - switchGroupId string
 //		- required
 func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, switchGroupId string, mutators ...RequestMutator) (*SwitchMGroupSwitchGroupAPIResponse, error) {
@@ -520,15 +526,17 @@ func (s *SwitchMGroupService) FindGroupBySwitchGroupId(ctx context.Context, swit
 
 // FindGroupIdsByDomainByDomainId
 //
-// Operation ID: findGroupIdsByDomainByDomainId
-//
 // Use this API command to retrieve the switch groups by domain ID.
 //
-// Required Parameters:
+// Operation ID: findGroupIdsByDomainByDomainId
+// Operation path: /group/ids/byDomain/{domainId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - domainId string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - showStagingGroup string
 //		- nullable
 func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context, domainId string, optionalParams map[string][]string, mutators ...RequestMutator) (*SwitchMGroupsByIdsQueryResultListAPIResponse, error) {
@@ -557,46 +565,50 @@ func (s *SwitchMGroupService) FindGroupIdsByDomainByDomainId(ctx context.Context
 
 // FindSwitchClientVisibilityByQueryCriteria
 //
-// Operation ID: findSwitchClientVisibilityByQueryCriteria
-//
 // Use this API command to Retrieve the switch client list.
 //
-// Request Body:
+// Operation ID: findSwitchClientVisibilityByQueryCriteria
+// Operation path: /switchClientVisibility/query
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMGroupService) FindSwitchClientVisibilityByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMGroupService) FindSwitchClientVisibilityByQueryCriteria(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSwitchMFindSwitchClientVisibilityByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // PartialUpdateGroupBySwitchGroupId
 //
-// Operation ID: partialUpdateGroupBySwitchGroupId
-//
 // Use this API command to update an existing switch group name or description.
 //
-// Request Body:
+// Operation ID: partialUpdateGroupBySwitchGroupId
+// Operation path: /group/{switchGroupId}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMGroupSwitchGroup
 //
-// Required Parameters:
+// Required parameters:
 // - switchGroupId string
 //		- required
 func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Context, body *SwitchMGroupSwitchGroup, switchGroupId string, mutators ...RequestMutator) (*SwitchMGroupAuditIdAPIResponse, error) {
@@ -626,14 +638,16 @@ func (s *SwitchMGroupService) PartialUpdateGroupBySwitchGroupId(ctx context.Cont
 
 // UpdateGroupBySwitchGroupId
 //
-// Operation ID: updateGroupBySwitchGroupId
-//
 // Use this API command to update an existing switch group name, description.
 //
-// Request Body:
+// Operation ID: updateGroupBySwitchGroupId
+// Operation path: /group/{switchGroupId}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMGroupUpdateSwitchGroupByPut
 //
-// Required Parameters:
+// Required parameters:
 // - switchGroupId string
 //		- required
 func (s *SwitchMGroupService) UpdateGroupBySwitchGroupId(ctx context.Context, body *SwitchMGroupUpdateSwitchGroupByPut, switchGroupId string, mutators ...RequestMutator) (*SwitchMGroupAuditIdAPIResponse, error) {
@@ -663,11 +677,13 @@ func (s *SwitchMGroupService) UpdateGroupBySwitchGroupId(ctx context.Context, bo
 
 // UpdateGroupFirmwareByDomain
 //
-// Operation ID: updateGroupFirmwareByDomain
-//
 // Use this API command to update default firmware of groups under a specific domain
 //
-// Request Body:
+// Operation ID: updateGroupFirmwareByDomain
+// Operation path: /group/firmware/byDomain
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMGroupSwitchGroupFirmwareByDomain
 func (s *SwitchMGroupService) UpdateGroupFirmwareByDomain(ctx context.Context, body *SwitchMGroupSwitchGroupFirmwareByDomain, mutators ...RequestMutator) (*SwitchMGroupAuditIdListAPIResponse, error) {
 	var (

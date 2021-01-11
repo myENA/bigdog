@@ -153,11 +153,13 @@ func NewSwitchMFirmwareConfigSwitchModel() *SwitchMFirmwareConfigSwitchModel {
 
 // AddFirmware
 //
-// Operation ID: addFirmware
-//
 // Use this API command to retrieve list of switch firmwares uploaded to SmartZone.
 //
-// Request Body:
+// Operation ID: addFirmware
+// Operation path: /firmware
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse, error) {
 	var (
@@ -185,11 +187,13 @@ func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *Sw
 
 // AddFirmwareUpload
 //
-// Operation ID: addFirmwareUpload
-//
 // Use this API command to upload a firmware image zip file to SmartZone.
 //
-// Form Data Parameters:
+// Operation ID: addFirmwareUpload
+// Operation path: /firmware/upload
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - uploadFile io.Reader
 //		- required
 func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -219,11 +223,13 @@ func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, fi
 
 // DeleteFirmwareByVersion
 //
-// Operation ID: deleteFirmwareByVersion
-//
 // Use this API command to deletes a firmware image file from SmartZone.
 //
-// Required Parameters:
+// Operation ID: deleteFirmwareByVersion
+// Operation path: /firmware/{version}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - version string
 //		- required
 func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Context, version string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -250,9 +256,11 @@ func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Conte
 
 // FindFirmware
 //
-// Operation ID: findFirmware
-//
 // Use this API command to retrieve list of switch firmwares uploaded to SmartZone.
+//
+// Operation ID: findFirmware
+// Operation path: /firmware
+// Success code: 200 (OK)
 func (s *SwitchMFirmwareConfigService) FindFirmware(ctx context.Context, mutators ...RequestMutator) (*SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -275,14 +283,16 @@ func (s *SwitchMFirmwareConfigService) FindFirmware(ctx context.Context, mutator
 
 // PartialUpdateFirmwareByVersion
 //
-// Operation ID: partialUpdateFirmwareByVersion
-//
 // Use this API command to update the given firmware version on switches matching criteria.
 //
-// Request Body:
+// Operation ID: partialUpdateFirmwareByVersion
+// Operation path: /firmware/{version}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - version string
 //		- required
 func (s *SwitchMFirmwareConfigService) PartialUpdateFirmwareByVersion(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, version string, mutators ...RequestMutator) (*SwitchMFirmwareConfigScheduleIdsAPIResponse, error) {

@@ -374,11 +374,13 @@ func NewWSGSCIProfileListExtraType() *WSGSCIProfileListExtraType {
 
 // AddSciSciEventCode
 //
-// Operation ID: addSciSciEventCode
-//
 // Use this API command to modify SciAcceptedEventCodes.
 //
-// Request Body:
+// Operation ID: addSciSciEventCode
+// Operation path: /sci/sciEventCode
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSCIModifyEventCode
 func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModifyEventCode, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -406,11 +408,13 @@ func (s *WSGSCIService) AddSciSciEventCode(ctx context.Context, body *WSGSCIModi
 
 // AddSciSciProfile
 //
-// Operation ID: addSciSciProfile
-//
 // Use this API command to create sciProfile.
 //
-// Request Body:
+// Operation ID: addSciSciProfile
+// Operation path: /sci/sciProfile
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSCICreateSciProfile
 func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreateSciProfile, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -438,11 +442,13 @@ func (s *WSGSCIService) AddSciSciProfile(ctx context.Context, body *WSGSCICreate
 
 // DeleteSciSciProfile
 //
-// Operation ID: deleteSciSciProfile
-//
 // Use this API command to delete sciProfile list.
 //
-// Request Body:
+// Operation ID: deleteSciSciProfile
+// Operation path: /sci/sciProfile
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSCIDeleteSciProfileList
 func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDeleteSciProfileList, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -470,24 +476,26 @@ func (s *WSGSCIService) DeleteSciSciProfile(ctx context.Context, body *WSGSCIDel
 
 // DeleteSciSciProfileById
 //
-// Operation ID: deleteSciSciProfileById
-//
 // Use this API command to delete sciProfile.
 //
-// Required Parameters:
+// Operation ID: deleteSciSciProfileById
+// Operation path: /sci/sciProfile/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
-func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteSciSciProfileById, true)
 	defer recycleAPIRequest(req)
@@ -496,14 +504,16 @@ func (s *WSGSCIService) DeleteSciSciProfileById(ctx context.Context, id string, 
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindSciSciEventCode
 //
-// Operation ID: findSciSciEventCode
-//
 // Use this API command to retrieve SciAcceptedEventCodes.
+//
+// Operation ID: findSciSciEventCode
+// Operation path: /sci/sciEventCode
+// Success code: 200 (OK)
 func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context, mutators ...RequestMutator) (*WSGSCIEventCodeAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -526,9 +536,11 @@ func (s *WSGSCIService) FindSciSciEventCode(ctx context.Context, mutators ...Req
 
 // FindSciSciProfile
 //
-// Operation ID: findSciSciProfile
-//
 // Use this API command to retrieve sciProfile list.
+//
+// Operation ID: findSciSciProfile
+// Operation path: /sci/sciProfile
+// Success code: 200 (OK)
 func (s *WSGSCIService) FindSciSciProfile(ctx context.Context, mutators ...RequestMutator) (*WSGSCIProfileListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -551,11 +563,13 @@ func (s *WSGSCIService) FindSciSciProfile(ctx context.Context, mutators ...Reque
 
 // FindSciSciProfileById
 //
-// Operation ID: findSciSciProfileById
-//
 // Use this API command to retrieve sciProfile.
 //
-// Required Parameters:
+// Operation ID: findSciSciProfileById
+// Operation path: /sci/sciProfile/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGSCIProfileAPIResponse, error) {
@@ -581,11 +595,13 @@ func (s *WSGSCIService) FindSciSciProfileById(ctx context.Context, id string, mu
 
 // PartialUpdateSciSciEnabled
 //
-// Operation ID: partialUpdateSciSciEnabled
-//
 // Use this API command to modify SCI settings is enabled or not.
 //
-// Request Body:
+// Operation ID: partialUpdateSciSciEnabled
+// Operation path: /sci/sciEnabled
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSCIModifySciEnabled
 func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WSGSCIModifySciEnabled, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -613,14 +629,16 @@ func (s *WSGSCIService) PartialUpdateSciSciEnabled(ctx context.Context, body *WS
 
 // PartialUpdateSciSciProfileById
 //
-// Operation ID: partialUpdateSciSciProfileById
-//
 // Use this API command to modify sciProfile.
 //
-// Request Body:
+// Operation ID: partialUpdateSciSciProfileById
+// Operation path: /sci/sciProfile/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGSCIModifySciProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGSCIService) PartialUpdateSciSciProfileById(ctx context.Context, body *WSGSCIModifySciProfile, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {

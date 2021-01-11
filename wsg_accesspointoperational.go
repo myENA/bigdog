@@ -112,24 +112,26 @@ func NewWSGAccessPointOperationalAccessPointWlansListData() *WSGAccessPointOpera
 
 // AddApsApPacketCaptureDownloadByApMac
 //
-// Operation ID: addApsApPacketCaptureDownloadByApMac
-//
 // Use this API to download AP packet capture file
 //
-// Required Parameters:
+// Operation ID: addApsApPacketCaptureDownloadByApMac
+// Operation path: /aps/{apMac}/apPacketCapture/download
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
-func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddApsApPacketCaptureDownloadByApMac, true)
 	defer recycleAPIRequest(req)
@@ -138,19 +140,21 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureDownloadByApMac(
 	req.PathParams.Set("apMac", apMac)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // AddApsApPacketCaptureStartFileCaptureByApMac
 //
-// Operation ID: addApsApPacketCaptureStartFileCaptureByApMac
-//
 // Use this API to start AP packet capture
 //
-// Request Body:
+// Operation ID: addApsApPacketCaptureStartFileCaptureByApMac
+// Operation path: /aps/{apMac}/apPacketCapture/startFileCapture
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGAPPackCaptureApPacketCaptureReq
 //
-// Required Parameters:
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartFileCaptureByApMac(ctx context.Context, body *WSGAPPackCaptureApPacketCaptureReq, apMac string, mutators ...RequestMutator) (*WSGAPPackCaptureApPacketCaptureResAPIResponse, error) {
@@ -180,14 +184,16 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartFileCapture
 
 // AddApsApPacketCaptureStartStreamingByApMac
 //
-// Operation ID: addApsApPacketCaptureStartStreamingByApMac
-//
 // Use this API to start AP packet streaming
 //
-// Request Body:
+// Operation ID: addApsApPacketCaptureStartStreamingByApMac
+// Operation path: /aps/{apMac}/apPacketCapture/startStreaming
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGAPPackCaptureApPacketCaptureReq
 //
-// Required Parameters:
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartStreamingByApMac(ctx context.Context, body *WSGAPPackCaptureApPacketCaptureReq, apMac string, mutators ...RequestMutator) (*WSGAPPackCaptureApPacketCaptureResAPIResponse, error) {
@@ -217,11 +223,13 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStartStreamingBy
 
 // AddApsApPacketCaptureStopByApMac
 //
-// Operation ID: addApsApPacketCaptureStopByApMac
-//
 // Use this API to stop AP packet capture or streaming
 //
-// Required Parameters:
+// Operation ID: addApsApPacketCaptureStopByApMac
+// Operation path: /aps/{apMac}/apPacketCapture/stop
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -248,11 +256,13 @@ func (s *WSGAccessPointOperationalService) AddApsApPacketCaptureStopByApMac(ctx 
 
 // AddApsOperationalBlinkLedByApMac
 //
-// Operation ID: addApsOperationalBlinkLedByApMac
-//
 // use this API to make ap blink its led to show its position.
 //
-// Required Parameters:
+// Operation ID: addApsOperationalBlinkLedByApMac
+// Operation path: /aps/{apMac}/operational/blinkLed
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -279,43 +289,47 @@ func (s *WSGAccessPointOperationalService) AddApsOperationalBlinkLedByApMac(ctx 
 
 // AddApsSwitchoverCluster
 //
-// Operation ID: addApsSwitchoverCluster
-//
 // Use this API command to switchover AP to another cluster
 //
-// Request Body:
+// Operation ID: addApsSwitchoverCluster
+// Operation path: /aps/switchoverCluster
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGAPSwitchoverAP
-func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.Context, body *WSGAPSwitchoverAP, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGAccessPointOperationalService) AddApsSwitchoverCluster(ctx context.Context, body *WSGAPSwitchoverAP, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteWSGAddApsSwitchoverCluster, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindApByQueryCriteria
 //
-// Operation ID: findApByQueryCriteria
-//
 // Query APs with specified filters
 //
-// Request Body:
+// Operation ID: findApByQueryCriteria
+// Operation path: /query/ap
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGAPQueryQueryCriteria
 func (s *WSGAccessPointOperationalService) FindApByQueryCriteria(ctx context.Context, body *WSGAPQueryQueryCriteria, mutators ...RequestMutator) (*WSGAPQueryListAPIResponse, error) {
 	var (
@@ -343,11 +357,13 @@ func (s *WSGAccessPointOperationalService) FindApByQueryCriteria(ctx context.Con
 
 // FindApsApPacketCaptureByApMac
 //
-// Operation ID: findApsApPacketCaptureByApMac
-//
 // Use this API to get AP packet capture status
 //
-// Required Parameters:
+// Operation ID: findApsApPacketCaptureByApMac
+// Operation path: /aps/{apMac}/apPacketCapture
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGAPPackCaptureApPacketCaptureResAPIResponse, error) {
@@ -373,15 +389,17 @@ func (s *WSGAccessPointOperationalService) FindApsApPacketCaptureByApMac(ctx con
 
 // FindApsOperationalNeighborByApMac
 //
-// Operation ID: findApsOperationalNeighborByApMac
-//
 // Use this API command to retrieve a list of neighbor access points on mesh AP.
 //
-// Required Parameters:
+// Operation ID: findApsOperationalNeighborByApMac
+// Operation path: /aps/{apMac}/operational/neighbor
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 //
-// Optional Parameters:
+// Optional parameters:
 // - index string
 //		- nullable
 // - listSize string
@@ -415,11 +433,13 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalNeighborByApMac(ctx
 
 // FindApsOperationalSummaryByApMac
 //
-// Operation ID: findApsOperationalSummaryByApMac
-//
 // s API provide detailed AP status and configuration, therefore it was designed for single AP information retrieving. If you need to retrieve large number of ap states, please use "POST://query/ap" (refer to the "Query APs" section of the category "Access Point Operational").
 //
-// Required Parameters:
+// Operation ID: findApsOperationalSummaryByApMac
+// Operation path: /aps/{apMac}/operational/summary
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGAccessPointOperationalService) FindApsOperationalSummaryByApMac(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGAPOperationalSummaryAPIResponse, error) {
@@ -445,11 +465,13 @@ func (s *WSGAccessPointOperationalService) FindApsOperationalSummaryByApMac(ctx 
 
 // FindApWlanByQueryCriteria
 //
-// Operation ID: findApWlanByQueryCriteria
-//
 // Use this API command to retrieve AP Wlan list with BSSID information by QueryCriteria
 //
-// Request Body:
+// Operation ID: findApWlanByQueryCriteria
+// Operation path: /query/ap/wlan
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAccessPointOperationalService) FindApWlanByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGWLANQueryApWlanBssidQueryListAPIResponse, error) {
 	var (
@@ -477,11 +499,13 @@ func (s *WSGAccessPointOperationalService) FindApWlanByQueryCriteria(ctx context
 
 // FindIndoorMapByQueryCriteria
 //
-// Operation ID: findIndoorMapByQueryCriteria
-//
 // Query indoorMap with specified filters.
 //
-// Request Body:
+// Operation ID: findIndoorMapByQueryCriteria
+// Operation path: /query/indoorMap
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAccessPointOperationalService) FindIndoorMapByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGIndoorMapSummaryListAPIResponse, error) {
 	var (
@@ -509,14 +533,16 @@ func (s *WSGAccessPointOperationalService) FindIndoorMapByQueryCriteria(ctx cont
 
 // FindMeshNeighborByApMacByQueryCriteria
 //
-// Operation ID: findMeshNeighborByApMacByQueryCriteria
-//
 // Use this API command to retrieve a list of neighbor access points on mesh AP.
 //
-// Request Body:
+// Operation ID: findMeshNeighborByApMacByQueryCriteria
+// Operation path: /query/mesh/{apMac}/neighbor
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGAccessPointOperationalService) FindMeshNeighborByApMacByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, apMac string, mutators ...RequestMutator) (*WSGMeshNeighborInfoListAPIResponse, error) {
@@ -546,14 +572,16 @@ func (s *WSGAccessPointOperationalService) FindMeshNeighborByApMacByQueryCriteri
 
 // FindMeshTopologyByApMacByQueryCriteria
 //
-// Operation ID: findMeshTopologyByApMacByQueryCriteria
-//
 // Use this API command to retrieve a list of topology on mesh AP.
 //
-// Request Body:
+// Operation ID: findMeshTopologyByApMacByQueryCriteria
+// Operation path: /query/mesh/{apMac}/topology
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGAccessPointOperationalService) FindMeshTopologyByApMacByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, apMac string, mutators ...RequestMutator) (*WSGMeshNodeInfoArrayAPIResponse, error) {
@@ -583,11 +611,13 @@ func (s *WSGAccessPointOperationalService) FindMeshTopologyByApMacByQueryCriteri
 
 // FindMeshTopologyByQueryCriteria
 //
-// Operation ID: findMeshTopologyByQueryCriteria
-//
 // Use this API command to retrieve a list of topology on zone.
 //
-// Request Body:
+// Operation ID: findMeshTopologyByQueryCriteria
+// Operation path: /query/mesh/topology
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAccessPointOperationalService) FindMeshTopologyByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGMeshNodeInfoListAPIResponse, error) {
 	var (
@@ -615,11 +645,13 @@ func (s *WSGAccessPointOperationalService) FindMeshTopologyByQueryCriteria(ctx c
 
 // FindRoguesInfoListByQueryCriteria
 //
-// Operation ID: findRoguesInfoListByQueryCriteria
-//
 // Use this API command to retrieve a list of rogue access points.
 //
-// Request Body:
+// Operation ID: findRoguesInfoListByQueryCriteria
+// Operation path: /query/roguesInfoList
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGAccessPointOperationalService) FindRoguesInfoListByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*WSGRogueInfoListAPIResponse, error) {
 	var (
@@ -647,11 +679,13 @@ func (s *WSGAccessPointOperationalService) FindRoguesInfoListByQueryCriteria(ctx
 
 // FindSpecificApWlanDetails
 //
-// Operation ID: findSpecificApWlanDetails
-//
 // Fetch detailed information on WLANs associated with a specific AP
 //
-// Required Parameters:
+// Operation ID: findSpecificApWlanDetails
+// Operation path: /aps/{apMac}/wlan
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - apMac string
 //		- required
 func (s *WSGAccessPointOperationalService) FindSpecificApWlanDetails(ctx context.Context, apMac string, mutators ...RequestMutator) (*WSGAccessPointOperationalAccessPointWlansListAPIResponse, error) {

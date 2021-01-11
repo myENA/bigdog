@@ -23,14 +23,16 @@ func (ss *WSGService) WSGHotspot20VenueServiceService() *WSGHotspot20VenueServic
 
 // AddRkszonesHs20VenuesByZoneId
 //
-// Operation ID: addRkszonesHs20VenuesByZoneId
-//
 // Use this API command to create a new Hotspot 2.0 venue profile of a zone.
 //
-// Request Body:
+// Operation ID: addRkszonesHs20VenuesByZoneId
+// Operation path: /rkszones/{zoneId}/hs20/venues
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGPortalServiceCreateHotspot20VenueProfile
 //
-// Required Parameters:
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGHotspot20VenueServiceService) AddRkszonesHs20VenuesByZoneId(ctx context.Context, body *WSGPortalServiceCreateHotspot20VenueProfile, zoneId string, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
@@ -60,26 +62,28 @@ func (s *WSGHotspot20VenueServiceService) AddRkszonesHs20VenuesByZoneId(ctx cont
 
 // DeleteRkszonesHs20VenuesById
 //
-// Operation ID: deleteRkszonesHs20VenuesById
-//
 // Use this API command to delete Hotspot 2.0 venue profile of a zone.
 //
-// Required Parameters:
+// Operation ID: deleteRkszonesHs20VenuesById
+// Operation path: /rkszones/{zoneId}/hs20/venues/{id}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20VenueServiceService) DeleteRkszonesHs20VenuesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGHotspot20VenueServiceService) DeleteRkszonesHs20VenuesById(ctx context.Context, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteRkszonesHs20VenuesById, true)
 	defer recycleAPIRequest(req)
@@ -89,16 +93,18 @@ func (s *WSGHotspot20VenueServiceService) DeleteRkszonesHs20VenuesById(ctx conte
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindRkszonesHs20VenuesById
 //
-// Operation ID: findRkszonesHs20VenuesById
-//
 // Use this API command to retrieve a Hotspot 2.0 venue profile of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesHs20VenuesById
+// Operation path: /rkszones/{zoneId}/hs20/venues/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
@@ -127,11 +133,13 @@ func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesById(ctx context
 
 // FindRkszonesHs20VenuesByZoneId
 //
-// Operation ID: findRkszonesHs20VenuesByZoneId
-//
 // Use this API command to retrieve a list of Hotspot 2.0 venue profile of a zone.
 //
-// Required Parameters:
+// Operation ID: findRkszonesHs20VenuesByZoneId
+// Operation path: /rkszones/{zoneId}/hs20/venues
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - zoneId string
 //		- required
 func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesByZoneId(ctx context.Context, zoneId string, mutators ...RequestMutator) (*WSGPortalServiceListAPIResponse, error) {
@@ -157,11 +165,13 @@ func (s *WSGHotspot20VenueServiceService) FindRkszonesHs20VenuesByZoneId(ctx con
 
 // FindServicesVenueProfileByQueryCriteria
 //
-// Operation ID: findServicesVenueProfileByQueryCriteria
-//
 // Query Venue Profiles with specified filters.
 //
-// Request Body:
+// Operation ID: findServicesVenueProfileByQueryCriteria
+// Operation path: /query/services/venueProfile
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGCommonQueryCriteriaSuperSet
 func (s *WSGHotspot20VenueServiceService) FindServicesVenueProfileByQueryCriteria(ctx context.Context, body *WSGCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -189,40 +199,42 @@ func (s *WSGHotspot20VenueServiceService) FindServicesVenueProfileByQueryCriteri
 
 // PartialUpdateRkszonesHs20VenuesById
 //
-// Operation ID: partialUpdateRkszonesHs20VenuesById
-//
 // Use this API command to modify the configuration on Hotspot 2.0 venue profile of a zone.
 //
-// Request Body:
+// Operation ID: partialUpdateRkszonesHs20VenuesById
+// Operation path: /rkszones/{zoneId}/hs20/venues/{id}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGPortalServiceModifyHotspot20VenueProfile
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - zoneId string
 //		- required
-func (s *WSGHotspot20VenueServiceService) PartialUpdateRkszonesHs20VenuesById(ctx context.Context, body *WSGPortalServiceModifyHotspot20VenueProfile, id string, zoneId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGHotspot20VenueServiceService) PartialUpdateRkszonesHs20VenuesById(ctx context.Context, body *WSGPortalServiceModifyHotspot20VenueProfile, id string, zoneId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateRkszonesHs20VenuesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

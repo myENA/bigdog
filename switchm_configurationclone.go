@@ -23,11 +23,13 @@ func (ss *SwitchMService) SwitchMConfigurationCloneService() *SwitchMConfigurati
 
 // AddCloneConfiguration
 //
-// Operation ID: addCloneConfiguration
-//
 // Use this API command to Get Switch Config.
 //
-// Request Body:
+// Operation ID: addCloneConfiguration
+// Operation path: /cloneConfiguration
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMGroupGetConfigBySwitch
 func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Context, body *SwitchMGroupGetConfigBySwitch, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -55,11 +57,13 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfiguration(ctx context.Con
 
 // AddCloneConfigurationByGroup
 //
-// Operation ID: addCloneConfigurationByGroup
-//
 // Use this API command to Clone Switch Group Config.
 //
-// Request Body:
+// Operation ID: addCloneConfigurationByGroup
+// Operation path: /cloneConfiguration/byGroup
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *SwitchMGroupCloneConfigByGroup
 func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx context.Context, body *SwitchMGroupCloneConfigByGroup, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -87,11 +91,13 @@ func (s *SwitchMConfigurationCloneService) AddCloneConfigurationByGroup(ctx cont
 
 // UpdateCloneConfiguration
 //
-// Operation ID: updateCloneConfiguration
-//
 // Use this API command to Clone Switch Config.
 //
-// Request Body:
+// Operation ID: updateCloneConfiguration
+// Operation path: /cloneConfiguration
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMGroupCloneConfigBySwitch
 func (s *SwitchMConfigurationCloneService) UpdateCloneConfiguration(ctx context.Context, body *SwitchMGroupCloneConfigBySwitch, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (

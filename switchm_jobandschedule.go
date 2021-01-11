@@ -23,11 +23,13 @@ func (ss *SwitchMService) SwitchMJobAndScheduleService() *SwitchMJobAndScheduleS
 
 // AddJob
 //
-// Operation ID: addJob
-//
 // Use this API command to retrieve a list of jobs.
 //
-// Request Body:
+// Operation ID: addJob
+// Operation path: /job
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMJobAndScheduleService) AddJob(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMJobListAPIResponse, error) {
 	var (
@@ -55,9 +57,11 @@ func (s *SwitchMJobAndScheduleService) AddJob(ctx context.Context, body *SwitchM
 
 // DeleteJobSchedule
 //
-// Operation ID: deleteJobSchedule
-//
 // Use this API command to delete a selected schedule.
+//
+// Operation ID: deleteJobSchedule
+// Operation path: /job/schedule
+// Success code: 200 (OK)
 func (s *SwitchMJobAndScheduleService) DeleteJobSchedule(ctx context.Context, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -81,14 +85,16 @@ func (s *SwitchMJobAndScheduleService) DeleteJobSchedule(ctx context.Context, mu
 
 // FindJobByJobId
 //
-// Operation ID: findJobByJobId
-//
 // Use this API command to retrieve a given job.
 //
-// Request Body:
+// Operation ID: findJobByJobId
+// Operation path: /job/{jobId}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 //
-// Required Parameters:
+// Required parameters:
 // - jobId string
 //		- required
 func (s *SwitchMJobAndScheduleService) FindJobByJobId(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, jobId string, mutators ...RequestMutator) (*SwitchMJobAPIResponse, error) {
@@ -117,11 +123,13 @@ func (s *SwitchMJobAndScheduleService) FindJobByJobId(ctx context.Context, body 
 
 // FindJobScheduleByScheduleId
 //
-// Operation ID: findJobScheduleByScheduleId
-//
 // Use this API command to retrieve a given schedule.
 //
-// Required Parameters:
+// Operation ID: findJobScheduleByScheduleId
+// Operation path: /job/schedule/{scheduleId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - scheduleId string
 //		- required
 func (s *SwitchMJobAndScheduleService) FindJobScheduleByScheduleId(ctx context.Context, scheduleId string, mutators ...RequestMutator) (*SwitchMJobScheduleResponseAPIResponse, error) {

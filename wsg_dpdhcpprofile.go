@@ -23,11 +23,13 @@ func (ss *WSGService) WSGDPDHCPProfileService() *WSGDPDHCPProfileService {
 
 // AddDpDhcpProfiles
 //
-// Operation ID: addDpDhcpProfiles
-//
 // Use this API command to create basic DP DHCP profile - basic.
 //
-// Request Body:
+// Operation ID: addDpDhcpProfiles
+// Operation path: /dpDhcpProfiles
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPProfileDpDhcpProfileBasicBO
 func (s *WSGDPDHCPProfileService) AddDpDhcpProfiles(ctx context.Context, body *WSGDPProfileDpDhcpProfileBasicBO, mutators ...RequestMutator) (*WSGDPProfileDpDhcpProfileBasicBOAPIResponse, error) {
 	var (
@@ -55,14 +57,16 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfiles(ctx context.Context, body *W
 
 // AddDpDhcpProfilesDpDhcpProfileHostsById
 //
-// Operation ID: addDpDhcpProfilesDpDhcpProfileHostsById
-//
 // Use this API command to create DP DHCP profile - host.
 //
-// Request Body:
+// Operation ID: addDpDhcpProfilesDpDhcpProfileHostsById
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfileHosts
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPProfileDpDhcpProfileHostBO
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileHostsById(ctx context.Context, body *WSGDPProfileDpDhcpProfileHostBO, id string, mutators ...RequestMutator) (*WSGDPProfileDpDhcpProfileHostBOAPIResponse, error) {
@@ -92,14 +96,16 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileHostsById(ctx co
 
 // AddDpDhcpProfilesDpDhcpProfileOptionSpacesById
 //
-// Operation ID: addDpDhcpProfilesDpDhcpProfileOptionSpacesById
-//
 // Use this API command to create DP DHCP profile - option43 space.
 //
-// Request Body:
+// Operation ID: addDpDhcpProfilesDpDhcpProfileOptionSpacesById
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfileOptionSpaces
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPProfileDpDhcpProfileOptionSpaceBO
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileOptionSpacesById(ctx context.Context, body *WSGDPProfileDpDhcpProfileOptionSpaceBO, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -129,14 +135,16 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileOptionSpacesById
 
 // AddDpDhcpProfilesDpDhcpProfilePoolsById
 //
-// Operation ID: addDpDhcpProfilesDpDhcpProfilePoolsById
-//
 // Use this API command to create DP DHCP profile - pool.
 //
-// Request Body:
+// Operation ID: addDpDhcpProfilesDpDhcpProfilePoolsById
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfilePools
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPProfileDpDhcpProfilePoolBO
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfilePoolsById(ctx context.Context, body *WSGDPProfileDpDhcpProfilePoolBO, id string, mutators ...RequestMutator) (*WSGDPProfileDpDhcpProfilePoolBOAPIResponse, error) {
@@ -166,11 +174,13 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfilePoolsById(ctx co
 
 // DeleteDpDhcpProfiles
 //
-// Operation ID: deleteDpDhcpProfiles
-//
 // Use this API command to delete DP DHCP profiles.
 //
-// Request Body:
+// Operation ID: deleteDpDhcpProfiles
+// Operation path: /dpDhcpProfiles
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPProfileBulkDelete
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfiles(ctx context.Context, body *WSGDPProfileBulkDelete, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -198,11 +208,13 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfiles(ctx context.Context, body
 
 // DeleteDpDhcpProfilesById
 //
-// Operation ID: deleteDpDhcpProfilesById
-//
 // Use this API command to delete DP DHCP profile.
 //
-// Required Parameters:
+// Operation ID: deleteDpDhcpProfilesById
+// Operation path: /dpDhcpProfiles/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesById(ctx context.Context, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -229,11 +241,13 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesById(ctx context.Context, 
 
 // DeleteDpDhcpProfilesDpDhcpProfileHostsByHostId
 //
-// Operation ID: deleteDpDhcpProfilesDpDhcpProfileHostsByHostId
-//
 // Use this API command to delete DP DHCP profile - host.
 //
-// Required Parameters:
+// Operation ID: deleteDpDhcpProfilesDpDhcpProfileHostsByHostId
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfileHosts/{hostId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - hostId string
 //		- required
 // - id string
@@ -263,14 +277,16 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsByHostId
 
 // DeleteDpDhcpProfilesDpDhcpProfileHostsById
 //
-// Operation ID: deleteDpDhcpProfilesDpDhcpProfileHostsById
-//
 // Use this API command to delete DP DHCP profile - hosts.
 //
-// Request Body:
+// Operation ID: deleteDpDhcpProfilesDpDhcpProfileHostsById
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfileHosts
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPProfileBulkDelete
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsById(ctx context.Context, body *WSGDPProfileBulkDelete, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -300,14 +316,16 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsById(ctx
 
 // DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesById
 //
-// Operation ID: deleteDpDhcpProfilesDpDhcpProfileOptionSpacesById
-//
 // Use this API command to delete DP DHCP profile - option43 spaces.
 //
-// Request Body:
+// Operation ID: deleteDpDhcpProfilesDpDhcpProfileOptionSpacesById
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfileOptionSpaces
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPProfileBulkDelete
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesById(ctx context.Context, body *WSGDPProfileBulkDelete, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -337,11 +355,13 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 
 // DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
 //
-// Operation ID: deleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
-//
 // Use this API command to delete DP DHCP profile - option43 space.
 //
-// Required Parameters:
+// Operation ID: deleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfileOptionSpaces/{spaceId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - spaceId string
@@ -371,14 +391,16 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 
 // DeleteDpDhcpProfilesDpDhcpProfilePoolsById
 //
-// Operation ID: deleteDpDhcpProfilesDpDhcpProfilePoolsById
-//
 // Use this API command to delete DP DHCP profile - pools.
 //
-// Request Body:
+// Operation ID: deleteDpDhcpProfilesDpDhcpProfilePoolsById
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfilePools
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPProfileBulkDelete
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsById(ctx context.Context, body *WSGDPProfileBulkDelete, id string, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -408,11 +430,13 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsById(ctx
 
 // DeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 //
-// Operation ID: deleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
-//
 // Use this API command to delete DP DHCP profile - pool.
 //
-// Required Parameters:
+// Operation ID: deleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfilePools/{poolId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - poolId string
@@ -442,9 +466,11 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 
 // FindDpDhcpProfiles
 //
-// Operation ID: findDpDhcpProfiles
-//
 // Use this API command to retrieve DP profile - basic list.
+//
+// Operation ID: findDpDhcpProfiles
+// Operation path: /dpDhcpProfiles
+// Success code: 200 (OK)
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfiles(ctx context.Context, mutators ...RequestMutator) (*WSGDPProfileDpDhcpProfileBasicBOListAPIResponse, error) {
 	var (
 		req      *APIRequest
@@ -467,11 +493,13 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfiles(ctx context.Context, mutato
 
 // FindDpDhcpProfilesById
 //
-// Operation ID: findDpDhcpProfilesById
-//
 // Use this API command to retrieve DP profile - basic.
 //
-// Required Parameters:
+// Operation ID: findDpDhcpProfilesById
+// Operation path: /dpDhcpProfiles/{id}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGDPProfileDpDhcpProfileBasicBOAPIResponse, error) {
@@ -497,11 +525,13 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesById(ctx context.Context, id
 
 // FindDpDhcpProfilesDpDhcpProfileHostsByHostId
 //
-// Operation ID: findDpDhcpProfilesDpDhcpProfileHostsByHostId
-//
 // Use this API command to retrieve DP DHCP profile - host.
 //
-// Required Parameters:
+// Operation ID: findDpDhcpProfilesDpDhcpProfileHostsByHostId
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfileHosts/{hostId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - hostId string
 //		- required
 // - id string
@@ -530,11 +560,13 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsByHostId(c
 
 // FindDpDhcpProfilesDpDhcpProfileHostsById
 //
-// Operation ID: findDpDhcpProfilesDpDhcpProfileHostsById
-//
 // Use this API command to retrieve DP DHCP profile - host list.
 //
-// Required Parameters:
+// Operation ID: findDpDhcpProfilesDpDhcpProfileHostsById
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfileHosts
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGDPProfileDpDhcpProfileHostBOListAPIResponse, error) {
@@ -560,11 +592,13 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsById(ctx c
 
 // FindDpDhcpProfilesDpDhcpProfileOptionSpacesById
 //
-// Operation ID: findDpDhcpProfilesDpDhcpProfileOptionSpacesById
-//
 // Use this API command to retrieve DP DHCP profile - option43 space list.
 //
-// Required Parameters:
+// Operation ID: findDpDhcpProfilesDpDhcpProfileOptionSpacesById
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfileOptionSpaces
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse, error) {
@@ -590,11 +624,13 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByI
 
 // FindDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
 //
-// Operation ID: findDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
-//
 // Use this API command to retrieve DP DHCP profile - option43 space.
 //
-// Required Parameters:
+// Operation ID: findDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfileOptionSpaces/{spaceId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - spaceId string
@@ -623,11 +659,13 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByS
 
 // FindDpDhcpProfilesDpDhcpProfilePoolsById
 //
-// Operation ID: findDpDhcpProfilesDpDhcpProfilePoolsById
-//
 // Use this API command to retrieve DP DHCP profile - pool list.
 //
-// Required Parameters:
+// Operation ID: findDpDhcpProfilesDpDhcpProfilePoolsById
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfilePools
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsById(ctx context.Context, id string, mutators ...RequestMutator) (*WSGDPProfileDpDhcpProfilePoolBOListAPIResponse, error) {
@@ -653,11 +691,13 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsById(ctx c
 
 // FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 //
-// Operation ID: findDpDhcpProfilesDpDhcpProfilePoolsByPoolId
-//
 // Use this API command to retrieve DP DHCP profile - pool.
 //
-// Required Parameters:
+// Operation ID: findDpDhcpProfilesDpDhcpProfilePoolsByPoolId
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfilePools/{poolId}
+// Success code: 200 (OK)
+//
+// Required parameters:
 // - id string
 //		- required
 // - poolId string
@@ -686,14 +726,16 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId(c
 
 // UpdateDpDhcpProfilesById
 //
-// Operation ID: updateDpDhcpProfilesById
-//
 // Use this API command to modify DP DHCP profile - basic.
 //
-// Request Body:
+// Operation ID: updateDpDhcpProfilesById
+// Operation path: /dpDhcpProfiles/{id}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPProfileDpDhcpProfileBasicBO
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesById(ctx context.Context, body *WSGDPProfileDpDhcpProfileBasicBO, id string, mutators ...RequestMutator) (*WSGDPProfileDpDhcpProfileBasicBOAPIResponse, error) {
@@ -723,14 +765,16 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesById(ctx context.Context, 
 
 // UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId
 //
-// Operation ID: updateDpDhcpProfilesDpDhcpProfileHostsByHostId
-//
 // Use this API command to modify DP DHCP profile - host.
 //
-// Request Body:
+// Operation ID: updateDpDhcpProfilesDpDhcpProfileHostsByHostId
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfileHosts/{hostId}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPProfileDpDhcpProfileHostBO
 //
-// Required Parameters:
+// Required parameters:
 // - hostId string
 //		- required
 // - id string
@@ -763,14 +807,16 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId
 
 // UpdateDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
 //
-// Operation ID: updateDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
-//
 // Use this API command to update DP DHCP profile - option43 space.
 //
-// Request Body:
+// Operation ID: updateDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfileOptionSpaces/{spaceId}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPProfileDpDhcpProfileOptionSpaceBO
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - spaceId string
@@ -803,14 +849,16 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileOptionSpacesB
 
 // UpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 //
-// Operation ID: updateDpDhcpProfilesDpDhcpProfilePoolsByPoolId
-//
 // Use this API command to modify DP DHCP profile - pool.
 //
-// Request Body:
+// Operation ID: updateDpDhcpProfilesDpDhcpProfilePoolsByPoolId
+// Operation path: /dpDhcpProfiles/{id}/dpDhcpProfilePools/{poolId}
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGDPProfileDpDhcpProfilePoolBO
 //
-// Required Parameters:
+// Required parameters:
 // - id string
 //		- required
 // - poolId string

@@ -26,11 +26,13 @@ func (ss *SwitchMService) SwitchMPortsService() *SwitchMPortsService {
 
 // AddSwitchPortsDetails
 //
-// Operation ID: addSwitchPortsDetails
-//
 // Use this API command to retrieve all the switch ports and its details currently managed by SmartZone.
 //
-// Request Body:
+// Operation ID: addSwitchPortsDetails
+// Operation path: /switch/ports/details
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMSwitchPortDetailsQueryResultListAPIResponse, error) {
 	var (
@@ -58,45 +60,49 @@ func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *S
 
 // AddSwitchPortsDetailsExport
 //
-// Operation ID: addSwitchPortsDetailsExport
-//
 // Download CSV of Switch Port Details
 //
-// Request Body:
+// Operation ID: addSwitchPortsDetailsExport
+// Operation path: /switch/ports/details/export
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
-func (s *SwitchMPortsService) AddSwitchPortsDetailsExport(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *SwitchMPortsService) AddSwitchPortsDetailsExport(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*FileAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newFileAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPost, RouteSwitchMAddSwitchPortsDetailsExport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "application/x-www-form-urlencoded")
 	req.Header.Set(headerKeyAccept, "*/*")
 	if b, err := json.Marshal(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	} else if err = req.SetBody(bytes.NewBufferString((url.Values{"json": []string{string(b)}}).Encode())); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*FileAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*FileAPIResponse), err
 }
 
 // AddSwitchPortsSummary
 //
-// Operation ID: addSwitchPortsSummary
-//
 // Use this API command to retrieve ports summary based on status, speed of a switch, currently managed by SmartZone.
 //
-// Request Body:
+// Operation ID: addSwitchPortsSummary
+// Operation path: /switch/ports/summary
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *SwitchMCommonQueryCriteriaSuperSet
 func (s *SwitchMPortsService) AddSwitchPortsSummary(ctx context.Context, body *SwitchMCommonQueryCriteriaSuperSet, mutators ...RequestMutator) (*SwitchMSwitchPortsSummaryQueryResultListAPIResponse, error) {
 	var (

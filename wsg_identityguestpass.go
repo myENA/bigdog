@@ -24,11 +24,13 @@ func (ss *WSGService) WSGIdentityGuestPassService() *WSGIdentityGuestPassService
 
 // AddIdentityGuestpassGenerate
 //
-// Operation ID: addIdentityGuestpassGenerate
-//
 // Use this API command to generate identity guest pass.
 //
-// Request Body:
+// Operation ID: addIdentityGuestpassGenerate
+// Operation path: /identity/guestpass/generate
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGIdentityCreateIdentityGuestPass
 func (s *WSGIdentityGuestPassService) AddIdentityGuestpassGenerate(ctx context.Context, body *WSGIdentityCreateIdentityGuestPass, mutators ...RequestMutator) (*WSGCommonCreateResultAPIResponse, error) {
 	var (
@@ -56,11 +58,13 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassGenerate(ctx context.C
 
 // AddIdentityGuestpassList
 //
-// Operation ID: addIdentityGuestpassList
-//
 // Use this API command to retrieve a list of identity guest pass.
 //
-// Request Body:
+// Operation ID: addIdentityGuestpassList
+// Operation path: /identity/guestpassList
+// Success code: 200 (OK)
+//
+// Request body:
 //	 - body *WSGIdentityQueryCriteria
 func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList(ctx context.Context, body *WSGIdentityQueryCriteria, mutators ...RequestMutator) (*WSGIdentityGuestPassListAPIResponse, error) {
 	var (
@@ -88,11 +92,13 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassList(ctx context.Conte
 
 // AddIdentityGuestpassUpload
 //
-// Operation ID: addIdentityGuestpassUpload
-//
 // Use this API command to upload identity guest pass csv file.
 //
-// Form Data Parameters:
+// Operation ID: addIdentityGuestpassUpload
+// Operation path: /identity/guestpass/upload
+// Success code: 200 (OK)
+//
+// Form data parameters:
 // - uploadFile io.Reader
 //		- required
 func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Context, filename string, uploadFile io.Reader, mutators ...RequestMutator) (*RawAPIResponse, error) {
@@ -122,11 +128,13 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUpload(ctx context.Con
 
 // AddIdentityGuestpassUploadCommon
 //
-// Operation ID: addIdentityGuestpassUploadCommon
-//
 // Use this API command to update common identity guest pass settings.
 //
-// Request Body:
+// Operation ID: addIdentityGuestpassUploadCommon
+// Operation path: /identity/guestpass/upload/common
+// Success code: 201 (Created)
+//
+// Request body:
 //	 - body *WSGIdentityImportIdentityGuestPass
 func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx context.Context, body *WSGIdentityImportIdentityGuestPass, mutators ...RequestMutator) (*RawAPIResponse, error) {
 	var (
@@ -154,56 +162,60 @@ func (s *WSGIdentityGuestPassService) AddIdentityGuestpassUploadCommon(ctx conte
 
 // DeleteIdentityGuestpass
 //
-// Operation ID: deleteIdentityGuestpass
-//
 // Use this API command to delete multiple identity guest passes.
 //
-// Request Body:
+// Operation ID: deleteIdentityGuestpass
+// Operation path: /identity/guestpass
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGIdentityDeleteBulk
-func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpass(ctx context.Context, body *WSGIdentityDeleteBulk, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpass(ctx context.Context, body *WSGIdentityDeleteBulk, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityGuestpass, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // DeleteIdentityGuestpassByUserId
 //
-// Operation ID: deleteIdentityGuestpassByUserId
-//
 // Use this API command to delete identity guest pass.
 //
-// Required Parameters:
+// Operation ID: deleteIdentityGuestpassByUserId
+// Operation path: /identity/guestpass/{userId}
+// Success code: 204 (No Content)
+//
+// Required parameters:
 // - userId string
 //		- required
-func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx context.Context, userId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx context.Context, userId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodDelete, RouteWSGDeleteIdentityGuestpassByUserId, true)
 	defer recycleAPIRequest(req)
@@ -212,16 +224,18 @@ func (s *WSGIdentityGuestPassService) DeleteIdentityGuestpassByUserId(ctx contex
 	req.PathParams.Set("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindIdentityGuestpass
 //
-// Operation ID: findIdentityGuestpass
-//
 // Use this API command to retrieve a list of identity guest pass.
 //
-// Optional Parameters:
+// Operation ID: findIdentityGuestpass
+// Operation path: /identity/guestpass
+// Success code: 200 (OK)
+//
+// Optional parameters:
 // - displayName string
 //		- nullable
 // - expirationFrom string
@@ -289,37 +303,39 @@ func (s *WSGIdentityGuestPassService) FindIdentityGuestpass(ctx context.Context,
 
 // PartialUpdateIdentityGuestpassByUserId
 //
-// Operation ID: partialUpdateIdentityGuestpassByUserId
-//
 // Use this API command to modify the configuration of identity guest.
 //
-// Request Body:
+// Operation ID: partialUpdateIdentityGuestpassByUserId
+// Operation path: /identity/guestpass/{userId}
+// Success code: 204 (No Content)
+//
+// Request body:
 //	 - body *WSGIdentityModifyGuestPass
 //
-// Required Parameters:
+// Required parameters:
 // - userId string
 //		- required
-func (s *WSGIdentityGuestPassService) PartialUpdateIdentityGuestpassByUserId(ctx context.Context, body *WSGIdentityModifyGuestPass, userId string, mutators ...RequestMutator) (*RawAPIResponse, error) {
+func (s *WSGIdentityGuestPassService) PartialUpdateIdentityGuestpassByUserId(ctx context.Context, body *WSGIdentityModifyGuestPass, userId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newRawAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req = apiRequestFromPool(http.MethodPatch, RouteWSGPartialUpdateIdentityGuestpassByUserId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
+		return resp.(*EmptyAPIResponse), err
 	}
 	req.PathParams.Set("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*RawAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

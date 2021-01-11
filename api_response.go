@@ -98,6 +98,9 @@ type APIResponseMetaContainer interface {
 type APIResponse interface {
 	APIResponseMetaContainer
 
+	// Err must return the current state error, or nil if beginning state.
+	Err() error
+
 	// Read returns the raw bytes from the HTTP response body.  Once called
 	//
 	// This action is mutually exclusive with Hydrate.
@@ -151,6 +154,14 @@ func (b *RawAPIResponse) cleanupBody() error {
 // ResponseMeta returns a portable meta type
 func (b *RawAPIResponse) ResponseMeta() APIResponseMeta {
 	return b.meta
+}
+
+// Err returns the current state error, if there is one.
+func (b *RawAPIResponse) Err() error {
+	b.mu.Lock()
+	err := b.err
+	b.mu.Unlock()
+	return err
 }
 
 // Read performs a read from the response body. Once this has been called, any Hydrate implementation will fail with an

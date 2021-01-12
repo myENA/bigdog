@@ -195,7 +195,7 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 	var apiErr error
 
 	// todo: do something better here.
-	if strings.HasPrefix(req.URI, "/wsg/") || strings.HasPrefix(req.URI, "/switchm/") {
+	if req.Source == APISourceVSZ {
 		apiErr = new(VSZAPIError)
 	} else {
 		apiErr = new(SCIAPIError)

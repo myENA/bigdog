@@ -11,7 +11,6 @@ import (
 	"net"
 	"net/http"
 	"runtime"
-	"strings"
 	"time"
 )
 

@@ -47,16 +47,11 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskBatchGenUnboundById(ctx conte
 
 		respFn = newWSGDPSKGetDpskResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPSKGetDpskResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesWlansDpskBatchGenUnboundById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGDPSKGetDpskResultAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -89,16 +84,11 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskById(ctx context.Context, bod
 
 		respFn = newWSGDPSKDeleteDpskResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPSKDeleteDpskResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesWlansDpskById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGDPSKDeleteDpskResultAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -132,9 +122,6 @@ func (s *WSGDynamicPSKService) AddRkszonesWlansDpskUploadById(ctx context.Contex
 
 		respFn = newWSGDPSKGetDpskResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPSKGetDpskResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesWlansDpskUploadById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueMultipartFormData)
@@ -169,16 +156,11 @@ func (s *WSGDynamicPSKService) FindDpskByQueryCriteria(ctx context.Context, body
 
 		respFn = newWSGDPSKQueryListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPSKQueryListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindDpskByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGDPSKQueryListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGDPSKQueryListAPIResponse), err
@@ -204,9 +186,6 @@ func (s *WSGDynamicPSKService) FindRkszonesDeleteExpiredDpskByZoneId(ctx context
 
 		respFn = newWSGDPSKDeleteExpiredDpskConfigAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPSKDeleteExpiredDpskConfigAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesDeleteExpiredDpskByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -236,9 +215,6 @@ func (s *WSGDynamicPSKService) FindRkszonesDownloadDpskCsvSample(ctx context.Con
 
 		respFn = newFileAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*FileAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesDownloadDpskCsvSample, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -270,9 +246,6 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskByZoneId(ctx context.Context, zon
 
 		respFn = newWSGDPSKGetDpskInfoListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPSKGetDpskInfoListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesDpskByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -302,9 +275,6 @@ func (s *WSGDynamicPSKService) FindRkszonesDpskEnabledWlansByZoneId(ctx context.
 
 		respFn = newWSGDPSKGetDpskEnabledWlansAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPSKGetDpskEnabledWlansAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesDpskEnabledWlansByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -338,9 +308,6 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskByDpskId(ctx context.Context
 
 		respFn = newWSGDPSKGetDpskInfoListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPSKGetDpskInfoListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesWlansDpskByDpskId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -374,9 +341,6 @@ func (s *WSGDynamicPSKService) FindRkszonesWlansDpskById(ctx context.Context, id
 
 		respFn = newWSGDPSKGetDpskInfoListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPSKGetDpskInfoListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesWlansDpskById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -414,16 +378,11 @@ func (s *WSGDynamicPSKService) PartialUpdateRkszonesWlansDpskByDpskId(ctx contex
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateRkszonesWlansDpskByDpskId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("dpskId", dpskId)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
@@ -455,16 +414,11 @@ func (s *WSGDynamicPSKService) UpdateRkszonesDeleteExpiredDpskByZoneId(ctx conte
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateRkszonesDeleteExpiredDpskByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)

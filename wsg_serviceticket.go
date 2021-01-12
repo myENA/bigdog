@@ -107,16 +107,11 @@ func (s *WSGServiceTicketService) AddServiceTicket(ctx context.Context, body *WS
 
 		respFn = newWSGServiceTicketLoginResponseAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGServiceTicketLoginResponseAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddServiceTicket, false)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGServiceTicketLoginResponseAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceTicketLoginResponseAPIResponse), err
@@ -142,9 +137,6 @@ func (s *WSGServiceTicketService) DeleteServiceTicket(ctx context.Context, servi
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteServiceTicket, false)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")

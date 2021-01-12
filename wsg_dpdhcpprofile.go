@@ -40,16 +40,11 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfiles(ctx context.Context, body *W
 
 		respFn = newWSGDPProfileDpDhcpProfileBasicBOAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileBasicBOAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddDpDhcpProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileBasicBOAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGDPProfileDpDhcpProfileBasicBOAPIResponse), err
@@ -78,16 +73,11 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileHostsById(ctx co
 
 		respFn = newWSGDPProfileDpDhcpProfileHostBOAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileHostBOAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddDpDhcpProfilesDpDhcpProfileHostsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileHostBOAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -117,16 +107,11 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfileOptionSpacesById
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddDpDhcpProfilesDpDhcpProfileOptionSpacesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -156,16 +141,11 @@ func (s *WSGDPDHCPProfileService) AddDpDhcpProfilesDpDhcpProfilePoolsById(ctx co
 
 		respFn = newWSGDPProfileDpDhcpProfilePoolBOAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfilePoolBOAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddDpDhcpProfilesDpDhcpProfilePoolsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfilePoolBOAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -191,16 +171,11 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfiles(ctx context.Context, body
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpDhcpProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*RawAPIResponse), err
@@ -226,9 +201,6 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesById(ctx context.Context, 
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpDhcpProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -261,9 +233,6 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsByHostId
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileHostsByHostId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -298,16 +267,11 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileHostsById(ctx
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileHostsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -337,16 +301,11 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileOptionSpacesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -375,9 +334,6 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfileOptionSpacesB
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -412,16 +368,11 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsById(ctx
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpDhcpProfilesDpDhcpProfilePoolsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -450,9 +401,6 @@ func (s *WSGDPDHCPProfileService) DeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDpDhcpProfilesDpDhcpProfilePoolsByPoolId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -480,9 +428,6 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfiles(ctx context.Context, mutato
 
 		respFn = newWSGDPProfileDpDhcpProfileBasicBOListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileBasicBOListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpDhcpProfiles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -511,9 +456,6 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesById(ctx context.Context, id
 
 		respFn = newWSGDPProfileDpDhcpProfileBasicBOAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileBasicBOAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpDhcpProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -545,9 +487,6 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsByHostId(c
 
 		respFn = newWSGDPProfileDpDhcpProfileHostBOAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileHostBOAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfileHostsByHostId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -578,9 +517,6 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileHostsById(ctx c
 
 		respFn = newWSGDPProfileDpDhcpProfileHostBOListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileHostBOListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfileHostsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -610,9 +546,6 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByI
 
 		respFn = newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfileOptionSpacesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -644,9 +577,6 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfileOptionSpacesByS
 
 		respFn = newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -677,9 +607,6 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsById(ctx c
 
 		respFn = newWSGDPProfileDpDhcpProfilePoolBOListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfilePoolBOListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfilePoolsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -711,9 +638,6 @@ func (s *WSGDPDHCPProfileService) FindDpDhcpProfilesDpDhcpProfilePoolsByPoolId(c
 
 		respFn = newWSGDPProfileDpDhcpProfilePoolBOAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfilePoolBOAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDpDhcpProfilesDpDhcpProfilePoolsByPoolId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -747,16 +671,11 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesById(ctx context.Context, 
 
 		respFn = newWSGDPProfileDpDhcpProfileBasicBOAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileBasicBOAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateDpDhcpProfilesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileBasicBOAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -788,16 +707,11 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileHostsByHostId
 
 		respFn = newWSGDPProfileDpDhcpProfileHostBOAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileHostBOAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateDpDhcpProfilesDpDhcpProfileHostsByHostId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfileHostBOAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("hostId", hostId)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -830,16 +744,11 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfileOptionSpacesB
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateDpDhcpProfilesDpDhcpProfileOptionSpacesBySpaceId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("spaceId", spaceId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -872,16 +781,11 @@ func (s *WSGDPDHCPProfileService) UpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId
 
 		respFn = newWSGDPProfileDpDhcpProfilePoolBOAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfilePoolBOAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateDpDhcpProfilesDpDhcpProfilePoolsByPoolId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGDPProfileDpDhcpProfilePoolBOAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("poolId", poolId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

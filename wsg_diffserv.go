@@ -44,16 +44,11 @@ func (s *WSGDiffServService) AddRkszonesDiffservByZoneId(ctx context.Context, bo
 
 		respFn = newWSGCommonCreateResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGCommonCreateResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesDiffservByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGCommonCreateResultAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -82,9 +77,6 @@ func (s *WSGDiffServService) DeleteRkszonesDiffservById(ctx context.Context, id 
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesDiffservById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -118,9 +110,6 @@ func (s *WSGDiffServService) FindRkszonesDiffservById(ctx context.Context, id st
 
 		respFn = newWSGZoneDiffServConfigurationAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGZoneDiffServConfigurationAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesDiffservById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -151,9 +140,6 @@ func (s *WSGDiffServService) FindRkszonesDiffservByZoneId(ctx context.Context, z
 
 		respFn = newWSGZoneDiffServListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGZoneDiffServListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesDiffservByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -182,16 +168,11 @@ func (s *WSGDiffServService) FindServicesDscpProfileByQueryCriteria(ctx context.
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindServicesDscpProfileByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*RawAPIResponse), err
@@ -222,16 +203,11 @@ func (s *WSGDiffServService) PartialUpdateRkszonesDiffservById(ctx context.Conte
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateRkszonesDiffservById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

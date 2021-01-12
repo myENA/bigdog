@@ -40,16 +40,11 @@ func (s *WSGSCGUserGroupService) AddUserGroups(ctx context.Context, body *WSGSCG
 
 		respFn = newWSGSCGUserGroupAuditIdAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserGroupAuditIdAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddUserGroups, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGSCGUserGroupAuditIdAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGSCGUserGroupAuditIdAPIResponse), err
@@ -74,16 +69,11 @@ func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSG
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteUserGroups, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
@@ -109,9 +99,6 @@ func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 
 		respFn = newWSGSCGUserGroupAuditIdAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserGroupAuditIdAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteUserGroupsByUserGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -141,16 +128,11 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByQueryCriteria(ctx context.Conte
 
 		respFn = newWSGSCGUserGroupListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserGroupListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindUserGroupsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGSCGUserGroupListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGSCGUserGroupListAPIResponse), err
@@ -180,9 +162,6 @@ func (s *WSGSCGUserGroupService) FindUserGroupsByUserGroupId(ctx context.Context
 
 		respFn = newWSGSCGUserGroupAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserGroupAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUserGroupsByUserGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -211,9 +190,6 @@ func (s *WSGSCGUserGroupService) FindUserGroupsCurrentUserPermissionCategories(c
 
 		respFn = newWSGSCGUserGroupPermissionListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserGroupPermissionListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUserGroupsCurrentUserPermissionCategories, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -238,9 +214,6 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRoles(ctx context.Context, mutato
 
 		respFn = newWSGSCGUserGroupRoleLabelValueListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserGroupRoleLabelValueListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUserGroupsRoles, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -273,9 +246,6 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 
 		respFn = newWSGSCGUserGroupPermissionListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserGroupPermissionListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUserGroupsRolesPermissionsByRole, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -311,16 +281,11 @@ func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx contex
 
 		respFn = newWSGSCGUserGroupAuditIdAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserGroupAuditIdAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateUserGroupsByUserGroupId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, headerValueApplicationJSON)
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGSCGUserGroupAuditIdAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("userGroupId", userGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)

@@ -508,16 +508,11 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsByZoneId(ctx context.Context, bod
 
 		respFn = newWSGCommonCreateResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGCommonCreateResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesApgroupsByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGCommonCreateResultAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -548,9 +543,6 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsMembersByApMac(ctx context.Contex
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesApgroupsMembersByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -588,16 +580,11 @@ func (s *WSGAPGroupService) AddRkszonesApgroupsMembersById(ctx context.Context, 
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRkszonesApgroupsMembersById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -627,9 +614,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAltitudeById(ctx context.Conte
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAltitudeById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -663,9 +647,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsApMgmtVlanById(ctx context.Con
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsApMgmtVlanById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -701,9 +682,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsApmodelByModel(ctx context.Con
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsApmodelByModel, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -738,9 +716,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection24ById(ctx
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAutoChannelSelection24ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -774,9 +749,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAutoChannelSelection50ById(ctx
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAutoChannelSelection50ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -810,9 +782,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsAwsVenueById(ctx context.Conte
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsAwsVenueById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -846,9 +815,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsById(ctx context.Context, id s
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -882,9 +848,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsChannelEvaluationIntervalById(
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsChannelEvaluationIntervalById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -918,9 +881,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl24ById(c
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsClientAdmissionControl24ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -954,9 +914,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsClientAdmissionControl50ById(c
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsClientAdmissionControl50ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -990,9 +947,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromNetworkEn
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromNetworkEnabledById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1026,9 +980,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWiredClie
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromWiredClientEnabledById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1062,9 +1013,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsDirectedMulticastFromWirelessC
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsDirectedMulticastFromWirelessClientEnabledById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1098,9 +1046,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationAdditionalInfoById(ctx
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLocationAdditionalInfoById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1134,9 +1079,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationBasedServiceById(ctx c
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLocationBasedServiceById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1170,9 +1112,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLocationById(ctx context.Conte
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLocationById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1206,9 +1145,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsLteBandLockChannelsById(ctx co
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsLteBandLockChannelsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1244,9 +1180,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsMembersByApMac(ctx context.Con
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsMembersByApMac, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1281,9 +1214,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsProtectionMode24ById(ctx conte
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsProtectionMode24ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1317,9 +1247,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRecoverySsidById(ctx context.C
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRecoverySsidById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1353,9 +1280,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRksGreForwardBroadcastById(ctx
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRksGreForwardBroadcastById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1389,9 +1313,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApAggressivenessModeById(
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRogueApAggressivenessModeById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1425,9 +1346,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApJammingThresholdById(ct
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRogueApJammingThresholdById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1461,9 +1379,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsRogueApReportThresholdById(ctx
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsRogueApReportThresholdById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1497,9 +1412,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsVenueProfileById(ctx context.C
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsVenueProfileById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1533,9 +1445,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ById(ctx context.Context
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1569,9 +1478,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelById(ctx context.
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ChannelById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1605,9 +1511,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelRangeById(ctx con
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ChannelRangeById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1641,9 +1544,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24ChannelWidthById(ctx con
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24ChannelWidthById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1677,9 +1577,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi24TxPowerById(ctx context.
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi24TxPowerById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1713,9 +1610,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ById(ctx context.Context
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1749,9 +1643,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50ChannelWidthById(ctx con
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50ChannelWidthById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1785,9 +1676,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelById(ctx co
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50IndoorChannelById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1821,9 +1709,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50IndoorChannelRangeById(c
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50IndoorChannelRangeById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1857,9 +1742,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelById(ctx c
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50OutdoorChannelById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1893,9 +1775,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50OutdoorChannelRangeById(
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50OutdoorChannelRangeById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1929,9 +1808,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWifi50TxPowerById(ctx context.
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWifi50TxPowerById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1965,9 +1841,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup24ById(ctx context.Co
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWlanGroup24ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -2001,9 +1874,6 @@ func (s *WSGAPGroupService) DeleteRkszonesApgroupsWlanGroup50ById(ctx context.Co
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteRkszonesApgroupsWlanGroup50ById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -2039,9 +1909,6 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsApmodelByModel(ctx context.Conte
 
 		respFn = newWSGZoneAPModelApModelAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGZoneAPModelApModelAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesApgroupsApmodelByModel, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2075,9 +1942,6 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsById(ctx context.Context, id str
 
 		respFn = newWSGAPGroupConfigurationAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAPGroupConfigurationAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesApgroupsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2114,9 +1978,6 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsByZoneId(ctx context.Context, zo
 
 		respFn = newWSGAPGroupListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAPGroupListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesApgroupsByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2152,9 +2013,6 @@ func (s *WSGAPGroupService) FindRkszonesApgroupsDefaultByZoneId(ctx context.Cont
 
 		respFn = newWSGAPGroupConfigurationAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAPGroupConfigurationAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindRkszonesApgroupsDefaultByZoneId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2189,16 +2047,11 @@ func (s *WSGAPGroupService) PartialUpdateRkszonesApgroupsById(ctx context.Contex
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateRkszonesApgroupsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -2233,16 +2086,11 @@ func (s *WSGAPGroupService) UpdateRkszonesApgroupsApmodelByModel(ctx context.Con
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateRkszonesApgroupsApmodelByModel, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("model", model)
 	req.PathParams.Set("zoneId", zoneId)
@@ -2276,16 +2124,11 @@ func (s *WSGAPGroupService) UpdateRkszonesApgroupsById(ctx context.Context, body
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateRkszonesApgroupsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

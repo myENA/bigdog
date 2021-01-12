@@ -40,16 +40,11 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport125SwitchSummary(ctx
 
 		respFn = newSCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSwitchDetailsReport125SwitchSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSwitchDetailsReport125switchSummary200ResponseTypeAPIResponse), err
@@ -74,16 +69,11 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport126SwitchResourceUti
 
 		respFn = newSCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSwitchDetailsReport126SwitchResourceUtilization, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSwitchDetailsReport126switchResourceUtilization200ResponseTypeAPIResponse), err
@@ -108,16 +98,11 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport129TopSwitchPortsByT
 
 		respFn = newSCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSwitchDetailsReport129TopSwitchPortsByTrafficChart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSwitchDetailsReport129topSwitchPortsByTrafficChart200ResponseTypeAPIResponse), err
@@ -142,16 +127,11 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport130TopSwitchPortsByT
 
 		respFn = newSCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSwitchDetailsReport130TopSwitchPortsByTrafficTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSwitchDetailsReport130topSwitchPortsByTrafficTable200ResponseTypeAPIResponse), err
@@ -176,16 +156,11 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport131SwitchTrafficTren
 
 		respFn = newSCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSwitchDetailsReport131SwitchTrafficTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSwitchDetailsReport131switchTrafficTrend200ResponseTypeAPIResponse), err
@@ -210,16 +185,11 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport137LldpNeighborTable
 
 		respFn = newSCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSwitchDetailsReport137LldpNeighborTable, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSwitchDetailsReport137lldpNeighborTable200ResponseTypeAPIResponse), err
@@ -244,16 +214,11 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport138SwitchUptimeHisto
 
 		respFn = newSCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSwitchDetailsReport138SwitchUptimeHistory, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSwitchDetailsReport138switchUptimeHistory200ResponseTypeAPIResponse), err
@@ -278,16 +243,11 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport139SwitchDetails(ctx
 
 		respFn = newSCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSwitchDetailsReport139SwitchDetails, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSwitchDetailsReport139switchDetails200ResponseTypeAPIResponse), err
@@ -312,16 +272,11 @@ func (s *SCIDetailsReportsService) ReportSwitchDetailsReport152PerSwitchErrorTre
 
 		respFn = newSCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportSwitchDetailsReport152PerSwitchErrorTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSwitchDetailsReport152perSwitchErrorTrend200ResponseTypeAPIResponse), err

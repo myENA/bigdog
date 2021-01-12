@@ -3,7 +3,6 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"net/http"
@@ -43,16 +42,11 @@ func (s *SwitchMWiredClientsService) AddSwitchClients(ctx context.Context, body 
 
 		respFn = newSwitchMSwitchConnectedDevicesQueryListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMSwitchConnectedDevicesQueryListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchClients, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMSwitchConnectedDevicesQueryListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMSwitchConnectedDevicesQueryListAPIResponse), err
@@ -77,16 +71,11 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAp(ctx context.Context, bod
 
 		respFn = newSwitchMSwitchConnectedAPsQueryListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMSwitchConnectedAPsQueryListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchClientsAp, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMSwitchConnectedAPsQueryListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMSwitchConnectedAPsQueryListAPIResponse), err
@@ -111,17 +100,14 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsAPExport(ctx context.Contex
 
 		respFn = newFileAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*FileAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchClientsAPExport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "application/x-www-form-urlencoded")
 	req.Header.Set(headerKeyAccept, "*/*")
 	if b, err := json.Marshal(body); err != nil {
 		return resp.(*FileAPIResponse), err
-	} else if err = req.SetBody(bytes.NewBufferString((url.Values{"json": []string{string(b)}}).Encode())); err != nil {
-		return resp.(*FileAPIResponse), err
+	} else {
+		req.SetBody(url.Values{"json": []string{string(b)}})
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -147,17 +133,14 @@ func (s *SwitchMWiredClientsService) AddSwitchClientsExport(ctx context.Context,
 
 		respFn = newFileAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*FileAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchClientsExport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "application/x-www-form-urlencoded")
 	req.Header.Set(headerKeyAccept, "*/*")
 	if b, err := json.Marshal(body); err != nil {
 		return resp.(*FileAPIResponse), err
-	} else if err = req.SetBody(bytes.NewBufferString((url.Values{"json": []string{string(b)}}).Encode())); err != nil {
-		return resp.(*FileAPIResponse), err
+	} else {
+		req.SetBody(url.Values{"json": []string{string(b)}})
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)

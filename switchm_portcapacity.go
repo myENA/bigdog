@@ -118,9 +118,6 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model
 
 		respFn = newSwitchMPortCapacityResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMPortCapacityResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindPortCapacity, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")

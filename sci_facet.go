@@ -264,16 +264,11 @@ func (s *SCIFacetService) FacetGetApmacFacet(ctx context.Context, body *SCICommo
 
 		respFn = newSCIFacetGetApmacFacet200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIFacetGetApmacFacet200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIFacetGetApmacFacet, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIFacetGetApmacFacet200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIFacetGetApmacFacet200ResponseTypeAPIResponse), err
@@ -308,16 +303,11 @@ func (s *SCIFacetService) FacetGetFacet(ctx context.Context, body *SCICommonQuer
 
 		respFn = newSCIFacetGetFacet200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIFacetGetFacet200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIFacetGetFacet, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIFacetGetFacet200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("name", name)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -343,16 +333,11 @@ func (s *SCIFacetService) FacetGetSsidFacet(ctx context.Context, body *SCICommon
 
 		respFn = newSCIFacetGetSsidFacet200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIFacetGetSsidFacet200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIFacetGetSsidFacet, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIFacetGetSsidFacet200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIFacetGetSsidFacet200ResponseTypeAPIResponse), err
@@ -377,16 +362,11 @@ func (s *SCIFacetService) FacetGetSwitchesFacet(ctx context.Context, body *SCICo
 
 		respFn = newSCIFacetGetSwitchesFacet200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIFacetGetSwitchesFacet200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIFacetGetSwitchesFacet, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIFacetGetSwitchesFacet200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIFacetGetSwitchesFacet200ResponseTypeAPIResponse), err
@@ -411,16 +391,11 @@ func (s *SCIFacetService) FacetGetSwitchHierarchyFacet(ctx context.Context, body
 
 		respFn = newSCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIFacetGetSwitchHierarchyFacet, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse), err
@@ -445,16 +420,11 @@ func (s *SCIFacetService) FacetGetSystemFacet(ctx context.Context, body *SCIComm
 
 		respFn = newSCIFacetGetSystemFacet200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIFacetGetSystemFacet200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIFacetGetSystemFacet, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SCIFacetGetSystemFacet200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIFacetGetSystemFacet200ResponseTypeAPIResponse), err

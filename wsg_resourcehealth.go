@@ -45,16 +45,11 @@ func (s *WSGResourceHealthService) FindResourceHealthSummaryByQueryCriteria(ctx 
 
 		respFn = newWSGCommonMonitoringSummaryAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGCommonMonitoringSummaryAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindResourceHealthSummaryByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGCommonMonitoringSummaryAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("resource", resource)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)

@@ -1138,16 +1138,11 @@ func (s *WSGSCGUserService) AddUsers(ctx context.Context, body *WSGSCGUserCreate
 
 		respFn = newWSGSCGUserAuditIdAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserAuditIdAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddUsers, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGSCGUserAuditIdAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGSCGUserAuditIdAPIResponse), err
@@ -1172,16 +1167,11 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteUsers, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
@@ -1207,9 +1197,6 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 
 		respFn = newWSGSCGUserAuditIdAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserAuditIdAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteUsersByUserId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1239,16 +1226,11 @@ func (s *WSGSCGUserService) FindUsersByQueryCriteria(ctx context.Context, body *
 
 		respFn = newWSGSCGUserListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindUsersByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGSCGUserListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGSCGUserListAPIResponse), err
@@ -1274,9 +1256,6 @@ func (s *WSGSCGUserService) FindUsersByUserId(ctx context.Context, userId string
 
 		respFn = newWSGSCGUserGetScgUserAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserGetScgUserAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUsersByUserId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1309,16 +1288,11 @@ func (s *WSGSCGUserService) PartialUpdateUsersByUserId(ctx context.Context, body
 
 		respFn = newWSGSCGUserAuditIdAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSCGUserAuditIdAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateUsersByUserId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGSCGUserAuditIdAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)

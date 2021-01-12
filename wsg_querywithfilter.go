@@ -40,16 +40,11 @@ func (s *WSGQueryWithFilterService) FindGgsnGtpcConStatsByQueryCriteria(ctx cont
 
 		respFn = newWSGRACStatsGgsnGtpcConListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGRACStatsGgsnGtpcConListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindGgsnGtpcConStatsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGRACStatsGgsnGtpcConListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGRACStatsGgsnGtpcConListAPIResponse), err
@@ -74,16 +69,11 @@ func (s *WSGQueryWithFilterService) FindGgsnGtpStatsByQueryCriteria(ctx context.
 
 		respFn = newWSGRACStatsGgsnGtpListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGRACStatsGgsnGtpListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindGgsnGtpStatsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGRACStatsGgsnGtpListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGRACStatsGgsnGtpListAPIResponse), err
@@ -108,16 +98,11 @@ func (s *WSGQueryWithFilterService) FindRadiusProxyStatsByQueryCriteria(ctx cont
 
 		respFn = newWSGRACStatsRadiusProxyListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGRACStatsRadiusProxyListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindRadiusProxyStatsByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGRACStatsRadiusProxyListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGRACStatsRadiusProxyListAPIResponse), err

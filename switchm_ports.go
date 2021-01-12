@@ -3,7 +3,6 @@ package bigdog
 // API Version: v9_1
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"net/http"
@@ -43,16 +42,11 @@ func (s *SwitchMPortsService) AddSwitchPortsDetails(ctx context.Context, body *S
 
 		respFn = newSwitchMSwitchPortDetailsQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMSwitchPortDetailsQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchPortsDetails, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMSwitchPortDetailsQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMSwitchPortDetailsQueryResultListAPIResponse), err
@@ -77,17 +71,14 @@ func (s *SwitchMPortsService) AddSwitchPortsDetailsExport(ctx context.Context, b
 
 		respFn = newFileAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*FileAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchPortsDetailsExport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "application/x-www-form-urlencoded")
 	req.Header.Set(headerKeyAccept, "*/*")
 	if b, err := json.Marshal(body); err != nil {
 		return resp.(*FileAPIResponse), err
-	} else if err = req.SetBody(bytes.NewBufferString((url.Values{"json": []string{string(b)}}).Encode())); err != nil {
-		return resp.(*FileAPIResponse), err
+	} else {
+		req.SetBody(url.Values{"json": []string{string(b)}})
 	}
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -113,16 +104,11 @@ func (s *SwitchMPortsService) AddSwitchPortsSummary(ctx context.Context, body *S
 
 		respFn = newSwitchMSwitchPortsSummaryQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMSwitchPortsSummaryQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchPortsSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMSwitchPortsSummaryQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMSwitchPortsSummaryQueryResultListAPIResponse), err

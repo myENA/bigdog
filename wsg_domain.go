@@ -222,16 +222,11 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 
 		respFn = newWSGCommonCreateResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGCommonCreateResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddDomains, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGCommonCreateResultAPIResponse), err
-	}
+	req.SetBody(body)
 	if v, ok := optionalParams["parentDomainId"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("parentDomainId", v)
 	}
@@ -260,9 +255,6 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mut
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteDomainsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -301,9 +293,6 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 
 		respFn = newWSGDomainListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDomainListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDomains, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -351,9 +340,6 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 
 		respFn = newWSGDomainConfigurationAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDomainConfigurationAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDomainsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -386,9 +372,6 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 
 		respFn = newWSGDomainListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDomainListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDomainsByNameByDomainName, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -430,9 +413,6 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 
 		respFn = newWSGDomainListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGDomainListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindDomainsSubdomainById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -480,16 +460,11 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateDomainsById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)

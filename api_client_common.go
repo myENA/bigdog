@@ -124,9 +124,7 @@ func (c *baseClient) do(ctx context.Context, request *APIRequest, authParamName,
 	if c.debug {
 		logMsg := fmt.Sprintf(logDebugAPIRequestPrepFormat, request.ID(), request.Method, request.CompiledURI())
 
-		body := request.Body()
-
-		if body != nil {
+		if request.Body() != nil {
 			logMsg = fmt.Sprintf(logDebugAPIRequestWithBodyFormat, logMsg)
 		} else {
 			logMsg = fmt.Sprintf(logDebugAPIRequestNoBodyFormat, logMsg)

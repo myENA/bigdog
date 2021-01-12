@@ -3,7 +3,6 @@ package bigdog
 // API Version: 1.0.0
 
 import (
-	"bytes"
 	"context"
 	"errors"
 	"io"
@@ -84,16 +83,11 @@ func (s *SCIScheduleService) ScheduleBatchDelete(ctx context.Context, formValues
 
 		respFn = newSCIScheduleBatchDelete200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIScheduleBatchDelete200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIScheduleBatchDelete, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*SCIScheduleBatchDelete200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(formValues)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIScheduleBatchDelete200ResponseTypeAPIResponse), err
@@ -123,16 +117,11 @@ func (s *SCIScheduleService) ScheduleCreateWithRelations(ctx context.Context, fo
 
 		respFn = newSCIModelsScheduleAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsScheduleAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIScheduleCreateWithRelations, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*SCIModelsScheduleAPIResponse), err
-	}
+	req.SetBody(formValues)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsScheduleAPIResponse), err
@@ -154,9 +143,6 @@ func (s *SCIScheduleService) ScheduleExecuteJob(ctx context.Context, mutators ..
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIScheduleExecuteJob, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -192,16 +178,11 @@ func (s *SCIScheduleService) ScheduleUpdateWithRelations(ctx context.Context, fo
 
 		respFn = newSCIModelsScheduleAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsScheduleAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCIScheduleUpdateWithRelations, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*SCIModelsScheduleAPIResponse), err
-	}
+	req.SetBody(formValues)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)

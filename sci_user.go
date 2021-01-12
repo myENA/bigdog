@@ -3,7 +3,6 @@ package bigdog
 // API Version: 1.0.0
 
 import (
-	"bytes"
 	"context"
 	"errors"
 	"io"
@@ -307,16 +306,11 @@ func (s *SCIUserService) UserBatchDelete(ctx context.Context, formValues url.Val
 
 		respFn = newSCIUserBatchDelete200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIUserBatchDelete200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIUserBatchDelete, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*SCIUserBatchDelete200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(formValues)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIUserBatchDelete200ResponseTypeAPIResponse), err
@@ -357,16 +351,11 @@ func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, formValues
 
 		respFn = newSCIModelsUserAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsUserAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIUserCreateWithRelations, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*SCIModelsUserAPIResponse), err
-	}
+	req.SetBody(formValues)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsUserAPIResponse), err
@@ -396,9 +385,6 @@ func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalPa
 
 		respFn = newSCIModelsUserAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsUserAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIUserFindById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -427,9 +413,6 @@ func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mut
 
 		respFn = newSCIUserGetResourceGroupsForUpsert200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIUserGetResourceGroupsForUpsert200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIUserGetResourceGroupsForUpsert, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -458,9 +441,6 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 
 		respFn = newSCIUserGetUsers200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIUserGetUsers200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIUserGetUsers, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -495,16 +475,11 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLogi
 
 		respFn = newSCIUserLoginResponseAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIUserLoginResponseAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIUserLogin, false)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(credentials); err != nil {
-		return resp.(*SCIUserLoginResponseAPIResponse), err
-	}
+	req.SetBody(credentials)
 	if v, ok := optionalParams["include"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("include", v)
 	}
@@ -533,9 +508,6 @@ func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mut
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIUserLogout, false)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -569,16 +541,11 @@ func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *S
 
 		respFn = newSCIModelsFilterAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsFilterAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIUserPrototypeCreateFilters, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(data); err != nil {
-		return resp.(*SCIModelsFilterAPIResponse), err
-	}
+	req.SetBody(data)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -607,9 +574,6 @@ func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodDelete, RouteSCIUserPrototypeDestroyByIdFilters, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -643,9 +607,6 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 
 		respFn = newSCIModelsFilterAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsFilterAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIUserPrototypeFindByIdFilters, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -680,9 +641,6 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 
 		respFn = newSCIUserPrototypegetfilters200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIUserPrototypegetfilters200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIUserPrototypeGetFilters, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -719,9 +677,6 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 
 		respFn = newSCIUserPrototypegetschedules200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIUserPrototypegetschedules200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIUserPrototypeGetSchedules, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -757,16 +712,11 @@ func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data
 
 		respFn = newSCIModelsUserAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsUserAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCIUserPrototypeUpdateAttributes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(data); err != nil {
-		return resp.(*SCIModelsUserAPIResponse), err
-	}
+	req.SetBody(data)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -798,16 +748,11 @@ func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, dat
 
 		respFn = newSCIModelsFilterAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsFilterAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCIUserPrototypeUpdateByIdFilters, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(data); err != nil {
-		return resp.(*SCIModelsFilterAPIResponse), err
-	}
+	req.SetBody(data)
 	req.PathParams.Set("fk", fk)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -851,16 +796,11 @@ func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, formValues
 
 		respFn = newSCIModelsUserAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsUserAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCIUserUpdateWithRelations, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*SCIModelsUserAPIResponse), err
-	}
+	req.SetBody(formValues)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -887,16 +827,11 @@ func (s *SCIUserService) UserValidateCurrentPassword(ctx context.Context, formVa
 
 		respFn = newSCIModelsUserAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsUserAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIUserValidateCurrentPassword, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*SCIModelsUserAPIResponse), err
-	}
+	req.SetBody(formValues)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsUserAPIResponse), err

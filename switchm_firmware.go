@@ -194,16 +194,11 @@ func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *Sw
 
 		respFn = newSwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddFirmware, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse), err
@@ -229,9 +224,6 @@ func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, fi
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddFirmwareUpload, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueMultipartFormData)
@@ -265,9 +257,6 @@ func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Conte
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteFirmwareByVersion, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -294,9 +283,6 @@ func (s *SwitchMFirmwareConfigService) FindFirmware(ctx context.Context, mutator
 
 		respFn = newSwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindFirmware, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -328,16 +314,11 @@ func (s *SwitchMFirmwareConfigService) PartialUpdateFirmwareByVersion(ctx contex
 
 		respFn = newSwitchMFirmwareConfigScheduleIdsAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMFirmwareConfigScheduleIdsAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteSwitchMPartialUpdateFirmwareByVersion, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMFirmwareConfigScheduleIdsAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("version", version)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)

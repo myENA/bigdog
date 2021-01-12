@@ -217,16 +217,11 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesByQueryCriteria
 
 		respFn = newWSGTrafficAnalysisResultsAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindTrafficAnalysisAggregatesByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -261,16 +256,11 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesGroupedByQueryC
 
 		respFn = newWSGTrafficAnalysisResultsAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindTrafficAnalysisAggregatesGroupedByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -305,16 +295,11 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisClientResourceByQueryCrit
 
 		respFn = newWSGTrafficAnalysisResultsAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindTrafficAnalysisClientResourceByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -349,16 +334,11 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisLineRatesByQueryCriteria(
 
 		respFn = newWSGTrafficAnalysisResultsAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGFindTrafficAnalysisLineRatesByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)

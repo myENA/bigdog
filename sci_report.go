@@ -3,7 +3,6 @@ package bigdog
 // API Version: 1.0.0
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
@@ -7318,16 +7317,11 @@ func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues 
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportDownloadReport, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(formValues)
 	req.PathParams.Set("format", format)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -7355,9 +7349,6 @@ func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[st
 
 		respFn = newSCIReportFind200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportFind200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIReportFind, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -7393,9 +7384,6 @@ func (s *SCIReportService) ReportFindById(ctx context.Context, id string, option
 
 		respFn = newSCIModelsReportAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsReportAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIReportFindById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -7448,16 +7436,11 @@ func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Val
 
 		respFn = newSCIReportGetData200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportGetData200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportGetData, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*SCIReportGetData200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(formValues)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("sectionId", sectionId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
@@ -7479,9 +7462,6 @@ func (s *SCIReportService) ReportLatestIngestedTime(ctx context.Context, mutator
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIReportLatestIngestedTime, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -7514,9 +7494,6 @@ func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id st
 
 		respFn = newSCIReportPrototypegetsections200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportPrototypegetsections200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIReportPrototypeGetSections, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -7550,9 +7527,6 @@ func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentNa
 
 		respFn = newSCIReportWithRelationsAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIReportWithRelationsAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIReportWithRelations, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")

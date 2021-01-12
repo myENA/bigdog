@@ -40,16 +40,11 @@ func (s *SwitchMTopReportsService) AddSwitchTopByFirmware(ctx context.Context, b
 
 		respFn = newSwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchTopByFirmware, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse), err
@@ -74,16 +69,11 @@ func (s *SwitchMTopReportsService) AddSwitchTopByModel(ctx context.Context, body
 
 		respFn = newSwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddSwitchTopByModel, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse), err

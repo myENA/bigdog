@@ -655,16 +655,11 @@ func (s *SwitchMTrafficService) AddTrafficTopPoeutilization(ctx context.Context,
 
 		respFn = newSwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTopPoeutilization, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTrafficTopSwitchPoEUtilizationQueryResultListAPIResponse), err
@@ -689,16 +684,11 @@ func (s *SwitchMTrafficService) AddTrafficTopPorterror(ctx context.Context, body
 
 		respFn = newSwitchMTrafficTopPortErrorQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMTrafficTopPortErrorQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTopPorterror, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMTrafficTopPortErrorQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTrafficTopPortErrorQueryResultListAPIResponse), err
@@ -723,16 +713,11 @@ func (s *SwitchMTrafficService) AddTrafficTopPortusage(ctx context.Context, body
 
 		respFn = newSwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTopPortusage, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTrafficTopPortTrafficUsageQueryResultListAPIResponse), err
@@ -757,16 +742,11 @@ func (s *SwitchMTrafficService) AddTrafficTopUsage(ctx context.Context, body *Sw
 
 		respFn = newSwitchMTrafficTopTrafficUsageQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTopUsage, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTrafficTopTrafficUsageQueryResultListAPIResponse), err
@@ -791,16 +771,11 @@ func (s *SwitchMTrafficService) AddTrafficTotalBroadcast(ctx context.Context, bo
 
 		respFn = newSwitchMTrafficBroadcastQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMTrafficBroadcastQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTotalBroadcast, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMTrafficBroadcastQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTrafficBroadcastQueryResultListAPIResponse), err
@@ -825,16 +800,11 @@ func (s *SwitchMTrafficService) AddTrafficTotalMulticast(ctx context.Context, bo
 
 		respFn = newSwitchMTrafficMulticastQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMTrafficMulticastQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTotalMulticast, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMTrafficMulticastQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTrafficMulticastQueryResultListAPIResponse), err
@@ -859,16 +829,11 @@ func (s *SwitchMTrafficService) AddTrafficTotalPorterror(ctx context.Context, bo
 
 		respFn = newSwitchMTrafficPortErrorQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMTrafficPortErrorQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTotalPorterror, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMTrafficPortErrorQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTrafficPortErrorQueryResultListAPIResponse), err
@@ -893,16 +858,11 @@ func (s *SwitchMTrafficService) AddTrafficTotalTrend(ctx context.Context, body *
 
 		respFn = newSwitchMTrafficQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMTrafficQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTotalTrend, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMTrafficQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTrafficQueryResultListAPIResponse), err
@@ -927,16 +887,11 @@ func (s *SwitchMTrafficService) AddTrafficTotalUnicast(ctx context.Context, body
 
 		respFn = newSwitchMTrafficUnicastQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMTrafficUnicastQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddTrafficTotalUnicast, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMTrafficUnicastQueryResultListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTrafficUnicastQueryResultListAPIResponse), err

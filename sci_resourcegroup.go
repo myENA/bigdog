@@ -3,7 +3,6 @@ package bigdog
 // API Version: 1.0.0
 
 import (
-	"bytes"
 	"context"
 	"errors"
 	"io"
@@ -121,16 +120,11 @@ func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, 
 
 		respFn = newSCIResourceGroupBatchDelete200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIResourceGroupBatchDelete200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIResourceGroupBatchDelete, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(bytes.NewBufferString(formValues.Encode())); err != nil {
-		return resp.(*SCIResourceGroupBatchDelete200ResponseTypeAPIResponse), err
-	}
+	req.SetBody(formValues)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIResourceGroupBatchDelete200ResponseTypeAPIResponse), err
@@ -155,16 +149,11 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data 
 
 		respFn = newSCIModelsResourceGroupAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsResourceGroupAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCIResourceGroupCreate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(data); err != nil {
-		return resp.(*SCIModelsResourceGroupAPIResponse), err
-	}
+	req.SetBody(data)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsResourceGroupAPIResponse), err
@@ -190,9 +179,6 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 
 		respFn = newSCIResourceGroupFind200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIResourceGroupFind200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIResourceGroupFind, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -228,9 +214,6 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 
 		respFn = newSCIModelsResourceGroupAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsResourceGroupAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIResourceGroupFindById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -266,16 +249,11 @@ func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx con
 
 		respFn = newSCIModelsResourceGroupAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsResourceGroupAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCIResourceGroupPrototypeUpdateAttributes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(data); err != nil {
-		return resp.(*SCIModelsResourceGroupAPIResponse), err
-	}
+	req.SetBody(data)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)

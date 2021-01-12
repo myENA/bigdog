@@ -38,9 +38,6 @@ func (s *WSGClusterManagementService) AddApPatch(ctx context.Context, mutators .
 
 		respFn = newWSGAdministrationApPatchStatusAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationApPatchStatusAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddApPatch, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -70,9 +67,6 @@ func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, filena
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddApPatchFile, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueMultipartFormData)
@@ -102,9 +96,6 @@ func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context, muta
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddClusterBackup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -134,9 +125,6 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddClusterRestoreById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -163,9 +151,6 @@ func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context
 
 		respFn = newWSGCommonCreateResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGCommonCreateResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddConfigurationBackup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -195,9 +180,6 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddConfigurationRestoreById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -228,9 +210,6 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddConfigurationUpload, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueMultipartFormData)
@@ -260,9 +239,6 @@ func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context, mutators .
 
 		respFn = newWSGAdministrationUpgradeStatusAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationUpgradeStatusAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddUpgrade, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -292,9 +268,6 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, file
 
 		respFn = newWSGAdministrationUpgradeStatusAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationUpgradeStatusAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddUpgradeUpload, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueMultipartFormData)
@@ -328,9 +301,6 @@ func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id 
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteClusterById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -361,9 +331,6 @@ func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Contex
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteConfigurationById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -390,9 +357,6 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context, mutators 
 
 		respFn = newWSGAdministrationApPatchInfoAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationApPatchInfoAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApPatch, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -425,9 +389,6 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 
 		respFn = newWSGAdministrationApPatchHistoryListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationApPatchHistoryListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApPatchHistory, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -461,9 +422,6 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context, mut
 
 		respFn = newWSGAdministrationApPatchStatusAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationApPatchStatusAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApPatchStatus, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -496,9 +454,6 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 
 		respFn = newWSGAdministrationClusterBackupListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationClusterBackupListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindCluster, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -532,9 +487,6 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 
 		respFn = newWSGClusterRedundancySettingsAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGClusterRedundancySettingsAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindClusterGeoRedundancy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -559,9 +511,6 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context, muta
 
 		respFn = newWSGClusterBladeClusterStateAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGClusterBladeClusterStateAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindClusterState, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -592,9 +541,6 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 
 		respFn = newWSGAdministrationConfigurationBackupListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationConfigurationBackupListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindConfiguration, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -633,9 +579,6 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 
 		respFn = newFileAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*FileAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindConfigurationDownload, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -664,9 +607,6 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(
 
 		respFn = newWSGAdministrationAutoExportBackupAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationAutoExportBackupAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindConfigurationSettingsAutoExportBackup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -691,9 +631,6 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 
 		respFn = newWSGAdministrationScheduleBackupAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationScheduleBackupAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindConfigurationSettingsScheduleBackup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -726,9 +663,6 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 
 		respFn = newWSGAdministrationUpgradeHistoryListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationUpgradeHistoryListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUpgradeHistory, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -762,9 +696,6 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context, muta
 
 		respFn = newWSGAdministrationUpgradePatchInfoAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationUpgradePatchInfoAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUpgradePatch, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -789,9 +720,6 @@ func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context, mut
 
 		respFn = newWSGAdministrationUpgradeStatusAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationUpgradeStatusAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUpgradeStatus, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -819,16 +747,11 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExpo
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsAutoExportBackup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
@@ -853,16 +776,11 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsSchedule
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateConfigurationSettingsScheduleBackup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
@@ -887,16 +805,11 @@ func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Con
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateClusterGeoRedundancy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*RawAPIResponse), err

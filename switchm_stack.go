@@ -325,16 +325,11 @@ func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body Swi
 
 		respFn = newSwitchMSwitchStackConfigAuditIdListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMSwitchStackConfigAuditIdListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddStack, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMSwitchStackConfigAuditIdListAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMSwitchStackConfigAuditIdListAPIResponse), err
@@ -360,9 +355,6 @@ func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Contex
 
 		respFn = newSwitchMSwitchStackConfigStackConfigAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMSwitchStackConfigStackConfigAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindStackBySwitchId, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -392,9 +384,6 @@ func (s *SwitchMSwitchStackConfigService) FindStackMemberBySerialNumber(ctx cont
 
 		respFn = newSwitchMSwitchStackConfigListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMSwitchStackConfigListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindStackMemberBySerialNumber, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")

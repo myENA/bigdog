@@ -1704,16 +1704,11 @@ func (s *WSGAdministrationService) AddAdminaaa(ctx context.Context, body *WSGAdm
 
 		respFn = newWSGCommonCreateResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGCommonCreateResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddAdminaaa, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*WSGCommonCreateResultAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGCommonCreateResultAPIResponse), err
@@ -1735,9 +1730,6 @@ func (s *WSGAdministrationService) AddRestart(ctx context.Context, mutators ...R
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddRestart, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1763,9 +1755,6 @@ func (s *WSGAdministrationService) AddShutdown(ctx context.Context, mutators ...
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteWSGAddShutdown, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1795,9 +1784,6 @@ func (s *WSGAdministrationService) DeleteAdminaaaById(ctx context.Context, id st
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteAdminaaaById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -1828,9 +1814,6 @@ func (s *WSGAdministrationService) FindAdminaaa(ctx context.Context, type_ strin
 
 		respFn = newWSGAdministrationRetrieveAdminAAAServerListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationRetrieveAdminAAAServerListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAdminaaa, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1860,9 +1843,6 @@ func (s *WSGAdministrationService) FindAdminaaaById(ctx context.Context, id stri
 
 		respFn = newWSGAdministrationRetrieveAdminAAAServerAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationRetrieveAdminAAAServerAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindAdminaaaById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1888,9 +1868,6 @@ func (s *WSGAdministrationService) FindLicenses(ctx context.Context, mutators ..
 
 		respFn = newWSGAdministrationLicensesListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationLicensesListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindLicenses, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1915,9 +1892,6 @@ func (s *WSGAdministrationService) FindLicenseServer(ctx context.Context, mutato
 
 		respFn = newWSGAdministrationLicenseServerAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationLicenseServerAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindLicenseServer, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1942,9 +1916,6 @@ func (s *WSGAdministrationService) FindLicensesSummary(ctx context.Context, muta
 
 		respFn = newWSGAdministrationLicensesSummaryListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationLicensesSummaryListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindLicensesSummary, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -1969,9 +1940,6 @@ func (s *WSGAdministrationService) FindLicensesSyncLogs(ctx context.Context, mut
 
 		respFn = newWSGAdministrationLicensesSyncLogsListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGAdministrationLicensesSyncLogsListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindLicensesSyncLogs, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -2003,16 +1971,11 @@ func (s *WSGAdministrationService) UpdateAdminaaaById(ctx context.Context, body 
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateAdminaaaById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
@@ -2038,16 +2001,11 @@ func (s *WSGAdministrationService) UpdateLicenseServer(ctx context.Context, body
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateLicenseServer, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
@@ -2069,9 +2027,6 @@ func (s *WSGAdministrationService) UpdateLicensesSync(ctx context.Context, mutat
 
 		respFn = newEmptyAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*EmptyAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateLicensesSync, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")

@@ -116,16 +116,11 @@ func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSyst
 
 		respFn = newSCIModelsSystemAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsSystemAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCISystemCreate, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(data); err != nil {
-		return resp.(*SCIModelsSystemAPIResponse), err
-	}
+	req.SetBody(data)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsSystemAPIResponse), err
@@ -151,9 +146,6 @@ func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, muta
 
 		respFn = newRawAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*RawAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodDelete, RouteSCISystemDeleteById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -184,9 +176,6 @@ func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[st
 
 		respFn = newSCISystemFind200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCISystemFind200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCISystemFind, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -222,9 +211,6 @@ func (s *SCISystemService) SystemFindById(ctx context.Context, id string, option
 
 		respFn = newSCIModelsSystemAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsSystemAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCISystemFindById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -253,9 +239,6 @@ func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...Reque
 
 		respFn = newSCISystemGetSsids200ResponseTypeAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCISystemGetSsids200ResponseTypeAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPost, RouteSCISystemGetSsids, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -288,16 +271,11 @@ func (s *SCISystemService) SystemPrototypeUpdateAttributes(ctx context.Context, 
 
 		respFn = newSCIModelsSystemAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SCIModelsSystemAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceSCI, http.MethodPut, RouteSCISystemPrototypeUpdateAttributes, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(data); err != nil {
-		return resp.(*SCIModelsSystemAPIResponse), err
-	}
+	req.SetBody(data)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)

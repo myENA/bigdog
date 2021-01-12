@@ -127,7 +127,7 @@ type APIRequest struct {
 	Header        http.Header
 
 	id   uint64
-	body io.Reader
+	body interface{}
 	mpw  *multipart.Writer
 }
 
@@ -177,35 +177,11 @@ func (r *APIRequest) ID() uint64 {
 	return r.id
 }
 
-func (r *APIRequest) SetBody(body interface{}) error {
-	// test for reader
-	if ar, ok := body.(io.Reader); ok {
-		r.body = ar
-		return nil
-	}
-
-	// test for raw bytes
-	if b, ok := body.([]byte); ok {
-		r.body = bytes.NewBuffer(b)
-		return nil
-	}
-
-	// test for form data
-	if v, ok := body.(url.Values); ok {
-		r.body = bytes.NewBufferString(v.Encode())
-		return nil
-	}
-
-	// finally, attempt json marshal
-	if b, err := json.Marshal(body); err != nil {
-		return err
-	} else {
-		r.body = bytes.NewBuffer(b)
-		return nil
-	}
+func (r *APIRequest) SetBody(body interface{}) {
+	r.body = body
 }
 
-func (r *APIRequest) Body() io.Reader {
+func (r *APIRequest) Body() interface{} {
 	return r.body
 }
 
@@ -279,10 +255,42 @@ func (r *APIRequest) CompiledURI() string {
 	return uri
 }
 
+func (r *APIRequest) bodyReader() (io.Reader, error) {
+	if r.body == nil {
+		return nil, nil
+	}
+
+	// localize var
+	body := r.body
+
+	// test for reader
+	if ar, ok := body.(io.Reader); ok {
+		return ar, nil
+	}
+
+	// test for raw bytes
+	if b, ok := body.([]byte); ok {
+		return bytes.NewBuffer(b), nil
+	}
+
+	// test for form data
+	if v, ok := body.(url.Values); ok {
+		return bytes.NewBufferString(v.Encode()), nil
+	}
+
+	// finally, attempt json marshal
+	if b, err := json.Marshal(body); err != nil {
+		return nil, fmt.Errorf("error marshalling %T to json: %w", body, err)
+	} else {
+		return bytes.NewBuffer(b), nil
+	}
+}
+
 // ToHTTP will attempt to construct an executable http.request
 func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName, authParamValue string) (*http.Request, error) {
 	var (
 		compiledURL string
+		bodyReader  io.Reader
 		httpRequest *http.Request
 		err         error
 	)
@@ -303,7 +311,11 @@ func (r *APIRequest) ToHTTP(ctx context.Context, addr, pathPrefix, authParamName
 		}
 	}
 
-	if httpRequest, err = http.NewRequest(r.Method, compiledURL, r.Body()); err != nil {
+	if bodyReader, err = r.bodyReader(); err != nil {
+		return nil, fmt.Errorf("error creating reader from body: %w", err)
+	}
+
+	if httpRequest, err = http.NewRequest(r.Method, compiledURL, bodyReader); err != nil {
 		return nil, err
 	}
 

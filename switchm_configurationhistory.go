@@ -37,9 +37,6 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistory(ctx contex
 
 		respFn = newSwitchMDeployLogConfigurationHistoryQueryResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindConfigurationHistory, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -67,16 +64,11 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryByQueryCrit
 
 		respFn = newSwitchMDeployLogConfigurationHistoryQueryResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMFindConfigurationHistoryByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMDeployLogConfigurationHistoryQueryResultAPIResponse), err
@@ -98,9 +90,6 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetail(ctx 
 
 		respFn = newSwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindConfigurationHistoryDetail, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -128,16 +117,11 @@ func (s *SwitchMConfigurationHistoryService) FindConfigurationHistoryDetailByQue
 
 		respFn = newSwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMFindConfigurationHistoryDetailByQueryCriteria, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMDeployLogItemConfigurationHistoryDetailQueryResultAPIResponse), err

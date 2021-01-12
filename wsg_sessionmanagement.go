@@ -122,9 +122,6 @@ func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context,
 
 		respFn = newWSGSessionManagementRuckusSessionsAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*WSGSessionManagementRuckusSessionsAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSessionManagement, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")

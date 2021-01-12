@@ -40,16 +40,11 @@ func (s *SwitchMEventService) AddCustomEvent(ctx context.Context, body *SwitchME
 
 		respFn = newSwitchMEventConfigQueryResponseAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMEventConfigQueryResponseAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddCustomEvent, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMEventConfigQueryResponseAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMEventConfigQueryResponseAPIResponse), err
@@ -75,9 +70,6 @@ func (s *SwitchMEventService) DeleteCustomEventById(ctx context.Context, id stri
 
 		respFn = newSwitchMEventConfigQueryResponseAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMEventConfigQueryResponseAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteCustomEventById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -104,9 +96,6 @@ func (s *SwitchMEventService) FindCustomEvent(ctx context.Context, mutators ...R
 
 		respFn = newSwitchMEventConfigGetEventConfigListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMEventConfigGetEventConfigListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindCustomEvent, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -135,9 +124,6 @@ func (s *SwitchMEventService) FindCustomEventById(ctx context.Context, id string
 
 		respFn = newSwitchMEventConfigAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMEventConfigAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindCustomEventById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -170,16 +156,11 @@ func (s *SwitchMEventService) UpdateCustomEventById(ctx context.Context, body *S
 
 		respFn = newSwitchMEventConfigQueryResponseAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMEventConfigQueryResponseAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateCustomEventById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMEventConfigQueryResponseAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)

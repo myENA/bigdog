@@ -467,16 +467,11 @@ func (s *SwitchMRegistrationRulesService) AddRegistrationRules(ctx context.Conte
 
 		respFn = newSwitchMRegistrationRulesCreateResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMRegistrationRulesCreateResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPost, RouteSwitchMAddRegistrationRules, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMRegistrationRulesCreateResultAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMRegistrationRulesCreateResultAPIResponse), err
@@ -501,16 +496,11 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRules(ctx context.Co
 
 		respFn = newSwitchMRegistrationRulesDeleteMultipleResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMRegistrationRulesDeleteMultipleResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteRegistrationRules, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMRegistrationRulesDeleteMultipleResultAPIResponse), err
-	}
+	req.SetBody(body)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMRegistrationRulesDeleteMultipleResultAPIResponse), err
@@ -536,9 +526,6 @@ func (s *SwitchMRegistrationRulesService) DeleteRegistrationRulesById(ctx contex
 
 		respFn = newSwitchMRegistrationRulesDeleteResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMRegistrationRulesDeleteResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteSwitchMDeleteRegistrationRulesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
@@ -565,9 +552,6 @@ func (s *SwitchMRegistrationRulesService) FindRegistrationRules(ctx context.Cont
 
 		respFn = newSwitchMRegistrationRulesRuleQueryResultListAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMRegistrationRulesRuleQueryResultListAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindRegistrationRules, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
@@ -599,16 +583,11 @@ func (s *SwitchMRegistrationRulesService) UpdateRegistrationRulesById(ctx contex
 
 		respFn = newSwitchMRegistrationRulesModifyResultAPIResponse
 	)
-	if err = ctx.Err(); err != nil {
-		return resp.(*SwitchMRegistrationRulesModifyResultAPIResponse), err
-	}
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteSwitchMUpdateRegistrationRulesById, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
-	if err = req.SetBody(body); err != nil {
-		return resp.(*SwitchMRegistrationRulesModifyResultAPIResponse), err
-	}
+	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)

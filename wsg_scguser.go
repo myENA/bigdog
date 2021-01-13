@@ -1188,14 +1188,14 @@ func (s *WSGSCGUserService) DeleteUsers(ctx context.Context, body *WSGCommonBulk
 // Required parameters:
 // - userId string
 //		- required
-func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId string, mutators ...RequestMutator) (*WSGSCGUserAuditIdAPIResponse, error) {
+func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newWSGSCGUserAuditIdAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteUsersByUserId, true)
 	defer recycleAPIRequest(req)
@@ -1204,7 +1204,7 @@ func (s *WSGSCGUserService) DeleteUsersByUserId(ctx context.Context, userId stri
 	req.PathParams.Set("userId", userId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*WSGSCGUserAuditIdAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindUsersByQueryCriteria

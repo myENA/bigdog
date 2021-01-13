@@ -508,14 +508,14 @@ func (s *WSGIndoorMapService) AddMaps(ctx context.Context, body *WSGIndoorMap, m
 // Required parameters:
 // - indoorMapId string
 //		- required
-func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoorMapId string, mutators ...RequestMutator) (*WSGIndoorMapIndooMapAuditIdAPIResponse, error) {
+func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoorMapId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newWSGIndoorMapIndooMapAuditIdAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteMapsByIndoorMapId, true)
 	defer recycleAPIRequest(req)
@@ -524,7 +524,7 @@ func (s *WSGIndoorMapService) DeleteMapsByIndoorMapId(ctx context.Context, indoo
 	req.PathParams.Set("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*WSGIndoorMapIndooMapAuditIdAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindMaps
@@ -631,14 +631,14 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 // Required parameters:
 // - indoorMapId string
 //		- required
-func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context, body *WSGIndoorMap, indoorMapId string, mutators ...RequestMutator) (*WSGIndoorMapIndooMapAuditIdAPIResponse, error) {
+func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context, body *WSGIndoorMap, indoorMapId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newWSGIndoorMapIndooMapAuditIdAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateMapsByIndoorMapId, true)
 	defer recycleAPIRequest(req)
@@ -648,7 +648,7 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 	req.PathParams.Set("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*WSGIndoorMapIndooMapAuditIdAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // UpdateMapsApsByIndoorMapId
@@ -665,14 +665,14 @@ func (s *WSGIndoorMapService) PartialUpdateMapsByIndoorMapId(ctx context.Context
 // Required parameters:
 // - indoorMapId string
 //		- required
-func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body WSGIndoorMapAccessPointList, indoorMapId string, mutators ...RequestMutator) (*WSGIndoorMapIndooMapAuditIdAPIResponse, error) {
+func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, body WSGIndoorMapAccessPointList, indoorMapId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newWSGIndoorMapIndooMapAuditIdAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPut, RouteWSGUpdateMapsApsByIndoorMapId, true)
 	defer recycleAPIRequest(req)
@@ -682,5 +682,5 @@ func (s *WSGIndoorMapService) UpdateMapsApsByIndoorMapId(ctx context.Context, bo
 	req.PathParams.Set("indoorMapId", indoorMapId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*WSGIndoorMapIndooMapAuditIdAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

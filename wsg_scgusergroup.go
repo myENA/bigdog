@@ -90,14 +90,14 @@ func (s *WSGSCGUserGroupService) DeleteUserGroups(ctx context.Context, body *WSG
 // Required parameters:
 // - userGroupId string
 //		- required
-func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Context, userGroupId string, mutators ...RequestMutator) (*WSGSCGUserGroupAuditIdAPIResponse, error) {
+func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Context, userGroupId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newWSGSCGUserGroupAuditIdAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	req = apiRequestFromPool(APISourceVSZ, http.MethodDelete, RouteWSGDeleteUserGroupsByUserGroupId, true)
 	defer recycleAPIRequest(req)
@@ -106,7 +106,7 @@ func (s *WSGSCGUserGroupService) DeleteUserGroupsByUserGroupId(ctx context.Conte
 	req.PathParams.Set("userGroupId", userGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*WSGSCGUserGroupAuditIdAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }
 
 // FindUserGroupsByQueryCriteria
@@ -272,14 +272,14 @@ func (s *WSGSCGUserGroupService) FindUserGroupsRolesPermissionsByRole(ctx contex
 // Required parameters:
 // - userGroupId string
 //		- required
-func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx context.Context, body *WSGSCGUserPatchScgUserGroup, userGroupId string, mutators ...RequestMutator) (*WSGSCGUserGroupAuditIdAPIResponse, error) {
+func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx context.Context, body *WSGSCGUserPatchScgUserGroup, userGroupId string, mutators ...RequestMutator) (*EmptyAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
 		resp     APIResponse
 		err      error
 
-		respFn = newWSGSCGUserGroupAuditIdAPIResponse
+		respFn = newEmptyAPIResponse
 	)
 	req = apiRequestFromPool(APISourceVSZ, http.MethodPatch, RouteWSGPartialUpdateUserGroupsByUserGroupId, true)
 	defer recycleAPIRequest(req)
@@ -289,5 +289,5 @@ func (s *WSGSCGUserGroupService) PartialUpdateUserGroupsByUserGroupId(ctx contex
 	req.PathParams.Set("userGroupId", userGroupId)
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*WSGSCGUserGroupAuditIdAPIResponse), err
+	return resp.(*EmptyAPIResponse), err
 }

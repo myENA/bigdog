@@ -12,7 +12,6 @@ import (
 )
 
 var (
-	ErrResponseNoBody    = errors.New("response did not have a body")
 	ErrResponseBeingRead = errors.New("response bytes have been either partially or fully read")
 	ErrResponseClosed    = errors.New("response has been closed")
 	ErrResponseHydrated  = errors.New("response bytes have been read via Hydrate call")
@@ -181,14 +180,25 @@ func (b *RawAPIResponse) Read(p []byte) (int, error) {
 	defer b.mu.Unlock()
 
 	// test for prior action
-	if b.err != nil && !errors.Is(b.err, ErrResponseBeingRead) {
-		return 0, b.err
+	if b.err != nil {
+		// if the response body was hydrated into a model, return an EOF to hint to consumers there is nothing left
+		// to read
+		if errors.Is(b.err, ErrResponseHydrated) {
+			return 0, io.EOF
+		}
+		// if the state error is anything other than "in the middle of a read", return it
+		if !errors.Is(b.err, ErrResponseBeingRead) {
+			return 0, b.err
+		}
+
+		// otherwise, allow read to continue
 	}
 
 	// check for body being nil
 	if b.body == nil {
-		b.err = ErrResponseNoBody
-		return 0, ErrResponseNoBody
+		// todo: is a simple EOF sufficient here?  should it be io.ErrUnexpectedEOF?
+		b.err = io.EOF
+		return 0, b.err
 	}
 
 	var (

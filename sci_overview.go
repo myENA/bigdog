@@ -46,13 +46,13 @@ type SCIOverview62overviewDataType struct {
 
 	SessionCount interface{} `json:"sessionCount,omitempty"`
 
-	ShortSessionRatio interface{} `json:"shortSessionRatio,omitempty"`
+	ShortSessionRatio *float64 `json:"shortSessionRatio,omitempty"`
 
 	Total *float64 `json:"total,omitempty"`
 
 	TotalHistory *float64 `json:"totalHistory,omitempty"`
 
-	UserTraffic *float64 `json:"userTraffic,omitempty"`
+	UserTraffic interface{} `json:"userTraffic,omitempty"`
 
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
@@ -1265,7 +1265,7 @@ func MakeSCIOverview97factOverviewData() SCIOverview97factOverviewData {
 type SCIOverview97factOverviewDataType struct {
 	Key *string `json:"key,omitempty"`
 
-	Label *string `json:"label,omitempty"`
+	Label interface{} `json:"label,omitempty"`
 
 	Value *float64 `json:"value,omitempty"`
 

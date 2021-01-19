@@ -431,14 +431,6 @@ func MakeSCIInventorySwitchesReport121topSwitchModelsChartDataType() SCIInventor
 type SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType struct {
 	End *string `json:"end,omitempty"`
 
-	ICX715024P *float64 `json:"ICX7150-24P,omitempty"`
-
-	ICX715048PF *float64 `json:"ICX7150-48PF,omitempty"`
-
-	ICX715048ZP *float64 `json:"ICX7150-48ZP,omitempty"`
-
-	ICX765048ZP *float64 `json:"ICX7650-48ZP,omitempty"`
-
 	Start *string `json:"start,omitempty"`
 
 	SwitchCount *float64 `json:"switchCount,omitempty"`
@@ -459,10 +451,6 @@ func (t *SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType) Unmarsha
 		return err
 	}
 	delete(tmpType.XAdditionalProperties, "end")
-	delete(tmpType.XAdditionalProperties, "ICX7150-24P")
-	delete(tmpType.XAdditionalProperties, "ICX7150-48PF")
-	delete(tmpType.XAdditionalProperties, "ICX7150-48ZP")
-	delete(tmpType.XAdditionalProperties, "ICX7650-48ZP")
 	delete(tmpType.XAdditionalProperties, "start")
 	delete(tmpType.XAdditionalProperties, "switchCount")
 	delete(tmpType.XAdditionalProperties, "switchModel")
@@ -482,18 +470,6 @@ func (t *SCIInventorySwitchesReport121topSwitchModelsChartDataTypeType) MarshalJ
 	}
 	if t.End != nil {
 		tmp["end"] = t.End
-	}
-	if t.ICX715024P != nil {
-		tmp["ICX7150-24P"] = t.ICX715024P
-	}
-	if t.ICX715048PF != nil {
-		tmp["ICX7150-48PF"] = t.ICX715048PF
-	}
-	if t.ICX715048ZP != nil {
-		tmp["ICX7150-48ZP"] = t.ICX715048ZP
-	}
-	if t.ICX765048ZP != nil {
-		tmp["ICX7650-48ZP"] = t.ICX765048ZP
 	}
 	if t.Start != nil {
 		tmp["start"] = t.Start

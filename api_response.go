@@ -49,6 +49,12 @@ func newAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Respons
 	return rm
 }
 
+func newAPIResponseMetaWithCode(req *APIRequest, successCode, errHTTPCode int) APIResponseMeta {
+	rm := newAPIResponseMeta(req, successCode, nil)
+	rm.ResponseCode = errHTTPCode
+	return rm
+}
+
 func (rm APIResponseMeta) ContentType() string {
 	return rm.ResponseHeader.Get(headerKeyContentType)
 }

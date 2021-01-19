@@ -148,6 +148,89 @@ func NewWSGDevicePolicyRule() *WSGDevicePolicyRule {
 	return m
 }
 
+// WSGDevicePolicyDeviceTypeEntry
+//
+// Definition: devicePolicy_deviceTypeEntry
+type WSGDevicePolicyDeviceTypeEntry struct {
+	Id *string `json:"id,omitempty"`
+
+	Name *string `json:"name,omitempty"`
+
+	OsVendors []*WSGDevicePolicyDeviceTypeEntryOsVendorsEntry `json:"osVendors,omitempty"`
+
+	Value *string `json:"value,omitempty"`
+}
+
+func NewWSGDevicePolicyDeviceTypeEntry() *WSGDevicePolicyDeviceTypeEntry {
+	m := new(WSGDevicePolicyDeviceTypeEntry)
+	return m
+}
+
+// WSGDevicePolicyDeviceTypeEntryList
+//
+// Definition: devicePolicy_deviceTypeEntryList
+type WSGDevicePolicyDeviceTypeEntryList struct {
+	FirstIndex *int `json:"firstIndex,omitempty"`
+
+	HasMore *bool `json:"hasMore,omitempty"`
+
+	List []*WSGDevicePolicyDeviceTypeEntry `json:"list,omitempty"`
+
+	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
+
+	TotalCount *int `json:"totalCount,omitempty"`
+}
+
+type WSGDevicePolicyDeviceTypeEntryListAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGDevicePolicyDeviceTypeEntryList
+}
+
+func newWSGDevicePolicyDeviceTypeEntryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(WSGDevicePolicyDeviceTypeEntryListAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGDevicePolicyDeviceTypeEntryListAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGDevicePolicyDeviceTypeEntryList)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
+}
+func NewWSGDevicePolicyDeviceTypeEntryList() *WSGDevicePolicyDeviceTypeEntryList {
+	m := new(WSGDevicePolicyDeviceTypeEntryList)
+	return m
+}
+
+// WSGDevicePolicyDeviceTypeEntryOsVendorsEntry
+//
+// Definition: devicePolicy_deviceTypeEntryOsVendorsEntry
+type WSGDevicePolicyDeviceTypeEntryOsVendorsEntry struct {
+	DeviceTypeValue *string `json:"deviceTypeValue,omitempty"`
+
+	Id *string `json:"id,omitempty"`
+
+	Name *string `json:"name,omitempty"`
+
+	Value *string `json:"value,omitempty"`
+}
+
+func NewWSGDevicePolicyDeviceTypeEntryOsVendorsEntry() *WSGDevicePolicyDeviceTypeEntryOsVendorsEntry {
+	m := new(WSGDevicePolicyDeviceTypeEntryOsVendorsEntry)
+	return m
+}
+
 // WSGDevicePolicyModifyDevicePolicy
 //
 // Definition: devicePolicy_modifyDevicePolicy
@@ -298,6 +381,28 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
+}
+
+// DevicePolicyDeviceTypesList
+//
+// Operation ID: devicePolicyDeviceTypesList
+// Operation path: /devicePolicy/deviceType
+// Success code: 200 (OK)
+func (s *WSGDevicePolicyService) DevicePolicyDeviceTypesList(ctx context.Context, mutators ...RequestMutator) (*WSGDevicePolicyDeviceTypeEntryListAPIResponse, error) {
+	var (
+		req      *APIRequest
+		httpResp *http.Response
+		resp     APIResponse
+		err      error
+
+		respFn = newWSGDevicePolicyDeviceTypeEntryListAPIResponse
+	)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGDevicePolicyDeviceTypesList, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, "*/*")
+	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	return resp.(*WSGDevicePolicyDeviceTypeEntryListAPIResponse), err
 }
 
 // FindRkszonesDevicePolicyById

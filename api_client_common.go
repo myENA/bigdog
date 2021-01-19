@@ -166,6 +166,32 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 			return respFact(req.Source, aerr.ResponseMeta(), nil), aerr
 		}
 
+		// handle some context errors
+
+		// for deadline exceeded errors, return a timeout status code
+		if errors.Is(sourceErr, context.DeadlineExceeded) {
+			if httpResp != nil {
+				cleanupReadCloser(httpResp.Body)
+			}
+			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, http.StatusRequestTimeout), nil), sourceErr
+		}
+
+		// for context cancelled errors, return nginx's 499 Client Closed Request status
+		// 499 : https://httpstatuses.com/499
+		if errors.Is(sourceErr, context.Canceled) {
+			if httpResp != nil {
+				cleanupReadCloser(httpResp.Body)
+			}
+			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, 499), nil), sourceErr
+		}
+
+		// perform one final check here as we sometimes see an http resp with an error carrying an invalid status code
+		if httpResp != nil && httpResp.StatusCode < 100 {
+			cleanupReadCloser(httpResp.Body)
+			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, http.StatusInternalServerError), nil),
+				fmt.Errorf("received invalid response code %d: %w", http.StatusInternalServerError, sourceErr)
+		}
+
 		// otherwise, pass on constructed response and incoming error
 		return respFact(req.Source, newAPIResponseMeta(req, successCode, httpResp), nil), sourceErr
 	}

@@ -158,14 +158,6 @@ func cleanupReadCloser(rc io.ReadCloser) {
 
 func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response, respFact APIResponseFactory, autoHydrate bool, sourceErr error) (APIResponse, error) {
 	if sourceErr != nil {
-		// if the incoming error is from an auth provider, return as-is
-		if aerr, ok := sourceErr.(*APIAuthProviderError); ok && aerr != nil {
-			if httpResp != nil {
-				cleanupReadCloser(httpResp.Body)
-			}
-			return respFact(req.Source, aerr.ResponseMeta(), nil), aerr
-		}
-
 		// handle some context errors
 
 		// for deadline exceeded errors, return a timeout status code
@@ -183,6 +175,14 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 				cleanupReadCloser(httpResp.Body)
 			}
 			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, 499), nil), sourceErr
+		}
+
+		// if the incoming error is from an auth provider, return as-is
+		if aerr, ok := sourceErr.(*APIAuthProviderError); ok && aerr != nil {
+			if httpResp != nil {
+				cleanupReadCloser(httpResp.Body)
+			}
+			return respFact(req.Source, aerr.ResponseMeta(), nil), aerr
 		}
 
 		// perform one final check here as we sometimes see an http resp with an error carrying an invalid status code

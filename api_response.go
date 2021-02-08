@@ -31,7 +31,7 @@ type APIResponseMeta struct {
 func newAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Response) APIResponseMeta {
 	rm := APIResponseMeta{
 		RequestMethod: req.Method,
-		RequestURI:    req.CompiledURI(),
+		RequestURI:    req.URI,
 		SuccessCode:   successCode,
 	}
 	if httpResp != nil {

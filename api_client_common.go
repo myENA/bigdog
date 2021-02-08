@@ -165,7 +165,7 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 			if httpResp != nil {
 				cleanupReadCloser(httpResp.Body)
 			}
-			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, http.StatusRequestTimeout), nil), fmt.Errorf("request took to long to response: %w", context.DeadlineExceeded)
+			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, http.StatusRequestTimeout), nil), sourceErr
 		}
 
 		// for context cancelled errors, return nginx's 499 Client Closed Request status
@@ -174,7 +174,7 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 			if httpResp != nil {
 				cleanupReadCloser(httpResp.Body)
 			}
-			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, 499), nil), fmt.Errorf("request cancelled: %w", context.Canceled)
+			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, 499), nil), sourceErr
 		}
 
 		// if the incoming error is from an auth provider, return as-is

@@ -7,6 +7,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type SwitchMStaticRouteSettingService struct {
@@ -261,6 +262,7 @@ func (s *SwitchMStaticRouteSettingService) AddStaticRoutes(ctx context.Context, 
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -271,8 +273,8 @@ func (s *SwitchMStaticRouteSettingService) AddStaticRoutes(ctx context.Context, 
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMCommonCreateResultAPIResponse), err
 }
 
@@ -290,6 +292,7 @@ func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutes(ctx context.Contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -300,8 +303,8 @@ func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutes(ctx context.Contex
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -320,6 +323,7 @@ func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutesById(ctx context.Co
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -330,8 +334,8 @@ func (s *SwitchMStaticRouteSettingService) DeleteStaticRoutesById(ctx context.Co
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -350,6 +354,7 @@ func (s *SwitchMStaticRouteSettingService) FindStaticRoutesById(ctx context.Cont
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -359,8 +364,8 @@ func (s *SwitchMStaticRouteSettingService) FindStaticRoutesById(ctx context.Cont
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMStaticRouteSettingStaticRouteAPIResponse), err
 }
 
@@ -378,6 +383,7 @@ func (s *SwitchMStaticRouteSettingService) FindStaticRoutesByQueryCriteria(ctx c
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -388,8 +394,8 @@ func (s *SwitchMStaticRouteSettingService) FindStaticRoutesByQueryCriteria(ctx c
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse), err
 }
 
@@ -411,6 +417,7 @@ func (s *SwitchMStaticRouteSettingService) UpdateStaticRoutesById(ctx context.Co
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -422,7 +429,7 @@ func (s *SwitchMStaticRouteSettingService) UpdateStaticRoutesById(ctx context.Co
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }

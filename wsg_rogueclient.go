@@ -7,6 +7,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type WSGRogueClientService struct {
@@ -146,6 +147,7 @@ func (s *WSGRogueClientService) FindRogueclientsByQueryCriteria(ctx context.Cont
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -156,7 +158,7 @@ func (s *WSGRogueClientService) FindRogueclientsByQueryCriteria(ctx context.Cont
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGRogueClientRogueInfoListAPIResponse), err
 }

@@ -8,6 +8,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type WSGAdminSCGService struct {
@@ -639,6 +640,7 @@ func (s *WSGAdminSCGService) FindScgAdminAaaServers(ctx context.Context, mutator
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -647,7 +649,7 @@ func (s *WSGAdminSCGService) FindScgAdminAaaServers(ctx context.Context, mutator
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindScgAdminAaaServers, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdminSCGScgAaaServerAPIResponse), err
 }

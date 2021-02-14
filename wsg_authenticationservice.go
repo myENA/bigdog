@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"net/http"
+	"time"
 )
 
 type WSGAuthenticationServiceService struct {
@@ -35,6 +36,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context,
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -45,8 +47,8 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthAd(ctx context.Context,
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGCommonCreateResultAPIResponse), err
 }
 
@@ -64,6 +66,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -74,8 +77,8 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthHlr(ctx context.Context
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGCommonCreateResultAPIResponse), err
 }
 
@@ -93,6 +96,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -103,8 +107,8 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthLdap(ctx context.Contex
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGCommonCreateResultAPIResponse), err
 }
 
@@ -122,6 +126,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Cont
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -132,8 +137,8 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthRadius(ctx context.Cont
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGCommonCreateResultAPIResponse), err
 }
 
@@ -155,6 +160,7 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Co
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -166,8 +172,8 @@ func (s *WSGAuthenticationServiceService) AddServicesAuthTestById(ctx context.Co
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -185,6 +191,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -195,8 +202,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuth(ctx context.Context
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -215,6 +222,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.C
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -225,8 +233,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthAdById(ctx context.C
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -245,6 +253,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Con
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -255,8 +264,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthById(ctx context.Con
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -275,6 +284,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -285,8 +295,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthHlrById(ctx context.
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -305,6 +315,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -315,8 +326,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthLdapById(ctx context
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -335,6 +346,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx conte
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -345,8 +357,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusById(ctx conte
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -365,6 +377,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -375,8 +388,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusSecondaryById(
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -395,6 +408,7 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimary
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -405,8 +419,8 @@ func (s *WSGAuthenticationServiceService) DeleteServicesAuthRadiusStandbyPrimary
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -424,6 +438,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAaaServerAuthByQueryCriter
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -434,8 +449,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAaaServerAuthByQueryCriter
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAAAServerQueryListAPIResponse), err
 }
 
@@ -450,6 +465,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -458,8 +474,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAd(ctx context.Context
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthAd, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceActiveDirectoryServiceListAPIResponse), err
 }
 
@@ -478,6 +494,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Con
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -487,8 +504,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdById(ctx context.Con
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceActiveDirectoryServiceAPIResponse), err
 }
 
@@ -506,6 +523,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdByQueryCriteria(ctx 
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -516,8 +534,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthAdByQueryCriteria(ctx 
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceActiveDirectoryServiceListAPIResponse), err
 }
 
@@ -535,6 +553,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx co
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -545,8 +564,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthByQueryCriteria(ctx co
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceCommonAuthenticationServiceListAPIResponse), err
 }
 
@@ -565,6 +584,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -574,8 +594,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthGuestById(ctx context.
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceCommonAuthenticationServiceAPIResponse), err
 }
 
@@ -590,6 +610,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -598,8 +619,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlr(ctx context.Contex
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthHlr, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceHlrServiceListAPIResponse), err
 }
 
@@ -618,6 +639,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Co
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -627,8 +649,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrById(ctx context.Co
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceHlrServiceAPIResponse), err
 }
 
@@ -646,6 +668,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrByQueryCriteria(ctx
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -656,8 +679,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthHlrByQueryCriteria(ctx
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceHlrServiceListAPIResponse), err
 }
 
@@ -672,6 +695,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Conte
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -680,8 +704,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdap(ctx context.Conte
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthLdap, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceLDAPServiceListAPIResponse), err
 }
 
@@ -700,6 +724,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.C
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -709,8 +734,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapById(ctx context.C
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceLDAPServiceAPIResponse), err
 }
 
@@ -728,6 +753,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ct
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -738,8 +764,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLdapByQueryCriteria(ct
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceLDAPServiceListAPIResponse), err
 }
 
@@ -758,6 +784,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLocalDbById(ctx contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -767,8 +794,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthLocalDbById(ctx contex
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceCommonAuthenticationServiceAPIResponse), err
 }
 
@@ -783,6 +810,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Con
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -791,8 +819,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadius(ctx context.Con
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindServicesAuthRadius, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceRadiusAuthenticationServiceListAPIResponse), err
 }
 
@@ -811,6 +839,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -820,8 +849,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusById(ctx context
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceRadiusAuthenticationServiceAPIResponse), err
 }
 
@@ -839,6 +868,7 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -849,8 +879,8 @@ func (s *WSGAuthenticationServiceService) FindServicesAuthRadiusByQueryCriteria(
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGServiceRadiusAuthenticationServiceListAPIResponse), err
 }
 
@@ -872,6 +902,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx co
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -883,8 +914,8 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthAdById(ctx co
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -906,6 +937,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx c
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -917,8 +949,8 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthHlrById(ctx c
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -940,6 +972,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx 
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -951,8 +984,8 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLdapById(ctx 
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -974,6 +1007,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocalDbById(c
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -985,8 +1019,8 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthLocalDbById(c
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -1008,6 +1042,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthRadiusById(ct
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1019,7 +1054,7 @@ func (s *WSGAuthenticationServiceService) PartialUpdateServicesAuthRadiusById(ct
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }

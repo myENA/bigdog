@@ -147,7 +147,7 @@ type SCIAccessTokenProvider interface {
 	// 0. the context provided to the original API call
 	// 1. the current SCI client
 	// 2. the CAS value seen from the calling routine's most recent action (could be from either Current or Invalidate)
-	Refresh(context.Context, *SCIClient, SCIAccessTokenCAS) (SCIAccessTokenCAS, error)
+	Refresh(context.Context, *SCIClient, SCIAccessTokenCAS) (SCIAccessTokenCAS, APIResponseMeta, error)
 
 	// Invalidate will only be called if a 401 is seen after a refresh has been attempted, and should indicate to
 	// the implementor that whatever decoration the authenticator is current using is no longer considered valid by
@@ -158,7 +158,7 @@ type SCIAccessTokenProvider interface {
 	// 0. the context provided to the original API call
 	// 1. the current SCI client
 	// 2. the CAS value seen from the calling routine's most recent action (could be from either Current or Refresh)
-	Invalidate(context.Context, *SCIClient, SCIAccessTokenCAS) (SCIAccessTokenCAS, error)
+	Invalidate(context.Context, *SCIClient, SCIAccessTokenCAS) (SCIAccessTokenCAS, APIResponseMeta, error)
 }
 
 type UsernamePasswordSCIAccessTokenProvider struct {
@@ -209,7 +209,7 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Current() (SCIAccessTokenCAS,
 	return atp.cas, "", NewAPIAuthProviderError(APIResponseMeta{}, ErrAccessTokenRequiresRefresh)
 }
 
-func (atp *UsernamePasswordSCIAccessTokenProvider) Refresh(ctx context.Context, client *SCIClient, cas SCIAccessTokenCAS) (SCIAccessTokenCAS, error) {
+func (atp *UsernamePasswordSCIAccessTokenProvider) Refresh(ctx context.Context, client *SCIClient, cas SCIAccessTokenCAS) (SCIAccessTokenCAS, APIResponseMeta, error) {
 	atp.mu.Lock()
 	defer atp.mu.Unlock()
 
@@ -225,17 +225,17 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Refresh(ctx context.Context, 
 
 	// if client is nil, fail immediately
 	if client == nil {
-		return atp.cas, NewAPIAuthProviderError(loginMeta, ErrAccessTokenClientNil)
+		return atp.cas, loginMeta, NewAPIAuthProviderError(loginMeta, ErrAccessTokenClientNil)
 	}
 
 	// if incoming cas is greater than current cas, assume weirdness
 	if atp.cas < cas {
-		return atp.cas, NewAPIAuthProviderError(loginMeta, fmt.Errorf("%w: provided cas value is greater than possible", ErrAccessTokenCASInvalid))
+		return atp.cas, loginMeta, NewAPIAuthProviderError(loginMeta, fmt.Errorf("%w: provided cas value is greater than possible", ErrAccessTokenCASInvalid))
 	}
 
 	// if stored cas is greater than incoming cas, assume delayed call and return OK
 	if atp.cas > cas {
-		return atp.cas, nil
+		return atp.cas, loginMeta, nil
 	}
 
 	loginRequest = &SCIUserLoginRequest{Username: &username, Password: &password}
@@ -254,14 +254,14 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Refresh(ctx context.Context, 
 		atp.cas = atp.iterateCAS()
 		atp.accessToken = ""
 		atp.expires = time.Time{}
-		return atp.cas, NewAPIAuthProviderError(loginMeta, err)
+		return atp.cas, loginMeta, NewAPIAuthProviderError(loginMeta, err)
 	}
 
 	if loginResponse == nil {
 		atp.cas = atp.iterateCAS()
 		atp.accessToken = ""
 		atp.expires = time.Time{}
-		return atp.cas, NewAPIAuthProviderError(loginMeta, ErrAccessTokenResponseEmpty)
+		return atp.cas, loginMeta, NewAPIAuthProviderError(loginMeta, ErrAccessTokenResponseEmpty)
 	}
 
 	// test if we need to hydrate response
@@ -270,7 +270,7 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Refresh(ctx context.Context, 
 			atp.cas = atp.iterateCAS()
 			atp.accessToken = ""
 			atp.expires = time.Time{}
-			return atp.cas, NewAPIAuthProviderError(loginMeta, fmt.Errorf("%w: error unmarshalling response body: %v", ErrAccessTokenResponseEmpty, err))
+			return atp.cas, loginMeta, NewAPIAuthProviderError(loginMeta, fmt.Errorf("%w: error unmarshalling response body: %v", ErrAccessTokenResponseEmpty, err))
 		}
 	}
 
@@ -278,17 +278,17 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Refresh(ctx context.Context, 
 		atp.cas = atp.iterateCAS()
 		atp.accessToken = ""
 		atp.expires = time.Time{}
-		return atp.cas, NewAPIAuthProviderError(loginMeta, ErrAccessTokenResponseEmpty)
+		return atp.cas, loginMeta, NewAPIAuthProviderError(loginMeta, ErrAccessTokenResponseEmpty)
 	}
 
 	atp.cas = atp.iterateCAS()
 	atp.accessToken = *loginResponse.Data.Id
 	atp.expires = time.Now().Add(atp.sessionTTL)
 
-	return atp.cas, nil
+	return atp.cas, loginMeta, nil
 }
 
-func (atp *UsernamePasswordSCIAccessTokenProvider) Invalidate(ctx context.Context, client *SCIClient, cas SCIAccessTokenCAS) (SCIAccessTokenCAS, error) {
+func (atp *UsernamePasswordSCIAccessTokenProvider) Invalidate(ctx context.Context, client *SCIClient, cas SCIAccessTokenCAS) (SCIAccessTokenCAS, APIResponseMeta, error) {
 	atp.mu.Lock()
 	defer atp.mu.Unlock()
 
@@ -299,11 +299,11 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Invalidate(ctx context.Contex
 	)
 
 	if atp.cas < cas {
-		return atp.cas, NewAPIAuthProviderError(logoutMeta, fmt.Errorf("%w: provided cas value is greater than possible", ErrAccessTokenCASInvalid))
+		return atp.cas, logoutMeta, NewAPIAuthProviderError(logoutMeta, fmt.Errorf("%w: provided cas value is greater than possible", ErrAccessTokenCASInvalid))
 	}
 
 	if atp.cas > cas {
-		return atp.cas, nil
+		return atp.cas, logoutMeta, nil
 	}
 
 	if atp.accessToken != "" {
@@ -320,7 +320,7 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Invalidate(ctx context.Contex
 		atp.expires = time.Time{}
 	}
 
-	return atp.cas, err
+	return atp.cas, logoutMeta, err
 }
 
 func (atp *UsernamePasswordSCIAccessTokenProvider) tokenValid() bool {
@@ -388,11 +388,13 @@ func (c *SCIClient) SCI() *SCIService {
 	return NewSCIService(c)
 }
 
-func (c *SCIClient) Do(ctx context.Context, request *APIRequest, mutators ...RequestMutator) (*http.Response, error) {
+func (c *SCIClient) Do(ctx context.Context, request *APIRequest, mutators ...RequestMutator) (*http.Response, time.Duration, error) {
 	var (
 		cas         SCIAccessTokenCAS
 		accessToken string
 		err         error
+
+		start = time.Now()
 	)
 	if request.Authenticated {
 		if cas, accessToken, err = c.atp.Current(); err != nil {
@@ -400,26 +402,27 @@ func (c *SCIClient) Do(ctx context.Context, request *APIRequest, mutators ...Req
 				c.log.Printf("Error fetching current access token: %v", err)
 			}
 			if !errors.Is(err, ErrAccessTokenRequiresRefresh) {
-				return nil, err
+				return nil, time.Now().Sub(start), err
 			}
 			// always invalidate, just in case...
-			if cas, err = c.atp.Invalidate(ctx, c, cas); err != nil {
+			if cas, _, err = c.atp.Invalidate(ctx, c, cas); err != nil {
 				if c.debug {
 					c.log.Printf("Error invalidating existing access token: %v", err)
 				}
 			}
-			if cas, err = c.atp.Refresh(ctx, c, cas); err != nil {
+			if cas, _, err = c.atp.Refresh(ctx, c, cas); err != nil {
 				if c.debug {
 					c.log.Printf("Error refreshing access token: %v", err)
 				}
-				return nil, err
+				return nil, time.Now().Sub(start), err
 			} else if cas, accessToken, err = c.atp.Current(); err != nil {
 				if c.debug {
 					c.log.Printf("Error fetching current access token after refresh: %v", err)
 				}
-				return nil, err
+				return nil, time.Now().Sub(start), err
 			}
 		}
 	}
-	return c.do(ctx, request, SCIAccessTokenQueryParameter, accessToken, mutators...)
+	resp, err := c.do(ctx, request, SCIAccessTokenQueryParameter, accessToken, mutators...)
+	return resp, time.Now().Sub(start), err
 }

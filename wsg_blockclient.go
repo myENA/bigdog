@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"net/http"
+	"time"
 )
 
 type WSGBlockClientService struct {
@@ -35,6 +36,7 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGPro
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -45,8 +47,8 @@ func (s *WSGBlockClientService) AddBlockClient(ctx context.Context, body *WSGPro
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGProfileCreateResultListAPIResponse), err
 }
 
@@ -68,6 +70,7 @@ func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -79,8 +82,8 @@ func (s *WSGBlockClientService) AddBlockClientByApMacByApMac(ctx context.Context
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("apMac", apMac)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGCommonCreateResultAPIResponse), err
 }
 
@@ -98,6 +101,7 @@ func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSG
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -108,8 +112,8 @@ func (s *WSGBlockClientService) DeleteBlockClient(ctx context.Context, body *WSG
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -128,6 +132,7 @@ func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id st
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -138,8 +143,8 @@ func (s *WSGBlockClientService) DeleteBlockClientById(ctx context.Context, id st
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -158,6 +163,7 @@ func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id stri
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -167,8 +173,8 @@ func (s *WSGBlockClientService) FindBlockClientById(ctx context.Context, id stri
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGProfileBlockClientAPIResponse), err
 }
 
@@ -186,6 +192,7 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -196,8 +203,8 @@ func (s *WSGBlockClientService) FindBlockClientByQueryCriteria(ctx context.Conte
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGProfileBlockClientListAPIResponse), err
 }
 
@@ -216,6 +223,7 @@ func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -225,8 +233,8 @@ func (s *WSGBlockClientService) FindBlockClientByZoneByZoneId(ctx context.Contex
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("zoneId", zoneId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGProfileBlockClientListAPIResponse), err
 }
 
@@ -248,6 +256,7 @@ func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -259,8 +268,8 @@ func (s *WSGBlockClientService) PartialUpdateBlockClientById(ctx context.Context
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -282,6 +291,7 @@ func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body 
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -293,7 +303,7 @@ func (s *WSGBlockClientService) UpdateBlockClientById(ctx context.Context, body 
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }

@@ -7,6 +7,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type SwitchMSyslogServersService struct {
@@ -140,6 +141,7 @@ func (s *SwitchMSyslogServersService) AddGroupSyslogServersByGroupId(ctx context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -151,8 +153,8 @@ func (s *SwitchMSyslogServersService) AddGroupSyslogServersByGroupId(ctx context
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("groupId", groupId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMCommonCreateResultAPIResponse), err
 }
 
@@ -173,6 +175,7 @@ func (s *SwitchMSyslogServersService) DeleteGroupSyslogServersById(ctx context.C
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -184,8 +187,8 @@ func (s *SwitchMSyslogServersService) DeleteGroupSyslogServersById(ctx context.C
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("groupId", groupId)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -204,6 +207,7 @@ func (s *SwitchMSyslogServersService) FindGroupSyslogServersByGroupId(ctx contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -213,8 +217,8 @@ func (s *SwitchMSyslogServersService) FindGroupSyslogServersByGroupId(ctx contex
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("groupId", groupId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMSyslogServersQueryResultAPIResponse), err
 }
 
@@ -238,6 +242,7 @@ func (s *SwitchMSyslogServersService) UpdateGroupSyslogServersById(ctx context.C
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -250,7 +255,7 @@ func (s *SwitchMSyslogServersService) UpdateGroupSyslogServersById(ctx context.C
 	req.SetBody(body)
 	req.PathParams.Set("groupId", groupId)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }

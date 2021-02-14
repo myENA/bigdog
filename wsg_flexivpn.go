@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"net/http"
+	"time"
 )
 
 type WSGFlexiVPNService struct {
@@ -54,6 +55,7 @@ func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -65,8 +67,8 @@ func (s *WSGFlexiVPNService) DeleteRkszonesWlansFlexiVpnProfileById(ctx context.
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -84,6 +86,7 @@ func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria(ctx cont
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -94,7 +97,7 @@ func (s *WSGFlexiVPNService) FindServicesFlexiVpnProfileByQueryCriteria(ctx cont
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGProfileFlexiVpnProfileListAPIResponse), err
 }

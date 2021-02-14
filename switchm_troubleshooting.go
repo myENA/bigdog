@@ -8,6 +8,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type SwitchMTroubleshootingService struct {
@@ -597,6 +598,7 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteClientConnectivity(ct
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -607,8 +609,8 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteClientConnectivity(ct
 	req.Header.Set(headerKeyContentType, "text/plain;charset=UTF-8")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse), err
 }
 
@@ -628,6 +630,7 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemotePing(ctx context.Cont
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -638,8 +641,8 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemotePing(ctx context.Cont
 	req.Header.Set(headerKeyContentType, "text/plain;charset=UTF-8")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTroubleshootingRemoteCommandResponseAPIResponse), err
 }
 
@@ -659,6 +662,7 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteTraceroute(ctx contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -669,8 +673,8 @@ func (s *SwitchMTroubleshootingService) ExecuteSwitchRemoteTraceroute(ctx contex
 	req.Header.Set(headerKeyContentType, "text/plain;charset=UTF-8")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTroubleshootingRemoteCommandResponseAPIResponse), err
 }
 
@@ -689,6 +693,7 @@ func (s *SwitchMTroubleshootingService) FindSupportLogBySwitchId(ctx context.Con
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -698,8 +703,8 @@ func (s *SwitchMTroubleshootingService) FindSupportLogBySwitchId(ctx context.Con
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchId", switchId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMCommonCreateResultAPIResponse), err
 }
 
@@ -718,6 +723,7 @@ func (s *SwitchMTroubleshootingService) FindSupportLogDownloadBySwitchId(ctx con
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -727,8 +733,8 @@ func (s *SwitchMTroubleshootingService) FindSupportLogDownloadBySwitchId(ctx con
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchId", switchId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -747,6 +753,7 @@ func (s *SwitchMTroubleshootingService) FindSupportLogStatusBySwitchId(ctx conte
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -756,7 +763,7 @@ func (s *SwitchMTroubleshootingService) FindSupportLogStatusBySwitchId(ctx conte
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchId", switchId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMTroubleshootingSupportLogStatusAPIResponse), err
 }

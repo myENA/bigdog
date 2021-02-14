@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"net/http"
+	"time"
 )
 
 type WSGRestrictedAPAccessProfileService struct {
@@ -39,6 +40,7 @@ func (s *WSGRestrictedAPAccessProfileService) AddRkszonesRestrictedApAccessProfi
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -50,8 +52,8 @@ func (s *WSGRestrictedAPAccessProfileService) AddRkszonesRestrictedApAccessProfi
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("zoneId", zoneId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGCommonCreateResultAPIResponse), err
 }
 
@@ -69,6 +71,7 @@ func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessPr
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -79,8 +82,8 @@ func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessPr
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -101,6 +104,7 @@ func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessPr
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -112,8 +116,8 @@ func (s *WSGRestrictedAPAccessProfileService) DeleteRkszonesRestrictedApAccessPr
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -134,6 +138,7 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -144,8 +149,8 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGProfileRestrictedApAccessProfileAPIResponse), err
 }
 
@@ -163,6 +168,7 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -173,8 +179,8 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGProfileRestrictedApAccessProfileArrayAPIResponse), err
 }
 
@@ -199,6 +205,7 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -214,8 +221,8 @@ func (s *WSGRestrictedAPAccessProfileService) FindRkszonesRestrictedApAccessProf
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("listSize", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGProfileIdListAPIResponse), err
 }
 
@@ -239,6 +246,7 @@ func (s *WSGRestrictedAPAccessProfileService) UpdateRkszonesRestrictedApAccessPr
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -251,7 +259,7 @@ func (s *WSGRestrictedAPAccessProfileService) UpdateRkszonesRestrictedApAccessPr
 	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }

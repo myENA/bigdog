@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 type SCIInventoryAPsReportService struct {
@@ -712,414 +713,6 @@ func NewSCIInventoryAPsReport51top10ApVersionsChartMetaData() *SCIInventoryAPsRe
 	return m
 }
 
-// SCIInventoryAPsReport52topApsRebootReasonsData
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_52_topApsRebootReasons_Data
-type SCIInventoryAPsReport52topApsRebootReasonsData [][]*SCIInventoryAPsReport52topApsRebootReasonsDataTypeType
-
-func MakeSCIInventoryAPsReport52topApsRebootReasonsData() SCIInventoryAPsReport52topApsRebootReasonsData {
-	m := make(SCIInventoryAPsReport52topApsRebootReasonsData, 0)
-	return m
-}
-
-// SCIInventoryAPsReport52topApsRebootReasonsDataType
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_52_topApsRebootReasons_DataType
-type SCIInventoryAPsReport52topApsRebootReasonsDataType []*SCIInventoryAPsReport52topApsRebootReasonsDataTypeType
-
-func MakeSCIInventoryAPsReport52topApsRebootReasonsDataType() SCIInventoryAPsReport52topApsRebootReasonsDataType {
-	m := make(SCIInventoryAPsReport52topApsRebootReasonsDataType, 0)
-	return m
-}
-
-// SCIInventoryAPsReport52topApsRebootReasonsDataTypeType
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_52_topApsRebootReasons_DataTypeType
-type SCIInventoryAPsReport52topApsRebootReasonsDataTypeType struct {
-	Count *float64 `json:"count,omitempty"`
-
-	End *string `json:"end,omitempty"`
-
-	Reason *string `json:"reason,omitempty"`
-
-	Start *string `json:"start,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIInventoryAPsReport52topApsRebootReasonsDataTypeType) UnmarshalJSON(b []byte) error {
-	type _SCIInventoryAPsReport52topApsRebootReasonsDataTypeType SCIInventoryAPsReport52topApsRebootReasonsDataTypeType
-	tmpType := new(_SCIInventoryAPsReport52topApsRebootReasonsDataTypeType)
-	if err := json.Unmarshal(b, tmpType); err != nil {
-		return err
-	}
-	tmpType.XAdditionalProperties = make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
-		return err
-	}
-	delete(tmpType.XAdditionalProperties, "count")
-	delete(tmpType.XAdditionalProperties, "end")
-	delete(tmpType.XAdditionalProperties, "reason")
-	delete(tmpType.XAdditionalProperties, "start")
-	*t = SCIInventoryAPsReport52topApsRebootReasonsDataTypeType(*tmpType)
-	return nil
-}
-
-func (t *SCIInventoryAPsReport52topApsRebootReasonsDataTypeType) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.Count != nil {
-		tmp["count"] = t.Count
-	}
-	if t.End != nil {
-		tmp["end"] = t.End
-	}
-	if t.Reason != nil {
-		tmp["reason"] = t.Reason
-	}
-	if t.Start != nil {
-		tmp["start"] = t.Start
-	}
-	return json.Marshal(tmp)
-}
-
-func NewSCIInventoryAPsReport52topApsRebootReasonsDataTypeType() *SCIInventoryAPsReport52topApsRebootReasonsDataTypeType {
-	m := new(SCIInventoryAPsReport52topApsRebootReasonsDataTypeType)
-	return m
-}
-
-// SCIInventoryAPsReport52topApsRebootReasonsMetaData
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_52_topApsRebootReasons_MetaData
-type SCIInventoryAPsReport52topApsRebootReasonsMetaData struct {
-	ColorKeys []string `json:"colorKeys,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIInventoryAPsReport52topApsRebootReasonsMetaData) UnmarshalJSON(b []byte) error {
-	type _SCIInventoryAPsReport52topApsRebootReasonsMetaData SCIInventoryAPsReport52topApsRebootReasonsMetaData
-	tmpType := new(_SCIInventoryAPsReport52topApsRebootReasonsMetaData)
-	if err := json.Unmarshal(b, tmpType); err != nil {
-		return err
-	}
-	tmpType.XAdditionalProperties = make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
-		return err
-	}
-	delete(tmpType.XAdditionalProperties, "colorKeys")
-	*t = SCIInventoryAPsReport52topApsRebootReasonsMetaData(*tmpType)
-	return nil
-}
-
-func (t *SCIInventoryAPsReport52topApsRebootReasonsMetaData) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.ColorKeys != nil {
-		tmp["colorKeys"] = t.ColorKeys
-	}
-	return json.Marshal(tmp)
-}
-
-func NewSCIInventoryAPsReport52topApsRebootReasonsMetaData() *SCIInventoryAPsReport52topApsRebootReasonsMetaData {
-	m := new(SCIInventoryAPsReport52topApsRebootReasonsMetaData)
-	return m
-}
-
-// SCIInventoryAPsReport53top10ApsRebootCountsData
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_53_top10ApsRebootCounts_Data
-type SCIInventoryAPsReport53top10ApsRebootCountsData [][]*SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType
-
-func MakeSCIInventoryAPsReport53top10ApsRebootCountsData() SCIInventoryAPsReport53top10ApsRebootCountsData {
-	m := make(SCIInventoryAPsReport53top10ApsRebootCountsData, 0)
-	return m
-}
-
-// SCIInventoryAPsReport53top10ApsRebootCountsDataType
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_53_top10ApsRebootCounts_DataType
-type SCIInventoryAPsReport53top10ApsRebootCountsDataType []*SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType
-
-func MakeSCIInventoryAPsReport53top10ApsRebootCountsDataType() SCIInventoryAPsReport53top10ApsRebootCountsDataType {
-	m := make(SCIInventoryAPsReport53top10ApsRebootCountsDataType, 0)
-	return m
-}
-
-// SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_53_top10ApsRebootCounts_DataTypeType
-type SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType struct {
-	ApMac *string `json:"apMac,omitempty"`
-
-	ApName *string `json:"apName,omitempty"`
-
-	Count *float64 `json:"count,omitempty"`
-
-	End *string `json:"end,omitempty"`
-
-	Start *string `json:"start,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType) UnmarshalJSON(b []byte) error {
-	type _SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType
-	tmpType := new(_SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType)
-	if err := json.Unmarshal(b, tmpType); err != nil {
-		return err
-	}
-	tmpType.XAdditionalProperties = make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
-		return err
-	}
-	delete(tmpType.XAdditionalProperties, "apMac")
-	delete(tmpType.XAdditionalProperties, "apName")
-	delete(tmpType.XAdditionalProperties, "count")
-	delete(tmpType.XAdditionalProperties, "end")
-	delete(tmpType.XAdditionalProperties, "start")
-	*t = SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType(*tmpType)
-	return nil
-}
-
-func (t *SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.ApMac != nil {
-		tmp["apMac"] = t.ApMac
-	}
-	if t.ApName != nil {
-		tmp["apName"] = t.ApName
-	}
-	if t.Count != nil {
-		tmp["count"] = t.Count
-	}
-	if t.End != nil {
-		tmp["end"] = t.End
-	}
-	if t.Start != nil {
-		tmp["start"] = t.Start
-	}
-	return json.Marshal(tmp)
-}
-
-func NewSCIInventoryAPsReport53top10ApsRebootCountsDataTypeType() *SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType {
-	m := new(SCIInventoryAPsReport53top10ApsRebootCountsDataTypeType)
-	return m
-}
-
-// SCIInventoryAPsReport53top10ApsRebootCountsMetaData
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_53_top10ApsRebootCounts_MetaData
-type SCIInventoryAPsReport53top10ApsRebootCountsMetaData struct {
-	ColorKeys []string `json:"colorKeys,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIInventoryAPsReport53top10ApsRebootCountsMetaData) UnmarshalJSON(b []byte) error {
-	type _SCIInventoryAPsReport53top10ApsRebootCountsMetaData SCIInventoryAPsReport53top10ApsRebootCountsMetaData
-	tmpType := new(_SCIInventoryAPsReport53top10ApsRebootCountsMetaData)
-	if err := json.Unmarshal(b, tmpType); err != nil {
-		return err
-	}
-	tmpType.XAdditionalProperties = make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
-		return err
-	}
-	delete(tmpType.XAdditionalProperties, "colorKeys")
-	*t = SCIInventoryAPsReport53top10ApsRebootCountsMetaData(*tmpType)
-	return nil
-}
-
-func (t *SCIInventoryAPsReport53top10ApsRebootCountsMetaData) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.ColorKeys != nil {
-		tmp["colorKeys"] = t.ColorKeys
-	}
-	return json.Marshal(tmp)
-}
-
-func NewSCIInventoryAPsReport53top10ApsRebootCountsMetaData() *SCIInventoryAPsReport53top10ApsRebootCountsMetaData {
-	m := new(SCIInventoryAPsReport53top10ApsRebootCountsMetaData)
-	return m
-}
-
-// SCIInventoryAPsReport54topApAlarmTypesData
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_54_topApAlarmTypes_Data
-type SCIInventoryAPsReport54topApAlarmTypesData [][]*SCIInventoryAPsReport54topApAlarmTypesDataTypeType
-
-func MakeSCIInventoryAPsReport54topApAlarmTypesData() SCIInventoryAPsReport54topApAlarmTypesData {
-	m := make(SCIInventoryAPsReport54topApAlarmTypesData, 0)
-	return m
-}
-
-// SCIInventoryAPsReport54topApAlarmTypesDataType
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_54_topApAlarmTypes_DataType
-type SCIInventoryAPsReport54topApAlarmTypesDataType []*SCIInventoryAPsReport54topApAlarmTypesDataTypeType
-
-func MakeSCIInventoryAPsReport54topApAlarmTypesDataType() SCIInventoryAPsReport54topApAlarmTypesDataType {
-	m := make(SCIInventoryAPsReport54topApAlarmTypesDataType, 0)
-	return m
-}
-
-// SCIInventoryAPsReport54topApAlarmTypesDataTypeType
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_54_topApAlarmTypes_DataTypeType
-type SCIInventoryAPsReport54topApAlarmTypesDataTypeType struct {
-	AlarmType *string `json:"alarmType,omitempty"`
-
-	ApConnectionLost *float64 `json:"apConnectionLost,omitempty"`
-
-	ApRebootBySystem *float64 `json:"apRebootBySystem,omitempty"`
-
-	ApSigningInformation *float64 `json:"apSigningInformation,omitempty"`
-
-	Count *float64 `json:"count,omitempty"`
-
-	End *string `json:"end,omitempty"`
-
-	Start *string `json:"start,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIInventoryAPsReport54topApAlarmTypesDataTypeType) UnmarshalJSON(b []byte) error {
-	type _SCIInventoryAPsReport54topApAlarmTypesDataTypeType SCIInventoryAPsReport54topApAlarmTypesDataTypeType
-	tmpType := new(_SCIInventoryAPsReport54topApAlarmTypesDataTypeType)
-	if err := json.Unmarshal(b, tmpType); err != nil {
-		return err
-	}
-	tmpType.XAdditionalProperties = make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
-		return err
-	}
-	delete(tmpType.XAdditionalProperties, "alarmType")
-	delete(tmpType.XAdditionalProperties, "apConnectionLost")
-	delete(tmpType.XAdditionalProperties, "apRebootBySystem")
-	delete(tmpType.XAdditionalProperties, "apSigningInformation")
-	delete(tmpType.XAdditionalProperties, "count")
-	delete(tmpType.XAdditionalProperties, "end")
-	delete(tmpType.XAdditionalProperties, "start")
-	*t = SCIInventoryAPsReport54topApAlarmTypesDataTypeType(*tmpType)
-	return nil
-}
-
-func (t *SCIInventoryAPsReport54topApAlarmTypesDataTypeType) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.AlarmType != nil {
-		tmp["alarmType"] = t.AlarmType
-	}
-	if t.ApConnectionLost != nil {
-		tmp["apConnectionLost"] = t.ApConnectionLost
-	}
-	if t.ApRebootBySystem != nil {
-		tmp["apRebootBySystem"] = t.ApRebootBySystem
-	}
-	if t.ApSigningInformation != nil {
-		tmp["apSigningInformation"] = t.ApSigningInformation
-	}
-	if t.Count != nil {
-		tmp["count"] = t.Count
-	}
-	if t.End != nil {
-		tmp["end"] = t.End
-	}
-	if t.Start != nil {
-		tmp["start"] = t.Start
-	}
-	return json.Marshal(tmp)
-}
-
-func NewSCIInventoryAPsReport54topApAlarmTypesDataTypeType() *SCIInventoryAPsReport54topApAlarmTypesDataTypeType {
-	m := new(SCIInventoryAPsReport54topApAlarmTypesDataTypeType)
-	return m
-}
-
-// SCIInventoryAPsReport54topApAlarmTypesMetaData
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_54_topApAlarmTypes_MetaData
-type SCIInventoryAPsReport54topApAlarmTypesMetaData struct {
-	ColorKeys []string `json:"colorKeys,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIInventoryAPsReport54topApAlarmTypesMetaData) UnmarshalJSON(b []byte) error {
-	type _SCIInventoryAPsReport54topApAlarmTypesMetaData SCIInventoryAPsReport54topApAlarmTypesMetaData
-	tmpType := new(_SCIInventoryAPsReport54topApAlarmTypesMetaData)
-	if err := json.Unmarshal(b, tmpType); err != nil {
-		return err
-	}
-	tmpType.XAdditionalProperties = make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
-		return err
-	}
-	delete(tmpType.XAdditionalProperties, "colorKeys")
-	*t = SCIInventoryAPsReport54topApAlarmTypesMetaData(*tmpType)
-	return nil
-}
-
-func (t *SCIInventoryAPsReport54topApAlarmTypesMetaData) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.ColorKeys != nil {
-		tmp["colorKeys"] = t.ColorKeys
-	}
-	return json.Marshal(tmp)
-}
-
-func NewSCIInventoryAPsReport54topApAlarmTypesMetaData() *SCIInventoryAPsReport54topApAlarmTypesMetaData {
-	m := new(SCIInventoryAPsReport54topApAlarmTypesMetaData)
-	return m
-}
-
 // SCIInventoryAPsReport55topAPModelsData
 //
 // Definition: InventoryAPsReport_InventoryAPsReport_55_topAPModels_Data
@@ -1420,103 +1013,6 @@ func NewSCIInventoryAPsReport57topAPsOfflineMetaDataMaxValuesType() *SCIInventor
 	return m
 }
 
-// SCIInventoryAPsReport58topAPsByRebootsData
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_58_topAPsByReboots_Data
-type SCIInventoryAPsReport58topAPsByRebootsData []*SCIInventoryAPsReport58topAPsByRebootsDataType
-
-func MakeSCIInventoryAPsReport58topAPsByRebootsData() SCIInventoryAPsReport58topAPsByRebootsData {
-	m := make(SCIInventoryAPsReport58topAPsByRebootsData, 0)
-	return m
-}
-
-// SCIInventoryAPsReport58topAPsByRebootsDataType
-//
-// Definition: InventoryAPsReport_InventoryAPsReport_58_topAPsByReboots_DataType
-type SCIInventoryAPsReport58topAPsByRebootsDataType struct {
-	ApIp *string `json:"apIp,omitempty"`
-
-	ApLocation *string `json:"apLocation,omitempty"`
-
-	ApMac *string `json:"apMac,omitempty"`
-
-	ApName *string `json:"apName,omitempty"`
-
-	Count *float64 `json:"count,omitempty"`
-
-	Index *float64 `json:"index,omitempty"`
-
-	LastRebootTime *float64 `json:"lastRebootTime,omitempty"`
-
-	Reason *string `json:"reason,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIInventoryAPsReport58topAPsByRebootsDataType) UnmarshalJSON(b []byte) error {
-	type _SCIInventoryAPsReport58topAPsByRebootsDataType SCIInventoryAPsReport58topAPsByRebootsDataType
-	tmpType := new(_SCIInventoryAPsReport58topAPsByRebootsDataType)
-	if err := json.Unmarshal(b, tmpType); err != nil {
-		return err
-	}
-	tmpType.XAdditionalProperties = make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
-		return err
-	}
-	delete(tmpType.XAdditionalProperties, "apIp")
-	delete(tmpType.XAdditionalProperties, "apLocation")
-	delete(tmpType.XAdditionalProperties, "apMac")
-	delete(tmpType.XAdditionalProperties, "apName")
-	delete(tmpType.XAdditionalProperties, "count")
-	delete(tmpType.XAdditionalProperties, "index")
-	delete(tmpType.XAdditionalProperties, "lastRebootTime")
-	delete(tmpType.XAdditionalProperties, "reason")
-	*t = SCIInventoryAPsReport58topAPsByRebootsDataType(*tmpType)
-	return nil
-}
-
-func (t *SCIInventoryAPsReport58topAPsByRebootsDataType) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.ApIp != nil {
-		tmp["apIp"] = t.ApIp
-	}
-	if t.ApLocation != nil {
-		tmp["apLocation"] = t.ApLocation
-	}
-	if t.ApMac != nil {
-		tmp["apMac"] = t.ApMac
-	}
-	if t.ApName != nil {
-		tmp["apName"] = t.ApName
-	}
-	if t.Count != nil {
-		tmp["count"] = t.Count
-	}
-	if t.Index != nil {
-		tmp["index"] = t.Index
-	}
-	if t.LastRebootTime != nil {
-		tmp["lastRebootTime"] = t.LastRebootTime
-	}
-	if t.Reason != nil {
-		tmp["reason"] = t.Reason
-	}
-	return json.Marshal(tmp)
-}
-
-func NewSCIInventoryAPsReport58topAPsByRebootsDataType() *SCIInventoryAPsReport58topAPsByRebootsDataType {
-	m := new(SCIInventoryAPsReport58topAPsByRebootsDataType)
-	return m
-}
-
 // SCIInventoryAPsReport60apDetailsOnOfflineStatusData
 //
 // Definition: InventoryAPsReport_InventoryAPsReport_60_apDetailsOnOfflineStatus_Data
@@ -1634,6 +1130,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport46ApInventoryOver
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1644,8 +1141,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport46ApInventoryOver
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport46apInventoryOverview200ResponseTypeAPIResponse), err
 }
 
@@ -1663,6 +1160,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport47TopApsDisconnec
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1673,8 +1171,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport47TopApsDisconnec
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport47topApsDisconnection200ResponseTypeAPIResponse), err
 }
 
@@ -1692,6 +1190,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport48ApCountTrend(ct
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1702,8 +1201,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport48ApCountTrend(ct
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport48apCountTrend200ResponseTypeAPIResponse), err
 }
 
@@ -1721,6 +1220,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport49ApStatusTrend(c
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1731,8 +1231,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport49ApStatusTrend(c
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport49apStatusTrend200ResponseTypeAPIResponse), err
 }
 
@@ -1750,6 +1250,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport50TopApsModelsCha
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1760,8 +1261,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport50TopApsModelsCha
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport50topApsModelsChart200ResponseTypeAPIResponse), err
 }
 
@@ -1779,6 +1280,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport51Top10ApVersions
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1789,8 +1291,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport51Top10ApVersions
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport51top10ApVersionsChart200ResponseTypeAPIResponse), err
 }
 
@@ -1808,6 +1310,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport52TopApsRebootRea
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1818,8 +1321,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport52TopApsRebootRea
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse), err
 }
 
@@ -1837,6 +1340,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport53Top10ApsRebootC
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1847,8 +1351,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport53Top10ApsRebootC
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse), err
 }
 
@@ -1866,6 +1370,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport54TopApAlarmTypes
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1876,8 +1381,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport54TopApAlarmTypes
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse), err
 }
 
@@ -1895,6 +1400,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport55TopAPModels(ctx
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1905,8 +1411,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport55TopAPModels(ctx
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport55topAPModels200ResponseTypeAPIResponse), err
 }
 
@@ -1924,6 +1430,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport56TopAPVersions(c
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1934,8 +1441,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport56TopAPVersions(c
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport56topAPVersions200ResponseTypeAPIResponse), err
 }
 
@@ -1953,6 +1460,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport57TopAPsOffline(c
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1963,8 +1471,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport57TopAPsOffline(c
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport57topAPsOffline200ResponseTypeAPIResponse), err
 }
 
@@ -1982,6 +1490,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport58TopAPsByReboots
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1992,8 +1501,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport58TopAPsByReboots
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport58topAPsByReboots200ResponseTypeAPIResponse), err
 }
 
@@ -2011,6 +1520,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport59ApsConfiguredIn
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2021,8 +1531,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport59ApsConfiguredIn
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport59apsConfiguredInMultiCtrl200ResponseTypeAPIResponse), err
 }
 
@@ -2040,6 +1550,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport60ApDetailsOnOffl
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2050,8 +1561,8 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport60ApDetailsOnOffl
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport60apDetailsOnOfflineStatus200ResponseTypeAPIResponse), err
 }
 
@@ -2069,6 +1580,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport61ApDetailsOtherS
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2079,7 +1591,7 @@ func (s *SCIInventoryAPsReportService) ReportInventoryAPsReport61ApDetailsOtherS
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportInventoryAPsReport61apDetailsOtherStatus200ResponseTypeAPIResponse), err
 }

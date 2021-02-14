@@ -8,6 +8,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type WSGTrafficAnalysisService struct {
@@ -212,6 +213,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesByQueryCriteria
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -224,8 +226,8 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesByQueryCriteria
 	req.SetBody(body)
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 }
 
@@ -251,6 +253,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesGroupedByQueryC
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -263,8 +266,8 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesGroupedByQueryC
 	req.SetBody(body)
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 }
 
@@ -290,6 +293,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisClientResourceByQueryCrit
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -302,8 +306,8 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisClientResourceByQueryCrit
 	req.SetBody(body)
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 }
 
@@ -329,6 +333,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisLineRatesByQueryCriteria(
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -341,7 +346,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisLineRatesByQueryCriteria(
 	req.SetBody(body)
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 }

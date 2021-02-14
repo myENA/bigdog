@@ -7,6 +7,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type WSGDomainService struct {
@@ -217,6 +218,7 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -230,8 +232,8 @@ func (s *WSGDomainService) AddDomains(ctx context.Context, body *WSGDomainCreate
 	if v, ok := optionalParams["parentDomainId"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("parentDomainId", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGCommonCreateResultAPIResponse), err
 }
 
@@ -250,6 +252,7 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mut
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -260,8 +263,8 @@ func (s *WSGDomainService) DeleteDomainsById(ctx context.Context, id string, mut
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -288,6 +291,7 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -311,8 +315,8 @@ func (s *WSGDomainService) FindDomains(ctx context.Context, optionalParams map[s
 	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("recursively", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGDomainListAPIResponse), err
 }
 
@@ -335,6 +339,7 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -347,8 +352,8 @@ func (s *WSGDomainService) FindDomainsById(ctx context.Context, id string, optio
 	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("recursively", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGDomainConfigurationAPIResponse), err
 }
 
@@ -367,6 +372,7 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -376,8 +382,8 @@ func (s *WSGDomainService) FindDomainsByNameByDomainName(ctx context.Context, do
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("domainName", domainName)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGDomainListAPIResponse), err
 }
 
@@ -408,6 +414,7 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -432,8 +439,8 @@ func (s *WSGDomainService) FindDomainsSubdomainById(ctx context.Context, id stri
 	if v, ok := optionalParams["recursively"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("recursively", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGDomainListAPIResponse), err
 }
 
@@ -455,6 +462,7 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -466,7 +474,7 @@ func (s *WSGDomainService) PartialUpdateDomainsById(ctx context.Context, body *W
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }

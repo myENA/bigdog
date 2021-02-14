@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 type SCISessionsSummaryReportService struct {
@@ -354,6 +355,7 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport33TopTable(
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -364,8 +366,8 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport33TopTable(
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSessionsSummaryReport33topTable200ResponseTypeAPIResponse), err
 }
 
@@ -383,6 +385,7 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport34Overview(
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -393,8 +396,8 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport34Overview(
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSessionsSummaryReport34overview200ResponseTypeAPIResponse), err
 }
 
@@ -412,6 +415,7 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport42DurationP
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -422,7 +426,7 @@ func (s *SCISessionsSummaryReportService) ReportSessionsSummaryReport42DurationP
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSessionsSummaryReport42durationPercentile200ResponseTypeAPIResponse), err
 }

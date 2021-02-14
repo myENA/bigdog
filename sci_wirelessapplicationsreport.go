@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 type SCIWirelessApplicationsReportService struct {
@@ -540,27 +541,17 @@ func MakeSCIWirelessApplicationsReport11top10ApplicationsByClientCountDataType()
 type SCIWirelessApplicationsReport11top10ApplicationsByClientCountDataTypeType struct {
 	App *string `json:"app,omitempty"`
 
-	Arp *float64 `json:"arp,omitempty"`
-
-	Bacnetapp *float64 `json:"bacnet_app,omitempty"`
-
-	Bjnp *float64 `json:"bjnp,omitempty"`
-
 	Dhcp *float64 `json:"dhcp,omitempty"`
 
 	Dns *float64 `json:"dns,omitempty"`
 
 	End *string `json:"end,omitempty"`
 
-	Lb01devenanet *float64 `json:"lb01.dev.ena.net,omitempty"`
-
 	Lb02devenanet *float64 `json:"lb02.dev.ena.net,omitempty"`
 
-	Nbns *float64 `json:"nbns,omitempty"`
+	Ntp *float64 `json:"ntp,omitempty"`
 
 	Rx *float64 `json:"rx,omitempty"`
-
-	Snmp *float64 `json:"snmp,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
@@ -586,17 +577,12 @@ func (t *SCIWirelessApplicationsReport11top10ApplicationsByClientCountDataTypeTy
 		return err
 	}
 	delete(tmpType.XAdditionalProperties, "app")
-	delete(tmpType.XAdditionalProperties, "arp")
-	delete(tmpType.XAdditionalProperties, "bacnet_app")
-	delete(tmpType.XAdditionalProperties, "bjnp")
 	delete(tmpType.XAdditionalProperties, "dhcp")
 	delete(tmpType.XAdditionalProperties, "dns")
 	delete(tmpType.XAdditionalProperties, "end")
-	delete(tmpType.XAdditionalProperties, "lb01.dev.ena.net")
 	delete(tmpType.XAdditionalProperties, "lb02.dev.ena.net")
-	delete(tmpType.XAdditionalProperties, "nbns")
+	delete(tmpType.XAdditionalProperties, "ntp")
 	delete(tmpType.XAdditionalProperties, "rx")
-	delete(tmpType.XAdditionalProperties, "snmp")
 	delete(tmpType.XAdditionalProperties, "start")
 	delete(tmpType.XAdditionalProperties, "totalTraffic")
 	delete(tmpType.XAdditionalProperties, "tx")
@@ -619,15 +605,6 @@ func (t *SCIWirelessApplicationsReport11top10ApplicationsByClientCountDataTypeTy
 	if t.App != nil {
 		tmp["app"] = t.App
 	}
-	if t.Arp != nil {
-		tmp["arp"] = t.Arp
-	}
-	if t.Bacnetapp != nil {
-		tmp["bacnet_app"] = t.Bacnetapp
-	}
-	if t.Bjnp != nil {
-		tmp["bjnp"] = t.Bjnp
-	}
 	if t.Dhcp != nil {
 		tmp["dhcp"] = t.Dhcp
 	}
@@ -637,20 +614,14 @@ func (t *SCIWirelessApplicationsReport11top10ApplicationsByClientCountDataTypeTy
 	if t.End != nil {
 		tmp["end"] = t.End
 	}
-	if t.Lb01devenanet != nil {
-		tmp["lb01.dev.ena.net"] = t.Lb01devenanet
-	}
 	if t.Lb02devenanet != nil {
 		tmp["lb02.dev.ena.net"] = t.Lb02devenanet
 	}
-	if t.Nbns != nil {
-		tmp["nbns"] = t.Nbns
+	if t.Ntp != nil {
+		tmp["ntp"] = t.Ntp
 	}
 	if t.Rx != nil {
 		tmp["rx"] = t.Rx
-	}
-	if t.Snmp != nil {
-		tmp["snmp"] = t.Snmp
 	}
 	if t.Start != nil {
 		tmp["start"] = t.Start
@@ -740,6 +711,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport7
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -750,8 +722,8 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport7
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportWirelessApplicationsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse), err
 }
 
@@ -769,6 +741,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport8
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -779,8 +752,8 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport8
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportWirelessApplicationsReport8topAppsByTrafficTable200ResponseTypeAPIResponse), err
 }
 
@@ -798,6 +771,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport9
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -808,8 +782,8 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport9
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportWirelessApplicationsReport9topAppsByClientsTable200ResponseTypeAPIResponse), err
 }
 
@@ -827,6 +801,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport1
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -837,8 +812,8 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport1
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportWirelessApplicationsReport10overview200ResponseTypeAPIResponse), err
 }
 
@@ -856,6 +831,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport1
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -866,7 +842,7 @@ func (s *SCIWirelessApplicationsReportService) ReportWirelessApplicationsReport1
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportWirelessApplicationsReport11top10ApplicationsByClientCount200ResponseTypeAPIResponse), err
 }

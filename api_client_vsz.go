@@ -119,7 +119,7 @@ type VSZServiceTicketProvider interface {
 	// 0. the context provided to the original API call
 	// 1. the current VSZ client
 	// 2. the CAS value seen from the calling routine's most recent action (could be from either Current or Invalidate)
-	Refresh(context.Context, *VSZClient, VSZServiceTicketCAS) (VSZServiceTicketCAS, error)
+	Refresh(context.Context, *VSZClient, VSZServiceTicketCAS) (VSZServiceTicketCAS, APIResponseMeta, error)
 
 	// Invalidate will only be called if a 401 is seen after a refresh has been attempted, and should indicate to
 	// the implementor that whatever decoration the authenticator is current using is no longer considered valid by
@@ -130,7 +130,7 @@ type VSZServiceTicketProvider interface {
 	// 0. the context provided to the original API call
 	// 1. the current VSZ client
 	// 2. the CAS value seen from the calling routine's most recent action (could be from either Current or Refresh)
-	Invalidate(context.Context, *VSZClient, VSZServiceTicketCAS) (VSZServiceTicketCAS, error)
+	Invalidate(context.Context, *VSZClient, VSZServiceTicketCAS) (VSZServiceTicketCAS, APIResponseMeta, error)
 }
 
 // UsernamePasswordVSZSServiceTicketProvider is a simple example implementation of an VSZServiceTicketProvider that will
@@ -184,7 +184,7 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Current() (VSZServiceTicke
 }
 
 // Refresh will attempt to fetch a new serviceTicket from the VSZ for use in subsequent requests
-func (stp *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Context, client *VSZClient, cas VSZServiceTicketCAS) (VSZServiceTicketCAS, error) {
+func (stp *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Context, client *VSZClient, cas VSZServiceTicketCAS) (VSZServiceTicketCAS, APIResponseMeta, error) {
 	stp.mu.Lock()
 	defer stp.mu.Unlock()
 
@@ -200,18 +200,18 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Contex
 
 	// if client is nil, fail immediately
 	if client == nil {
-		return stp.cas, NewAPIAuthProviderError(loginMeta, ErrServiceTicketClientNil)
+		return stp.cas, loginMeta, NewAPIAuthProviderError(loginMeta, ErrServiceTicketClientNil)
 	}
 
 	// if the passed cas value is greater than the internal CAS, assume weirdness and return current CAS and an error
 	if stp.cas < cas {
-		return stp.cas, NewAPIAuthProviderError(loginMeta, fmt.Errorf("%w: provided cas value is greater than possible", ErrServiceTicketCASInvalid))
+		return stp.cas, loginMeta, NewAPIAuthProviderError(loginMeta, fmt.Errorf("%w: provided cas value is greater than possible", ErrServiceTicketCASInvalid))
 	}
 	// if the passed in CAS value is less than the currently stored one, assume another routine called either Refresh
 	// or Invalidate and just return current cas
 	if stp.cas > cas {
 		// todo: is this ok...?
-		return stp.cas, nil
+		return stp.cas, loginMeta, nil
 	}
 
 	// if cas matches internal...
@@ -235,14 +235,14 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Contex
 		stp.cas = stp.iterateCAS()
 		stp.serviceTicket = ""
 		stp.expires = time.Time{}
-		return stp.cas, NewAPIAuthProviderError(loginMeta, err)
+		return stp.cas, loginMeta, NewAPIAuthProviderError(loginMeta, err)
 	}
 
 	if loginResponse == nil {
 		stp.cas = stp.iterateCAS()
 		stp.serviceTicket = ""
 		stp.expires = time.Time{}
-		return stp.cas, NewAPIAuthProviderError(loginMeta, ErrServiceTicketResponseEmpty)
+		return stp.cas, loginMeta, NewAPIAuthProviderError(loginMeta, ErrServiceTicketResponseEmpty)
 	}
 
 	// test if we need to try to hydrate the response model
@@ -252,7 +252,7 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Contex
 			stp.cas = stp.iterateCAS()
 			stp.serviceTicket = ""
 			stp.expires = time.Time{}
-			return stp.cas, NewAPIAuthProviderError(loginMeta, fmt.Errorf("%w: error unmarshalling response body: %v", ErrServiceTicketResponseEmpty, err))
+			return stp.cas, loginMeta, NewAPIAuthProviderError(loginMeta, fmt.Errorf("%w: error unmarshalling response body: %v", ErrServiceTicketResponseEmpty, err))
 		}
 	}
 
@@ -261,7 +261,7 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Contex
 		stp.cas = stp.iterateCAS()
 		stp.serviceTicket = ""
 		stp.expires = time.Time{}
-		return stp.cas, NewAPIAuthProviderError(loginMeta, ErrServiceTicketResponseEmpty)
+		return stp.cas, loginMeta, NewAPIAuthProviderError(loginMeta, ErrServiceTicketResponseEmpty)
 	}
 
 	// if reached, assume login successful
@@ -269,11 +269,11 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Contex
 	stp.serviceTicket = *loginResponse.Data.ServiceTicket
 	stp.expires = time.Now().Add(stp.sessionTTL)
 
-	return stp.cas, nil
+	return stp.cas, loginMeta, nil
 }
 
 // Invalidate will mark the current session as invalid.
-func (stp *UsernamePasswordVSZSServiceTicketProvider) Invalidate(ctx context.Context, client *VSZClient, cas VSZServiceTicketCAS) (VSZServiceTicketCAS, error) {
+func (stp *UsernamePasswordVSZSServiceTicketProvider) Invalidate(ctx context.Context, client *VSZClient, cas VSZServiceTicketCAS) (VSZServiceTicketCAS, APIResponseMeta, error) {
 	stp.mu.Lock()
 	defer stp.mu.Unlock()
 
@@ -285,12 +285,12 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Invalidate(ctx context.Con
 
 	// if current cas is less than provided, assume insanity.
 	if stp.cas < cas {
-		return stp.cas, NewAPIAuthProviderError(logoutMeta, fmt.Errorf("%w: provided cas value greater than possible", ErrServiceTicketCASInvalid))
+		return stp.cas, logoutMeta, NewAPIAuthProviderError(logoutMeta, fmt.Errorf("%w: provided cas value greater than possible", ErrServiceTicketCASInvalid))
 	}
 
 	// if current cas is greater than provided, assume Refresh or Invalidate has already been called.
 	if stp.cas > cas {
-		return stp.cas, nil
+		return stp.cas, logoutMeta, nil
 	}
 
 	// if we have a service ticket stored, attempt to invalidate it at the VSZ
@@ -310,7 +310,7 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Invalidate(ctx context.Con
 		stp.expires = time.Time{}
 	}
 
-	return stp.cas, err
+	return stp.cas, logoutMeta, err
 }
 
 func (stp *UsernamePasswordVSZSServiceTicketProvider) ticketValid() bool {
@@ -383,11 +383,13 @@ func (c *VSZClient) SwitchM() *SwitchMService {
 	return NewSwitchMService(c)
 }
 
-func (c *VSZClient) Do(ctx context.Context, request *APIRequest, mutators ...RequestMutator) (*http.Response, error) {
+func (c *VSZClient) Do(ctx context.Context, request *APIRequest, mutators ...RequestMutator) (*http.Response, time.Duration, error) {
 	var (
 		cas           VSZServiceTicketCAS
 		serviceTicket string
 		err           error
+
+		start = time.Now()
 	)
 	if request.Authenticated {
 		if cas, serviceTicket, err = c.stp.Current(); err != nil {
@@ -395,26 +397,27 @@ func (c *VSZClient) Do(ctx context.Context, request *APIRequest, mutators ...Req
 				c.log.Printf("Error fetching current service ticket: %v", err)
 			}
 			if !errors.Is(err, ErrServiceTicketRequiresRefresh) {
-				return nil, err
+				return nil, time.Now().Sub(start), err
 			}
 			// always call invalidate prior to refresh, just in case...
-			if cas, err = c.stp.Invalidate(ctx, c, cas); err != nil {
+			if cas, _, err = c.stp.Invalidate(ctx, c, cas); err != nil {
 				if c.debug {
 					c.log.Printf("Error invalidating existing service ticket before refresh: %v", err)
 				}
 			}
-			if cas, err = c.stp.Refresh(ctx, c, cas); err != nil {
+			if cas, _, err = c.stp.Refresh(ctx, c, cas); err != nil {
 				if c.debug {
 					c.log.Printf("Error refreshing service ticket: %v", err)
 				}
-				return nil, err
+				return nil, time.Now().Sub(start), err
 			} else if cas, serviceTicket, err = c.stp.Current(); err != nil {
 				if c.debug {
 					c.log.Printf("Error fetching current service ticket after refresh: %v", err)
 				}
-				return nil, err
+				return nil, time.Now().Sub(start), err
 			}
 		}
 	}
-	return c.do(ctx, request, VSZServiceTicketQueryParameter, serviceTicket, mutators...)
+	res, err := c.do(ctx, request, VSZServiceTicketQueryParameter, serviceTicket, mutators...)
+	return res, time.Now().Sub(start), err
 }

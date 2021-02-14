@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 type SCIAPDetailsReportService struct {
@@ -1593,103 +1594,6 @@ func NewSCIAPDetailsReport83snrTrendDataType() *SCIAPDetailsReport83snrTrendData
 	return m
 }
 
-// SCIAPDetailsReport84alarmsTableData
-//
-// Definition: APDetailsReport_APDetailsReport_84_alarmsTable_Data
-type SCIAPDetailsReport84alarmsTableData []*SCIAPDetailsReport84alarmsTableDataType
-
-func MakeSCIAPDetailsReport84alarmsTableData() SCIAPDetailsReport84alarmsTableData {
-	m := make(SCIAPDetailsReport84alarmsTableData, 0)
-	return m
-}
-
-// SCIAPDetailsReport84alarmsTableDataType
-//
-// Definition: APDetailsReport_APDetailsReport_84_alarmsTable_DataType
-type SCIAPDetailsReport84alarmsTableDataType struct {
-	AlarmCode *string `json:"alarmCode,omitempty"`
-
-	AlarmState *string `json:"alarmState,omitempty"`
-
-	AlarmType *string `json:"alarmType,omitempty"`
-
-	AlarmUUID *string `json:"alarmUUID,omitempty"`
-
-	Category *string `json:"category,omitempty"`
-
-	Reason *string `json:"reason,omitempty"`
-
-	Severity *string `json:"severity,omitempty"`
-
-	Xtime *string `json:"__time,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIAPDetailsReport84alarmsTableDataType) UnmarshalJSON(b []byte) error {
-	type _SCIAPDetailsReport84alarmsTableDataType SCIAPDetailsReport84alarmsTableDataType
-	tmpType := new(_SCIAPDetailsReport84alarmsTableDataType)
-	if err := json.Unmarshal(b, tmpType); err != nil {
-		return err
-	}
-	tmpType.XAdditionalProperties = make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
-		return err
-	}
-	delete(tmpType.XAdditionalProperties, "alarmCode")
-	delete(tmpType.XAdditionalProperties, "alarmState")
-	delete(tmpType.XAdditionalProperties, "alarmType")
-	delete(tmpType.XAdditionalProperties, "alarmUUID")
-	delete(tmpType.XAdditionalProperties, "category")
-	delete(tmpType.XAdditionalProperties, "reason")
-	delete(tmpType.XAdditionalProperties, "severity")
-	delete(tmpType.XAdditionalProperties, "__time")
-	*t = SCIAPDetailsReport84alarmsTableDataType(*tmpType)
-	return nil
-}
-
-func (t *SCIAPDetailsReport84alarmsTableDataType) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.AlarmCode != nil {
-		tmp["alarmCode"] = t.AlarmCode
-	}
-	if t.AlarmState != nil {
-		tmp["alarmState"] = t.AlarmState
-	}
-	if t.AlarmType != nil {
-		tmp["alarmType"] = t.AlarmType
-	}
-	if t.AlarmUUID != nil {
-		tmp["alarmUUID"] = t.AlarmUUID
-	}
-	if t.Category != nil {
-		tmp["category"] = t.Category
-	}
-	if t.Reason != nil {
-		tmp["reason"] = t.Reason
-	}
-	if t.Severity != nil {
-		tmp["severity"] = t.Severity
-	}
-	if t.Xtime != nil {
-		tmp["__time"] = t.Xtime
-	}
-	return json.Marshal(tmp)
-}
-
-func NewSCIAPDetailsReport84alarmsTableDataType() *SCIAPDetailsReport84alarmsTableDataType {
-	m := new(SCIAPDetailsReport84alarmsTableDataType)
-	return m
-}
-
 // SCIAPDetailsReport85eventsTableData
 //
 // Definition: APDetailsReport_APDetailsReport_85_eventsTable_Data
@@ -1789,6 +1693,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport5TrendChart(ctx context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1799,8 +1704,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport5TrendChart(ctx context
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport5trendChart200ResponseTypeAPIResponse), err
 }
 
@@ -1818,6 +1723,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport7Top10ApplicationsByTra
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1828,8 +1734,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport7Top10ApplicationsByTra
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport7top10ApplicationsByTrafficVolume200ResponseTypeAPIResponse), err
 }
 
@@ -1847,6 +1753,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport8TopAppsByTrafficTable(
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1857,8 +1764,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport8TopAppsByTrafficTable(
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport8topAppsByTrafficTable200ResponseTypeAPIResponse), err
 }
 
@@ -1876,6 +1783,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport14TopTable(ctx context.
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1886,8 +1794,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport14TopTable(ctx context.
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport14topTable200ResponseTypeAPIResponse), err
 }
 
@@ -1905,6 +1813,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport15TrendChart(ctx contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1915,8 +1824,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport15TrendChart(ctx contex
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport15trendChart200ResponseTypeAPIResponse), err
 }
 
@@ -1934,6 +1843,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport22TrafficTrend(ctx cont
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1944,8 +1854,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport22TrafficTrend(ctx cont
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport22trafficTrend200ResponseTypeAPIResponse), err
 }
 
@@ -1963,6 +1873,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport40TopSsidsByTrafficTabl
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1973,8 +1884,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport40TopSsidsByTrafficTabl
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport40topSsidsByTrafficTable200ResponseTypeAPIResponse), err
 }
 
@@ -1992,6 +1903,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport75ApSummary(ctx context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2002,8 +1914,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport75ApSummary(ctx context
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport75apSummary200ResponseTypeAPIResponse), err
 }
 
@@ -2021,6 +1933,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport76ApPerformance(ctx con
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2031,8 +1944,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport76ApPerformance(ctx con
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport76apPerformance200ResponseTypeAPIResponse), err
 }
 
@@ -2050,6 +1963,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport77ApDetails(ctx context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2060,8 +1974,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport77ApDetails(ctx context
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport77apDetails200ResponseTypeAPIResponse), err
 }
 
@@ -2079,6 +1993,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport78ApStatsOverview(ctx c
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2089,8 +2004,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport78ApStatsOverview(ctx c
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport78apStatsOverview200ResponseTypeAPIResponse), err
 }
 
@@ -2108,6 +2023,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport79ApUptimeHistory(ctx c
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2118,8 +2034,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport79ApUptimeHistory(ctx c
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport79apUptimeHistory200ResponseTypeAPIResponse), err
 }
 
@@ -2137,6 +2053,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport80Top10ClientsByTraffic
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2147,8 +2064,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport80Top10ClientsByTraffic
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport80top10ClientsByTrafficVolume200ResponseTypeAPIResponse), err
 }
 
@@ -2166,6 +2083,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport81SessionsTable(ctx con
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2176,8 +2094,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport81SessionsTable(ctx con
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport81sessionsTable200ResponseTypeAPIResponse), err
 }
 
@@ -2195,6 +2113,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport82RssTrend(ctx context.
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2205,8 +2124,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport82RssTrend(ctx context.
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport82rssTrend200ResponseTypeAPIResponse), err
 }
 
@@ -2224,6 +2143,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport83SnrTrend(ctx context.
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2234,8 +2154,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport83SnrTrend(ctx context.
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport83snrTrend200ResponseTypeAPIResponse), err
 }
 
@@ -2253,6 +2173,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport84AlarmsTable(ctx conte
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2263,8 +2184,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport84AlarmsTable(ctx conte
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport84alarmsTable200ResponseTypeAPIResponse), err
 }
 
@@ -2282,6 +2203,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport85EventsTable(ctx conte
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2292,8 +2214,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport85EventsTable(ctx conte
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport85eventsTable200ResponseTypeAPIResponse), err
 }
 
@@ -2311,6 +2233,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport95Anomalies(ctx context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2321,8 +2244,8 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport95Anomalies(ctx context
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport95anomalies200ResponseTypeAPIResponse), err
 }
 
@@ -2340,6 +2263,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport110ApAnomaly(ctx contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2350,7 +2274,7 @@ func (s *SCIAPDetailsReportService) ReportAPDetailsReport110ApAnomaly(ctx contex
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAPDetailsReport110apAnomaly200ResponseTypeAPIResponse), err
 }

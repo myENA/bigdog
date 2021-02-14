@@ -6,6 +6,7 @@ import (
 	"context"
 	"io"
 	"net/http"
+	"time"
 )
 
 type WSGAccessPointAppService struct {
@@ -45,6 +46,7 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -68,8 +70,8 @@ func (s *WSGAccessPointAppService) FindApsLineman(ctx context.Context, optionalP
 	if v, ok := optionalParams["zoneId"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("zoneId", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAPLinemanSummaryAPIResponse), err
 }
 
@@ -90,6 +92,7 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -104,8 +107,8 @@ func (s *WSGAccessPointAppService) FindApsTotalCount(ctx context.Context, option
 	if v, ok := optionalParams["zoneId"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("zoneId", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*RawAPIResponse), err
 }
 
@@ -120,6 +123,7 @@ func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, muta
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -128,8 +132,8 @@ func (s *WSGAccessPointAppService) FindLinemanWorkflow(ctx context.Context, muta
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindLinemanWorkflow, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*FileAPIResponse), err
 }
 
@@ -148,6 +152,7 @@ func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, fi
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -161,7 +166,7 @@ func (s *WSGAccessPointAppService) UpdateLinemanWorkflow(ctx context.Context, fi
 	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }

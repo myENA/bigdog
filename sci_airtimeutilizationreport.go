@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 type SCIAirtimeUtilizationReportService struct {
@@ -805,7 +806,7 @@ type SCIAirtimeUtilizationReport6trendTableDataType struct {
 
 	AirtimeUtilizationAvg5 *float64 `json:"airtimeUtilizationAvg_5,omitempty"`
 
-	ClientCount interface{} `json:"clientCount,omitempty"`
+	ClientCount *float64 `json:"clientCount,omitempty"`
 
 	End *string `json:"end,omitempty"`
 
@@ -815,7 +816,7 @@ type SCIAirtimeUtilizationReport6trendTableDataType struct {
 
 	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
-	SessionCount interface{} `json:"sessionCount,omitempty"`
+	SessionCount *float64 `json:"sessionCount,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
@@ -1045,6 +1046,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport1Over
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1055,8 +1057,8 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport1Over
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAirtimeUtilizationReport1overview200ResponseTypeAPIResponse), err
 }
 
@@ -1074,6 +1076,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport2TopC
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1084,8 +1087,8 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport2TopC
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAirtimeUtilizationReport2topChart200ResponseTypeAPIResponse), err
 }
 
@@ -1103,6 +1106,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport3TopA
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1113,8 +1117,8 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport3TopA
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAirtimeUtilizationReport3topAPsByAirtime24Table200ResponseTypeAPIResponse), err
 }
 
@@ -1132,6 +1136,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport4TopA
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1142,8 +1147,8 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport4TopA
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAirtimeUtilizationReport4topAPsByAirtime5Table200ResponseTypeAPIResponse), err
 }
 
@@ -1161,6 +1166,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport5Tren
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1171,8 +1177,8 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport5Tren
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAirtimeUtilizationReport5trendChart200ResponseTypeAPIResponse), err
 }
 
@@ -1190,6 +1196,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport6Tren
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1200,7 +1207,7 @@ func (s *SCIAirtimeUtilizationReportService) ReportAirtimeUtilizationReport6Tren
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportAirtimeUtilizationReport6trendTable200ResponseTypeAPIResponse), err
 }

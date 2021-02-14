@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"net/http"
+	"time"
 )
 
 type WSGGlobalReferenceService struct {
@@ -32,6 +33,7 @@ func (s *WSGGlobalReferenceService) FindGlobalSettingsFriendlyNameLang(ctx conte
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -40,8 +42,8 @@ func (s *WSGGlobalReferenceService) FindGlobalSettingsFriendlyNameLang(ctx conte
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindGlobalSettingsFriendlyNameLang, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGSystemFriendlyNameLangListAPIResponse), err
 }
 
@@ -56,6 +58,7 @@ func (s *WSGGlobalReferenceService) FindGlobalSettingsPortalLang(ctx context.Con
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -64,7 +67,7 @@ func (s *WSGGlobalReferenceService) FindGlobalSettingsPortalLang(ctx context.Con
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindGlobalSettingsPortalLang, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGSystemPortalLangListAPIResponse), err
 }

@@ -5,6 +5,7 @@ package bigdog
 import (
 	"context"
 	"net/http"
+	"time"
 )
 
 type SCISCNetworkTrafficReportService struct {
@@ -35,6 +36,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport93ScNetwo
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -45,8 +47,8 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport93ScNetwo
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport93scNetworkTraffic200ResponseTypeAPIResponse), err
 }
 
@@ -64,6 +66,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport94ScNetwo
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -74,8 +77,8 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport94ScNetwo
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport94scNetworkTrend200ResponseTypeAPIResponse), err
 }
 
@@ -93,6 +96,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport100Droppe
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -103,8 +107,8 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport100Droppe
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport100droppedCallRate200ResponseTypeAPIResponse), err
 }
 
@@ -122,6 +126,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport101Connec
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -132,8 +137,8 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport101Connec
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport101connectionSetupSuccessRate200ResponseTypeAPIResponse), err
 }
 
@@ -151,6 +156,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport102Handov
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -161,8 +167,8 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport102Handov
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport102handoverSuccessRate200ResponseTypeAPIResponse), err
 }
 
@@ -180,6 +186,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport103AvgThr
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -190,8 +197,8 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport103AvgThr
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport103avgThroughput200ResponseTypeAPIResponse), err
 }
 
@@ -209,6 +216,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport104ScAvai
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -219,8 +227,8 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport104ScAvai
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport104scAvailability200ResponseTypeAPIResponse), err
 }
 
@@ -238,6 +246,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport105RscCon
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -248,8 +257,8 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport105RscCon
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport105rscConnectionStats200ResponseTypeAPIResponse), err
 }
 
@@ -267,6 +276,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport106RscGps
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -277,8 +287,8 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport106RscGps
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport106rscGpsStats200ResponseTypeAPIResponse), err
 }
 
@@ -296,6 +306,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport107Traffi
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -306,8 +317,8 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport107Traffi
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport107trafficVolume200ResponseTypeAPIResponse), err
 }
 
@@ -325,6 +336,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport108PhaseS
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -335,8 +347,8 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport108PhaseS
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport108phaseSyncLoss200ResponseTypeAPIResponse), err
 }
 
@@ -354,6 +366,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport109Freque
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -364,8 +377,8 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport109Freque
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport109frequencySyncLoss200ResponseTypeAPIResponse), err
 }
 
@@ -383,6 +396,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport111RscTra
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -393,7 +407,7 @@ func (s *SCISCNetworkTrafficReportService) ReportSCNetworkTrafficReport111RscTra
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportSCNetworkTrafficReport111rscTrafficStats200ResponseTypeAPIResponse), err
 }

@@ -6,6 +6,7 @@ import (
 	"context"
 	"io"
 	"net/http"
+	"time"
 )
 
 type WSGClusterManagementService struct {
@@ -33,6 +34,7 @@ func (s *WSGClusterManagementService) AddApPatch(ctx context.Context, mutators .
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -42,8 +44,8 @@ func (s *WSGClusterManagementService) AddApPatch(ctx context.Context, mutators .
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationApPatchStatusAPIResponse), err
 }
 
@@ -62,6 +64,7 @@ func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, filena
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -75,8 +78,8 @@ func (s *WSGClusterManagementService) AddApPatchFile(ctx context.Context, filena
 	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -91,6 +94,7 @@ func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context, muta
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -100,8 +104,8 @@ func (s *WSGClusterManagementService) AddClusterBackup(ctx context.Context, muta
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -120,6 +124,7 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -130,8 +135,8 @@ func (s *WSGClusterManagementService) AddClusterRestoreById(ctx context.Context,
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -146,6 +151,7 @@ func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -155,8 +161,8 @@ func (s *WSGClusterManagementService) AddConfigurationBackup(ctx context.Context
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGCommonCreateResultAPIResponse), err
 }
 
@@ -175,6 +181,7 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -185,8 +192,8 @@ func (s *WSGClusterManagementService) AddConfigurationRestoreById(ctx context.Co
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -205,6 +212,7 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -218,8 +226,8 @@ func (s *WSGClusterManagementService) AddConfigurationUpload(ctx context.Context
 	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return resp.(*EmptyAPIResponse), err
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -234,6 +242,7 @@ func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context, mutators .
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -243,8 +252,8 @@ func (s *WSGClusterManagementService) AddUpgrade(ctx context.Context, mutators .
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationUpgradeStatusAPIResponse), err
 }
 
@@ -263,6 +272,7 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, file
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -276,8 +286,8 @@ func (s *WSGClusterManagementService) AddUpgradeUpload(ctx context.Context, file
 	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return resp.(*WSGAdministrationUpgradeStatusAPIResponse), err
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationUpgradeStatusAPIResponse), err
 }
 
@@ -296,6 +306,7 @@ func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id 
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -306,8 +317,8 @@ func (s *WSGClusterManagementService) DeleteClusterById(ctx context.Context, id 
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -326,6 +337,7 @@ func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -336,8 +348,8 @@ func (s *WSGClusterManagementService) DeleteConfigurationById(ctx context.Contex
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -352,6 +364,7 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context, mutators 
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -360,8 +373,8 @@ func (s *WSGClusterManagementService) FindApPatch(ctx context.Context, mutators 
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApPatch, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationApPatchInfoAPIResponse), err
 }
 
@@ -384,6 +397,7 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -401,8 +415,8 @@ func (s *WSGClusterManagementService) FindApPatchHistory(ctx context.Context, op
 	if v, ok := optionalParams["timezone"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("timezone", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationApPatchHistoryListAPIResponse), err
 }
 
@@ -417,6 +431,7 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context, mut
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -425,8 +440,8 @@ func (s *WSGClusterManagementService) FindApPatchStatus(ctx context.Context, mut
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindApPatchStatus, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationApPatchStatusAPIResponse), err
 }
 
@@ -449,6 +464,7 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -466,8 +482,8 @@ func (s *WSGClusterManagementService) FindCluster(ctx context.Context, optionalP
 	if v, ok := optionalParams["timezone"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("timezone", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationClusterBackupListAPIResponse), err
 }
 
@@ -482,6 +498,7 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -490,8 +507,8 @@ func (s *WSGClusterManagementService) FindClusterGeoRedundancy(ctx context.Conte
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindClusterGeoRedundancy, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGClusterRedundancySettingsAPIResponse), err
 }
 
@@ -506,6 +523,7 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context, muta
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -514,8 +532,8 @@ func (s *WSGClusterManagementService) FindClusterState(ctx context.Context, muta
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindClusterState, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGClusterBladeClusterStateAPIResponse), err
 }
 
@@ -536,6 +554,7 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -550,8 +569,8 @@ func (s *WSGClusterManagementService) FindConfiguration(ctx context.Context, opt
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("listSize", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationConfigurationBackupListAPIResponse), err
 }
 
@@ -574,6 +593,7 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -586,8 +606,8 @@ func (s *WSGClusterManagementService) FindConfigurationDownload(ctx context.Cont
 	if v, ok := optionalParams["timeZone"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("timeZone", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*FileAPIResponse), err
 }
 
@@ -602,6 +622,7 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -610,8 +631,8 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsAutoExportBackup(
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindConfigurationSettingsAutoExportBackup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationAutoExportBackupAPIResponse), err
 }
 
@@ -626,6 +647,7 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -634,8 +656,8 @@ func (s *WSGClusterManagementService) FindConfigurationSettingsScheduleBackup(ct
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindConfigurationSettingsScheduleBackup, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationScheduleBackupAPIResponse), err
 }
 
@@ -658,6 +680,7 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -675,8 +698,8 @@ func (s *WSGClusterManagementService) FindUpgradeHistory(ctx context.Context, op
 	if v, ok := optionalParams["timezone"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("timezone", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationUpgradeHistoryListAPIResponse), err
 }
 
@@ -691,6 +714,7 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context, muta
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -699,8 +723,8 @@ func (s *WSGClusterManagementService) FindUpgradePatch(ctx context.Context, muta
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUpgradePatch, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationUpgradePatchInfoAPIResponse), err
 }
 
@@ -715,6 +739,7 @@ func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context, mut
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -723,8 +748,8 @@ func (s *WSGClusterManagementService) FindUpgradeStatus(ctx context.Context, mut
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindUpgradeStatus, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGAdministrationUpgradeStatusAPIResponse), err
 }
 
@@ -742,6 +767,7 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExpo
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -752,8 +778,8 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsAutoExpo
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -771,6 +797,7 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsSchedule
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -781,8 +808,8 @@ func (s *WSGClusterManagementService) PartialUpdateConfigurationSettingsSchedule
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -800,6 +827,7 @@ func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Con
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -810,7 +838,7 @@ func (s *WSGClusterManagementService) UpdateClusterGeoRedundancy(ctx context.Con
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*RawAPIResponse), err
 }

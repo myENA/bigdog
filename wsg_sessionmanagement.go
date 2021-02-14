@@ -7,6 +7,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type WSGSessionManagementService struct {
@@ -117,6 +118,7 @@ func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context,
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -125,7 +127,7 @@ func (s *WSGSessionManagementService) FindSessionManagement(ctx context.Context,
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSessionManagement, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGSessionManagementRuckusSessionsAPIResponse), err
 }

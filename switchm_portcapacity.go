@@ -7,6 +7,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type SwitchMPortCapacityService struct {
@@ -113,6 +114,7 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -123,7 +125,7 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("model", model)
 	req.QueryParams.Set("portIdentifier", portIdentifier)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMPortCapacityResultAPIResponse), err
 }

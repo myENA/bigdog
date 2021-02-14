@@ -7,6 +7,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type SwitchMFirmwareConfigService struct {
@@ -189,6 +190,7 @@ func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *Sw
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -199,8 +201,8 @@ func (s *SwitchMFirmwareConfigService) AddFirmware(ctx context.Context, body *Sw
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse), err
 }
 
@@ -219,6 +221,7 @@ func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, fi
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -232,8 +235,8 @@ func (s *SwitchMFirmwareConfigService) AddFirmwareUpload(ctx context.Context, fi
 	if err = req.AddMultipartFile("uploadFile", filename, uploadFile); err != nil {
 		return resp.(*RawAPIResponse), err
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*RawAPIResponse), err
 }
 
@@ -252,6 +255,7 @@ func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Conte
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -262,8 +266,8 @@ func (s *SwitchMFirmwareConfigService) DeleteFirmwareByVersion(ctx context.Conte
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("version", version)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*RawAPIResponse), err
 }
 
@@ -278,6 +282,7 @@ func (s *SwitchMFirmwareConfigService) FindFirmware(ctx context.Context, mutator
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -286,8 +291,8 @@ func (s *SwitchMFirmwareConfigService) FindFirmware(ctx context.Context, mutator
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteSwitchMFindFirmware, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMFirmwareConfigFirmwaresQueryResultListAPIResponse), err
 }
 
@@ -309,6 +314,7 @@ func (s *SwitchMFirmwareConfigService) PartialUpdateFirmwareByVersion(ctx contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -320,7 +326,7 @@ func (s *SwitchMFirmwareConfigService) PartialUpdateFirmwareByVersion(ctx contex
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("version", version)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SwitchMFirmwareConfigScheduleIdsAPIResponse), err
 }

@@ -8,6 +8,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"time"
 )
 
 type SCIMigrationMapService struct {
@@ -166,6 +167,7 @@ func (s *SCIMigrationMapService) MigrationMapCount(ctx context.Context, optional
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -177,8 +179,8 @@ func (s *SCIMigrationMapService) MigrationMapCount(ctx context.Context, optional
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("where", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIMigrationMapCount200ResponseTypeAPIResponse), err
 }
 
@@ -196,6 +198,7 @@ func (s *SCIMigrationMapService) MigrationMapCreate(ctx context.Context, data *S
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -206,8 +209,8 @@ func (s *SCIMigrationMapService) MigrationMapCreate(ctx context.Context, data *S
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(data)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsMigrationMapAPIResponse), err
 }
 
@@ -226,6 +229,7 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -237,8 +241,8 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamGetMigrationMapsC
 	if v, ok := optionalParams["options"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("options", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*FileAPIResponse), err
 }
 
@@ -257,6 +261,7 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMaps
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -267,8 +272,8 @@ func (s *SCIMigrationMapService) MigrationMapCreateChangeStreamPostMigrationMaps
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(formValues)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*FileAPIResponse), err
 }
 
@@ -287,6 +292,7 @@ func (s *SCIMigrationMapService) MigrationMapDeleteById(ctx context.Context, id 
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -297,8 +303,8 @@ func (s *SCIMigrationMapService) MigrationMapDeleteById(ctx context.Context, id 
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*RawAPIResponse), err
 }
 
@@ -317,6 +323,7 @@ func (s *SCIMigrationMapService) MigrationMapExistsGetMigrationMapsIdExists(ctx 
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -326,8 +333,8 @@ func (s *SCIMigrationMapService) MigrationMapExistsGetMigrationMapsIdExists(ctx 
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIMigrationMapExistsgetMigrationMapsidexists200ResponseTypeAPIResponse), err
 }
 
@@ -346,6 +353,7 @@ func (s *SCIMigrationMapService) MigrationMapFind(ctx context.Context, optionalP
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -357,8 +365,8 @@ func (s *SCIMigrationMapService) MigrationMapFind(ctx context.Context, optionalP
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIMigrationMapFind200ResponseTypeAPIResponse), err
 }
 
@@ -381,6 +389,7 @@ func (s *SCIMigrationMapService) MigrationMapFindById(ctx context.Context, id st
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -393,8 +402,8 @@ func (s *SCIMigrationMapService) MigrationMapFindById(ctx context.Context, id st
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsMigrationMapAPIResponse), err
 }
 
@@ -413,6 +422,7 @@ func (s *SCIMigrationMapService) MigrationMapFindOne(ctx context.Context, option
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -424,8 +434,8 @@ func (s *SCIMigrationMapService) MigrationMapFindOne(ctx context.Context, option
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsMigrationMapAPIResponse), err
 }
 
@@ -447,6 +457,7 @@ func (s *SCIMigrationMapService) MigrationMapPrototypeUpdateAttributes(ctx conte
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -458,8 +469,8 @@ func (s *SCIMigrationMapService) MigrationMapPrototypeUpdateAttributes(ctx conte
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(data)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsMigrationMapAPIResponse), err
 }
 
@@ -481,6 +492,7 @@ func (s *SCIMigrationMapService) MigrationMapUpdateAll(ctx context.Context, data
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -494,8 +506,8 @@ func (s *SCIMigrationMapService) MigrationMapUpdateAll(ctx context.Context, data
 	if v, ok := optionalParams["where"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("where", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*RawAPIResponse), err
 }
 
@@ -513,6 +525,7 @@ func (s *SCIMigrationMapService) MigrationMapUpsert(ctx context.Context, data *S
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -523,7 +536,7 @@ func (s *SCIMigrationMapService) MigrationMapUpsert(ctx context.Context, data *S
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(data)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsMigrationMapAPIResponse), err
 }

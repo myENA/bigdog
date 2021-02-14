@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 type SCINetworkWirelessReportService struct {
@@ -483,7 +484,7 @@ type SCINetworkWirelessReport23trafficOverTimeTableDataType struct {
 
 	MgmtTxBytes *float64 `json:"mgmtTxBytes,omitempty"`
 
-	SessionCount interface{} `json:"sessionCount,omitempty"`
+	SessionCount *float64 `json:"sessionCount,omitempty"`
 
 	Start *string `json:"start,omitempty"`
 
@@ -497,7 +498,7 @@ type SCINetworkWirelessReport23trafficOverTimeTableDataType struct {
 
 	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UniqueUsers interface{} `json:"uniqueUsers,omitempty"`
+	UniqueUsers *float64 `json:"uniqueUsers,omitempty"`
 
 	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
@@ -683,7 +684,7 @@ type SCINetworkWirelessReport23trafficOverTimeTableMetaDataMaxValuesType struct 
 
 	TotalTxTraffic *float64 `json:"totalTxTraffic,omitempty"`
 
-	UniqueUsers interface{} `json:"uniqueUsers,omitempty"`
+	UniqueUsers *float64 `json:"uniqueUsers,omitempty"`
 
 	UserRxBytes *float64 `json:"userRxBytes,omitempty"`
 
@@ -1407,6 +1408,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport20Overview(
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1417,8 +1419,8 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport20Overview(
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse), err
 }
 
@@ -1436,6 +1438,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport21TrafficDi
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1446,8 +1449,8 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport21TrafficDi
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIResponse), err
 }
 
@@ -1465,6 +1468,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport22TrafficTr
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1475,8 +1479,8 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport22TrafficTr
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse), err
 }
 
@@ -1494,6 +1498,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport23TrafficOv
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1504,8 +1509,8 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport23TrafficOv
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIResponse), err
 }
 
@@ -1523,6 +1528,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport24TopAPsByT
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1533,8 +1539,8 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport24TopAPsByT
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIResponse), err
 }
 
@@ -1552,6 +1558,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport25TopAPsByC
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1562,8 +1569,8 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport25TopAPsByC
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIResponse), err
 }
 
@@ -1581,6 +1588,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport26Top10APsB
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1591,8 +1599,8 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport26Top10APsB
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIResponse), err
 }
 
@@ -1610,6 +1618,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport27Top10ApBy
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1620,7 +1629,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport27Top10ApBy
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIResponse), err
 }

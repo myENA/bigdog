@@ -8,6 +8,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"time"
 )
 
 type SCIUserService struct {
@@ -301,6 +302,7 @@ func (s *SCIUserService) UserBatchDelete(ctx context.Context, formValues url.Val
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -311,8 +313,8 @@ func (s *SCIUserService) UserBatchDelete(ctx context.Context, formValues url.Val
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(formValues)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIUserBatchDelete200ResponseTypeAPIResponse), err
 }
 
@@ -346,6 +348,7 @@ func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, formValues
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -356,8 +359,8 @@ func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, formValues
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(formValues)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsUserAPIResponse), err
 }
 
@@ -380,6 +383,7 @@ func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalPa
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -392,8 +396,8 @@ func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalPa
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsUserAPIResponse), err
 }
 
@@ -408,6 +412,7 @@ func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mut
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -416,8 +421,8 @@ func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mut
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIUserGetResourceGroupsForUpsert, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIUserGetResourceGroupsForUpsert200ResponseTypeAPIResponse), err
 }
 
@@ -436,6 +441,7 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -447,8 +453,8 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIUserGetUsers200ResponseTypeAPIResponse), err
 }
 
@@ -470,6 +476,7 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLogi
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -483,8 +490,8 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLogi
 	if v, ok := optionalParams["include"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("include", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIUserLoginResponseAPIResponse), err
 }
 
@@ -503,6 +510,7 @@ func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mut
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -513,8 +521,8 @@ func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mut
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("access_token", accesstoken)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -536,6 +544,7 @@ func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *S
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -547,8 +556,8 @@ func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *S
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(data)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsFilterAPIResponse), err
 }
 
@@ -569,6 +578,7 @@ func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -580,8 +590,8 @@ func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("fk", fk)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -602,6 +612,7 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -612,8 +623,8 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("fk", fk)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsFilterAPIResponse), err
 }
 
@@ -636,6 +647,7 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -648,8 +660,8 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIUserPrototypegetfilters200ResponseTypeAPIResponse), err
 }
 
@@ -672,6 +684,7 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -684,8 +697,8 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIUserPrototypegetschedules200ResponseTypeAPIResponse), err
 }
 
@@ -707,6 +720,7 @@ func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -718,8 +732,8 @@ func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(data)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsUserAPIResponse), err
 }
 
@@ -743,6 +757,7 @@ func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, dat
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -755,8 +770,8 @@ func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, dat
 	req.SetBody(data)
 	req.PathParams.Set("fk", fk)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsFilterAPIResponse), err
 }
 
@@ -791,6 +806,7 @@ func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, formValues
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -802,8 +818,8 @@ func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, formValues
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(formValues)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsUserAPIResponse), err
 }
 
@@ -822,6 +838,7 @@ func (s *SCIUserService) UserValidateCurrentPassword(ctx context.Context, formVa
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -832,7 +849,7 @@ func (s *SCIUserService) UserValidateCurrentPassword(ctx context.Context, formVa
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(formValues)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsUserAPIResponse), err
 }

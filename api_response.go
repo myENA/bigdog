@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"strconv"
 	"sync"
+	"time"
 )
 
 var (
@@ -26,13 +27,17 @@ type APIResponseMeta struct {
 	ResponseCode   int
 	ResponseStatus string
 	ResponseHeader http.Header
+
+	ExecutionTime time.Duration
 }
 
-func newAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Response) APIResponseMeta {
+func newAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Response, executionTime time.Duration) APIResponseMeta {
 	rm := APIResponseMeta{
 		RequestMethod: req.Method,
 		RequestURI:    req.URI,
 		SuccessCode:   successCode,
+
+		ExecutionTime: executionTime,
 	}
 	if httpResp != nil {
 		rm.ResponseCode = httpResp.StatusCode
@@ -49,8 +54,8 @@ func newAPIResponseMeta(req *APIRequest, successCode int, httpResp *http.Respons
 	return rm
 }
 
-func newAPIResponseMetaWithCode(req *APIRequest, successCode, errHTTPCode int) APIResponseMeta {
-	rm := newAPIResponseMeta(req, successCode, nil)
+func newAPIResponseMetaWithCode(req *APIRequest, successCode, errHTTPCode int, executionTime time.Duration) APIResponseMeta {
+	rm := newAPIResponseMeta(req, successCode, nil, executionTime)
 	rm.ResponseCode = errHTTPCode
 	return rm
 }

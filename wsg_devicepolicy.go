@@ -7,6 +7,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type WSGDevicePolicyService struct {
@@ -148,89 +149,6 @@ func NewWSGDevicePolicyRule() *WSGDevicePolicyRule {
 	return m
 }
 
-// WSGDevicePolicyDeviceTypeEntry
-//
-// Definition: devicePolicy_deviceTypeEntry
-type WSGDevicePolicyDeviceTypeEntry struct {
-	Id *string `json:"id,omitempty"`
-
-	Name *string `json:"name,omitempty"`
-
-	OsVendors []*WSGDevicePolicyDeviceTypeEntryOsVendorsEntry `json:"osVendors,omitempty"`
-
-	Value *string `json:"value,omitempty"`
-}
-
-func NewWSGDevicePolicyDeviceTypeEntry() *WSGDevicePolicyDeviceTypeEntry {
-	m := new(WSGDevicePolicyDeviceTypeEntry)
-	return m
-}
-
-// WSGDevicePolicyDeviceTypeEntryList
-//
-// Definition: devicePolicy_deviceTypeEntryList
-type WSGDevicePolicyDeviceTypeEntryList struct {
-	FirstIndex *int `json:"firstIndex,omitempty"`
-
-	HasMore *bool `json:"hasMore,omitempty"`
-
-	List []*WSGDevicePolicyDeviceTypeEntry `json:"list,omitempty"`
-
-	RawDataTotalCount *int `json:"rawDataTotalCount,omitempty"`
-
-	TotalCount *int `json:"totalCount,omitempty"`
-}
-
-type WSGDevicePolicyDeviceTypeEntryListAPIResponse struct {
-	*RawAPIResponse
-	Data *WSGDevicePolicyDeviceTypeEntryList
-}
-
-func newWSGDevicePolicyDeviceTypeEntryListAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
-	r := new(WSGDevicePolicyDeviceTypeEntryListAPIResponse)
-	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
-	return r
-}
-
-func (r *WSGDevicePolicyDeviceTypeEntryListAPIResponse) Hydrate() (interface{}, error) {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	if r.err != nil {
-		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
-		}
-		return nil, r.err
-	}
-	data := new(WSGDevicePolicyDeviceTypeEntryList)
-	if err := r.doHydrate(data); err != nil {
-		return nil, err
-	}
-	r.Data = data
-	return r.Data, nil
-}
-func NewWSGDevicePolicyDeviceTypeEntryList() *WSGDevicePolicyDeviceTypeEntryList {
-	m := new(WSGDevicePolicyDeviceTypeEntryList)
-	return m
-}
-
-// WSGDevicePolicyDeviceTypeEntryOsVendorsEntry
-//
-// Definition: devicePolicy_deviceTypeEntryOsVendorsEntry
-type WSGDevicePolicyDeviceTypeEntryOsVendorsEntry struct {
-	DeviceTypeValue *string `json:"deviceTypeValue,omitempty"`
-
-	Id *string `json:"id,omitempty"`
-
-	Name *string `json:"name,omitempty"`
-
-	Value *string `json:"value,omitempty"`
-}
-
-func NewWSGDevicePolicyDeviceTypeEntryOsVendorsEntry() *WSGDevicePolicyDeviceTypeEntryOsVendorsEntry {
-	m := new(WSGDevicePolicyDeviceTypeEntryOsVendorsEntry)
-	return m
-}
-
 // WSGDevicePolicyModifyDevicePolicy
 //
 // Definition: devicePolicy_modifyDevicePolicy
@@ -334,6 +252,7 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -345,8 +264,8 @@ func (s *WSGDevicePolicyService) AddRkszonesDevicePolicyByZoneId(ctx context.Con
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("zoneId", zoneId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGCommonCreateResultAPIResponse), err
 }
 
@@ -367,6 +286,7 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -378,31 +298,9 @@ func (s *WSGDevicePolicyService) DeleteRkszonesDevicePolicyById(ctx context.Cont
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
-}
-
-// DevicePolicyDeviceTypesList
-//
-// Operation ID: devicePolicyDeviceTypesList
-// Operation path: /devicePolicy/deviceType
-// Success code: 200 (OK)
-func (s *WSGDevicePolicyService) DevicePolicyDeviceTypesList(ctx context.Context, mutators ...RequestMutator) (*WSGDevicePolicyDeviceTypeEntryListAPIResponse, error) {
-	var (
-		req      *APIRequest
-		httpResp *http.Response
-		resp     APIResponse
-		err      error
-
-		respFn = newWSGDevicePolicyDeviceTypeEntryListAPIResponse
-	)
-	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGDevicePolicyDeviceTypesList, true)
-	defer recycleAPIRequest(req)
-	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
-	return resp.(*WSGDevicePolicyDeviceTypeEntryListAPIResponse), err
 }
 
 // FindRkszonesDevicePolicyById
@@ -422,6 +320,7 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -432,8 +331,8 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyById(ctx context.Contex
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGDevicePolicyPorfileAPIResponse), err
 }
 
@@ -458,6 +357,7 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -473,8 +373,8 @@ func (s *WSGDevicePolicyService) FindRkszonesDevicePolicyByZoneId(ctx context.Co
 	if v, ok := optionalParams["listSize"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("listSize", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGDevicePolicyPorfileListAPIResponse), err
 }
 
@@ -492,6 +392,7 @@ func (s *WSGDevicePolicyService) FindServicesDevicePolicyByQueryCriteria(ctx con
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -502,8 +403,8 @@ func (s *WSGDevicePolicyService) FindServicesDevicePolicyByQueryCriteria(ctx con
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*RawAPIResponse), err
 }
 
@@ -527,6 +428,7 @@ func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx conte
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -539,7 +441,7 @@ func (s *WSGDevicePolicyService) PartialUpdateRkszonesDevicePolicyById(ctx conte
 	req.SetBody(body)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("zoneId", zoneId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }

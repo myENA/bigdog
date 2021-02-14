@@ -7,6 +7,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type WSGSystemIPsecService struct {
@@ -257,6 +258,7 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context, mutators ..
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -265,8 +267,8 @@ func (s *WSGSystemIPsecService) FindSystemIpsec(ctx context.Context, mutators ..
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindSystemIpsec, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGSystemIPsecGetResultAPIResponse), err
 }
 
@@ -284,6 +286,7 @@ func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSG
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -294,7 +297,7 @@ func (s *WSGSystemIPsecService) UpdateSystemIpsec(ctx context.Context, body *WSG
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*RawAPIResponse), err
 }

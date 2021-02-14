@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 type SCINetworkWiredReportService struct {
@@ -1120,6 +1121,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport123TopSwitchPOEUt
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1130,8 +1132,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport123TopSwitchPOEUt
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWiredReport123topSwitchPOEUtilChart200ResponseTypeAPIResponse), err
 }
 
@@ -1149,6 +1151,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport124TopSwitchPOEUt
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1159,8 +1162,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport124TopSwitchPOEUt
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWiredReport124topSwitchPOEUtils200ResponseTypeAPIResponse), err
 }
 
@@ -1178,6 +1181,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport127Top10SwitchesB
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1188,8 +1192,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport127Top10SwitchesB
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWiredReport127top10SwitchesByTrafficVolume200ResponseTypeAPIResponse), err
 }
 
@@ -1207,6 +1211,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport128TopSwitchesByT
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1217,8 +1222,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport128TopSwitchesByT
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWiredReport128topSwitchesByTrafficTable200ResponseTypeAPIResponse), err
 }
 
@@ -1236,6 +1241,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport134WiredOverview(
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1246,8 +1252,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport134WiredOverview(
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWiredReport134wiredOverview200ResponseTypeAPIResponse), err
 }
 
@@ -1265,6 +1271,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport135WiredTrafficDi
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1275,8 +1282,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport135WiredTrafficDi
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWiredReport135wiredTrafficDistribution200ResponseTypeAPIResponse), err
 }
 
@@ -1294,6 +1301,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport136SwitchTrafficT
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1304,8 +1312,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport136SwitchTrafficT
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWiredReport136switchTrafficTrend200ResponseTypeAPIResponse), err
 }
 
@@ -1323,6 +1331,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport141SwitchErrorTre
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1333,8 +1342,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport141SwitchErrorTre
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWiredReport141switchErrorTrend200ResponseTypeAPIResponse), err
 }
 
@@ -1352,6 +1361,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport142TopSwitchesByE
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1362,8 +1372,8 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport142TopSwitchesByE
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWiredReport142topSwitchesByErrorsChart200ResponseTypeAPIResponse), err
 }
 
@@ -1381,6 +1391,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport143TopSwitchesByE
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -1391,7 +1402,7 @@ func (s *SCINetworkWiredReportService) ReportNetworkWiredReport143TopSwitchesByE
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportNetworkWiredReport143topSwitchesByErrorsTable200ResponseTypeAPIResponse), err
 }

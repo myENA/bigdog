@@ -156,7 +156,7 @@ func cleanupReadCloser(rc io.ReadCloser) {
 	_ = rc.Close()
 }
 
-func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response, respFact APIResponseFactory, autoHydrate bool, sourceErr error) (APIResponse, error) {
+func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response, execDur time.Duration, respFact APIResponseFactory, autoHydrate bool, sourceErr error) (APIResponse, error) {
 	if sourceErr != nil {
 		// handle some context errors
 
@@ -165,7 +165,7 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 			if httpResp != nil {
 				cleanupReadCloser(httpResp.Body)
 			}
-			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, http.StatusRequestTimeout), nil), sourceErr
+			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, http.StatusRequestTimeout, execDur), nil), sourceErr
 		}
 
 		// for context cancelled errors, return nginx's 499 Client Closed Request status
@@ -174,7 +174,7 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 			if httpResp != nil {
 				cleanupReadCloser(httpResp.Body)
 			}
-			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, 499), nil), sourceErr
+			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, 499, execDur), nil), sourceErr
 		}
 
 		// if the incoming error is from an auth provider, return as-is
@@ -188,21 +188,21 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 		// perform one final check here as we sometimes see an http resp with an error carrying an invalid status code
 		if httpResp != nil && httpResp.StatusCode < 100 {
 			cleanupReadCloser(httpResp.Body)
-			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, http.StatusInternalServerError), nil),
+			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, http.StatusInternalServerError, execDur), nil),
 				fmt.Errorf("received invalid response code %d: %w", http.StatusInternalServerError, sourceErr)
 		}
 
 		// otherwise, pass on constructed response and incoming error
-		return respFact(req.Source, newAPIResponseMeta(req, successCode, httpResp), nil), sourceErr
+		return respFact(req.Source, newAPIResponseMeta(req, successCode, httpResp, execDur), nil), sourceErr
 	}
 
 	// this _should_ never happen, but check for it anyway.
 	if httpResp == nil {
-		panic(fmt.Sprintf("severe problem: nil *http.Response seen with nil error. meta: %v", newAPIResponseMeta(req, successCode, httpResp)))
+		panic(fmt.Sprintf("severe problem: nil *http.Response seen with nil error. meta: %v", newAPIResponseMeta(req, successCode, httpResp, execDur)))
 	}
 
 	// construct response
-	apiResp := respFact(req.Source, newAPIResponseMeta(req, successCode, httpResp), httpResp.Body)
+	apiResp := respFact(req.Source, newAPIResponseMeta(req, successCode, httpResp, execDur), httpResp.Body)
 
 	// if the response code matches the expected "success" code...
 	if httpResp.StatusCode == successCode {

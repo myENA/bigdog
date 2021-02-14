@@ -9,6 +9,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"time"
 )
 
 type SCIReportService struct {
@@ -931,7 +932,7 @@ func NewSCIReportAPDetailsReport83snrTrend200ResponseType() *SCIReportAPDetailsR
 //
 // Definition: report_APDetailsReport_84_alarmsTable200ResponseType
 type SCIReportAPDetailsReport84alarmsTable200ResponseType struct {
-	Data SCIAPDetailsReport84alarmsTableData `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
 	Metadata interface{} `json:"metadata,omitempty"`
 }
@@ -1095,7 +1096,7 @@ func NewSCIReportAPDetailsReport110apAnomaly200ResponseType() *SCIReportAPDetail
 //
 // Definition: report_APsRebootReport_43_totalReboots200ResponseType
 type SCIReportAPsRebootReport43totalReboots200ResponseType struct {
-	Data SCIAPsRebootReport43totalRebootsData `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
 	Metadata interface{} `json:"metadata,omitempty"`
 }
@@ -1136,9 +1137,9 @@ func NewSCIReportAPsRebootReport43totalReboots200ResponseType() *SCIReportAPsReb
 //
 // Definition: report_APsRebootReport_44_topApRebootsTable200ResponseType
 type SCIReportAPsRebootReport44topApRebootsTable200ResponseType struct {
-	Data SCIAPsRebootReport44topApRebootsTableData `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
-	Metadata *SCIAPsRebootReport44topApRebootsTableMetaData `json:"metadata,omitempty"`
+	Metadata interface{} `json:"metadata,omitempty"`
 }
 
 type SCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse struct {
@@ -1177,7 +1178,7 @@ func NewSCIReportAPsRebootReport44topApRebootsTable200ResponseType() *SCIReportA
 //
 // Definition: report_APsRebootReport_45_topApRebootsOverTime200ResponseType
 type SCIReportAPsRebootReport45topApRebootsOverTime200ResponseType struct {
-	Data SCIAPsRebootReport45topApRebootsOverTimeData `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
 	Metadata interface{} `json:"metadata,omitempty"`
 }
@@ -2198,9 +2199,9 @@ func NewSCIReportInventoryAPsReport51top10ApVersionsChart200ResponseType() *SCIR
 //
 // Definition: report_InventoryAPsReport_52_topApsRebootReasons200ResponseType
 type SCIReportInventoryAPsReport52topApsRebootReasons200ResponseType struct {
-	Data SCIInventoryAPsReport52topApsRebootReasonsData `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
-	Metadata *SCIInventoryAPsReport52topApsRebootReasonsMetaData `json:"metadata,omitempty"`
+	Metadata interface{} `json:"metadata,omitempty"`
 }
 
 type SCIReportInventoryAPsReport52topApsRebootReasons200ResponseTypeAPIResponse struct {
@@ -2239,9 +2240,9 @@ func NewSCIReportInventoryAPsReport52topApsRebootReasons200ResponseType() *SCIRe
 //
 // Definition: report_InventoryAPsReport_53_top10ApsRebootCounts200ResponseType
 type SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType struct {
-	Data SCIInventoryAPsReport53top10ApsRebootCountsData `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
-	Metadata *SCIInventoryAPsReport53top10ApsRebootCountsMetaData `json:"metadata,omitempty"`
+	Metadata interface{} `json:"metadata,omitempty"`
 }
 
 type SCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseTypeAPIResponse struct {
@@ -2280,9 +2281,9 @@ func NewSCIReportInventoryAPsReport53top10ApsRebootCounts200ResponseType() *SCIR
 //
 // Definition: report_InventoryAPsReport_54_topApAlarmTypes200ResponseType
 type SCIReportInventoryAPsReport54topApAlarmTypes200ResponseType struct {
-	Data SCIInventoryAPsReport54topApAlarmTypesData `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
-	Metadata *SCIInventoryAPsReport54topApAlarmTypesMetaData `json:"metadata,omitempty"`
+	Metadata interface{} `json:"metadata,omitempty"`
 }
 
 type SCIReportInventoryAPsReport54topApAlarmTypes200ResponseTypeAPIResponse struct {
@@ -2444,7 +2445,7 @@ func NewSCIReportInventoryAPsReport57topAPsOffline200ResponseType() *SCIReportIn
 //
 // Definition: report_InventoryAPsReport_58_topAPsByReboots200ResponseType
 type SCIReportInventoryAPsReport58topAPsByReboots200ResponseType struct {
-	Data SCIInventoryAPsReport58topAPsByRebootsData `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
 	Metadata interface{} `json:"metadata,omitempty"`
 }
@@ -3961,9 +3962,9 @@ func NewSCIReportOverview64apOverview200ResponseType() *SCIReportOverview64apOve
 //
 // Definition: report_Overview_66_apAlarmOverview200ResponseType
 type SCIReportOverview66apAlarmOverview200ResponseType struct {
-	Data SCIOverview66apAlarmOverviewData `json:"data,omitempty"`
+	Data interface{} `json:"data,omitempty"`
 
-	Metadata *SCIOverview66apAlarmOverviewMetaData `json:"metadata,omitempty"`
+	Metadata interface{} `json:"metadata,omitempty"`
 }
 
 type SCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse struct {
@@ -7312,6 +7313,7 @@ func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues 
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -7324,8 +7326,8 @@ func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues 
 	req.SetBody(formValues)
 	req.PathParams.Set("format", format)
 	req.PathParams.Set("id", id)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -7344,6 +7346,7 @@ func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[st
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -7355,8 +7358,8 @@ func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[st
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportFind200ResponseTypeAPIResponse), err
 }
 
@@ -7379,6 +7382,7 @@ func (s *SCIReportService) ReportFindById(ctx context.Context, id string, option
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -7391,8 +7395,8 @@ func (s *SCIReportService) ReportFindById(ctx context.Context, id string, option
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIModelsReportAPIResponse), err
 }
 
@@ -7431,6 +7435,7 @@ func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Val
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -7443,8 +7448,8 @@ func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Val
 	req.SetBody(formValues)
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("sectionId", sectionId)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportGetData200ResponseTypeAPIResponse), err
 }
 
@@ -7457,6 +7462,7 @@ func (s *SCIReportService) ReportLatestIngestedTime(ctx context.Context, mutator
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -7465,8 +7471,8 @@ func (s *SCIReportService) ReportLatestIngestedTime(ctx context.Context, mutator
 	req = apiRequestFromPool(APISourceSCI, http.MethodGet, RouteSCIReportLatestIngestedTime, true)
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*RawAPIResponse), err
 }
 
@@ -7489,6 +7495,7 @@ func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id st
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -7501,8 +7508,8 @@ func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id st
 	if v, ok := optionalParams["filter"]; ok && len(v) > 0 {
 		req.QueryParams.SetStrings("filter", v)
 	}
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportPrototypegetsections200ResponseTypeAPIResponse), err
 }
 
@@ -7522,6 +7529,7 @@ func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentNa
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -7532,7 +7540,7 @@ func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentNa
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("urlSegmentName", urlSegmentName)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportWithRelationsAPIResponse), err
 }

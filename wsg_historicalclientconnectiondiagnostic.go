@@ -7,6 +7,7 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	"time"
 )
 
 type WSGHistoricalClientConnectionDiagnosticService struct {
@@ -107,6 +108,7 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdCount(ctx context.C
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -118,8 +120,8 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdCount(ctx context.C
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("type", type_)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse), err
 }
 
@@ -140,6 +142,7 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdTypeCount(ctx conte
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -151,7 +154,7 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdTypeCount(ctx conte
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	req.PathParams.Set("type", type_)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse), err
 }

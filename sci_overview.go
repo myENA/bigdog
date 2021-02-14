@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 type SCIOverviewService struct {
@@ -44,9 +45,9 @@ type SCIOverview62overviewDataType struct {
 
 	RebootCount interface{} `json:"rebootCount,omitempty"`
 
-	SessionCount interface{} `json:"sessionCount,omitempty"`
+	SessionCount *float64 `json:"sessionCount,omitempty"`
 
-	ShortSessionRatio *float64 `json:"shortSessionRatio,omitempty"`
+	ShortSessionRatio interface{} `json:"shortSessionRatio,omitempty"`
 
 	Total *float64 `json:"total,omitempty"`
 
@@ -337,160 +338,6 @@ func (t *SCIOverview64apOverviewDataType) MarshalJSON() ([]byte, error) {
 
 func NewSCIOverview64apOverviewDataType() *SCIOverview64apOverviewDataType {
 	m := new(SCIOverview64apOverviewDataType)
-	return m
-}
-
-// SCIOverview66apAlarmOverviewData
-//
-// Definition: Overview_Overview_66_apAlarmOverview_Data
-type SCIOverview66apAlarmOverviewData []*SCIOverview66apAlarmOverviewDataType
-
-func MakeSCIOverview66apAlarmOverviewData() SCIOverview66apAlarmOverviewData {
-	m := make(SCIOverview66apAlarmOverviewData, 0)
-	return m
-}
-
-// SCIOverview66apAlarmOverviewDataType
-//
-// Definition: Overview_Overview_66_apAlarmOverview_DataType
-type SCIOverview66apAlarmOverviewDataType struct {
-	AlarmType *string `json:"alarmType,omitempty"`
-
-	Count *float64 `json:"count,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIOverview66apAlarmOverviewDataType) UnmarshalJSON(b []byte) error {
-	type _SCIOverview66apAlarmOverviewDataType SCIOverview66apAlarmOverviewDataType
-	tmpType := new(_SCIOverview66apAlarmOverviewDataType)
-	if err := json.Unmarshal(b, tmpType); err != nil {
-		return err
-	}
-	tmpType.XAdditionalProperties = make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
-		return err
-	}
-	delete(tmpType.XAdditionalProperties, "alarmType")
-	delete(tmpType.XAdditionalProperties, "count")
-	*t = SCIOverview66apAlarmOverviewDataType(*tmpType)
-	return nil
-}
-
-func (t *SCIOverview66apAlarmOverviewDataType) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.AlarmType != nil {
-		tmp["alarmType"] = t.AlarmType
-	}
-	if t.Count != nil {
-		tmp["count"] = t.Count
-	}
-	return json.Marshal(tmp)
-}
-
-func NewSCIOverview66apAlarmOverviewDataType() *SCIOverview66apAlarmOverviewDataType {
-	m := new(SCIOverview66apAlarmOverviewDataType)
-	return m
-}
-
-// SCIOverview66apAlarmOverviewMetaData
-//
-// Definition: Overview_Overview_66_apAlarmOverview_MetaData
-type SCIOverview66apAlarmOverviewMetaData struct {
-	AlarmStat *SCIOverview66apAlarmOverviewMetaDataAlarmStatType `json:"alarmStat,omitempty"`
-
-	AlarmTotalCount *float64 `json:"alarmTotalCount,omitempty"`
-
-	XAdditionalProperties map[string]interface{} `json:"-"`
-}
-
-func (t *SCIOverview66apAlarmOverviewMetaData) UnmarshalJSON(b []byte) error {
-	type _SCIOverview66apAlarmOverviewMetaData SCIOverview66apAlarmOverviewMetaData
-	tmpType := new(_SCIOverview66apAlarmOverviewMetaData)
-	if err := json.Unmarshal(b, tmpType); err != nil {
-		return err
-	}
-	tmpType.XAdditionalProperties = make(map[string]interface{})
-	if err := json.Unmarshal(b, &tmpType.XAdditionalProperties); err != nil {
-		return err
-	}
-	delete(tmpType.XAdditionalProperties, "alarmStat")
-	delete(tmpType.XAdditionalProperties, "alarmTotalCount")
-	*t = SCIOverview66apAlarmOverviewMetaData(*tmpType)
-	return nil
-}
-
-func (t *SCIOverview66apAlarmOverviewMetaData) MarshalJSON() ([]byte, error) {
-	if t == nil {
-		return nil, nil
-	}
-	var tmp map[string]interface{}
-	if t.XAdditionalProperties == nil {
-		tmp = make(map[string]interface{})
-	} else {
-		tmp = t.XAdditionalProperties
-	}
-	if t.AlarmStat != nil {
-		tmp["alarmStat"] = t.AlarmStat
-	}
-	if t.AlarmTotalCount != nil {
-		tmp["alarmTotalCount"] = t.AlarmTotalCount
-	}
-	return json.Marshal(tmp)
-}
-
-func NewSCIOverview66apAlarmOverviewMetaData() *SCIOverview66apAlarmOverviewMetaData {
-	m := new(SCIOverview66apAlarmOverviewMetaData)
-	return m
-}
-
-// SCIOverview66apAlarmOverviewMetaDataAlarmStatType
-//
-// Definition: Overview_Overview_66_apAlarmOverview_MetaDataAlarmStatType
-type SCIOverview66apAlarmOverviewMetaDataAlarmStatType struct {
-	ByApGroup *SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType `json:"byApGroup,omitempty"`
-
-	ByZone *SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByZoneType `json:"byZone,omitempty"`
-}
-
-func NewSCIOverview66apAlarmOverviewMetaDataAlarmStatType() *SCIOverview66apAlarmOverviewMetaDataAlarmStatType {
-	m := new(SCIOverview66apAlarmOverviewMetaDataAlarmStatType)
-	return m
-}
-
-// SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType
-//
-// Definition: Overview_Overview_66_apAlarmOverview_MetaDataAlarmStatTypeByApGroupType
-type SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType struct {
-	Alarm *float64 `json:"alarm,omitempty"`
-
-	Total *float64 `json:"total,omitempty"`
-}
-
-func NewSCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType() *SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType {
-	m := new(SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByApGroupType)
-	return m
-}
-
-// SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByZoneType
-//
-// Definition: Overview_Overview_66_apAlarmOverview_MetaDataAlarmStatTypeByZoneType
-type SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByZoneType struct {
-	Alarm *float64 `json:"alarm,omitempty"`
-
-	Total *float64 `json:"total,omitempty"`
-}
-
-func NewSCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByZoneType() *SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByZoneType {
-	m := new(SCIOverview66apAlarmOverviewMetaDataAlarmStatTypeByZoneType)
 	return m
 }
 
@@ -816,6 +663,8 @@ type SCIOverview70sessionsOverviewDataTypeType struct {
 
 	MinLabel *string `json:"minLabel,omitempty"`
 
+	Previous *float64 `json:"previous,omitempty"`
+
 	XAdditionalProperties map[string]interface{} `json:"-"`
 }
 
@@ -835,6 +684,7 @@ func (t *SCIOverview70sessionsOverviewDataTypeType) UnmarshalJSON(b []byte) erro
 	delete(tmpType.XAdditionalProperties, "maxLabel")
 	delete(tmpType.XAdditionalProperties, "min")
 	delete(tmpType.XAdditionalProperties, "minLabel")
+	delete(tmpType.XAdditionalProperties, "previous")
 	*t = SCIOverview70sessionsOverviewDataTypeType(*tmpType)
 	return nil
 }
@@ -866,6 +716,9 @@ func (t *SCIOverview70sessionsOverviewDataTypeType) MarshalJSON() ([]byte, error
 	}
 	if t.MinLabel != nil {
 		tmp["minLabel"] = t.MinLabel
+	}
+	if t.Previous != nil {
+		tmp["previous"] = t.Previous
 	}
 	return json.Marshal(tmp)
 }
@@ -1265,7 +1118,7 @@ func MakeSCIOverview97factOverviewData() SCIOverview97factOverviewData {
 type SCIOverview97factOverviewDataType struct {
 	Key *string `json:"key,omitempty"`
 
-	Label interface{} `json:"label,omitempty"`
+	Label *string `json:"label,omitempty"`
 
 	Value *float64 `json:"value,omitempty"`
 
@@ -2044,6 +1897,7 @@ func (s *SCIOverviewService) ReportOverview62Overview(ctx context.Context, body 
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2054,8 +1908,8 @@ func (s *SCIOverviewService) ReportOverview62Overview(ctx context.Context, body 
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview62overview200ResponseTypeAPIResponse), err
 }
 
@@ -2073,6 +1927,7 @@ func (s *SCIOverviewService) ReportOverview63Controller(ctx context.Context, bod
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2083,8 +1938,8 @@ func (s *SCIOverviewService) ReportOverview63Controller(ctx context.Context, bod
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview63controller200ResponseTypeAPIResponse), err
 }
 
@@ -2102,6 +1957,7 @@ func (s *SCIOverviewService) ReportOverview64ApOverview(ctx context.Context, bod
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2112,8 +1968,8 @@ func (s *SCIOverviewService) ReportOverview64ApOverview(ctx context.Context, bod
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview64apOverview200ResponseTypeAPIResponse), err
 }
 
@@ -2131,6 +1987,7 @@ func (s *SCIOverviewService) ReportOverview66ApAlarmOverview(ctx context.Context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2141,8 +1998,8 @@ func (s *SCIOverviewService) ReportOverview66ApAlarmOverview(ctx context.Context
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview66apAlarmOverview200ResponseTypeAPIResponse), err
 }
 
@@ -2160,6 +2017,7 @@ func (s *SCIOverviewService) ReportOverview67SwitchOverview(ctx context.Context,
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2170,8 +2028,8 @@ func (s *SCIOverviewService) ReportOverview67SwitchOverview(ctx context.Context,
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview67switchOverview200ResponseTypeAPIResponse), err
 }
 
@@ -2189,6 +2047,7 @@ func (s *SCIOverviewService) ReportOverview68ApClientCountOverview(ctx context.C
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2199,8 +2058,8 @@ func (s *SCIOverviewService) ReportOverview68ApClientCountOverview(ctx context.C
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview68apClientCountOverview200ResponseTypeAPIResponse), err
 }
 
@@ -2218,6 +2077,7 @@ func (s *SCIOverviewService) ReportOverview69TotalTrafficMinMaxRate(ctx context.
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2228,8 +2088,8 @@ func (s *SCIOverviewService) ReportOverview69TotalTrafficMinMaxRate(ctx context.
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview69totalTrafficMinMaxRate200ResponseTypeAPIResponse), err
 }
 
@@ -2247,6 +2107,7 @@ func (s *SCIOverviewService) ReportOverview70SessionsOverview(ctx context.Contex
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2257,8 +2118,8 @@ func (s *SCIOverviewService) ReportOverview70SessionsOverview(ctx context.Contex
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview70sessionsOverview200ResponseTypeAPIResponse), err
 }
 
@@ -2276,6 +2137,7 @@ func (s *SCIOverviewService) ReportOverview71SsidOverview(ctx context.Context, b
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2286,8 +2148,8 @@ func (s *SCIOverviewService) ReportOverview71SsidOverview(ctx context.Context, b
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview71ssidOverview200ResponseTypeAPIResponse), err
 }
 
@@ -2305,6 +2167,7 @@ func (s *SCIOverviewService) ReportOverview72RadioOverview(ctx context.Context, 
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2315,8 +2178,8 @@ func (s *SCIOverviewService) ReportOverview72RadioOverview(ctx context.Context, 
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview72radioOverview200ResponseTypeAPIResponse), err
 }
 
@@ -2334,6 +2197,7 @@ func (s *SCIOverviewService) ReportOverview73ApplicationsOverview(ctx context.Co
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2344,8 +2208,8 @@ func (s *SCIOverviewService) ReportOverview73ApplicationsOverview(ctx context.Co
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview73applicationsOverview200ResponseTypeAPIResponse), err
 }
 
@@ -2363,6 +2227,7 @@ func (s *SCIOverviewService) ReportOverview74ApEventOverview(ctx context.Context
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2373,8 +2238,8 @@ func (s *SCIOverviewService) ReportOverview74ApEventOverview(ctx context.Context
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview74apEventOverview200ResponseTypeAPIResponse), err
 }
 
@@ -2392,6 +2257,7 @@ func (s *SCIOverviewService) ReportOverview97FactOverview(ctx context.Context, b
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2402,8 +2268,8 @@ func (s *SCIOverviewService) ReportOverview97FactOverview(ctx context.Context, b
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview97factOverview200ResponseTypeAPIResponse), err
 }
 
@@ -2421,6 +2287,7 @@ func (s *SCIOverviewService) ReportOverview115NetworkUsageOverview(ctx context.C
 	var (
 		req      *APIRequest
 		httpResp *http.Response
+		execDur  time.Duration
 		resp     APIResponse
 		err      error
 
@@ -2431,7 +2298,7 @@ func (s *SCIOverviewService) ReportOverview115NetworkUsageOverview(ctx context.C
 	req.Header.Set(headerKeyContentType, headerValueApplicationJSON)
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
-	httpResp, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, respFn, s.apiClient.autoHydrate, err)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
 	return resp.(*SCIReportOverview115networkUsageOverview200ResponseTypeAPIResponse), err
 }

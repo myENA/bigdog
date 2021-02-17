@@ -99,21 +99,21 @@ func newWSGDNSSpoofingProfileDetailAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *WSGDNSSpoofingProfileDetailAPIResponse) Hydrate() error {
+func (r *WSGDNSSpoofingProfileDetailAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDNSSpoofingProfileDetail)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDNSSpoofingProfileDetail() *WSGDNSSpoofingProfileDetail {
 	m := new(WSGDNSSpoofingProfileDetail)
@@ -184,21 +184,21 @@ func newWSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse(src APISource,
 	return r
 }
 
-func (r *WSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse) Hydrate() error {
+func (r *WSGDNSSpoofingProfileGetDnsSpoofingProfileListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDNSSpoofingProfileGetDnsSpoofingProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDNSSpoofingProfileGetDnsSpoofingProfileList() *WSGDNSSpoofingProfileGetDnsSpoofingProfileList {
 	m := new(WSGDNSSpoofingProfileGetDnsSpoofingProfileList)

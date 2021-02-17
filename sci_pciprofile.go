@@ -43,21 +43,21 @@ func newSCIPCIProfileBatchDelete200ResponseTypeAPIResponse(src APISource, meta A
 	return r
 }
 
-func (r *SCIPCIProfileBatchDelete200ResponseTypeAPIResponse) Hydrate() error {
+func (r *SCIPCIProfileBatchDelete200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SCIPCIProfileBatchDelete200ResponseType)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSCIPCIProfileBatchDelete200ResponseType() *SCIPCIProfileBatchDelete200ResponseType {
 	m := new(SCIPCIProfileBatchDelete200ResponseType)
@@ -80,21 +80,21 @@ func newSCIPCIProfileFind200ResponseTypeAPIResponse(src APISource, meta APIRespo
 	return r
 }
 
-func (r *SCIPCIProfileFind200ResponseTypeAPIResponse) Hydrate() error {
+func (r *SCIPCIProfileFind200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := make(SCIPCIProfileFind200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func MakeSCIPCIProfileFind200ResponseType() SCIPCIProfileFind200ResponseType {
 	m := make(SCIPCIProfileFind200ResponseType, 0)
@@ -119,21 +119,21 @@ func newSCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse(src APISour
 	return r
 }
 
-func (r *SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse) Hydrate() error {
+func (r *SCIPCIProfilePrototypecountreports200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SCIPCIProfilePrototypecountreports200ResponseType)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSCIPCIProfilePrototypecountreports200ResponseType() *SCIPCIProfilePrototypecountreports200ResponseType {
 	m := new(SCIPCIProfilePrototypecountreports200ResponseType)
@@ -156,21 +156,21 @@ func newSCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse(src APISource
 	return r
 }
 
-func (r *SCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse) Hydrate() error {
+func (r *SCIPCIProfilePrototypegetreports200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := make(SCIPCIProfilePrototypegetreports200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func MakeSCIPCIProfilePrototypegetreports200ResponseType() SCIPCIProfilePrototypegetreports200ResponseType {
 	m := make(SCIPCIProfilePrototypegetreports200ResponseType, 0)

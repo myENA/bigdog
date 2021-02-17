@@ -53,21 +53,21 @@ func newWSGZoneApFirmwareListAPIResponse(src APISource, meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGZoneApFirmwareListAPIResponse) Hydrate() error {
+func (r *WSGZoneApFirmwareListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGZoneApFirmwareList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGZoneApFirmwareList() *WSGZoneApFirmwareList {
 	m := new(WSGZoneApFirmwareList)
@@ -170,21 +170,21 @@ func newWSGZoneAvailableTunnelProfileListAPIResponse(src APISource, meta APIResp
 	return r
 }
 
-func (r *WSGZoneAvailableTunnelProfileListAPIResponse) Hydrate() error {
+func (r *WSGZoneAvailableTunnelProfileListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGZoneAvailableTunnelProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGZoneAvailableTunnelProfileList() *WSGZoneAvailableTunnelProfileList {
 	m := new(WSGZoneAvailableTunnelProfileList)
@@ -251,21 +251,21 @@ func newWSGZoneBonjourGatewayPolicyConfigurationAPIResponse(src APISource, meta 
 	return r
 }
 
-func (r *WSGZoneBonjourGatewayPolicyConfigurationAPIResponse) Hydrate() error {
+func (r *WSGZoneBonjourGatewayPolicyConfigurationAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGZoneBonjourGatewayPolicyConfiguration)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGZoneBonjourGatewayPolicyConfiguration() *WSGZoneBonjourGatewayPolicyConfiguration {
 	m := new(WSGZoneBonjourGatewayPolicyConfiguration)
@@ -296,21 +296,21 @@ func newWSGZoneBonjourGatewayPolicyListAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *WSGZoneBonjourGatewayPolicyListAPIResponse) Hydrate() error {
+func (r *WSGZoneBonjourGatewayPolicyListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGZoneBonjourGatewayPolicyList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGZoneBonjourGatewayPolicyList() *WSGZoneBonjourGatewayPolicyList {
 	m := new(WSGZoneBonjourGatewayPolicyList)
@@ -827,21 +827,21 @@ func newWSGZoneDhcpSiteConfigListAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *WSGZoneDhcpSiteConfigListAPIResponse) Hydrate() error {
+func (r *WSGZoneDhcpSiteConfigListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGZoneDhcpSiteConfigList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGZoneDhcpSiteConfigList() *WSGZoneDhcpSiteConfigList {
 	m := new(WSGZoneDhcpSiteConfigList)
@@ -880,21 +880,21 @@ func newWSGZoneDiffServConfigurationAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *WSGZoneDiffServConfigurationAPIResponse) Hydrate() error {
+func (r *WSGZoneDiffServConfigurationAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGZoneDiffServConfiguration)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGZoneDiffServConfiguration() *WSGZoneDiffServConfiguration {
 	m := new(WSGZoneDiffServConfiguration)
@@ -925,21 +925,21 @@ func newWSGZoneDiffServListAPIResponse(src APISource, meta APIResponseMeta, body
 	return r
 }
 
-func (r *WSGZoneDiffServListAPIResponse) Hydrate() error {
+func (r *WSGZoneDiffServListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGZoneDiffServList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGZoneDiffServList() *WSGZoneDiffServList {
 	m := new(WSGZoneDiffServList)
@@ -1044,21 +1044,21 @@ func newWSGZoneMeshConfigurationAPIResponse(src APISource, meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGZoneMeshConfigurationAPIResponse) Hydrate() error {
+func (r *WSGZoneMeshConfigurationAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGZoneMeshConfiguration)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGZoneMeshConfiguration() *WSGZoneMeshConfiguration {
 	m := new(WSGZoneMeshConfiguration)
@@ -2019,21 +2019,21 @@ func newWSGZoneConfigurationAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGZoneConfigurationAPIResponse) Hydrate() error {
+func (r *WSGZoneConfigurationAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGZoneConfiguration)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGZoneConfiguration() *WSGZoneConfiguration {
 	m := new(WSGZoneConfiguration)
@@ -2064,21 +2064,21 @@ func newWSGZoneListAPIResponse(src APISource, meta APIResponseMeta, body io.Read
 	return r
 }
 
-func (r *WSGZoneListAPIResponse) Hydrate() error {
+func (r *WSGZoneListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGZoneList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGZoneList() *WSGZoneList {
 	m := new(WSGZoneList)

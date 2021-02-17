@@ -25,21 +25,21 @@ func newWSGAPRoutineStatusIntervalRspAPIResponse(src APISource, meta APIResponse
 	return r
 }
 
-func (r *WSGAPRoutineStatusIntervalRspAPIResponse) Hydrate() error {
+func (r *WSGAPRoutineStatusIntervalRspAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAPRoutineStatusIntervalRsp)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAPRoutineStatusIntervalRsp() *WSGAPRoutineStatusIntervalRsp {
 	m := new(WSGAPRoutineStatusIntervalRsp)

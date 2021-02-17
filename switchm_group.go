@@ -48,21 +48,21 @@ func newSwitchMGroupAuditIdAPIResponse(src APISource, meta APIResponseMeta, body
 	return r
 }
 
-func (r *SwitchMGroupAuditIdAPIResponse) Hydrate() error {
+func (r *SwitchMGroupAuditIdAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMGroupAuditId)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMGroupAuditId() *SwitchMGroupAuditId {
 	m := new(SwitchMGroupAuditId)
@@ -97,21 +97,21 @@ func newSwitchMGroupAuditIdListAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *SwitchMGroupAuditIdListAPIResponse) Hydrate() error {
+func (r *SwitchMGroupAuditIdListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMGroupAuditIdList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMGroupAuditIdList() *SwitchMGroupAuditIdList {
 	m := new(SwitchMGroupAuditIdList)
@@ -246,21 +246,21 @@ func newSwitchMGroupsByIdsQueryResultListAPIResponse(src APISource, meta APIResp
 	return r
 }
 
-func (r *SwitchMGroupsByIdsQueryResultListAPIResponse) Hydrate() error {
+func (r *SwitchMGroupsByIdsQueryResultListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMGroupsByIdsQueryResultList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMGroupsByIdsQueryResultList() *SwitchMGroupsByIdsQueryResultList {
 	m := new(SwitchMGroupsByIdsQueryResultList)
@@ -371,21 +371,21 @@ func newSwitchMGroupSwitchGroupAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *SwitchMGroupSwitchGroupAPIResponse) Hydrate() error {
+func (r *SwitchMGroupSwitchGroupAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMGroupSwitchGroup)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMGroupSwitchGroup() *SwitchMGroupSwitchGroup {
 	m := new(SwitchMGroupSwitchGroup)

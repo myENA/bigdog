@@ -134,21 +134,21 @@ func newSwitchMStaticRouteSettingStaticRouteAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *SwitchMStaticRouteSettingStaticRouteAPIResponse) Hydrate() error {
+func (r *SwitchMStaticRouteSettingStaticRouteAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMStaticRouteSettingStaticRoute)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMStaticRouteSettingStaticRoute() *SwitchMStaticRouteSettingStaticRoute {
 	m := new(SwitchMStaticRouteSettingStaticRoute)
@@ -193,21 +193,21 @@ func newSwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse(src APISourc
 	return r
 }
 
-func (r *SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse) Hydrate() error {
+func (r *SwitchMStaticRouteSettingStaticRoutesQueryResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMStaticRouteSettingStaticRoutesQueryResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMStaticRouteSettingStaticRoutesQueryResult() *SwitchMStaticRouteSettingStaticRoutesQueryResult {
 	m := new(SwitchMStaticRouteSettingStaticRoutesQueryResult)

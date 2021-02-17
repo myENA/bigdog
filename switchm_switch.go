@@ -49,21 +49,21 @@ func newSwitchMSwitchAuditIdAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *SwitchMSwitchAuditIdAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchAuditIdAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchAuditId)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchAuditId() *SwitchMSwitchAuditId {
 	m := new(SwitchMSwitchAuditId)
@@ -130,21 +130,21 @@ func newSwitchMSwitchConnectedAPsQueryListAPIResponse(src APISource, meta APIRes
 	return r
 }
 
-func (r *SwitchMSwitchConnectedAPsQueryListAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchConnectedAPsQueryListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchConnectedAPsQueryList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchConnectedAPsQueryList() *SwitchMSwitchConnectedAPsQueryList {
 	m := new(SwitchMSwitchConnectedAPsQueryList)
@@ -277,21 +277,21 @@ func newSwitchMSwitchConnectedDevicesQueryListAPIResponse(src APISource, meta AP
 	return r
 }
 
-func (r *SwitchMSwitchConnectedDevicesQueryListAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchConnectedDevicesQueryListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchConnectedDevicesQueryList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchConnectedDevicesQueryList() *SwitchMSwitchConnectedDevicesQueryList {
 	m := new(SwitchMSwitchConnectedDevicesQueryList)
@@ -336,21 +336,21 @@ func newSwitchMSwitchDeleteSwitchesResultListAPIResponse(src APISource, meta API
 	return r
 }
 
-func (r *SwitchMSwitchDeleteSwitchesResultListAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchDeleteSwitchesResultListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchDeleteSwitchesResultList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchDeleteSwitchesResultList() *SwitchMSwitchDeleteSwitchesResultList {
 	m := new(SwitchMSwitchDeleteSwitchesResultList)
@@ -417,21 +417,21 @@ func newSwitchMSwitchFirmwareHistoryQueryResultListAPIResponse(src APISource, me
 	return r
 }
 
-func (r *SwitchMSwitchFirmwareHistoryQueryResultListAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchFirmwareHistoryQueryResultListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchFirmwareHistoryQueryResultList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchFirmwareHistoryQueryResultList() *SwitchMSwitchFirmwareHistoryQueryResultList {
 	m := new(SwitchMSwitchFirmwareHistoryQueryResultList)
@@ -580,21 +580,21 @@ func newSwitchMSwitchNetworkSwitchAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *SwitchMSwitchNetworkSwitchAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchNetworkSwitchAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchNetworkSwitch)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchNetworkSwitch() *SwitchMSwitchNetworkSwitch {
 	m := new(SwitchMSwitchNetworkSwitch)
@@ -939,21 +939,21 @@ func newSwitchMSwitchPortDetailsQueryResultListAPIResponse(src APISource, meta A
 	return r
 }
 
-func (r *SwitchMSwitchPortDetailsQueryResultListAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchPortDetailsQueryResultListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchPortDetailsQueryResultList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchPortDetailsQueryResultList() *SwitchMSwitchPortDetailsQueryResultList {
 	m := new(SwitchMSwitchPortDetailsQueryResultList)
@@ -1100,21 +1100,21 @@ func newSwitchMSwitchStackMemberQueryResultAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *SwitchMSwitchStackMemberQueryResultAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchStackMemberQueryResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchStackMemberQueryResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchStackMemberQueryResult() *SwitchMSwitchStackMemberQueryResult {
 	m := new(SwitchMSwitchStackMemberQueryResult)
@@ -1171,21 +1171,21 @@ func newSwitchMSwitchPortsSummaryQueryResultListAPIResponse(src APISource, meta 
 	return r
 }
 
-func (r *SwitchMSwitchPortsSummaryQueryResultListAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchPortsSummaryQueryResultListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchPortsSummaryQueryResultList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchPortsSummaryQueryResultList() *SwitchMSwitchPortsSummaryQueryResultList {
 	m := new(SwitchMSwitchPortsSummaryQueryResultList)
@@ -1228,21 +1228,21 @@ func newSwitchMSwitchQueryResultListAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *SwitchMSwitchQueryResultListAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchQueryResultListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchQueryResultList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchQueryResultList() *SwitchMSwitchQueryResultList {
 	m := new(SwitchMSwitchQueryResultList)
@@ -1300,21 +1300,21 @@ func newSwitchMSwitchRebootResponseAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *SwitchMSwitchRebootResponseAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchRebootResponseAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchRebootResponse)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchRebootResponse() *SwitchMSwitchRebootResponse {
 	m := new(SwitchMSwitchRebootResponse)
@@ -1359,21 +1359,21 @@ func newSwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse(src APISour
 	return r
 }
 
-func (r *SwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchTopSwitchesByFirmwareQueryResultListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchTopSwitchesByFirmwareQueryResultList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchTopSwitchesByFirmwareQueryResultList() *SwitchMSwitchTopSwitchesByFirmwareQueryResultList {
 	m := new(SwitchMSwitchTopSwitchesByFirmwareQueryResultList)
@@ -1418,21 +1418,21 @@ func newSwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse(src APISource,
 	return r
 }
 
-func (r *SwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse) Hydrate() error {
+func (r *SwitchMSwitchTopSwitchesByModelQueryResultListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSwitchTopSwitchesByModelQueryResultList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSwitchTopSwitchesByModelQueryResultList() *SwitchMSwitchTopSwitchesByModelQueryResultList {
 	m := new(SwitchMSwitchTopSwitchesByModelQueryResultList)

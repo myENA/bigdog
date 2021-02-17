@@ -43,21 +43,21 @@ func newSCIMigrationMapCount200ResponseTypeAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *SCIMigrationMapCount200ResponseTypeAPIResponse) Hydrate() error {
+func (r *SCIMigrationMapCount200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SCIMigrationMapCount200ResponseType)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSCIMigrationMapCount200ResponseType() *SCIMigrationMapCount200ResponseType {
 	m := new(SCIMigrationMapCount200ResponseType)
@@ -82,21 +82,21 @@ func newSCIMigrationMapExistsgetMigrationMapsidexists200ResponseTypeAPIResponse(
 	return r
 }
 
-func (r *SCIMigrationMapExistsgetMigrationMapsidexists200ResponseTypeAPIResponse) Hydrate() error {
+func (r *SCIMigrationMapExistsgetMigrationMapsidexists200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SCIMigrationMapExistsgetMigrationMapsidexists200ResponseType)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSCIMigrationMapExistsgetMigrationMapsidexists200ResponseType() *SCIMigrationMapExistsgetMigrationMapsidexists200ResponseType {
 	m := new(SCIMigrationMapExistsgetMigrationMapsidexists200ResponseType)
@@ -131,21 +131,21 @@ func newSCIMigrationMapFind200ResponseTypeAPIResponse(src APISource, meta APIRes
 	return r
 }
 
-func (r *SCIMigrationMapFind200ResponseTypeAPIResponse) Hydrate() error {
+func (r *SCIMigrationMapFind200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := make(SCIMigrationMapFind200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func MakeSCIMigrationMapFind200ResponseType() SCIMigrationMapFind200ResponseType {
 	m := make(SCIMigrationMapFind200ResponseType, 0)

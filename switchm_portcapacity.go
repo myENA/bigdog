@@ -76,21 +76,21 @@ func newSwitchMPortCapacityResultAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *SwitchMPortCapacityResultAPIResponse) Hydrate() error {
+func (r *SwitchMPortCapacityResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMPortCapacityResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
 	m := new(SwitchMPortCapacityResult)

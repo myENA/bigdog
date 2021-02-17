@@ -137,21 +137,21 @@ func newWSGServiceActiveDirectoryServiceAPIResponse(src APISource, meta APIRespo
 	return r
 }
 
-func (r *WSGServiceActiveDirectoryServiceAPIResponse) Hydrate() error {
+func (r *WSGServiceActiveDirectoryServiceAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceActiveDirectoryService)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceActiveDirectoryService() *WSGServiceActiveDirectoryService {
 	m := new(WSGServiceActiveDirectoryService)
@@ -184,21 +184,21 @@ func newWSGServiceActiveDirectoryServiceListAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *WSGServiceActiveDirectoryServiceListAPIResponse) Hydrate() error {
+func (r *WSGServiceActiveDirectoryServiceListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceActiveDirectoryServiceList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceActiveDirectoryServiceList() *WSGServiceActiveDirectoryServiceList {
 	m := new(WSGServiceActiveDirectoryServiceList)
@@ -293,21 +293,21 @@ func newWSGServiceCommonAccountingServiceListAPIResponse(src APISource, meta API
 	return r
 }
 
-func (r *WSGServiceCommonAccountingServiceListAPIResponse) Hydrate() error {
+func (r *WSGServiceCommonAccountingServiceListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceCommonAccountingServiceList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceCommonAccountingServiceList() *WSGServiceCommonAccountingServiceList {
 	m := new(WSGServiceCommonAccountingServiceList)
@@ -388,21 +388,21 @@ func newWSGServiceCommonAuthenticationServiceAPIResponse(src APISource, meta API
 	return r
 }
 
-func (r *WSGServiceCommonAuthenticationServiceAPIResponse) Hydrate() error {
+func (r *WSGServiceCommonAuthenticationServiceAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceCommonAuthenticationService)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceCommonAuthenticationService() *WSGServiceCommonAuthenticationService {
 	m := new(WSGServiceCommonAuthenticationService)
@@ -435,21 +435,21 @@ func newWSGServiceCommonAuthenticationServiceListAPIResponse(src APISource, meta
 	return r
 }
 
-func (r *WSGServiceCommonAuthenticationServiceListAPIResponse) Hydrate() error {
+func (r *WSGServiceCommonAuthenticationServiceListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceCommonAuthenticationServiceList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceCommonAuthenticationServiceList() *WSGServiceCommonAuthenticationServiceList {
 	m := new(WSGServiceCommonAuthenticationServiceList)
@@ -1015,21 +1015,21 @@ func newWSGServiceGgsnConfigAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGServiceGgsnConfigAPIResponse) Hydrate() error {
+func (r *WSGServiceGgsnConfigAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceGgsnConfig)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceGgsnConfig() *WSGServiceGgsnConfig {
 	m := new(WSGServiceGgsnConfig)
@@ -1387,21 +1387,21 @@ func newWSGServiceHlrServiceAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGServiceHlrServiceAPIResponse) Hydrate() error {
+func (r *WSGServiceHlrServiceAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceHlrService)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceHlrService() *WSGServiceHlrService {
 	m := new(WSGServiceHlrService)
@@ -1434,21 +1434,21 @@ func newWSGServiceHlrServiceListAPIResponse(src APISource, meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGServiceHlrServiceListAPIResponse) Hydrate() error {
+func (r *WSGServiceHlrServiceListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceHlrServiceList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceHlrServiceList() *WSGServiceHlrServiceList {
 	m := new(WSGServiceHlrServiceList)
@@ -1585,21 +1585,21 @@ func newWSGServiceLDAPServiceAPIResponse(src APISource, meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGServiceLDAPServiceAPIResponse) Hydrate() error {
+func (r *WSGServiceLDAPServiceAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceLDAPService)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceLDAPService() *WSGServiceLDAPService {
 	m := new(WSGServiceLDAPService)
@@ -1632,21 +1632,21 @@ func newWSGServiceLDAPServiceListAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *WSGServiceLDAPServiceListAPIResponse) Hydrate() error {
+func (r *WSGServiceLDAPServiceListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceLDAPServiceList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceLDAPServiceList() *WSGServiceLDAPServiceList {
 	m := new(WSGServiceLDAPServiceList)
@@ -2273,21 +2273,21 @@ func newWSGServiceRadiusAccountingServiceAPIResponse(src APISource, meta APIResp
 	return r
 }
 
-func (r *WSGServiceRadiusAccountingServiceAPIResponse) Hydrate() error {
+func (r *WSGServiceRadiusAccountingServiceAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceRadiusAccountingService)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceRadiusAccountingService() *WSGServiceRadiusAccountingService {
 	m := new(WSGServiceRadiusAccountingService)
@@ -2320,21 +2320,21 @@ func newWSGServiceRadiusAccountingServiceListAPIResponse(src APISource, meta API
 	return r
 }
 
-func (r *WSGServiceRadiusAccountingServiceListAPIResponse) Hydrate() error {
+func (r *WSGServiceRadiusAccountingServiceListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceRadiusAccountingServiceList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceRadiusAccountingServiceList() *WSGServiceRadiusAccountingServiceList {
 	m := new(WSGServiceRadiusAccountingServiceList)
@@ -2433,21 +2433,21 @@ func newWSGServiceRadiusAuthenticationServiceAPIResponse(src APISource, meta API
 	return r
 }
 
-func (r *WSGServiceRadiusAuthenticationServiceAPIResponse) Hydrate() error {
+func (r *WSGServiceRadiusAuthenticationServiceAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceRadiusAuthenticationService)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceRadiusAuthenticationService() *WSGServiceRadiusAuthenticationService {
 	m := new(WSGServiceRadiusAuthenticationService)
@@ -2480,21 +2480,21 @@ func newWSGServiceRadiusAuthenticationServiceListAPIResponse(src APISource, meta
 	return r
 }
 
-func (r *WSGServiceRadiusAuthenticationServiceListAPIResponse) Hydrate() error {
+func (r *WSGServiceRadiusAuthenticationServiceListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGServiceRadiusAuthenticationServiceList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGServiceRadiusAuthenticationServiceList() *WSGServiceRadiusAuthenticationServiceList {
 	m := new(WSGServiceRadiusAuthenticationServiceList)

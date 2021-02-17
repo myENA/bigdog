@@ -99,21 +99,21 @@ func newWSGClusterBladeClusterStateAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *WSGClusterBladeClusterStateAPIResponse) Hydrate() error {
+func (r *WSGClusterBladeClusterStateAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGClusterBladeClusterState)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGClusterBladeClusterState() *WSGClusterBladeClusterState {
 	m := new(WSGClusterBladeClusterState)

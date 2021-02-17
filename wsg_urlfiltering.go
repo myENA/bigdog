@@ -163,21 +163,21 @@ func newWSGURLFilteringBlockCategoriesListAPIResponse(src APISource, meta APIRes
 	return r
 }
 
-func (r *WSGURLFilteringBlockCategoriesListAPIResponse) Hydrate() error {
+func (r *WSGURLFilteringBlockCategoriesListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGURLFilteringBlockCategoriesList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGURLFilteringBlockCategoriesList() *WSGURLFilteringBlockCategoriesList {
 	m := new(WSGURLFilteringBlockCategoriesList)
@@ -300,21 +300,21 @@ func newWSGURLFilteringPolicyAPIResponse(src APISource, meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGURLFilteringPolicyAPIResponse) Hydrate() error {
+func (r *WSGURLFilteringPolicyAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGURLFilteringPolicy)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGURLFilteringPolicy() *WSGURLFilteringPolicy {
 	m := new(WSGURLFilteringPolicy)
@@ -347,21 +347,21 @@ func newWSGURLFilteringPolicyListAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *WSGURLFilteringPolicyListAPIResponse) Hydrate() error {
+func (r *WSGURLFilteringPolicyListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGURLFilteringPolicyList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGURLFilteringPolicyList() *WSGURLFilteringPolicyList {
 	m := new(WSGURLFilteringPolicyList)

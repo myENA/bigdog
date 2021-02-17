@@ -40,21 +40,21 @@ func newSCISystemFind200ResponseTypeAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *SCISystemFind200ResponseTypeAPIResponse) Hydrate() error {
+func (r *SCISystemFind200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := make(SCISystemFind200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func MakeSCISystemFind200ResponseType() SCISystemFind200ResponseType {
 	m := make(SCISystemFind200ResponseType, 0)
@@ -77,21 +77,21 @@ func newSCISystemGetSsids200ResponseTypeAPIResponse(src APISource, meta APIRespo
 	return r
 }
 
-func (r *SCISystemGetSsids200ResponseTypeAPIResponse) Hydrate() error {
+func (r *SCISystemGetSsids200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := make(SCISystemGetSsids200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func MakeSCISystemGetSsids200ResponseType() SCISystemGetSsids200ResponseType {
 	m := make(SCISystemGetSsids200ResponseType, 0)

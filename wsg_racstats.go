@@ -221,21 +221,21 @@ func newWSGRACStatsGgsnGtpcConListAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGRACStatsGgsnGtpcConListAPIResponse) Hydrate() error {
+func (r *WSGRACStatsGgsnGtpcConListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGRACStatsGgsnGtpcConList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGRACStatsGgsnGtpcConList() *WSGRACStatsGgsnGtpcConList {
 	m := new(WSGRACStatsGgsnGtpcConList)
@@ -268,21 +268,21 @@ func newWSGRACStatsGgsnGtpListAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGRACStatsGgsnGtpListAPIResponse) Hydrate() error {
+func (r *WSGRACStatsGgsnGtpListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGRACStatsGgsnGtpList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGRACStatsGgsnGtpList() *WSGRACStatsGgsnGtpList {
 	m := new(WSGRACStatsGgsnGtpList)
@@ -513,21 +513,21 @@ func newWSGRACStatsRadiusProxyListAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGRACStatsRadiusProxyListAPIResponse) Hydrate() error {
+func (r *WSGRACStatsRadiusProxyListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGRACStatsRadiusProxyList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGRACStatsRadiusProxyList() *WSGRACStatsRadiusProxyList {
 	m := new(WSGRACStatsRadiusProxyList)

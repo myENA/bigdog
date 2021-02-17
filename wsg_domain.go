@@ -112,21 +112,21 @@ func newWSGDomainConfigurationAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGDomainConfigurationAPIResponse) Hydrate() error {
+func (r *WSGDomainConfigurationAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDomainConfiguration)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDomainConfiguration() *WSGDomainConfiguration {
 	m := new(WSGDomainConfiguration)
@@ -157,21 +157,21 @@ func newWSGDomainListAPIResponse(src APISource, meta APIResponseMeta, body io.Re
 	return r
 }
 
-func (r *WSGDomainListAPIResponse) Hydrate() error {
+func (r *WSGDomainListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDomainList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDomainList() *WSGDomainList {
 	m := new(WSGDomainList)

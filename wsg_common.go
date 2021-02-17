@@ -303,21 +303,21 @@ func newWSGCommonCreateResultAPIResponse(src APISource, meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGCommonCreateResultAPIResponse) Hydrate() error {
+func (r *WSGCommonCreateResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCommonCreateResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCommonCreateResult() *WSGCommonCreateResult {
 	m := new(WSGCommonCreateResult)
@@ -344,21 +344,21 @@ func newWSGCommonCreateResultIdNameAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *WSGCommonCreateResultIdNameAPIResponse) Hydrate() error {
+func (r *WSGCommonCreateResultIdNameAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCommonCreateResultIdName)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCommonCreateResultIdName() *WSGCommonCreateResultIdName {
 	m := new(WSGCommonCreateResultIdName)
@@ -454,21 +454,21 @@ func newWSGCommonDhcpProfileRefAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGCommonDhcpProfileRefAPIResponse) Hydrate() error {
+func (r *WSGCommonDhcpProfileRefAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCommonDhcpProfileRef)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCommonDhcpProfileRef() *WSGCommonDhcpProfileRef {
 	m := new(WSGCommonDhcpProfileRef)
@@ -521,21 +521,21 @@ func newWSGCommonDhcpSiteConfigListRefAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *WSGCommonDhcpSiteConfigListRefAPIResponse) Hydrate() error {
+func (r *WSGCommonDhcpSiteConfigListRefAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCommonDhcpSiteConfigListRef)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCommonDhcpSiteConfigListRef() *WSGCommonDhcpSiteConfigListRef {
 	m := new(WSGCommonDhcpSiteConfigListRef)
@@ -965,21 +965,21 @@ func newWSGCommonMonitoringSummaryAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGCommonMonitoringSummaryAPIResponse) Hydrate() error {
+func (r *WSGCommonMonitoringSummaryAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCommonMonitoringSummary)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCommonMonitoringSummary() *WSGCommonMonitoringSummary {
 	m := new(WSGCommonMonitoringSummary)
@@ -2120,21 +2120,21 @@ func newWSGCommonTrafficClassProfileRefAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *WSGCommonTrafficClassProfileRefAPIResponse) Hydrate() error {
+func (r *WSGCommonTrafficClassProfileRefAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCommonTrafficClassProfileRef)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCommonTrafficClassProfileRef() *WSGCommonTrafficClassProfileRef {
 	m := new(WSGCommonTrafficClassProfileRef)

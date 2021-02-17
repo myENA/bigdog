@@ -167,21 +167,21 @@ func newWSGWLANSchedulerWlanScheduleAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *WSGWLANSchedulerWlanScheduleAPIResponse) Hydrate() error {
+func (r *WSGWLANSchedulerWlanScheduleAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGWLANSchedulerWlanSchedule)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGWLANSchedulerWlanSchedule() *WSGWLANSchedulerWlanSchedule {
 	m := new(WSGWLANSchedulerWlanSchedule)
@@ -212,21 +212,21 @@ func newWSGWLANSchedulerWlanScheduleListAPIResponse(src APISource, meta APIRespo
 	return r
 }
 
-func (r *WSGWLANSchedulerWlanScheduleListAPIResponse) Hydrate() error {
+func (r *WSGWLANSchedulerWlanScheduleListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGWLANSchedulerWlanScheduleList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGWLANSchedulerWlanScheduleList() *WSGWLANSchedulerWlanScheduleList {
 	m := new(WSGWLANSchedulerWlanScheduleList)
@@ -321,21 +321,21 @@ func newWSGWLANSchedulerWlanScheduleQueryResultListAPIResponse(src APISource, me
 	return r
 }
 
-func (r *WSGWLANSchedulerWlanScheduleQueryResultListAPIResponse) Hydrate() error {
+func (r *WSGWLANSchedulerWlanScheduleQueryResultListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGWLANSchedulerWlanScheduleQueryResultList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGWLANSchedulerWlanScheduleQueryResultList() *WSGWLANSchedulerWlanScheduleQueryResultList {
 	m := new(WSGWLANSchedulerWlanScheduleQueryResultList)

@@ -114,21 +114,21 @@ func newWSGGeofenceProfileGetGeofenceProfileAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *WSGGeofenceProfileGetGeofenceProfileAPIResponse) Hydrate() error {
+func (r *WSGGeofenceProfileGetGeofenceProfileAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGGeofenceProfileGetGeofenceProfile)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGGeofenceProfileGetGeofenceProfile() *WSGGeofenceProfileGetGeofenceProfile {
 	m := new(WSGGeofenceProfileGetGeofenceProfile)
@@ -159,21 +159,21 @@ func newWSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse(src APISource
 	return r
 }
 
-func (r *WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse) Hydrate() error {
+func (r *WSGGeofenceProfileGetGeofenceProfileProfileListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGGeofenceProfileGetGeofenceProfileProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGGeofenceProfileGetGeofenceProfileProfileList() *WSGGeofenceProfileGetGeofenceProfileProfileList {
 	m := new(WSGGeofenceProfileGetGeofenceProfileProfileList)

@@ -95,21 +95,21 @@ func newWSGMeshNeighborInfoListAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGMeshNeighborInfoListAPIResponse) Hydrate() error {
+func (r *WSGMeshNeighborInfoListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGMeshNeighborInfoList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGMeshNeighborInfoList() *WSGMeshNeighborInfoList {
 	m := new(WSGMeshNeighborInfoList)

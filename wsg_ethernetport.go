@@ -220,21 +220,21 @@ func newWSGEthernetPortProfileAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGEthernetPortProfileAPIResponse) Hydrate() error {
+func (r *WSGEthernetPortProfileAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGEthernetPortProfile)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGEthernetPortProfile() *WSGEthernetPortProfile {
 	m := new(WSGEthernetPortProfile)
@@ -357,21 +357,21 @@ func newWSGEthernetPortProfileListAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGEthernetPortProfileListAPIResponse) Hydrate() error {
+func (r *WSGEthernetPortProfileListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGEthernetPortProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGEthernetPortProfileList() *WSGEthernetPortProfileList {
 	m := new(WSGEthernetPortProfileList)

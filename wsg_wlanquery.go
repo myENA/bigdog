@@ -55,21 +55,21 @@ func newWSGWLANQueryApWlanBssidQueryListAPIResponse(src APISource, meta APIRespo
 	return r
 }
 
-func (r *WSGWLANQueryApWlanBssidQueryListAPIResponse) Hydrate() error {
+func (r *WSGWLANQueryApWlanBssidQueryListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGWLANQueryApWlanBssidQueryList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGWLANQueryApWlanBssidQueryList() *WSGWLANQueryApWlanBssidQueryList {
 	m := new(WSGWLANQueryApWlanBssidQueryList)
@@ -209,21 +209,21 @@ func newWSGWLANQueryListAPIResponse(src APISource, meta APIResponseMeta, body io
 	return r
 }
 
-func (r *WSGWLANQueryListAPIResponse) Hydrate() error {
+func (r *WSGWLANQueryListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGWLANQueryList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGWLANQueryList() *WSGWLANQueryList {
 	m := new(WSGWLANQueryList)

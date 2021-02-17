@@ -43,21 +43,21 @@ func newSCIMigrationCount200ResponseTypeAPIResponse(src APISource, meta APIRespo
 	return r
 }
 
-func (r *SCIMigrationCount200ResponseTypeAPIResponse) Hydrate() error {
+func (r *SCIMigrationCount200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SCIMigrationCount200ResponseType)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSCIMigrationCount200ResponseType() *SCIMigrationCount200ResponseType {
 	m := new(SCIMigrationCount200ResponseType)
@@ -82,21 +82,21 @@ func newSCIMigrationExistsgetMigrationsidexists200ResponseTypeAPIResponse(src AP
 	return r
 }
 
-func (r *SCIMigrationExistsgetMigrationsidexists200ResponseTypeAPIResponse) Hydrate() error {
+func (r *SCIMigrationExistsgetMigrationsidexists200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SCIMigrationExistsgetMigrationsidexists200ResponseType)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSCIMigrationExistsgetMigrationsidexists200ResponseType() *SCIMigrationExistsgetMigrationsidexists200ResponseType {
 	m := new(SCIMigrationExistsgetMigrationsidexists200ResponseType)
@@ -131,21 +131,21 @@ func newSCIMigrationFind200ResponseTypeAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *SCIMigrationFind200ResponseTypeAPIResponse) Hydrate() error {
+func (r *SCIMigrationFind200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := make(SCIMigrationFind200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func MakeSCIMigrationFind200ResponseType() SCIMigrationFind200ResponseType {
 	m := make(SCIMigrationFind200ResponseType, 0)

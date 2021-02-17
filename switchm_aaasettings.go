@@ -54,21 +54,21 @@ func newSwitchMAAASettingsAAASettingAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *SwitchMAAASettingsAAASettingAPIResponse) Hydrate() error {
+func (r *SwitchMAAASettingsAAASettingAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMAAASettingsAAASetting)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMAAASettingsAAASetting() *SwitchMAAASettingsAAASetting {
 	m := new(SwitchMAAASettingsAAASetting)

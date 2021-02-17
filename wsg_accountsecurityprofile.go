@@ -201,21 +201,21 @@ func newWSGAccountSecurityProfileGetByIdResultAPIResponse(src APISource, meta AP
 	return r
 }
 
-func (r *WSGAccountSecurityProfileGetByIdResultAPIResponse) Hydrate() error {
+func (r *WSGAccountSecurityProfileGetByIdResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAccountSecurityProfileGetByIdResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAccountSecurityProfileGetByIdResult() *WSGAccountSecurityProfileGetByIdResult {
 	m := new(WSGAccountSecurityProfileGetByIdResult)
@@ -246,21 +246,21 @@ func newWSGAccountSecurityProfileProfileListResultAPIResponse(src APISource, met
 	return r
 }
 
-func (r *WSGAccountSecurityProfileProfileListResultAPIResponse) Hydrate() error {
+func (r *WSGAccountSecurityProfileProfileListResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAccountSecurityProfileProfileListResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAccountSecurityProfileProfileListResult() *WSGAccountSecurityProfileProfileListResult {
 	m := new(WSGAccountSecurityProfileProfileListResult)

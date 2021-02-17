@@ -139,21 +139,21 @@ func newWSGWLANGroupAPIResponse(src APISource, meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *WSGWLANGroupAPIResponse) Hydrate() error {
+func (r *WSGWLANGroupAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGWLANGroup)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGWLANGroup() *WSGWLANGroup {
 	m := new(WSGWLANGroup)
@@ -184,21 +184,21 @@ func newWSGWLANGroupListAPIResponse(src APISource, meta APIResponseMeta, body io
 	return r
 }
 
-func (r *WSGWLANGroupListAPIResponse) Hydrate() error {
+func (r *WSGWLANGroupListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGWLANGroupList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGWLANGroupList() *WSGWLANGroupList {
 	m := new(WSGWLANGroupList)

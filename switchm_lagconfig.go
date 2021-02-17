@@ -61,21 +61,21 @@ func newSwitchMLAGConfigCreateResultAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *SwitchMLAGConfigCreateResultAPIResponse) Hydrate() error {
+func (r *SwitchMLAGConfigCreateResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMLAGConfigCreateResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMLAGConfigCreateResult() *SwitchMLAGConfigCreateResult {
 	m := new(SwitchMLAGConfigCreateResult)
@@ -134,21 +134,21 @@ func newSwitchMLAGConfigAPIResponse(src APISource, meta APIResponseMeta, body io
 	return r
 }
 
-func (r *SwitchMLAGConfigAPIResponse) Hydrate() error {
+func (r *SwitchMLAGConfigAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMLAGConfig)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMLAGConfig() *SwitchMLAGConfig {
 	m := new(SwitchMLAGConfig)
@@ -187,21 +187,21 @@ func newSwitchMLAGConfigListAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *SwitchMLAGConfigListAPIResponse) Hydrate() error {
+func (r *SwitchMLAGConfigListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMLAGConfigList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMLAGConfigList() *SwitchMLAGConfigList {
 	m := new(SwitchMLAGConfigList)

@@ -66,21 +66,21 @@ func newWSGCALEACommonSettingRspAPIResponse(src APISource, meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGCALEACommonSettingRspAPIResponse) Hydrate() error {
+func (r *WSGCALEACommonSettingRspAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCALEACommonSettingRsp)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCALEACommonSettingRsp() *WSGCALEACommonSettingRsp {
 	m := new(WSGCALEACommonSettingRsp)
@@ -123,21 +123,21 @@ func newWSGCALEAMacListRspAPIResponse(src APISource, meta APIResponseMeta, body 
 	return r
 }
 
-func (r *WSGCALEAMacListRspAPIResponse) Hydrate() error {
+func (r *WSGCALEAMacListRspAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCALEAMacListRsp)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCALEAMacListRsp() *WSGCALEAMacListRsp {
 	m := new(WSGCALEAMacListRsp)

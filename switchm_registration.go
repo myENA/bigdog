@@ -82,21 +82,21 @@ func newSwitchMRegistrationRulesCreateResultAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *SwitchMRegistrationRulesCreateResultAPIResponse) Hydrate() error {
+func (r *SwitchMRegistrationRulesCreateResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMRegistrationRulesCreateResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMRegistrationRulesCreateResult() *SwitchMRegistrationRulesCreateResult {
 	m := new(SwitchMRegistrationRulesCreateResult)
@@ -135,21 +135,21 @@ func newSwitchMRegistrationRulesDeleteMultipleResultAPIResponse(src APISource, m
 	return r
 }
 
-func (r *SwitchMRegistrationRulesDeleteMultipleResultAPIResponse) Hydrate() error {
+func (r *SwitchMRegistrationRulesDeleteMultipleResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMRegistrationRulesDeleteMultipleResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMRegistrationRulesDeleteMultipleResult() *SwitchMRegistrationRulesDeleteMultipleResult {
 	m := new(SwitchMRegistrationRulesDeleteMultipleResult)
@@ -188,21 +188,21 @@ func newSwitchMRegistrationRulesDeleteResultAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *SwitchMRegistrationRulesDeleteResultAPIResponse) Hydrate() error {
+func (r *SwitchMRegistrationRulesDeleteResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMRegistrationRulesDeleteResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMRegistrationRulesDeleteResult() *SwitchMRegistrationRulesDeleteResult {
 	m := new(SwitchMRegistrationRulesDeleteResult)
@@ -289,21 +289,21 @@ func newSwitchMRegistrationRulesModifyResultAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *SwitchMRegistrationRulesModifyResultAPIResponse) Hydrate() error {
+func (r *SwitchMRegistrationRulesModifyResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMRegistrationRulesModifyResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMRegistrationRulesModifyResult() *SwitchMRegistrationRulesModifyResult {
 	m := new(SwitchMRegistrationRulesModifyResult)
@@ -418,21 +418,21 @@ func newSwitchMRegistrationRulesRuleQueryResultListAPIResponse(src APISource, me
 	return r
 }
 
-func (r *SwitchMRegistrationRulesRuleQueryResultListAPIResponse) Hydrate() error {
+func (r *SwitchMRegistrationRulesRuleQueryResultListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMRegistrationRulesRuleQueryResultList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMRegistrationRulesRuleQueryResultList() *SwitchMRegistrationRulesRuleQueryResultList {
 	m := new(SwitchMRegistrationRulesRuleQueryResultList)

@@ -83,21 +83,21 @@ func newSwitchMVEConfigCreateResultAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *SwitchMVEConfigCreateResultAPIResponse) Hydrate() error {
+func (r *SwitchMVEConfigCreateResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMVEConfigCreateResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMVEConfigCreateResult() *SwitchMVEConfigCreateResult {
 	m := new(SwitchMVEConfigCreateResult)
@@ -136,21 +136,21 @@ func newSwitchMVEConfigListAPIResponse(src APISource, meta APIResponseMeta, body
 	return r
 }
 
-func (r *SwitchMVEConfigListAPIResponse) Hydrate() error {
+func (r *SwitchMVEConfigListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMVEConfigList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMVEConfigList() *SwitchMVEConfigList {
 	m := new(SwitchMVEConfigList)
@@ -295,21 +295,21 @@ func newSwitchMVEConfigAPIResponse(src APISource, meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *SwitchMVEConfigAPIResponse) Hydrate() error {
+func (r *SwitchMVEConfigAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMVEConfig)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMVEConfig() *SwitchMVEConfig {
 	m := new(SwitchMVEConfig)

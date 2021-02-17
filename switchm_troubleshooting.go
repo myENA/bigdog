@@ -157,21 +157,21 @@ func newSwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse(src AP
 	return r
 }
 
-func (r *SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse) Hydrate() error {
+func (r *SwitchMTroubleshootingRemoteClientConnectivityResponseAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMTroubleshootingRemoteClientConnectivityResponse)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMTroubleshootingRemoteClientConnectivityResponse() *SwitchMTroubleshootingRemoteClientConnectivityResponse {
 	m := new(SwitchMTroubleshootingRemoteClientConnectivityResponse)
@@ -374,21 +374,21 @@ func newSwitchMTroubleshootingRemoteCommandResponseAPIResponse(src APISource, me
 	return r
 }
 
-func (r *SwitchMTroubleshootingRemoteCommandResponseAPIResponse) Hydrate() error {
+func (r *SwitchMTroubleshootingRemoteCommandResponseAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMTroubleshootingRemoteCommandResponse)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMTroubleshootingRemoteCommandResponse() *SwitchMTroubleshootingRemoteCommandResponse {
 	m := new(SwitchMTroubleshootingRemoteCommandResponse)
@@ -561,21 +561,21 @@ func newSwitchMTroubleshootingSupportLogStatusAPIResponse(src APISource, meta AP
 	return r
 }
 
-func (r *SwitchMTroubleshootingSupportLogStatusAPIResponse) Hydrate() error {
+func (r *SwitchMTroubleshootingSupportLogStatusAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMTroubleshootingSupportLogStatus)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMTroubleshootingSupportLogStatus() *SwitchMTroubleshootingSupportLogStatus {
 	m := new(SwitchMTroubleshootingSupportLogStatus)

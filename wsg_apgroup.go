@@ -166,21 +166,21 @@ func newWSGAPGroupConfigurationAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGAPGroupConfigurationAPIResponse) Hydrate() error {
+func (r *WSGAPGroupConfigurationAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAPGroupConfiguration)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAPGroupConfiguration() *WSGAPGroupConfiguration {
 	m := new(WSGAPGroupConfiguration)
@@ -211,21 +211,21 @@ func newWSGAPGroupListAPIResponse(src APISource, meta APIResponseMeta, body io.R
 	return r
 }
 
-func (r *WSGAPGroupListAPIResponse) Hydrate() error {
+func (r *WSGAPGroupListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAPGroupList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAPGroupList() *WSGAPGroupList {
 	m := new(WSGAPGroupList)

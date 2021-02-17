@@ -31,21 +31,21 @@ func newWSGAVCAppCategoryAPIResponse(src APISource, meta APIResponseMeta, body i
 	return r
 }
 
-func (r *WSGAVCAppCategoryAPIResponse) Hydrate() error {
+func (r *WSGAVCAppCategoryAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAVCAppCategory)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAVCAppCategory() *WSGAVCAppCategory {
 	m := new(WSGAVCAppCategory)
@@ -76,21 +76,21 @@ func newWSGAVCAppCategoryListAPIResponse(src APISource, meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGAVCAppCategoryListAPIResponse) Hydrate() error {
+func (r *WSGAVCAppCategoryListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAVCAppCategoryList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAVCAppCategoryList() *WSGAVCAppCategoryList {
 	m := new(WSGAVCAppCategoryList)
@@ -125,21 +125,21 @@ func newWSGAVCApplicationAPIResponse(src APISource, meta APIResponseMeta, body i
 	return r
 }
 
-func (r *WSGAVCApplicationAPIResponse) Hydrate() error {
+func (r *WSGAVCApplicationAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAVCApplication)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAVCApplication() *WSGAVCApplication {
 	m := new(WSGAVCApplication)
@@ -170,21 +170,21 @@ func newWSGAVCApplicationListAPIResponse(src APISource, meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGAVCApplicationListAPIResponse) Hydrate() error {
+func (r *WSGAVCApplicationListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAVCApplicationList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAVCApplicationList() *WSGAVCApplicationList {
 	m := new(WSGAVCApplicationList)
@@ -257,21 +257,21 @@ func newWSGAVCApplicationPolicyProfileAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *WSGAVCApplicationPolicyProfileAPIResponse) Hydrate() error {
+func (r *WSGAVCApplicationPolicyProfileAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAVCApplicationPolicyProfile)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAVCApplicationPolicyProfile() *WSGAVCApplicationPolicyProfile {
 	m := new(WSGAVCApplicationPolicyProfile)
@@ -304,21 +304,21 @@ func newWSGAVCApplicationPolicyProfileListAPIResponse(src APISource, meta APIRes
 	return r
 }
 
-func (r *WSGAVCApplicationPolicyProfileListAPIResponse) Hydrate() error {
+func (r *WSGAVCApplicationPolicyProfileListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAVCApplicationPolicyProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAVCApplicationPolicyProfileList() *WSGAVCApplicationPolicyProfileList {
 	m := new(WSGAVCApplicationPolicyProfileList)
@@ -573,21 +573,21 @@ func newWSGAVCSignaturePackageAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGAVCSignaturePackageAPIResponse) Hydrate() error {
+func (r *WSGAVCSignaturePackageAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAVCSignaturePackage)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAVCSignaturePackage() *WSGAVCSignaturePackage {
 	m := new(WSGAVCSignaturePackage)
@@ -675,21 +675,21 @@ func newWSGAVCUserDefinedProfileAPIResponse(src APISource, meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGAVCUserDefinedProfileAPIResponse) Hydrate() error {
+func (r *WSGAVCUserDefinedProfileAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAVCUserDefinedProfile)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAVCUserDefinedProfile() *WSGAVCUserDefinedProfile {
 	m := new(WSGAVCUserDefinedProfile)
@@ -722,21 +722,21 @@ func newWSGAVCUserDefinedProfileListAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *WSGAVCUserDefinedProfileListAPIResponse) Hydrate() error {
+func (r *WSGAVCUserDefinedProfileListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAVCUserDefinedProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAVCUserDefinedProfileList() *WSGAVCUserDefinedProfileList {
 	m := new(WSGAVCUserDefinedProfileList)

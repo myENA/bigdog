@@ -109,21 +109,21 @@ func newWSGIndoorMapIndooMapAuditIdAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *WSGIndoorMapIndooMapAuditIdAPIResponse) Hydrate() error {
+func (r *WSGIndoorMapIndooMapAuditIdAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIndoorMapIndooMapAuditId)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIndoorMapIndooMapAuditId() *WSGIndoorMapIndooMapAuditId {
 	m := new(WSGIndoorMapIndooMapAuditId)
@@ -211,21 +211,21 @@ func newWSGIndoorMapAPIResponse(src APISource, meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *WSGIndoorMapAPIResponse) Hydrate() error {
+func (r *WSGIndoorMapAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIndoorMap)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIndoorMap() *WSGIndoorMap {
 	m := new(WSGIndoorMap)
@@ -280,21 +280,21 @@ func newWSGIndoorMapListAPIResponse(src APISource, meta APIResponseMeta, body io
 	return r
 }
 
-func (r *WSGIndoorMapListAPIResponse) Hydrate() error {
+func (r *WSGIndoorMapListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIndoorMapList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIndoorMapList() *WSGIndoorMapList {
 	m := new(WSGIndoorMapList)
@@ -406,21 +406,21 @@ func newWSGIndoorMapSummaryListAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGIndoorMapSummaryListAPIResponse) Hydrate() error {
+func (r *WSGIndoorMapSummaryListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIndoorMapSummaryList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIndoorMapSummaryList() *WSGIndoorMapSummaryList {
 	m := new(WSGIndoorMapSummaryList)

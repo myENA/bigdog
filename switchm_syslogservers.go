@@ -102,21 +102,21 @@ func newSwitchMSyslogServersQueryResultAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *SwitchMSyslogServersQueryResultAPIResponse) Hydrate() error {
+func (r *SwitchMSyslogServersQueryResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMSyslogServersQueryResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMSyslogServersQueryResult() *SwitchMSyslogServersQueryResult {
 	m := new(SwitchMSyslogServersQueryResult)

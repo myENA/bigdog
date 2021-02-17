@@ -2004,21 +2004,21 @@ func newWSGWLANConfigurationAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGWLANConfigurationAPIResponse) Hydrate() error {
+func (r *WSGWLANConfigurationAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGWLANConfiguration)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGWLANConfiguration() *WSGWLANConfiguration {
 	m := new(WSGWLANConfiguration)
@@ -2184,21 +2184,21 @@ func newWSGWLANListAPIResponse(src APISource, meta APIResponseMeta, body io.Read
 	return r
 }
 
-func (r *WSGWLANListAPIResponse) Hydrate() error {
+func (r *WSGWLANListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGWLANList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGWLANList() *WSGWLANList {
 	m := new(WSGWLANList)

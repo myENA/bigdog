@@ -108,21 +108,21 @@ func newWSGAdministrationApPatchHistoryListAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *WSGAdministrationApPatchHistoryListAPIResponse) Hydrate() error {
+func (r *WSGAdministrationApPatchHistoryListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationApPatchHistoryList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationApPatchHistoryList() *WSGAdministrationApPatchHistoryList {
 	m := new(WSGAdministrationApPatchHistoryList)
@@ -161,21 +161,21 @@ func newWSGAdministrationApPatchInfoAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *WSGAdministrationApPatchInfoAPIResponse) Hydrate() error {
+func (r *WSGAdministrationApPatchInfoAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationApPatchInfo)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationApPatchInfo() *WSGAdministrationApPatchInfo {
 	m := new(WSGAdministrationApPatchInfo)
@@ -200,21 +200,21 @@ func newWSGAdministrationApPatchStatusAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *WSGAdministrationApPatchStatusAPIResponse) Hydrate() error {
+func (r *WSGAdministrationApPatchStatusAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationApPatchStatus)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationApPatchStatus() *WSGAdministrationApPatchStatus {
 	m := new(WSGAdministrationApPatchStatus)
@@ -275,21 +275,21 @@ func newWSGAdministrationApplicationLogAndStatusListAPIResponse(src APISource, m
 	return r
 }
 
-func (r *WSGAdministrationApplicationLogAndStatusListAPIResponse) Hydrate() error {
+func (r *WSGAdministrationApplicationLogAndStatusListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationApplicationLogAndStatusList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationApplicationLogAndStatusList() *WSGAdministrationApplicationLogAndStatusList {
 	m := new(WSGAdministrationApplicationLogAndStatusList)
@@ -320,21 +320,21 @@ func newWSGAdministrationAutoExportBackupAPIResponse(src APISource, meta APIResp
 	return r
 }
 
-func (r *WSGAdministrationAutoExportBackupAPIResponse) Hydrate() error {
+func (r *WSGAdministrationAutoExportBackupAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationAutoExportBackup)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationAutoExportBackup() *WSGAdministrationAutoExportBackup {
 	m := new(WSGAdministrationAutoExportBackup)
@@ -415,21 +415,21 @@ func newWSGAdministrationClusterBackupListAPIResponse(src APISource, meta APIRes
 	return r
 }
 
-func (r *WSGAdministrationClusterBackupListAPIResponse) Hydrate() error {
+func (r *WSGAdministrationClusterBackupListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationClusterBackupList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationClusterBackupList() *WSGAdministrationClusterBackupList {
 	m := new(WSGAdministrationClusterBackupList)
@@ -486,21 +486,21 @@ func newWSGAdministrationConfigurationBackupListAPIResponse(src APISource, meta 
 	return r
 }
 
-func (r *WSGAdministrationConfigurationBackupListAPIResponse) Hydrate() error {
+func (r *WSGAdministrationConfigurationBackupListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationConfigurationBackupList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationConfigurationBackupList() *WSGAdministrationConfigurationBackupList {
 	m := new(WSGAdministrationConfigurationBackupList)
@@ -696,21 +696,21 @@ func newWSGAdministrationLicenseServerAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *WSGAdministrationLicenseServerAPIResponse) Hydrate() error {
+func (r *WSGAdministrationLicenseServerAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationLicenseServer)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationLicenseServer() *WSGAdministrationLicenseServer {
 	m := new(WSGAdministrationLicenseServer)
@@ -741,21 +741,21 @@ func newWSGAdministrationLicensesListAPIResponse(src APISource, meta APIResponse
 	return r
 }
 
-func (r *WSGAdministrationLicensesListAPIResponse) Hydrate() error {
+func (r *WSGAdministrationLicensesListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationLicensesList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationLicensesList() *WSGAdministrationLicensesList {
 	m := new(WSGAdministrationLicensesList)
@@ -820,21 +820,21 @@ func newWSGAdministrationLicensesSummaryListAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *WSGAdministrationLicensesSummaryListAPIResponse) Hydrate() error {
+func (r *WSGAdministrationLicensesSummaryListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationLicensesSummaryList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationLicensesSummaryList() *WSGAdministrationLicensesSummaryList {
 	m := new(WSGAdministrationLicensesSummaryList)
@@ -885,21 +885,21 @@ func newWSGAdministrationLicensesSyncLogsListAPIResponse(src APISource, meta API
 	return r
 }
 
-func (r *WSGAdministrationLicensesSyncLogsListAPIResponse) Hydrate() error {
+func (r *WSGAdministrationLicensesSyncLogsListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationLicensesSyncLogsList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationLicensesSyncLogsList() *WSGAdministrationLicensesSyncLogsList {
 	m := new(WSGAdministrationLicensesSyncLogsList)
@@ -1117,21 +1117,21 @@ func newWSGAdministrationRetrieveAdminAAAServerAPIResponse(src APISource, meta A
 	return r
 }
 
-func (r *WSGAdministrationRetrieveAdminAAAServerAPIResponse) Hydrate() error {
+func (r *WSGAdministrationRetrieveAdminAAAServerAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationRetrieveAdminAAAServer)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationRetrieveAdminAAAServer() *WSGAdministrationRetrieveAdminAAAServer {
 	m := new(WSGAdministrationRetrieveAdminAAAServer)
@@ -1162,21 +1162,21 @@ func newWSGAdministrationRetrieveAdminAAAServerListAPIResponse(src APISource, me
 	return r
 }
 
-func (r *WSGAdministrationRetrieveAdminAAAServerListAPIResponse) Hydrate() error {
+func (r *WSGAdministrationRetrieveAdminAAAServerListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationRetrieveAdminAAAServerList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationRetrieveAdminAAAServerList() *WSGAdministrationRetrieveAdminAAAServerList {
 	m := new(WSGAdministrationRetrieveAdminAAAServerList)
@@ -1246,21 +1246,21 @@ func newWSGAdministrationScheduleBackupAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *WSGAdministrationScheduleBackupAPIResponse) Hydrate() error {
+func (r *WSGAdministrationScheduleBackupAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationScheduleBackup)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationScheduleBackup() *WSGAdministrationScheduleBackup {
 	m := new(WSGAdministrationScheduleBackup)
@@ -1387,21 +1387,21 @@ func newWSGAdministrationUpgradeHistoryListAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *WSGAdministrationUpgradeHistoryListAPIResponse) Hydrate() error {
+func (r *WSGAdministrationUpgradeHistoryListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationUpgradeHistoryList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationUpgradeHistoryList() *WSGAdministrationUpgradeHistoryList {
 	m := new(WSGAdministrationUpgradeHistoryList)
@@ -1482,21 +1482,21 @@ func newWSGAdministrationUpgradePatchInfoAPIResponse(src APISource, meta APIResp
 	return r
 }
 
-func (r *WSGAdministrationUpgradePatchInfoAPIResponse) Hydrate() error {
+func (r *WSGAdministrationUpgradePatchInfoAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationUpgradePatchInfo)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationUpgradePatchInfo() *WSGAdministrationUpgradePatchInfo {
 	m := new(WSGAdministrationUpgradePatchInfo)
@@ -1521,21 +1521,21 @@ func newWSGAdministrationUpgradeStatusAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *WSGAdministrationUpgradeStatusAPIResponse) Hydrate() error {
+func (r *WSGAdministrationUpgradeStatusAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationUpgradeStatus)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationUpgradeStatus() *WSGAdministrationUpgradeStatus {
 	m := new(WSGAdministrationUpgradeStatus)
@@ -1586,21 +1586,21 @@ func newWSGAdministrationZdAPListAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *WSGAdministrationZdAPListAPIResponse) Hydrate() error {
+func (r *WSGAdministrationZdAPListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationZdAPList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationZdAPList() *WSGAdministrationZdAPList {
 	m := new(WSGAdministrationZdAPList)
@@ -1665,21 +1665,21 @@ func newWSGAdministrationZdImportStatusAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *WSGAdministrationZdImportStatusAPIResponse) Hydrate() error {
+func (r *WSGAdministrationZdImportStatusAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAdministrationZdImportStatus)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAdministrationZdImportStatus() *WSGAdministrationZdImportStatus {
 	m := new(WSGAdministrationZdImportStatus)

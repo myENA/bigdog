@@ -210,21 +210,21 @@ func newWSGSCIEventCodeAPIResponse(src APISource, meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *WSGSCIEventCodeAPIResponse) Hydrate() error {
+func (r *WSGSCIEventCodeAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGSCIEventCode)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGSCIEventCode() *WSGSCIEventCode {
 	m := new(WSGSCIEventCode)
@@ -297,21 +297,21 @@ func newWSGSCIProfileAPIResponse(src APISource, meta APIResponseMeta, body io.Re
 	return r
 }
 
-func (r *WSGSCIProfileAPIResponse) Hydrate() error {
+func (r *WSGSCIProfileAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGSCIProfile)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGSCIProfile() *WSGSCIProfile {
 	m := new(WSGSCIProfile)
@@ -375,21 +375,21 @@ func newWSGSCIProfileListAPIResponse(src APISource, meta APIResponseMeta, body i
 	return r
 }
 
-func (r *WSGSCIProfileListAPIResponse) Hydrate() error {
+func (r *WSGSCIProfileListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGSCIProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGSCIProfileList() *WSGSCIProfileList {
 	m := new(WSGSCIProfileList)

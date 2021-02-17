@@ -33,21 +33,21 @@ func newWSGAlarmListAlarmQueryResultListAPIResponse(src APISource, meta APIRespo
 	return r
 }
 
-func (r *WSGAlarmListAlarmQueryResultListAPIResponse) Hydrate() error {
+func (r *WSGAlarmListAlarmQueryResultListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGAlarmListAlarmQueryResultList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGAlarmListAlarmQueryResultList() *WSGAlarmListAlarmQueryResultList {
 	m := new(WSGAlarmListAlarmQueryResultList)

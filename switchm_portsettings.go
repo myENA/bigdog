@@ -286,21 +286,21 @@ func newSwitchMPortSettingsAPIResponse(src APISource, meta APIResponseMeta, body
 	return r
 }
 
-func (r *SwitchMPortSettingsAPIResponse) Hydrate() error {
+func (r *SwitchMPortSettingsAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMPortSettings)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMPortSettings() *SwitchMPortSettings {
 	m := new(SwitchMPortSettings)
@@ -345,21 +345,21 @@ func newSwitchMPortSettingsQueryResultAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *SwitchMPortSettingsQueryResultAPIResponse) Hydrate() error {
+func (r *SwitchMPortSettingsQueryResultAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(SwitchMPortSettingsQueryResult)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewSwitchMPortSettingsQueryResult() *SwitchMPortSettingsQueryResult {
 	m := new(SwitchMPortSettingsQueryResult)

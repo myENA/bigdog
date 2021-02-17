@@ -257,7 +257,7 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Refresh(ctx context.Context, 
 
 	// test if we need to hydrate response
 	if loginResponse.Data == nil {
-		if err = loginResponse.Hydrate(); err != nil {
+		if _, err = loginResponse.Hydrate(); err != nil {
 			atp.cas = atp.iterateCAS()
 			atp.accessToken = ""
 			atp.expires = time.Time{}

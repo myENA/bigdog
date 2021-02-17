@@ -97,21 +97,21 @@ func newWSGMeshNodeInfoArrayAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGMeshNodeInfoArrayAPIResponse) Hydrate() error {
+func (r *WSGMeshNodeInfoArrayAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := make(WSGMeshNodeInfoArray, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func MakeWSGMeshNodeInfoArray() WSGMeshNodeInfoArray {
 	m := make(WSGMeshNodeInfoArray, 0)
@@ -156,21 +156,21 @@ func newWSGMeshNodeInfoListAPIResponse(src APISource, meta APIResponseMeta, body
 	return r
 }
 
-func (r *WSGMeshNodeInfoListAPIResponse) Hydrate() error {
+func (r *WSGMeshNodeInfoListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGMeshNodeInfoList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGMeshNodeInfoList() *WSGMeshNodeInfoList {
 	m := new(WSGMeshNodeInfoList)

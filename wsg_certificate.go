@@ -80,21 +80,21 @@ func newWSGCertificateAPIResponse(src APISource, meta APIResponseMeta, body io.R
 	return r
 }
 
-func (r *WSGCertificateAPIResponse) Hydrate() error {
+func (r *WSGCertificateAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCertificate)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCertificate() *WSGCertificate {
 	m := new(WSGCertificate)
@@ -125,21 +125,21 @@ func newWSGCertificateListAPIResponse(src APISource, meta APIResponseMeta, body 
 	return r
 }
 
-func (r *WSGCertificateListAPIResponse) Hydrate() error {
+func (r *WSGCertificateListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCertificateList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCertificateList() *WSGCertificateList {
 	m := new(WSGCertificateList)
@@ -216,21 +216,21 @@ func newWSGCertificatesSigningRequestAPIResponse(src APISource, meta APIResponse
 	return r
 }
 
-func (r *WSGCertificatesSigningRequestAPIResponse) Hydrate() error {
+func (r *WSGCertificatesSigningRequestAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCertificatesSigningRequest)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCertificatesSigningRequest() *WSGCertificatesSigningRequest {
 	m := new(WSGCertificatesSigningRequest)
@@ -257,21 +257,21 @@ func newWSGCertificateCertSettingAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *WSGCertificateCertSettingAPIResponse) Hydrate() error {
+func (r *WSGCertificateCertSettingAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCertificateCertSetting)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCertificateCertSetting() *WSGCertificateCertSetting {
 	m := new(WSGCertificateCertSetting)
@@ -328,21 +328,21 @@ func newWSGCertificateClientCertAPIResponse(src APISource, meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGCertificateClientCertAPIResponse) Hydrate() error {
+func (r *WSGCertificateClientCertAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCertificateClientCert)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCertificateClientCert() *WSGCertificateClientCert {
 	m := new(WSGCertificateClientCert)
@@ -373,21 +373,21 @@ func newWSGCertificateClientCertListAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *WSGCertificateClientCertListAPIResponse) Hydrate() error {
+func (r *WSGCertificateClientCertListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCertificateClientCertList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCertificateClientCertList() *WSGCertificateClientCertList {
 	m := new(WSGCertificateClientCertList)
@@ -608,21 +608,21 @@ func newWSGCertificateCsrListAPIResponse(src APISource, meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGCertificateCsrListAPIResponse) Hydrate() error {
+func (r *WSGCertificateCsrListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCertificateCsrList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCertificateCsrList() *WSGCertificateCsrList {
 	m := new(WSGCertificateCsrList)
@@ -750,21 +750,21 @@ func newWSGCertificateTrustedCAChainAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *WSGCertificateTrustedCAChainAPIResponse) Hydrate() error {
+func (r *WSGCertificateTrustedCAChainAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCertificateTrustedCAChain)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCertificateTrustedCAChain() *WSGCertificateTrustedCAChain {
 	m := new(WSGCertificateTrustedCAChain)
@@ -795,21 +795,21 @@ func newWSGCertificateTrustedCAChainCertListAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *WSGCertificateTrustedCAChainCertListAPIResponse) Hydrate() error {
+func (r *WSGCertificateTrustedCAChainCertListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGCertificateTrustedCAChainCertList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGCertificateTrustedCAChainCertList() *WSGCertificateTrustedCAChainCertList {
 	m := new(WSGCertificateTrustedCAChainCertList)

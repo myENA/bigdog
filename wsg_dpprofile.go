@@ -63,21 +63,21 @@ func newWSGDPProfileDpDhcpProfileBasicBOAPIResponse(src APISource, meta APIRespo
 	return r
 }
 
-func (r *WSGDPProfileDpDhcpProfileBasicBOAPIResponse) Hydrate() error {
+func (r *WSGDPProfileDpDhcpProfileBasicBOAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileDpDhcpProfileBasicBO)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileDpDhcpProfileBasicBO() *WSGDPProfileDpDhcpProfileBasicBO {
 	m := new(WSGDPProfileDpDhcpProfileBasicBO)
@@ -108,21 +108,21 @@ func newWSGDPProfileDpDhcpProfileBasicBOListAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *WSGDPProfileDpDhcpProfileBasicBOListAPIResponse) Hydrate() error {
+func (r *WSGDPProfileDpDhcpProfileBasicBOListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileDpDhcpProfileBasicBOList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileDpDhcpProfileBasicBOList() *WSGDPProfileDpDhcpProfileBasicBOList {
 	m := new(WSGDPProfileDpDhcpProfileBasicBOList)
@@ -193,21 +193,21 @@ func newWSGDPProfileDpDhcpProfileHostBOAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *WSGDPProfileDpDhcpProfileHostBOAPIResponse) Hydrate() error {
+func (r *WSGDPProfileDpDhcpProfileHostBOAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileDpDhcpProfileHostBO)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileDpDhcpProfileHostBO() *WSGDPProfileDpDhcpProfileHostBO {
 	m := new(WSGDPProfileDpDhcpProfileHostBO)
@@ -238,21 +238,21 @@ func newWSGDPProfileDpDhcpProfileHostBOListAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *WSGDPProfileDpDhcpProfileHostBOListAPIResponse) Hydrate() error {
+func (r *WSGDPProfileDpDhcpProfileHostBOListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileDpDhcpProfileHostBOList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileDpDhcpProfileHostBOList() *WSGDPProfileDpDhcpProfileHostBOList {
 	m := new(WSGDPProfileDpDhcpProfileHostBOList)
@@ -333,21 +333,21 @@ func newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse(src APISource, 
 	return r
 }
 
-func (r *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse) Hydrate() error {
+func (r *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBO() *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO {
 	m := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBO)
@@ -378,21 +378,21 @@ func newWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse(src APISour
 	return r
 }
 
-func (r *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse) Hydrate() error {
+func (r *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList() *WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList {
 	m := new(WSGDPProfileDpDhcpProfileOptionSpaceApplyToBOList)
@@ -535,21 +535,21 @@ func newWSGDPProfileDpDhcpProfilePoolBOAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *WSGDPProfileDpDhcpProfilePoolBOAPIResponse) Hydrate() error {
+func (r *WSGDPProfileDpDhcpProfilePoolBOAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileDpDhcpProfilePoolBO)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileDpDhcpProfilePoolBO() *WSGDPProfileDpDhcpProfilePoolBO {
 	m := new(WSGDPProfileDpDhcpProfilePoolBO)
@@ -580,21 +580,21 @@ func newWSGDPProfileDpDhcpProfilePoolBOListAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *WSGDPProfileDpDhcpProfilePoolBOListAPIResponse) Hydrate() error {
+func (r *WSGDPProfileDpDhcpProfilePoolBOListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileDpDhcpProfilePoolBOList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileDpDhcpProfilePoolBOList() *WSGDPProfileDpDhcpProfilePoolBOList {
 	m := new(WSGDPProfileDpDhcpProfilePoolBOList)
@@ -665,21 +665,21 @@ func newWSGDPProfileDpNatProfileBasicBOAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *WSGDPProfileDpNatProfileBasicBOAPIResponse) Hydrate() error {
+func (r *WSGDPProfileDpNatProfileBasicBOAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileDpNatProfileBasicBO)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileDpNatProfileBasicBO() *WSGDPProfileDpNatProfileBasicBO {
 	m := new(WSGDPProfileDpNatProfileBasicBO)
@@ -710,21 +710,21 @@ func newWSGDPProfileDpNatProfileBasicBOListAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *WSGDPProfileDpNatProfileBasicBOListAPIResponse) Hydrate() error {
+func (r *WSGDPProfileDpNatProfileBasicBOListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileDpNatProfileBasicBOList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileDpNatProfileBasicBOList() *WSGDPProfileDpNatProfileBasicBOList {
 	m := new(WSGDPProfileDpNatProfileBasicBOList)
@@ -787,21 +787,21 @@ func newWSGDPProfileDpNatProfilePoolBOAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *WSGDPProfileDpNatProfilePoolBOAPIResponse) Hydrate() error {
+func (r *WSGDPProfileDpNatProfilePoolBOAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileDpNatProfilePoolBO)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileDpNatProfilePoolBO() *WSGDPProfileDpNatProfilePoolBO {
 	m := new(WSGDPProfileDpNatProfilePoolBO)
@@ -832,21 +832,21 @@ func newWSGDPProfileDpNatProfilePoolBOListAPIResponse(src APISource, meta APIRes
 	return r
 }
 
-func (r *WSGDPProfileDpNatProfilePoolBOListAPIResponse) Hydrate() error {
+func (r *WSGDPProfileDpNatProfilePoolBOListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileDpNatProfilePoolBOList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileDpNatProfilePoolBOList() *WSGDPProfileDpNatProfilePoolBOList {
 	m := new(WSGDPProfileDpNatProfilePoolBOList)
@@ -937,21 +937,21 @@ func newWSGDPProfileSettingBOAPIResponse(src APISource, meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGDPProfileSettingBOAPIResponse) Hydrate() error {
+func (r *WSGDPProfileSettingBOAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileSettingBO)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileSettingBO() *WSGDPProfileSettingBO {
 	m := new(WSGDPProfileSettingBO)
@@ -982,21 +982,21 @@ func newWSGDPProfileSettingBOListAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *WSGDPProfileSettingBOListAPIResponse) Hydrate() error {
+func (r *WSGDPProfileSettingBOListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGDPProfileSettingBOList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGDPProfileSettingBOList() *WSGDPProfileSettingBOList {
 	m := new(WSGDPProfileSettingBOList)

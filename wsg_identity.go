@@ -49,21 +49,21 @@ func newWSGIdentityAaaServerListAPIResponse(src APISource, meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGIdentityAaaServerListAPIResponse) Hydrate() error {
+func (r *WSGIdentityAaaServerListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIdentityAaaServerList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIdentityAaaServerList() *WSGIdentityAaaServerList {
 	m := new(WSGIdentityAaaServerList)
@@ -132,21 +132,21 @@ func newWSGIdentityCountryListAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGIdentityCountryListAPIResponse) Hydrate() error {
+func (r *WSGIdentityCountryListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIdentityCountryList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIdentityCountryList() *WSGIdentityCountryList {
 	m := new(WSGIdentityCountryList)
@@ -517,21 +517,21 @@ func newWSGIdentityGuestPassListAPIResponse(src APISource, meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGIdentityGuestPassListAPIResponse) Hydrate() error {
+func (r *WSGIdentityGuestPassListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIdentityGuestPassList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIdentityGuestPassList() *WSGIdentityGuestPassList {
 	m := new(WSGIdentityGuestPassList)
@@ -564,21 +564,21 @@ func newWSGIdentityListAPIResponse(src APISource, meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *WSGIdentityListAPIResponse) Hydrate() error {
+func (r *WSGIdentityListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIdentityList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIdentityList() *WSGIdentityList {
 	m := new(WSGIdentityList)
@@ -703,21 +703,21 @@ func newWSGIdentityUserRoleAPIResponse(src APISource, meta APIResponseMeta, body
 	return r
 }
 
-func (r *WSGIdentityUserRoleAPIResponse) Hydrate() error {
+func (r *WSGIdentityUserRoleAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIdentityUserRole)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIdentityUserRole() *WSGIdentityUserRole {
 	m := new(WSGIdentityUserRole)
@@ -1034,21 +1034,21 @@ func newWSGIdentityPackageListAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGIdentityPackageListAPIResponse) Hydrate() error {
+func (r *WSGIdentityPackageListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIdentityPackageList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIdentityPackageList() *WSGIdentityPackageList {
 	m := new(WSGIdentityPackageList)
@@ -1368,21 +1368,21 @@ func newWSGIdentitySubscriptionPackageAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *WSGIdentitySubscriptionPackageAPIResponse) Hydrate() error {
+func (r *WSGIdentitySubscriptionPackageAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIdentitySubscriptionPackage)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIdentitySubscriptionPackage() *WSGIdentitySubscriptionPackage {
 	m := new(WSGIdentitySubscriptionPackage)
@@ -1415,21 +1415,21 @@ func newWSGIdentitySubscriptionPackageListAPIResponse(src APISource, meta APIRes
 	return r
 }
 
-func (r *WSGIdentitySubscriptionPackageListAPIResponse) Hydrate() error {
+func (r *WSGIdentitySubscriptionPackageListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIdentitySubscriptionPackageList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIdentitySubscriptionPackageList() *WSGIdentitySubscriptionPackageList {
 	m := new(WSGIdentitySubscriptionPackageList)
@@ -1615,21 +1615,21 @@ func newWSGIdentityUserConfigurationAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *WSGIdentityUserConfigurationAPIResponse) Hydrate() error {
+func (r *WSGIdentityUserConfigurationAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIdentityUserConfiguration)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIdentityUserConfiguration() *WSGIdentityUserConfiguration {
 	m := new(WSGIdentityUserConfiguration)
@@ -1758,21 +1758,21 @@ func newWSGIdentityUserListAPIResponse(src APISource, meta APIResponseMeta, body
 	return r
 }
 
-func (r *WSGIdentityUserListAPIResponse) Hydrate() error {
+func (r *WSGIdentityUserListAPIResponse) Hydrate() (interface{}, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return nil
+			return r.Data, nil
 		}
-		return r.err
+		return nil, r.err
 	}
 	data := new(WSGIdentityUserList)
 	if err := r.doHydrate(data); err != nil {
-		return err
+		return nil, err
 	}
 	r.Data = data
-	return nil
+	return r.Data, nil
 }
 func NewWSGIdentityUserList() *WSGIdentityUserList {
 	m := new(WSGIdentityUserList)

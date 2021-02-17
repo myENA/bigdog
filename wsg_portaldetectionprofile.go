@@ -128,21 +128,21 @@ func newWSGPortalDetectionProfileAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *WSGPortalDetectionProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGPortalDetectionProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGPortalDetectionProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGPortalDetectionProfile() *WSGPortalDetectionProfile {
 	m := new(WSGPortalDetectionProfile)
@@ -175,21 +175,21 @@ func newWSGPortalDetectionProfileListAPIResponse(src APISource, meta APIResponse
 	return r
 }
 
-func (r *WSGPortalDetectionProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGPortalDetectionProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGPortalDetectionProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGPortalDetectionProfileList() *WSGPortalDetectionProfileList {
 	m := new(WSGPortalDetectionProfileList)

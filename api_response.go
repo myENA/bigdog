@@ -129,7 +129,7 @@ type ModeledAPIResponse interface {
 	// Hydrate must attempt to perform whatever action is necessary to ingest any returned bytes into a specific model
 	// This action is mutually exclusive with Hydrate, and any attempt to use this as a reader after having called
 	// Hydrate will result in an error
-	Hydrate() (interface{}, error)
+	Hydrate() error
 }
 
 // APIResponseFactory is used by the internal response handling mechanism to construct each response type

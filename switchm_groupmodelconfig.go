@@ -130,21 +130,21 @@ func newSwitchMGroupModelConfigQueryResultAPIResponse(src APISource, meta APIRes
 	return r
 }
 
-func (r *SwitchMGroupModelConfigQueryResultAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMGroupModelConfigQueryResultAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMGroupModelConfigQueryResult)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMGroupModelConfigQueryResult() *SwitchMGroupModelConfigQueryResult {
 	m := new(SwitchMGroupModelConfigQueryResult)
@@ -201,21 +201,21 @@ func newSwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse(src APISou
 	return r
 }
 
-func (r *SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMGroupModelConfigUpdateGroupConfigResultListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMGroupModelConfigUpdateGroupConfigResultList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMGroupModelConfigUpdateGroupConfigResultList() *SwitchMGroupModelConfigUpdateGroupConfigResultList {
 	m := new(SwitchMGroupModelConfigUpdateGroupConfigResultList)

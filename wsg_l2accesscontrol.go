@@ -143,21 +143,21 @@ func newWSGL2AccessControlAPIResponse(src APISource, meta APIResponseMeta, body 
 	return r
 }
 
-func (r *WSGL2AccessControlAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGL2AccessControlAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGL2AccessControl)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGL2AccessControl() *WSGL2AccessControl {
 	m := new(WSGL2AccessControl)
@@ -190,21 +190,21 @@ func newWSGL2AccessControlListAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGL2AccessControlListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGL2AccessControlListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGL2AccessControlList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGL2AccessControlList() *WSGL2AccessControlList {
 	m := new(WSGL2AccessControlList)

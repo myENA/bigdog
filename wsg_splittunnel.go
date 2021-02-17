@@ -102,21 +102,21 @@ func newWSGSplitTunnelProfileAPIResponse(src APISource, meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGSplitTunnelProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGSplitTunnelProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGSplitTunnelProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGSplitTunnelProfile() *WSGSplitTunnelProfile {
 	m := new(WSGSplitTunnelProfile)
@@ -147,21 +147,21 @@ func newWSGSplitTunnelProfileListAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *WSGSplitTunnelProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGSplitTunnelProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGSplitTunnelProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGSplitTunnelProfileList() *WSGSplitTunnelProfileList {
 	m := new(WSGSplitTunnelProfileList)
@@ -208,21 +208,21 @@ func newWSGSplitTunnelProfileQueryAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGSplitTunnelProfileQueryAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGSplitTunnelProfileQueryAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGSplitTunnelProfileQuery)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGSplitTunnelProfileQuery() *WSGSplitTunnelProfileQuery {
 	m := new(WSGSplitTunnelProfileQuery)

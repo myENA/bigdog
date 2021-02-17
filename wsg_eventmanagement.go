@@ -55,21 +55,21 @@ func newWSGEventManagementEventDataResponseAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *WSGEventManagementEventDataResponseAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGEventManagementEventDataResponseAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGEventManagementEventDataResponse)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGEventManagementEventDataResponse() *WSGEventManagementEventDataResponse {
 	m := new(WSGEventManagementEventDataResponse)
@@ -100,21 +100,21 @@ func newWSGEventManagementEventEmailSettingAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *WSGEventManagementEventEmailSettingAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGEventManagementEventEmailSettingAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGEventManagementEventEmailSetting)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGEventManagementEventEmailSetting() *WSGEventManagementEventEmailSetting {
 	m := new(WSGEventManagementEventEmailSetting)

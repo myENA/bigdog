@@ -76,21 +76,21 @@ func newWSGDomainDevicePolicyProfileAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *WSGDomainDevicePolicyProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDomainDevicePolicyProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDomainDevicePolicyProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDomainDevicePolicyProfile() *WSGDomainDevicePolicyProfile {
 	m := new(WSGDomainDevicePolicyProfile)
@@ -186,21 +186,21 @@ func newWSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse(src APISource, me
 	return r
 }
 
-func (r *WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDomainDevicePolicyProfileByQueryCriteriaAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDomainDevicePolicyProfileByQueryCriteria)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDomainDevicePolicyProfileByQueryCriteria() *WSGDomainDevicePolicyProfileByQueryCriteria {
 	m := new(WSGDomainDevicePolicyProfileByQueryCriteria)
@@ -303,21 +303,21 @@ func newWSGDomainDevicePolicyProfileListAPIResponse(src APISource, meta APIRespo
 	return r
 }
 
-func (r *WSGDomainDevicePolicyProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDomainDevicePolicyProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDomainDevicePolicyProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDomainDevicePolicyProfileList() *WSGDomainDevicePolicyProfileList {
 	m := new(WSGDomainDevicePolicyProfileList)

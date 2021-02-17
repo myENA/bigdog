@@ -43,21 +43,21 @@ func newSCIScheduleBatchDelete200ResponseTypeAPIResponse(src APISource, meta API
 	return r
 }
 
-func (r *SCIScheduleBatchDelete200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIScheduleBatchDelete200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIScheduleBatchDelete200ResponseType)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIScheduleBatchDelete200ResponseType() *SCIScheduleBatchDelete200ResponseType {
 	m := new(SCIScheduleBatchDelete200ResponseType)

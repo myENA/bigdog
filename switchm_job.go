@@ -97,21 +97,21 @@ func newSwitchMJobAPIResponse(src APISource, meta APIResponseMeta, body io.ReadC
 	return r
 }
 
-func (r *SwitchMJobAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMJobAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMJob)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMJob() *SwitchMJob {
 	m := new(SwitchMJob)
@@ -172,21 +172,21 @@ func newSwitchMJobScheduleResponseAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *SwitchMJobScheduleResponseAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMJobScheduleResponseAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMJobScheduleResponse)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMJobScheduleResponse() *SwitchMJobScheduleResponse {
 	m := new(SwitchMJobScheduleResponse)
@@ -231,21 +231,21 @@ func newSwitchMJobListAPIResponse(src APISource, meta APIResponseMeta, body io.R
 	return r
 }
 
-func (r *SwitchMJobListAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMJobListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMJobList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMJobList() *SwitchMJobList {
 	m := new(SwitchMJobList)

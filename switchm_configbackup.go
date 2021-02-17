@@ -105,21 +105,21 @@ func newSwitchMConfigurationBackupConfigBackupDiffAPIResponse(src APISource, met
 	return r
 }
 
-func (r *SwitchMConfigurationBackupConfigBackupDiffAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMConfigurationBackupConfigBackupDiffAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMConfigurationBackupConfigBackupDiff)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMConfigurationBackupConfigBackupDiff() *SwitchMConfigurationBackupConfigBackupDiff {
 	m := new(SwitchMConfigurationBackupConfigBackupDiff)
@@ -180,21 +180,21 @@ func newSwitchMConfigurationBackupCreateBackupResultListAPIResponse(src APISourc
 	return r
 }
 
-func (r *SwitchMConfigurationBackupCreateBackupResultListAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMConfigurationBackupCreateBackupResultListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMConfigurationBackupCreateBackupResultList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMConfigurationBackupCreateBackupResultList() *SwitchMConfigurationBackupCreateBackupResultList {
 	m := new(SwitchMConfigurationBackupCreateBackupResultList)
@@ -259,21 +259,21 @@ func newSwitchMConfigurationBackupListAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *SwitchMConfigurationBackupListAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMConfigurationBackupListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMConfigurationBackupList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMConfigurationBackupList() *SwitchMConfigurationBackupList {
 	m := new(SwitchMConfigurationBackupList)

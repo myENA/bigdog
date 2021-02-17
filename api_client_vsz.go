@@ -248,7 +248,7 @@ func (stp *UsernamePasswordVSZSServiceTicketProvider) Refresh(ctx context.Contex
 	// test if we need to try to hydrate the response model
 	if loginResponse.Data == nil {
 		// attempt model hydration
-		if _, err = loginResponse.Hydrate(); err != nil {
+		if err = loginResponse.Hydrate(); err != nil {
 			stp.cas = stp.iterateCAS()
 			stp.serviceTicket = ""
 			stp.expires = time.Time{}

@@ -57,21 +57,21 @@ func newWSGDPSKDeleteDpskResultAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGDPSKDeleteDpskResultAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDPSKDeleteDpskResultAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDPSKDeleteDpskResult)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDPSKDeleteDpskResult() *WSGDPSKDeleteDpskResult {
 	m := new(WSGDPSKDeleteDpskResult)
@@ -112,21 +112,21 @@ func newWSGDPSKDeleteExpiredDpskConfigAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *WSGDPSKDeleteExpiredDpskConfigAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDPSKDeleteExpiredDpskConfigAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDPSKDeleteExpiredDpskConfig)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDPSKDeleteExpiredDpskConfig() *WSGDPSKDeleteExpiredDpskConfig {
 	m := new(WSGDPSKDeleteExpiredDpskConfig)
@@ -223,21 +223,21 @@ func newWSGDPSKQueryListAPIResponse(src APISource, meta APIResponseMeta, body io
 	return r
 }
 
-func (r *WSGDPSKQueryListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDPSKQueryListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDPSKQueryList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDPSKQueryList() *WSGDPSKQueryList {
 	m := new(WSGDPSKQueryList)
@@ -344,21 +344,21 @@ func newWSGDPSKGetDpskEnabledWlansAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGDPSKGetDpskEnabledWlansAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDPSKGetDpskEnabledWlansAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDPSKGetDpskEnabledWlans)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDPSKGetDpskEnabledWlans() *WSGDPSKGetDpskEnabledWlans {
 	m := new(WSGDPSKGetDpskEnabledWlans)
@@ -411,21 +411,21 @@ func newWSGDPSKGetDpskInfoListAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGDPSKGetDpskInfoListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDPSKGetDpskInfoListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDPSKGetDpskInfoList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDPSKGetDpskInfoList() *WSGDPSKGetDpskInfoList {
 	m := new(WSGDPSKGetDpskInfoList)
@@ -452,21 +452,21 @@ func newWSGDPSKGetDpskResultAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGDPSKGetDpskResultAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDPSKGetDpskResultAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDPSKGetDpskResult)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDPSKGetDpskResult() *WSGDPSKGetDpskResult {
 	m := new(WSGDPSKGetDpskResult)

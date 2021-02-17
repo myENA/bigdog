@@ -33,21 +33,21 @@ func newWSGClientQueryListAPIResponse(src APISource, meta APIResponseMeta, body 
 	return r
 }
 
-func (r *WSGClientQueryListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGClientQueryListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGClientQueryList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGClientQueryList() *WSGClientQueryList {
 	m := new(WSGClientQueryList)

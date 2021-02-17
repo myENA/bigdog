@@ -185,21 +185,21 @@ func newWSGAPConfigurationAPIResponse(src APISource, meta APIResponseMeta, body 
 	return r
 }
 
-func (r *WSGAPConfigurationAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGAPConfigurationAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGAPConfiguration)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGAPConfiguration() *WSGAPConfiguration {
 	m := new(WSGAPConfiguration)
@@ -236,21 +236,21 @@ func newWSGAPLinemanSummaryAPIResponse(src APISource, meta APIResponseMeta, body
 	return r
 }
 
-func (r *WSGAPLinemanSummaryAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGAPLinemanSummaryAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGAPLinemanSummary)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGAPLinemanSummary() *WSGAPLinemanSummary {
 	m := new(WSGAPLinemanSummary)
@@ -317,21 +317,21 @@ func newWSGAPListEntryAPIResponse(src APISource, meta APIResponseMeta, body io.R
 	return r
 }
 
-func (r *WSGAPListEntryAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGAPListEntryAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGAPListEntry)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGAPListEntry() *WSGAPListEntry {
 	m := new(WSGAPListEntry)
@@ -542,21 +542,21 @@ func newWSGAPOperationalSummaryAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGAPOperationalSummaryAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGAPOperationalSummaryAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGAPOperationalSummary)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGAPOperationalSummary() *WSGAPOperationalSummary {
 	m := new(WSGAPOperationalSummary)
@@ -638,21 +638,21 @@ func newWSGAPRadioConfigurationAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGAPRadioConfigurationAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGAPRadioConfigurationAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGAPRadioConfiguration)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGAPRadioConfiguration() *WSGAPRadioConfiguration {
 	m := new(WSGAPRadioConfiguration)
@@ -1339,21 +1339,21 @@ func newWSGAPModifyRogueTypeAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGAPModifyRogueTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGAPModifyRogueTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGAPModifyRogueType)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGAPModifyRogueType() *WSGAPModifyRogueType {
 	m := new(WSGAPModifyRogueType)
@@ -1390,21 +1390,21 @@ func newWSGAPNeighborAPListAPIResponse(src APISource, meta APIResponseMeta, body
 	return r
 }
 
-func (r *WSGAPNeighborAPListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGAPNeighborAPListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGAPNeighborAPList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGAPNeighborAPList() *WSGAPNeighborAPList {
 	m := new(WSGAPNeighborAPList)

@@ -82,21 +82,21 @@ func newWSGDevicePolicyPorfileAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGDevicePolicyPorfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDevicePolicyPorfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDevicePolicyPorfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDevicePolicyPorfile() *WSGDevicePolicyPorfile {
 	m := new(WSGDevicePolicyPorfile)
@@ -197,21 +197,21 @@ func newWSGDevicePolicyPorfileListAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGDevicePolicyPorfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDevicePolicyPorfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDevicePolicyPorfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDevicePolicyPorfileList() *WSGDevicePolicyPorfileList {
 	m := new(WSGDevicePolicyPorfileList)

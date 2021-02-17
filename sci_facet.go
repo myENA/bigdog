@@ -40,21 +40,21 @@ func newSCIFacetGetApmacFacet200ResponseTypeAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *SCIFacetGetApmacFacet200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIFacetGetApmacFacet200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := make(SCIFacetGetApmacFacet200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func MakeSCIFacetGetApmacFacet200ResponseType() SCIFacetGetApmacFacet200ResponseType {
 	m := make(SCIFacetGetApmacFacet200ResponseType, 0)
@@ -77,21 +77,21 @@ func newSCIFacetGetFacet200ResponseTypeAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *SCIFacetGetFacet200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIFacetGetFacet200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := make(SCIFacetGetFacet200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func MakeSCIFacetGetFacet200ResponseType() SCIFacetGetFacet200ResponseType {
 	m := make(SCIFacetGetFacet200ResponseType, 0)
@@ -114,21 +114,21 @@ func newSCIFacetGetSsidFacet200ResponseTypeAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *SCIFacetGetSsidFacet200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIFacetGetSsidFacet200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := make(SCIFacetGetSsidFacet200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func MakeSCIFacetGetSsidFacet200ResponseType() SCIFacetGetSsidFacet200ResponseType {
 	m := make(SCIFacetGetSsidFacet200ResponseType, 0)
@@ -151,21 +151,21 @@ func newSCIFacetGetSwitchesFacet200ResponseTypeAPIResponse(src APISource, meta A
 	return r
 }
 
-func (r *SCIFacetGetSwitchesFacet200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIFacetGetSwitchesFacet200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := make(SCIFacetGetSwitchesFacet200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func MakeSCIFacetGetSwitchesFacet200ResponseType() SCIFacetGetSwitchesFacet200ResponseType {
 	m := make(SCIFacetGetSwitchesFacet200ResponseType, 0)
@@ -188,21 +188,21 @@ func newSCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse(src APISource,
 	return r
 }
 
-func (r *SCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := make(SCIFacetGetSwitchHierarchyFacet200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func MakeSCIFacetGetSwitchHierarchyFacet200ResponseType() SCIFacetGetSwitchHierarchyFacet200ResponseType {
 	m := make(SCIFacetGetSwitchHierarchyFacet200ResponseType, 0)
@@ -225,21 +225,21 @@ func newSCIFacetGetSystemFacet200ResponseTypeAPIResponse(src APISource, meta API
 	return r
 }
 
-func (r *SCIFacetGetSystemFacet200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIFacetGetSystemFacet200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := make(SCIFacetGetSystemFacet200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func MakeSCIFacetGetSystemFacet200ResponseType() SCIFacetGetSystemFacet200ResponseType {
 	m := make(SCIFacetGetSystemFacet200ResponseType, 0)

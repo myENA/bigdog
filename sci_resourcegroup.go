@@ -43,21 +43,21 @@ func newSCIResourceGroupBatchDelete200ResponseTypeAPIResponse(src APISource, met
 	return r
 }
 
-func (r *SCIResourceGroupBatchDelete200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIResourceGroupBatchDelete200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIResourceGroupBatchDelete200ResponseType)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIResourceGroupBatchDelete200ResponseType() *SCIResourceGroupBatchDelete200ResponseType {
 	m := new(SCIResourceGroupBatchDelete200ResponseType)
@@ -80,21 +80,21 @@ func newSCIResourceGroupFind200ResponseTypeAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *SCIResourceGroupFind200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIResourceGroupFind200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := make(SCIResourceGroupFind200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func MakeSCIResourceGroupFind200ResponseType() SCIResourceGroupFind200ResponseType {
 	m := make(SCIResourceGroupFind200ResponseType, 0)

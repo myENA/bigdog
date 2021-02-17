@@ -71,21 +71,21 @@ func newWSGDHCPPoolsDhcpPoolInfoAPIResponse(src APISource, meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGDHCPPoolsDhcpPoolInfoAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDHCPPoolsDhcpPoolInfoAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDHCPPoolsDhcpPoolInfo)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDHCPPoolsDhcpPoolInfo() *WSGDHCPPoolsDhcpPoolInfo {
 	m := new(WSGDHCPPoolsDhcpPoolInfo)
@@ -152,21 +152,21 @@ func newWSGDHCPPoolsAPIResponse(src APISource, meta APIResponseMeta, body io.Rea
 	return r
 }
 
-func (r *WSGDHCPPoolsAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGDHCPPoolsAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGDHCPPools)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGDHCPPools() *WSGDHCPPools {
 	m := new(WSGDHCPPools)

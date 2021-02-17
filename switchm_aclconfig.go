@@ -71,21 +71,21 @@ func newSwitchMACLConfigAPIResponse(src APISource, meta APIResponseMeta, body io
 	return r
 }
 
-func (r *SwitchMACLConfigAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMACLConfigAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMACLConfig)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMACLConfig() *SwitchMACLConfig {
 	m := new(SwitchMACLConfig)
@@ -130,21 +130,21 @@ func newSwitchMACLConfigsQueryResultAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *SwitchMACLConfigsQueryResultAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMACLConfigsQueryResultAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMACLConfigsQueryResult)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMACLConfigsQueryResult() *SwitchMACLConfigsQueryResult {
 	m := new(SwitchMACLConfigsQueryResult)

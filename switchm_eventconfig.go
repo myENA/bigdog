@@ -61,21 +61,21 @@ func newSwitchMEventConfigAPIResponse(src APISource, meta APIResponseMeta, body 
 	return r
 }
 
-func (r *SwitchMEventConfigAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMEventConfigAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMEventConfig)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMEventConfig() *SwitchMEventConfig {
 	m := new(SwitchMEventConfig)
@@ -120,21 +120,21 @@ func newSwitchMEventConfigGetEventConfigListAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *SwitchMEventConfigGetEventConfigListAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMEventConfigGetEventConfigListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMEventConfigGetEventConfigList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMEventConfigGetEventConfigList() *SwitchMEventConfigGetEventConfigList {
 	m := new(SwitchMEventConfigGetEventConfigList)
@@ -177,21 +177,21 @@ func newSwitchMEventConfigQueryResponseAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *SwitchMEventConfigQueryResponseAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMEventConfigQueryResponseAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMEventConfigQueryResponse)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMEventConfigQueryResponse() *SwitchMEventConfigQueryResponse {
 	m := new(SwitchMEventConfigQueryResponse)

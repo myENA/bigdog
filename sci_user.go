@@ -43,21 +43,21 @@ func newSCIUserBatchDelete200ResponseTypeAPIResponse(src APISource, meta APIResp
 	return r
 }
 
-func (r *SCIUserBatchDelete200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIUserBatchDelete200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIUserBatchDelete200ResponseType)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIUserBatchDelete200ResponseType() *SCIUserBatchDelete200ResponseType {
 	m := new(SCIUserBatchDelete200ResponseType)
@@ -80,21 +80,21 @@ func newSCIUserGetResourceGroupsForUpsert200ResponseTypeAPIResponse(src APISourc
 	return r
 }
 
-func (r *SCIUserGetResourceGroupsForUpsert200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIUserGetResourceGroupsForUpsert200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := make(SCIUserGetResourceGroupsForUpsert200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func MakeSCIUserGetResourceGroupsForUpsert200ResponseType() SCIUserGetResourceGroupsForUpsert200ResponseType {
 	m := make(SCIUserGetResourceGroupsForUpsert200ResponseType, 0)
@@ -117,21 +117,21 @@ func newSCIUserGetUsers200ResponseTypeAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *SCIUserGetUsers200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIUserGetUsers200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := make(SCIUserGetUsers200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func MakeSCIUserGetUsers200ResponseType() SCIUserGetUsers200ResponseType {
 	m := make(SCIUserGetUsers200ResponseType, 0)
@@ -154,21 +154,21 @@ func newSCIUserPrototypegetfilters200ResponseTypeAPIResponse(src APISource, meta
 	return r
 }
 
-func (r *SCIUserPrototypegetfilters200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIUserPrototypegetfilters200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := make(SCIUserPrototypegetfilters200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func MakeSCIUserPrototypegetfilters200ResponseType() SCIUserPrototypegetfilters200ResponseType {
 	m := make(SCIUserPrototypegetfilters200ResponseType, 0)
@@ -191,21 +191,21 @@ func newSCIUserPrototypegetschedules200ResponseTypeAPIResponse(src APISource, me
 	return r
 }
 
-func (r *SCIUserPrototypegetschedules200ResponseTypeAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIUserPrototypegetschedules200ResponseTypeAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := make(SCIUserPrototypegetschedules200ResponseType, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func MakeSCIUserPrototypegetschedules200ResponseType() SCIUserPrototypegetschedules200ResponseType {
 	m := make(SCIUserPrototypegetschedules200ResponseType, 0)
@@ -266,21 +266,21 @@ func newSCIUserLoginResponseAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *SCIUserLoginResponseAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIUserLoginResponseAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIUserLoginResponse)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIUserLoginResponse() *SCIUserLoginResponse {
 	m := new(SCIUserLoginResponse)

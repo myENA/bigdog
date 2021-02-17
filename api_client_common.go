@@ -8,49 +8,9 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
-	"net"
 	"net/http"
-	"runtime"
 	"time"
 )
-
-// todo: export this?
-type APIAuthProviderError struct {
-	meta APIResponseMeta
-	err  error
-}
-
-func NewAPIAuthProviderError(meta APIResponseMeta, err error) *APIAuthProviderError {
-	ape := new(APIAuthProviderError)
-	ape.meta = meta
-	ape.err = err
-	return ape
-}
-
-func (ape *APIAuthProviderError) ResponseMeta() APIResponseMeta {
-	if ape == nil {
-		return APIResponseMeta{}
-	}
-	return ape.meta
-}
-
-func (ape *APIAuthProviderError) Is(err error) bool {
-	return ape != nil && ape.err != nil && errors.Is(err, ape.err)
-}
-
-func (ape *APIAuthProviderError) Unwrap() error {
-	if ape == nil || ape.err == nil {
-		return nil
-	}
-	return ape.err
-}
-
-func (ape *APIAuthProviderError) Error() string {
-	if ape == nil || ape.err == nil {
-		return ""
-	}
-	return ape.err.Error()
-}
 
 type baseClient struct {
 	log   *log.Logger
@@ -81,22 +41,7 @@ func newBaseClient(addr, pathPrefix string, dbg bool, disableAutoHydrate bool, l
 	if hclient != nil {
 		c.client = hclient
 	} else {
-		// pooled transport config shamelessly borrowed from
-		// https://github.com/hashicorp/go-cleanhttp/blob/v0.5.1/cleanhttp.go
-		c.client = &http.Client{
-			Transport: &http.Transport{
-				Proxy: http.ProxyFromEnvironment,
-				DialContext: (&net.Dialer{
-					Timeout:   30 * time.Second,
-					KeepAlive: 30 * time.Second,
-				}).DialContext,
-				MaxIdleConns:          100,
-				IdleConnTimeout:       90 * time.Second,
-				TLSHandshakeTimeout:   10 * time.Second,
-				ExpectContinueTimeout: 1 * time.Second,
-				MaxIdleConnsPerHost:   runtime.GOMAXPROCS(0) + 1,
-			},
-		}
+		c.client = defaultHTTPClient()
 	}
 
 	return c
@@ -208,7 +153,7 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 	if httpResp.StatusCode == successCode {
 		// test for a modeled response and whether it needs to be automatically handled
 		if hdr, ok := apiResp.(ModeledAPIResponse); ok && autoHydrate {
-			if _, err := hdr.Hydrate(); err != nil {
+			if err := hdr.Hydrate(); err != nil {
 				return apiResp, fmt.Errorf("error hydrating response: %w", err)
 			}
 		}

@@ -67,21 +67,21 @@ func newWSGProfileAccountingProfileAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *WSGProfileAccountingProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileAccountingProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileAccountingProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileAccountingProfile() *WSGProfileAccountingProfile {
 	m := new(WSGProfileAccountingProfile)
@@ -114,21 +114,21 @@ func newWSGProfileAccountingProfileListAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *WSGProfileAccountingProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileAccountingProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileAccountingProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileAccountingProfileList() *WSGProfileAccountingProfileList {
 	m := new(WSGProfileAccountingProfileList)
@@ -325,21 +325,21 @@ func newWSGProfileAuthenticationProfileAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *WSGProfileAuthenticationProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileAuthenticationProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileAuthenticationProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileAuthenticationProfile() *WSGProfileAuthenticationProfile {
 	m := new(WSGProfileAuthenticationProfile)
@@ -372,21 +372,21 @@ func newWSGProfileAuthenticationProfileListAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *WSGProfileAuthenticationProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileAuthenticationProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileAuthenticationProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileAuthenticationProfileList() *WSGProfileAuthenticationProfileList {
 	m := new(WSGProfileAuthenticationProfileList)
@@ -417,21 +417,21 @@ func newWSGProfileBaseServiceInfoListAPIResponse(src APISource, meta APIResponse
 	return r
 }
 
-func (r *WSGProfileBaseServiceInfoListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileBaseServiceInfoListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileBaseServiceInfoList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileBaseServiceInfoList() *WSGProfileBaseServiceInfoList {
 	m := new(WSGProfileBaseServiceInfoList)
@@ -489,21 +489,21 @@ func newWSGProfileBlockClientAPIResponse(src APISource, meta APIResponseMeta, bo
 	return r
 }
 
-func (r *WSGProfileBlockClientAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileBlockClientAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileBlockClient)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileBlockClient() *WSGProfileBlockClient {
 	m := new(WSGProfileBlockClient)
@@ -534,21 +534,21 @@ func newWSGProfileBlockClientListAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *WSGProfileBlockClientListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileBlockClientListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileBlockClientList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileBlockClientList() *WSGProfileBlockClientList {
 	m := new(WSGProfileBlockClientList)
@@ -670,21 +670,21 @@ func newWSGProfileBonjourFencingPolicyAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *WSGProfileBonjourFencingPolicyAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileBonjourFencingPolicyAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileBonjourFencingPolicy)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileBonjourFencingPolicy() *WSGProfileBonjourFencingPolicy {
 	m := new(WSGProfileBonjourFencingPolicy)
@@ -715,21 +715,21 @@ func newWSGProfileBonjourFencingPolicyListAPIResponse(src APISource, meta APIRes
 	return r
 }
 
-func (r *WSGProfileBonjourFencingPolicyListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileBonjourFencingPolicyListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileBonjourFencingPolicyList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileBonjourFencingPolicyList() *WSGProfileBonjourFencingPolicyList {
 	m := new(WSGProfileBonjourFencingPolicyList)
@@ -852,21 +852,21 @@ func newWSGProfileBonjourFencingStatisticAPIResponse(src APISource, meta APIResp
 	return r
 }
 
-func (r *WSGProfileBonjourFencingStatisticAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileBonjourFencingStatisticAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileBonjourFencingStatistic)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileBonjourFencingStatistic() *WSGProfileBonjourFencingStatistic {
 	m := new(WSGProfileBonjourFencingStatistic)
@@ -927,21 +927,21 @@ func newWSGProfileBridgeProfileAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGProfileBridgeProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileBridgeProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileBridgeProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileBridgeProfile() *WSGProfileBridgeProfile {
 	m := new(WSGProfileBridgeProfile)
@@ -974,21 +974,21 @@ func newWSGProfileBridgeProfileListAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *WSGProfileBridgeProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileBridgeProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileBridgeProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileBridgeProfileList() *WSGProfileBridgeProfileList {
 	m := new(WSGProfileBridgeProfileList)
@@ -1137,21 +1137,21 @@ func newWSGProfileClientIsolationWhitelistAPIResponse(src APISource, meta APIRes
 	return r
 }
 
-func (r *WSGProfileClientIsolationWhitelistAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileClientIsolationWhitelistAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileClientIsolationWhitelist)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileClientIsolationWhitelist() *WSGProfileClientIsolationWhitelist {
 	m := new(WSGProfileClientIsolationWhitelist)
@@ -1206,21 +1206,21 @@ func newWSGProfileClientIsolationWhitelistArrayAPIResponse(src APISource, meta A
 	return r
 }
 
-func (r *WSGProfileClientIsolationWhitelistArrayAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileClientIsolationWhitelistArrayAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileClientIsolationWhitelistArray)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileClientIsolationWhitelistArray() *WSGProfileClientIsolationWhitelistArray {
 	m := new(WSGProfileClientIsolationWhitelistArray)
@@ -1785,21 +1785,21 @@ func newWSGProfileCreatePrecedenceProfileAPIResponse(src APISource, meta APIResp
 	return r
 }
 
-func (r *WSGProfileCreatePrecedenceProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileCreatePrecedenceProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileCreatePrecedenceProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileCreatePrecedenceProfile() *WSGProfileCreatePrecedenceProfile {
 	m := new(WSGProfileCreatePrecedenceProfile)
@@ -1851,21 +1851,21 @@ func newWSGProfileCreateResultListAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGProfileCreateResultListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileCreateResultListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := make(WSGProfileCreateResultList, 0)
 	if err := r.doHydrate(&data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func MakeWSGProfileCreateResultList() WSGProfileCreateResultList {
 	m := make(WSGProfileCreateResultList, 0)
@@ -1930,21 +1930,21 @@ func newWSGProfileCreateRtlsProfileAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *WSGProfileCreateRtlsProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileCreateRtlsProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileCreateRtlsProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileCreateRtlsProfile() *WSGProfileCreateRtlsProfile {
 	m := new(WSGProfileCreateRtlsProfile)
@@ -2422,21 +2422,21 @@ func newWSGProfileDhcpProfileListAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *WSGProfileDhcpProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileDhcpProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileDhcpProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileDhcpProfileList() *WSGProfileDhcpProfileList {
 	m := new(WSGProfileDhcpProfileList)
@@ -2539,21 +2539,21 @@ func newWSGProfileDnsServerProfileAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGProfileDnsServerProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileDnsServerProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileDnsServerProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileDnsServerProfile() *WSGProfileDnsServerProfile {
 	m := new(WSGProfileDnsServerProfile)
@@ -2586,21 +2586,21 @@ func newWSGProfileDnsServerProfileListAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *WSGProfileDnsServerProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileDnsServerProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileDnsServerProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileDnsServerProfileList() *WSGProfileDnsServerProfileList {
 	m := new(WSGProfileDnsServerProfileList)
@@ -2756,21 +2756,21 @@ func newWSGProfileFirewallProfileAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *WSGProfileFirewallProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileFirewallProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileFirewallProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileFirewallProfile() *WSGProfileFirewallProfile {
 	m := new(WSGProfileFirewallProfile)
@@ -2803,21 +2803,21 @@ func newWSGProfileFirewallProfileArrayAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *WSGProfileFirewallProfileArrayAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileFirewallProfileArrayAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileFirewallProfileArray)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileFirewallProfileArray() *WSGProfileFirewallProfileArray {
 	m := new(WSGProfileFirewallProfileArray)
@@ -2918,21 +2918,21 @@ func newWSGProfileFlexiVpnProfileListAPIResponse(src APISource, meta APIResponse
 	return r
 }
 
-func (r *WSGProfileFlexiVpnProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileFlexiVpnProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileFlexiVpnProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileFlexiVpnProfileList() *WSGProfileFlexiVpnProfileList {
 	m := new(WSGProfileFlexiVpnProfileList)
@@ -2959,21 +2959,21 @@ func newWSGProfileGetL3RoamingConfigAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *WSGProfileGetL3RoamingConfigAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileGetL3RoamingConfigAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileGetL3RoamingConfig)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileGetL3RoamingConfig() *WSGProfileGetL3RoamingConfig {
 	m := new(WSGProfileGetL3RoamingConfig)
@@ -3072,21 +3072,21 @@ func newWSGProfileHs20OperatorAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGProfileHs20OperatorAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileHs20OperatorAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileHs20Operator)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileHs20Operator() *WSGProfileHs20Operator {
 	m := new(WSGProfileHs20Operator)
@@ -3119,21 +3119,21 @@ func newWSGProfileHs20OperatorListAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGProfileHs20OperatorListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileHs20OperatorListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileHs20OperatorList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileHs20OperatorList() *WSGProfileHs20OperatorList {
 	m := new(WSGProfileHs20OperatorList)
@@ -3214,21 +3214,21 @@ func newWSGProfileHs20ProviderAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGProfileHs20ProviderAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileHs20ProviderAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileHs20Provider)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileHs20Provider() *WSGProfileHs20Provider {
 	m := new(WSGProfileHs20Provider)
@@ -3261,21 +3261,21 @@ func newWSGProfileHs20ProviderListAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGProfileHs20ProviderListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileHs20ProviderListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileHs20ProviderList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileHs20ProviderList() *WSGProfileHs20ProviderList {
 	m := new(WSGProfileHs20ProviderList)
@@ -3580,21 +3580,21 @@ func newWSGProfileIpsecProfileAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGProfileIpsecProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileIpsecProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileIpsecProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileIpsecProfile() *WSGProfileIpsecProfile {
 	m := new(WSGProfileIpsecProfile)
@@ -3627,21 +3627,21 @@ func newWSGProfileIpsecProfileListAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGProfileIpsecProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileIpsecProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileIpsecProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileIpsecProfileList() *WSGProfileIpsecProfileList {
 	m := new(WSGProfileIpsecProfileList)
@@ -3704,21 +3704,21 @@ func newWSGProfileL2oGREProfileAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGProfileL2oGREProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileL2oGREProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileL2oGREProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileL2oGREProfile() *WSGProfileL2oGREProfile {
 	m := new(WSGProfileL2oGREProfile)
@@ -3751,21 +3751,21 @@ func newWSGProfileL2oGREProfileListAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *WSGProfileL2oGREProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileL2oGREProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileL2oGREProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileL2oGREProfileList() *WSGProfileL2oGREProfileList {
 	m := new(WSGProfileL2oGREProfileList)
@@ -3815,21 +3815,21 @@ func newWSGProfileL3AccessControlPolicyAPIResponse(src APISource, meta APIRespon
 	return r
 }
 
-func (r *WSGProfileL3AccessControlPolicyAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileL3AccessControlPolicyAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileL3AccessControlPolicy)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileL3AccessControlPolicy() *WSGProfileL3AccessControlPolicy {
 	m := new(WSGProfileL3AccessControlPolicy)
@@ -3862,21 +3862,21 @@ func newWSGProfileL3AccessControlPolicyArrayAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *WSGProfileL3AccessControlPolicyArrayAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileL3AccessControlPolicyArrayAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileL3AccessControlPolicyArray)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileL3AccessControlPolicyArray() *WSGProfileL3AccessControlPolicyArray {
 	m := new(WSGProfileL3AccessControlPolicyArray)
@@ -4065,21 +4065,21 @@ func newWSGProfileLbsProfileAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGProfileLbsProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileLbsProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileLbsProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileLbsProfile() *WSGProfileLbsProfile {
 	m := new(WSGProfileLbsProfile)
@@ -4112,21 +4112,21 @@ func newWSGProfileLbsProfileListAPIResponse(src APISource, meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGProfileLbsProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileLbsProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileLbsProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileLbsProfileList() *WSGProfileLbsProfileList {
 	m := new(WSGProfileLbsProfileList)
@@ -4897,21 +4897,21 @@ func newWSGProfilePrecedenceListAPIResponse(src APISource, meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGProfilePrecedenceListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfilePrecedenceListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfilePrecedenceList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfilePrecedenceList() *WSGProfilePrecedenceList {
 	m := new(WSGProfilePrecedenceList)
@@ -4978,21 +4978,21 @@ func newWSGProfileCloneAPIResponse(src APISource, meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *WSGProfileCloneAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileCloneAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileClone)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileClone() *WSGProfileClone {
 	m := new(WSGProfileClone)
@@ -5023,21 +5023,21 @@ func newWSGProfileIdListAPIResponse(src APISource, meta APIResponseMeta, body io
 	return r
 }
 
-func (r *WSGProfileIdListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileIdListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileIdList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileIdList() *WSGProfileIdList {
 	m := new(WSGProfileIdList)
@@ -5094,21 +5094,21 @@ func newWSGProfileListAPIResponse(src APISource, meta APIResponseMeta, body io.R
 	return r
 }
 
-func (r *WSGProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileList() *WSGProfileList {
 	m := new(WSGProfileList)
@@ -5579,21 +5579,21 @@ func newWSGProfileRestrictedApAccessProfileAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *WSGProfileRestrictedApAccessProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileRestrictedApAccessProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileRestrictedApAccessProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileRestrictedApAccessProfile() *WSGProfileRestrictedApAccessProfile {
 	m := new(WSGProfileRestrictedApAccessProfile)
@@ -5624,21 +5624,21 @@ func newWSGProfileRestrictedApAccessProfileArrayAPIResponse(src APISource, meta 
 	return r
 }
 
-func (r *WSGProfileRestrictedApAccessProfileArrayAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileRestrictedApAccessProfileArrayAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileRestrictedApAccessProfileArray)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileRestrictedApAccessProfileArray() *WSGProfileRestrictedApAccessProfileArray {
 	m := new(WSGProfileRestrictedApAccessProfileArray)
@@ -5712,21 +5712,21 @@ func newWSGProfileReturnZoneAffinityProfileAPIResponse(src APISource, meta APIRe
 	return r
 }
 
-func (r *WSGProfileReturnZoneAffinityProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileReturnZoneAffinityProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileReturnZoneAffinityProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileReturnZoneAffinityProfile() *WSGProfileReturnZoneAffinityProfile {
 	m := new(WSGProfileReturnZoneAffinityProfile)
@@ -5789,21 +5789,21 @@ func newWSGProfileRogueApPolicyAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGProfileRogueApPolicyAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileRogueApPolicyAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileRogueApPolicy)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileRogueApPolicy() *WSGProfileRogueApPolicy {
 	m := new(WSGProfileRogueApPolicy)
@@ -5834,21 +5834,21 @@ func newWSGProfileRogueApPolicyListAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *WSGProfileRogueApPolicyListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileRogueApPolicyListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileRogueApPolicyList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileRogueApPolicyList() *WSGProfileRogueApPolicyList {
 	m := new(WSGProfileRogueApPolicyList)
@@ -5915,21 +5915,21 @@ func newWSGProfileRtlsProfileListAPIResponse(src APISource, meta APIResponseMeta
 	return r
 }
 
-func (r *WSGProfileRtlsProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileRtlsProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileRtlsProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileRtlsProfileList() *WSGProfileRtlsProfileList {
 	m := new(WSGProfileRtlsProfileList)
@@ -6010,21 +6010,21 @@ func newWSGProfileRuckusGREProfileAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *WSGProfileRuckusGREProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileRuckusGREProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileRuckusGREProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileRuckusGREProfile() *WSGProfileRuckusGREProfile {
 	m := new(WSGProfileRuckusGREProfile)
@@ -6057,21 +6057,21 @@ func newWSGProfileRuckusGREProfileListAPIResponse(src APISource, meta APIRespons
 	return r
 }
 
-func (r *WSGProfileRuckusGREProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileRuckusGREProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileRuckusGREProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileRuckusGREProfileList() *WSGProfileRuckusGREProfileList {
 	m := new(WSGProfileRuckusGREProfileList)
@@ -6162,21 +6162,21 @@ func newWSGProfileSoftGREProfileAPIResponse(src APISource, meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGProfileSoftGREProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileSoftGREProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileSoftGREProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileSoftGREProfile() *WSGProfileSoftGREProfile {
 	m := new(WSGProfileSoftGREProfile)
@@ -6209,21 +6209,21 @@ func newWSGProfileSoftGREProfileListAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *WSGProfileSoftGREProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileSoftGREProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileSoftGREProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileSoftGREProfileList() *WSGProfileSoftGREProfileList {
 	m := new(WSGProfileSoftGREProfileList)
@@ -6278,21 +6278,21 @@ func newWSGProfileTrafficClassProfileListAPIResponse(src APISource, meta APIResp
 	return r
 }
 
-func (r *WSGProfileTrafficClassProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileTrafficClassProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileTrafficClassProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileTrafficClassProfileList() *WSGProfileTrafficClassProfileList {
 	m := new(WSGProfileTrafficClassProfileList)
@@ -6455,21 +6455,21 @@ func newWSGProfileTtgpdgProfileAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *WSGProfileTtgpdgProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileTtgpdgProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileTtgpdgProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileTtgpdgProfile() *WSGProfileTtgpdgProfile {
 	m := new(WSGProfileTtgpdgProfile)
@@ -6540,21 +6540,21 @@ func newWSGProfileTtgpdgProfileListAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *WSGProfileTtgpdgProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileTtgpdgProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileTtgpdgProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileTtgpdgProfileList() *WSGProfileTtgpdgProfileList {
 	m := new(WSGProfileTtgpdgProfileList)
@@ -6740,21 +6740,21 @@ func newWSGProfileUserTrafficProfileAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *WSGProfileUserTrafficProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileUserTrafficProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileUserTrafficProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileUserTrafficProfile() *WSGProfileUserTrafficProfile {
 	m := new(WSGProfileUserTrafficProfile)
@@ -6787,21 +6787,21 @@ func newWSGProfileUserTrafficProfileListAPIResponse(src APISource, meta APIRespo
 	return r
 }
 
-func (r *WSGProfileUserTrafficProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileUserTrafficProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileUserTrafficProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileUserTrafficProfileList() *WSGProfileUserTrafficProfileList {
 	m := new(WSGProfileUserTrafficProfileList)
@@ -6920,21 +6920,21 @@ func newWSGProfileVdpProfileAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGProfileVdpProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileVdpProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileVdpProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileVdpProfile() *WSGProfileVdpProfile {
 	m := new(WSGProfileVdpProfile)
@@ -6981,21 +6981,21 @@ func newWSGProfileZoneAffinityProfileListAPIResponse(src APISource, meta APIResp
 	return r
 }
 
-func (r *WSGProfileZoneAffinityProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGProfileZoneAffinityProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGProfileZoneAffinityProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGProfileZoneAffinityProfileList() *WSGProfileZoneAffinityProfileList {
 	m := new(WSGProfileZoneAffinityProfileList)

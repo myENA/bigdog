@@ -159,21 +159,21 @@ func newWSGWIFICallingPolicyAPIResponse(src APISource, meta APIResponseMeta, bod
 	return r
 }
 
-func (r *WSGWIFICallingPolicyAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGWIFICallingPolicyAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGWIFICallingPolicy)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGWIFICallingPolicy() *WSGWIFICallingPolicy {
 	m := new(WSGWIFICallingPolicy)
@@ -206,21 +206,21 @@ func newWSGWIFICallingPolicyListAPIResponse(src APISource, meta APIResponseMeta,
 	return r
 }
 
-func (r *WSGWIFICallingPolicyListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGWIFICallingPolicyListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGWIFICallingPolicyList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGWIFICallingPolicyList() *WSGWIFICallingPolicyList {
 	m := new(WSGWIFICallingPolicyList)

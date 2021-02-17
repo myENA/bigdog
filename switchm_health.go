@@ -62,21 +62,21 @@ func newSwitchMHealthAggMetricsAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *SwitchMHealthAggMetricsAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMHealthAggMetricsAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMHealthAggMetrics)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMHealthAggMetrics() *SwitchMHealthAggMetrics {
 	m := new(SwitchMHealthAggMetrics)
@@ -167,21 +167,21 @@ func newSwitchMHealthIcxMetricsAPIResponse(src APISource, meta APIResponseMeta, 
 	return r
 }
 
-func (r *SwitchMHealthIcxMetricsAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMHealthIcxMetricsAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMHealthIcxMetrics)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMHealthIcxMetrics() *SwitchMHealthIcxMetrics {
 	m := new(SwitchMHealthIcxMetrics)
@@ -282,21 +282,21 @@ func newSwitchMHealthStatusAPIResponse(src APISource, meta APIResponseMeta, body
 	return r
 }
 
-func (r *SwitchMHealthStatusAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMHealthStatusAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMHealthStatus)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMHealthStatus() *SwitchMHealthStatus {
 	m := new(SwitchMHealthStatus)

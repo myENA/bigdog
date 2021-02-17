@@ -137,21 +137,21 @@ func newWSGVLANPoolingAPIResponse(src APISource, meta APIResponseMeta, body io.R
 	return r
 }
 
-func (r *WSGVLANPoolingAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGVLANPoolingAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGVLANPooling)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGVLANPooling() *WSGVLANPooling {
 	m := new(WSGVLANPooling)
@@ -184,21 +184,21 @@ func newWSGVLANPoolingListAPIResponse(src APISource, meta APIResponseMeta, body 
 	return r
 }
 
-func (r *WSGVLANPoolingListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGVLANPoolingListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGVLANPoolingList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGVLANPoolingList() *WSGVLANPoolingList {
 	m := new(WSGVLANPoolingList)

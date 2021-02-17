@@ -120,21 +120,21 @@ func newSwitchMAAAServersAAAServerAPIResponse(src APISource, meta APIResponseMet
 	return r
 }
 
-func (r *SwitchMAAAServersAAAServerAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMAAAServersAAAServerAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMAAAServersAAAServer)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMAAAServersAAAServer() *SwitchMAAAServersAAAServer {
 	m := new(SwitchMAAAServersAAAServer)
@@ -179,21 +179,21 @@ func newSwitchMAAAServersQueryResultAPIResponse(src APISource, meta APIResponseM
 	return r
 }
 
-func (r *SwitchMAAAServersQueryResultAPIResponse) Hydrate() (interface{}, error) {
+func (r *SwitchMAAAServersQueryResultAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SwitchMAAAServersQueryResult)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSwitchMAAAServersQueryResult() *SwitchMAAAServersQueryResult {
 	m := new(SwitchMAAAServersQueryResult)

@@ -65,17 +65,8 @@ func (e *SCIAPIError) Error() string {
 		return ""
 	}
 	if e.ErrorDetails != nil {
-		if e.ErrorDetails.Code == "" {
-			return fmt.Sprintf(
-				"name=%q; status=%q; statusCode=%q; message=%q",
-				e.ErrorDetails.Name,
-				e.ErrorDetails.Status,
-				e.ErrorDetails.StatusCode,
-				e.ErrorDetails.Message,
-			)
-		}
 		return fmt.Sprintf(
-			"name=%q; status=%q; length=%q; severity=%q; code=%q; statusCode=%q; file=%q; line=%q; routine=%q; message=%q",
+			"name=%q; status=%d; length=%d; severity=%q; code=%q; statusCode=%d; file=%q; line=%d; routine=%q; message=%q",
 			e.ErrorDetails.Name,
 			e.ErrorDetails.Status,
 			e.ErrorDetails.Length,
@@ -266,7 +257,7 @@ func (atp *UsernamePasswordSCIAccessTokenProvider) Refresh(ctx context.Context, 
 
 	// test if we need to hydrate response
 	if loginResponse.Data == nil {
-		if _, err = loginResponse.Hydrate(); err != nil {
+		if err = loginResponse.Hydrate(); err != nil {
 			atp.cas = atp.iterateCAS()
 			atp.accessToken = ""
 			atp.expires = time.Time{}

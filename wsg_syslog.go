@@ -236,21 +236,21 @@ func newWSGSyslogServerSettingAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *WSGSyslogServerSettingAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGSyslogServerSettingAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGSyslogServerSetting)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGSyslogServerSetting() *WSGSyslogServerSetting {
 	m := new(WSGSyslogServerSetting)

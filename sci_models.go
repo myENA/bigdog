@@ -43,21 +43,21 @@ func newSCIModelsFilterAPIResponse(src APISource, meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *SCIModelsFilterAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIModelsFilterAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIModelsFilter)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIModelsFilter() *SCIModelsFilter {
 	m := new(SCIModelsFilter)
@@ -94,21 +94,21 @@ func newSCIModelsMigrationAPIResponse(src APISource, meta APIResponseMeta, body 
 	return r
 }
 
-func (r *SCIModelsMigrationAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIModelsMigrationAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIModelsMigration)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIModelsMigration() *SCIModelsMigration {
 	m := new(SCIModelsMigration)
@@ -152,21 +152,21 @@ func newSCIModelsMigrationMapAPIResponse(src APISource, meta APIResponseMeta, bo
 	return r
 }
 
-func (r *SCIModelsMigrationMapAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIModelsMigrationMapAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIModelsMigrationMap)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIModelsMigrationMap() *SCIModelsMigrationMap {
 	m := new(SCIModelsMigrationMap)
@@ -234,21 +234,21 @@ func newSCIModelsPciReportAPIResponse(src APISource, meta APIResponseMeta, body 
 	return r
 }
 
-func (r *SCIModelsPciReportAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIModelsPciReportAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIModelsPciReport)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIModelsPciReport() *SCIModelsPciReport {
 	m := new(SCIModelsPciReport)
@@ -297,21 +297,21 @@ func newSCIModelsReportAPIResponse(src APISource, meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *SCIModelsReportAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIModelsReportAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIModelsReport)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIModelsReport() *SCIModelsReport {
 	m := new(SCIModelsReport)
@@ -417,21 +417,21 @@ func newSCIModelsResourceGroupAPIResponse(src APISource, meta APIResponseMeta, b
 	return r
 }
 
-func (r *SCIModelsResourceGroupAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIModelsResourceGroupAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIModelsResourceGroup)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIModelsResourceGroup() *SCIModelsResourceGroup {
 	m := new(SCIModelsResourceGroup)
@@ -506,21 +506,21 @@ func newSCIModelsScheduleAPIResponse(src APISource, meta APIResponseMeta, body i
 	return r
 }
 
-func (r *SCIModelsScheduleAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIModelsScheduleAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIModelsSchedule)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIModelsSchedule() *SCIModelsSchedule {
 	m := new(SCIModelsSchedule)
@@ -585,21 +585,21 @@ func newSCIModelsSettingAPIResponse(src APISource, meta APIResponseMeta, body io
 	return r
 }
 
-func (r *SCIModelsSettingAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIModelsSettingAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIModelsSetting)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIModelsSetting() *SCIModelsSetting {
 	m := new(SCIModelsSetting)
@@ -657,21 +657,21 @@ func newSCIModelsSystemAPIResponse(src APISource, meta APIResponseMeta, body io.
 	return r
 }
 
-func (r *SCIModelsSystemAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIModelsSystemAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIModelsSystem)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIModelsSystem() *SCIModelsSystem {
 	m := new(SCIModelsSystem)
@@ -717,21 +717,21 @@ func newSCIModelsUserAPIResponse(src APISource, meta APIResponseMeta, body io.Re
 	return r
 }
 
-func (r *SCIModelsUserAPIResponse) Hydrate() (interface{}, error) {
+func (r *SCIModelsUserAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(SCIModelsUser)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewSCIModelsUser() *SCIModelsUser {
 	m := new(SCIModelsUser)

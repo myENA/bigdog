@@ -174,21 +174,21 @@ func newWSGNorthboundDataStreamingEventCodesAPIResponse(src APISource, meta APIR
 	return r
 }
 
-func (r *WSGNorthboundDataStreamingEventCodesAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGNorthboundDataStreamingEventCodesAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGNorthboundDataStreamingEventCodes)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGNorthboundDataStreamingEventCodes() *WSGNorthboundDataStreamingEventCodes {
 	m := new(WSGNorthboundDataStreamingEventCodes)
@@ -267,21 +267,21 @@ func newWSGNorthboundDataStreamingProfileAPIResponse(src APISource, meta APIResp
 	return r
 }
 
-func (r *WSGNorthboundDataStreamingProfileAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGNorthboundDataStreamingProfileAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGNorthboundDataStreamingProfile)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGNorthboundDataStreamingProfile() *WSGNorthboundDataStreamingProfile {
 	m := new(WSGNorthboundDataStreamingProfile)
@@ -345,21 +345,21 @@ func newWSGNorthboundDataStreamingProfileListAPIResponse(src APISource, meta API
 	return r
 }
 
-func (r *WSGNorthboundDataStreamingProfileListAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGNorthboundDataStreamingProfileListAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGNorthboundDataStreamingProfileList)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGNorthboundDataStreamingProfileList() *WSGNorthboundDataStreamingProfileList {
 	m := new(WSGNorthboundDataStreamingProfileList)

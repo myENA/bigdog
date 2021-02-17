@@ -31,21 +31,21 @@ func newWSGAlertSummaryAlarmSummaryAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *WSGAlertSummaryAlarmSummaryAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGAlertSummaryAlarmSummaryAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGAlertSummaryAlarmSummary)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGAlertSummaryAlarmSummary() *WSGAlertSummaryAlarmSummary {
 	m := new(WSGAlertSummaryAlarmSummary)
@@ -80,21 +80,21 @@ func newWSGAlertSummaryEventSummaryAPIResponse(src APISource, meta APIResponseMe
 	return r
 }
 
-func (r *WSGAlertSummaryEventSummaryAPIResponse) Hydrate() (interface{}, error) {
+func (r *WSGAlertSummaryEventSummaryAPIResponse) Hydrate() error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	if r.err != nil {
 		if errors.Is(r.err, ErrResponseHydrated) {
-			return r.Data, nil
+			return nil
 		}
-		return nil, r.err
+		return r.err
 	}
 	data := new(WSGAlertSummaryEventSummary)
 	if err := r.doHydrate(data); err != nil {
-		return nil, err
+		return err
 	}
 	r.Data = data
-	return r.Data, nil
+	return nil
 }
 func NewWSGAlertSummaryEventSummary() *WSGAlertSummaryEventSummary {
 	m := new(WSGAlertSummaryEventSummary)

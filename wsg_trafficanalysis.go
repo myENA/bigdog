@@ -227,7 +227,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesByQueryCriteria
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 }
 
@@ -267,7 +267,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisAggregatesGroupedByQueryC
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 }
 
@@ -307,7 +307,7 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisClientResourceByQueryCrit
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 }
 
@@ -347,6 +347,6 @@ func (s *WSGTrafficAnalysisService) FindTrafficAnalysisLineRatesByQueryCriteria(
 	req.PathParams.Set("resource", resource)
 	req.PathParams.Set("source", source)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGTrafficAnalysisResultsAPIResponse), err
 }

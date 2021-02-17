@@ -48,7 +48,7 @@ func (s *WSGQueryWithFilterService) FindGgsnGtpcConStatsByQueryCriteria(ctx cont
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGRACStatsGgsnGtpcConListAPIResponse), err
 }
 
@@ -78,7 +78,7 @@ func (s *WSGQueryWithFilterService) FindGgsnGtpStatsByQueryCriteria(ctx context.
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGRACStatsGgsnGtpListAPIResponse), err
 }
 
@@ -108,6 +108,6 @@ func (s *WSGQueryWithFilterService) FindRadiusProxyStatsByQueryCriteria(ctx cont
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGRACStatsRadiusProxyListAPIResponse), err
 }

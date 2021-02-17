@@ -154,7 +154,7 @@ func (s *SwitchMSyslogServersService) AddGroupSyslogServersByGroupId(ctx context
 	req.SetBody(body)
 	req.PathParams.Set("groupId", groupId)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SwitchMCommonCreateResultAPIResponse), err
 }
 
@@ -188,7 +188,7 @@ func (s *SwitchMSyslogServersService) DeleteGroupSyslogServersById(ctx context.C
 	req.PathParams.Set("groupId", groupId)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -218,7 +218,7 @@ func (s *SwitchMSyslogServersService) FindGroupSyslogServersByGroupId(ctx contex
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("groupId", groupId)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SwitchMSyslogServersQueryResultAPIResponse), err
 }
 
@@ -256,6 +256,6 @@ func (s *SwitchMSyslogServersService) UpdateGroupSyslogServersById(ctx context.C
 	req.PathParams.Set("groupId", groupId)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*EmptyAPIResponse), err
 }

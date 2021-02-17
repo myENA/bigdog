@@ -128,7 +128,7 @@ func (s *SCIResourceGroupService) ResourceGroupBatchDelete(ctx context.Context, 
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(formValues)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIResourceGroupBatchDelete200ResponseTypeAPIResponse), err
 }
 
@@ -158,7 +158,7 @@ func (s *SCIResourceGroupService) ResourceGroupCreate(ctx context.Context, data 
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(data)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsResourceGroupAPIResponse), err
 }
 
@@ -190,7 +190,7 @@ func (s *SCIResourceGroupService) ResourceGroupFind(ctx context.Context, optiona
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIResourceGroupFind200ResponseTypeAPIResponse), err
 }
 
@@ -227,7 +227,7 @@ func (s *SCIResourceGroupService) ResourceGroupFindById(ctx context.Context, id 
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsResourceGroupAPIResponse), err
 }
 
@@ -262,6 +262,6 @@ func (s *SCIResourceGroupService) ResourceGroupPrototypeUpdateAttributes(ctx con
 	req.SetBody(data)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsResourceGroupAPIResponse), err
 }

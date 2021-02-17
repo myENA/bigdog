@@ -356,6 +356,11 @@ type VSZClientConfig struct {
 	//
 	// ServiceTicketProvider to use to handle request auth session
 	ServiceTicketProvider VSZServiceTicketProvider
+
+	// EventListener [optional]
+	//
+	// If defined, an event will be fired upon the completion of each request.
+	EventListener APIClientEventListener
 }
 
 type VSZClient struct {
@@ -365,7 +370,7 @@ type VSZClient struct {
 
 func NewVSZClient(config *VSZClientConfig) *VSZClient {
 	c := new(VSZClient)
-	c.baseClient = newBaseClient(config.Address, config.PathPrefix, config.Debug, config.DisableAutoHydrate, config.Logger, config.HTTPClient)
+	c.baseClient = newBaseClient(config.Address, config.PathPrefix, config.Debug, config.DisableAutoHydrate, config.Logger, config.HTTPClient, config.EventListener)
 	c.stp = config.ServiceTicketProvider
 	return c
 }

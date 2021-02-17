@@ -48,7 +48,7 @@ func (s *WSGFTPServerSettingsService) AddFtps(ctx context.Context, body *WSGSyst
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*RawAPIResponse), err
 }
 
@@ -78,7 +78,7 @@ func (s *WSGFTPServerSettingsService) DeleteFtps(ctx context.Context, body *WSGS
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*RawAPIResponse), err
 }
 
@@ -109,7 +109,7 @@ func (s *WSGFTPServerSettingsService) DeleteFtpsByFtpId(ctx context.Context, ftp
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("ftpId", ftpId)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -139,7 +139,7 @@ func (s *WSGFTPServerSettingsService) FindFtpsByFtpId(ctx context.Context, ftpId
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("ftpId", ftpId)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGSystemFtpAPIResponse), err
 }
 
@@ -169,7 +169,7 @@ func (s *WSGFTPServerSettingsService) FindFtpsByQueryCriteria(ctx context.Contex
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGSystemFtpListAPIResponse), err
 }
 
@@ -198,7 +198,7 @@ func (s *WSGFTPServerSettingsService) FindFtpsTest(ctx context.Context, body *WS
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGSystemFtpTestResponseAPIResponse), err
 }
 
@@ -228,7 +228,7 @@ func (s *WSGFTPServerSettingsService) FindFtpsTestByFtpId(ctx context.Context, f
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("ftpId", ftpId)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGSystemFtpTestResponseAPIResponse), err
 }
 
@@ -263,6 +263,6 @@ func (s *WSGFTPServerSettingsService) PartialUpdateFtpsByFtpId(ctx context.Conte
 	req.SetBody(body)
 	req.PathParams.Set("ftpId", ftpId)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*EmptyAPIResponse), err
 }

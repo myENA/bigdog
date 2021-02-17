@@ -121,7 +121,7 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdCount(ctx context.C
 	req.SetBody(body)
 	req.PathParams.Set("type", type_)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse), err
 }
 
@@ -155,6 +155,6 @@ func (s *WSGHistoricalClientConnectionDiagnosticService) HccdTypeCount(ctx conte
 	req.SetBody(body)
 	req.PathParams.Set("type", type_)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGHistoricalClientConnectionDiagnosticClientConnectionFailureTypeCountListAPIResponse), err
 }

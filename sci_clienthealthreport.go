@@ -429,7 +429,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport144ClientHealthSu
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportClientHealthReport144clientHealthSummary200ResponseTypeAPIResponse), err
 }
 
@@ -459,7 +459,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport148ClientConnecti
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportClientHealthReport148clientConnectionHealth200ResponseTypeAPIResponse), err
 }
 
@@ -489,7 +489,7 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport149ClientHealthMe
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportClientHealthReport149clientHealthMetricTrends200ResponseTypeAPIResponse), err
 }
 
@@ -519,6 +519,6 @@ func (s *SCIClientHealthReportService) ReportClientHealthReport150TopClientHealt
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportClientHealthReport150topClientHealthScoreByGroup200ResponseTypeAPIResponse), err
 }

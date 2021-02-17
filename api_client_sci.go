@@ -357,6 +357,11 @@ type SCIClientConfig struct {
 	//
 	// ServiceTicketProvider to use to handle request auth session
 	AccessTokenProvider SCIAccessTokenProvider
+
+	// EventListener [optional]
+	//
+	// If defined, an event will be fired upon the completion of each request.
+	EventListener APIClientEventListener
 }
 
 type SCIClient struct {
@@ -366,7 +371,7 @@ type SCIClient struct {
 
 func NewSCIClient(config *SCIClientConfig) *SCIClient {
 	c := new(SCIClient)
-	c.baseClient = newBaseClient(config.Address, config.PathPrefix, config.Debug, config.DisableAutoHydrate, config.Logger, config.HTTPClient)
+	c.baseClient = newBaseClient(config.Address, config.PathPrefix, config.Debug, config.DisableAutoHydrate, config.Logger, config.HTTPClient, config.EventListener)
 	c.atp = config.AccessTokenProvider
 	return c
 }

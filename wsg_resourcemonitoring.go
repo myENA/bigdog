@@ -54,6 +54,6 @@ func (s *WSGResourceMonitoringService) FindResourceMonitoringSummaryByQueryCrite
 	req.SetBody(body)
 	req.PathParams.Set("resource", resource)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGCommonMonitoringSummaryAPIResponse), err
 }

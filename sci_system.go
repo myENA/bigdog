@@ -124,7 +124,7 @@ func (s *SCISystemService) SystemCreate(ctx context.Context, data *SCIModelsSyst
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(data)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsSystemAPIResponse), err
 }
 
@@ -155,7 +155,7 @@ func (s *SCISystemService) SystemDeleteById(ctx context.Context, id string, muta
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*RawAPIResponse), err
 }
 
@@ -187,7 +187,7 @@ func (s *SCISystemService) SystemFind(ctx context.Context, optionalParams map[st
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCISystemFind200ResponseTypeAPIResponse), err
 }
 
@@ -224,7 +224,7 @@ func (s *SCISystemService) SystemFindById(ctx context.Context, id string, option
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsSystemAPIResponse), err
 }
 
@@ -250,7 +250,7 @@ func (s *SCISystemService) SystemGetSsids(ctx context.Context, mutators ...Reque
 	req.Header.Set(headerKeyContentType, "*/*")
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCISystemGetSsids200ResponseTypeAPIResponse), err
 }
 
@@ -285,6 +285,6 @@ func (s *SCISystemService) SystemPrototypeUpdateAttributes(ctx context.Context, 
 	req.SetBody(data)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsSystemAPIResponse), err
 }

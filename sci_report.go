@@ -7327,7 +7327,7 @@ func (s *SCIReportService) ReportDownloadReport(ctx context.Context, formValues 
 	req.PathParams.Set("format", format)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -7359,7 +7359,7 @@ func (s *SCIReportService) ReportFind(ctx context.Context, optionalParams map[st
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportFind200ResponseTypeAPIResponse), err
 }
 
@@ -7396,7 +7396,7 @@ func (s *SCIReportService) ReportFindById(ctx context.Context, id string, option
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsReportAPIResponse), err
 }
 
@@ -7449,7 +7449,7 @@ func (s *SCIReportService) ReportGetData(ctx context.Context, formValues url.Val
 	req.PathParams.Set("id", id)
 	req.PathParams.Set("sectionId", sectionId)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportGetData200ResponseTypeAPIResponse), err
 }
 
@@ -7472,7 +7472,7 @@ func (s *SCIReportService) ReportLatestIngestedTime(ctx context.Context, mutator
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*RawAPIResponse), err
 }
 
@@ -7509,7 +7509,7 @@ func (s *SCIReportService) ReportPrototypeGetSections(ctx context.Context, id st
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportPrototypegetsections200ResponseTypeAPIResponse), err
 }
 
@@ -7541,6 +7541,6 @@ func (s *SCIReportService) ReportWithRelations(ctx context.Context, urlSegmentNa
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("urlSegmentName", urlSegmentName)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportWithRelationsAPIResponse), err
 }

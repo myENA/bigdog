@@ -314,7 +314,7 @@ func (s *SCIUserService) UserBatchDelete(ctx context.Context, formValues url.Val
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(formValues)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIUserBatchDelete200ResponseTypeAPIResponse), err
 }
 
@@ -360,7 +360,7 @@ func (s *SCIUserService) UserCreateWithRelations(ctx context.Context, formValues
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(formValues)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsUserAPIResponse), err
 }
 
@@ -397,7 +397,7 @@ func (s *SCIUserService) UserFindById(ctx context.Context, id string, optionalPa
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsUserAPIResponse), err
 }
 
@@ -422,7 +422,7 @@ func (s *SCIUserService) UserGetResourceGroupsForUpsert(ctx context.Context, mut
 	defer recycleAPIRequest(req)
 	req.Header.Set(headerKeyAccept, "*/*")
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIUserGetResourceGroupsForUpsert200ResponseTypeAPIResponse), err
 }
 
@@ -454,7 +454,7 @@ func (s *SCIUserService) UserGetUsers(ctx context.Context, optionalParams map[st
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIUserGetUsers200ResponseTypeAPIResponse), err
 }
 
@@ -491,7 +491,7 @@ func (s *SCIUserService) UserLogin(ctx context.Context, credentials *SCIUserLogi
 		req.QueryParams.SetStrings("include", v)
 	}
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIUserLoginResponseAPIResponse), err
 }
 
@@ -522,7 +522,7 @@ func (s *SCIUserService) UserLogout(ctx context.Context, accesstoken string, mut
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("access_token", accesstoken)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -557,7 +557,7 @@ func (s *SCIUserService) UserPrototypeCreateFilters(ctx context.Context, data *S
 	req.SetBody(data)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsFilterAPIResponse), err
 }
 
@@ -591,7 +591,7 @@ func (s *SCIUserService) UserPrototypeDestroyByIdFilters(ctx context.Context, fk
 	req.PathParams.Set("fk", fk)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -624,7 +624,7 @@ func (s *SCIUserService) UserPrototypeFindByIdFilters(ctx context.Context, fk st
 	req.PathParams.Set("fk", fk)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsFilterAPIResponse), err
 }
 
@@ -661,7 +661,7 @@ func (s *SCIUserService) UserPrototypeGetFilters(ctx context.Context, id string,
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIUserPrototypegetfilters200ResponseTypeAPIResponse), err
 }
 
@@ -698,7 +698,7 @@ func (s *SCIUserService) UserPrototypeGetSchedules(ctx context.Context, id strin
 		req.QueryParams.SetStrings("filter", v)
 	}
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIUserPrototypegetschedules200ResponseTypeAPIResponse), err
 }
 
@@ -733,7 +733,7 @@ func (s *SCIUserService) UserPrototypeUpdateAttributes(ctx context.Context, data
 	req.SetBody(data)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsUserAPIResponse), err
 }
 
@@ -771,7 +771,7 @@ func (s *SCIUserService) UserPrototypeUpdateByIdFilters(ctx context.Context, dat
 	req.PathParams.Set("fk", fk)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsFilterAPIResponse), err
 }
 
@@ -819,7 +819,7 @@ func (s *SCIUserService) UserUpdateWithRelations(ctx context.Context, formValues
 	req.SetBody(formValues)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsUserAPIResponse), err
 }
 
@@ -850,6 +850,6 @@ func (s *SCIUserService) UserValidateCurrentPassword(ctx context.Context, formVa
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(formValues)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIModelsUserAPIResponse), err
 }

@@ -289,7 +289,7 @@ func (s *SwitchMAAAServersService) AddGroupAaaServersByGroupId(ctx context.Conte
 	req.SetBody(body)
 	req.PathParams.Set("groupId", groupId)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusCreated, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SwitchMCommonCreateResultAPIResponse), err
 }
 
@@ -324,7 +324,7 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersByGroupId(ctx context.Co
 	req.SetBody(body)
 	req.PathParams.Set("groupId", groupId)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -358,7 +358,7 @@ func (s *SwitchMAAAServersService) DeleteGroupAaaServersById(ctx context.Context
 	req.PathParams.Set("groupId", groupId)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*EmptyAPIResponse), err
 }
 
@@ -388,7 +388,7 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersByGroupId(ctx context.Cont
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("groupId", groupId)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SwitchMAAAServersQueryResultAPIResponse), err
 }
 
@@ -421,7 +421,7 @@ func (s *SwitchMAAAServersService) FindGroupAaaServersById(ctx context.Context, 
 	req.PathParams.Set("groupId", groupId)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SwitchMAAAServersAAAServerAPIResponse), err
 }
 
@@ -459,6 +459,6 @@ func (s *SwitchMAAAServersService) UpdateGroupAaaServersById(ctx context.Context
 	req.PathParams.Set("groupId", groupId)
 	req.PathParams.Set("id", id)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusNoContent, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*EmptyAPIResponse), err
 }

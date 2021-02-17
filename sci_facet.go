@@ -272,7 +272,7 @@ func (s *SCIFacetService) FacetGetApmacFacet(ctx context.Context, body *SCICommo
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIFacetGetApmacFacet200ResponseTypeAPIResponse), err
 }
 
@@ -313,7 +313,7 @@ func (s *SCIFacetService) FacetGetFacet(ctx context.Context, body *SCICommonQuer
 	req.SetBody(body)
 	req.PathParams.Set("name", name)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIFacetGetFacet200ResponseTypeAPIResponse), err
 }
 
@@ -343,7 +343,7 @@ func (s *SCIFacetService) FacetGetSsidFacet(ctx context.Context, body *SCICommon
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIFacetGetSsidFacet200ResponseTypeAPIResponse), err
 }
 
@@ -373,7 +373,7 @@ func (s *SCIFacetService) FacetGetSwitchesFacet(ctx context.Context, body *SCICo
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIFacetGetSwitchesFacet200ResponseTypeAPIResponse), err
 }
 
@@ -403,7 +403,7 @@ func (s *SCIFacetService) FacetGetSwitchHierarchyFacet(ctx context.Context, body
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIFacetGetSwitchHierarchyFacet200ResponseTypeAPIResponse), err
 }
 
@@ -433,6 +433,6 @@ func (s *SCIFacetService) FacetGetSystemFacet(ctx context.Context, body *SCIComm
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIFacetGetSystemFacet200ResponseTypeAPIResponse), err
 }

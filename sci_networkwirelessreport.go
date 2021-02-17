@@ -1420,7 +1420,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport20Overview(
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportNetworkWirelessReport20overview200ResponseTypeAPIResponse), err
 }
 
@@ -1450,7 +1450,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport21TrafficDi
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportNetworkWirelessReport21trafficDistribution200ResponseTypeAPIResponse), err
 }
 
@@ -1480,7 +1480,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport22TrafficTr
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportNetworkWirelessReport22trafficTrend200ResponseTypeAPIResponse), err
 }
 
@@ -1510,7 +1510,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport23TrafficOv
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportNetworkWirelessReport23trafficOverTimeTable200ResponseTypeAPIResponse), err
 }
 
@@ -1540,7 +1540,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport24TopAPsByT
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportNetworkWirelessReport24topAPsByTrafficTable200ResponseTypeAPIResponse), err
 }
 
@@ -1570,7 +1570,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport25TopAPsByC
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportNetworkWirelessReport25topAPsByClientsTable200ResponseTypeAPIResponse), err
 }
 
@@ -1600,7 +1600,7 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport26Top10APsB
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportNetworkWirelessReport26top10APsByTrafficVolume200ResponseTypeAPIResponse), err
 }
 
@@ -1630,6 +1630,6 @@ func (s *SCINetworkWirelessReportService) ReportNetworkWirelessReport27Top10ApBy
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportNetworkWirelessReport27top10ApByClientCount200ResponseTypeAPIResponse), err
 }

@@ -126,6 +126,6 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model
 	req.QueryParams.Set("model", model)
 	req.QueryParams.Set("portIdentifier", portIdentifier)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SwitchMPortCapacityResultAPIResponse), err
 }

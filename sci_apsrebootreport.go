@@ -48,7 +48,7 @@ func (s *SCIAPsRebootReportService) ReportAPsRebootReport43TotalReboots(ctx cont
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportAPsRebootReport43totalReboots200ResponseTypeAPIResponse), err
 }
 
@@ -78,7 +78,7 @@ func (s *SCIAPsRebootReportService) ReportAPsRebootReport44TopApRebootsTable(ctx
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportAPsRebootReport44topApRebootsTable200ResponseTypeAPIResponse), err
 }
 
@@ -108,6 +108,6 @@ func (s *SCIAPsRebootReportService) ReportAPsRebootReport45TopApRebootsOverTime(
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportAPsRebootReport45topApRebootsOverTime200ResponseTypeAPIResponse), err
 }

@@ -22,9 +22,10 @@ type baseClient struct {
 	client *http.Client
 
 	autoHydrate bool
+	ev          APIClientEventListener
 }
 
-func newBaseClient(addr, pathPrefix string, dbg bool, disableAutoHydrate bool, logger *log.Logger, hclient *http.Client) *baseClient {
+func newBaseClient(addr, pathPrefix string, dbg bool, disableAutoHydrate bool, logger *log.Logger, hclient *http.Client, ev APIClientEventListener) *baseClient {
 	c := new(baseClient)
 
 	if logger == nil {
@@ -43,6 +44,8 @@ func newBaseClient(addr, pathPrefix string, dbg bool, disableAutoHydrate bool, l
 	} else {
 		c.client = defaultHTTPClient()
 	}
+
+	c.ev = ev
 
 	return c
 }
@@ -101,51 +104,53 @@ func cleanupReadCloser(rc io.ReadCloser) {
 	_ = rc.Close()
 }
 
-func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response, execDur time.Duration, respFact APIResponseFactory, autoHydrate bool, sourceErr error) (APIResponse, error) {
-	if sourceErr != nil {
-		// handle some context errors
+func handleFailedRequest(req *APIRequest, successCode int, httpResp *http.Response, execDur time.Duration, sourceErr error) (APIResponseMeta, error) {
+	// handle some context errors
 
-		// for deadline exceeded errors, return a timeout status code
-		if errors.Is(sourceErr, context.DeadlineExceeded) {
-			if httpResp != nil {
-				cleanupReadCloser(httpResp.Body)
-			}
-			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, http.StatusRequestTimeout, execDur), nil), sourceErr
-		}
-
-		// for context cancelled errors, return nginx's 499 Client Closed Request status
-		// 499 : https://httpstatuses.com/499
-		if errors.Is(sourceErr, context.Canceled) {
-			if httpResp != nil {
-				cleanupReadCloser(httpResp.Body)
-			}
-			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, 499, execDur), nil), sourceErr
-		}
-
-		// if the incoming error is from an auth provider, return as-is
-		if aerr, ok := sourceErr.(*APIAuthProviderError); ok && aerr != nil {
-			if httpResp != nil {
-				cleanupReadCloser(httpResp.Body)
-			}
-			return respFact(req.Source, aerr.ResponseMeta(), nil), aerr
-		}
-
-		// perform one final check here as we sometimes see an http resp with an error carrying an invalid status code
-		if httpResp != nil && httpResp.StatusCode < 100 {
+	// for deadline exceeded errors, return a timeout status code
+	if errors.Is(sourceErr, context.DeadlineExceeded) {
+		if httpResp != nil {
 			cleanupReadCloser(httpResp.Body)
-			return respFact(req.Source, newAPIResponseMetaWithCode(req, successCode, http.StatusInternalServerError, execDur), nil),
-				fmt.Errorf("received invalid response code %d: %w", http.StatusInternalServerError, sourceErr)
 		}
-
-		// otherwise, pass on constructed response and incoming error
-		return respFact(req.Source, newAPIResponseMeta(req, successCode, httpResp, execDur), nil), sourceErr
+		return newAPIResponseMetaWithCode(req, successCode, http.StatusRequestTimeout, execDur), sourceErr
 	}
 
-	// this _should_ never happen, but check for it anyway.
-	if httpResp == nil {
-		panic(fmt.Sprintf("severe problem: nil *http.Response seen with nil error. meta: %v", newAPIResponseMeta(req, successCode, httpResp, execDur)))
+	// for context cancelled errors, return nginx's 499 Client Closed Request status
+	// 499 : https://httpstatuses.com/499
+	if errors.Is(sourceErr, context.Canceled) {
+		if httpResp != nil {
+			cleanupReadCloser(httpResp.Body)
+		}
+		return newAPIResponseMetaWithCode(req, successCode, 499, execDur), sourceErr
 	}
 
+	// if the incoming error is from an auth provider, return as-is
+	if aerr, ok := sourceErr.(*APIAuthProviderError); ok && aerr != nil {
+		if httpResp != nil {
+			cleanupReadCloser(httpResp.Body)
+		}
+		return aerr.ResponseMeta(), aerr
+	}
+
+	// perform one final check here as we sometimes see an http resp with an error carrying an invalid status code
+	if httpResp != nil && httpResp.StatusCode < 100 {
+		cleanupReadCloser(httpResp.Body)
+		return newAPIResponseMetaWithCode(req, successCode, http.StatusInternalServerError, execDur),
+			fmt.Errorf("received invalid response code %d: %w", http.StatusInternalServerError, sourceErr)
+	}
+
+	// otherwise, pass on constructed response and incoming error
+	return newAPIResponseMeta(req, successCode, httpResp, execDur), sourceErr
+}
+
+func handleCompletedRequest(
+	req *APIRequest,
+	successCode int,
+	httpResp *http.Response,
+	execDur time.Duration,
+	respFact apiResponseFactory,
+	autoHydrate bool,
+) (APIResponse, error) {
 	// construct response
 	apiResp := respFact(req.Source, newAPIResponseMeta(req, successCode, httpResp, execDur), httpResp.Body)
 
@@ -176,6 +181,45 @@ func handleAPIResponse(req *APIRequest, successCode int, httpResp *http.Response
 	}
 
 	return apiResp, apiErr
+}
+
+// handleAPIResponse does just that, but i dunno that i dig it.
+func handleAPIResponse(
+	req *APIRequest,
+	successCode int,
+	httpResp *http.Response,
+	execDur time.Duration,
+	respFact apiResponseFactory,
+	autoHydrate bool,
+	ev APIClientEventListener,
+	sourceErr error,
+) (APIResponse, error) {
+	var (
+		apiResp APIResponse
+		meta    APIResponseMeta
+		err     error
+	)
+
+	if sourceErr != nil {
+		// handle failed request errors
+		meta, err = handleFailedRequest(req, successCode, httpResp, execDur, sourceErr)
+		apiResp = respFact(req.Source, meta, nil)
+	} else if httpResp == nil {
+		// this _should_ never happen, but check for it anyway.
+		panic(fmt.Sprintf("severe problem: nil *http.Response seen with nil error. meta: %v", newAPIResponseMeta(req, successCode, httpResp, execDur)))
+	} else {
+		// handle completed, but not necessarily successful, requests
+		apiResp, err = handleCompletedRequest(req, successCode, httpResp, execDur, respFact, autoHydrate)
+		//goland:noinspection GoNilness
+		meta = apiResp.ResponseMeta()
+	}
+
+	// if an event handler was provided...
+	if ev != nil {
+		go ev.Push(meta)
+	}
+
+	return apiResp, err
 }
 
 type WSGService struct {

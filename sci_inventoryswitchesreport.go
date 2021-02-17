@@ -773,7 +773,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport113Over
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportInventorySwitchesReport113overview200ResponseTypeAPIResponse), err
 }
 
@@ -803,7 +803,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport116Swit
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportInventorySwitchesReport116switchCountTrend200ResponseTypeAPIResponse), err
 }
 
@@ -833,7 +833,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport117Top1
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportInventorySwitchesReport117top10SwitchVersionChart200ResponseTypeAPIResponse), err
 }
 
@@ -863,7 +863,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport118TopS
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportInventorySwitchesReport118topSwitchVersions200ResponseTypeAPIResponse), err
 }
 
@@ -893,7 +893,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport121TopS
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportInventorySwitchesReport121topSwitchModelsChart200ResponseTypeAPIResponse), err
 }
 
@@ -923,7 +923,7 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport122TopS
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportInventorySwitchesReport122topSwitchModels200ResponseTypeAPIResponse), err
 }
 
@@ -953,6 +953,6 @@ func (s *SCIInventorySwitchesReportService) ReportInventorySwitchesReport132Port
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SCIReportInventorySwitchesReport132portStatusTrend200ResponseTypeAPIResponse), err
 }

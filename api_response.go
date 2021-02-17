@@ -132,8 +132,8 @@ type ModeledAPIResponse interface {
 	Hydrate() (interface{}, error)
 }
 
-// APIResponseFactory is used by the internal response handling mechanism to construct each response type
-type APIResponseFactory func(source APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse
+// apiResponseFactory is used by the internal response handling mechanism to construct each response type
+type apiResponseFactory func(source APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse
 
 // RawAPIResponse is the base implementation of APIResponse. Each api either returns this or returns a type that embeds
 // this type.

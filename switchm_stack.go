@@ -333,7 +333,7 @@ func (s *SwitchMSwitchStackConfigService) AddStack(ctx context.Context, body Swi
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.SetBody(body)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SwitchMSwitchStackConfigAuditIdListAPIResponse), err
 }
 
@@ -363,7 +363,7 @@ func (s *SwitchMSwitchStackConfigService) FindStackBySwitchId(ctx context.Contex
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("switchId", switchId)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SwitchMSwitchStackConfigStackConfigAPIResponse), err
 }
 
@@ -393,6 +393,6 @@ func (s *SwitchMSwitchStackConfigService) FindStackMemberBySerialNumber(ctx cont
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.PathParams.Set("serialNumber", serialNumber)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SwitchMSwitchStackConfigListAPIResponse), err
 }

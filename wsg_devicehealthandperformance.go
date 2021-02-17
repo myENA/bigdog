@@ -54,7 +54,7 @@ func (s *WSGDeviceHealthAndPerformanceService) HealthExtendGroupBarByType(ctx co
 	req.SetBody(body)
 	req.PathParams.Set("type", type_)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse), err
 }
 
@@ -90,7 +90,7 @@ func (s *WSGDeviceHealthAndPerformanceService) HealthExtendLineByType(ctx contex
 	req.SetBody(body)
 	req.PathParams.Set("type", type_)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGPerformanceAndHealthExtensionsLineListAPIResponse), err
 }
 
@@ -126,7 +126,7 @@ func (s *WSGDeviceHealthAndPerformanceService) PerfGroupBarByType(ctx context.Co
 	req.SetBody(body)
 	req.PathParams.Set("type", type_)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGPerformanceAndHealthExtensionsGroupBarListAPIResponse), err
 }
 
@@ -162,6 +162,6 @@ func (s *WSGDeviceHealthAndPerformanceService) PerfLineByType(ctx context.Contex
 	req.SetBody(body)
 	req.PathParams.Set("type", type_)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
-	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, err)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*WSGPerformanceAndHealthExtensionsLineListAPIResponse), err
 }

@@ -16,6 +16,7 @@ var (
 	ErrResponseBeingRead = errors.New("response bytes have been either partially or fully read")
 	ErrResponseClosed    = errors.New("response has been closed")
 	ErrResponseHydrated  = errors.New("response bytes have been read via Hydrate call")
+	ErrResponseEmpty     = errors.New("response body empty")
 )
 
 type APIResponseMeta struct {
@@ -254,24 +255,15 @@ func (b *RawAPIResponse) doHydrate(ptr interface{}) error {
 		return b.err
 	}
 
-	var (
-		data []byte
-		err  error
-	)
-
 	// queue up body cleanup
 	defer func() { _ = b.cleanupBody() }()
 
-	// consume body
-	if data, err = ioutil.ReadAll(b.body); err != nil {
+	// unmarshall into model
+	if err := json.NewDecoder(b.body).Decode(ptr); err != nil {
 		b.err = err
 		return err
 	}
-	// attempt unmarshal
-	if err = json.Unmarshal(data, ptr); err != nil {
-		b.err = err
-		return err
-	}
+
 	// specify Hydrate error for subsequent action attempts
 	b.err = ErrResponseHydrated
 	return nil

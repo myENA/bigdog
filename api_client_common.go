@@ -105,36 +105,30 @@ func cleanupReadCloser(rc io.ReadCloser) {
 }
 
 func handleFailedRequest(req *APIRequest, successCode int, httpResp *http.Response, execDur time.Duration, sourceErr error) (APIResponseMeta, error) {
-	// handle some context errors
-
-	// for deadline exceeded errors, return a timeout status code
-	if errors.Is(sourceErr, context.DeadlineExceeded) {
+	defer func() {
 		if httpResp != nil {
 			cleanupReadCloser(httpResp.Body)
 		}
+	}()
+
+	// for deadline exceeded errors, return a timeout status code
+	if errors.Is(sourceErr, context.DeadlineExceeded) {
 		return newAPIResponseMetaWithCode(req, successCode, http.StatusRequestTimeout, execDur), sourceErr
 	}
 
 	// for context cancelled errors, return nginx's 499 Client Closed Request status
 	// 499 : https://httpstatuses.com/499
 	if errors.Is(sourceErr, context.Canceled) {
-		if httpResp != nil {
-			cleanupReadCloser(httpResp.Body)
-		}
 		return newAPIResponseMetaWithCode(req, successCode, 499, execDur), sourceErr
 	}
 
 	// if the incoming error is from an auth provider, return as-is
 	if aerr, ok := sourceErr.(*APIAuthProviderError); ok && aerr != nil {
-		if httpResp != nil {
-			cleanupReadCloser(httpResp.Body)
-		}
 		return aerr.ResponseMeta(), aerr
 	}
 
 	// perform one final check here as we sometimes see an http resp with an error carrying an invalid status code
 	if httpResp != nil && httpResp.StatusCode < 100 {
-		cleanupReadCloser(httpResp.Body)
 		return newAPIResponseMetaWithCode(req, successCode, http.StatusInternalServerError, execDur),
 			fmt.Errorf("received invalid response code %d: %w", http.StatusInternalServerError, sourceErr)
 	}
@@ -151,11 +145,11 @@ func handleCompletedRequest(
 	respFact apiResponseFactory,
 	autoHydrate bool,
 ) (APIResponse, error) {
-	// construct response
-	apiResp := respFact(req.Source, newAPIResponseMeta(req, successCode, httpResp, execDur), httpResp.Body)
-
 	// if the response code matches the expected "success" code...
 	if httpResp.StatusCode == successCode {
+		// construct response
+		apiResp := respFact(req.Source, newAPIResponseMeta(req, successCode, httpResp, execDur), httpResp.Body)
+
 		// test for a modeled response and whether it needs to be automatically handled
 		if hdr, ok := apiResp.(ModeledAPIResponse); ok && autoHydrate {
 			if _, err := hdr.Hydrate(); err != nil {
@@ -176,11 +170,15 @@ func handleCompletedRequest(
 		apiErr = new(SCIAPIError)
 	}
 
-	if err := json.NewDecoder(httpResp.Body).Decode(apiErr); err != nil {
-		return apiResp, fmt.Errorf("error unmarshalling error body into %T: %w", apiErr, err)
+	// attempt to unmarshal response body into error type
+	err := json.NewDecoder(httpResp.Body).Decode(apiErr)
+	if err != nil {
+		apiErr = fmt.Errorf("error unmarshalling error body into %T: %w", apiErr, err)
 	}
 
-	return apiResp, apiErr
+	// return api response type and error
+	// todo: not the biggest fan of passing off a now-defunct body...
+	return respFact(req.Source, newAPIResponseMeta(req, successCode, httpResp, execDur), httpResp.Body), apiErr
 }
 
 // handleAPIResponse does just that, but i dunno that i dig it.

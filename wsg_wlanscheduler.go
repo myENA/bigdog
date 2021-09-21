@@ -77,33 +77,33 @@ type WSGWLANSchedulerModifyWlanScheduler struct {
 
 	// Fri
 	// Schedules on Friday
-	Fri []string `json:"fri,omitempty"`
+	Fri []string `json:"fri"`
 
 	// Mon
 	// Schedules on Monday
-	Mon []string `json:"mon,omitempty"`
+	Mon []string `json:"mon"`
 
 	Name *WSGCommonNormalName `json:"name,omitempty"`
 
 	// Sat
 	// Schedules on Saturday
-	Sat []string `json:"sat,omitempty"`
+	Sat []string `json:"sat"`
 
 	// Sun
 	// Schedules on Sunday
-	Sun []string `json:"sun,omitempty"`
+	Sun []string `json:"sun"`
 
 	// Thu
 	// Schedules on Thursday
-	Thu []string `json:"thu,omitempty"`
+	Thu []string `json:"thu"`
 
 	// Tue
 	// Schedules on Tuesday
-	Tue []string `json:"tue,omitempty"`
+	Tue []string `json:"tue"`
 
 	// Wed
 	// schedules on Wednesday
-	Wed []string `json:"wed,omitempty"`
+	Wed []string `json:"wed"`
 }
 
 func NewWSGWLANSchedulerModifyWlanScheduler() *WSGWLANSchedulerModifyWlanScheduler {

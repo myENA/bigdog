@@ -623,6 +623,39 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 	return resp.(*WSGIndoorMapListAPIResponse), err
 }
 
+// FindMapsByRogueMac
+//
+// Use this API command to query the location of a rogue device.
+//
+// Operation ID: findMapsByRogueMac
+// Operation path: /maps/rogues/{rogueMAC}/{apMac}
+// Success code: 200 (OK)
+//
+// Required parameters:
+// - rogueMac string
+//		- required
+// - apMac string
+//		- required
+func (s *WSGIndoorMapService) FindMapsByRogueMac(ctx context.Context, rogueMac string, apMac string, mutators ...RequestMutator) (*WSGIndoorMapListAPIResponse, error) {
+	var (
+		req      *APIRequest
+		httpResp *http.Response
+		execDur  time.Duration
+		resp     APIResponse
+		err      error
+
+		respFn = newWSGIndoorMapListAPIResponse
+	)
+	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindMapsByRogueMac, true)
+	defer recycleAPIRequest(req)
+	req.Header.Set(headerKeyAccept, "*/*")
+	req.PathParams.Set("rogueMac", rogueMac)
+	req.QueryParams.Set("apMac", apMac)
+	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
+	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
+	return resp.(*WSGIndoorMapListAPIResponse), err
+}
+
 // PartialUpdateMapsByIndoorMapId
 //
 // Use this API command to update specific indoor map.

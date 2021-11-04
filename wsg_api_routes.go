@@ -600,6 +600,7 @@ const (
 	RouteWSGFindLwapp2scg                                                        = "/wsg/api/public/v9_1/lwapp2scg"
 	RouteWSGFindMaps                                                             = "/wsg/api/public/v9_1/maps"
 	RouteWSGFindMapsByIndoorMapId                                                = "/wsg/api/public/v9_1/maps/{indoorMapId}"
+	RouteWSGFindMapsByRogueMac													 = "/wsg/api/public/v9_1/maps/rogues/{rogueMac}"
 	RouteWSGFindMapsByQueryCriteria                                              = "/wsg/api/public/v9_1/maps/query"
 	RouteWSGFindMeshNeighborByApMacByQueryCriteria                               = "/wsg/api/public/v9_1/query/mesh/{apMac}/neighbor"
 	RouteWSGFindMeshTopologyByApMacByQueryCriteria                               = "/wsg/api/public/v9_1/query/mesh/{apMac}/topology"

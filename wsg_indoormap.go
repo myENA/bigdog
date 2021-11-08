@@ -644,7 +644,7 @@ func (s *WSGIndoorMapService) FindMapsByRogueMac(ctx context.Context, rogueMac s
 		resp     APIResponse
 		err      error
 
-		respFn = newWSGIndoorMapListAPIResponse
+		respFn = newWSGIndoorMapAPIResponse
 	)
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindMapsByRogueMac, true)
 	defer recycleAPIRequest(req)

@@ -636,7 +636,7 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 //		- required
 // - apMac string
 //		- required
-func (s *WSGIndoorMapService) FindMapsByRogueMac(ctx context.Context, rogueMac string, apMac string, mutators ...RequestMutator) (*WSGIndoorMapListAPIResponse, error) {
+func (s *WSGIndoorMapService) FindMapsByRogueMac(ctx context.Context, rogueMac string, apMac string, mutators ...RequestMutator) (*WSGIndoorMapAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
@@ -653,7 +653,7 @@ func (s *WSGIndoorMapService) FindMapsByRogueMac(ctx context.Context, rogueMac s
 	req.QueryParams.Set("apMac", apMac)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
-	return resp.(*WSGIndoorMapListAPIResponse), err
+	return resp.(*WSGIndoorMapAPIResponse), err
 }
 
 // PartialUpdateMapsByIndoorMapId

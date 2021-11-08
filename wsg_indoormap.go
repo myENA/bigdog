@@ -253,7 +253,7 @@ type DetectingAPNodeSet struct {
 	NodeDetail *WSGNodeDetail `json:"nodeDetail,omitempty"`
 	NodeId *string `json:"nodeId,omitempty"`
 	NodeType *string `json:"nodeType,omitempty"`
-	Radius *int `json:"radius,omitempty"`
+	Radius *float64 `json:"radius,omitempty"`
 }
 
 type WSGNodeDetail struct {

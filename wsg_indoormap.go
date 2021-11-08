@@ -245,7 +245,7 @@ type WSGRogueAPMapNode struct {
 	NodeDetail *WSGNodeDetail `json:"nodeDetail,omitempty"`
 	NodeId *string `json:"nodeId,omitempty"`
 	NodeType *string `json:"nodeType,omitempty"`
-	Radius *string `json:"radius,omitempty"`
+	Radius *float64 `json:"radius,omitempty"`
 }
 
 type DetectingAPNodeSet struct {

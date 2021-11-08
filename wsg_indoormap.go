@@ -232,6 +232,83 @@ func NewWSGIndoorMap() *WSGIndoorMap {
 	return m
 }
 
+
+type WSGIndoorMapInitiation struct {
+	WSGIndoorMapRogueId *string `json:"indoorMapId,omitempty"`
+	WSGIndoorMapRogueName *string `json:"indoorMapName,omitempty"`
+	WSGIndoorMapRogueType *string `json:"type,omitempty"`
+}
+
+type WSGRogueAPMapNode struct {
+	Coordinate *WSGIndoorMapXy `json:"coordinate,omitempty"`
+	DetectingAPNodeSet *[]DetectingAPNodeSet `json:"DetectingAPNodeSet,omitempty"`
+	NodeDetail *WSGNodeDetail `json:"nodeDetail,omitempty"`
+	NodeId *string `json:"nodeId,omitempty"`
+	NodeType *string `json:"nodeType,omitempty"`
+	Radius *string `json:"radius,omitempty"`
+}
+
+type DetectingAPNodeSet struct {
+	Coordinate *WSGIndoorMapXy `json:"coordinate,omitempty"`
+	NodeDetail *WSGNodeDetail `json:"nodeDetail,omitempty"`
+	NodeId *string `json:"nodeId,omitempty"`
+	NodeType *string `json:"nodeType,omitempty"`
+	Radius *int `json:"radius,omitempty"`
+}
+
+type WSGNodeDetail struct {
+	ApMac *string `json:"apMac,omitempty"`
+	ApName *string `json:"apName,omitempty"`
+	ApStatus *string `json:"apStatus,omitempty"`
+	Description *string `json:"description,omitempty"`
+	LastDetected *int `json:"lastDetected,omitempty"`
+	MapId *string `json:"mapID,omitempty"`
+	Rssi *string `json:"rssi,omitempty"`
+	Channel *int `json:"channel,omitempty"`
+	Encryption *int `json:"Encryption,omitempty"`
+	Radio *int `json:"radio,omitempty"`
+	RogueMac *int `json:"rogueMac,omitempty"`
+	SSID *int `json:"ssid,omitempty"`
+	Type *int `json:"type,omitempty"`
+}
+
+type WSGRogueMapAPIResponse struct {
+	*RawAPIResponse
+	Data *WSGIndoorRogueMap
+}
+
+func newWSGIndoorRogueMapAPIResponse(src APISource, meta APIResponseMeta, body io.ReadCloser) APIResponse {
+	r := new(WSGRogueMapAPIResponse)
+	r.RawAPIResponse = newRawAPIResponse(src, meta, body).(*RawAPIResponse)
+	return r
+}
+
+func (r *WSGRogueMapAPIResponse) Hydrate() (interface{}, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.err != nil {
+		if errors.Is(r.err, ErrResponseHydrated) {
+			return r.Data, nil
+		}
+		return nil, r.err
+	}
+	data := new(WSGIndoorRogueMap)
+	if err := r.doHydrate(data); err != nil {
+		return nil, err
+	}
+	r.Data = data
+	return r.Data, nil
+}
+
+
+// WSGIndoorRogueMap
+//
+// Definition: indoorMap_rogueMac
+type WSGIndoorRogueMap struct {
+	MapInitiation *WSGIndoorMapInitiation `json:"mapInitiation,omitempty"`
+	RogueApNode *WSGRogueAPMapNode `json:"rogueApNode,omitempty"`
+}
+
 // WSGIndoorMapAp
 //
 // Definition: indoorMap_indoorMapAp
@@ -636,7 +713,7 @@ func (s *WSGIndoorMapService) FindMapsByQueryCriteria(ctx context.Context, body 
 //		- required
 // - apMac string
 //		- required
-func (s *WSGIndoorMapService) FindMapsByRogueMac(ctx context.Context, rogueMac string, apMac string, mutators ...RequestMutator) (*WSGIndoorMapAPIResponse, error) {
+func (s *WSGIndoorMapService) FindMapsByRogueMac(ctx context.Context, rogueMac string, apMac string, mutators ...RequestMutator) (*WSGRogueMapAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
@@ -644,7 +721,7 @@ func (s *WSGIndoorMapService) FindMapsByRogueMac(ctx context.Context, rogueMac s
 		resp     APIResponse
 		err      error
 
-		respFn = newWSGIndoorMapAPIResponse
+		respFn = newWSGIndoorRogueMapAPIResponse
 	)
 	req = apiRequestFromPool(APISourceVSZ, http.MethodGet, RouteWSGFindMapsByRogueMac, true)
 	defer recycleAPIRequest(req)
@@ -653,7 +730,7 @@ func (s *WSGIndoorMapService) FindMapsByRogueMac(ctx context.Context, rogueMac s
 	req.QueryParams.Set("apMac", apMac)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
-	return resp.(*WSGIndoorMapAPIResponse), err
+	return resp.(*WSGRogueMapAPIResponse), err
 }
 
 // PartialUpdateMapsByIndoorMapId

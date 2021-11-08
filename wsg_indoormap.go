@@ -265,11 +265,11 @@ type WSGNodeDetail struct {
 	MapId *string `json:"mapID,omitempty"`
 	Rssi *string `json:"rssi,omitempty"`
 	Channel *int `json:"channel,omitempty"`
-	Encryption *int `json:"Encryption,omitempty"`
-	Radio *int `json:"radio,omitempty"`
-	RogueMac *int `json:"rogueMac,omitempty"`
-	SSID *int `json:"ssid,omitempty"`
-	Type *int `json:"type,omitempty"`
+	Encryption *string `json:"Encryption,omitempty"`
+	Radio *string `json:"radio,omitempty"`
+	RogueMac *string `json:"rogueMac,omitempty"`
+	SSID *string `json:"ssid,omitempty"`
+	Type *string `json:"type,omitempty"`
 }
 
 type WSGRogueMapAPIResponse struct {

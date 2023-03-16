@@ -107,10 +107,14 @@ func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
 //
 // Required parameters:
 // - model string
-//		- required
+//   - required
+//
 // - portIdentifier string
-//		- required
-func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model string, portIdentifier string, mutators ...RequestMutator) (*SwitchMPortCapacityResultAPIResponse, error) {
+//   - required
+//
+// - firmware string
+//   - required
+func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model string, portIdentifier string, firmware string, mutators ...RequestMutator) (*SwitchMPortCapacityResultAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
@@ -125,6 +129,7 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model
 	req.Header.Set(headerKeyAccept, "*/*")
 	req.QueryParams.Set("model", model)
 	req.QueryParams.Set("portIdentifier", portIdentifier)
+	req.QueryParams.Set("firmware", firmware)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SwitchMPortCapacityResultAPIResponse), err

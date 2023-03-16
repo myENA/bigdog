@@ -105,7 +105,7 @@ func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
 // Operation path: /portCapacity
 // Success code: 200 (OK)
 //
-// Required parameters:
+// Parameters:
 // - model string
 //   - required
 //
@@ -114,7 +114,13 @@ func NewSwitchMPortCapacityResult() *SwitchMPortCapacityResult {
 //
 // - firmware string
 //   - required
-func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model string, portIdentifier string, firmware string, mutators ...RequestMutator) (*SwitchMPortCapacityResultAPIResponse, error) {
+//
+// - page string (numeric)
+//   - optional
+//
+// - limit string (numeric)
+//   - optional
+func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model string, portIdentifier string, firmware string, page string, limit string, mutators ...RequestMutator) (*SwitchMPortCapacityResultAPIResponse, error) {
 	var (
 		req      *APIRequest
 		httpResp *http.Response
@@ -130,6 +136,8 @@ func (s *SwitchMPortCapacityService) FindPortCapacity(ctx context.Context, model
 	req.QueryParams.Set("model", model)
 	req.QueryParams.Set("portIdentifier", portIdentifier)
 	req.QueryParams.Set("firmware", firmware)
+	req.QueryParams.Set("page", page)
+	req.QueryParams.Set("limit", limit)
 	httpResp, execDur, err = s.apiClient.Do(ctx, req, mutators...)
 	resp, err = handleAPIResponse(req, http.StatusOK, httpResp, execDur, respFn, s.apiClient.autoHydrate, s.apiClient.ev, err)
 	return resp.(*SwitchMPortCapacityResultAPIResponse), err
